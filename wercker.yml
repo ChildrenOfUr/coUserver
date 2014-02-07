@@ -1,0 +1,5 @@
+box: wercker/dart
+deploy:
+    steps:
+        - heroku-deploy:
+            key-name: deploy_ssh_key
