@@ -62,11 +62,16 @@ class IRCRelay
 							int channelEnd = message.indexOf(":", channelStart);
 							int messageStart = message.indexOf("message:")+8;
 							int messageEnd = message.indexOf(":", messageStart);
-							Map map = new Map();
-							map['username'] = message.substring(usernameStart, usernameEnd);
-							map['channel'] = message.substring(channelStart, channelEnd);
-							map['message'] = message.substring(messageStart, messageEnd);
-							WebSocketHandler.sendAll(JSON.encode(map));
+							if(usernameStart < 0 || usernameEnd < 0 || channelStart < 0 || channelEnd < 0 || messageStart < 0 || messageEnd < 0)
+								sendMessage("Message must be in the form 'username:<username>:channel:<channel>:message:<message>:");
+							else
+							{
+								Map map = new Map();
+								map['username'] = message.substring(usernameStart, usernameEnd);
+								map['channel'] = message.substring(channelStart, channelEnd);
+								map['message'] = message.substring(messageStart, messageEnd);
+								WebSocketHandler.sendAll(JSON.encode(map));
+							}
 						}
 						else
 							sendMessage("Message must be in the form 'username:<username>:channel:<channel>:message:<message>:");
