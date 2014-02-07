@@ -1,1 +1,0 @@
-web: /app/dart-sdk/bin/dart chat_server.dart
