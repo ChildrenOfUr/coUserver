@@ -4,7 +4,7 @@ part of coUserver;
 class WebSocketHandler 
 {
 	static Map<String, WebSocket> userSockets = new Map<String,WebSocket>(); // Map of current users
-	List<Identifier> users = new List();
+	static List<Identifier> users = new List();
 	
 	WebSocketHandler(WebSocket ws)
 	{
@@ -12,7 +12,13 @@ class WebSocketHandler
 		ws.listen((message)
 		{
 			if(relay.connected)
-				relay.sendMessage(message);
+			{
+				//don't repeat /list messages to the relay
+				//or possibly any statusMessages, but we'll see
+				Map map = JSON.decode(message);
+				if(map['statusMessage'] == null || map['statusMessage'] != "list")
+					relay.sendMessage(message);
+			}
 			processMessage(ws, message);
 	    }, 
 		onError: (error)
@@ -113,7 +119,7 @@ class WebSocketHandler
 			}
 			else if(map["statusMessage"] == "list")
 			{
-				List userList = new List();
+				List<String> userList = new List();
 				users.forEach((Identifier userId)
 				{
 					if(!userList.contains(userId.username) && userId.channelName == map["channel"])
