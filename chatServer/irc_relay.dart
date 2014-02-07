@@ -46,29 +46,37 @@ class IRCRelay
 					
 					//send message out to clients
 					//ensure correct formatting
-					if(message.contains("username:") && message.contains("channel:") && message.contains("message:"))
+					try
 					{
-						//send message
-						int usernameStart = message.indexOf("username:")+9;
-						int usernameEnd = message.indexOf(":", usernameStart);
-						int channelStart = message.indexOf("channel:")+8;
-						int channelEnd = message.indexOf(":", channelStart);
-						int messageStart = message.indexOf("message:")+8;
-						int messageEnd = message.indexOf(":", messageStart);
-						Map map = new Map();
-						map['username'] = message.substring(usernameStart, usernameEnd);
-						map['channel'] = message.substring(channelStart, channelEnd);
-						map['message'] = message.substring(messageStart, messageEnd);
+						Map map = JSON.decode(message); //if this doesn't throw an error, it must be a valid JSON Map
 						WebSocketHandler.sendAll(JSON.encode(map));
 					}
-					else
-						sendMessage("Message must be in the form 'username:<username>:channel:<channel>:message:<message>:");
+					catch(error)
+					{
+						if(message.contains("username:") && message.contains("channel:") && message.contains("message:"))
+						{
+							//send message
+							int usernameStart = message.indexOf("username:")+9;
+							int usernameEnd = message.indexOf(":", usernameStart);
+							int channelStart = message.indexOf("channel:")+8;
+							int channelEnd = message.indexOf(":", channelStart);
+							int messageStart = message.indexOf("message:")+8;
+							int messageEnd = message.indexOf(":", messageStart);
+							Map map = new Map();
+							map['username'] = message.substring(usernameStart, usernameEnd);
+							map['channel'] = message.substring(channelStart, channelEnd);
+							map['message'] = message.substring(messageStart, messageEnd);
+							WebSocketHandler.sendAll(JSON.encode(map));
+						}
+						else
+							sendMessage("Message must be in the form 'username:<username>:channel:<channel>:message:<message>:");
+					}
 				}
 			},
 			onError: (error) => print(error),
 			onDone: () 
 			{
-				print("Done");
+				print("IRC hung up on us");
 				connected = false;
 				socket.destroy();
 			});
