@@ -119,6 +119,7 @@ class WebSocketHandler
 			}
 			else if(map["statusMessage"] == "changeStreet")
 			{
+				print(map);
 				users.forEach((Identifier id)
 				{
 					if(id.username == map["username"] && id.channelName == map["oldStreet"])
