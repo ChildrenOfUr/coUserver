@@ -79,7 +79,10 @@ class WebSocketHandler
 				map["statusMessage"] = "true";
 				map["username"] = map["message"].substring(9);
     			map["message"] = ' joined.';
-				users.add(new Identifier(map["username"],map["channel"]));
+				String street = "";
+				if(map["street"] != null)
+					street = map["street"];
+				users.add(new Identifier(map["username"],map["channel"],street));
   			}
 			else if(map["statusMessage"] == "changeName")
 			{
@@ -119,15 +122,10 @@ class WebSocketHandler
 			}
 			else if(map["statusMessage"] == "changeStreet")
 			{
-				print(map);
 				users.forEach((Identifier id)
 				{
-					if(id.username == map["username"] && id.channelName == map["oldStreet"])
-					{
-						String usernameWithChannel = id.username+"_"+id.channelName;
-						userSockets[map["username"]+"_"+map["newStreet"]] = userSockets.remove(usernameWithChannel);
-						id.channelName = map["newStreet"];
-					}
+					if(id.username == map["username"] && id.currentStreet == map["oldStreet"])
+						id.currentStreet = map["newStreet"];
 				});
 				return;
 			}
@@ -137,7 +135,12 @@ class WebSocketHandler
 				users.forEach((Identifier userId)
 				{
 					if(!userList.contains(userId.username) && userId.channelName == map["channel"])
-						userList.add(userId.username);
+					{
+						if(map["channel"] == "Local Chat" && userId.currentStreet == map["street"])
+							userList.add(userId.username);
+						else if(map["channel"] != "Local Chat")
+							userList.add(userId.username);
+					}
 				});
 				map["users"] = userList;
 				map["message"] = "Users in this channel: ";
