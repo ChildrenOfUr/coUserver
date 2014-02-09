@@ -117,6 +117,19 @@ class WebSocketHandler
 					});
 				}
 			}
+			else if(map["statusMessage"] == "changeStreet")
+			{
+				users.forEach((Identifier id)
+				{
+					if(id.username == map["username"] && id.channelName == map["oldStreet"])
+					{
+						String usernameWithChannel = id.username+"_"+id.channelName;
+						userSockets[map["username"]+"_"+map["newStreet"]] = userSockets.remove(usernameWithChannel);
+						id.channelName = map["newStreet"];
+					}
+				});
+				return;
+			}
 			else if(map["statusMessage"] == "list")
 			{
 				List<String> userList = new List();
