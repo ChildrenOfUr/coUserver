@@ -1,1 +1,1 @@
-web: /app/dart-sdk/bin/dart chatServer/chat_server.dart
+web: /app/dart-sdk/bin/dart server.dart

@@ -15,8 +15,8 @@ class IRCRelay
 			this.socket = socket;
 			
 			//irc expects \r\n to end command lines
-			socket.write("NICK CoUBot\r\n");
-			socket.write("USER CoUBot 8 * : CoU Player\r\n");
+			socket.write("NICK CoUBot2\r\n");
+			socket.write("USER CoUBot2 8 * : CoU Bot\r\n");
 
 			socket.listen((data) 
 			{
@@ -49,7 +49,7 @@ class IRCRelay
 					try
 					{
 						Map map = JSON.decode(message); //if this doesn't throw an error, it must be a valid JSON Map
-						WebSocketHandler.sendAll(JSON.encode(map));
+						ChatHandler.sendAll(JSON.encode(map));
 					}
 					catch(error)
 					{
@@ -70,7 +70,7 @@ class IRCRelay
 								map['username'] = message.substring(usernameStart, usernameEnd);
 								map['channel'] = message.substring(channelStart, channelEnd);
 								map['message'] = message.substring(messageStart, messageEnd);
-								WebSocketHandler.sendAll(JSON.encode(map));
+								ChatHandler.sendAll(JSON.encode(map));
 							}
 						}
 						else
