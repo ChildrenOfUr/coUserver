@@ -11,6 +11,8 @@ part 'chatServer/chat_handler.dart';
 
 part 'multiplayerServer/player_update_handler.dart';
 
+part 'web/stress_test.dart';
+
 IRCRelay relay;
 
 void main() 
@@ -26,14 +28,22 @@ void main()
 		
 		server.listen((HttpRequest request)
 		{
-			WebSocketTransformer.upgrade(request).then((WebSocket websocket) 
+			if(request.uri.path == "/stressTest")
+				new StressTest(request);
+			else
 			{
-				if(request.uri.path == "/")
-					new ChatHandler(websocket);
-				if(request.uri.path == "/playerUpdate")
-					new PlayerUpdateHandler(websocket);
-			},
-			onError: (error) => print(error));
+				WebSocketTransformer.upgrade(request).then((WebSocket websocket) 
+				{
+					if(request.uri.path == "/")
+						new ChatHandler(websocket);
+					if(request.uri.path == "/playerUpdate")
+						new PlayerUpdateHandler(websocket);
+				},
+				onError: (error) 
+				{
+					print("error: $error");
+				});
+			}
 		});
 			
 		print('${new DateTime.now().toString()} - Serving Chat on ${'0.0.0.0'}:$port.');
