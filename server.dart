@@ -28,9 +28,9 @@ void main()
 		
 		server.listen((HttpRequest request)
 		{
-			if(request.uri.path == "/stressTest")
-				new StressTest(request);
-			else
+			//if(request.uri.path == "/stressTest")
+				//new StressTest(request);
+			//else
 			{
 				WebSocketTransformer.upgrade(request).then((WebSocket websocket) 
 				{
