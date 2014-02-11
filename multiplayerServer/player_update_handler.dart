@@ -38,7 +38,12 @@ class PlayerUpdateHandler
 			}
 		});
 		
-		users.remove(leavingUser);
+		Identifier leavingID = users.remove(leavingUser);
+		Map map = new Map();
+		map["disconnect"] = "true";
+		map["username"] = leavingUser;
+		map["street"] = leavingID.currentStreet;
+		sendAll(map);
 	}
 	
 	processMessage(WebSocket ws, String message)
@@ -76,7 +81,7 @@ class PlayerUpdateHandler
 		{
 			if(users[username] == null || socket == null)
 				1 == 1; //do nothing
-			else if(username != map["username"] && (map["street"] == users[username].currentStreet || map["changeStreet"] == users[username].currentStreet))
+			else if(username != map["username"] && ((map["street"] == users[username].currentStreet || map["changeStreet"] == users[username].currentStreet)))
 				socket.add(data);
 		});
 	}
