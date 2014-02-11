@@ -39,11 +39,14 @@ class PlayerUpdateHandler
 		});
 		
 		Identifier leavingID = users.remove(leavingUser);
-		Map map = new Map();
-		map["disconnect"] = "true";
-		map["username"] = leavingUser;
-		map["street"] = leavingID.currentStreet;
-		sendAll(map);
+		if(leavingID != null)
+		{
+			Map map = new Map();
+			map["disconnect"] = "true";
+			map["username"] = leavingUser;
+			map["street"] = leavingID.currentStreet;
+			sendAll(map);
+		}
 	}
 	
 	processMessage(WebSocket ws, String message)
