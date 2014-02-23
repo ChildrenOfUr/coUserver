@@ -132,7 +132,7 @@ class ChatHandler
 						leftForMessage["statusMessage"] = "leftStreet";
 						leftForMessage["username"] = map["username"];
 						leftForMessage["streetName"] = map["newStreetLabel"];
-						leftForMessage["tsid"] = map["tsid"];
+						leftForMessage["tsid"] = map["newStreetTsid"];
 						leftForMessage["message"] = " has left for ";
 						leftForMessage["channel"] = "Local Chat";
 						userSockets[id.username+"_"+"Local Chat"].add(JSON.encode(leftForMessage));
