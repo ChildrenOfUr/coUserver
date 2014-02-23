@@ -126,6 +126,20 @@ class ChatHandler
 				{
 					if(id.username == map["username"] && id.currentStreet == map["oldStreet"])
 						id.currentStreet = map["newStreet"];
+					if(id.currentStreet == map["oldStreet"] && id.username != map["username"]) //others who were on the street with you
+					{
+						Map leftForMessage = new Map();
+						leftForMessage["statusMessage"] = "leftStreet";
+						leftForMessage["username"] = map["username"];
+						leftForMessage["streetName"] = map["newStreet"];
+						leftForMessage["tsid"] = map["tsid"];
+						leftForMessage["message"] = " has left for ";
+						userSockets[id.username+"_"+"Local Chat"].add(leftForMessage);
+					}
+					if(id.currentStreet == map["newStreet"] && id.username != map["username"]) //others who are on the new street
+					{
+						//display message to others that we're here?
+					}
 				});
 				return;
 			}
