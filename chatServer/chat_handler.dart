@@ -131,7 +131,7 @@ class ChatHandler
 						Map leftForMessage = new Map();
 						leftForMessage["statusMessage"] = "leftStreet";
 						leftForMessage["username"] = map["username"];
-						leftForMessage["streetName"] = map["newStreet"];
+						leftForMessage["streetName"] = map["newStreetLabel"];
 						leftForMessage["tsid"] = map["tsid"];
 						leftForMessage["message"] = " has left for ";
 						leftForMessage["channel"] = "Local Chat";
