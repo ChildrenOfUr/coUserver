@@ -134,6 +134,7 @@ class ChatHandler
 						leftForMessage["streetName"] = map["newStreet"];
 						leftForMessage["tsid"] = map["tsid"];
 						leftForMessage["message"] = " has left for ";
+						leftForMessage["channel"] = "Local Chat";
 						userSockets[id.username+"_"+"Local Chat"].add(JSON.encode(leftForMessage));
 					}
 					if(id.currentStreet == map["newStreet"] && id.username != map["username"]) //others who are on the new street
