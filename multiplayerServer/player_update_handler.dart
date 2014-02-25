@@ -55,6 +55,17 @@ class PlayerUpdateHandler
 		{
 			Map map = JSON.decode(message);
 			String username = map["username"];
+			if(map["statusMessage"] == "changeName")
+			{
+				//the user used /setname to change their name and it was successful
+				//tell the other clients that the old guy disconnected
+				map = new Map();
+				map["disconnect"] = "true";
+				map["username"] = username;
+				map["street"] = users[username].currentStreet;
+				sendAll(map);
+				return;
+			}
 			if(users[username] != null) //we've had an update for this user before
 			{
 				if(users[username].currentStreet != map["street"]) //the user must have switched streets
