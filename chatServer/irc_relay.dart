@@ -2,17 +2,18 @@ part of coUserver;
 
 class IRCRelay
 {
-	String HOST = "irc.foonetic.net";
+	String HOST = "irc.foonetic.net", SLACK_HOST = "cou.irc.slack.com";
 	int PORT = 6667;
-	String channel = "couchatserver";
-	bool connected = false;
+	String channel = "couchatserver", slackChannel = "game-global-chat";
+	bool connected = false, slackConnected = false;
 	Socket socket;
+	SecureSocket slackSocket;
 	
 	IRCRelay()
 	{
 		Socket.connect(HOST, PORT).then((Socket socket)
 		{
-			this.socket = socket;
+			socket = socket;
 			
 			//irc expects \r\n to end command lines
 			socket.write("NICK CoUBot\r\n");
@@ -86,6 +87,45 @@ class IRCRelay
 				socket.destroy();
 			});
 		});
+		
+		SecureSocket.connect(SLACK_HOST, PORT).then((SecureSocket socket)
+		{
+			slackSocket = socket;
+			
+			//irc expects \r\n to end command lines
+			socket.write("PASS " + Platform.environment['irc_pass'] + "\r\n");
+			socket.write("NICK robertmcdermot\r\n");
+			socket.write("USER CoUBot 8 * : CoU Bot\r\n");
+
+			socket.listen((data)
+			{
+				String dataString = new String.fromCharCodes(data).trim();
+				
+				if(dataString.contains("PING :"))
+				{
+					//we must respond with PONG + :<random-string> to stay active
+					String response = "PONG" + dataString.substring(4) + "\r\n";
+					socket.write(response);
+				}
+				else if(dataString.contains("001"))
+				{
+					//connection was successful
+					socket.write("JOIN #$slackChannel\r\n");
+				}
+				else if(dataString.contains("366"))
+				{
+					//we successfully joined the channel and received a list of connected users
+					slackConnected = true;
+				}
+			},
+			onError: (error) => print(error),
+			onDone: () 
+			{
+				print("IRC hung up on us");
+				slackConnected = false;
+				socket.destroy();
+			});
+		});
 	}
 	
 	sendMessage(String message)
@@ -94,5 +134,13 @@ class IRCRelay
 			return;
 		
 		socket.write("PRIVMSG #$channel :$message\r\n");
+	}
+	
+	slackSend(String message)
+	{
+		if(!slackConnected)
+			return;
+		
+		slackSocket.write("PRIVMSG #$slackChannel :$message\r\n");
 	}
 }

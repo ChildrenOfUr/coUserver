@@ -11,13 +11,18 @@ class ChatHandler
 		new KeepAlive().start(ws); //if a heroku app does not send any information for more than 55 seconds, the connection will be terminated
 		ws.listen((message)
 		{
+			Map map = JSON.decode(message);
 			if(relay.connected)
 			{
 				//don't repeat /list messages to the relay
 				//or possibly any statusMessages, but we'll see
-				Map map = JSON.decode(message);
 				if(map['statusMessage'] == null || map['statusMessage'] != "list")
 					relay.sendMessage(message);
+			}
+			if(relay.slackConnected && map["channel"] == "Global Chat")
+			{
+				if(map["statusMessage"] == null && map["username"] != null && map["message"] != null)
+					relay.slackSend(map["username"] + ":" + map["message"]);
 			}
 			processMessage(ws, message);
 	    }, 
