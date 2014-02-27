@@ -13,7 +13,7 @@ class IRCRelay
 	{
 		Socket.connect(HOST, PORT).then((Socket socket)
 		{
-			socket = socket;
+			this.socket = socket;
 			
 			//irc expects \r\n to end command lines
 			socket.write("NICK CoUBot\r\n");
