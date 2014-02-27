@@ -22,7 +22,7 @@ class ChatHandler
 			if(relay.slackConnected && map["channel"] == "Global Chat")
 			{
 				if(map["statusMessage"] == null && map["username"] != null && map["message"] != null)
-					relay.slackSend(map["username"] + ":" + map["message"]);
+					relay.slackSend(map["username"] + ": " + map["message"]);
 			}
 			processMessage(ws, message);
 	    }, 
@@ -78,7 +78,7 @@ class ChatHandler
 				String userName = map["message"].substring(9)+"_"+map["channel"];
 				if(userSockets[userName] != null) 
 				{
-			    	userSockets[userName].close();  //  close the previous connection
+			    	//userSockets[userName].close();  //  close the previous connection
         		}
     			userSockets[userName] = ws;
 				map["statusMessage"] = "true";
