@@ -130,7 +130,7 @@ class ChatHandler
 				users.forEach((Identifier id)
 				{
 					if(id.username == map["username"])
-						id.currentStreet = map["newStreet"];
+						id.currentStreet = map["newStreetLabel"];
 					if(id.username != map["username"] && id.currentStreet == map["oldStreet"]) //others who were on the street with you
 					{
 						Map leftForMessage = new Map();
