@@ -16,8 +16,8 @@ class IRCRelay
 			this.socket = socket;
 			
 			//irc expects \r\n to end command lines
-			socket.write("NICK CoUBot\r\n");
-			socket.write("USER CoUBot 8 * : CoU Bot\r\n");
+			socket.write("NICK CoUBot2\r\n");
+			socket.write("USER CoUBot2 8 * : CoU Bot\r\n");
 
 			socket.listen((data) 
 			{
@@ -82,49 +82,57 @@ class IRCRelay
 			onError: (error) => print(error),
 			onDone: () 
 			{
-				print("IRC hung up on us");
-				connected = false;
-				socket.destroy();
+				try
+				{
+					print("IRC hung up on us");
+					connected = false;
+					socket.destroy();
+				}
+				catch(error){}
 			});
 		});
 		
-		SecureSocket.connect(SLACK_HOST, PORT).then((SecureSocket socket)
+		SecureSocket.connect(SLACK_HOST, PORT).then((SecureSocket socket) 
 		{
-			slackSocket = socket;
-			
-			//irc expects \r\n to end command lines
-			socket.write("PASS " + Platform.environment['irc_pass'] + "\r\n");
-			socket.write("NICK robertmcdermot\r\n");
-			socket.write("USER CoUBot 8 * : CoU Bot\r\n");
+			try
+			{
+				slackSocket = socket;
+                			
+    			//irc expects \r\n to end command lines
+    			socket.write("PASS " + Platform.environment['irc_pass'] + "\r\n");
+    			socket.write("NICK robertmcdermot\r\n");
+    			socket.write("USER CoUBot 8 * : CoU Bot\r\n");
 
-			socket.listen((data)
-			{
-				String dataString = new String.fromCharCodes(data).trim();
-				
-				if(dataString.contains("PING :"))
-				{
-					//we must respond with PONG + :<random-string> to stay active
-					String response = "PONG" + dataString.substring(4) + "\r\n";
-					socket.write(response);
-				}
-				else if(dataString.contains("001"))
-				{
-					//connection was successful
-					socket.write("JOIN #$slackChannel\r\n");
-				}
-				else if(dataString.contains("366"))
-				{
-					//we successfully joined the channel and received a list of connected users
-					slackConnected = true;
-				}
-			},
-			onError: (error) => print(error),
-			onDone: () 
-			{
-				print("IRC hung up on us");
-				slackConnected = false;
-				socket.destroy();
-			});
+    			socket.listen((data)
+    			{
+    				String dataString = new String.fromCharCodes(data).trim();
+    				
+    				if(dataString.contains("PING :"))
+    				{
+    					//we must respond with PONG + :<random-string> to stay active
+    					String response = "PONG" + dataString.substring(4) + "\r\n";
+    					socket.write(response);
+    				}
+    				else if(dataString.contains("001"))
+    				{
+    					//connection was successful
+    					socket.write("JOIN #$slackChannel\r\n");
+    				}
+    				else if(dataString.contains("366"))
+    				{
+    					//we successfully joined the channel and received a list of connected users
+    					slackConnected = true;
+    				}
+    			},
+    			onError: (error) => print(error),
+    			onDone: () 
+    			{
+    				print("IRC hung up on us");
+    				slackConnected = false;
+    				socket.destroy();
+    			});
+			}
+			catch(error){}//if run locally this connect won't work unless Platform.environment['irc_pass'] is set
 		});
 	}
 	

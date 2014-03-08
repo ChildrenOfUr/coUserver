@@ -3,14 +3,24 @@ library coUserver;
 import 'dart:io';
 import 'dart:async';
 import 'dart:convert';
+import 'dart:math';
 
+//common to all server parts
+part 'common/identifier.dart';
+
+//chat server parts
 part 'chatServer/irc_relay.dart';
 part 'chatServer/keep_alive.dart';
-part 'common/identifier.dart';
 part 'chatServer/chat_handler.dart';
 
+//multiplayer server parts
 part 'multiplayerServer/player_update_handler.dart';
 
+//npc server (street simulation) parts
+part 'npcServer/street_update_handler.dart';
+part 'npcServer/street.dart';
+
+//various http parts (as opposed to the previous websocket parts)
 part 'web/stress_test.dart';
 
 IRCRelay relay;
@@ -38,6 +48,8 @@ void main()
 						new ChatHandler(websocket);
 					if(request.uri.path == "/playerUpdate")
 						new PlayerUpdateHandler(websocket);
+					if(request.uri.path == "/streetUpdate")
+						new StreetUpdateHandler(websocket);
 				},
 				onError: (error) 
 				{
