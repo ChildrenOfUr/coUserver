@@ -16,12 +16,22 @@ class Street
 		npcs = new List<NPC>();
 		occupants = new List<WebSocket>();
 		
-		int num = rand.nextInt(15);
+		int num = rand.nextInt(30);
 		for(int i=0; i<num; i++)
 		{
 			//1 billion numbers a unique string makes?
 			String id = "q"+rand.nextInt(1000000000).toString();
-			quoins[id] = new Quoin(id,i*200,200,"currant",this);
+			int typeInt = rand.nextInt(4);
+			String type = "";
+			if(typeInt == 0)
+				type = "currant";
+			if(typeInt == 1)
+				type = "energy";
+			if(typeInt == 2)
+				type = "mood";
+			if(typeInt == 3)
+				type = "img";
+			quoins[id] = new Quoin(id,i*200,rand.nextInt(200)+200,type,this);
 		}
 	}
 }
