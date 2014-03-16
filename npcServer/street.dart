@@ -4,16 +4,16 @@ class Street
 {
 	static Random rand = new Random();
 	Map<String,Quoin> quoins;
-	List<Plant> plants;
-	List<NPC> npcs;
+	Map<String,Plant> plants;
+	Map<String,NPC> npcs;
 	List<WebSocket> occupants;
 	String label;
 	
 	Street(this.label)
 	{
 		quoins = new Map<String,Quoin>();
-		plants = new List<Plant>();
-		npcs = new List<NPC>();
+		plants = new Map<String,Plant>();
+		npcs = new Map<String,NPC>();
 		occupants = new List<WebSocket>();
 		
 		int num = rand.nextInt(30);
@@ -32,6 +32,14 @@ class Street
 			if(typeInt == 3)
 				type = "img";
 			quoins[id] = new Quoin(id,i*200,rand.nextInt(200)+200,type,this);
+		}
+		
+		num = rand.nextInt(4);
+		for(int i=1; i<num; i++)
+		{
+			//1 billion numbers a unique string makes?
+			String id = "n"+rand.nextInt(1000000000).toString();
+			npcs[id] = new NPC(id,i*200,"piggy",this);
 		}
 	}
 }
@@ -108,11 +116,47 @@ class Plant
 
 class NPC
 {
+	String url;
+	String id,type;
+	int x,y,width, height, numRows, numColumns, numFrames;
+	Street street;
+	DateTime respawn;
+	bool collected = false;
+	
+	NPC(this.id,this.x,this.type,this.street)
+	{
+		if(type == "piggy")
+		{
+			url = "https://raw.github.com/RobertMcDermot/coUspritesheets/master/spritesheets/npc_piggy/npc_piggy__x1_look_screen_png_1354829434.png";
+			width = 88;
+			height = 62;
+			numRows = 3;
+			numColumns = 8;
+			numFrames = 24;
+		}
+	}
+	
 	/**
 	 * Will simulate npc movement and send updates to clients if needed
 	 */
 	update()
 	{
-		
+		street.occupants.forEach((WebSocket socket)
+		{
+			if(socket != null)
+			{
+				Map map = new Map();
+				map["id"] = id;
+				map["url"] = url;
+				map["type"] = type;
+				map["numRows"] = numRows;
+				map["numColumns"] = numColumns;
+				map["numFrames"] = numFrames;
+				map["x"] = x;
+				map["width"] = width;
+	            map["height"] = height;
+				socket.add(JSON.encode(map));
+			}
+		});
 	}
 }

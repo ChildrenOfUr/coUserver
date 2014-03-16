@@ -27,9 +27,9 @@ class StreetUpdateHandler
 				Iterable nonNull = street.occupants.where((WebSocket socket) => socket != null);
 				if(nonNull.length > 0) //only simulate street with someone on it
 				{
-					street.plants.forEach((Plant plant) => plant.update());
+					street.plants.forEach((String id, Plant plant) => plant.update());
 					street.quoins.forEach((String id, Quoin quoin) => quoin.update());
-					street.npcs.forEach((NPC npc) => npc.update());
+					street.npcs.forEach((String id, NPC npc) => npc.update());
 				}
 			});
 		});
@@ -75,7 +75,7 @@ class StreetUpdateHandler
 			if(map["message"] == "joined")
 				streets[streetName].occupants.add(ws);
 			else if(map["message"] == "left")
-				streets[streetName].occupants.remove(ws);
+				cleanupList(ws);
 		}
 		catch(error)
 		{
