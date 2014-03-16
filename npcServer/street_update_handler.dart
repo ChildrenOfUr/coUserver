@@ -24,7 +24,8 @@ class StreetUpdateHandler
 		{
 			streets.forEach((String streetName, Street street)
 			{
-				if(street.occupants.length > 0) //only simulate street with someone on it
+				Iterable nonNull = street.occupants.where((WebSocket socket) => socket != null);
+				if(nonNull.length > 0) //only simulate street with someone on it
 				{
 					street.plants.forEach((Plant plant) => plant.update());
 					street.quoins.forEach((String id, Quoin quoin) => quoin.update());
@@ -39,7 +40,7 @@ class StreetUpdateHandler
 		//find and remove ws from whichever street has it
 		streets.forEach((String streetName, Street street)
 		{
-			street.occupants.remove(ws);
+			street.occupants[street.occupants.indexOf(ws)] = null;
 		});
 	}
 	
@@ -59,7 +60,8 @@ class StreetUpdateHandler
 				
 				streets[streetName].occupants.forEach((WebSocket socket)
 				{
-					socket.add(JSON.encode(map));
+					if(socket != null)
+						socket.add(JSON.encode(map));
 				});
 				return;
 			}

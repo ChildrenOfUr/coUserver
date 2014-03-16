@@ -68,22 +68,23 @@ class Quoin
 		
 		if(!collected)
 		{
-			Iterator<WebSocket> occupants = street.occupants.iterator;
-			while(occupants.moveNext())
+			street.occupants.forEach((WebSocket socket)
 			{
-				WebSocket socket = occupants.current;
-				Map map = new Map();
-				map["id"] = id;
-				map["url"] = url;
-				map["type"] = type;
-				map["keyframes"] = keyframes;
-				map["animation"] = animation;
-				map["x"] = x;
-				map["y"] = y;
-				map["width"] = width;
-	            map["height"] = height;
-				socket.add(JSON.encode(map));
-			}
+				if(socket != null)
+				{
+					Map map = new Map();
+					map["id"] = id;
+					map["url"] = url;
+					map["type"] = type;
+					map["keyframes"] = keyframes;
+					map["animation"] = animation;
+					map["x"] = x;
+					map["y"] = y;
+					map["width"] = width;
+		            map["height"] = height;
+					socket.add(JSON.encode(map));
+				}
+			});
 		}
 	}
 	
