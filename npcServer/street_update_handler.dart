@@ -40,7 +40,9 @@ class StreetUpdateHandler
 		//find and remove ws from whichever street has it
 		streets.forEach((String streetName, Street street)
 		{
-			street.occupants[street.occupants.indexOf(ws)] = null;
+			int index = street.occupants.indexOf(ws);
+			if(index > -1)
+				street.occupants[index] = null;
 		});
 	}
 	
