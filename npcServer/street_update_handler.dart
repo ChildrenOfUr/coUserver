@@ -54,7 +54,9 @@ class StreetUpdateHandler
 			
 			if(map["remove"] != null)
 			{
-				streets[streetName].quoins[map["remove"]].setCollected();
+				if(map["type"] == "quoin")
+					streets[streetName].quoins[map["remove"]].setCollected();
+				
 				streets[streetName].occupants.forEach((WebSocket socket)
 				{
 					socket.add(JSON.encode(map));

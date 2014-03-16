@@ -16,8 +16,8 @@ class IRCRelay
 			this.socket = socket;
 			
 			//irc expects \r\n to end command lines
-			socket.write("NICK CoUBot2\r\n");
-			socket.write("USER CoUBot2 8 * : CoU Bot\r\n");
+			socket.write("NICK CoUBot\r\n");
+			socket.write("USER CoUBot 8 * : CoU Bot\r\n");
 
 			socket.listen((data) 
 			{

@@ -68,8 +68,10 @@ class Quoin
 		
 		if(!collected)
 		{
-			street.occupants.forEach((WebSocket socket)
+			Iterator<WebSocket> occupants = street.occupants.iterator;
+			while(occupants.moveNext())
 			{
+				WebSocket socket = occupants.current;
 				Map map = new Map();
 				map["id"] = id;
 				map["url"] = url;
@@ -81,7 +83,7 @@ class Quoin
 				map["width"] = width;
 	            map["height"] = height;
 				socket.add(JSON.encode(map));
-			});
+			}
 		}
 	}
 	
