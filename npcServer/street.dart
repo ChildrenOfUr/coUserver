@@ -143,14 +143,14 @@ class NPC
 	update()
 	{
 		int num = rand.nextInt(30);
-		if(num == 6)
+		/*if(num == 6)
 		{
 			url = "https://raw.github.com/RobertMcDermot/coUspritesheets/master/spritesheets/npc_piggy/npc_piggy__x1_look_screen_png_1354829434.png";
 			numRows = 5;
 			numColumns = 10;
 			numFrames = 48;
 		}
-		else
+		else*/
 		{
 			url = "https://raw.github.com/RobertMcDermot/coUspritesheets/master/spritesheets/npc_piggy/npc_piggy__x1_walk_png_1354829432.png";
 			numRows = 3;
