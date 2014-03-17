@@ -16,7 +16,7 @@ class Street
 		npcs = new Map<String,NPC>();
 		occupants = new List<WebSocket>();
 		
-		int num = rand.nextInt(30);
+		int num = rand.nextInt(30) + 1;
 		for(int i=0; i<num; i++)
 		{
 			//1 billion numbers a unique string makes?
@@ -34,8 +34,8 @@ class Street
 			quoins[id] = new Quoin(id,i*200,rand.nextInt(200)+200,type,this);
 		}
 		
-		num = rand.nextInt(4);
-		for(int i=1; i<num; i++)
+		num = rand.nextInt(3) + 1;
+		for(int i=1; i<=num; i++)
 		{
 			//1 billion numbers a unique string makes?
 			String id = "n"+rand.nextInt(1000000000).toString();
@@ -122,18 +122,16 @@ class NPC
 	int x,y,width, height, numRows, numColumns, numFrames;
 	Street street;
 	DateTime respawn;
-	bool collected = false;
+	bool collected = false, facingRight = true;
 	
 	NPC(this.id,this.x,this.type,this.street)
 	{
+		respawn = new DateTime.now();
+		
 		if(type == "piggy")
 		{
-			url = "https://raw.github.com/RobertMcDermot/coUspritesheets/master/spritesheets/npc_piggy/npc_piggy__x1_walk_png_1354829432.png";
 			width = 88;
 			height = 62;
-			numRows = 3;
-			numColumns = 8;
-			numFrames = 24;
 		}
 	}
 	
@@ -142,20 +140,32 @@ class NPC
 	 */
 	update()
 	{
-		int num = rand.nextInt(30);
-		/*if(num == 6)
+		if(respawn != null && new DateTime.now().compareTo(respawn) > 0)
 		{
-			url = "https://raw.github.com/RobertMcDermot/coUspritesheets/master/spritesheets/npc_piggy/npc_piggy__x1_look_screen_png_1354829434.png";
-			numRows = 5;
-			numColumns = 10;
-			numFrames = 48;
-		}
-		else*/
-		{
-			url = "https://raw.github.com/RobertMcDermot/coUspritesheets/master/spritesheets/npc_piggy/npc_piggy__x1_walk_png_1354829432.png";
-			numRows = 3;
-			numColumns = 8;
-			numFrames = 24;
+			if(rand.nextInt(2) == 1)
+            	facingRight = false;
+			
+			int num = rand.nextInt(10);
+    		if(num == 6)
+    		{
+    			url = "https://raw.github.com/RobertMcDermot/coUspritesheets/master/spritesheets/npc_piggy/npc_piggy__x1_look_screen_png_1354829434.png";
+    			numRows = 5;
+    			numColumns = 10;
+    			numFrames = 48;
+    			
+				//pick new animation in 1.6 seconds (after this one completes)
+    			respawn = new DateTime.now().add(new Duration(milliseconds:1600));
+    		}
+    		else
+    		{
+    			url = "https://raw.github.com/RobertMcDermot/coUspritesheets/master/spritesheets/npc_piggy/npc_piggy__x1_walk_png_1354829432.png";
+    			numRows = 3;
+    			numColumns = 8;
+    			numFrames = 24;
+    			
+				//pick new animation in .8 seconds (after this one completes)
+  				respawn = new DateTime.now().add(new Duration(milliseconds:800));
+    		}
 		}
 		
 		street.occupants.forEach((WebSocket socket)
@@ -172,6 +182,7 @@ class NPC
 				map["x"] = x;
 				map["width"] = width;
 	            map["height"] = height;
+	            map["facingRight"] = facingRight;
 				socket.add(JSON.encode(map));
 			}
 		});
