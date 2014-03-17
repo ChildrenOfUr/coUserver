@@ -140,10 +140,31 @@ class NPC
 	 */
 	update()
 	{
+		if(url != null && url.contains("walk")) //we need to update x to hopefully stay in sync with clients
+		{
+			if(facingRight)
+				x += 150; //150 pixels/sec is the speed set on the client atm
+			else
+				x -= 150;
+			
+			if(x < 0)
+				x = 0;
+			if(x > 4000) //TODO temporary
+				x = 4000;
+			
+			//hard to check right bounds without actually loading the street
+			//which we aren't doing right now.  we're just making everything up in the constructor
+			//but at some point, TODO we should get real street info
+			//if(x > street.width-width)
+				//x = street.width-width;
+		}
+		
 		if(respawn != null && new DateTime.now().compareTo(respawn) > 0)
 		{
 			if(rand.nextInt(2) == 1)
             	facingRight = false;
+			else
+				facingRight = true;
 			
 			int num = rand.nextInt(10);
     		if(num == 6)
