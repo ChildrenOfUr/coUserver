@@ -142,8 +142,8 @@ class NPC
 	 */
 	update()
 	{
-		int x = rand.nextInt(10);
-		if(x == 6 || x == 7)
+		int num = rand.nextInt(30);
+		if(num == 6)
 		{
 			url = "https://raw.github.com/RobertMcDermot/coUspritesheets/master/spritesheets/npc_piggy/npc_piggy__x1_look_screen_png_1354829434.png";
 			numRows = 5;
