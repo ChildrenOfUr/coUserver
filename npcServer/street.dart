@@ -116,6 +116,7 @@ class Plant
 
 class NPC
 {
+	static Random rand = new Random();
 	String url;
 	String id,type;
 	int x,y,width, height, numRows, numColumns, numFrames;
@@ -127,7 +128,7 @@ class NPC
 	{
 		if(type == "piggy")
 		{
-			url = "https://raw.github.com/RobertMcDermot/coUspritesheets/master/spritesheets/npc_piggy/npc_piggy__x1_look_screen_png_1354829434.png";
+			url = "https://raw.github.com/RobertMcDermot/coUspritesheets/master/spritesheets/npc_piggy/npc_piggy__x1_walk_png_1354829432.png";
 			width = 88;
 			height = 62;
 			numRows = 3;
@@ -141,6 +142,22 @@ class NPC
 	 */
 	update()
 	{
+		int x = rand.nextInt(10);
+		if(x == 6 || x == 7)
+		{
+			url = "https://raw.github.com/RobertMcDermot/coUspritesheets/master/spritesheets/npc_piggy/npc_piggy__x1_look_screen_png_1354829434.png";
+			numRows = 5;
+			numColumns = 10;
+			numFrames = 48;
+		}
+		else
+		{
+			url = "https://raw.github.com/RobertMcDermot/coUspritesheets/master/spritesheets/npc_piggy/npc_piggy__x1_walk_png_1354829432.png";
+			numRows = 3;
+			numColumns = 8;
+			numFrames = 24;
+		}
+		
 		street.occupants.forEach((WebSocket socket)
 		{
 			if(socket != null)
