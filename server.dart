@@ -46,9 +46,9 @@ void main()
 				{
 					if(request.uri.path == "/")
 						new ChatHandler(websocket);
-					if(request.uri.path == "/playerUpdate")
+					else if(request.uri.path == "/playerUpdate")
 						new PlayerUpdateHandler(websocket);
-					if(request.uri.path == "/streetUpdate")
+					else if(request.uri.path == "/streetUpdate")
 						new StreetUpdateHandler(websocket);
 				},
 				onError: (error) 

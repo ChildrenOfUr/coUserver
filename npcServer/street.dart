@@ -47,24 +47,13 @@ class Street
 class Quoin
 {
 	String url = "https://raw.github.com/robertmcdermot/couspritesheets/master/spritesheets/quoin/quoin__x1_1_x1_2_x1_3_x1_4_x1_5_x1_6_x1_7_x1_8_png_1354829599.png";
-	String id,keyframes, animation, type;
-	int x,y,width = 40,height = 45;
+	String id, type;
+	int x,y;
 	Street street;
 	DateTime respawn;
 	bool collected = false;
 	
-	Quoin(this.id,this.x,this.y,this.type,this.street)
-	{
-		if(type == "img")
-			keyframes = "@-webkit-keyframes img {from { background-position: 0px 0px;} to { background-position: 960px 0px;}}";
-		else if(type == "mood")
-			keyframes = "@-webkit-keyframes mood {from { background-position: 0px -45px;} to { background-position: 960px -45px;}}";
-		else if(type == "energy")
-			keyframes = "@-webkit-keyframes energy {from { background-position: 0px -90px;} to { background-position: 960px -90px;}}";
-		else if(type == "currant")
-			keyframes = "@-webkit-keyframes currant {from { background-position: 0px -135px;} to { background-position: 960px -135px;}}"; 	
-		animation = type + " 1.1s steps(24) infinite";
-	}
+	Quoin(this.id,this.x,this.y,this.type,this.street);
 	
 	/**
 	 * Will check for quoin collection/spawn and send updates to clients if needed
@@ -73,33 +62,24 @@ class Quoin
 	{
 		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0)
 			collected = false;
-		
-		if(!collected)
-		{
-			street.occupants.forEach((WebSocket socket)
-			{
-				if(socket != null)
-				{
-					Map map = new Map();
-					map["id"] = id;
-					map["url"] = url;
-					map["type"] = type;
-					map["keyframes"] = keyframes;
-					map["animation"] = animation;
-					map["x"] = x;
-					map["y"] = y;
-					map["width"] = width;
-		            map["height"] = height;
-					socket.add(JSON.encode(map));
-				}
-			});
-		}
 	}
 	
 	setCollected()
 	{
 		collected = true;
 		respawn = new DateTime.now().add(new Duration(seconds:30));
+	}
+	
+	Map getMap()
+	{
+		Map map = new Map();
+		map["id"] = id;
+		map["url"] = url;
+		map["type"] = type;
+		map["remove"] = collected.toString();
+		map["x"] = x;
+		map["y"] = y;
+		return map;
 	}
 }
 
@@ -119,7 +99,7 @@ class NPC
 	static Random rand = new Random();
 	String url;
 	String id,type;
-	int x,y,width, height, numRows, numColumns, numFrames;
+	int x,y,width, height, numRows, numColumns, numFrames, speed;
 	Street street;
 	DateTime respawn;
 	bool collected = false, facingRight = true;
@@ -132,6 +112,7 @@ class NPC
 		{
 			width = 88;
 			height = 62;
+			speed = 75; //pixels per second
 		}
 	}
 	
@@ -143,9 +124,9 @@ class NPC
 		if(url != null && url.contains("walk")) //we need to update x to hopefully stay in sync with clients
 		{
 			if(facingRight)
-				x += 150; //150 pixels/sec is the speed set on the client atm
+				x += speed; //75 pixels/sec is the speed set on the client atm
 			else
-				x -= 150;
+				x -= speed;
 			
 			if(x < 0)
 				x = 0;
@@ -161,10 +142,9 @@ class NPC
 		
 		if(respawn != null && new DateTime.now().compareTo(respawn) > 0)
 		{
-			if(rand.nextInt(2) == 1)
-            	facingRight = false;
-			else
-				facingRight = true;
+			//1 in 4 chance to change direction
+			if(rand.nextInt(4) == 1)
+            	facingRight = !facingRight;
 			
 			int num = rand.nextInt(10);
     		if(num == 6)
@@ -188,24 +168,21 @@ class NPC
   				respawn = new DateTime.now().add(new Duration(milliseconds:800));
     		}
 		}
-		
-		street.occupants.forEach((WebSocket socket)
-		{
-			if(socket != null)
-			{
-				Map map = new Map();
-				map["id"] = id;
-				map["url"] = url;
-				map["type"] = type;
-				map["numRows"] = numRows;
-				map["numColumns"] = numColumns;
-				map["numFrames"] = numFrames;
-				map["x"] = x;
-				map["width"] = width;
-	            map["height"] = height;
-	            map["facingRight"] = facingRight;
-				socket.add(JSON.encode(map));
-			}
-		});
+	}
+	
+	Map getMap()
+	{
+		Map map = new Map();
+		map["id"] = id;
+		map["url"] = url;
+		map["type"] = type;
+		map["numRows"] = numRows;
+		map["numColumns"] = numColumns;
+		map["numFrames"] = numFrames;
+		map["x"] = x;
+		map["width"] = width;
+        map["height"] = height;
+        map["facingRight"] = facingRight;
+        return map;
 	}
 }
