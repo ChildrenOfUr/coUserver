@@ -84,14 +84,14 @@ class IRCRelay
 			{
 				try
 				{
-					print("IRC hung up on us");
+					print("Foonetic IRC hung up on us");
 					connected = false;
 					socket.destroy();
 				}
 				catch(error){}
 			});
 		});
-		
+				
 		SecureSocket.connect(SLACK_HOST, PORT).then((SecureSocket socket) 
 		{
 			try
@@ -99,7 +99,7 @@ class IRCRelay
 				slackSocket = socket;
                 			
     			//irc expects \r\n to end command lines
-    			socket.write("PASS " + Platform.environment['irc_pass'] + "\r\n");
+    			socket.write("PASS ${Platform.environment['irc_pass']}\r\n");
     			socket.write("NICK robertmcdermot\r\n");
     			socket.write("USER CoUBot 8 * : CoU Bot\r\n");
 
@@ -127,12 +127,12 @@ class IRCRelay
     			onError: (error) => print(error),
     			onDone: () 
     			{
-    				print("IRC hung up on us");
+    				print("Slack IRC hung up on us");
     				slackConnected = false;
     				socket.destroy();
     			});
 			}
-			catch(error){}//if run locally this connect won't work unless Platform.environment['irc_pass'] is set
+			catch(error){print(error);}//if run locally this connect won't work unless Platform.environment['irc_pass'] is set
 		});
 	}
 	
