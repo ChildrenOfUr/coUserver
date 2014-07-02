@@ -23,7 +23,7 @@ class StreetUpdateHandler
 		
 		//querying the isActive seems to spark the timer to start
 		//otherwise it does not start from the static declaration above
-		//print("timer active: ${timer.isActive}");
+		timer.isActive;
 	}
 	
 	static void simulateStreets()
@@ -41,6 +41,7 @@ class StreetUpdateHandler
 				Map<String,List> updates = {"quoins":[],"npcs":[],"plants":[]};
 				street.quoins.forEach((String id, Quoin quoin) => updates["quoins"].add(quoin.getMap()));
 				street.npcs.forEach((String id, NPC npc) => updates["npcs"].add(npc.getMap()));
+				street.plants.forEach((String id, Plant plant) => updates["plants"].add(plant.getMap()));
 				
 				street.occupants.forEach((WebSocket socket)
     			{
@@ -81,7 +82,10 @@ class StreetUpdateHandler
 			if(map["remove"] != null)
 			{
 				if(map["type"] == "quoin")
-					streets[streetName].quoins[map["remove"]].setCollected();
+				{
+					if(streets[streetName].quoins[map["remove"]] != null)
+						streets[streetName].quoins[map["remove"]].setCollected();
+				}
 				
 				return;
 			}

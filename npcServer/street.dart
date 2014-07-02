@@ -92,6 +92,13 @@ class Plant
 	{
 		
 	}
+	
+	Map getMap()
+	{
+		Map map = new Map();
+		
+        return map;
+	}
 }
 
 class NPC
