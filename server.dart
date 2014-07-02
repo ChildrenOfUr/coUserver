@@ -58,16 +58,17 @@ void main()
 				{
 					statusMap['serverLog'] = exception.toString();
 				}
-				Process.run("/bin/sh",["getMemoryUsage.sh"])
-				.then((ProcessResult result)
-				{
-					statusMap['bytesUsed'] = int.parse(result.stdout)*1024;
-					request.response
-						..headers.add('Access-Control-Allow-Origin', '*')
-						..headers.add('Content-Type', 'application/json')
-						..write(JSON.encode(statusMap))
-						..close();
-				});
+				ProcessResult result = Process.runSync("/bin/sh",["getMemoryUsage.sh"]);
+				statusMap['bytesUsed'] = int.parse(result.stdout)*1024;
+				result = Process.runSync("/bin/sh",["getCpuUsage.sh"]);
+				statusMap['cpuUsed'] = double.parse(result.stdout.trim());
+				result = Process.runSync("/bin/sh",["getUptime.sh"]);
+                statusMap['uptime'] = double.parse(result.stdout.trim());
+				request.response
+					..headers.add('Access-Control-Allow-Origin', '*')
+					..headers.add('Content-Type', 'application/json')
+					..write(JSON.encode(statusMap))
+					..close();
 			}
 			else
 			{
