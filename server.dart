@@ -42,7 +42,13 @@ void main()
 			if(request.uri.path == "/serverStatus")
 			{
 				Map statusMap = {};
-				statusMap['numPlayersOnline'] = ChatHandler.users.length;
+				List<String> users = [];
+				ChatHandler.users.forEach((Identifier user)
+				{
+					if(!users.contains(user.username))
+						users.add(user.username);
+				});
+				statusMap['numPlayersOnline'] = users.length;
 				statusMap['numStreetsLoaded'] = StreetUpdateHandler.streets.length;
 				try
 				{
@@ -83,6 +89,6 @@ void main()
 			}
 		});
 			
-		print('${new DateTime.now().toString()}\n - Serving Chat on ${'0.0.0.0'}:$port.');
+		print('${new DateTime.now().toString()}\nServing Chat on ${'0.0.0.0'}:$port.');
 	});
 }
