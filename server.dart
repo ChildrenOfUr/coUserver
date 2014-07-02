@@ -63,7 +63,7 @@ void main()
 				result = Process.runSync("/bin/sh",["getCpuUsage.sh"]);
 				statusMap['cpuUsed'] = double.parse(result.stdout.trim());
 				result = Process.runSync("/bin/sh",["getUptime.sh"]);
-                statusMap['uptime'] = double.parse(result.stdout.trim());
+                statusMap['uptime'] = result.stdout.trim();
 				request.response
 					..headers.add('Access-Control-Allow-Origin', '*')
 					..headers.add('Content-Type', 'application/json')
