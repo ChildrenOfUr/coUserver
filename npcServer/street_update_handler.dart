@@ -23,7 +23,7 @@ class StreetUpdateHandler
 		
 		//querying the isActive seems to spark the timer to start
 		//otherwise it does not start from the static declaration above
-		timer.isActive;
+		//timer.isActive;
 	}
 	
 	static void simulateStreets()
