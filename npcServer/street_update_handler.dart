@@ -4,7 +4,7 @@ part of coUserver;
 class StreetUpdateHandler
 {
 	static Map<String, Street> streets = new Map();
-	//static Timer timer = new Timer.periodic(new Duration(seconds: 1), (Timer timer) => simulateStreets());
+	static Timer timer = new Timer.periodic(new Duration(seconds: 1), (Timer timer) => simulateStreets());
 	
 	StreetUpdateHandler(WebSocket ws)
 	{		
@@ -23,7 +23,7 @@ class StreetUpdateHandler
 		
 		//querying the isActive seems to spark the timer to start
 		//otherwise it does not start from the static declaration above
-		//timer.isActive;
+		timer.isActive;
 	}
 	
 	static void simulateStreets()

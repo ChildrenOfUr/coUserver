@@ -48,7 +48,7 @@ void main()
 					if(!users.contains(user.username))
 						users.add(user.username);
 				});
-				statusMap['numPlayersOnline'] = users.length;
+				statusMap['playerList'] = users;
 				statusMap['numStreetsLoaded'] = StreetUpdateHandler.streets.length;
 				ProcessResult result = Process.runSync("/bin/sh",["getMemoryUsage.sh"]);
 				statusMap['bytesUsed'] = int.parse(result.stdout)*1024;
