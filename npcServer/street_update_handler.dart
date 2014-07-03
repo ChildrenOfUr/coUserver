@@ -4,7 +4,7 @@ part of coUserver;
 class StreetUpdateHandler
 {
 	static Map<String, Street> streets = new Map();
-	static Timer timer = new Timer.periodic(new Duration(seconds: 1), (Timer timer) => simulateStreets());
+	//static Timer timer = new Timer.periodic(new Duration(seconds: 1), (Timer timer) => simulateStreets());
 	
 	StreetUpdateHandler(WebSocket ws)
 	{		
