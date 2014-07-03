@@ -50,6 +50,21 @@ void main()
 				});
 				statusMap['numPlayersOnline'] = users.length;
 				statusMap['numStreetsLoaded'] = StreetUpdateHandler.streets.length;
+				ProcessResult result = Process.runSync("/bin/sh",["getMemoryUsage.sh"]);
+				statusMap['bytesUsed'] = int.parse(result.stdout)*1024;
+				result = Process.runSync("/bin/sh",["getCpuUsage.sh"]);
+				statusMap['cpuUsed'] = double.parse(result.stdout.trim());
+				result = Process.runSync("/bin/sh",["getUptime.sh"]);
+                statusMap['uptime'] = result.stdout.trim();
+				request.response
+					..headers.add('Access-Control-Allow-Origin', '*')
+					..headers.add('Content-Type', 'application/json')
+					..write(JSON.encode(statusMap))
+					..close();
+			}
+			else if(request.uri.path == "/serverLog")
+			{
+				Map statusMap = {};
 				try
 				{
 					statusMap['serverLog'] = new File('server.log').readAsStringSync();
@@ -58,12 +73,6 @@ void main()
 				{
 					statusMap['serverLog'] = exception.toString();
 				}
-				ProcessResult result = Process.runSync("/bin/sh",["getMemoryUsage.sh"]);
-				statusMap['bytesUsed'] = int.parse(result.stdout)*1024;
-				result = Process.runSync("/bin/sh",["getCpuUsage.sh"]);
-				statusMap['cpuUsed'] = double.parse(result.stdout.trim());
-				result = Process.runSync("/bin/sh",["getUptime.sh"]);
-                statusMap['uptime'] = result.stdout.trim();
 				request.response
 					..headers.add('Access-Control-Allow-Origin', '*')
 					..headers.add('Content-Type', 'application/json')
