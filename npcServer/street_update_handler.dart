@@ -94,6 +94,11 @@ class StreetUpdateHandler
 				if(streets[streetName].plants[map["harvest"]] != null)
                 	streets[streetName].plants[map["harvest"]].harvest();
 			}
+			if(map["water"] != null)
+			{
+				if(streets[streetName].plants[map["water"]] != null)
+                	streets[streetName].plants[map["water"]].water();
+			}
 			
 			String username = map["username"];
 			if(!streets.containsKey(streetName))
@@ -101,7 +106,7 @@ class StreetUpdateHandler
 			
 			if(map["message"] == "joined")
 			{
-				print("${map['username']} joined $streetName");
+				print("(${new DateTime.now()}) ${map['username']} joined $streetName");
 				streets[streetName].occupants.add(ws);
 			}
 			else if(map["message"] == "left")
@@ -109,7 +114,7 @@ class StreetUpdateHandler
 		}
 		catch(error)
 		{
-			print("Error processing message: $error");
+			print("(${new DateTime.now()}) Error processing message: $error");
 		}
 	}
 }

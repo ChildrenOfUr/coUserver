@@ -100,8 +100,9 @@ class Plant
 	
 	String url = "http://c2.glitch.bz/items/2012-12-06/trant_fruit__f_cap_10_f_num_10_h_10_m_10_seed_0_111119119_png_1354830686.png";
 	String id;
-	int state, maxState = 60, x, y;
+	int state, maxState = 59, x, y;
 	DateTime respawn;
+	List<String> actions = ["harvest","water"];
 	
 	Plant(this.id,this.state,this.x,this.y);
 	
@@ -124,6 +125,15 @@ class Plant
 		
 		if(state < 0)
 			state = 0;
+	}
+	
+	water()
+	{
+		respawn = new DateTime.now().add(new Duration(seconds:30));
+		state++;
+		
+		if(state > maxState)
+			state = maxState;
 	}
 	
 	Map getMap()
