@@ -49,7 +49,7 @@ class Street
 		{
 			//1 billion numbers a unique string makes?
 			String id = "p"+rand.nextInt(1000000000).toString();
-			plants[id] = new Plant(id,rand.nextInt(60),300*i,100);
+			plants[id] = new Plant(id,rand.nextInt(60),400*i,100);
 		}
 	}
 }
@@ -97,14 +97,18 @@ class Plant
 	/**
 	 * Will check for plant growth/decay and send updates to clients if needed
 	 */
-	
+
+	Map<String,Function> functions;	
 	String url = "http://c2.glitch.bz/items/2012-12-06/trant_fruit__f_cap_10_f_num_10_h_10_m_10_seed_0_111119119_png_1354830686.png";
 	String id;
 	int state, maxState = 59, x, y, numRows = 4, numColumns = 15, numFrames = 60;
 	DateTime respawn;
 	List<String> actions = ["harvest","water"];
 	
-	Plant(this.id,this.state,this.x,this.y);
+	Plant(this.id,this.state,this.x,this.y)
+	{
+		functions = {"water" : water, "harvest" : harvest};
+	}
 	
 	update()
 	{
@@ -145,6 +149,7 @@ class Plant
 		map["numRows"] = numRows;
 		map["numColumns"] = numColumns;
 		map["numFrames"] = numFrames;
+		map["actions"] = actions;
 		map['x'] = x;
 		map['y'] = y;
         return map;
