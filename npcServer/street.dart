@@ -49,7 +49,7 @@ class Street
 		{
 			//1 billion numbers a unique string makes?
 			String id = "p"+rand.nextInt(1000000000).toString();
-			plants[id] = new Plant(id,60,100*i,100);
+			plants[id] = new Plant(id,rand.nextInt(60),300*i,100);
 		}
 	}
 }
