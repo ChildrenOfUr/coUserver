@@ -100,7 +100,7 @@ class Plant
 	
 	String url = "http://c2.glitch.bz/items/2012-12-06/trant_fruit__f_cap_10_f_num_10_h_10_m_10_seed_0_111119119_png_1354830686.png";
 	String id;
-	int state, maxState = 59, x, y;
+	int state, maxState = 59, x, y, numRows = 4, numColumns = 15, numFrames = 60;
 	DateTime respawn;
 	List<String> actions = ["harvest","water"];
 	
@@ -142,6 +142,9 @@ class Plant
 		map['url'] = url;
 		map['id'] = id;
 		map['state'] = state;
+		map["numRows"] = numRows;
+		map["numColumns"] = numColumns;
+		map["numFrames"] = numFrames;
 		map['x'] = x;
 		map['y'] = y;
         return map;
