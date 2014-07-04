@@ -31,15 +31,25 @@ class Street
 				type = "mood";
 			if(typeInt == 3)
 				type = "img";
-			quoins[id] = new Quoin(id,i*200,rand.nextInt(200)+200,type,this);
+			quoins[id] = new Quoin(id,i*200,rand.nextInt(200)+200,type);
 		}
 		
+		//generate some piggies
 		num = rand.nextInt(3) + 1;
 		for(int i=1; i<=num; i++)
 		{
 			//1 billion numbers a unique string makes?
 			String id = "n"+rand.nextInt(1000000000).toString();
-			npcs[id] = new NPC(id,i*200,"piggy",this);
+			npcs[id] = new NPC(id,i*200,"piggy");
+		}
+		
+		//generate some fruit trees
+		num = rand.nextInt(3) + 1;
+		for(int i=1; i<=num; i++)
+		{
+			//1 billion numbers a unique string makes?
+			String id = "p"+rand.nextInt(1000000000).toString();
+			plants[id] = new Plant(id,60,100*i,100);
 		}
 	}
 }
@@ -49,11 +59,10 @@ class Quoin
 	String url = "https://raw.github.com/robertmcdermot/couspritesheets/master/spritesheets/quoin/quoin__x1_1_x1_2_x1_3_x1_4_x1_5_x1_6_x1_7_x1_8_png_1354829599.png";
 	String id, type;
 	int x,y;
-	Street street;
 	DateTime respawn;
 	bool collected = false;
 	
-	Quoin(this.id,this.x,this.y,this.type,this.street);
+	Quoin(this.id,this.x,this.y,this.type);
 	
 	/**
 	 * Will check for quoin collection/spawn and send updates to clients if needed
@@ -88,15 +97,43 @@ class Plant
 	/**
 	 * Will check for plant growth/decay and send updates to clients if needed
 	 */
+	
+	String url = "http://c2.glitch.bz/items/2012-12-06/trant_fruit__f_cap_10_f_num_10_h_10_m_10_seed_0_111119119_png_1354830686.png";
+	String id;
+	int state, maxState = 60, x, y;
+	DateTime respawn;
+	
+	Plant(this.id,this.state,this.x,this.y);
+	
 	update()
 	{
+		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0)
+		{
+			state++;
+			respawn = new DateTime.now().add(new Duration(seconds:30));
+		}
 		
+		if(state > maxState)
+			state = maxState;
+	}
+	
+	harvest()
+	{
+		respawn = new DateTime.now().add(new Duration(seconds:30));
+		state--;
+		
+		if(state < 0)
+			state = 0;
 	}
 	
 	Map getMap()
 	{
 		Map map = new Map();
-		
+		map['url'] = url;
+		map['id'] = id;
+		map['state'] = state;
+		map['x'] = x;
+		map['y'] = y;
         return map;
 	}
 }
@@ -107,11 +144,10 @@ class NPC
 	String url;
 	String id,type;
 	int x,y,width, height, numRows, numColumns, numFrames, speed;
-	Street street;
 	DateTime respawn;
 	bool collected = false, facingRight = true;
 	
-	NPC(this.id,this.x,this.type,this.street)
+	NPC(this.id,this.x,this.type)
 	{
 		respawn = new DateTime.now();
 		

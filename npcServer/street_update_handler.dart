@@ -89,6 +89,11 @@ class StreetUpdateHandler
 				
 				return;
 			}
+			if(map["harvest"] != null)
+			{
+				if(streets[streetName].plants[map["harvest"]] != null)
+                	streets[streetName].plants[map["harvest"]].harvest();
+			}
 			
 			String username = map["username"];
 			if(!streets.containsKey(streetName))
