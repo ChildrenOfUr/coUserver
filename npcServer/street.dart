@@ -98,17 +98,13 @@ class Plant
 	 * Will check for plant growth/decay and send updates to clients if needed
 	 */
 
-	Map<String,Function> functions;	
 	String url = "http://c2.glitch.bz/items/2012-12-06/trant_fruit__f_cap_10_f_num_10_h_10_m_10_seed_0_111119119_png_1354830686.png";
 	String id;
 	int state, maxState = 59, x, y, numRows = 4, numColumns = 15, numFrames = 60;
 	DateTime respawn;
 	List<String> actions = ["harvest","water"];
 	
-	Plant(this.id,this.state,this.x,this.y)
-	{
-		functions = {"water" : water, "harvest" : harvest};
-	}
+	Plant(this.id,this.state,this.x,this.y);
 	
 	update()
 	{
@@ -124,6 +120,9 @@ class Plant
 	
 	harvest()
 	{
+		if(state == 0)
+			return;
+		
 		respawn = new DateTime.now().add(new Duration(seconds:30));
 		state--;
 		
@@ -133,6 +132,9 @@ class Plant
 	
 	water()
 	{
+		if(state == maxState)
+			return;
+		
 		respawn = new DateTime.now().add(new Duration(seconds:30));
 		state++;
 		

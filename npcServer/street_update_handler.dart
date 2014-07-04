@@ -89,9 +89,15 @@ class StreetUpdateHandler
 				
 				return;
 			}
-			if(map["callMethod"] != null && streets[streetName].plants[map['id']] != null)
+			if(map["callMethod"] != null)
 			{
-				streets[streetName].plants[map['id']].functions[map['callMethod']];
+				if(map['type'] == "plant" && streets[streetName].plants[map['id']] != null)
+				{
+					if(map['callMethod'] == 'harvest')
+						streets[streetName].plants[map['id']].harvest();
+					if(map['callMethod'] == 'water')
+	                	streets[streetName].plants[map['id']].water();
+				}
 			}
 			
 			String username = map["username"];
