@@ -79,6 +79,11 @@ void main()
 					..write(JSON.encode(statusMap))
 					..close();
 			}
+			else if(request.uri.path == "/restartServer")
+			{
+				//TODO this should probably be secured - don't care right now
+				Process.runSync("/bin/sh",["restart_server.sh"]);
+			}
 			else
 			{
 				WebSocketTransformer.upgrade(request).then((WebSocket websocket) 
