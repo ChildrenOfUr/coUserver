@@ -166,6 +166,7 @@ class NPC
 	int x,y,width, height, numRows, numColumns, numFrames, speed;
 	DateTime respawn;
 	bool collected = false, facingRight = true;
+	List<String> actions = ["nibble","pet"];
 	
 	NPC(this.id,this.x,this.type)
 	{
@@ -246,6 +247,7 @@ class NPC
 		map["width"] = width;
         map["height"] = height;
         map["facingRight"] = facingRight;
+        map["actions"] = actions;
         return map;
 	}
 }
