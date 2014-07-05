@@ -40,7 +40,7 @@ class Street
 		{
 			//1 billion numbers a unique string makes?
 			String id = "n"+rand.nextInt(1000000000).toString();
-			npcs[id] = new NPC(id,i*200,"piggy");
+			npcs[id] = new NPC(id,i*200,"Piggy");
 		}
 		
 		//generate some fruit trees
@@ -49,7 +49,7 @@ class Street
 		{
 			//1 billion numbers a unique string makes?
 			String id = "p"+rand.nextInt(1000000000).toString();
-			plants[id] = new Plant(id,rand.nextInt(60),400*i,100);
+			plants[id] = new Plant(id,"Fruit Tree",rand.nextInt(60),400*i,100);
 		}
 	}
 }
@@ -99,12 +99,12 @@ class Plant
 	 */
 
 	String url = "http://c2.glitch.bz/items/2012-12-06/trant_fruit__f_cap_10_f_num_10_h_10_m_10_seed_0_111119119_png_1354830686.png";
-	String id;
+	String id, type;
 	int state, maxState = 59, x, y, numRows = 4, numColumns = 15, numFrames = 60;
 	DateTime respawn;
 	List<String> actions = ["harvest","water"];
 	
-	Plant(this.id,this.state,this.x,this.y);
+	Plant(this.id, this.type, this.state,this.x,this.y);
 	
 	update()
 	{
@@ -147,6 +147,7 @@ class Plant
 		Map map = new Map();
 		map['url'] = url;
 		map['id'] = id;
+		map['type'] = type;
 		map['state'] = state;
 		map["numRows"] = numRows;
 		map["numColumns"] = numColumns;
@@ -172,7 +173,7 @@ class NPC
 	{
 		respawn = new DateTime.now();
 		
-		if(type == "piggy")
+		if(type == "Piggy")
 		{
 			width = 88;
 			height = 62;
