@@ -98,6 +98,13 @@ class StreetUpdateHandler
 					if(map['callMethod'] == 'water')
 	                	streets[streetName].plants[map['id']].water();
 				}
+				if(map['type'] == "npc" && streets[streetName].plants[map['id']] != null)
+				{
+					if(map['callMethod'] == 'nibble')
+						streets[streetName].npcs[map['id']].nibble(ws);
+					if(map['callMethod'] == 'pet')
+	                	streets[streetName].npcs[map['id']].pet();
+				}
 			}
 			
 			String username = map["username"];
