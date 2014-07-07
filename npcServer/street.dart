@@ -132,6 +132,7 @@ class Plant
 		map['url'] = 'https://raw.githubusercontent.com/RobertMcDermot/coUspritesheets/master/spritesheets/cherry/cherry__x1_1_x1_2_x1_3_x1_4_png_1354829757.png';
 		map['num'] = 1;
 		map['name'] = 'cherry';
+		map['fromObject'] = id;
 		userSocket.add(JSON.encode(map));
 		
 		if(state < 0)
@@ -197,6 +198,7 @@ class NPC
 		map['url'] = 'https://raw.githubusercontent.com/RobertMcDermot/coUspritesheets/master/spritesheets/meat/meat__x1_1_x1_2_x1_3_x1_4_png_1354829570.png';
 		map['num'] = 1;
 		map['name'] = 'meat';
+		map['fromObject'] = id;
 		userSocket.add(JSON.encode(map));
 	}
 	
