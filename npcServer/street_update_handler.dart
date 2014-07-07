@@ -98,7 +98,7 @@ class StreetUpdateHandler
 					if(map['callMethod'] == 'water')
 	                	streets[streetName].plants[map['id']].water();
 				}
-				if(map['type'] == "npc" && streets[streetName].plants[map['id']] != null)
+				if(map['type'] == "npc" && streets[streetName].npcs[map['id']] != null)
 				{
 					if(map['callMethod'] == 'nibble')
 						streets[streetName].npcs[map['id']].nibble(ws);
