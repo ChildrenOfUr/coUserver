@@ -118,7 +118,7 @@ class Plant
 			state = maxState;
 	}
 	
-	harvest()
+	harvest(WebSocket userSocket)
 	{
 		if(state == 0)
 			return;
@@ -128,8 +128,11 @@ class Plant
 		
 		//give the player the 'fruits' of their labor
 		Map map = {};
+		map['giveItem'] = "true";
 		map['url'] = 'https://raw.githubusercontent.com/RobertMcDermot/coUspritesheets/master/spritesheets/cherry/cherry__x1_1_x1_2_x1_3_x1_4_png_1354829757.png';
-		
+		map['num'] = 1;
+		map['name'] = 'cherry';
+		userSocket.add(JSON.encode(map));
 		
 		if(state < 0)
 			state = 0;

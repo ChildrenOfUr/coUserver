@@ -94,7 +94,7 @@ class StreetUpdateHandler
 				if(map['type'] == "plant" && streets[streetName].plants[map['id']] != null)
 				{
 					if(map['callMethod'] == 'harvest')
-						streets[streetName].plants[map['id']].harvest();
+						streets[streetName].plants[map['id']].harvest(ws);
 					if(map['callMethod'] == 'water')
 	                	streets[streetName].plants[map['id']].water();
 				}
