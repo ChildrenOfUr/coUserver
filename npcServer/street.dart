@@ -102,7 +102,7 @@ class Plant
 	String id, type;
 	int state, maxState = 59, x, y, numRows = 4, numColumns = 15, numFrames = 60;
 	DateTime respawn;
-	List<String> actions = ["harvest","water"];
+	Map<String,String> actions = {"harvest":"harvesting","water":"watering"};
 	
 	Plant(this.id, this.type, this.state,this.x,this.y);
 	
@@ -125,6 +125,11 @@ class Plant
 		
 		respawn = new DateTime.now().add(new Duration(seconds:30));
 		state--;
+		
+		//give the player the 'fruits' of their labor
+		Map map = {};
+		map['url'] = 'https://raw.githubusercontent.com/RobertMcDermot/coUspritesheets/master/spritesheets/cherry/cherry__x1_1_x1_2_x1_3_x1_4_png_1354829757.png';
+		
 		
 		if(state < 0)
 			state = 0;
@@ -167,7 +172,7 @@ class NPC
 	int x,y,width, height, numRows, numColumns, numFrames, speed;
 	DateTime respawn;
 	bool collected = false, facingRight = true;
-	List<String> actions = ["nibble","pet"];
+	Map<String,String> actions = {"nibble":"nibbling","pet":"petting"};
 	
 	NPC(this.id,this.x,this.type)
 	{
