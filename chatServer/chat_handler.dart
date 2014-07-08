@@ -8,7 +8,10 @@ class ChatHandler
 	
 	ChatHandler(WebSocket ws)
 	{
-		new KeepAlive().start(ws); //if a heroku app does not send any information for more than 55 seconds, the connection will be terminated
+		/**we are no longer using heroku so this should not be necessary**/
+		//if a heroku app does not send any information for more than 55 seconds, the connection will be terminated
+		//new KeepAlive().start(ws); 
+		
 		ws.listen((message)
 		{
 			Map map = JSON.decode(message);
