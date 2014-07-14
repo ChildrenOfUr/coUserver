@@ -2,4 +2,5 @@ name: coUserver
 version: 0.0.0
 author: coU Development Team
 description: The sourcecode/tools needed to hack/compile the Children of Ur server
-
+dependencies:
+  http: any

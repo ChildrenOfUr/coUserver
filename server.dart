@@ -5,6 +5,8 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 
+import "package:http/http.dart" as http;
+
 //common to all server parts
 part 'common/identifier.dart';
 
@@ -22,6 +24,8 @@ part 'npcServer/street.dart';
 
 //various http parts (as opposed to the previous websocket parts)
 part 'web/stress_test.dart';
+
+part 'multiplayerServer/gps.dart';
 
 IRCRelay relay;
 
@@ -83,6 +87,17 @@ void main()
 			{
 				//TODO this should probably be secured - don't care right now
 				Process.runSync("/bin/sh",["restart_server.sh"]);
+			}
+			else if(request.uri.path == "/slack")
+			{
+				UTF8.decodeStream(request).then((String dataString)
+				{
+					print("got data from slack: $dataString");
+					Map data = JSON.decode(dataString);
+					Map message = {'username':'dev_${data['user_name']}','channel':'Global Chat'};
+					message['message'] = data['text'];
+					ChatHandler.sendAll(JSON.encode(message));
+				});
 			}
 			else
 			{
