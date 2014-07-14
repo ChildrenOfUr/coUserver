@@ -90,14 +90,16 @@ void main()
 			}
 			else if(request.uri.path == "/slack")
 			{
-				UTF8.decodeStream(request).then((String dataString)
+				try
+				{UTF8.decodeStream(request).then((String dataString)
 				{
 					print("got data from slack: $dataString");
 					Map data = JSON.decode(dataString);
 					Map message = {'username':'dev_${data['user_name']}','channel':'Global Chat'};
 					message['message'] = data['text'];
 					ChatHandler.sendAll(JSON.encode(message));
-				});
+				});}
+				catch(e){print("there was a problem: $e");}
 			}
 			else
 			{
