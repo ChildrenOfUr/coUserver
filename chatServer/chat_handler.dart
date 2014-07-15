@@ -25,7 +25,7 @@ class ChatHandler
 			if(relay.slackConnected && map["channel"] == "Global Chat")
 			{
 				if(map["statusMessage"] == null && map["username"] != null && map["message"] != null)
-					relay.slackSend(map["username"] + ": " + map["message"]);
+					relay.slackSend(map["username"] + ":: " + map["message"]);
 			}
 			processMessage(ws, message);
 	    }, 

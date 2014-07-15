@@ -92,10 +92,16 @@ void main()
 			{
 				UTF8.decodeStream(request).then((String dataString)
 				{
-					print("got data from slack: $dataString");
 					Map data = Uri.splitQueryString(dataString);
-					Map message = {'username':'dev_${data['user_name']}','channel':'Global Chat'};
-					message['message'] = data['text'];
+					String username = data['user_name'];
+					String text = data['text'];
+					if(username == "robertmcdermot")
+					{
+						if(text.contains("::"))
+							return;
+					}
+					Map message = {'username':'dev_$username','channel':'Global Chat'};
+					message['message'] = text;
 					ChatHandler.sendAll(JSON.encode(message));
 				});
 			}
