@@ -31,6 +31,6 @@ getMapFillerData(HttpRequest request)
 		request.response
 			..headers.add('Access-Control-Allow-Origin', '*')
 			..headers.add('Content-Type', 'application/json')
-			..write(map)..close();
+			..write(JSON.encode(map))..close();
 	});
 }
