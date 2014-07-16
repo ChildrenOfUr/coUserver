@@ -95,14 +95,17 @@ void main()
 					Map data = Uri.splitQueryString(dataString);
 					String username = data['user_name'];
 					String text = data['text'];
-					if(username == "robertmcdermot")
+					if(username == "robertmcdermot" && text.contains("::"))
 					{
-						if(text.contains("::"))
-							return;
+						request.response..write("OK")..close();
+						return;
 					}
+					
 					Map message = {'username':'dev_$username','channel':'Global Chat'};
 					message['message'] = text;
 					ChatHandler.sendAll(JSON.encode(message));
+					
+					request.response..write("OK")..close();
 				});
 			}
 			else
