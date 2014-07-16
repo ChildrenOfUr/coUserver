@@ -6,7 +6,7 @@ getMapFillerData(HttpRequest request)
 	String tsid = data['tsid'];
 	http.get('http://glitchthegame.com/locations/$tsid').then((response)
 	{
-		Map map = {};
+		Map map = {'tsid':tsid};
 		
 		//get map preview url
 		RegExp regEx = new RegExp(r'class="location-img".+background-image: url\((.+)\)');
