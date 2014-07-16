@@ -27,13 +27,15 @@ part 'web/stress_test.dart';
 
 part 'multiplayerServer/gps.dart';
 
+part 'util.dart';
+
 IRCRelay relay;
 
 void main() 
 {
 	int port = 8080;
 	try	{port = int.parse(Platform.environment['PORT']);} //Platform.environment['PORT'] is for Heroku, 8080 is for localhost
-	catch (error){port = 8080;}
+	catch (error){port = 8181;}
 	HttpServer.bind('0.0.0.0', port).then((HttpServer server) 
 	{
 		//setup the IRCRelay
@@ -107,16 +109,7 @@ void main()
 			}
 			else if(request.uri.path == "/streetPreview")
 			{
-				Map data = request.uri.queryParameters;	
-				String tsid = data['tsid'];
-				http.get('http://glitchthegame.com/locations/$tsid').then((response)
-    			{
-    				RegExp regEx = new RegExp(r'class="location-img".+background-image: url\((.+)\)');
-    				request.response
-    					..headers.add('Access-Control-Allow-Origin', '*')
-    					..headers.add('Content-Type', 'text/plain')
-    					..write(regEx.firstMatch(response.body).group(1))..close();
-    			});
+				getMapFillerData(request);
 			}
 			else
 			{
