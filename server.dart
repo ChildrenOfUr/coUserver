@@ -31,9 +31,9 @@ IRCRelay relay;
 
 void main() 
 {
-	int port = 8080;
+	int port = 8181;
 	try	{port = int.parse(Platform.environment['PORT']);} //Platform.environment['PORT'] is for Heroku, 8080 is for localhost
-	catch (error){port = 8080;}
+	catch (error){port = 8181;}
 	HttpServer.bind('0.0.0.0', port).then((HttpServer server) 
 	{
 		//setup the IRCRelay
@@ -90,23 +90,33 @@ void main()
 			}
 			else if(request.uri.path == "/slack")
 			{
-				UTF8.decodeStream(request).then((String dataString)
+				Map data = request.uri.queryParameters;
+				String username = data['user_name'];
+				String text = data['text'];
+				if(username == "robertmcdermot" && text.contains("::"))
 				{
-					Map data = Uri.splitQueryString(dataString);
-					String username = data['user_name'];
-					String text = data['text'];
-					if(username == "robertmcdermot" && text.contains("::"))
-					{
-						request.response..write("OK")..close();
-						return;
-					}
-					
-					Map message = {'username':'dev_$username','channel':'Global Chat'};
-					message['message'] = text;
-					ChatHandler.sendAll(JSON.encode(message));
-					
 					request.response..write("OK")..close();
-				});
+					return;
+				}
+				
+				Map message = {'username':'dev_$username','channel':'Global Chat'};
+				message['message'] = text;
+				ChatHandler.sendAll(JSON.encode(message));
+				
+				request.response..write("OK")..close();
+			}
+			else if(request.uri.path == "/streetPreview")
+			{
+				Map data = request.uri.queryParameters;	
+				String tsid = data['tsid'];
+				http.get('http://glitchthegame.com/locations/$tsid').then((response)
+    			{
+    				RegExp regEx = new RegExp(r'class="location-img".+background-image: url\((.+)\)');
+    				request.response
+    					..headers.add('Access-Control-Allow-Origin', '*')
+    					..headers.add('Content-Type', 'text/plain')
+    					..write(regEx.firstMatch(response.body).group(1))..close();
+    			});
 			}
 			else
 			{
