@@ -1,5 +1,35 @@
 part of coUserver;
 
+saveStreetData(Map params)
+{
+	String tsid = params['tsid'];
+	List entities = JSON.decode(params['entities']);
+	File file = new File('./streetEntities/$tsid');
+	if(file.existsSync())
+	{
+		Map oldFile = JSON.decode(file.readAsStringSync());
+		//backup the older file and replace it with this new file
+    	File backup = new File('./streetEntities/$tsid.bak');
+    	if(backup.existsSync())
+    	{
+    		Map oldData = JSON.decode(backup.readAsStringSync());
+    		List backups = oldData['backups'];
+    		backups.add({new DateTime.now().toIso8601String():oldFile});
+    		backup.writeAsStringSync(JSON.encode({'backups':backups}));
+    	}
+    	else
+    	{
+    		backup.createSync(recursive:true);
+	    	Map oldData = {'backups':[{new DateTime.now().toIso8601String():oldFile}]};
+	    	backup.writeAsStringSync(JSON.encode(oldData));
+    	}
+    }
+	else
+		file.createSync(recursive:true);
+	
+	file.writeAsStringSync(JSON.encode({'entities':entities}));
+}
+
 getMapFillerData(HttpRequest request)
 {
 	Map data = request.uri.queryParameters;	

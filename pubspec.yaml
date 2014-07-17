@@ -4,3 +4,4 @@ author: coU Development Team
 description: The sourcecode/tools needed to hack/compile the Children of Ur server
 dependencies:
   http: any
+  http_server: any

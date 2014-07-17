@@ -6,6 +6,7 @@ import 'dart:convert';
 import 'dart:math';
 
 import "package:http/http.dart" as http;
+import "package:http_server/http_server.dart";
 
 //common to all server parts
 part 'common/identifier.dart';
@@ -35,7 +36,7 @@ void main()
 {
 	int port = 8080;
 	try	{port = int.parse(Platform.environment['PORT']);} //Platform.environment['PORT'] is for Heroku, 8080 is for localhost
-	catch (error){port = 8080;}
+	catch (error){port = 8181;}
 	HttpServer.bind('0.0.0.0', port).then((HttpServer server) 
 	{
 		//setup the IRCRelay
@@ -107,9 +108,26 @@ void main()
 				
 				request.response..write("OK")..close();
 			}
-			else if(request.uri.path == "/streetPreview")
+			else if(request.uri.path == "/entityUpload")
 			{
-				getMapFillerData(request);
+				HttpBodyHandler.processRequest(request).then((HttpBody body)
+				{
+					Map params = body.body;
+    				String tsid = params['tsid'];
+    				
+    				request.response
+    				        ..headers.add('Access-Control-Allow-Origin', '*')
+                            ..headers.add('Content-Type', 'application/json');
+    				if(tsid == null)
+    				{
+    					request.response..write("FAIL")..close();
+    					return;
+    				}
+    				
+    				saveStreetData(params);
+    				
+    				request.response..write("OK")..close();
+				});
 			}
 			else
 			{
