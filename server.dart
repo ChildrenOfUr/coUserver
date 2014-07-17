@@ -36,7 +36,7 @@ void main()
 {
 	int port = 8080;
 	try	{port = int.parse(Platform.environment['PORT']);} //Platform.environment['PORT'] is for Heroku, 8080 is for localhost
-	catch (error){port = 8181;}
+	catch (error){port = 8080;}
 	HttpServer.bind('0.0.0.0', port).then((HttpServer server) 
 	{
 		//setup the IRCRelay
