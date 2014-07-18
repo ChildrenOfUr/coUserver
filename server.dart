@@ -93,8 +93,12 @@ void main()
 			}
 			else if(request.uri.path == "/slack")
 			{
+				HttpBodyHandler.processRequest(request).then((HttpBody body)
+				{
+					print("body: ${body.body}");
+				});
 				Map data = request.uri.queryParameters;
-				print("god message inc: ${request.uri.toString()}");
+				print("god message inc: ${request.uri.queryParameters}");
 				String username = data['user_name'];
 				String text = data['text'];
 				if(username == "robertmcdermot" && text.contains("::"))
