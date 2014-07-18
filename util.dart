@@ -2,6 +2,9 @@ part of coUserver;
 
 Map getStreetEntities(String tsid)
 {
+	if(tsid == null)
+		return null;
+	
 	if(tsid.startsWith("G"))
 		tsid = tsid.replaceFirst("G", "L");
 	Map entities = null;
