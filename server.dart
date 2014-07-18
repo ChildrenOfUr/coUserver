@@ -95,26 +95,24 @@ void main()
 			{
 				HttpBodyHandler.processRequest(request).then((HttpBody body)
 				{
-					print("body: ${body.body}");
+					Map data = body.body;
+					String username = data['user_name'];
+    				String text = data['text'];
+    				if(username == "robertmcdermot" && text.contains("::"))
+    				{
+    					request.response..write("OK")..close();
+    					return;
+    				}
+    				
+    				Map message = {'username':'dev_$username','channel':'Global Chat'};
+    				if(text != null)
+    				{
+    					message['message'] = text;
+    					ChatHandler.sendAll(JSON.encode(message));
+    				}
+    				
+    				request.response..write("OK")..close();
 				});
-				Map data = request.uri.queryParameters;
-				print("god message inc: ${request.uri.queryParameters}");
-				String username = data['user_name'];
-				String text = data['text'];
-				if(username == "robertmcdermot" && text.contains("::"))
-				{
-					request.response..write("OK")..close();
-					return;
-				}
-				
-				Map message = {'username':'dev_$username','channel':'Global Chat'};
-				if(text != null)
-				{
-					message['message'] = text;
-					ChatHandler.sendAll(JSON.encode(message));
-				}
-				
-				request.response..write("OK")..close();
 			}
 			else if(request.uri.path == "/entityUpload")
 			{
