@@ -108,11 +108,13 @@ class StreetUpdateHandler
 			}
 			
 			String username = map["username"];
-			if(!streets.containsKey(streetName))
-				streets[streetName] = new Street(streetName,tsid:map['tsid']);
 			
 			if(map["message"] == "joined")
 			{
+				if(!streets.containsKey(streetName))
+    			{
+    				streets[streetName] = new Street(streetName,map['tsid']);
+    			}
 				print("(${new DateTime.now()}) ${map['username']} joined $streetName");
 				streets[streetName].occupants.add(ws);
 			}

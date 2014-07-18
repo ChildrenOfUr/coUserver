@@ -9,7 +9,7 @@ class Street
 	List<WebSocket> occupants;
 	String label;
 	
-	Street(this.label,{String tsid : null})
+	Street(this.label,String tsid)
 	{
 		quoins = new Map<String,Quoin>();
 		plants = new Map<String,Plant>();
@@ -17,52 +17,47 @@ class Street
 		occupants = new List<WebSocket>();
 		
 		//attempt to load street occupants from streetEntities folder
-		if(tsid != null)
+		Map entities = getStreetEntities(tsid);
+		if(entities == null)
 		{
-			Map entities = getStreetEntities(tsid);
-			if(entities == null)
-			{
-				generateRandomOccupants();
-			}
-			else
-			{
-				for(Map entity in entities['entities'])
-    			{
-    				String id = rand.nextInt(1000000000).toString();
-    				String type = entity['type'];
-    				int x = entity['x'];
-    				int y = entity['y'];
-    				
-    				if(type == "Img" || type == "Mood" || type == "Energy" || type == "Currant"
-    					|| type == "Mystery" || type == "Favor" || type == "Time" || type == "Quarazy")
-    				{
-    					id = "q" + id;
-    					quoins[id] = new Quoin(id,x,y,type.toLowerCase());
-    				}
-    				/*else if(type.contains("Spirit") || type.contains("Vendor"))
-    				{
-    					id = "n" + id;
-    					int numRows = entity['animationRows'], numColumns = entity['animationColumns'];
-    					int numFrames = entity['animationNumFrames'];
-    					int state = rand.nextInt(numFrames);
-    					String url = entity['url'];
-    					npcs[id] = new NPC(id,x,type);
-    				}*/
-    				else
-    				{
-    					id = "p" + id;
-    					int numRows = entity['animationRows'], numColumns = entity['animationColumns'];
-    					int numFrames = entity['animationNumFrames'];
-    					int state = rand.nextInt(numFrames);
-    					String url = entity['url'];
-    					plants[id] = new Plant(id,type,state,x,y,url,numRows,numColumns,numFrames);
-    				}
-    			}
-			}
+			generateRandomOccupants();
 		}
 		else
 		{
-			generateRandomOccupants();
+			for(Map entity in entities['entities'])
+			{
+				String type = entity['type'];
+				int x = entity['x'];
+				int y = entity['y'];
+				
+				//generate a hopefully unique code that stays the same everytime for this object
+				String id = (type+x.toString()+y.toString()+tsid).hashCode.toString();
+				
+				if(type == "Img" || type == "Mood" || type == "Energy" || type == "Currant"
+					|| type == "Mystery" || type == "Favor" || type == "Time" || type == "Quarazy")
+				{
+					id = "q" + id;
+					quoins[id] = new Quoin(id,x,y,type.toLowerCase());
+				}
+				/*else if(type.contains("Spirit") || type.contains("Vendor"))
+				{
+					id = "n" + id;
+					int numRows = entity['animationRows'], numColumns = entity['animationColumns'];
+					int numFrames = entity['animationNumFrames'];
+					int state = rand.nextInt(numFrames);
+					String url = entity['url'];
+					npcs[id] = new NPC(id,x,type);
+				}*/
+				else
+				{
+					id = "p" + id;
+					int numRows = entity['animationRows'], numColumns = entity['animationColumns'];
+					int numFrames = entity['animationNumFrames'];
+					int state = rand.nextInt(numFrames);
+					String url = entity['url'];
+					plants[id] = new Plant(id,type,state,x,y,url,numRows,numColumns,numFrames);
+				}
+			}
 		}
 	}
 	
