@@ -9,13 +9,65 @@ class Street
 	List<WebSocket> occupants;
 	String label;
 	
-	Street(this.label)
+	Street(this.label,{String tsid : null})
 	{
 		quoins = new Map<String,Quoin>();
 		plants = new Map<String,Plant>();
 		npcs = new Map<String,NPC>();
 		occupants = new List<WebSocket>();
 		
+		//attempt to load street occupants from streetEntities folder
+		if(tsid != null)
+		{
+			Map entities = getStreetEntities(tsid);
+			if(entities == null)
+			{
+				generateRandomOccupants();
+			}
+			else
+			{
+				for(Map entity in entities['entities'])
+    			{
+    				String id = rand.nextInt(1000000000).toString();
+    				String type = entity['type'];
+    				int x = entity['x'];
+    				int y = entity['y'];
+    				
+    				if(type == "Img" || type == "Mood" || type == "Energy" || type == "Currant"
+    					|| type == "Mystery" || type == "Favor" || type == "Time" || type == "Quarazy")
+    				{
+    					id = "q" + id;
+    					quoins[id] = new Quoin(id,x,y,type.toLowerCase());
+    				}
+    				else if(type.contains("Spirit") || type.contains("Vendor"))
+    				{
+    					id = "n" + id;
+    					int numRows = entity['animationRows'], numColumns = entity['animationColumns'];
+    					int numFrames = entity['animationNumFrames'];
+    					int state = rand.nextInt(numFrames);
+    					String url = entity['url'];
+    					npcs[id] = new NPC(id,x,type);
+    				}
+    				else
+    				{
+    					id = "p" + id;
+    					int numRows = entity['animationRows'], numColumns = entity['animationColumns'];
+    					int numFrames = entity['animationNumFrames'];
+    					int state = rand.nextInt(numFrames);
+    					String url = entity['url'];
+    					plants[id] = new Plant(id,type,state,x,y,url,numRows,numColumns,numFrames);
+    				}
+    			}
+			}
+		}
+		else
+		{
+			generateRandomOccupants();
+		}
+	}
+	
+	void generateRandomOccupants()
+	{
 		int num = rand.nextInt(30) + 1;
 		for(int i=0; i<num; i++)
 		{
@@ -98,13 +150,26 @@ class Plant
 	 * Will check for plant growth/decay and send updates to clients if needed
 	 */
 
-	String url = "http://c2.glitch.bz/items/2012-12-06/trant_fruit__f_cap_10_f_num_10_h_10_m_10_seed_0_111119119_png_1354830686.png";
-	String id, type;
-	int state, maxState = 59, x, y, numRows = 4, numColumns = 15, numFrames = 60;
+	String url, id, type;
+	int state, maxState, x, y, numRows, numColumns, numFrames;
 	DateTime respawn;
-	Map<String,String> actions = {"harvest":"harvesting","water":"watering"};
+	Map<String,String> actions;
 	
-	Plant(this.id, this.type, this.state,this.x,this.y);
+	Plant(this.id,this.type,this.state,this.x,this.y,[this.url,this.numRows,this.numColumns,this.numFrames,this.actions])
+	{
+		if(url == null)
+			url = "http://c2.glitch.bz/items/2012-12-06/trant_fruit__f_cap_10_f_num_10_h_10_m_10_seed_0_111119119_png_1354830686.png";
+		if(numRows == null)
+			numRows = 4;
+		if(numColumns == null)
+			numColumns = 15;
+		if(numFrames == null)
+			numFrames = 60;
+		if(actions == null)
+			actions = {"harvest":"harvesting","water":"watering"};
+		
+		maxState = numFrames-1;
+	}
 	
 	update()
 	{

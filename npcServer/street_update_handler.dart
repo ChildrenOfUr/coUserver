@@ -109,7 +109,7 @@ class StreetUpdateHandler
 			
 			String username = map["username"];
 			if(!streets.containsKey(streetName))
-				streets[streetName] = new Street(streetName);
+				streets[streetName] = new Street(streetName,tsid:map['tsid']);
 			
 			if(map["message"] == "joined")
 			{

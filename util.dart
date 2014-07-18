@@ -1,8 +1,22 @@
 part of coUserver;
 
+Map getStreetEntities(String tsid)
+{
+	if(tsid.startsWith("G"))
+		tsid = tsid.replaceFirst("G", "L");
+	Map entities = null;
+	File file = new File('./streetEntities/$tsid');
+	if(file.existsSync())
+		entities = JSON.decode(file.readAsStringSync());
+	
+	return entities;
+}
 saveStreetData(Map params)
 {
 	String tsid = params['tsid'];
+	if(tsid.startsWith("G"))
+		tsid = tsid.replaceFirst("G", "L");
+	
 	List entities = JSON.decode(params['entities']);
 	File file = new File('./streetEntities/$tsid');
 	if(file.existsSync())

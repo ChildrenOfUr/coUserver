@@ -36,7 +36,7 @@ void main()
 {
 	int port = 8080;
 	try	{port = int.parse(Platform.environment['PORT']);} //Platform.environment['PORT'] is for Heroku, 8080 is for localhost
-	catch (error){port = 8080;}
+	catch (error){port = 8181;}
 	HttpServer.bind('0.0.0.0', port).then((HttpServer server) 
 	{
 		//setup the IRCRelay
@@ -103,7 +103,7 @@ void main()
 				}
 				
 				Map message = {'username':'dev_$username','channel':'Global Chat'};
-				message['message'] = text;
+				message['message'] = ""+text;
 				ChatHandler.sendAll(JSON.encode(message));
 				
 				request.response..write("OK")..close();
@@ -128,6 +128,16 @@ void main()
     				
     				request.response..write("OK")..close();
 				});
+			}
+			else if(request.uri.path == "/getEntities")
+			{
+				Map data = request.uri.queryParameters;
+				String tsid = data['tsid'];
+				request.response
+					..headers.add('Access-Control-Allow-Origin', '*')
+					..headers.add('Content-Type', 'application/json')
+					..write(JSON.encode(getStreetEntities(tsid)))
+					..close();
 			}
 			else
 			{
