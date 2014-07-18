@@ -26,7 +26,6 @@ class Street
 			}
 			else
 			{
-				print(entities);
 				for(Map entity in entities['entities'])
     			{
     				String id = rand.nextInt(1000000000).toString();
@@ -40,7 +39,7 @@ class Street
     					id = "q" + id;
     					quoins[id] = new Quoin(id,x,y,type.toLowerCase());
     				}
-    				else if(type.contains("Spirit") || type.contains("Vendor"))
+    				/*else if(type.contains("Spirit") || type.contains("Vendor"))
     				{
     					id = "n" + id;
     					int numRows = entity['animationRows'], numColumns = entity['animationColumns'];
@@ -48,7 +47,7 @@ class Street
     					int state = rand.nextInt(numFrames);
     					String url = entity['url'];
     					npcs[id] = new NPC(id,x,type);
-    				}
+    				}*/
     				else
     				{
     					id = "p" + id;
