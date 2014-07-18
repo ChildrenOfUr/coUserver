@@ -139,10 +139,11 @@ void main()
 			{
 				Map data = request.uri.queryParameters;
 				String tsid = data['tsid'];
+				Map entities = getStreetEntities(tsid);
 				request.response
 					..headers.add('Access-Control-Allow-Origin', '*')
 					..headers.add('Content-Type', 'application/json')
-					..write(JSON.encode(getStreetEntities(tsid)))
+					..write(JSON.encode(entities==null?{}:entities))
 					..close();
 			}
 			else
