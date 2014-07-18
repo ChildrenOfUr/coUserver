@@ -94,6 +94,7 @@ void main()
 			else if(request.uri.path == "/slack")
 			{
 				Map data = request.uri.queryParameters;
+				print("god message inc: $data");
 				String username = data['user_name'];
 				String text = data['text'];
 				if(username == "robertmcdermot" && text.contains("::"))
