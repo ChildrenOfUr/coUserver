@@ -26,6 +26,7 @@ class Street
 			}
 			else
 			{
+				print(entities);
 				for(Map entity in entities['entities'])
     			{
     				String id = rand.nextInt(1000000000).toString();
