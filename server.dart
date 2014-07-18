@@ -103,7 +103,10 @@ void main()
 				}
 				
 				Map message = {'username':'dev_$username','channel':'Global Chat'};
-				message['message'] = ""+text;
+				if(text != null)
+					message['message'] = text;
+				else
+					message['message'] = "";
 				ChatHandler.sendAll(JSON.encode(message));
 				
 				request.response..write("OK")..close();
