@@ -136,6 +136,9 @@ class ChatHandler
 						id.currentStreet = map["newStreetLabel"];
 					if(id.username != map["username"] && id.currentStreet == map["oldStreet"]) //others who were on the street with you
 					{
+						if(userSockets[id.username+"_"+"Local Chat"] == null)
+							return;
+						
 						Map leftForMessage = new Map();
 						leftForMessage["statusMessage"] = "leftStreet";
 						leftForMessage["username"] = map["username"];
