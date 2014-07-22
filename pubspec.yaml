@@ -5,3 +5,4 @@ description: The sourcecode/tools needed to hack/compile the Children of Ur serv
 dependencies:
   http: any
   http_server: any
+  intl: any

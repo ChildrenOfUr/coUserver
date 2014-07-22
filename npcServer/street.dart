@@ -70,6 +70,26 @@ class Street
 					id = "p" + id;
 					plants[id] = new BeanTree(id,x,y);
 				}
+				else if(type.contains("Beryl"))
+				{
+					id = "p" + id;
+					plants[id] = new BerylRock(id,x,y);
+				}
+				else if(type.contains("Sparkly"))
+				{
+					id = "p" + id;
+					plants[id] = new SparklyRock(id,x,y);
+				}
+				else if(type.contains("Dullite"))
+				{
+					id = "p" + id;
+					plants[id] = new DulliteRock(id,x,y);
+				}
+				else if(type.contains("Metal"))
+				{
+					id = "p" + id;
+					plants[id] = new MetalRock(id,x,y);
+				}
 			}
 		}
 	}

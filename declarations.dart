@@ -8,6 +8,7 @@ import 'dart:mirrors';
 
 import "package:http/http.dart" as http;
 import "package:http_server/http_server.dart";
+import "package:intl/intl.dart";
 
 part 'server.dart';
 
@@ -35,7 +36,10 @@ part 'npcServer/plants/tree.dart';
 part 'npcServer/plants/fruittree.dart';
 part 'npcServer/plants/beantree.dart';
 part 'npcServer/plants/rock.dart';
-part 'npcServer/plants/beryl.dart';
+part 'npcServer/plants/berylrock.dart';
+part 'npcServer/plants/sparklyrock.dart';
+part 'npcServer/plants/dulliterock.dart';
+part 'npcServer/plants/metalrock.dart';
 
 //various http parts (as opposed to the previous websocket parts)
 part 'web/stress_test.dart';

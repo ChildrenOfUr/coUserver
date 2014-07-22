@@ -78,6 +78,14 @@ class StreetUpdateHandler
 		{
 			Map map = JSON.decode(message);
 			String streetName = map["streetName"];
+			String username = map["username"];
+			
+			//if the street doesn't yet exist, create it (maybe it got stored baack to the datastore)
+			if(!streets.containsKey(streetName))
+			{
+				streets[streetName] = new Street(streetName,map['tsid']);
+				print("${new DateTime.now()} Loaded $streetName (${map['tsid']}) into memory.");
+			}
 			
 			if(map["remove"] != null)
 			{
@@ -94,19 +102,14 @@ class StreetUpdateHandler
 				var entity = streets[streetName].entityMaps[map['type']][map['id']];
 				if(entity != null)
 				{
+					print("user $username calling ${map['callMethod']} on ${entity.id} in $streetName (${map['tsid']})");
 					InstanceMirror entityMirror = reflect(entity);
                     entityMirror.invoke(new Symbol(map['callMethod']),[],{#userSocket:ws});
 				}
 			}
 			
-			String username = map["username"];
-			
 			if(map["message"] == "joined")
 			{
-				if(!streets.containsKey(streetName))
-    			{
-    				streets[streetName] = new Street(streetName,map['tsid']);
-    			}
 				print("(${new DateTime.now()}) ${map['username']} joined $streetName");
 				streets[streetName].occupants.add(ws);
 			}

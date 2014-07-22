@@ -44,7 +44,9 @@ void main()
 				Map statusMap = {};
 				try
 				{
-					statusMap['serverLog'] = new File('server.log').readAsStringSync();
+					DateTime date = new DateTime.now();
+					DateFormat format = new DateFormat("MM_dd_yy");
+					statusMap['serverLog'] = new File('serverLogs/${format.format(date)}-server.log').readAsStringSync();
 				}
 				catch(exception, stacktrace)
 				{
@@ -135,7 +137,7 @@ void main()
 				.catchError((error){},test: (Exception e) => e is WebSocketException);
 			}
 		});
-			
+		
 		print('${new DateTime.now().toString()}\nServing Chat on ${'0.0.0.0'}:$port.');
 	});
 }
