@@ -91,19 +91,11 @@ class StreetUpdateHandler
 			}
 			if(map["callMethod"] != null)
 			{
-				if(map['type'] == "plant" && streets[streetName].plants[map['id']] != null)
+				var entity = streets[streetName].entityMaps[map['type']][map['id']];
+				if(entity != null)
 				{
-					if(map['callMethod'] == 'harvest')
-						streets[streetName].plants[map['id']].harvest(ws);
-					if(map['callMethod'] == 'water')
-	                	streets[streetName].plants[map['id']].water();
-				}
-				if(map['type'] == "npc" && streets[streetName].npcs[map['id']] != null)
-				{
-					if(map['callMethod'] == 'nibble')
-						streets[streetName].npcs[map['id']].nibble(ws);
-					if(map['callMethod'] == 'pet')
-	                	streets[streetName].npcs[map['id']].pet();
+					InstanceMirror entityMirror = reflect(entity);
+                    entityMirror.invoke(new Symbol(map['callMethod']),[],{#userSocket:ws});
 				}
 			}
 			

@@ -1,34 +1,4 @@
-library coUserver;
-
-import 'dart:io';
-import 'dart:async';
-import 'dart:convert';
-import 'dart:math';
-
-import "package:http/http.dart" as http;
-import "package:http_server/http_server.dart";
-
-//common to all server parts
-part 'common/identifier.dart';
-
-//chat server parts
-part 'chatServer/irc_relay.dart';
-part 'chatServer/keep_alive.dart';
-part 'chatServer/chat_handler.dart';
-
-//multiplayer server parts
-part 'multiplayerServer/player_update_handler.dart';
-
-//npc server (street simulation) parts
-part 'npcServer/street_update_handler.dart';
-part 'npcServer/street.dart';
-
-//various http parts (as opposed to the previous websocket parts)
-part 'web/stress_test.dart';
-
-part 'multiplayerServer/gps.dart';
-
-part 'util.dart';
+part of coUserver;
 
 IRCRelay relay;
 
