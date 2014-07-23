@@ -66,6 +66,36 @@ class Street
 					id = "p" + id;
 					plants[id] = new BeanTree(id,x,y);
 				}
+				else if(type.contains("Egg"))
+				{
+					id = "p" + id;
+					plants[id] = new EggPlant(id,x,y);
+				}
+				else if(type.contains("Paper"))
+				{
+					id = "p" + id;
+					plants[id] = new PaperTree(id,x,y);
+				}
+				else if(type.contains("Gas"))
+				{
+					id = "p" + id;
+					plants[id] = new GasPlant(id,x,y);
+				}
+				else if(type.contains("Spice"))
+				{
+					id = "p" + id;
+					plants[id] = new SpicePlant(id,x,y);
+				}
+				else if(type.contains("Wood"))
+				{
+					id = "p" + id;
+					plants[id] = new WoodTree(id,x,y);
+				}
+				else if(type.contains("Bubble"))
+				{
+					id = "p" + id;
+					plants[id] = new BubbleTree(id,x,y);
+				}
 				else if(type.contains("Beryl"))
 				{
 					id = "p" + id;
