@@ -19,7 +19,7 @@ class FruitTree extends Tree
 				"maturity_9" : new Spritesheet("maturity_9","http://c2.glitch.bz/items/2012-12-06/trant_fruit__f_cap_10_f_num_10_h_10_m_9_seed_0_111119119_png_1354830677.png",4065,996,271,249,57,false),
 				"maturity_10" : new Spritesheet("maturity_10","http://c2.glitch.bz/items/2012-12-06/trant_fruit__f_cap_10_f_num_10_h_10_m_10_seed_0_111119119_png_1354830686.png",4065,996,271,249,60,false)
 			};
-		maturity = new Random().nextInt(states.length+1);
+		maturity = new Random().nextInt(states.length)+1;
      	currentState = states['maturity_$maturity'];
      	state = new Random().nextInt(currentState.numFrames);
      	maxState = currentState.numFrames-1;
@@ -32,9 +32,8 @@ class FruitTree extends Tree
 		//give the player the 'fruits' of their labor
 		Map map = {};
 		map['giveItem'] = "true";
-		map['url'] = 'http://c2.glitch.bz/items/2012-12-06/cherry__x1_1_x1_2_x1_3_x1_4_png_1354829757.png';
+		map['item'] = new Cherry().getMap();
 		map['num'] = 1;
-		map['name'] = 'cherry';
 		map['fromObject'] = id;
 		userSocket.add(JSON.encode(map));
 	}

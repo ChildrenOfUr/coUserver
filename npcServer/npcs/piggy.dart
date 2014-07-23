@@ -26,9 +26,8 @@ class Piggy extends NPC
 		//give the player the 'fruits' of their labor
 		Map map = {};
 		map['giveItem'] = "true";
-		map['url'] = 'http://c2.glitch.bz/items/2012-12-06/meat__x1_1_x1_2_x1_3_x1_4_png_1354829570.png';
+		map['item'] = new Meat().getMap();
 		map['num'] = 1;
-		map['name'] = 'meat';
 		map['fromObject'] = id;
 		userSocket.add(JSON.encode(map));
 		

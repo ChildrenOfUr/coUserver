@@ -22,9 +22,8 @@ class DulliteRock extends Rock
 		//give the player the 'fruits' of their labor
 		Map map = {};
 		map['giveItem'] = "true";
-		map['url'] = 'http://c2.glitch.bz/items/2012-12-06/dullite__x1_1_x1_2_x1_3_x1_4_png_1354831478.png';
+		map['item'] = new ChunkOfDullite().getMap();
 		map['num'] = 1;
-		map['name'] = 'chunk_of_dullite';
 		map['fromObject'] = id;
 		userSocket.add(JSON.encode(map));
 	}

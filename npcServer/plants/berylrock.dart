@@ -22,9 +22,8 @@ class BerylRock extends Rock
 		//give the player the 'fruits' of their labor
 		Map map = {};
 		map['giveItem'] = "true";
-		map['url'] = 'http://c2.glitch.bz/items/2012-12-06/beryl__x1_1_x1_2_x1_3_x1_4_png_1354831476.png';
+		map['item'] = new ChunkOfBeryl().getMap();
 		map['num'] = 1;
-		map['name'] = 'chunk_of_beryl';
 		map['fromObject'] = id;
 		userSocket.add(JSON.encode(map));
 		
@@ -33,10 +32,8 @@ class BerylRock extends Rock
 		{
 			map = {};
 			map['giveItem'] = "true";
-			map['url'] = 'http://c2.glitch.bz/items/2012-12-06/gem_ruby__x1_1_png_1354831652.png';
+			map['item'] = new ModestlySizedRuby().getMap();
 			map['num'] = 1;
-			map['name'] = 'modestly_sized_ruby';
-			map['stacksTo'] = 1;
 			map['fromObject'] = id;
 			userSocket.add(JSON.encode(map));
 		}

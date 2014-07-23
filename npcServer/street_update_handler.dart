@@ -104,7 +104,10 @@ class StreetUpdateHandler
 				{
 					print("user $username calling ${map['callMethod']} on ${entity.id} in $streetName (${map['tsid']})");
 					InstanceMirror entityMirror = reflect(entity);
-                    entityMirror.invoke(new Symbol(map['callMethod']),[],{#userSocket:ws});
+					List arguments = [];
+					if(map['arguments'] != null)
+						arguments = map['arguments'];
+                    entityMirror.invoke(new Symbol(map['callMethod']),arguments,{#userSocket:ws});
 				}
 			}
 			

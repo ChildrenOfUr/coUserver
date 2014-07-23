@@ -30,6 +30,20 @@ part 'npcServer/npcs/piggy.dart';
 part 'npcServer/npcs/npc.dart';
 part 'npcServer/npcs/vendor.dart';
 part 'npcServer/npcs/chicken.dart';
+
+//items
+part 'npcServer/npcs/items/item.dart';
+part 'npcServer/npcs/items/highclasshoe.dart';
+part 'npcServer/npcs/items/bean.dart';
+part 'npcServer/npcs/items/cherry.dart';
+part 'npcServer/npcs/items/grain.dart';
+part 'npcServer/npcs/items/meat.dart';
+part 'npcServer/npcs/items/chunkofberyl.dart';
+part 'npcServer/npcs/items/chunkofsparkly.dart';
+part 'npcServer/npcs/items/chunkofmetalrock.dart';
+part 'npcServer/npcs/items/chunkofdullite.dart';
+part 'npcServer/npcs/items/modestlysizedruby.dart';
+
 part 'npcServer/spritesheet.dart';
 part 'npcServer/plants/plant.dart';
 part 'npcServer/plants/tree.dart';
@@ -40,6 +54,7 @@ part 'npcServer/plants/berylrock.dart';
 part 'npcServer/plants/sparklyrock.dart';
 part 'npcServer/plants/dulliterock.dart';
 part 'npcServer/plants/metalrock.dart';
+part 'npcServer/quoin.dart';
 
 //various http parts (as opposed to the previous websocket parts)
 part 'web/stress_test.dart';
