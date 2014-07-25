@@ -38,10 +38,22 @@ class StreetUpdateHandler
 				street.quoins.forEach((String id, Quoin quoin) => quoin.update());
 				street.npcs.forEach((String id, NPC npc) => npc.update());
 				
-				Map<String,List> updates = {"quoins":[],"npcs":[],"plants":[]};
+				Map<String,List> updates = {"quoins":[],"npcs":[],"plants":[],"groundItems":[]};
 				street.quoins.forEach((String id, Quoin quoin) => updates["quoins"].add(quoin.getMap()));
 				street.npcs.forEach((String id, NPC npc) => updates["npcs"].add(npc.getMap()));
 				street.plants.forEach((String id, Plant plant) => updates["plants"].add(plant.getMap()));
+				
+				List<String> pickedUpItems = [];
+				street.groundItems.forEach((String id, Item item)
+				{
+					updates["groundItems"].add(item.getMap());
+					//check if item was picked up and if so delete it 
+					//(after sending it to the client one more time)
+					if(item.onGround == false)
+						pickedUpItems.add(id);
+				});
+				
+				pickedUpItems.forEach((String id) => street.groundItems.remove(id));
 				
 				street.occupants.forEach((WebSocket socket)
     			{
@@ -87,6 +99,7 @@ class StreetUpdateHandler
 				print("${new DateTime.now()} Loaded $streetName (${map['tsid']}) into memory.");
 			}
 			
+			//the player's hit-box collided with a quion
 			if(map["remove"] != null)
 			{
 				if(map["type"] == "quoin")
@@ -97,9 +110,12 @@ class StreetUpdateHandler
 				
 				return;
 			}
+			
+			//callMethod means the player is trying to interact with an entity
 			if(map["callMethod"] != null)
 			{
-				var entity = streets[streetName].entityMaps[map['type']][map['id']];
+				String type = map['type'].replaceAll("entity","").trim();
+				var entity = streets[streetName].entityMaps[type][map['id']];
 				if(entity != null)
 				{
 					print("user $username calling ${map['callMethod']} on ${entity.id} in $streetName (${map['tsid']})");
@@ -111,6 +127,26 @@ class StreetUpdateHandler
 				}
 			}
 			
+			//the player is dropping an item either manually or they didn't have enough room in their bags
+			if(map["dropItem"] != null)
+			{
+				ClassMirror classMirror = findClassMirror(map['dropItem']['name'].replaceAll(" ",""));
+				InstanceMirror instanceMirror = classMirror.newInstance(new Symbol(""), []);
+				//if nothing has gone wrong, we should now have an InstanceMirror for the class of
+				//item that was dropped, otherwise an error was thrown
+				num x = map['x'], y = map['y'];
+				String id = "i" + createId(x,y,map['dropItem']['name'],map['tsid']);
+				Item item = instanceMirror.reflectee;
+				item.actions = {"pickup":""};
+				item.id = id;
+				item.onGround = true;
+				item.x = x;
+				item.y = y;
+				streets[streetName].groundItems[id] = item;
+				print("dropped item: ${item.getMap()}");
+			}
+			
+			//a player has joined or left the street
 			if(map["message"] == "joined")
 			{
 				print("(${new DateTime.now()}) ${map['username']} joined $streetName");

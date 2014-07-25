@@ -7,6 +7,7 @@ class Street
 	Map<String,Plant> plants;
 	Map<String,NPC> npcs;
 	Map<String,Map> entityMaps;
+	Map<String,Item> groundItems;
 	List<WebSocket> occupants;
 	String label;
 	
@@ -15,7 +16,8 @@ class Street
 		quoins = new Map<String,Quoin>();
 		plants = new Map<String,Plant>();
 		npcs = new Map<String,NPC>();
-		entityMaps = {"quoin":quoins,"plant":plants,"npc":npcs};
+		groundItems = new Map<String,Item>();
+		entityMaps = {"quoin":quoins,"plant":plants,"npc":npcs,"groundItem":groundItems};
 		occupants = new List<WebSocket>();
 		
 		//attempt to load street occupants from streetEntities folder
@@ -33,7 +35,7 @@ class Street
 				int y = entity['y'];
 				
 				//generate a hopefully unique code that stays the same everytime for this object
-				String id = (type+x.toString()+y.toString()+tsid).hashCode.toString();
+				String id = createId(x,y,type,tsid);
 				
 				if(type == "Img" || type == "Mood" || type == "Energy" || type == "Currant"
 					|| type == "Mystery" || type == "Favor" || type == "Time" || type == "Quarazy")
@@ -41,80 +43,23 @@ class Street
 					id = "q" + id;
 					quoins[id] = new Quoin(id,x,y,type.toLowerCase());
 				}
-				else if(type.contains("Spirit") || type.contains("Vendor"))
+				else
 				{
-					id = "n" + id;
-					npcs[id] = new Vendor(id,x,y);
-				}
-				else if(type.contains("Piggy"))
-				{
-					id = "n" + id;
-					npcs[id] = new Piggy(id,x,y);
-				}
-				else if(type.contains("Chicken"))
-				{
-					id = "n" + id;
-					npcs[id] = new Chicken(id,x,y);
-				}
-				else if(type.contains("Fruit"))
-				{
-					id = "p" + id;
-					plants[id] = new FruitTree(id,x,y);
-				}
-				else if(type.contains("Bean"))
-				{
-					id = "p" + id;
-					plants[id] = new BeanTree(id,x,y);
-				}
-				else if(type.contains("Egg"))
-				{
-					id = "p" + id;
-					plants[id] = new EggPlant(id,x,y);
-				}
-				else if(type.contains("Paper"))
-				{
-					id = "p" + id;
-					plants[id] = new PaperTree(id,x,y);
-				}
-				else if(type.contains("Gas"))
-				{
-					id = "p" + id;
-					plants[id] = new GasPlant(id,x,y);
-				}
-				else if(type.contains("Spice"))
-				{
-					id = "p" + id;
-					plants[id] = new SpicePlant(id,x,y);
-				}
-				else if(type.contains("Wood"))
-				{
-					id = "p" + id;
-					plants[id] = new WoodTree(id,x,y);
-				}
-				else if(type.contains("Bubble"))
-				{
-					id = "p" + id;
-					plants[id] = new BubbleTree(id,x,y);
-				}
-				else if(type.contains("Beryl"))
-				{
-					id = "p" + id;
-					plants[id] = new BerylRock(id,x,y);
-				}
-				else if(type.contains("Sparkly"))
-				{
-					id = "p" + id;
-					plants[id] = new SparklyRock(id,x,y);
-				}
-				else if(type.contains("Dullite"))
-				{
-					id = "p" + id;
-					plants[id] = new DulliteRock(id,x,y);
-				}
-				else if(type.contains("Metal"))
-				{
-					id = "p" + id;
-					plants[id] = new MetalRock(id,x,y);
+					try
+					{
+						ClassMirror classMirror = findClassMirror(type.replaceAll(" ", ""));
+						if(classMirror.isSubclassOf(findClassMirror("NPC")))
+						{
+							id = "n" + id;
+                            npcs[id] = classMirror.newInstance(new Symbol(""), [id,x,y]).reflectee;
+						}
+						if(classMirror.isSubclassOf(findClassMirror("Plant")))
+						{
+							id = "p" + id;
+                        	plants[id] = classMirror.newInstance(new Symbol(""), [id,x,y]).reflectee;
+						}
+					}
+					catch(e){print("Unable to instantiate a class for $type: $e");}
 				}
 			}
 		}

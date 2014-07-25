@@ -22,7 +22,7 @@ class SparklyRock extends Rock
 		//give the player the 'fruits' of their labor
 		Map map = {};
 		map['giveItem'] = "true";
-		map['item'] = new ChunkOfSparkly().getMap();
+		map['item'] = new ChunkofSparkly().getMap();
 		map['num'] = 1;
 		map['fromObject'] = id;
 		userSocket.add(JSON.encode(map));

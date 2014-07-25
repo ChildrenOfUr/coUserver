@@ -22,7 +22,7 @@ class BerylRock extends Rock
 		//give the player the 'fruits' of their labor
 		Map map = {};
 		map['giveItem'] = "true";
-		map['item'] = new ChunkOfBeryl().getMap();
+		map['item'] = new ChunkofBeryl().getMap();
 		map['num'] = 1;
 		map['fromObject'] = id;
 		userSocket.add(JSON.encode(map));

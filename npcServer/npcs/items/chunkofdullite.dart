@@ -1,8 +1,8 @@
 part of coUserver;
 
-class ChunkOfDullite extends Item
+class ChunkofDullite extends Item
 {
-	ChunkOfDullite() : super()
+	ChunkofDullite() : super()
 	{
 		name = "Chunk of Dullite";
 		iconUrl = "http://c2.glitch.bz/items/2012-12-06/dullite__x1_iconic_png_1354831478.png";

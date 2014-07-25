@@ -47,37 +47,27 @@ saveStreetData(Map params)
 	file.writeAsStringSync(JSON.encode({'entities':entities}));
 }
 
-getMapFillerData(HttpRequest request)
+/**
+ * Taken from https://stackoverflow.com/questions/20207855/in-dart-given-a-type-name-how-do-you-get-the-type-class-itself/20450672#20450672
+ * 
+ * This method will return a ClassMirror for a class whose name 
+ * exactly matches the string provided.
+ * 
+ * In the event that a class matching that name does not exist, it will throw
+ * an ArgumentError
+ **/
+ClassMirror findClassMirror(String name) 
 {
-	Map data = request.uri.queryParameters;	
-	String tsid = data['tsid'];
-	http.get('http://glitchthegame.com/locations/$tsid').then((response)
+	for (LibraryMirror lib in currentMirrorSystem().libraries.values) 
 	{
-		Map map = {'tsid':tsid};
-		
-		//get map preview url
-		RegExp regEx = new RegExp(r'class="location-img".+background-image: url\((.+)\)');
-		map['previewUrl'] = regEx.firstMatch(response.body).group(1);
-		
-		//get map region
-		regEx = new RegExp(r'Region:.+>(.+)<\/a>');
-		map['region'] = regEx.firstMatch(response.body).group(1);
-		
-		//get map features, if available
-		regEx = new RegExp(r'(\d) (.+?(Tree|Plant|Patch|Bog|Growth))s*');
-		regEx.allMatches(response.body).forEach((Match match)
-		{
-			map[match.group(2)] = match.group(1);
-		});
-		
-		//check for firefly swarms - can't have more than 1?
-		regEx = new RegExp(r'A Firefly Swarm');
-		if(regEx.hasMatch(response.body))
-			map['Firefly Swarm'] = 1;
-				
-		request.response
-			..headers.add('Access-Control-Allow-Origin', '*')
-			..headers.add('Content-Type', 'application/json')
-			..write(JSON.encode(map))..close();
-	});
+        DeclarationMirror mirror = lib.declarations[MirrorSystem.getSymbol(name)];
+        if (mirror != null)
+        	return mirror;
+  	}
+  	throw new ArgumentError("Class $name does not exist");
+}
+
+String createId(num x, num y, String type, String tsid)
+{
+	return (type+x.toString()+y.toString()+tsid).hashCode.toString();
 }

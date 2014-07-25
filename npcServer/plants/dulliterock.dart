@@ -22,7 +22,7 @@ class DulliteRock extends Rock
 		//give the player the 'fruits' of their labor
 		Map map = {};
 		map['giveItem'] = "true";
-		map['item'] = new ChunkOfDullite().getMap();
+		map['item'] = new ChunkofDullite().getMap();
 		map['num'] = 1;
 		map['fromObject'] = id;
 		userSocket.add(JSON.encode(map));

@@ -1,8 +1,8 @@
 part of coUserver;
 
-class ChunkOfBeryl extends Item
+class ChunkofBeryl extends Item
 {
-	ChunkOfBeryl() : super()
+	ChunkofBeryl() : super()
 	{
 		name = "Chunk of Beryl";
 		iconUrl = "http://c2.glitch.bz/items/2012-12-06/beryl__x1_iconic_png_1354831475.png";

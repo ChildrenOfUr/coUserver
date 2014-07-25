@@ -1,8 +1,8 @@
 part of coUserver;
 
-class ChunkOfSparkly extends Item
+class ChunkofSparkly extends Item
 {
-	ChunkOfSparkly() : super()
+	ChunkofSparkly() : super()
 	{
 		name = "Chunk of Sparkly";
 		iconUrl = "http://c2.glitch.bz/items/2012-12-06/sparkly__x1_iconic_png_1354831480.png";
