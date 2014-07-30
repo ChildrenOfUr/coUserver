@@ -5,6 +5,13 @@ class MetalRock extends Rock
 	MetalRock(String id, int x, int y) : super(id,x,y)
 	{
 		type = "Metal Rock";
+		
+		actions[0]['requires'] = [
+					               {
+								     "num":1,
+								     "of":["Fancy Pick"]
+								   }
+								];
         		
 		states = 
 			{

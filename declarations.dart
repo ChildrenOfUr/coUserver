@@ -35,6 +35,7 @@ part 'npcServer/npcs/chicken.dart';
 part 'npcServer/npcs/items/item.dart';
 part 'npcServer/npcs/items/highclasshoe.dart';
 part 'npcServer/npcs/items/fancypick.dart';
+part 'npcServer/npcs/items/pick.dart';
 part 'npcServer/npcs/items/bean.dart';
 part 'npcServer/npcs/items/cherry.dart';
 part 'npcServer/npcs/items/grain.dart';
