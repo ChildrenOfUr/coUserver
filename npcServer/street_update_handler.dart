@@ -151,7 +151,7 @@ class StreetUpdateHandler
 				num x = map['x'], y = map['y'];
 				String id = "i" + createId(x,y,map['dropItem']['name'],map['tsid']);
 				Item item = instanceMirror.reflectee;
-				item.actions.add({"action":"pickup","enabled":true,"actionWord":""});
+				item.actions.add({"action":"pickup","enabled":true,"timeRequired":0,"actionWord":""});
 				item.id = id;
 				item.onGround = true;
 				item.x = x;
