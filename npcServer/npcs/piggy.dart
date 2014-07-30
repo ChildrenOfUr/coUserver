@@ -4,7 +4,14 @@ class Piggy extends NPC
 {
 	Piggy(String id, int x, int y) : super(id,x,y)
 	{
-		actions = {"nibble":"nibbling","pet":"petting"};
+		actions..add({"action":"nibble",
+					  "timeRequired":actionTime,
+					  "enabled":true,
+					 "actionWord":"nibbling"})
+			   ..add({"action":"pet",
+					  "timeRequired":actionTime,
+					  "enabled":true,
+					  "actionWord":"petting"});
 		type = "Piggy";
 		speed = 75; //pixels per second
      	

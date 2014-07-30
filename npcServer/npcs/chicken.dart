@@ -4,7 +4,11 @@ class Chicken extends NPC
 {
 	Chicken(String id, int x, int y) : super(id,x,y)
 	{
-		actions = {"squeeze":"squeezing"};
+		actions.add({"action":"squeeze",
+					 "enabled":true,
+					 "timeRequired":actionTime,
+					 "actionWord":"squeezing"});
+			
 		type = "Chicken";
      	speed = 75; //pixels per second
      	

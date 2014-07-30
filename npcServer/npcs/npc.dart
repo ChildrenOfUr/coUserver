@@ -10,10 +10,10 @@ abstract class NPC
     	
 	Random rand;
 	String id,type;
-	int x,y, speed;
+	int x,y, speed, actionTime = 2500;
 	DateTime respawn;
 	bool facingRight = true;
-	Map<String,String> actions;
+	List<Map> actions = [];
 	Map<String,Spritesheet> states;
 	Spritesheet currentState;
 	

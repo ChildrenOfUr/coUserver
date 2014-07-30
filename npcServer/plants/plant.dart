@@ -11,9 +11,9 @@ abstract class Plant
 	 */
 
 	String id, type;
-	int state, maxState, x, y;
+	int state, maxState, x, y, actionTime = 3000;
 	DateTime respawn;
-	Map<String,String> actions;
+	List<Map> actions = [];
 	Map<String,Spritesheet> states;
     Spritesheet currentState;
     	
@@ -22,7 +22,7 @@ abstract class Plant
 		respawn = new DateTime.now();
 	}
 	
-	update()
+	void update()
 	{
 		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0)
 		{

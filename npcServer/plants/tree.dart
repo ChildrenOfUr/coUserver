@@ -6,7 +6,18 @@ abstract class Tree extends Plant
 	
 	Tree(String id, int x, int y) : super(id,x,y)
 	{
-		actions = {"harvest":"harvesting","water":"watering","pet":"petting"};
+		actions..add({"action":"harvest",
+					  "timeRequired":actionTime,
+					  "enabled":true,
+					 "actionWord":"harvesting"})
+			   ..add({"action":"water",
+					  "timeRequired":actionTime,
+					  "enabled":true,
+					  "actionWord":"watering"})
+			   ..add({"action":"pet",
+					  "timeRequired":actionTime,
+					  "enabled":true,
+					  "actionWord":"petting"});
 	}
 	
 	harvest({WebSocket userSocket})

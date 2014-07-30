@@ -18,7 +18,7 @@ class BerylRock extends Rock
 	void mine({WebSocket userSocket})
 	{
 		super.mine(userSocket:userSocket);
-        		
+		        		
 		//give the player the 'fruits' of their labor
 		Map map = {};
 		map['giveItem'] = "true";

@@ -28,12 +28,13 @@ part 'npcServer/street_update_handler.dart';
 part 'npcServer/street.dart';
 part 'npcServer/npcs/piggy.dart';
 part 'npcServer/npcs/npc.dart';
-part 'npcServer/npcs/vendor.dart';
+part 'npcServer/npcs/streetspiritgroddle.dart';
 part 'npcServer/npcs/chicken.dart';
 
 //items
 part 'npcServer/npcs/items/item.dart';
 part 'npcServer/npcs/items/highclasshoe.dart';
+part 'npcServer/npcs/items/fancypick.dart';
 part 'npcServer/npcs/items/bean.dart';
 part 'npcServer/npcs/items/cherry.dart';
 part 'npcServer/npcs/items/grain.dart';

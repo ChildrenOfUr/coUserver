@@ -92,12 +92,24 @@ class StreetUpdateHandler
 			String streetName = map["streetName"];
 			String username = map["username"];
 			
-			//if the street doesn't yet exist, create it (maybe it got stored baack to the datastore)
-			if(!streets.containsKey(streetName))
+			//a player has joined or left the street
+			if(map["message"] == "joined")
 			{
-				streets[streetName] = new Street(streetName,map['tsid']);
-				print("${new DateTime.now()} Loaded $streetName (${map['tsid']}) into memory.");
+				if(!streets.containsKey(streetName))
+    				loadStreet(streetName,map['tsid']);
+				print("(${new DateTime.now()}) ${map['username']} joined $streetName");
+				streets[streetName].occupants.add(ws);
+				return;
 			}
+			else if(map["message"] == "left")
+			{
+				cleanupList(ws);
+				return;
+			}
+			
+			//if the street doesn't yet exist, create it (maybe it got stored back to the datastore)
+			if(!streets.containsKey(streetName))
+				loadStreet(streetName,map['tsid']);
 			
 			//the player's hit-box collided with a quion
 			if(map["remove"] != null)
@@ -120,11 +132,13 @@ class StreetUpdateHandler
 				{
 					print("user $username calling ${map['callMethod']} on ${entity.id} in $streetName (${map['tsid']})");
 					InstanceMirror entityMirror = reflect(entity);
-					List arguments = [];
+					Map<Symbol,dynamic> arguments = {#userSocket:ws};
 					if(map['arguments'] != null)
-						arguments = map['arguments'];
-                    entityMirror.invoke(new Symbol(map['callMethod']),arguments,{#userSocket:ws});
+						(map['arguments'] as Map).forEach((key,value) => arguments[new Symbol(key)] = value);
+                    entityMirror.invoke(new Symbol(map['callMethod']),[],arguments);
 				}
+				
+				return;
 			}
 			
 			//the player is dropping an item either manually or they didn't have enough room in their bags
@@ -137,27 +151,25 @@ class StreetUpdateHandler
 				num x = map['x'], y = map['y'];
 				String id = "i" + createId(x,y,map['dropItem']['name'],map['tsid']);
 				Item item = instanceMirror.reflectee;
-				item.actions = {"pickup":""};
+				item.actions.add({"action":"pickup","enabled":true,"actionWord":""});
 				item.id = id;
 				item.onGround = true;
 				item.x = x;
 				item.y = y;
 				streets[streetName].groundItems[id] = item;
 				print("dropped item: ${item.getMap()}");
+				return;
 			}
-			
-			//a player has joined or left the street
-			if(map["message"] == "joined")
-			{
-				print("(${new DateTime.now()}) ${map['username']} joined $streetName");
-				streets[streetName].occupants.add(ws);
-			}
-			else if(map["message"] == "left")
-				cleanupList(ws);
 		}
 		catch(error)
 		{
 			print("(${new DateTime.now()}) Error processing message: $error");
 		}
+	}
+	
+	void loadStreet(String streetName, String tsid)
+	{
+		streets[streetName] = new Street(streetName,tsid);
+        print("${new DateTime.now()} Loaded $streetName ($tsid) into memory.");
 	}
 }
