@@ -6,8 +6,12 @@ class StreetUpdateHandler
 	static Map<String, Street> streets = new Map();
 	static Timer timer = new Timer.periodic(new Duration(seconds: 1), (Timer timer) => simulateStreets());
 	
-	StreetUpdateHandler(WebSocket ws)
-	{		
+	static void handle(WebSocket ws)
+	{
+		//querying the isActive seems to spark the timer to start
+		//otherwise it does not start from the static declaration above
+		timer.isActive;
+		
 		ws.listen((message)
 		{
 			processMessage(ws, message);
@@ -19,11 +23,7 @@ class StreetUpdateHandler
 		onDone: ()
 		{
 			cleanupList(ws);
-		});
-		
-		//querying the isActive seems to spark the timer to start
-		//otherwise it does not start from the static declaration above
-		timer.isActive;
+		});       		
 	}
 	
 	static void simulateStreets()
@@ -70,7 +70,7 @@ class StreetUpdateHandler
 		toRemove.forEach((String label) => streets.remove(label));
 	}
 	
-	void cleanupList(WebSocket ws)
+	static void cleanupList(WebSocket ws)
 	{
 		//find and remove ws from whichever street has it
 		streets.forEach((String streetName, Street street)
@@ -81,7 +81,7 @@ class StreetUpdateHandler
 		});
 	}
 	
-	void processMessage(WebSocket ws, String message)
+	static void processMessage(WebSocket ws, String message)
 	{
 		//we should receive 3 kinds of messages:
 		//player enters street, player exits street, player interacts with object
@@ -97,7 +97,7 @@ class StreetUpdateHandler
 			{
 				if(!streets.containsKey(streetName))
     				loadStreet(streetName,map['tsid']);
-				print("(${new DateTime.now()}) ${map['username']} joined $streetName");
+				log("${map['username']} joined $streetName");
 				streets[streetName].occupants.add(ws);
 				return;
 			}
@@ -130,7 +130,7 @@ class StreetUpdateHandler
 				var entity = streets[streetName].entityMaps[type][map['id']];
 				if(entity != null)
 				{
-					print("user $username calling ${map['callMethod']} on ${entity.id} in $streetName (${map['tsid']})");
+					log("user $username calling ${map['callMethod']} on ${entity.id} in $streetName (${map['tsid']})");
 					InstanceMirror entityMirror = reflect(entity);
 					Map<Symbol,dynamic> arguments = {#userSocket:ws};
 					if(map['arguments'] != null)
@@ -157,19 +157,19 @@ class StreetUpdateHandler
 				item.x = x;
 				item.y = y;
 				streets[streetName].groundItems[id] = item;
-				print("dropped item: ${item.getMap()}");
+				log("dropped item: ${item.getMap()}");
 				return;
 			}
 		}
 		catch(error)
 		{
-			print("(${new DateTime.now()}) Error processing message: $error");
+			log("Error processing message: $error");
 		}
 	}
 	
-	void loadStreet(String streetName, String tsid)
+	static void loadStreet(String streetName, String tsid)
 	{
 		streets[streetName] = new Street(streetName,tsid);
-        print("${new DateTime.now()} Loaded $streetName ($tsid) into memory.");
+        log("Loaded $streetName ($tsid) into memory.");
 	}
 }

@@ -71,3 +71,13 @@ String createId(num x, num y, String type, String tsid)
 {
 	return (type+x.toString()+y.toString()+tsid).hashCode.toString();
 }
+
+/**
+ * 
+ * Log a message out to the console (and possibly a log file through redirection)
+ * 
+ **/
+void log(String message)
+{
+	print("(${new DateTime.now().toString()}) $message");
+}

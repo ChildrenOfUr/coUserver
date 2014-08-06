@@ -3,14 +3,11 @@ part of coUserver;
 //handle player update events
 class PlayerUpdateHandler
 {
-	static Map<String,Identifier> users;
-	static Map<String,WebSocket> userSockets;
+	static Map<String,Identifier> users = {};
+	static Map<String,WebSocket> userSockets = {};
 	
-	PlayerUpdateHandler(WebSocket ws)
+	static void handle(WebSocket ws)
 	{
-		users = new Map();
-		userSockets = new Map();
-		
 		ws.listen((message)
 		{
 			processMessage(ws, message);
@@ -25,7 +22,7 @@ class PlayerUpdateHandler
 		});
 	}
 	
-	cleanupList(WebSocket ws)
+	static void cleanupList(WebSocket ws)
 	{
 		String leavingUser;
 		
@@ -49,7 +46,7 @@ class PlayerUpdateHandler
 		}
 	}
 	
-	processMessage(WebSocket ws, String message)
+	static void processMessage(WebSocket ws, String message)
 	{
 		try
 		{
@@ -93,7 +90,7 @@ class PlayerUpdateHandler
 		}
 	}
 	
-	sendAll(Map map)
+	static void sendAll(Map map)
 	{
 		String data = JSON.encode(map);
 		userSockets.forEach((String username, WebSocket socket)

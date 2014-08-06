@@ -19,20 +19,24 @@ void main()
 			if(request.uri.path == "/serverStatus")
 			{
 				Map statusMap = {};
-				List<String> users = [];
-				ChatHandler.users.forEach((Identifier user)
+				try
 				{
-					if(!users.contains(user.username))
-						users.add(user.username);
-				});
-				statusMap['playerList'] = users;
-				statusMap['numStreetsLoaded'] = StreetUpdateHandler.streets.length;
-				ProcessResult result = Process.runSync("/bin/sh",["getMemoryUsage.sh"]);
-				statusMap['bytesUsed'] = int.parse(result.stdout)*1024;
-				result = Process.runSync("/bin/sh",["getCpuUsage.sh"]);
-				statusMap['cpuUsed'] = double.parse(result.stdout.trim());
-				result = Process.runSync("/bin/sh",["getUptime.sh"]);
-                statusMap['uptime'] = result.stdout.trim();
+					List<String> users = [];
+					ChatHandler.users.forEach((Identifier user)
+					{
+						if(!users.contains(user.username))
+							users.add(user.username);
+					});
+					statusMap['playerList'] = users;
+					statusMap['numStreetsLoaded'] = StreetUpdateHandler.streets.length;
+					ProcessResult result = Process.runSync("/bin/sh",["getMemoryUsage.sh"]);
+					statusMap['bytesUsed'] = int.parse(result.stdout)*1024;
+					result = Process.runSync("/bin/sh",["getCpuUsage.sh"]);
+					statusMap['cpuUsed'] = double.parse(result.stdout.trim());
+					result = Process.runSync("/bin/sh",["getUptime.sh"]);
+	                statusMap['uptime'] = result.stdout.trim();
+				}
+				catch(e){log("Error getting server status: $e");}
 				request.response
 					..headers.add('Access-Control-Allow-Origin', '*')
 					..headers.add('Content-Type', 'application/json')
@@ -123,21 +127,21 @@ void main()
 				WebSocketTransformer.upgrade(request).then((WebSocket websocket) 
 				{
 					if(request.uri.path == "/")
-						new ChatHandler(websocket);
+						ChatHandler.handle(websocket);
 					else if(request.uri.path == "/playerUpdate")
-						new PlayerUpdateHandler(websocket);
+						PlayerUpdateHandler.handle(websocket);
 					else if(request.uri.path == "/streetUpdate")
-						new StreetUpdateHandler(websocket);
+						StreetUpdateHandler.handle(websocket);
 				})
 				.catchError((error)
 				{
-					print("error: $error");
+					log("error: $error");
 				},
 				test: (Exception e) => e is! WebSocketException)
 				.catchError((error){},test: (Exception e) => e is WebSocketException);
 			}
 		});
 		
-		print('${new DateTime.now().toString()}\nServing Chat on ${'0.0.0.0'}:$port.');
+		log('\nServing Chat on ${'0.0.0.0'}:$port.');
 	});
 }

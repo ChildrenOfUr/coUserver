@@ -6,7 +6,7 @@ class ChatHandler
 	static Map<String, WebSocket> userSockets = new Map<String,WebSocket>(); // Map of current users
 	static List<Identifier> users = new List();
 	
-	ChatHandler(WebSocket ws)
+	static void handle(WebSocket ws)
 	{
 		/**we are no longer using heroku so this should not be necessary**/
 		//if a heroku app does not send any information for more than 55 seconds, the connection will be terminated
@@ -39,7 +39,7 @@ class ChatHandler
 		});
 	}
 	
-	void cleanupLists(WebSocket ws)
+	static void cleanupLists(WebSocket ws)
 	{
 		List<String> socketRemove = new List<String>();
 		List<int> usersRemove = new List<int>();
@@ -69,7 +69,7 @@ class ChatHandler
 		sendAll(JSON.encode(map));
 	}
 
-	processMessage(WebSocket ws, String receivedMessage) 
+	static void processMessage(WebSocket ws, String receivedMessage) 
 	{
 		try 
 		{
