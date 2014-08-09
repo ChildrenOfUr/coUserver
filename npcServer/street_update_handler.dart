@@ -77,7 +77,7 @@ class StreetUpdateHandler
 		{
 			int index = street.occupants.indexOf(ws);
 			if(index > -1)
-				street.occupants[index] = null;
+				street.occupants.removeAt(index);
 		});
 	}
 	
@@ -127,9 +127,10 @@ class StreetUpdateHandler
 			if(map["callMethod"] != null)
 			{
 				String type = map['type'].replaceAll("entity","").trim();
-				var entity = streets[streetName].entityMaps[type][map['id']];
-				if(entity != null)
+				Map entityMap = streets[streetName].entityMaps[type];
+				if(entityMap != null && entityMap[map['id']] != null)
 				{
+					var entity = entityMap[map['id']];
 					log("user $username calling ${map['callMethod']} on ${entity.id} in $streetName (${map['tsid']})");
 					InstanceMirror entityMirror = reflect(entity);
 					Map<Symbol,dynamic> arguments = {#userSocket:ws};
@@ -137,27 +138,17 @@ class StreetUpdateHandler
 						(map['arguments'] as Map).forEach((key,value) => arguments[new Symbol(key)] = value);
                     entityMirror.invoke(new Symbol(map['callMethod']),[],arguments);
 				}
+				else
+				{
+					//check if it's an item and not an entity
+					ClassMirror classMirror = findClassMirror(type);
+					InstanceMirror instanceMirror = classMirror.newInstance(new Symbol(""), []);
+					Map<Symbol,dynamic> arguments = {#userSocket:ws};
+					arguments[#streetName] = map['streetName'];
+					arguments[#map] = map['arguments'];
+					instanceMirror.invoke(new Symbol(map['callMethod']),[],arguments);
+				}
 				
-				return;
-			}
-			
-			//the player is dropping an item either manually or they didn't have enough room in their bags
-			if(map["dropItem"] != null)
-			{
-				ClassMirror classMirror = findClassMirror(map['dropItem']['name'].replaceAll(" ",""));
-				InstanceMirror instanceMirror = classMirror.newInstance(new Symbol(""), []);
-				//if nothing has gone wrong, we should now have an InstanceMirror for the class of
-				//item that was dropped, otherwise an error was thrown
-				num x = map['x'], y = map['y'];
-				String id = "i" + createId(x,y,map['dropItem']['name'],map['tsid']);
-				Item item = instanceMirror.reflectee;
-				item.actions.add({"action":"pickup","enabled":true,"timeRequired":0,"actionWord":""});
-				item.id = id;
-				item.onGround = true;
-				item.x = x;
-				item.y = y;
-				streets[streetName].groundItems[id] = item;
-				log("dropped item: ${item.getMap()}");
 				return;
 			}
 		}

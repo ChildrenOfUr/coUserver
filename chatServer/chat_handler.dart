@@ -54,12 +54,7 @@ class ChatHandler
 				users.removeWhere((Identifier userId) => userId.username == leavingUser);
 			}
 		});
-		//let's set to null instead of removing to see if that solves concurrent modification exception 
-		//when sending messages while a user disconnects
-		socketRemove.forEach((String username)
-		{
-			userSockets[username] = null;
-		});
+		socketRemove.forEach((String username) => userSockets.remove(username));
 		
 		//send a message to all other clients that this user has disconnected
 		Map map = new Map();

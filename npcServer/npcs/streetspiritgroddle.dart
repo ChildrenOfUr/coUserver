@@ -44,6 +44,16 @@ class StreetSpiritGroddle extends NPC
 		userSocket.add(JSON.encode(map));
 	}
 	
+	void sellItem({WebSocket userSocket, String itemName, int num})
+	{
+		//TODO: obviously do checks to see if this can succeed
+		Map map = {};
+		map['takeItem'] = "true";
+		map['name'] = itemName;
+		map['count'] = num;
+		userSocket.add(JSON.encode(map));
+	}
+	
 	List _getItemsForSale()
 	{
 		List<Map> items = [];

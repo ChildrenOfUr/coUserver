@@ -6,7 +6,10 @@ abstract class Item
 	int price, stacksTo, iconNum = 4;
 	num x,y;
 	bool onGround = false;
-	List<Map> actions = [];
+	List<Map> actions = [{"action":"drop",
+						  "timeRequired":0,
+						  "enabled":true,
+						  "actionWord":""}];
 	
 	Map getMap()
 	{
@@ -34,5 +37,25 @@ abstract class Item
 		map['fromObject'] = id;
 		userSocket.add(JSON.encode(map));
 		onGround = false;
+	}
+	
+	void drop({WebSocket userSocket, Map map, String streetName})
+	{
+		num x = map['x'], y = map['y'];
+		String id = "i" + createId(x,y,map['dropItem']['name'],map['tsid']);
+		actions.clear();
+		actions.add({"action":"pickup","enabled":true,"timeRequired":0,"actionWord":""});
+		this.id = id;
+		onGround = true;
+		this.x = x;
+		this.y = y;
+		StreetUpdateHandler.streets[streetName].groundItems[id] = this;
+		log("dropped item: ${getMap()}");
+		
+		Map takeMap = {}
+			..['takeItem'] = "true"
+			..['name'] = map['dropItem']['name']
+			..['count'] = map['count'];
+		userSocket.add(JSON.encode(takeMap));
 	}
 }
