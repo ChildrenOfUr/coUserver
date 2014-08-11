@@ -74,10 +74,6 @@ class ChatHandler
 			{
 				//combine the username with the channel name to keep track of the same user in multiple channels
 				String userName = map["message"].substring(9)+"_"+map["channel"];
-				if(userSockets[userName] != null) 
-				{
-			    	//userSockets[userName].close();  //  close the previous connection
-        		}
     			userSockets[userName] = ws;
 				map["statusMessage"] = "true";
 				map["username"] = map["message"].substring(9);
@@ -125,15 +121,13 @@ class ChatHandler
 			}
 			else if(map["statusMessage"] == "changeStreet")
 			{
+				List<String> alreadySent = [];
 				users.forEach((Identifier id)
 				{
 					if(id.username == map["username"])
 						id.currentStreet = map["newStreetLabel"];
-					if(id.username != map["username"] && id.currentStreet == map["oldStreet"]) //others who were on the street with you
+					if(!alreadySent.contains(id.username) && id.username != map["username"] && id.currentStreet == map["oldStreet"]) //others who were on the street with you
 					{
-						if(userSockets[id.username+"_"+"Local Chat"] == null)
-							return;
-						
 						Map leftForMessage = new Map();
 						leftForMessage["statusMessage"] = "leftStreet";
 						leftForMessage["username"] = map["username"];
@@ -142,6 +136,7 @@ class ChatHandler
 						leftForMessage["message"] = " has left for ";
 						leftForMessage["channel"] = "Local Chat";
 						userSockets[id.username+"_"+"Local Chat"].add(JSON.encode(leftForMessage));
+						alreadySent.add(id.username);
 					}
 					if(id.currentStreet == map["newStreet"] && id.username != map["username"]) //others who are on the new street
 					{
@@ -171,16 +166,15 @@ class ChatHandler
 			
       		sendAll(JSON.encode(map));
     	} 
-		catch(err, st) 
+		catch(err)
 		{
-      		print('${new DateTime.now().toString()} - Exception - ${err.toString()}');
-      		print(st);
+      		log("Error handling chat: $err");
     	}
 	}
 
   	static void sendAll(String sendMessage)
 	{
-		Iterator itr = userSockets.values.iterator;
+  		Iterator<WebSocket> itr = userSockets.values.iterator;
 		while(itr.moveNext())
 		{
 			WebSocket socket = itr.current;

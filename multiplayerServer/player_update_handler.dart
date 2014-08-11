@@ -35,6 +35,7 @@ class PlayerUpdateHandler
 			}
 		});
 		
+		userSockets.remove(leavingUser);
 		Identifier leavingID = users.remove(leavingUser);
 		if(leavingID != null)
 		{
