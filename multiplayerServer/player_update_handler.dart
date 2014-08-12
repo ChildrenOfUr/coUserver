@@ -82,7 +82,7 @@ class PlayerUpdateHandler
 			else //this user must have just connected
 			{
 				userSockets[username] = ws;
-				users[username] = new Identifier(username,"",map["street"]);
+				users[username] = new Identifier(username,map["street"]);
 			}
 			
 			sendAll(map);
