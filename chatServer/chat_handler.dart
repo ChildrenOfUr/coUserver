@@ -49,8 +49,7 @@ class ChatHandler
 			if(socket == ws)
 			{
 				socketRemove.add(username);
-				leavingUser = username.substring(0, username.indexOf("_"));
-				channel = username.substring(username.indexOf("_")+1);
+				leavingUser = username;
 				users.removeWhere((Identifier userId) => userId.username == leavingUser);
 			}
 		});
@@ -65,7 +64,7 @@ class ChatHandler
 		Map map = new Map();
 		map["message"] = " left.";
 		map["username"] = leavingUser;
-		map["channel"] = channel;
+		map["channel"] = "Global Chat";
 		sendAll(JSON.encode(map));
 	}
 
@@ -75,22 +74,14 @@ class ChatHandler
 		{
 			Map map = JSON.decode(receivedMessage);
 			
-			if(map["username"] == null) 
+			if(map["statusMessage"] == "join") 
 			{
-				//combine the username with the channel name to keep track of the same user in multiple channels
-				String userName = map["message"].substring(9)+"_"+map["channel"];
-				if(userSockets[userName] != null) 
-				{
-			    	//userSockets[userName].close();  //  close the previous connection
-        		}
-    			userSockets[userName] = ws;
+				userSockets[map["username"]] = ws;
 				map["statusMessage"] = "true";
-				map["username"] = map["message"].substring(9);
+				map["username"] = map["username"];
     			map["message"] = ' joined.';
 				String street = "";
-				if(map["street"] != null)
-					street = map["street"];
-				users.add(new Identifier(map["username"],map["channel"],street));
+				users.add(new Identifier(map["username"],street));
   			}
 			else if(map["statusMessage"] == "changeName")
 			{
@@ -108,7 +99,7 @@ class ChatHandler
 					errorResponse["success"] = "false";
 					errorResponse["message"] = "This name is already taken.  Please choose another.";
 					errorResponse["channel"] = map["channel"];
-					userSockets[map["username"]+"_"+map["channel"]].add(JSON.encode(errorResponse));
+					userSockets[map["username"]].add(JSON.encode(errorResponse));
 					return;
 				}
 				else
@@ -121,8 +112,7 @@ class ChatHandler
 					{
 						if(userId.username == map["username"]) //update the old usernames
 						{
-							String usernameWithChannel = userId.username+"_"+userId.channelName;
-							userSockets[map["newUsername"]+"_"+userId.channelName] = userSockets.remove(usernameWithChannel);
+							userSockets[map["newUsername"]] = userSockets.remove(userId.username);
 							userId.username = map["newUsername"];
 						}
 					});
@@ -146,7 +136,8 @@ class ChatHandler
 						leftForMessage["tsid"] = map["newStreetTsid"];
 						leftForMessage["message"] = " has left for ";
 						leftForMessage["channel"] = "Local Chat";
-						userSockets[id.username+"_"+"Local Chat"].add(JSON.encode(leftForMessage));
+						userSockets[id.username].add(JSON.encode(leftForMessage));
+						
 					}
 					if(id.currentStreet == map["newStreet"] && id.username != map["username"]) //others who are on the new street
 					{
@@ -160,7 +151,7 @@ class ChatHandler
 				List<String> userList = new List();
 				users.forEach((Identifier userId)
 				{
-					if(!userList.contains(userId.username) && userId.channelName == map["channel"])
+					if(!userList.contains(userId.username))
 					{
 						if(map["channel"] == "Local Chat" && userId.currentStreet == map["street"])
 							userList.add(userId.username);
@@ -170,7 +161,7 @@ class ChatHandler
 				});
 				map["users"] = userList;
 				map["message"] = "Users in this channel: ";
-				userSockets[map["username"]+"_"+map["channel"]].add(JSON.encode(map));
+				userSockets[map["username"]].add(JSON.encode(map));
 				return;
 			}
 			

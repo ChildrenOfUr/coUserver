@@ -4,7 +4,7 @@ IRCRelay relay;
 
 void main() 
 {
-	int port = 8080;
+	int port = 8282;
 	try	{port = int.parse(Platform.environment['PORT']);} //Platform.environment['PORT'] is for deployed, 8080 is for localhost
 	catch (error){port = 8181;}
 	HttpServer.bind('0.0.0.0', port).then((HttpServer server) 
