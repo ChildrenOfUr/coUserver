@@ -26,6 +26,7 @@ part 'multiplayerServer/player_update_handler.dart';
 part 'npcServer/street_update_handler.dart';
 part 'npcServer/street.dart';
 part 'npcServer/npcs/piggy.dart';
+part 'npcServer/entity.dart';
 part 'npcServer/npcs/npc.dart';
 part 'npcServer/npcs/streetspiritgroddle.dart';
 part 'npcServer/npcs/chicken.dart';
@@ -35,6 +36,7 @@ part 'npcServer/npcs/items/item.dart';
 part 'npcServer/npcs/items/highclasshoe.dart';
 part 'npcServer/npcs/items/fancypick.dart';
 part 'npcServer/npcs/items/pick.dart';
+part 'npcServer/npcs/items/shovel.dart';
 part 'npcServer/npcs/items/bean.dart';
 part 'npcServer/npcs/items/cherry.dart';
 part 'npcServer/npcs/items/grain.dart';
@@ -50,6 +52,8 @@ part 'npcServer/npcs/items/paper.dart';
 part 'npcServer/npcs/items/egg.dart';
 part 'npcServer/npcs/items/plainbubble.dart';
 part 'npcServer/npcs/items/plank.dart';
+part 'npcServer/npcs/items/lumpofearth.dart';
+part 'npcServer/npcs/items/lumpofloam.dart';
 
 part 'npcServer/spritesheet.dart';
 part 'npcServer/plants/plant.dart';
@@ -62,6 +66,8 @@ part 'npcServer/plants/papertree.dart';
 part 'npcServer/plants/eggplant.dart';
 part 'npcServer/plants/bubbletree.dart';
 part 'npcServer/plants/woodtree.dart';
+
+part 'npcServer/plants/dirtpile.dart';
 
 part 'npcServer/plants/rock.dart';
 part 'npcServer/plants/berylrock.dart';

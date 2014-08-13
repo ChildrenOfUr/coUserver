@@ -1,6 +1,6 @@
 part of coUserver;
 
-abstract class NPC
+abstract class NPC extends Entity
 {
 	/**
 	 * The actions map key string should be equivalent to the name of a function

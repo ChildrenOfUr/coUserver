@@ -12,4 +12,10 @@ class Spritesheet
 		numRows = sheetHeight~/frameHeight;
 		numColumns = sheetWidth~/frameWidth;
 	}
+	
+	@override
+	String toString()
+	{
+		return "$stateName: width: $sheetWidth, height: $sheetHeight, numFrames: $numFrames, rows: $numRows, columns: $numColumns, frameWidth: $frameWidth, frameHeight: $frameHeight, src: $url";
+	}
 }

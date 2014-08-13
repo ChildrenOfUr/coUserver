@@ -57,8 +57,9 @@ class StreetSpiritGroddle extends NPC
 	List _getItemsForSale()
 	{
 		List<Map> items = [];
-		items.add(new HighClassHoe().getMap());
 		items.add(new Pick().getMap());
+		items.add(new Shovel().getMap());
+		items.add(new HighClassHoe().getMap());
 		items.add(new FancyPick().getMap());
 		items.add(new Bean().getMap());
 		items.add(new Cherry().getMap());

@@ -20,6 +20,16 @@ abstract class Tree extends Plant
 					  "actionWord":"petting"});
 	}
 	
+	void update()
+	{
+		super.update();
+		
+		if(state > 0)
+			setActionEnabled("harvest",true);
+		else
+			setActionEnabled("harvest",false);
+	}
+	
 	harvest({WebSocket userSocket})
 	{
 		if(state == 0)

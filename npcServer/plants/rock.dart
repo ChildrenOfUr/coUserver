@@ -22,12 +22,12 @@ abstract class Rock extends Plant
 	void update()
 	{
 		if(state >= currentState.numFrames)
-			actions[0]['enabled'] = false;
+			setActionEnabled("mine",false);
 		
 		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0)
 		{
 			state--;
-			actions[0]['enabled'] = true;
+			setActionEnabled("mine",true);
 			respawn = new DateTime.now().add(new Duration(seconds:30));
 		}
 		

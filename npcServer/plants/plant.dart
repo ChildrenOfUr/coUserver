@@ -1,6 +1,6 @@
 part of coUserver;
 
-abstract class Plant
+abstract class Plant extends Entity
 {
 	/**
 	 * Will check for plant growth/decay and send updates to clients if needed
