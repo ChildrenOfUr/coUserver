@@ -2,7 +2,7 @@ part of coUserver;
 
 abstract class Item
 {
-	String iconUrl, spriteUrl, animationUrl, name, description, id;
+	String iconUrl, spriteUrl, name, description, id;
 	int price, stacksTo, iconNum = 4;
 	num x,y;
 	bool onGround = false;
@@ -15,7 +15,6 @@ abstract class Item
 	{
 		return {"iconUrl":iconUrl,
 				"spriteUrl":spriteUrl,
-				"animationUrl":animationUrl,
 				"name":name,
 				"description":description,
 				"price":price,
