@@ -45,6 +45,54 @@ saveStreetData(Map params)
 		file.createSync(recursive:true);
 	
 	file.writeAsStringSync(JSON.encode({'entities':entities}));
+	
+	
+	//save a list of finished and partially finished streets
+	File finished = new File('./streetEntities/finished.json');
+	if(!finished.existsSync())
+	{
+		finished.createSync(recursive:true);
+		//insert any streets that were finished before this file was created
+		finished.writeAsStringSync(JSON.encode({}));
+	}
+	Map finishedMap = JSON.decode(finished.readAsStringSync());
+	int required = params['required'];
+	int complete = params['complete'];
+	bool streetFinished = (required-complete == 0) ? true : false;
+	finishedMap[tsid] = {"entitiesRequired":params['required'],
+	                     "entitiesComplete":params['complete'],
+	                     "streetFinished":streetFinished};
+	finished.writeAsStringSync(JSON.encode(finishedMap));
+}
+
+String getTsidOfUnfilledStreet()
+{
+	String tsid = null;
+	
+	File file = new File('./web/streets.json');
+	File finished = new File('./streetEntities/finished.json');
+	Map streets = JSON.decode(file.readAsStringSync());
+	Map finishedMap = JSON.decode(finished.readAsStringSync());
+	
+	//loop through streets to find one that is not finished
+	//if they are all finished, take one that is not complete
+	String incomplete = null;
+	for(String t in streets.keys)
+	{
+		if(!finishedMap.containsKey(t))
+		{
+			tsid = t;
+			break;
+		}
+		else if(!finishedMap[t]['streetFinished'])
+			incomplete = t;
+	}
+	
+	//tsid may still be null after this
+	if(tsid == null)
+		tsid = incomplete;
+	
+	return tsid;
 }
 
 /**

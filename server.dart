@@ -122,6 +122,14 @@ void main()
 					..write(JSON.encode(entities==null?{}:entities))
 					..close();
 			}
+			else if(request.uri.path == "/getRandomStreet")
+			{
+				request.response
+			        ..headers.add('Access-Control-Allow-Origin', '*')
+					..headers.add('Content-Type', 'application/json')
+					..write(getTsidOfUnfilledStreet())
+					..close();
+			}
 			else
 			{
 				WebSocketTransformer.upgrade(request).then((WebSocket websocket) 
