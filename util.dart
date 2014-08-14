@@ -69,8 +69,12 @@ String getTsidOfUnfilledStreet()
 {
 	String tsid = null;
 	
-	File file = new File('./web/streets.json');
+	File file = new File('./streetEntities/streets.json');
 	File finished = new File('./streetEntities/finished.json');
+	
+	if(!file.existsSync() || !finished.existsSync())
+		return tsid;
+	
 	Map streets = JSON.decode(file.readAsStringSync());
 	Map finishedMap = JSON.decode(finished.readAsStringSync());
 	
