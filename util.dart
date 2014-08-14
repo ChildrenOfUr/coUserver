@@ -50,11 +50,7 @@ saveStreetData(Map params)
 	//save a list of finished and partially finished streets
 	File finished = new File('./streetEntities/finished.json');
 	if(!finished.existsSync())
-	{
-		finished.createSync(recursive:true);
-		//insert any streets that were finished before this file was created
-		finished.writeAsStringSync(JSON.encode({}));
-	}
+		_createFinishedFile();
 	Map finishedMap = JSON.decode(finished.readAsStringSync());
 	int required = params['required'];
 	int complete = params['complete'];
@@ -65,6 +61,27 @@ saveStreetData(Map params)
 	finished.writeAsStringSync(JSON.encode(finishedMap));
 }
 
+void _createFinishedFile()
+{
+	File finished = new File('./streetEntities/finished.json');
+	finished.createSync(recursive:true);
+	//insert any streets that were finished before this file was created
+	Directory streetEntities = new Directory('./streetEntities');
+	Map finishedMap = {};
+	for(FileSystemEntity entity in streetEntities.listSync(recursive:true))
+	{
+		String filename = entity.path.substring(entity.path.lastIndexOf('/')+1);
+		if(!filename.contains('.'))
+		{
+			//we'll assume it's incomplete
+			finishedMap[filename] = {"entitiesRequired":0,
+				                     "entitiesComplete":0,
+            	                     "streetFinished":false};
+		}
+	}
+	finished.writeAsStringSync(JSON.encode(finishedMap));
+}
+
 String getTsidOfUnfilledStreet()
 {
 	String tsid = null;
@@ -72,7 +89,10 @@ String getTsidOfUnfilledStreet()
 	File file = new File('./streetEntities/streets.json');
 	File finished = new File('./streetEntities/finished.json');
 	
-	if(!file.existsSync() || !finished.existsSync())
+	if(!finished.existsSync())
+		_createFinishedFile();
+	
+	if(!file.existsSync())
 		return tsid;
 	
 	Map streets = JSON.decode(file.readAsStringSync());
