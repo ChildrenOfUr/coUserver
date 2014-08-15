@@ -1,5 +1,4 @@
 part of coUserver;
-
 abstract class Item
 {
 	String iconUrl, spriteUrl, name, description, id;
@@ -10,6 +9,7 @@ abstract class Item
 						  "timeRequired":0,
 						  "enabled":true,
 						  "actionWord":""}];
+	List<Map> groundActions = [{"action":"pickup","enabled":true,"timeRequired":0,"actionWord":""}];
 	
 	Map getMap()
 	{
@@ -24,26 +24,24 @@ abstract class Item
 				"onGround":onGround,
 				"x":x,
 				"y":y,
-				"actions":actions};
+				"actions":onGround?groundActions:actions};
 	}
 	
 	void pickup({WebSocket userSocket})
 	{
+		onGround = false;
 		Map map = {};
 		map['giveItem'] = "true";
 		map['item'] = getMap();
 		map['num'] = 1;
 		map['fromObject'] = id;
 		userSocket.add(JSON.encode(map));
-		onGround = false;
 	}
 	
 	void drop({WebSocket userSocket, Map map, String streetName})
 	{
 		num x = map['x'], y = map['y'];
 		String id = "i" + createId(x,y,map['dropItem']['name'],map['tsid']);
-		actions.clear();
-		actions.add({"action":"pickup","enabled":true,"timeRequired":0,"actionWord":""});
 		this.id = id;
 		onGround = true;
 		this.x = x;
