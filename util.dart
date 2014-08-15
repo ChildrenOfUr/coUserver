@@ -52,8 +52,8 @@ saveStreetData(Map params)
 	if(!finished.existsSync())
 		_createFinishedFile();
 	Map finishedMap = JSON.decode(finished.readAsStringSync());
-	int required = params['required'];
-	int complete = params['complete'];
+	int required = int.parse(params['required']);
+	int complete = int.parse(params['complete']);
 	bool streetFinished = (required-complete == 0) ? true : false;
 	finishedMap[tsid] = {"entitiesRequired":params['required'],
 	                     "entitiesComplete":params['complete'],
