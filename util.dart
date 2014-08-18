@@ -48,9 +48,7 @@ saveStreetData(Map params)
 	
 	
 	//save a list of finished and partially finished streets
-	File finished = new File('./streetEntities/finished.json');
-	if(!finished.existsSync())
-		_createFinishedFile();
+	File finished = _getFinishedFile();
 	Map finishedMap = JSON.decode(finished.readAsStringSync());
 	int required = int.parse(params['required']);
 	int complete = int.parse(params['complete']);
@@ -59,6 +57,42 @@ saveStreetData(Map params)
 	                     "entitiesComplete":params['complete'],
 	                     "streetFinished":streetFinished};
 	finished.writeAsStringSync(JSON.encode(finishedMap));
+}
+
+void reportBrokenStreet(String tsid)
+{
+	if(tsid == null)
+		return;
+	
+	if(tsid.startsWith("G"))
+    	tsid = tsid.replaceFirst("G", "L");
+	
+	File finished = _getFinishedFile();
+	Map finishedMap = JSON.decode(finished.readAsStringSync());
+	Map street = {};
+	if(finishedMap[tsid] != null)
+	{
+		street = finishedMap[tsid];
+		street['reportedBroken'] = true;
+		finishedMap[tsid] = street;
+	}
+	else
+	{
+		finishedMap[tsid] = {"entitiesRequired":-1,
+    	                     "entitiesComplete":-1,
+    	                     "streetFinished":false,
+    	                     "reportedBroken":true};
+	}
+	finished.writeAsStringSync(JSON.encode(finishedMap));
+}
+
+File _getFinishedFile()
+{
+	File finished = new File('./streetEntities/finished.json');
+	if(!finished.existsSync())
+		_createFinishedFile();
+	
+	return finished;
 }
 
 void _createFinishedFile()

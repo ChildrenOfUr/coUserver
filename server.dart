@@ -130,6 +130,16 @@ void main()
 					..write(getTsidOfUnfilledStreet())
 					..close();
 			}
+			else if(request.uri.path == "/reportBrokenStreet")
+			{
+				Map data = request.uri.queryParameters;
+				reportBrokenStreet(data['tsid']);
+				request.response
+			        ..headers.add('Access-Control-Allow-Origin', '*')
+					..headers.add('Content-Type', 'text/plain')
+					..write("OK")
+					..close();
+			}
 			else
 			{
 				WebSocketTransformer.upgrade(request).then((WebSocket websocket) 
