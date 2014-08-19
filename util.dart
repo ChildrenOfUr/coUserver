@@ -135,18 +135,14 @@ String getTsidOfUnfilledStreet()
 	//loop through streets to find one that is not finished
 	//if they are all finished, take one that is not complete
 	String incomplete = null;
-	bool found = false;
-	new Timer(new Duration(seconds:5),() => found = true);
 	List<String> streetsList = streets.keys.toList();
-	Random rand = new Random();
-	while(!found)
+	streetsList.shuffle();
+	for(String t in streetsList)
 	{
-		int num = rand.nextInt(streetsList.length);
-		String t = streetsList.elementAt(num);
 		if(!finishedMap.containsKey(t))
 		{
 			tsid = t;
-			found = true;
+			break;
 		}
 		else if(!finishedMap[t]['streetFinished'])
         	incomplete = t;
