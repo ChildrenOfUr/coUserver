@@ -144,7 +144,7 @@ String getTsidOfUnfilledStreet()
 			tsid = t;
 			break;
 		}
-		else if(!finishedMap[t]['streetFinished'])
+		else if(!finishedMap[t]['streetFinished'] && !finishedMap[t]['reportedBroken'])
         	incomplete = t;
 	}
 	
