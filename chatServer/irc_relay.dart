@@ -153,7 +153,8 @@ class IRCRelay
 		
 		slack.Message message = new slack.Message()
 			..username = username
-			..text = text;
+			..text = text
+			..icon_url = "http://s21.postimg.org/czibb690j/head.png";
 		
 		print("going to send message: $message");
 		slack.send(message);
