@@ -91,8 +91,10 @@ class IRCRelay
 				catch(error){}
 			});
 		});
-				
-		SecureSocket.connect(SLACK_HOST, PORT).then((SecureSocket socket) 
+          
+		slack.token = globalChatToken;
+        slack.team = slackTeam;
+		/*SecureSocket.connect(SLACK_HOST, PORT).then((SecureSocket socket) 
 		{
 			try
 			{
@@ -133,7 +135,7 @@ class IRCRelay
     			});
 			}
 			catch(error){print(error);}//if run locally this connect won't work unless Platform.environment['irc_pass'] is set
-		});
+		});*/
 	}
 	
 	sendMessage(String message)
@@ -144,11 +146,18 @@ class IRCRelay
 		socket.write("PRIVMSG #$channel :$message\r\n");
 	}
 	
-	slackSend(String message)
+	slackSend(String username, String text)
 	{
-		if(!slackConnected)
-			return;
+		//if(!slackConnected)
+			//return;
 		
-		slackSocket.write("PRIVMSG #$slackChannel :$message\r\n");
+		slack.Message message = new slack.Message()
+			..username = username
+			..text = text;
+		
+		print("going to send message: $message");
+		slack.send(message);
+		
+		//slackSocket.write("PRIVMSG #$slackChannel :$message\r\n");
 	}
 }

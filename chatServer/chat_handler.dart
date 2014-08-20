@@ -22,10 +22,10 @@ class ChatHandler
 				if(map['statusMessage'] == null || map['statusMessage'] != "list")
 					relay.sendMessage(message);
 			}
-			if(relay.slackConnected && map["channel"] == "Global Chat")
+			if(map["channel"] == "Global Chat")
 			{
 				if(map["statusMessage"] == null && map["username"] != null && map["message"] != null)
-					relay.slackSend(map["username"] + ":: " + map["message"]);
+					relay.slackSend(map["username"],map["message"]);
 			}
 			processMessage(ws, message);
 	    }, 

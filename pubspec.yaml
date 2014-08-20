@@ -5,3 +5,7 @@ description: The sourcecode/tools needed to hack/compile the Children of Ur serv
 dependencies:
   http_server: any
   intl: any
+  slack:
+    git:
+      ref: master
+      url: https://github.com/ChildrenOfUr/dart-slack
