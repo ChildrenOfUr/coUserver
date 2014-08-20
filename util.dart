@@ -59,7 +59,7 @@ saveStreetData(Map params)
 	finished.writeAsStringSync(JSON.encode(finishedMap));
 }
 
-void reportBrokenStreet(String tsid)
+void reportBrokenStreet(String tsid, String reason)
 {
 	if(tsid == null)
 		return;
@@ -73,7 +73,7 @@ void reportBrokenStreet(String tsid)
 	if(finishedMap[tsid] != null)
 	{
 		street = finishedMap[tsid];
-		street['reportedBroken'] = true;
+		street['reported$reason'] = true;
 		finishedMap[tsid] = street;
 	}
 	else
@@ -81,7 +81,7 @@ void reportBrokenStreet(String tsid)
 		finishedMap[tsid] = {"entitiesRequired":-1,
     	                     "entitiesComplete":-1,
     	                     "streetFinished":false,
-    	                     "reportedBroken":true};
+    	                     "reported$reason":true};
 	}
 	finished.writeAsStringSync(JSON.encode(finishedMap));
 }
@@ -144,7 +144,8 @@ String getTsidOfUnfilledStreet()
 			tsid = t;
 			break;
 		}
-		else if(!finishedMap[t]['streetFinished'] && !finishedMap[t]['reportedBroken'])
+		else if(!finishedMap[t]['streetFinished'] && !finishedMap[t]['reportedBroken'] 
+			&& !finishedMap[t]['reportedVandalized'] && !finishedMap[t]['reportedFinished'])
         	incomplete = t;
 	}
 	

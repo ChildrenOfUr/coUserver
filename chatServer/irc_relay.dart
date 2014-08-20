@@ -92,8 +92,6 @@ class IRCRelay
 			});
 		});
           
-		slack.token = globalChatToken;
-        slack.team = slackTeam;
 		/*SecureSocket.connect(SLACK_HOST, PORT).then((SecureSocket socket) 
 		{
 			try
@@ -151,12 +149,14 @@ class IRCRelay
 		//if(!slackConnected)
 			//return;
 		
+		slack.token = globalChatToken;
+        slack.team = slackTeam;
+        		
 		slack.Message message = new slack.Message()
 			..username = username
 			..text = text
 			..icon_url = "http://s21.postimg.org/czibb690j/head.png";
 		
-		print("going to send message: $message");
 		slack.send(message);
 		
 		//slackSocket.write("PRIVMSG #$slackChannel :$message\r\n");

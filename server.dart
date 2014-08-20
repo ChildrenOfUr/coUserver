@@ -130,10 +130,21 @@ void main()
 					..write(getTsidOfUnfilledStreet())
 					..close();
 			}
-			else if(request.uri.path == "/reportBrokenStreet")
+			else if(request.uri.path == "/reportStreet")
 			{
 				Map data = request.uri.queryParameters;
-				reportBrokenStreet(data['tsid']);
+				reportBrokenStreet(data['tsid'],data['reason']);
+				
+				//post a message to map-filler-reports
+				slack.token = mapFillerReportsToken;
+                slack.team = slackTeam;
+                		
+        		slack.Message message = new slack.Message()
+        			..username = "doesn't apply"
+        			..text = "${data['tsid']}: ${data['reason']}\n${data['details']}";
+        		
+        		slack.send(message);
+                		
 				request.response
 			        ..headers.add('Access-Control-Allow-Origin', '*')
 					..headers.add('Content-Type', 'text/plain')
