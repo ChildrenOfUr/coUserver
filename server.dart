@@ -74,7 +74,7 @@ void main()
 					Map data = body.body;
 					String username = data['user_name'];
     				String text = data['text'];
-    				if(username == "robertmcdermot" && text.contains("::"))
+    				if(username == "slackbot")
     				{
     					request.response..write("OK")..close();
     					return;
