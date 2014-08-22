@@ -152,11 +152,8 @@ class IRCRelay
 		slack.token = globalChatToken;
         slack.team = slackTeam;
         		
-		slack.Message message = new slack.Message()
-			..username = username
-			..text = text
-			..icon_url = "http://s21.postimg.org/czibb690j/head.png";
-		
+        String icon_url = "http://s21.postimg.org/czibb690j/head.png";
+		slack.Message message = new slack.Message(text,username:username,icon_url:icon_url);		
 		slack.send(message);
 		
 		//slackSocket.write("PRIVMSG #$slackChannel :$message\r\n");
