@@ -12,7 +12,7 @@ void main()
 
 	app.addPlugin(getMapperPlugin(dbManager));
       
-	app.setupConsoleLog();
+	app.setupConsoleLog(Level.ALL);
 	app.start(port:port);
 	
 	//redstone.dart does not support websockets so we have to listen on a 
@@ -130,12 +130,12 @@ String restartServer(@app.QueryParam('secret') String secret)
 }
 
 @app.Route('/slack', methods: const[app.POST])
-String parseMessageFromSlack(@app.QueryParam('user_name') String username,
-                             @app.QueryParam('text') String text)
+String parseMessageFromSlack(@app.Body(app.FORM) Map form)
 {
+	String username = form['user_name'], text = form['text'];
 	if(username != "slackbot" && text != null && text.isNotEmpty)
 		ChatHandler.sendAll(
-				JSON.encode({'username':'dev_$username','channel':'Global Chat'}));
+				JSON.encode({'username':'dev_$username','message': text,'channel':'Global Chat'}));
 	
 	return "OK";
 }
