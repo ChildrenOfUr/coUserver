@@ -130,10 +130,9 @@ String restartServer(@app.QueryParam('secret') String secret)
 }
 
 @app.Route('/slack', methods: const[app.POST])
-String parseMessageFromSlack(@app.Body(app.JSON) Map data)
+String parseMessageFromSlack(@app.QueryParam('user_name') String username,
+                             @app.QueryParam('text') String text)
 {
-	String username = data['user_name'];
-	String text = data['text'];
 	if(username != "slackbot" && text != null && text.isNotEmpty)
 		ChatHandler.sendAll(
 				JSON.encode({'username':'dev_$username','channel':'Global Chat'}));
