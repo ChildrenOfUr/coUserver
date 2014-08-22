@@ -7,7 +7,4 @@ dependencies:
   redstone: any
   postgresql: any
   redstone_mapper_pg: any
-  slack:
-    git:
-      ref: master
-      url: https://github.com/ChildrenOfUr/dart-slack
+  slack: any
