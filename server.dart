@@ -129,7 +129,7 @@ String restartServer(@app.QueryParam('secret') String secret)
 		return "NOT AUTHORIZED";
 }
 
-@app.Route('/slack')
+@app.Route('/slack', methods: const[app.POST])
 String parseMessageFromSlack(@app.Body(app.JSON) Map data)
 {
 	String username = data['user_name'];
@@ -141,7 +141,7 @@ String parseMessageFromSlack(@app.Body(app.JSON) Map data)
 	return "OK";
 }
 
-@app.Route('/entityUpload')
+@app.Route('/entityUpload', methods: const[app.POST])
 String uploadEntities(@app.Body(app.JSON) Map params)
 {
 	if(params['tsid'] == null)
@@ -171,10 +171,8 @@ String reportStreet(@app.QueryParam('tsid') String tsid,
 	slack.token = mapFillerReportsToken;
     slack.team = slackTeam;
     		
-	slack.Message message = new slack.Message()
-		..username = "doesn't apply"
-		..text = "$tsid: $reason\n$details";
-	
+    String text = "$tsid: $reason\n$details";
+	slack.Message message = new slack.Message(text,username:"doesn't apply");	
 	slack.send(message);
     		
 	return "OK";
