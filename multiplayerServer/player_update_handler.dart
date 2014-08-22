@@ -59,8 +59,8 @@ class PlayerUpdateHandler
 				//tell the other clients that the old guy disconnected
 				userSockets[map["newUsername"]] = userSockets[username];
 				userSockets[username] = null;
-				String street = users[username].currentStreet;
-				users[map["newUsername"]] = users[username];
+				String street = map['street'];
+				users[map["newUsername"]] = new Identifier(username,"",street);
 				users[username] = null;
 				map = new Map();
 				map["disconnect"] = "true";
@@ -87,7 +87,7 @@ class PlayerUpdateHandler
 		}
 		catch(error)
 		{
-			print("Error processing message: $error");
+			print("Error processing message (player_update_handler): $error");
 		}
 	}
 	

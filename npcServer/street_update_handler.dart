@@ -11,7 +11,7 @@ class StreetUpdateHandler
 		//querying the isActive seems to spark the timer to start
 		//otherwise it does not start from the static declaration above
 		timer.isActive;
-		
+
 		ws.listen((message)
 		{
 			processMessage(ws, message);
@@ -154,7 +154,7 @@ class StreetUpdateHandler
 		}
 		catch(error)
 		{
-			log("Error processing message: $error");
+			log("Error processing message (street_update_handler): $error");
 		}
 	}
 	

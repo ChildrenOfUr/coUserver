@@ -2,15 +2,15 @@ part of coUserver;
 
 Map getStreetEntities(String tsid)
 {
-	if(tsid == null)
-		return null;
-	
-	if(tsid.startsWith("G"))
-		tsid = tsid.replaceFirst("G", "L");
-	Map entities = null;
-	File file = new File('./streetEntities/$tsid');
-	if(file.existsSync())
-		entities = JSON.decode(file.readAsStringSync());
+	Map entities = {};
+	if(tsid != null)
+	{
+		if(tsid.startsWith("G"))
+    		tsid = tsid.replaceFirst("G", "L");
+    	File file = new File('./streetEntities/$tsid');
+    	if(file.existsSync())
+    		entities = JSON.decode(file.readAsStringSync());
+	}
 	
 	return entities;
 }
