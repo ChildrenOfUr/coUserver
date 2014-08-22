@@ -4,8 +4,8 @@ IRCRelay relay;
 
 void main() 
 {
-	int port = 8282;
-	try	{port = int.parse(Platform.environment['PORT_BETA']);} //Platform.environment['PORT'] is for deployed, 8080 is for localhost
+	int port = 8181;
+	try	{port = int.parse(Platform.environment['PORT_BETA']);}
 	catch (error){port = 8181;}
 	
 	app.setupConsoleLog();

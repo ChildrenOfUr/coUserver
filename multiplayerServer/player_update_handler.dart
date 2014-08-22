@@ -3,14 +3,11 @@ part of coUserver;
 //handle player update events
 class PlayerUpdateHandler
 {
-	static Map<String,Identifier> users;
-	static Map<String,WebSocket> userSockets;
+	static Map<String,Identifier> users = {};
+	static Map<String,WebSocket> userSockets = {};
 	
 	static void handle(WebSocket ws)
 	{
-		users = new Map();
-		userSockets = new Map();
-		
 		ws.listen((message)
 		{
 			processMessage(ws, message);
@@ -38,6 +35,7 @@ class PlayerUpdateHandler
 			}
 		});
 		
+		userSockets.remove(leavingUser);
 		Identifier leavingID = users.remove(leavingUser);
 		if(leavingID != null)
 		{
@@ -82,7 +80,7 @@ class PlayerUpdateHandler
 			else //this user must have just connected
 			{
 				userSockets[username] = ws;
-				users[username] = new Identifier(username,map["street"]);
+				users[username] = new Identifier(username,"",map["street"]);
 			}
 			
 			sendAll(map);
