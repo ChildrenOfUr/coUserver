@@ -8,6 +8,10 @@ void main()
 	try	{port = int.parse(Platform.environment['PORT']);}
 	catch (error){port = 8181;}
 	
+	var dbManager = new PostgreSqlManager(databaseUri, min: 1, max: 3);
+
+	app.addPlugin(getMapperPlugin(dbManager));
+      
 	app.setupConsoleLog();
 	app.start(port:port);
 	
@@ -40,15 +44,36 @@ void main()
 	});
 }
 
+PostgreSql get postgreSql => app.request.attributes.dbConn;
+
 //add a CORS header to every request
 @app.Interceptor(r'/.*')
-interceptor()
+crossOriginInterceptor() 
 {
-	app.chain.next(() 
+	if (app.request.method == "OPTIONS") 
 	{
-		app.response = app.response.change(headers: {"Access-Control-Allow-Origin": "*"});
-	});
+		//overwrite the current response and interrupt the chain.
+		app.response = new shelf.Response.ok(null, headers: _createCorsHeader());
+		app.chain.interrupt();
+	}
+	else 
+	{
+    	//process the chain and wrap the response
+		app.chain.next(() => app.response.change(headers: _createCorsHeader()));
+	}
 }
+
+_createCorsHeader() => {"Access-Control-Allow-Origin": "*","Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"};
+
+@app.Route('/ah/list')
+@Encode()
+Future<List<Auction>> getAllAuctions() => 
+		postgreSql.query("select * from auctions", Auction);
+
+@app.Route('/ah/post', methods: const[app.POST])
+Future addAuction(@Decode() Auction auction) => 
+		postgreSql.execute("insert into auctions (item_name,total_cost,username) "
+						   "values (@item_name, @total_cost, @username)",auction);
 
 @app.Route('/serverStatus')
 Map getServerStatus()

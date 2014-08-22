@@ -11,6 +11,10 @@ import "package:slack/slack_io.dart" as slack;
 import "package:postgresql/postgresql.dart";
 import "package:redstone/server.dart" as app;
 import 'package:logging/logging.dart';
+import 'package:redstone_mapper/mapper.dart';
+import 'package:redstone_mapper/plugin.dart';
+import 'package:redstone_mapper_pg/manager.dart';
+import 'package:shelf/shelf.dart' as shelf;
 
 part 'server.dart';
 part 'API_KEYS.dart';
@@ -83,3 +87,4 @@ part 'npcServer/quoin.dart';
 
 //various http parts (as opposed to the previous websocket parts)
 part 'util.dart';
+part 'auction.dart';

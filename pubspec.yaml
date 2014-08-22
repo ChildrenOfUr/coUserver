@@ -6,6 +6,7 @@ dependencies:
   intl: any
   redstone: any
   postgresql: any
+  redstone_mapper_pg: any
   slack:
     git:
       ref: master
