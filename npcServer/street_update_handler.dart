@@ -6,7 +6,7 @@ class StreetUpdateHandler
 	static Map<String, Street> streets = new Map();
 	static Timer timer = new Timer.periodic(new Duration(seconds: 1), (Timer timer) => simulateStreets());
 	
-	StreetUpdateHandler(WebSocket ws)
+	static void handle(WebSocket ws)
 	{		
 		ws.listen((message)
 		{
@@ -70,7 +70,7 @@ class StreetUpdateHandler
 		toRemove.forEach((String label) => streets.remove(label));
 	}
 	
-	void cleanupList(WebSocket ws)
+	static void cleanupList(WebSocket ws)
 	{
 		//find and remove ws from whichever street has it
 		streets.forEach((String streetName, Street street)
@@ -81,7 +81,7 @@ class StreetUpdateHandler
 		});
 	}
 	
-	void processMessage(WebSocket ws, String message)
+	static void processMessage(WebSocket ws, String message)
 	{
 		//we should receive 3 kinds of messages:
 		//player enters street, player exits street, player interacts with object

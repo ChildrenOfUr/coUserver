@@ -2,15 +2,15 @@ part of coUserver;
 
 Map getStreetEntities(String tsid)
 {
-	if(tsid == null)
-		return null;
-	
-	if(tsid.startsWith("G"))
-		tsid = tsid.replaceFirst("G", "L");
-	Map entities = null;
-	File file = new File('./streetEntities/$tsid');
-	if(file.existsSync())
-		entities = JSON.decode(file.readAsStringSync());
+	Map entities = {};
+	if(tsid != null)
+	{
+		if(tsid.startsWith("G"))
+    		tsid = tsid.replaceFirst("G", "L");
+    	File file = new File('./streetEntities/$tsid');
+    	if(file.existsSync())
+    		entities = JSON.decode(file.readAsStringSync());
+	}
 	
 	return entities;
 }
@@ -45,6 +45,115 @@ saveStreetData(Map params)
 		file.createSync(recursive:true);
 	
 	file.writeAsStringSync(JSON.encode({'entities':entities}));
+	
+	
+	//save a list of finished and partially finished streets
+	File finished = _getFinishedFile();
+	Map finishedMap = JSON.decode(finished.readAsStringSync());
+	int required = int.parse(params['required']);
+	int complete = int.parse(params['complete']);
+	bool streetFinished = (required-complete == 0) ? true : false;
+	finishedMap[tsid] = {"entitiesRequired":params['required'],
+	                     "entitiesComplete":params['complete'],
+	                     "streetFinished":streetFinished};
+	finished.writeAsStringSync(JSON.encode(finishedMap));
+}
+
+void reportBrokenStreet(String tsid, String reason)
+{
+	if(tsid == null)
+		return;
+	
+	if(tsid.startsWith("G"))
+    	tsid = tsid.replaceFirst("G", "L");
+	
+	File finished = _getFinishedFile();
+	Map finishedMap = JSON.decode(finished.readAsStringSync());
+	Map street = {};
+	if(finishedMap[tsid] != null)
+	{
+		street = finishedMap[tsid];
+		street['reported$reason'] = true;
+		finishedMap[tsid] = street;
+	}
+	else
+	{
+		finishedMap[tsid] = {"entitiesRequired":-1,
+    	                     "entitiesComplete":-1,
+    	                     "streetFinished":false,
+    	                     "reported$reason":true};
+	}
+	finished.writeAsStringSync(JSON.encode(finishedMap));
+}
+
+File _getFinishedFile()
+{
+	File finished = new File('./streetEntities/finished.json');
+	if(!finished.existsSync())
+		_createFinishedFile();
+	
+	return finished;
+}
+
+void _createFinishedFile()
+{
+	File finished = new File('./streetEntities/finished.json');
+	finished.createSync(recursive:true);
+	//insert any streets that were finished before this file was created
+	Directory streetEntities = new Directory('./streetEntities');
+	Map finishedMap = {};
+	for(FileSystemEntity entity in streetEntities.listSync(recursive:true))
+	{
+		String filename = entity.path.substring(entity.path.lastIndexOf('/')+1);
+		if(!filename.contains('.'))
+		{
+			//we'll assume it's incomplete
+			finishedMap[filename] = {"entitiesRequired":0,
+				                     "entitiesComplete":0,
+            	                     "streetFinished":false};
+		}
+	}
+	finished.writeAsStringSync(JSON.encode(finishedMap));
+}
+
+String getTsidOfUnfilledStreet()
+{
+	String tsid = null;
+	
+	File file = new File('./streetEntities/streets.json');
+	File finished = new File('./streetEntities/finished.json');
+	
+	if(!finished.existsSync())
+		_createFinishedFile();
+	
+	if(!file.existsSync())
+		return tsid;
+	
+	Map streets = JSON.decode(file.readAsStringSync());
+	Map finishedMap = JSON.decode(finished.readAsStringSync());
+	
+	//loop through streets to find one that is not finished
+	//if they are all finished, take one that is not complete
+	String incomplete = null;
+	List<String> streetsList = streets.keys.toList();
+	streetsList.shuffle();
+	for(String t in streetsList)
+	{
+		if(!finishedMap.containsKey(t))
+		{
+			tsid = t;
+			break;
+		}
+		else if(!finishedMap[t]['streetFinished'] && !finishedMap[t]['reportedBroken'] 
+			&& !finishedMap[t]['reportedVandalized'] && !finishedMap[t]['reportedFinished'])
+        	incomplete = t;
+	}
+	
+	//tsid may still be null after this
+	if(tsid == null)
+		tsid = incomplete;
+	
+	return tsid;
 }
 
 /**
@@ -70,4 +179,14 @@ ClassMirror findClassMirror(String name)
 String createId(num x, num y, String type, String tsid)
 {
 	return (type+x.toString()+y.toString()+tsid).hashCode.toString();
+}
+
+/**
+ * 
+ * Log a message out to the console (and possibly a log file through redirection)
+ * 
+ **/
+void log(String message)
+{
+	print("(${new DateTime.now().toString()}) $message");
 }
