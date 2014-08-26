@@ -95,7 +95,7 @@ Future<Map> getServerStatus()
 		futures.add(Process.run("/bin/sh",["getMemoryUsage.sh"]).then((ProcessResult result)
 			=> statusMap['bytesUsed'] = int.parse(result.stdout)*1024));
 		futures.add(Process.run("/bin/sh",["getCpuUsage.sh"]).then((ProcessResult result)
-			=> statusMap['cpuUsed'] = double.parse(result.stdout.trim())));
+			=> statusMap['cpuUsed'] = num.parse(result.stdout.trim())));
 		futures.add(Process.run("/bin/sh",["getUptime.sh"]).then((ProcessResult result)
 			=> statusMap['uptime'] = result.stdout.trim()));
         
