@@ -190,3 +190,58 @@ void log(String message)
 {
 	print("(${new DateTime.now().toString()}) $message");
 }
+
+@app.Route('/getSpritesheets')
+Future<Map> getSpritesheets(@app.QueryParam('username') String username)
+{
+	Completer c = new Completer();
+	Map<String,String> spritesheets = {};
+	File cache = new File('./playerSpritesheets/${username.toLowerCase()}.json');
+	if(!cache.existsSync())
+	{
+		cache.create(recursive:true).then((File cache)
+		{
+			_getSpritesheetsFromWeb(username).then((Map spritesheets)
+    		{
+    			cache.writeAsString(JSON.encode(spritesheets))
+    				.then((_) => c.complete(spritesheets));
+    		});
+		});
+	}
+	else
+		cache.readAsString().then((String contents) => c.complete(JSON.decode(contents)));
+	
+	return c.future;
+}
+
+Future<Map> _getSpritesheetsFromWeb(String username)
+{
+	Completer c = new Completer();
+	Map spritesheets = {};
+	
+	String url = 'http://www.glitchthegame.com/friends/search/?q=${Uri.encodeComponent(username)}';
+	http.read(url)
+	.then((String response)
+	{
+		RegExp regex = new RegExp('\/profiles\/(.+)\/" class="friend-name">$username',caseSensitive:false);
+		if(regex.hasMatch(response))
+		{
+			String tsid = regex.firstMatch(response).group(1);
+		
+			http.read('http://www.glitchthegame.com/profiles/$tsid').then((String response)
+			{
+				List<String> sheets = ['base','angry','climb','happy','idle1','idle2','idle3','idleSleepy','jump','surprise'];
+				sheets.forEach((String sheet)
+                {
+                	RegExp regex = new RegExp('"(.+$sheet\.png)"');
+                	spritesheets[sheet] = regex.firstMatch(response).group(1);
+        		});
+				c.complete(spritesheets);
+			});
+		}
+		else
+			c.complete(spritesheets);
+	});
+	
+	return c.future;
+}
