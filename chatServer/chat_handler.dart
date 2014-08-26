@@ -15,13 +15,13 @@ class ChatHandler
 		ws.listen((message)
 		{
 			Map map = JSON.decode(message);
-			if(relay.connected)
+			/*if(relay.connected)
 			{
 				//don't repeat /list messages to the relay
 				//or possibly any statusMessages, but we'll see
 				if(map['statusMessage'] == null || map['statusMessage'] != "list")
 					relay.sendMessage(message);
-			}
+			}*/
 			if(map["channel"] == "Global Chat")
 			{
 				if(map["statusMessage"] == null && map["username"] != null && map["message"] != null)
