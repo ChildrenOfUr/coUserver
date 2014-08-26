@@ -152,7 +152,7 @@ class StreetUpdateHandler
 				return;
 			}
 		}
-		catch(error)
+		catch(error,st)
 		{
 			log("Error processing message (street_update_handler): $error");
 		}

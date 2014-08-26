@@ -55,13 +55,16 @@ class PlayerUpdateHandler
 			String username = map["username"];
 			if(map["statusMessage"] == "changeName")
 			{
+				String newUsername = map['newUsername'];
 				//the user used /setname to change their name and it was successful
 				//tell the other clients that the old guy disconnected
-				userSockets[map["newUsername"]] = userSockets[username];
-				userSockets[username] = null;
+				userSockets[newUsername] = ws;
 				String street = map['street'];
-				users[map["newUsername"]] = new Identifier(username,"",street);
-				users[username] = null;
+				users[newUsername] = new Identifier(newUsername,"",street);
+				
+				userSockets.remove(username);
+				users.remove(username);
+				
 				map = new Map();
 				map["disconnect"] = "true";
 				map["username"] = username;
@@ -85,7 +88,7 @@ class PlayerUpdateHandler
 			
 			sendAll(map);
 		}
-		catch(error)
+		catch(error, st)
 		{
 			print("Error processing message (player_update_handler): $error");
 		}
