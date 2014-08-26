@@ -61,7 +61,7 @@ crossOriginInterceptor()
     	//process the chain and wrap the response
 		app.chain.next(() => app.response.change(headers: _createCorsHeader()));
 	}
-} 
+}
 
 _createCorsHeader() => {"Access-Control-Allow-Origin": "*","Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"};
 
