@@ -12,7 +12,7 @@ void main()
 
 	app.addPlugin(getMapperPlugin(dbManager));
       
-	app.setupConsoleLog(Level.ALL);
+	app.setupConsoleLog();
 	app.start(port:port);
 	
 	//redstone.dart does not support websockets so we have to listen on a 
@@ -61,7 +61,7 @@ crossOriginInterceptor()
     	//process the chain and wrap the response
 		app.chain.next(() => app.response.change(headers: _createCorsHeader()));
 	}
-} 
+}
 
 _createCorsHeader() => {"Access-Control-Allow-Origin": "*","Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"};
 
