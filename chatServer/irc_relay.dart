@@ -143,19 +143,4 @@ class IRCRelay
 		
 		socket.write("PRIVMSG #$channel :$message\r\n");
 	}
-	
-	slackSend(String username, String text)
-	{
-		//if(!slackConnected)
-			//return;
-		
-		slack.token = globalChatToken;
-        slack.team = slackTeam;
-        		
-        String icon_url = "http://s21.postimg.org/czibb690j/head.png";
-		slack.Message message = new slack.Message(text,username:username,icon_url:icon_url);		
-		slack.send(message);
-		
-		//slackSocket.write("PRIVMSG #$slackChannel :$message\r\n");
-	}
 }

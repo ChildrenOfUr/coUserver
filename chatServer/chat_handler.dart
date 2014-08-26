@@ -25,7 +25,7 @@ class ChatHandler
 			if(map["channel"] == "Global Chat")
 			{
 				if(map["statusMessage"] == null && map["username"] != null && map["message"] != null)
-					relay.slackSend(map["username"],map["message"]);
+					slackSend(map["username"],map["message"]);
 			}
 			processMessage(ws, message);
 	    }, 
@@ -37,6 +37,16 @@ class ChatHandler
 		{
 			cleanupLists(ws);
 		});
+	}
+	
+	static void slackSend(String username, String text)
+	{
+		slack.token = globalChatToken;
+        slack.team = slackTeam;
+        		
+        String icon_url = "http://s21.postimg.org/czibb690j/head.png";
+		slack.Message message = new slack.Message(text,username:username,icon_url:icon_url);		
+		slack.send(message);
 	}
 	
 	static void cleanupLists(WebSocket ws)

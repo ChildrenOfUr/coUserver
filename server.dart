@@ -19,7 +19,7 @@ void main()
 	//seperate port for those connections :(
 	HttpServer.bind('0.0.0.0', 8282).then((HttpServer server) 
 	{
-        relay = new IRCRelay();
+        //relay = new IRCRelay();
         
 		server.listen((HttpRequest request)
 		{
@@ -95,7 +95,11 @@ Future<Map> getServerStatus()
 		futures.add(Process.run("/bin/sh",["getMemoryUsage.sh"]).then((ProcessResult result)
 			=> statusMap['bytesUsed'] = int.parse(result.stdout)*1024));
 		futures.add(Process.run("/bin/sh",["getCpuUsage.sh"]).then((ProcessResult result)
-			=> statusMap['cpuUsed'] = num.parse(result.stdout.trim())));
+			=> statusMap['cpuUsed'] = num.parse(result.stdout.trim(),(String input)
+					
+					{
+			log('cannot parse $input');
+			return 1;})));
 		futures.add(Process.run("/bin/sh",["getUptime.sh"]).then((ProcessResult result)
 			=> statusMap['uptime'] = result.stdout.trim()));
         
