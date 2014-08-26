@@ -76,9 +76,10 @@ Future addAuction(@Decode() Auction auction) =>
 						   "values (@item_name, @total_cost, @username)",auction);
 
 @app.Route('/serverStatus')
-Map getServerStatus()
+Future<Map> getServerStatus()
 {
 	Map statusMap = {};
+	Completer c = new Completer();
 	try
 	{
 		List<String> users = [];
@@ -89,15 +90,27 @@ Map getServerStatus()
 		});
 		statusMap['playerList'] = users;
 		statusMap['numStreetsLoaded'] = StreetUpdateHandler.streets.length;
-		ProcessResult result = Process.runSync("/bin/sh",["getMemoryUsage.sh"]);
-		statusMap['bytesUsed'] = int.parse(result.stdout)*1024;
-		result = Process.runSync("/bin/sh",["getCpuUsage.sh"]);
-		statusMap['cpuUsed'] = double.parse(result.stdout.trim());
-		result = Process.runSync("/bin/sh",["getUptime.sh"]);
-        statusMap['uptime'] = result.stdout.trim();
+		
+		List<Future> futures = [];
+		futures.add(Process.run("/bin/sh",["getMemoryUsage.sh"]).then((ProcessResult result)
+			=> statusMap['bytesUsed'] = int.parse(result.stdout)*1024));
+		futures.add(Process.run("/bin/sh",["getCpuUsage.sh"]).then((ProcessResult result)
+			=> statusMap['cpuUsed'] = num.parse(result.stdout.trim(),(String input)
+					
+					{
+			log('cannot parse $input');
+			return 1;})));
+		futures.add(Process.run("/bin/sh",["getUptime.sh"]).then((ProcessResult result)
+			=> statusMap['uptime'] = result.stdout.trim()));
+        
+        c.complete(Future.wait(futures));
 	}
-	catch(e){log("Error getting server status: $e");}
-	return statusMap;
+	catch(e)
+	{
+		log("Error getting server status: $e");
+		c.complete(statusMap);
+	}
+	return c.future;
 }
 
 @app.Route('/serverLog')
