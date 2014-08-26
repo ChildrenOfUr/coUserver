@@ -76,9 +76,10 @@ Future addAuction(@Decode() Auction auction) =>
 						   "values (@item_name, @total_cost, @username)",auction);
 
 @app.Route('/serverStatus')
-Map getServerStatus()
+Future<Map> getServerStatus()
 {
 	Map statusMap = {};
+	Completer c = new Completer();
 	try
 	{
 		List<String> users = [];
@@ -89,32 +90,47 @@ Map getServerStatus()
 		});
 		statusMap['playerList'] = users;
 		statusMap['numStreetsLoaded'] = StreetUpdateHandler.streets.length;
-		ProcessResult result = Process.runSync("/bin/sh",["getMemoryUsage.sh"]);
-		statusMap['bytesUsed'] = int.parse(result.stdout)*1024;
-		result = Process.runSync("/bin/sh",["getCpuUsage.sh"]);
-		statusMap['cpuUsed'] = double.parse(result.stdout.trim());
-		result = Process.runSync("/bin/sh",["getUptime.sh"]);
-        statusMap['uptime'] = result.stdout.trim();
+		
+		List<Future> futures = [];
+		futures.add(Process.run("/bin/sh",["getMemoryUsage.sh"]).then((ProcessResult result)
+			=> statusMap['bytesUsed'] = int.parse(result.stdout)*1024));
+		futures.add(Process.run("/bin/sh",["getCpuUsage.sh"]).then((ProcessResult result)
+			=> statusMap['cpuUsed'] = double.parse(result.stdout.trim())));
+		futures.add(Process.run("/bin/sh",["getUptime.sh"]).then((ProcessResult result)
+			=> statusMap['uptime'] = result.stdout.trim()));
+        
+        c.complete(Future.wait(futures));
 	}
-	catch(e){log("Error getting server status: $e");}
-	return statusMap;
+	catch(e)
+	{
+		log("Error getting server status: $e");
+		c.complete(statusMap);
+	}
+	return c.future;
 }
 
 @app.Route('/serverLog')
-Map getServerLog()
+Future<Map> getServerLog()
 {
 	Map statusMap = {};
+	Completer c = new Completer();
 	try
 	{
 		DateTime date = new DateTime.now();
 		DateFormat format = new DateFormat("MM_dd_yy");
-		statusMap['serverLog'] = new File('serverLogs/${format.format(date)}-server.log').readAsStringSync();
+		Process.run("tail", ['-n','200','serverLogs/${format.format(date)}-server.log'])
+			.then((ProcessResult result)
+			{
+				statusMap['serverLog'] = result.stdout;
+				c.complete(statusMap);
+			});
 	}
 	catch(exception, stacktrace)
 	{
 		statusMap['serverLog'] = exception.toString();
+		c.complete(statusMap);
 	}
-	return statusMap;
+	return c.future;
 }
 	
 @app.Route('/restartServer')
@@ -134,8 +150,10 @@ String parseMessageFromSlack(@app.Body(app.FORM) Map form)
 {
 	String username = form['user_name'], text = form['text'];
 	if(username != "slackbot" && text != null && text.isNotEmpty)
-		ChatHandler.sendAll(
-				JSON.encode({'username':'dev_$username','message': text,'channel':'Global Chat'}));
+	{
+		Map map = {'username':'dev_$username','message': text,'channel':'Global Chat'};
+		ChatHandler.sendAll(JSON.encode(map));
+	}
 	
 	return "OK";
 }
@@ -147,6 +165,7 @@ String uploadEntities(@app.Body(app.JSON) Map params)
 		return "FAIL";
 	
 	saveStreetData(params);
+	
 	return "OK";
 }
 
