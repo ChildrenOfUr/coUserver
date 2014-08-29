@@ -14,11 +14,13 @@ import 'package:logging/logging.dart';
 import 'package:redstone_mapper/mapper.dart';
 import 'package:redstone_mapper/plugin.dart';
 import 'package:redstone_mapper_pg/manager.dart';
+import 'package:redstone_web_socket/redstone_web_socket.dart';
 import 'package:shelf/shelf.dart' as shelf;
 import 'package:http/http.dart' as http;
 
 part 'server.dart';
 part 'API_KEYS.dart';
+part 'auctions_service.dart';
 
 //common to all server parts
 part 'common/identifier.dart';

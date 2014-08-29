@@ -8,4 +8,5 @@ dependencies:
   redstone: any
   postgresql: any
   redstone_mapper_pg: any
+  redstone_web_socket: any
   slack: any

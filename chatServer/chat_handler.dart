@@ -1,17 +1,17 @@
 part of coUserver;
 
 // handle chat events
-class ChatHandler 
+class ChatHandler
 {
 	static Map<String, WebSocket> userSockets = new Map<String,WebSocket>(); // Map of current users
 	static List<Identifier> users = new List();
-	
+
 	static void handle(WebSocket ws)
 	{
 		/**we are no longer using heroku so this should not be necessary**/
 		//if a heroku app does not send any information for more than 55 seconds, the connection will be terminated
-		//new KeepAlive().start(ws); 
-		
+		//new KeepAlive().start(ws);
+
 		ws.listen((message)
 		{
 			Map map = JSON.decode(message);
@@ -28,27 +28,27 @@ class ChatHandler
 					slackSend(map["username"],map["message"]);
 			}
 			processMessage(ws, message);
-	    }, 
+	    },
 		onError: (error)
 		{
 			cleanupLists(ws);
-		}, 
+		},
 		onDone: ()
 		{
 			cleanupLists(ws);
 		});
 	}
-	
+
 	static void slackSend(String username, String text)
 	{
 		slack.token = globalChatToken;
         slack.team = slackTeam;
-        		
+
         String icon_url = "http://s21.postimg.org/czibb690j/head.png";
-		slack.Message message = new slack.Message(text,username:username,icon_url:icon_url);		
+		slack.Message message = new slack.Message(text,username:username,icon_url:icon_url);
 		slack.send(message);
 	}
-	
+
 	static void cleanupLists(WebSocket ws)
 	{
 		List<String> socketRemove = new List<String>();
@@ -65,7 +65,7 @@ class ChatHandler
 			}
 		});
 		socketRemove.forEach((String username) => userSockets.remove(username));
-		
+
 		//send a message to all other clients that this user has disconnected
 		Map map = new Map();
 		map["message"] = " left.";
@@ -74,13 +74,13 @@ class ChatHandler
 		sendAll(JSON.encode(map));
 	}
 
-	static void processMessage(WebSocket ws, String receivedMessage) 
+	static void processMessage(WebSocket ws, String receivedMessage)
 	{
-		try 
+		try
 		{
 			Map map = JSON.decode(receivedMessage);
-			
-			if(map["username"] == null) 
+
+			if(map["username"] == null)
 			{
 				//combine the username with the channel name to keep track of the same user in multiple channels
 				String userName = map["message"].substring(9)+"_"+map["channel"];
@@ -101,7 +101,7 @@ class ChatHandler
 					if(userId.username == map["newUsername"])
 						success = false;
 				});
-				
+
 				if(!success)
 				{
 					Map errorResponse = new Map();
@@ -117,7 +117,7 @@ class ChatHandler
 					map["success"] = "true";
 					map["message"] = "is now known as";
 					map["channel"] = "all"; //echo it back to all channels so we can update the connectedUsers list on the client's side
-					
+
 					users.forEach((Identifier userId)
 					{
 						if(userId.username == map["username"]) //update the old usernames
@@ -173,9 +173,9 @@ class ChatHandler
 				userSockets[map["username"]+"_"+map["channel"]].add(JSON.encode(map));
 				return;
 			}
-			
+
       		sendAll(JSON.encode(map));
-    	} 
+    	}
 		catch(err)
 		{
       		log("Error handling chat: $err");

@@ -8,21 +8,21 @@ class IRCRelay
 	bool connected = false, slackConnected = false;
 	Socket socket;
 	SecureSocket slackSocket;
-	
+
 	IRCRelay()
 	{
 		Socket.connect(HOST, PORT).then((Socket socket)
 		{
 			this.socket = socket;
-			
+
 			//irc expects \r\n to end command lines
 			socket.write("NICK CoUBot\r\n");
 			socket.write("USER CoUBot 8 * : CoU Bot\r\n");
 
-			socket.listen((data) 
+			socket.listen((data)
 			{
 				String dataString = new String.fromCharCodes(data).trim();
-				
+
 				if(dataString.contains("PING :"))
 				{
 					//we must respond with PONG + :<random-string> to stay active
@@ -44,7 +44,7 @@ class IRCRelay
 					//normal message directed at the channel
 					int offset = channel.length+11;
 					String message = dataString.substring(dataString.indexOf("PRIVMSG #$channel :")+offset);
-					
+
 					//send message out to clients
 					//ensure correct formatting
 					try
@@ -80,7 +80,7 @@ class IRCRelay
 				}
 			},
 			onError: (error) => print(error),
-			onDone: () 
+			onDone: ()
 			{
 				try
 				{
@@ -91,13 +91,13 @@ class IRCRelay
 				catch(error){}
 			});
 		});
-          
-		/*SecureSocket.connect(SLACK_HOST, PORT).then((SecureSocket socket) 
+
+		/*SecureSocket.connect(SLACK_HOST, PORT).then((SecureSocket socket)
 		{
 			try
 			{
 				slackSocket = socket;
-                			
+
     			//irc expects \r\n to end command lines
     			socket.write("PASS ${Platform.environment['irc_pass']}\r\n");
     			socket.write("NICK robertmcdermot\r\n");
@@ -106,7 +106,7 @@ class IRCRelay
     			socket.listen((data)
     			{
     				String dataString = new String.fromCharCodes(data).trim();
-    				
+
     				if(dataString.contains("PING :"))
     				{
     					//we must respond with PONG + :<random-string> to stay active
@@ -125,7 +125,7 @@ class IRCRelay
     				}
     			},
     			onError: (error) => print(error),
-    			onDone: () 
+    			onDone: ()
     			{
     				print("Slack IRC hung up on us");
     				slackConnected = false;
@@ -135,12 +135,12 @@ class IRCRelay
 			catch(error){print(error);}//if run locally this connect won't work unless Platform.environment['irc_pass'] is set
 		});*/
 	}
-	
+
 	sendMessage(String message)
 	{
 		if(!connected)
 			return;
-		
+
 		socket.write("PRIVMSG #$channel :$message\r\n");
 	}
 }

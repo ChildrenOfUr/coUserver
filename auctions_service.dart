@@ -3,21 +3,17 @@ part of coUserver;
 @app.Group('/ah')
 class AuctionService
 {
+	@app.Route('/dropAll')
+	Future dropAllAuctions() => postgreSql.innerConn.execute('delete from auctions');
+
 	@app.Route('/list', methods: const[app.POST])
     @Encode()
     Future<List<Auction>> getAuctions(@app.Body(app.JSON) Map parameters)
     {
 		String queryString = "select * from auctions";
-		if(parameters.length > 0)
-		{
-			//TODO support 'or'?
-			queryString += ' where';
-			parameters.forEach((String key, Map relation) =>
-				queryString += ' $key ${relation['operator']} \'${relation['value']}\' and');
+		parameters.forEach((String key, String value) => queryString += ' $key $value');
 
-			//cut off the trailing 'and'
-			queryString = queryString.substring(0,queryString.length-4);
-		}
+		print('query: $queryString');
 		return postgreSql.query(queryString, Auction);
     }
 
