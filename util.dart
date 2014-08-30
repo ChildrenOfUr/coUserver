@@ -296,7 +296,7 @@ Future<Map> getStreetFillerStats()
 		});
 		Map data = {'totalStreets':streets.length,'totalReports':finishedMap.length,
 		            'entitiesRequired':entitiesRequired,'entitiesComplete':entitiesComplete,
-		            'reportedBroken':reportedBroken,'reportedComplete':entitiesComplete,
+		            'reportedBroken':reportedBroken,'reportedComplete':reportedFinished,
 		            'reportedVandalized':reportedVandalized,'rawData':finishedMap};
 		c.complete(data);
 	});
