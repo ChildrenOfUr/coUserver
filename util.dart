@@ -260,3 +260,45 @@ Map getItemByName(@app.QueryParam('name') String name)
 		return {'status':'FAIL','reason':'Could not find item: $name'};
 	}
 }
+
+@app.Route('/getStreetFillerStats')
+Future<Map> getStreetFillerStats()
+{
+	Completer c = new Completer();
+	File finished = _getFinishedFile();
+	finished.readAsString().then((String str)
+	{
+		File file = new File('./streetEntities/streets.json');
+    	Map streets = JSON.decode(file.readAsStringSync());
+
+		int trulyFinished = 0;
+		int reportedBroken = 0;
+		int reportedFinished = 0;
+		int reportedVandalized = 0;
+		int entitiesRequired = 0;
+		int entitiesComplete = 0;
+
+		Map finishedMap = JSON.decode(str);
+		finishedMap.forEach((String key, Map value)
+		{
+			if(value['streetFinished'] == true)
+				trulyFinished++;
+			if(value['reportedBroken'] == true)
+				reportedBroken++;
+			if(value['reportedFinished'] == true)
+				reportedFinished++;
+			if(value['reportedVandalized'] == true)
+				reportedVandalized++;
+			if(value['entitiesRequired'] != null && value['entitiesRequired'] != -1)
+				entitiesRequired += num.parse(value['entitiesRequired'].toString());
+			if(value['entitiesComplete'] != null && value['entitiesComplete'] != -1)
+				entitiesComplete += num.parse(value['entitiesComplete'].toString());
+		});
+		Map data = {'totalStreets':streets.length,'entitiesRequired':entitiesRequired,'entitiesComplete':entitiesComplete,
+		            'reportedBroken':reportedBroken,'reportedComplete':entitiesComplete,
+		            'reportedVandalized':reportedVandalized,'rawData':finishedMap};
+		c.complete(data);
+	});
+
+	return c.future;
+}
