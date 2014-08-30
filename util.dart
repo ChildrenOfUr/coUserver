@@ -294,7 +294,8 @@ Future<Map> getStreetFillerStats()
 			if(value['entitiesComplete'] != null && value['entitiesComplete'] != -1)
 				entitiesComplete += num.parse(value['entitiesComplete'].toString());
 		});
-		Map data = {'totalStreets':streets.length,'entitiesRequired':entitiesRequired,'entitiesComplete':entitiesComplete,
+		Map data = {'totalStreets':streets.length,'totalReports':finishedMap.length,
+		            'entitiesRequired':entitiesRequired,'entitiesComplete':entitiesComplete,
 		            'reportedBroken':reportedBroken,'reportedComplete':entitiesComplete,
 		            'reportedVandalized':reportedVandalized,'rawData':finishedMap};
 		c.complete(data);
