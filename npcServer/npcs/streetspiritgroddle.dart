@@ -9,20 +9,23 @@ class StreetSpiritGroddle extends NPC
 					 "timeRequired":actionTime,
 					 "enabled":true,
         			 "actionWord":""});
-		
+
 		type = "Street Spirit Groddle";
 		speed = 0;
-		
+
 		//has 19 animation frames but I put one because this is it's open animation and it looks weird to loop
-		states = {"base":new Spritesheet("base",'http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L0dirt_bottom_none_eyes_eyes_L0eyes2_skull_skull_L0dirt_top_none_x1_open_png_1354834585.png',980,300,98,150,1,false)};
-		currentState = states['base'];
+		states = {
+		          "still":new Spritesheet("still",'http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L0dirt_bottom_none_eyes_eyes_L0eyes2_skull_skull_L0dirt_top_none_x1_open_png_1354834585.png',980,300,98,150,1,false),
+		          "open":new Spritesheet("open",'http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L0dirt_bottom_none_eyes_eyes_L0eyes2_skull_skull_L0dirt_top_none_x1_open_png_1354834585.png',980,300,98,150,19,false)
+				};
+		currentState = states['still'];
 	}
-	
+
 	void update()
 	{
-		
+
 	}
-	
+
 	void buy({WebSocket userSocket})
 	{
 		Map map = {};
@@ -31,19 +34,19 @@ class StreetSpiritGroddle extends NPC
 		map['itemsForSale'] = _getItemsForSale();
 		userSocket.add(JSON.encode(map));
 	}
-	
+
 	void buyItem({WebSocket userSocket, String itemName, int num})
 	{
 		Map map = {};
 		map['giveItem'] = "true";
 		ClassMirror classMirror = findClassMirror(itemName.replaceAll(" ", ""));
-		Item item = classMirror.newInstance(new Symbol(""), []).reflectee;			
+		Item item = classMirror.newInstance(new Symbol(""), []).reflectee;
 		map['item'] = item.getMap();
 		map['num'] = num;
 		map['fromObject'] = id;
 		userSocket.add(JSON.encode(map));
 	}
-	
+
 	void sellItem({WebSocket userSocket, String itemName, int num})
 	{
 		//TODO: obviously do checks to see if this can succeed
@@ -53,7 +56,7 @@ class StreetSpiritGroddle extends NPC
 		map['count'] = num;
 		userSocket.add(JSON.encode(map));
 	}
-	
+
 	List _getItemsForSale()
 	{
 		List<Map> items = [];
@@ -63,7 +66,7 @@ class StreetSpiritGroddle extends NPC
 		items.add(new FancyPick().getMap());
 		items.add(new Bean().getMap());
 		items.add(new Cherry().getMap());
-		
+
 		return items;
 	}
 }

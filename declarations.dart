@@ -36,11 +36,22 @@ part 'multiplayerServer/player_update_handler.dart';
 //npc server (street simulation) parts
 part 'npcServer/street_update_handler.dart';
 part 'npcServer/street.dart';
-part 'npcServer/npcs/piggy.dart';
+part 'npcServer/npcs/animals/piggy.dart';
 part 'npcServer/entity.dart';
 part 'npcServer/npcs/npc.dart';
 part 'npcServer/npcs/streetspiritgroddle.dart';
-part 'npcServer/npcs/chicken.dart';
+part 'npcServer/npcs/animals/chicken.dart';
+part 'npcServer/npcs/shrines/shrine.dart';
+part 'npcServer/npcs/shrines/alph.dart';
+part 'npcServer/npcs/shrines/friendly.dart';
+part 'npcServer/npcs/shrines/cosma.dart';
+part 'npcServer/npcs/shrines/grendaline.dart';
+part 'npcServer/npcs/shrines/humbaba.dart';
+part 'npcServer/npcs/shrines/mab.dart';
+part 'npcServer/npcs/shrines/pot.dart';
+part 'npcServer/npcs/shrines/spriggan.dart';
+part 'npcServer/npcs/shrines/tii.dart';
+part 'npcServer/npcs/shrines/zille.dart';
 
 //items
 part 'npcServer/npcs/items/item.dart';

@@ -317,7 +317,12 @@ Future<Map> getStreetFillerStats()
 		            'entitiesRequired':entitiesRequired,'entitiesComplete':entitiesComplete,
 		            'reportedBroken':reportedBroken,'reportedComplete':reportedFinished,
 		            'reportedVandalized':reportedVandalized,'typeTotals':typeTotals};
-		c.complete(data);
+		http.post('http://jsonprettyprint.com/json-pretty-printer.php'
+				,body:{'json_data':data.toString()}).then((response)
+		{
+			print(response.body);
+			c.complete(data);
+		});
 	});
 
 	return c.future;
