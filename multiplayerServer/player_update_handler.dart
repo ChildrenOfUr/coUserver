@@ -64,6 +64,7 @@ class PlayerUpdateHandler
 			if(map["statusMessage"] == "changeName")
 			{
 				//don't accept this message from anyone else
+				//(fixes the /setname other players stop moving bug)
 				if(ws != userSockets[username])
 					return;
 
