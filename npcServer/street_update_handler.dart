@@ -95,7 +95,7 @@ class StreetUpdateHandler
 			//a player has joined or left the street
 			if(map["message"] == "joined")
 			{
-				if(map['clientVersion'] < minClientVersion)
+				if(map['clientVersion'] != null && map['clientVersion'] < minClientVersion)
 				{
 					ws.add(JSON.encode({'error':'version too low'}));
 					return;

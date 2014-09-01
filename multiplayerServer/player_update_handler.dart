@@ -63,6 +63,10 @@ class PlayerUpdateHandler
 			String username = map["username"];
 			if(map["statusMessage"] == "changeName")
 			{
+				//don't accept this message from anyone else
+				if(ws != userSockets[username])
+					return;
+
 				print('got changeName: $map');
 				String newUsername = map['newUsername'];
 				//the user used /setname to change their name and it was successful
