@@ -66,7 +66,7 @@ class PlayerUpdateHandler
 				String newUsername = map['newUsername'];
 				//the user used /setname to change their name and it was successful
 				//tell the other clients that the old guy disconnected
-				userSockets[newUsername] = ws;
+				userSockets[newUsername] = userSockets[username];
 				String street = map['street'];
 				users[newUsername] = new Identifier(newUsername,"",street);
 
