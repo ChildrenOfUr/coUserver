@@ -53,9 +53,10 @@ class PlayerUpdateHandler
 		{
 			Map map = JSON.decode(message);
 
-			if(map['clientVersion'] != null && map['clientVersion'] < minClientVersion)
+			if(map['clientVersion'] != null)
 			{
-				ws.add(JSON.encode({'error':'version too low'}));
+				if(map['clientVersion'] < minClientVersion)
+					ws.add(JSON.encode({'error':'version too low'}));
 				return;
 			}
 
