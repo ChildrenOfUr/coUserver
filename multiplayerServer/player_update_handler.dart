@@ -5,27 +5,27 @@ class PlayerUpdateHandler
 {
 	static Map<String,Identifier> users = {};
 	static Map<String,WebSocket> userSockets = {};
-	
+
 	static void handle(WebSocket ws)
 	{
 		ws.listen((message)
 		{
 			processMessage(ws, message);
-	    }, 
+	    },
 		onError: (error)
 		{
 			cleanupList(ws);
-		}, 
+		},
 		onDone: ()
 		{
 			cleanupList(ws);
 		});
 	}
-	
+
 	static void cleanupList(WebSocket ws)
 	{
 		String leavingUser;
-		
+
 		userSockets.forEach((String username, WebSocket socket)
 		{
 			if(ws == socket)
@@ -34,7 +34,7 @@ class PlayerUpdateHandler
 				leavingUser = username;
 			}
 		});
-		
+
 		userSockets.remove(leavingUser);
 		Identifier leavingID = users.remove(leavingUser);
 		if(leavingID != null)
@@ -46,12 +46,19 @@ class PlayerUpdateHandler
 			sendAll(map);
 		}
 	}
-	
+
 	static void processMessage(WebSocket ws, String message)
 	{
 		try
 		{
 			Map map = JSON.decode(message);
+
+			if(map['clientVersion'] != null && map['clientVersion'] < minClientVersion)
+			{
+				ws.add(JSON.encode({'error':'version too low'}));
+				return;
+			}
+
 			String username = map["username"];
 			if(map["statusMessage"] == "changeName")
 			{
@@ -61,10 +68,10 @@ class PlayerUpdateHandler
 				userSockets[newUsername] = ws;
 				String street = map['street'];
 				users[newUsername] = new Identifier(newUsername,"",street);
-				
+
 				userSockets.remove(username);
 				users.remove(username);
-				
+
 				map = new Map();
 				map["disconnect"] = "true";
 				map["username"] = username;
@@ -76,7 +83,7 @@ class PlayerUpdateHandler
 			{
 				if(users[username].currentStreet != map["street"]) //the user must have switched streets
 				{
-					map["changeStreet"] = map["street"];					
+					map["changeStreet"] = map["street"];
 					users[username].currentStreet = map["street"];
 				}
 			}
@@ -85,7 +92,7 @@ class PlayerUpdateHandler
 				userSockets[username] = ws;
 				users[username] = new Identifier(username,"",map["street"]);
 			}
-			
+
 			sendAll(map);
 		}
 		catch(error, st)
@@ -93,7 +100,7 @@ class PlayerUpdateHandler
 			print("Error processing message (player_update_handler): $error");
 		}
 	}
-	
+
 	static void sendAll(Map map)
 	{
 		String data = JSON.encode(map);

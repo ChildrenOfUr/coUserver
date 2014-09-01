@@ -80,6 +80,13 @@ class ChatHandler
 		{
 			Map map = JSON.decode(receivedMessage);
 
+			if(map['clientVersion'] != null)
+			{
+				if(map['clientVersion'] < minClientVersion)
+					ws.add(JSON.encode({'error':'version too low'}));
+				return;
+			}
+
 			if(map["username"] == null)
 			{
 				//combine the username with the channel name to keep track of the same user in multiple channels

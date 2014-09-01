@@ -1,6 +1,7 @@
 part of coUserver;
 
 IRCRelay relay;
+double minClientVersion = 0.05;
 
 void main()
 {

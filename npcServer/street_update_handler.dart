@@ -5,7 +5,7 @@ class StreetUpdateHandler
 {
 	static Map<String, Street> streets = new Map();
 	static Timer timer = new Timer.periodic(new Duration(seconds: 1), (Timer timer) => simulateStreets());
-	
+
 	static void handle(WebSocket ws)
 	{
 		//querying the isActive seems to spark the timer to start
@@ -15,17 +15,17 @@ class StreetUpdateHandler
 		ws.listen((message)
 		{
 			processMessage(ws, message);
-	    }, 
+	    },
 		onError: (error)
 		{
 			cleanupList(ws);
-		}, 
+		},
 		onDone: ()
 		{
 			cleanupList(ws);
-		});       		
+		});
 	}
-	
+
 	static void simulateStreets()
 	{
 		List<String> toRemove = [];
@@ -37,24 +37,24 @@ class StreetUpdateHandler
 				street.plants.forEach((String id, Plant plant) => plant.update());
 				street.quoins.forEach((String id, Quoin quoin) => quoin.update());
 				street.npcs.forEach((String id, NPC npc) => npc.update());
-				
+
 				Map<String,List> updates = {"quoins":[],"npcs":[],"plants":[],"groundItems":[]};
 				street.quoins.forEach((String id, Quoin quoin) => updates["quoins"].add(quoin.getMap()));
 				street.npcs.forEach((String id, NPC npc) => updates["npcs"].add(npc.getMap()));
 				street.plants.forEach((String id, Plant plant) => updates["plants"].add(plant.getMap()));
-				
+
 				List<String> pickedUpItems = [];
 				street.groundItems.forEach((String id, Item item)
 				{
 					updates["groundItems"].add(item.getMap());
-					//check if item was picked up and if so delete it 
+					//check if item was picked up and if so delete it
 					//(after sending it to the client one more time)
 					if(item.onGround == false)
 						pickedUpItems.add(id);
 				});
-				
+
 				pickedUpItems.forEach((String id) => street.groundItems.remove(id));
-				
+
 				street.occupants.forEach((WebSocket socket)
     			{
     				if(socket != null)
@@ -64,12 +64,12 @@ class StreetUpdateHandler
 			else
 				toRemove.add(street.label);
 		});
-		
+
 		//clean up memory of streets where no players currently are
 		//in the future, I imagine this is where the street would be saved to the database
 		toRemove.forEach((String label) => streets.remove(label));
 	}
-	
+
 	static void cleanupList(WebSocket ws)
 	{
 		//find and remove ws from whichever street has it
@@ -80,7 +80,7 @@ class StreetUpdateHandler
 				street.occupants.removeAt(index);
 		});
 	}
-	
+
 	static void processMessage(WebSocket ws, String message)
 	{
 		//we should receive 3 kinds of messages:
@@ -91,10 +91,16 @@ class StreetUpdateHandler
 			Map map = JSON.decode(message);
 			String streetName = map["streetName"];
 			String username = map["username"];
-			
+
 			//a player has joined or left the street
 			if(map["message"] == "joined")
 			{
+				if(map['clientVersion'] < minClientVersion)
+				{
+					ws.add(JSON.encode({'error':'version too low'}));
+					return;
+				}
+
 				if(!streets.containsKey(streetName))
     				loadStreet(streetName,map['tsid']);
 				log("${map['username']} joined $streetName");
@@ -106,11 +112,11 @@ class StreetUpdateHandler
 				cleanupList(ws);
 				return;
 			}
-			
+
 			//if the street doesn't yet exist, create it (maybe it got stored back to the datastore)
 			if(!streets.containsKey(streetName))
 				loadStreet(streetName,map['tsid']);
-			
+
 			//the player's hit-box collided with a quion
 			if(map["remove"] != null)
 			{
@@ -119,10 +125,10 @@ class StreetUpdateHandler
 					if(streets[streetName].quoins[map["remove"]] != null)
 						streets[streetName].quoins[map["remove"]].setCollected();
 				}
-				
+
 				return;
 			}
-			
+
 			//callMethod means the player is trying to interact with an entity
 			if(map["callMethod"] != null)
 			{
@@ -148,7 +154,7 @@ class StreetUpdateHandler
 					arguments[#map] = map['arguments'];
 					instanceMirror.invoke(new Symbol(map['callMethod']),[],arguments);
 				}
-				
+
 				return;
 			}
 		}
@@ -157,7 +163,7 @@ class StreetUpdateHandler
 			log("Error processing message (street_update_handler): $error");
 		}
 	}
-	
+
 	static void loadStreet(String streetName, String tsid)
 	{
 		streets[streetName] = new Street(streetName,tsid);
