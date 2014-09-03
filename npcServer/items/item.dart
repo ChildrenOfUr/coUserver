@@ -10,7 +10,7 @@ abstract class Item
 						  "enabled":true,
 						  "actionWord":""}];
 	List<Map> groundActions = [{"action":"pickup","enabled":true,"timeRequired":0,"actionWord":""}];
-	
+
 	Map getMap()
 	{
 		return {"iconUrl":iconUrl,
@@ -26,7 +26,7 @@ abstract class Item
 				"y":y,
 				"actions":onGround?groundActions:actions};
 	}
-	
+
 	void pickup({WebSocket userSocket})
 	{
 		onGround = false;
@@ -37,7 +37,7 @@ abstract class Item
 		map['fromObject'] = id;
 		userSocket.add(JSON.encode(map));
 	}
-	
+
 	void drop({WebSocket userSocket, Map map, String streetName})
 	{
 		num x = map['x'], y = map['y'];
@@ -47,8 +47,8 @@ abstract class Item
 		this.x = x;
 		this.y = y;
 		StreetUpdateHandler.streets[streetName].groundItems[id] = this;
-		log("dropped item: ${getMap()}");
-		
+		//log("dropped item: ${getMap()}");
+
 		Map takeMap = {}
 			..['takeItem'] = "true"
 			..['name'] = map['dropItem']['name']

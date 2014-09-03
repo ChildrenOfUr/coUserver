@@ -68,7 +68,6 @@ class PlayerUpdateHandler
 				if(ws != userSockets[username])
 					return;
 
-				print('got changeName: $map');
 				String newUsername = map['newUsername'];
 				//the user used /setname to change their name and it was successful
 				//tell the other clients that the old guy disconnected

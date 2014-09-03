@@ -209,7 +209,13 @@ Future<Map> getSpritesheets(@app.QueryParam('username') String username)
 		});
 	}
 	else
-		cache.readAsString().then((String contents) => c.complete(JSON.decode(contents)));
+	{
+		try
+		{
+			c.complete(JSON.decode(cache.readAsStringSync()));
+		}
+		catch(err){c.complete({});}
+	}
 
 	return c.future;
 }
