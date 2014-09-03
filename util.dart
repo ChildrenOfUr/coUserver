@@ -317,13 +317,38 @@ Future<Map> getStreetFillerStats()
 		            'entitiesRequired':entitiesRequired,'entitiesComplete':entitiesComplete,
 		            'reportedBroken':reportedBroken,'reportedComplete':reportedFinished,
 		            'reportedVandalized':reportedVandalized,'typeTotals':typeTotals};
-		http.post('http://jsonprettyprint.com/json-pretty-printer.php'
-				,body:{'json_data':data.toString()}).then((response)
-		{
-			print(response.body);
-			c.complete(data);
-		});
+		c.complete(data);
 	});
 
 	return c.future;
+}
+
+@app.Route('/getInventory/:username')
+@Encode()
+Future<List<Inventory>> getUserInventory(@app.Attr() PostgreSql dbConn, String username)
+{
+	String queryString = "select username,inventory_json from inventories where username = '$username'";
+    return dbConn.query(queryString,Inventory);
+}
+
+addItemToUser(WebSocket userSocket, String username, Map item, int num)
+{
+	PostgreSql dbConn = app.request.attributes.dbConn;
+	getUserInventory(dbConn,username).then((List<Inventory> inventories)
+	{
+
+	});
+	//save the item in the user's inventory in the database
+	//then send it to the client
+	String queryString = "select username,inventory_json from inventories where username = '$username'";
+	return dbConn.query(queryString,Inventory);
+}
+
+class Inventory
+{
+	@Field()
+	String username;
+
+	@Field()
+	String inventory_json;
 }

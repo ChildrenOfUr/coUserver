@@ -10,11 +10,11 @@ class Shrine extends NPC
 
 		actions..add({"action":"donate",
 					  "timeRequired":actionTime,
-					  "enabled":true,
+					  "enabled":false,
 					  "actionWord":""})
 			   ..add({"action":"check favor",
 					  "timeRequired":actionTime,
-					  "enabled":true,
+					  "enabled":false,
 					  "actionWord":""});
 	}
 

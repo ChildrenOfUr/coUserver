@@ -103,7 +103,7 @@ class StreetUpdateHandler
 
 				if(!streets.containsKey(streetName))
     				loadStreet(streetName,map['tsid']);
-				log("${map['username']} joined $streetName");
+				//log("${map['username']} joined $streetName");
 				streets[streetName].occupants.add(ws);
 				return;
 			}
@@ -137,7 +137,7 @@ class StreetUpdateHandler
 				if(entityMap != null && entityMap[map['id']] != null)
 				{
 					var entity = entityMap[map['id']];
-					log("user $username calling ${map['callMethod']} on ${entity.id} in $streetName (${map['tsid']})");
+					//log("user $username calling ${map['callMethod']} on ${entity.id} in $streetName (${map['tsid']})");
 					InstanceMirror entityMirror = reflect(entity);
 					Map<Symbol,dynamic> arguments = {#userSocket:ws};
 					if(map['arguments'] != null)
