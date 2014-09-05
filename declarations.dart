@@ -102,3 +102,4 @@ part 'npcServer/quoin.dart';
 //various http parts (as opposed to the previous websocket parts)
 part 'util.dart';
 part 'auction.dart';
+part 'inventory.dart';

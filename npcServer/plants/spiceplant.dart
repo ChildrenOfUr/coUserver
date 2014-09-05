@@ -5,8 +5,8 @@ class SpicePlant extends Tree
 	SpicePlant(String id, int x, int y) : super(id,x,y)
 	{
 		type = "Spice Plant";
-		
-		states = 
+
+		states =
 			{
 				"maturity_1" : new Spritesheet("maturity_1","http://c2.glitch.bz/items/2012-12-06/trant_spice__f_cap_10_f_num_10_h_10_m_1_seed_0_191119119_png_1354830923.png",954,1000,318,250,10,false),
 				"maturity_2" : new Spritesheet("maturity_2","http://c2.glitch.bz/items/2012-12-06/trant_spice__f_cap_10_f_num_10_h_10_m_2_seed_0_191119119_png_1354830925.png",954,1000,318,250,10,false),
@@ -24,17 +24,12 @@ class SpicePlant extends Tree
      	state = new Random().nextInt(currentState.numFrames);
      	maxState = currentState.numFrames-1;
 	}
-	
-	void harvest({WebSocket userSocket})
+
+	void harvest({WebSocket userSocket, String username})
 	{
 		super.harvest(userSocket:userSocket);
-		
+
 		//give the player the 'fruits' of their labor
-		Map map = {};
-		map['giveItem'] = "true";
-		map['item'] = new Allspice().getMap();
-		map['num'] = 1;
-		map['fromObject'] = id;
-		userSocket.add(JSON.encode(map));
+		addItemToUser(userSocket,username,new Allspice().getMap(),1,id);
 	}
 }

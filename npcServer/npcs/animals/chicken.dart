@@ -8,11 +8,11 @@ class Chicken extends NPC
 					 "enabled":true,
 					 "timeRequired":actionTime,
 					 "actionWord":"squeezing"});
-			
+
 		type = "Chicken";
      	speed = 75; //pixels per second
-     	
-     	states = 
+
+     	states =
 			{
 				"fall" : new Spritesheet("fall","http://c2.glitch.bz/items/2012-12-06/npc_chicken__x1_fall_png_1354830392.png",740,550,148,110,25,true),
 				"flying_back" : new Spritesheet("flying_back","http://c2.glitch.bz/items/2012-12-06/npc_chicken__x1_flying_back_png_1354830391.png",888,330,148,110,17,true),
@@ -33,48 +33,43 @@ class Chicken extends NPC
 				"walk" : new Spritesheet("walk","http://c2.glitch.bz/items/2012-12-06/npc_chicken__x1_walk_png_1354830385.png",888,440,148,110,24,true)
 			};
 	}
-	
-	void squeeze({WebSocket userSocket})
+
+	void squeeze({WebSocket userSocket, String username})
 	{
 		//give the player the 'fruits' of their labor
-		Map map = {};
-		map['giveItem'] = "true";
-		map['item'] = new Grain().getMap();
-		map['num'] = 1;
-		map['fromObject'] = id;
-		userSocket.add(JSON.encode(map));
+		addItemToUser(userSocket,username,new Grain().getMap(),1,id);
 	}
-	
+
 	void update()
-	{	
+	{
 		//we need to update x to hopefully stay in sync with clients
-		if(currentState != null && 
+		if(currentState != null &&
 			(currentState.stateName == "walk" || currentState.stateName == "flying"))
 		{
 			if(facingRight)
 				x += speed; //75 pixels/sec is the speed set on the client atm
 			else
 				x -= speed;
-			
+
 			if(x < 0)
 				x = 0;
 			if(x > 4000) //TODO temporary
 				x = 4000;
-			
+
 			//hard to check right bounds without actually loading the street
 			//which we aren't doing right now.  we're just making everything up in the constructor
 			//but at some point, TODO we should get real street info
 			//if(x > street.width-width)
 				//x = street.width-width;
 		}
-		
+
 		//if respawn is in the past, it is time to choose a new animation
 		if(respawn != null && new DateTime.now().compareTo(respawn) > 0)
 		{
 			//1 in 4 chance to change direction
 			if(rand.nextInt(4) == 1)
 	          	facingRight = !facingRight;
-				
+
 			int num = rand.nextInt(20);
 			switch(num)
 			{
@@ -102,7 +97,7 @@ class Chicken extends NPC
 				default:
 					currentState = states['walk'];
 			}
-	  		
+
 			//choose a new animation after this one finishes
 			//we can calculate how long it should last by dividing the number
 			//of frames by 30

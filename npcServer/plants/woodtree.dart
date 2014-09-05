@@ -5,8 +5,8 @@ class WoodTree extends Tree
 	WoodTree(String id, int x, int y) : super(id,x,y)
 	{
 		type = "Wood Tree";
-		
-		states = 
+
+		states =
 			{
 				"maturity_1" : new Spritesheet("maturity_1","http://c2.glitch.bz/items/2012-12-06/wood_tree_maturity_6_variant_2_x6_1_png_1354833445.png",528,138,88,138,6,false),
 				"maturity_2" : new Spritesheet("maturity_1","http://c2.glitch.bz/items/2012-12-06/wood_tree_maturity_6_variant_2_x6_1_png_1354833445.png",564,135,94,135,6,false),
@@ -18,17 +18,12 @@ class WoodTree extends Tree
      	state = new Random().nextInt(currentState.numFrames);
      	maxState = currentState.numFrames-1;
 	}
-	
-	void harvest({WebSocket userSocket})
+
+	void harvest({WebSocket userSocket, String username})
 	{
 		super.harvest(userSocket:userSocket);
-		
+
 		//give the player the 'fruits' of their labor
-		Map map = {};
-		map['giveItem'] = "true";
-		map['item'] = new Plank().getMap();
-		map['num'] = 1;
-		map['fromObject'] = id;
-		userSocket.add(JSON.encode(map));
+		addItemToUser(userSocket,username,new Plank().getMap(),1,id);
 	}
 }

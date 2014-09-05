@@ -35,7 +35,7 @@ abstract class Rock extends Plant
 			state = maxState;
 	}
 	
-	void mine({WebSocket userSocket})
+	void mine({WebSocket userSocket, String username})
 	{
 		//rocks spritesheets go from full to empty which is the opposite of trees
 		//so mining the rock will actually increase its state number

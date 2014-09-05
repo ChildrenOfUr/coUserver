@@ -30,7 +30,7 @@ abstract class Tree extends Plant
 			setActionEnabled("harvest",false);
 	}
 	
-	harvest({WebSocket userSocket})
+	harvest({WebSocket userSocket, String username})
 	{
 		if(state == 0)
 			return;
@@ -42,7 +42,7 @@ abstract class Tree extends Plant
 			state = 0;
 	}
 	
-	water({WebSocket userSocket})
+	water({WebSocket userSocket, String username})
 	{
 		if(state == maxState)
 			return;
@@ -54,5 +54,5 @@ abstract class Tree extends Plant
 			state = maxState;
 	}
 	
-	pet({WebSocket userSocket}) {}
+	pet({WebSocket userSocket, String username}) {}
 }

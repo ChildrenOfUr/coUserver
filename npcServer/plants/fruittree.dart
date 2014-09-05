@@ -5,8 +5,8 @@ class FruitTree extends Tree
 	FruitTree(String id, int x, int y) : super(id,x,y)
 	{
 		type = "Fruit Tree";
-		
-		states = 
+
+		states =
 			{
 				"maturity_1" : new Spritesheet("maturity_1","http://c2.glitch.bz/items/2012-12-06/trant_fruit__f_cap_10_f_num_10_h_10_m_1_seed_0_111119119_png_1354830639.png",813,996,271,249,10,false),
 				"maturity_2" : new Spritesheet("maturity_2","http://c2.glitch.bz/items/2012-12-06/trant_fruit__f_cap_10_f_num_10_h_10_m_2_seed_0_111119119_png_1354830641.png",813,996,271,249,10,false),
@@ -24,17 +24,12 @@ class FruitTree extends Tree
      	state = new Random().nextInt(currentState.numFrames);
      	maxState = currentState.numFrames-1;
 	}
-	
-	void harvest({WebSocket userSocket})
+
+	void harvest({WebSocket userSocket, String username})
 	{
 		super.harvest(userSocket:userSocket);
-		
+
 		//give the player the 'fruits' of their labor
-		Map map = {};
-		map['giveItem'] = "true";
-		map['item'] = new Cherry().getMap();
-		map['num'] = 1;
-		map['fromObject'] = id;
-		userSocket.add(JSON.encode(map));
+		addItemToUser(userSocket,username,new Cherry().getMap(),1,id);
 	}
 }

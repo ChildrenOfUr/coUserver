@@ -81,13 +81,14 @@ class StreetUpdateHandler
 		});
 	}
 
-	static void processMessage(WebSocket ws, String message)
+	static Future processMessage(WebSocket ws, String message)
 	{
 		//we should receive 3 kinds of messages:
 		//player enters street, player exits street, player interacts with object
 		//everything else will be outgoing
 		try
 		{
+			Completer c = new Completer();
 			Map map = JSON.decode(message);
 			String streetName = map["streetName"];
 			String username = map["username"];
@@ -98,19 +99,22 @@ class StreetUpdateHandler
 				if(map['clientVersion'] != null && map['clientVersion'] < minClientVersion)
 				{
 					ws.add(JSON.encode({'error':'version too low'}));
-					return;
+					c.complete();
 				}
 
 				if(!streets.containsKey(streetName))
     				loadStreet(streetName,map['tsid']);
 				//log("${map['username']} joined $streetName");
 				streets[streetName].occupants.add(ws);
-				return;
+				if(map['firstConnect'])
+					fireInventoryAtUser(ws,username).then((_) => c.complete());
+				else
+					c.complete();
 			}
 			else if(map["message"] == "left")
 			{
 				cleanupList(ws);
-				return;
+				c.complete();
 			}
 
 			//if the street doesn't yet exist, create it (maybe it got stored back to the datastore)
@@ -126,7 +130,7 @@ class StreetUpdateHandler
 						streets[streetName].quoins[map["remove"]].setCollected();
 				}
 
-				return;
+				c.complete();
 			}
 
 			//callMethod means the player is trying to interact with an entity
@@ -139,7 +143,7 @@ class StreetUpdateHandler
 					var entity = entityMap[map['id']];
 					//log("user $username calling ${map['callMethod']} on ${entity.id} in $streetName (${map['tsid']})");
 					InstanceMirror entityMirror = reflect(entity);
-					Map<Symbol,dynamic> arguments = {#userSocket:ws};
+					Map<Symbol,dynamic> arguments = {#userSocket:ws,#username:username};
 					if(map['arguments'] != null)
 						(map['arguments'] as Map).forEach((key,value) => arguments[new Symbol(key)] = value);
                     entityMirror.invoke(new Symbol(map['callMethod']),[],arguments);
@@ -149,14 +153,16 @@ class StreetUpdateHandler
 					//check if it's an item and not an entity
 					ClassMirror classMirror = findClassMirror(type);
 					InstanceMirror instanceMirror = classMirror.newInstance(new Symbol(""), []);
-					Map<Symbol,dynamic> arguments = {#userSocket:ws};
+					Map<Symbol,dynamic> arguments = {#userSocket:ws,#username:username};
 					arguments[#streetName] = map['streetName'];
 					arguments[#map] = map['arguments'];
 					instanceMirror.invoke(new Symbol(map['callMethod']),[],arguments);
 				}
 
-				return;
+				c.complete();
 			}
+
+			return c.future;
 		}
 		catch(error,st)
 		{

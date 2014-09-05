@@ -331,30 +331,97 @@ Future<Map> getStreetFillerStats()
 
 @app.Route('/getInventory/:username')
 @Encode()
-Future<List<Inventory>> getUserInventory(@app.Attr() PostgreSql dbConn, String username)
+Future<Inventory> getUserInventory(@app.Attr() PostgreSql dbConn, String username)
 {
-	String queryString = "select username,inventory_json from inventories where username = '$username'";
-    return dbConn.query(queryString,Inventory);
+	Completer c = new Completer();
+	String queryString = "select username,inventory_json from inventories where username = @username";
+    dbConn.query(queryString,Inventory,{'username':username}).then((List<Inventory> inventories)
+    {
+    	Inventory inventory = new Inventory()..username=username..inventory_json='[]';
+		if(inventories.length > 0)
+			inventory = inventories.first;
+
+		c.complete(inventory);
+    });
+
+    return c.future;
 }
 
-addItemToUser(WebSocket userSocket, String username, Map item, int num)
+Future<int> addItemToUser(WebSocket userSocket, String username, Map item, int count, String fromObject)
 {
-	PostgreSql dbConn = app.request.attributes.dbConn;
-	getUserInventory(dbConn,username).then((List<Inventory> inventories)
+	Completer c = new Completer();
+	dbManager.getConnection().then((PostgreSql dbConn)
 	{
-
+		getUserInventory(dbConn,username).then((Inventory inventory)
+    	{
+			//save the item in the user's inventory in the database
+  			//then send it to the client
+    		inventory.addItem(item, count, dbConn).then((int numRows)
+    		{
+    			sendItemToUser(userSocket,item,count,fromObject);
+    			dbManager.closeConnection(dbConn);
+    			c.complete(numRows);
+    		});
+    	});
 	});
-	//save the item in the user's inventory in the database
-	//then send it to the client
-	String queryString = "select username,inventory_json from inventories where username = '$username'";
-	return dbConn.query(queryString,Inventory);
+
+	return c.future;
 }
 
-class Inventory
+Future<int> takeItemFromUser(WebSocket userSocket, String username, String itemName, int count)
 {
-	@Field()
-	String username;
+	Completer c = new Completer();
+	dbManager.getConnection().then((PostgreSql dbConn)
+	{
+		getUserInventory(dbConn,username).then((Inventory inventory)
+    	{
+			inventory.takeItem(itemName,count,dbConn).then((int rowsUpdated)
+			{
+				if(rowsUpdated > 0)
+					takeItem(userSocket,itemName,count);
+				dbManager.closeConnection(dbConn);
+				c.complete(rowsUpdated);
+			});
+    	});
+	});
 
-	@Field()
-	String inventory_json;
+	return c.future;
+}
+
+Future fireInventoryAtUser(WebSocket userSocket, String username)
+{
+	Completer c = new Completer();
+	dbManager.getConnection().then((PostgreSql dbConn)
+    {
+		getUserInventory(dbConn,username).then((Inventory inventory)
+		{
+			inventory.getItems().forEach((Map item)
+			{
+				sendItemToUser(userSocket,item,1,'');
+            });
+			dbManager.closeConnection(dbConn);
+			c.complete();
+		});
+    });
+
+	return c.future;
+}
+
+sendItemToUser(WebSocket userSocket, Map item, int count, String fromObject)
+{
+	Map map = {};
+	map['giveItem'] = "true";
+	map['item'] = item;
+	map['num'] = count;
+	map['fromObject'] = fromObject;
+	userSocket.add(JSON.encode(map));
+}
+
+takeItem(WebSocket userSocket, String itemName, int count)
+{
+	Map map = {};
+	map['takeItem'] = "true";
+	map['name'] = itemName;
+	map['count'] = count;
+	userSocket.add(JSON.encode(map));
 }

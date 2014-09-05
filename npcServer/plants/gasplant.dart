@@ -5,8 +5,8 @@ class GasPlant extends Tree
 	GasPlant(String id, int x, int y) : super(id,x,y)
 	{
 		type = "Gas Plant";
-		
-		states = 
+
+		states =
 			{
 				"maturity_1" : new Spritesheet("maturity_1","http://c2.glitch.bz/items/2012-12-06/trant_gas__f_cap_10_f_num_10_h_10_m_1_seed_0_19191191_png_1354830873.png",828,1032,276,258,10,false),
 				"maturity_2" : new Spritesheet("maturity_2","http://c2.glitch.bz/items/2012-12-06/trant_gas__f_cap_10_f_num_10_h_10_m_2_seed_0_19191191_png_1354830875.png",828,1032,276,258,10,false),
@@ -24,17 +24,12 @@ class GasPlant extends Tree
      	state = new Random().nextInt(currentState.numFrames);
      	maxState = currentState.numFrames-1;
 	}
-	
-	void harvest({WebSocket userSocket})
+
+	void harvest({WebSocket userSocket, String username})
 	{
 		super.harvest(userSocket:userSocket);
-		
+
 		//give the player the 'fruits' of their labor
-		Map map = {};
-		map['giveItem'] = "true";
-		map['item'] = new GeneralVapour().getMap();
-		map['num'] = 1;
-		map['fromObject'] = id;
-		userSocket.add(JSON.encode(map));
+		addItemToUser(userSocket,username,new GeneralVapour().getMap(),1,id);
 	}
 }

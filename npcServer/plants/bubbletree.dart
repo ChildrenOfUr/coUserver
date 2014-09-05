@@ -5,8 +5,8 @@ class BubbleTree extends Tree
 	BubbleTree(String id, int x, int y) : super(id,x,y)
 	{
 		type = "Bubble Tree";
-		
-		states = 
+
+		states =
 			{
 				"maturity_1" : new Spritesheet("maturity_1","http://c2.glitch.bz/items/2012-12-06/trant_bubble__f_cap_10_f_num_10_h_10_m_1_seed_0_119919911_png_1354830122.png",835,554,167,277,9,false),
 				"maturity_2" : new Spritesheet("maturity_2","http://c2.glitch.bz/items/2012-12-06/trant_bubble__f_cap_10_f_num_10_h_10_m_2_seed_0_119919911_png_1354830123.png",835,554,167,277,9,false),
@@ -24,17 +24,12 @@ class BubbleTree extends Tree
      	state = new Random().nextInt(currentState.numFrames);
      	maxState = currentState.numFrames-1;
 	}
-	
-	void harvest({WebSocket userSocket})
+
+	void harvest({WebSocket userSocket, String username})
 	{
 		super.harvest(userSocket:userSocket);
-		
+
 		//give the player the 'fruits' of their labor
-		Map map = {};
-		map['giveItem'] = "true";
-		map['item'] = new PlainBubble().getMap();
-		map['num'] = 1;
-		map['fromObject'] = id;
-		userSocket.add(JSON.encode(map));
+		addItemToUser(userSocket,username,new PlainBubble().getMap(),1,id);
 	}
 }

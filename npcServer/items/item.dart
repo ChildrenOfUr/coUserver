@@ -4,7 +4,7 @@ abstract class Item
 	String iconUrl, spriteUrl, name, description, id;
 	int price, stacksTo, iconNum = 4;
 	num x,y;
-	bool onGround = false;
+	bool onGround = false, isContainer = false;
 	List<Map> actions = [{"action":"drop",
 						  "timeRequired":0,
 						  "enabled":true,
@@ -16,6 +16,7 @@ abstract class Item
 		return {"iconUrl":iconUrl,
 				"spriteUrl":spriteUrl,
 				"name":name,
+				"isContainer":isContainer,
 				"description":description,
 				"price":price,
 				"stacksTo":stacksTo,
@@ -27,32 +28,28 @@ abstract class Item
 				"actions":onGround?groundActions:actions};
 	}
 
-	void pickup({WebSocket userSocket})
+	void pickup({WebSocket userSocket, String username})
 	{
 		onGround = false;
-		Map map = {};
-		map['giveItem'] = "true";
-		map['item'] = getMap();
-		map['num'] = 1;
-		map['fromObject'] = id;
-		userSocket.add(JSON.encode(map));
+		addItemToUser(userSocket,username,getMap(),1,id);
 	}
 
-	void drop({WebSocket userSocket, Map map, String streetName})
+	void drop({WebSocket userSocket, Map map, String streetName, String username})
 	{
-		num x = map['x'], y = map['y'];
-		String id = "i" + createId(x,y,map['dropItem']['name'],map['tsid']);
-		this.id = id;
-		onGround = true;
-		this.x = x;
-		this.y = y;
-		StreetUpdateHandler.streets[streetName].groundItems[id] = this;
-		//log("dropped item: ${getMap()}");
+		takeItemFromUser(userSocket,username,map['dropItem']['name'],map['count'])
+			.then((int numRows)
+			{
+				if(numRows < 1)
+					return;
 
-		Map takeMap = {}
-			..['takeItem'] = "true"
-			..['name'] = map['dropItem']['name']
-			..['count'] = map['count'];
-		userSocket.add(JSON.encode(takeMap));
+				num x = map['x'], y = map['y'];
+        		String id = "i" + createId(x,y,map['dropItem']['name'],map['tsid']);
+        		this.id = id;
+        		onGround = true;
+        		this.x = x;
+        		this.y = y;
+        		StreetUpdateHandler.streets[streetName].groundItems[id] = this;
+        		//log("dropped item: ${getMap()}");
+			});
 	}
 }

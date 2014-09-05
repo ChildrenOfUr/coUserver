@@ -1,15 +1,16 @@
 part of coUserver;
 
 IRCRelay relay;
-double minClientVersion = 0.05;
+double minClientVersion = 0.06;
+PostgreSqlManager dbManager;
 
 void main()
 {
-	int port = 8181;
-	try	{port = int.parse(Platform.environment['PORT']);}
-	catch (error){port = 8181;}
+	int port = 8383;
+	try	{port = int.parse(Platform.environment['BETA_PORT']);}
+	catch (error){port = 8383;}
 
-	var dbManager = new PostgreSqlManager(databaseUri, min: 1, max: 3);
+	dbManager = new PostgreSqlManager(databaseUri, min: 1, max: 3);
 
 	app.addPlugin(getMapperPlugin(dbManager));
 	app.addPlugin(getWebSocketPlugin());
@@ -19,7 +20,7 @@ void main()
 
 	//redstone.dart does not support websockets so we have to listen on a
 	//seperate port for those connections :(
-	HttpServer.bind('0.0.0.0', 8282).then((HttpServer server)
+	HttpServer.bind('0.0.0.0', 8484).then((HttpServer server)
 	{
         //relay = new IRCRelay();
 
@@ -42,7 +43,7 @@ void main()
 			.catchError((error){},test: (Exception e) => e is WebSocketException);
 		});
 
-		log('\nServing Chat on ${'0.0.0.0'}:8282');
+		log('\nServing Chat on ${'0.0.0.0'}:8484');
 	});
 }
 

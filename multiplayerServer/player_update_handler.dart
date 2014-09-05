@@ -47,17 +47,18 @@ class PlayerUpdateHandler
 		}
 	}
 
-	static void processMessage(WebSocket ws, String message)
+	static Future processMessage(WebSocket ws, String message)
 	{
 		try
 		{
+			Completer c = new Completer();
 			Map map = JSON.decode(message);
 
 			if(map['clientVersion'] != null)
 			{
 				if(map['clientVersion'] < minClientVersion)
 					ws.add(JSON.encode({'error':'version too low'}));
-				return;
+				c.complete();
 			}
 
 			String username = map["username"];
@@ -66,7 +67,7 @@ class PlayerUpdateHandler
 				//don't accept this message from anyone else
 				//(fixes the /setname other players stop moving bug)
 				if(ws != userSockets[username])
-					return;
+					c.complete();
 
 				String newUsername = map['newUsername'];
 				//the user used /setname to change their name and it was successful
@@ -83,7 +84,6 @@ class PlayerUpdateHandler
 				map["username"] = username;
 				map["street"] = street;
 				sendAll(map);
-				return;
 			}
 			if(users[username] != null) //we've had an update for this user before
 			{
@@ -100,6 +100,8 @@ class PlayerUpdateHandler
 			}
 
 			sendAll(map);
+
+			return c.future;
 		}
 		catch(error, st)
 		{
