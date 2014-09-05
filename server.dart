@@ -10,7 +10,7 @@ void main()
 	try	{port = int.parse(Platform.environment['BETA_PORT']);}
 	catch (error){port = 8383;}
 
-	dbManager = new PostgreSqlManager(databaseUri, min: 1, max: 3);
+	dbManager = new PostgreSqlManager(databaseUri, min: 1, max: 9);
 
 	app.addPlugin(getMapperPlugin(dbManager));
 	app.addPlugin(getWebSocketPlugin());
