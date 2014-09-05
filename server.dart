@@ -8,7 +8,7 @@ void main()
 {
 	int port = 8383;
 	try	{port = int.parse(Platform.environment['BETA_PORT']);}
-	catch (error){port = 8383;}
+	catch (error){port = 8383;}//
 
 	dbManager = new PostgreSqlManager(databaseUri, min: 1, max: 3);
 
