@@ -6,9 +6,9 @@ PostgreSqlManager dbManager;
 
 void main()
 {
-	int port = 8383;
-	try	{port = int.parse(Platform.environment['BETA_PORT']);}
-	catch (error){port = 8383;}
+	int port = 8181;
+	try	{port = int.parse(Platform.environment['PORT']);}
+	catch (error){port = 8181;}
 
 	dbManager = new PostgreSqlManager(databaseUri, min: 1, max: 9);
 
@@ -20,7 +20,7 @@ void main()
 
 	//redstone.dart does not support websockets so we have to listen on a
 	//seperate port for those connections :(
-	HttpServer.bind('0.0.0.0', 8484).then((HttpServer server)
+	HttpServer.bind('0.0.0.0', 8282).then((HttpServer server)
 	{
         //relay = new IRCRelay();
 
@@ -43,7 +43,7 @@ void main()
 			.catchError((error){},test: (Exception e) => e is WebSocketException);
 		});
 
-		log('\nServing Chat on ${'0.0.0.0'}:8484');
+		log('\nServing Chat on ${'0.0.0.0'}:8282');
 	});
 }
 
