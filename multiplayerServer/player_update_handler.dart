@@ -60,46 +60,61 @@ class PlayerUpdateHandler
 					ws.add(JSON.encode({'error':'version too low'}));
 				c.complete();
 			}
-
-			String username = map["username"];
-			if(map["statusMessage"] == "changeName")
+			else
 			{
-				//don't accept this message from anyone else
-				//(fixes the /setname other players stop moving bug)
-				if(ws != userSockets[username])
-					c.complete();
+				String username = map["username"];
+    			if(map["statusMessage"] == "changeName")
+    			{
+    				//don't accept this message from anyone else
+    				//(fixes the /setname other players stop moving bug)
+    				if(ws != userSockets[username])
+    					c.complete();
 
-				String newUsername = map['newUsername'];
-				//the user used /setname to change their name and it was successful
-				//tell the other clients that the old guy disconnected
-				userSockets[newUsername] = ws;
-				String street = map['street'];
-				users[newUsername] = new Identifier(newUsername,"",street);
+    				String newUsername = map['newUsername'];
+    				//the user used /setname to change their name and it was successful
+    				//tell the other clients that the old guy disconnected
+    				userSockets[newUsername] = ws;
+    				String street = map['street'];
+    				users[newUsername] = new Identifier(newUsername,"",street);
 
-				userSockets.remove(username);
-				users.remove(username);
+    				userSockets.remove(username);
+    				users.remove(username);
 
-				map = new Map();
-				map["disconnect"] = "true";
-				map["username"] = username;
-				map["street"] = street;
-				sendAll(map);
+    				map = new Map();
+    				map["disconnect"] = "true";
+    				map["username"] = username;
+    				map["street"] = street;
+    				sendAll(map);
+    			}
+    			if(users[username] != null) //we've had an update for this user before
+    			{
+    				if(users[username].currentStreet != map["street"]) //the user must have switched streets
+    				{
+    					map["changeStreet"] = map["street"];
+    					users[username].currentStreet = map["street"];
+    				}
+    				num prevX = users[username].currentX;
+    				num prevY = users[username].currentY;
+    				num currentX = num.parse(map['xy'].split(',')[0]);
+    				num currentY = num.parse(map['xy'].split(',')[1]);
+    				num xDiff = (currentX-prevX).abs();
+    				num yDiff = (currentY-prevY).abs();
+    				StatBuffer.incrementStat("stepsTaken", (xDiff+yDiff)/22);
+    				users[username].currentX = currentX;
+    				users[username].currentY = currentY;
+    			}
+    			else //this user must have just connected
+    			{
+    				userSockets[username] = ws;
+    				users[username] = new Identifier(username,"",map["street"]);
+    				num currentX = num.parse(map['xy'].split(',')[0]);
+                    num currentY = num.parse(map['xy'].split(',')[1]);
+    				users[username].currentX = currentX;
+                    users[username].currentY = currentY;
+    			}
+
+    			sendAll(map);
 			}
-			if(users[username] != null) //we've had an update for this user before
-			{
-				if(users[username].currentStreet != map["street"]) //the user must have switched streets
-				{
-					map["changeStreet"] = map["street"];
-					users[username].currentStreet = map["street"];
-				}
-			}
-			else //this user must have just connected
-			{
-				userSockets[username] = ws;
-				users[username] = new Identifier(username,"",map["street"]);
-			}
-
-			sendAll(map);
 
 			return c.future;
 		}

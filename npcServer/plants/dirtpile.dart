@@ -49,6 +49,7 @@ class DirtPile extends Plant
 
 	void dig({WebSocket userSocket, String username})
 	{
+		StatBuffer.incrementStat("dirtDug", 1);
 		respawn = new DateTime.now().add(new Duration(seconds:30));
 		state++;
 

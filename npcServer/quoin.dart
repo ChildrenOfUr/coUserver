@@ -7,9 +7,9 @@ class Quoin
 	int x,y;
 	DateTime respawn;
 	bool collected = false;
-	
+
 	Quoin(this.id,this.x,this.y,this.type);
-	
+
 	/**
 	 * Will check for quoin collection/spawn and send updates to clients if needed
 	 */
@@ -18,13 +18,14 @@ class Quoin
 		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0)
 			collected = false;
 	}
-	
+
 	setCollected()
 	{
 		collected = true;
+		StatBuffer.incrementStat("quoionsCollected", 1);
 		respawn = new DateTime.now().add(new Duration(seconds:30));
 	}
-	
+
 	Map getMap()
 	{
 		Map map = new Map();

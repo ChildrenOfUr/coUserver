@@ -45,6 +45,10 @@ void main()
 
 		log('\nServing Chat on ${'0.0.0.0'}:8282');
 	});
+
+	//write out the stats to a file every 1 minute
+	new Timer.periodic(new Duration(seconds:10), (Timer t)
+			=> StatBuffer.writeStatsToFile());
 }
 
 PostgreSql get postgreSql => app.request.attributes.dbConn;

@@ -30,6 +30,7 @@ class Piggy extends NPC
 
 	nibble({WebSocket userSocket, String username})
 	{
+		StatBuffer.incrementStat("piggiesNibbled", 1);
 		//give the player the 'fruits' of their labor
 		addItemToUser(userSocket,username,new Meat().getMap(),1,id);
 
@@ -37,7 +38,10 @@ class Piggy extends NPC
 		respawn = new DateTime.now().add(new Duration(seconds:2));
 	}
 
-	pet({WebSocket userSocket, String username}){}
+	pet({WebSocket userSocket, String username})
+	{
+		StatBuffer.incrementStat("piggiesPetted", 1);
+	}
 
 	/**
 	 * Will simulate piggy movement and send updates to clients if needed

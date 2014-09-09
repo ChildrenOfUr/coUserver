@@ -5,7 +5,7 @@ abstract class Rock extends Plant
 	Rock(String id, int x, int y) : super(id,x,y)
 	{
 		actionTime = 5000;
-		
+
 		actions.add({"action":"mine",
 					 "actionWord":"mining",
 					 "timeRequired":actionTime,
@@ -18,28 +18,29 @@ abstract class Rock extends Plant
 								]
 					 });
 	}
-	
+
 	void update()
 	{
 		if(state >= currentState.numFrames)
 			setActionEnabled("mine",false);
-		
+
 		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0)
 		{
 			state--;
 			setActionEnabled("mine",true);
 			respawn = new DateTime.now().add(new Duration(seconds:30));
 		}
-		
+
 		if(state < maxState)
 			state = maxState;
 	}
-	
+
 	void mine({WebSocket userSocket, String username})
 	{
 		//rocks spritesheets go from full to empty which is the opposite of trees
 		//so mining the rock will actually increase its state number
-		
+
+		StatBuffer.incrementStat("rocksMined", 1);
 		respawn = new DateTime.now().add(new Duration(seconds:30));
 		state++;
 	}

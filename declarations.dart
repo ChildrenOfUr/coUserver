@@ -24,6 +24,7 @@ part 'auctions_service.dart';
 
 //common to all server parts
 part 'common/identifier.dart';
+part 'common/stat_buffer.dart';
 
 //chat server parts
 part 'chatServer/irc_relay.dart';

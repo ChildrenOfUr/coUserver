@@ -37,7 +37,7 @@ class StreetSpiritGroddle extends NPC
 
 	void buyItem({WebSocket userSocket, String itemName, int num, String username})
 	{
-		print('here');
+		StatBuffer.incrementStat("itemsBoughtFromVendors", num);
 		ClassMirror classMirror = findClassMirror(itemName.replaceAll(" ", ""));
         Item item = classMirror.newInstance(new Symbol(""), []).reflectee;
 		addItemToUser(userSocket,username,item.getMap(),num,id);
