@@ -47,7 +47,7 @@ void main()
 	});
 
 	//write out the stats to a file every 1 minute
-	new Timer.periodic(new Duration(seconds:10), (Timer t)
+	new Timer.periodic(new Duration(minutes:1), (Timer t)
 			=> StatBuffer.writeStatsToFile());
 }
 

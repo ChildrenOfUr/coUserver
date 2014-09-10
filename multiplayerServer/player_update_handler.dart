@@ -93,24 +93,32 @@ class PlayerUpdateHandler
     					map["changeStreet"] = map["street"];
     					users[username].currentStreet = map["street"];
     				}
-    				num prevX = users[username].currentX;
-    				num prevY = users[username].currentY;
-    				num currentX = num.parse(map['xy'].split(',')[0]);
-    				num currentY = num.parse(map['xy'].split(',')[1]);
-    				num xDiff = (currentX-prevX).abs();
-    				num yDiff = (currentY-prevY).abs();
-    				StatBuffer.incrementStat("stepsTaken", (xDiff+yDiff)/22);
-    				users[username].currentX = currentX;
-    				users[username].currentY = currentY;
+    				try
+    				{
+	    				num prevX = users[username].currentX;
+	    				num prevY = users[username].currentY;
+	    				num currentX = num.parse(map['xy'].split(',')[0]);
+	    				num currentY = num.parse(map['xy'].split(',')[1]);
+	    				num xDiff = (currentX-prevX).abs();
+	    				num yDiff = (currentY-prevY).abs();
+	    				StatBuffer.incrementStat("stepsTaken", (xDiff+yDiff)/22);
+	    				users[username].currentX = currentX;
+	    				users[username].currentY = currentY;
+    				}
+    				catch(e){}
     			}
     			else //this user must have just connected
     			{
     				userSockets[username] = ws;
     				users[username] = new Identifier(username,"",map["street"]);
-    				num currentX = num.parse(map['xy'].split(',')[0]);
-                    num currentY = num.parse(map['xy'].split(',')[1]);
-    				users[username].currentX = currentX;
-                    users[username].currentY = currentY;
+    				try
+					{
+						num currentX = num.parse(map['xy'].split(',')[0]);
+                        num currentY = num.parse(map['xy'].split(',')[1]);
+        				users[username].currentX = currentX;
+                        users[username].currentY = currentY;
+					}
+    				catch(e){}
     			}
 
     			sendAll(map);
