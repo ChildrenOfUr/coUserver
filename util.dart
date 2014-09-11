@@ -246,7 +246,7 @@ Future<Map> _getSpritesheetsFromWeb(String username)
 			});
 		}
 		else
-			c.complete(spritesheets);
+			c.complete(_getSpritesheetsFromWeb('Hectaku'));
 	});
 
 	return c.future;
@@ -327,101 +327,4 @@ Future<Map> getStreetFillerStats()
 	});
 
 	return c.future;
-}
-
-@app.Route('/getInventory/:username')
-@Encode()
-Future<Inventory> getUserInventory(@app.Attr() PostgreSql dbConn, String username)
-{
-	Completer c = new Completer();
-	String queryString = "select username,inventory_json from inventories where username = @username";
-    dbConn.query(queryString,Inventory,{'username':username}).then((List<Inventory> inventories)
-    {
-    	Inventory inventory = new Inventory()..username=username..inventory_json='[]';
-		if(inventories.length > 0)
-			inventory = inventories.first;
-
-		c.complete(inventory);
-    });
-
-    return c.future;
-}
-
-Future<int> addItemToUser(WebSocket userSocket, String username, Map item, int count, String fromObject)
-{
-	Completer c = new Completer();
-	dbManager.getConnection().then((PostgreSql dbConn)
-	{
-		getUserInventory(dbConn,username).then((Inventory inventory)
-    	{
-			//save the item in the user's inventory in the database
-  			//then send it to the client
-    		inventory.addItem(item, count, dbConn).then((int numRows)
-    		{
-    			sendItemToUser(userSocket,item,count,fromObject);
-    			dbManager.closeConnection(dbConn);
-    			c.complete(numRows);
-    		});
-    	});
-	});
-
-	return c.future;
-}
-
-Future<int> takeItemFromUser(WebSocket userSocket, String username, String itemName, int count)
-{
-	Completer c = new Completer();
-	dbManager.getConnection().then((PostgreSql dbConn)
-	{
-		getUserInventory(dbConn,username).then((Inventory inventory)
-    	{
-			inventory.takeItem(itemName,count,dbConn).then((int rowsUpdated)
-			{
-				if(rowsUpdated > 0)
-					takeItem(userSocket,itemName,count);
-				dbManager.closeConnection(dbConn);
-				c.complete(rowsUpdated);
-			});
-    	});
-	});
-
-	return c.future;
-}
-
-Future fireInventoryAtUser(WebSocket userSocket, String username)
-{
-	Completer c = new Completer();
-	dbManager.getConnection().then((PostgreSql dbConn)
-    {
-		getUserInventory(dbConn,username).then((Inventory inventory)
-		{
-			inventory.getItems().forEach((Map item)
-			{
-				sendItemToUser(userSocket,item,1,'');
-            });
-			dbManager.closeConnection(dbConn);
-			c.complete();
-		});
-    });
-
-	return c.future;
-}
-
-sendItemToUser(WebSocket userSocket, Map item, int count, String fromObject)
-{
-	Map map = {};
-	map['giveItem'] = "true";
-	map['item'] = item;
-	map['num'] = count;
-	map['fromObject'] = fromObject;
-	userSocket.add(JSON.encode(map));
-}
-
-takeItem(WebSocket userSocket, String itemName, int count)
-{
-	Map map = {};
-	map['takeItem'] = "true";
-	map['name'] = itemName;
-	map['count'] = count;
-	userSocket.add(JSON.encode(map));
 }
