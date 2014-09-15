@@ -4,6 +4,7 @@ abstract class Rock extends Plant
 {
 	Rock(String id, int x, int y) : super(id,x,y)
 	{
+		maxState = 0;
 		actionTime = 5000;
 
 		actions.add({"action":"mine",
@@ -26,9 +27,9 @@ abstract class Rock extends Plant
 
 		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0)
 		{
-			state--;
+			state = 0;
 			setActionEnabled("mine",true);
-			respawn = new DateTime.now().add(new Duration(seconds:30));
+			respawn = null;
 		}
 
 		if(state < maxState)
@@ -41,7 +42,8 @@ abstract class Rock extends Plant
 		//so mining the rock will actually increase its state number
 
 		StatBuffer.incrementStat("rocksMined", 1);
-		respawn = new DateTime.now().add(new Duration(seconds:30));
 		state++;
+		if(state >= currentState.numFrames)
+			respawn = new DateTime.now().add(new Duration(minutes:2));
 	}
 }

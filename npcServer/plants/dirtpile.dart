@@ -38,9 +38,9 @@ class DirtPile extends Plant
 
 		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0)
 		{
-			state--;
+			state = 0;
 			setActionEnabled("dig",true);
-			respawn = new DateTime.now().add(new Duration(seconds:30));
+			respawn = null;
 		}
 
 		if(state < maxState)
@@ -50,8 +50,9 @@ class DirtPile extends Plant
 	void dig({WebSocket userSocket, String username})
 	{
 		StatBuffer.incrementStat("dirtDug", 1);
-		respawn = new DateTime.now().add(new Duration(seconds:30));
 		state++;
+		if(state >= currentState.numFrames)
+			respawn = new DateTime.now().add(new Duration(minutes:2));
 
 		//give the player the 'fruits' of their labor
 		addItemToUser(userSocket,username,new LumpofEarth().getMap(),1,id);

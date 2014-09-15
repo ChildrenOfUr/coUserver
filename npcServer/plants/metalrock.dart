@@ -19,7 +19,6 @@ class MetalRock extends Rock
 			};
 		currentState = states['5-4-3-2-1'];
      	state = new Random().nextInt(currentState.numFrames);
-     	maxState = 0;
 	}
 
 	void mine({WebSocket userSocket, String username})
