@@ -199,14 +199,18 @@ Future<Map> getSpritesheets(@app.QueryParam('username') String username)
 	File cache = new File('./playerSpritesheets/${username.toLowerCase()}.json');
 	if(!cache.existsSync())
 	{
-		cache.create(recursive:true).then((File cache)
+		try
 		{
-			_getSpritesheetsFromWeb(username).then((Map spritesheets)
-    		{
-    			cache.writeAsString(JSON.encode(spritesheets))
-    				.then((_) => c.complete(spritesheets));
-    		});
-		});
+			cache.create(recursive:true).then((File cache)
+			{
+				_getSpritesheetsFromWeb(username).then((Map spritesheets)
+	    		{
+	    			cache.writeAsString(JSON.encode(spritesheets))
+	    				.then((_) => c.complete(spritesheets));
+	    		});
+			});
+		}
+		catch(e){c.complete({});}
 	}
 	else
 	{

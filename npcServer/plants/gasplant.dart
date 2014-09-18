@@ -6,6 +6,31 @@ class GasPlant extends Tree
 	{
 		type = "Gas Plant";
 
+		responses =
+		{
+        	"harvest": [
+        		"You want gas? Dude, sure.",
+        		"Always happy to share, friend.",
+        		"Yeah, harvest away. Gas is a social thing, friend.",
+        		"Gas? For you? Yeah, man.",
+        		"You sure that's enough? Come back for a re-up anytime.",
+        	],
+        	"pet": [
+        		"Awwww yeah.",
+        		"Hey, do you remember that time when... oh, no, wait, that was Eggy",
+        		"Petting gives me a sweet, sweet buzz, friend",
+        		"Good times, man, good times.",
+        		"Such good energy, man",
+        	],
+        	"water": [
+        		"Woah. That's wet.",
+        		"Cool, man. Cool.",
+        		"Sweet can-tipping, friend.",
+        		"Ahhhh, that's the stuff, kid.",
+        		"Woah, man! Water! Like, TOTALLY unexpected.",
+        	]
+        };
+
 		states =
 			{
 				"maturity_1" : new Spritesheet("maturity_1","http://c2.glitch.bz/items/2012-12-06/trant_gas__f_cap_10_f_num_10_h_10_m_1_seed_0_19191191_png_1354830873.png",828,1032,276,258,10,false),

@@ -6,6 +6,31 @@ class BubbleTree extends Tree
 	{
 		type = "Bubble Tree";
 
+		responses =
+		{
+        	"harvest": [
+        		"…know the power you hold in your hands…",
+        		"Bubbles. Precious bubbles. Just for you. Pop-pop!",
+        		"…which is why harvesting is crucial to… Oh! Shh.",
+        		"Wait, my tin hat didn't fall in with that haul, right?",
+        		"…Again? You're up to something, I sense it.",
+        	],
+        	"pet": [
+        		"Wait! Shh. Did you hear that? Never mind. Pretend you didn't.",
+        		"...a nice BLT: a batterfly, lettuce and tomato sandwich, and...",
+        		"... big difference between mostly dead and all dead. And...",
+        		"...shh! Can't talk now! Tin foil hat compromised! More later!…",
+        		"...went pop! Pop pop pop!  Until it was all dark, and then...",
+        	],
+        	"water": [
+        		"…what's that? Wet? Huh?",
+        		"Huh? Something for nothing, eh?",
+        		"I don't trust watering cans. But you're ok.",
+        		"…all in it together. SHHH! Someone's listening…",
+        		"…in the caves. But it only LOOKED like an accident…",
+        	]
+        };
+
 		states =
 			{
 				"maturity_1" : new Spritesheet("maturity_1","http://c2.glitch.bz/items/2012-12-06/trant_bubble__f_cap_10_f_num_10_h_10_m_1_seed_0_119919911_png_1354830122.png",835,554,167,277,9,false),

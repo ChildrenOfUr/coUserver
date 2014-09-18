@@ -6,6 +6,31 @@ class SpicePlant extends Tree
 	{
 		type = "Spice Plant";
 
+		responses =
+		{
+        	"harvest": [
+        		"Ahhh, spicy, spicy, spicy…",
+        		"My my, you can't get enough of ol' Spicy, can you?",
+        		"You can harvest me whenever you like, poppet.",
+        		"Here, my pretty. Spice up your life.",
+        		"As they say, spice is the spice of… no, that's not right.",
+        	],
+        	"pet": [
+        		"Eh? What? How nice…",
+        		"My, my: such soft hands.",
+        		"Oh my! This is unexpectedly satisfying…",
+        		"Well I never...",
+        		"Nice job, kid, but could be spicer. Know whaddai mean?",
+        	],
+        	"water": [
+        		"Oh! No, carry on, I like it.",
+        		"Goodness, sneak up on an old tree, why don't you?",
+        		"Water? Well, I suppose I might partake…",
+        		"Well well! That's a pleasant surprise.",
+        		"Ahhhh, you flatter me with this sprinkling.",
+        	]
+        };
+
 		states =
 			{
 				"maturity_1" : new Spritesheet("maturity_1","http://c2.glitch.bz/items/2012-12-06/trant_spice__f_cap_10_f_num_10_h_10_m_1_seed_0_191119119_png_1354830923.png",954,1000,318,250,10,false),

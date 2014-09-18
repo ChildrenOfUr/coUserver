@@ -35,6 +35,9 @@ abstract class Tree extends Plant
 		if(state == 0)
 			return;
 
+		//say a witty thing
+		say(responses['harvest'].elementAt(rand.nextInt(responses['harvest'].length)));
+
 		StatBuffer.incrementStat("treesHarvested", 1);
 		respawn = new DateTime.now().add(new Duration(seconds:30));
 		state--;
@@ -48,6 +51,9 @@ abstract class Tree extends Plant
 		if(state == maxState)
 			return;
 
+		//say a witty thing
+		say(responses['water'].elementAt(rand.nextInt(responses['water'].length)));
+
 		StatBuffer.incrementStat("treesWatered", 1);
 		respawn = new DateTime.now().add(new Duration(seconds:30));
 		state++;
@@ -58,6 +64,9 @@ abstract class Tree extends Plant
 
 	pet({WebSocket userSocket, String username})
 	{
+		//say a witty thing
+		say(responses['pet'].elementAt(rand.nextInt(responses['pet'].length)));
+
 		StatBuffer.incrementStat("treesPetted", 1);
 	}
 }

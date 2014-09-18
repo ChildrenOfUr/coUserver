@@ -6,6 +6,31 @@ class BeanTree extends Tree
 	{
 		type = "Bean Tree";
 
+		responses =
+		{
+        	"harvest": [
+        		"Is that what you've bean looking for?",
+        		"Cool. Beans. Cool beans!",
+        		"Two bean, or not two bean?…",
+        		"You favored us. Now, we fava you. Ha ha. Like \"fava bean\".",
+        		"Wassssss-sap! Ha ha ha. Oh just take bean then.",
+        	],
+        	"pet": [
+        		"The petting is unbeleafable. Ha ha. Tree made joke. Laugh.",
+        		"Tiny Glitch is very poplar with us. Ha ha.",
+        		"Your petting's never bean better. Hee!",
+        		"I wooden have thought you'd be so good. Now laugh.",
+        		"Tree arbors strong feelings to you. Chuckle now, please.",
+        	],
+        	"water": [
+        		"Water nice thing to do. Ha! Ha ha?",
+        		"Trunk you very much. Ha ha. We made joke. Laugh.",
+        		"Thought you'd never pull the twigger. Joke.",
+        		"Cheers, bud.",
+        		"How kind you're bean. Ha ha. \"Bean\".",
+        	]
+        };
+
 		states =
 			{
 				"maturity_1" : new Spritesheet("maturity_1","http://c2.glitch.bz/items/2012-12-06/trant_bean__f_cap_10_f_num_10_h_10_m_1_seed_0_191991191_png_1354829640.png",990,540,198,270,9,false),

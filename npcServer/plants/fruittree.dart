@@ -6,6 +6,31 @@ class FruitTree extends Tree
 	{
 		type = "Fruit Tree";
 
+		responses =
+		{
+        	"harvest": [
+        		"Fruity!",
+        		"Ta-daaaaaaa…",
+        		"Yaaaaaay!",
+        		"Frooooot!",
+        		"C'est la!",
+        	],
+        	"pet": [
+        		"Huh?",
+        		"Oh.",
+        		"Whu?",
+        		"Ah.",
+        		"Pff.",
+        	],
+        	"water": [
+        		"Hm?",
+        		"Ahh.",
+        		"Glug.",
+        		"Mm?",
+        		"Shhhlrp.",
+        	]
+        };
+
 		states =
 			{
 				"maturity_1" : new Spritesheet("maturity_1","http://c2.glitch.bz/items/2012-12-06/trant_fruit__f_cap_10_f_num_10_h_10_m_1_seed_0_111119119_png_1354830639.png",813,996,271,249,10,false),

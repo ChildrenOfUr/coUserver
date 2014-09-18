@@ -6,6 +6,31 @@ class WoodTree extends Tree
 	{
 		type = "Wood Tree";
 
+		responses =
+		{
+        	"harvest": [
+        		"Never mind the quality, feel the width.",
+        		"HOO-HA!!!",
+        		"I've got a huge … wood. I have wood. Here, take some.",
+        		"Wood you like some planks?",
+        		"Mighty chopper you have there.",
+        	],
+        	"pet": [
+        		"Plank you very much!",
+        		"Mmm, you feel wood.",
+        		"Don't rub too rough, I'll splinter all over you.",
+        		"Go with the grain.",
+        		"Yes. Wood-rubbing. I approve.",
+        	],
+        	"water": [
+        		"Yep. Nothing like wet kindling.",
+        		"Oh thanks. Now I've got rising damp.",
+        		"You've totally moistened my roots.",
+        		"Even a dribble from the right hose provides succor to a thirsty trunk.",
+        		"Watch it, you've gushed all over my barky bits.",
+        	]
+        };
+
 		states =
 			{
 				"maturity_1" : new Spritesheet("maturity_1","http://c2.glitch.bz/items/2012-12-06/wood_tree_maturity_6_variant_2_x6_1_png_1354833445.png",528,138,88,138,6,false),

@@ -33,17 +33,16 @@ class Mailbox extends NPC
 		DateTime now = new DateTime.now();
 		if(respawn != null && respawn.compareTo(now) < 0)
 		{
-			bubbleText = null;
 			//check for new mail
 
 			//check again in 1 minute
-			respawn = now.add(new Duration(seconds:5));
+			respawn = now.add(new Duration(minutes:1));
 		}
 	}
 
 	void checkMail({WebSocket userSocket, String username})
 	{
-		bubbleText = "No Mail";
+		say("No Mail");
 	}
 
 	void sendMail({WebSocket userSocket, String username})
