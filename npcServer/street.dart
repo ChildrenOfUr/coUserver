@@ -10,7 +10,7 @@ class Street
 	Map<String,Item> groundItems;
 	List<WebSocket> occupants;
 	String label;
-	
+
 	Street(this.label,String tsid)
 	{
 		quoins = new Map<String,Quoin>();
@@ -19,7 +19,7 @@ class Street
 		groundItems = new Map<String,Item>();
 		entityMaps = {"quoin":quoins,"plant":plants,"npc":npcs,"groundItem":groundItems};
 		occupants = new List<WebSocket>();
-		
+
 		//attempt to load street occupants from streetEntities folder
 		Map entities = getStreetEntities(tsid);
 		if(entities['entities'] == null)
@@ -33,10 +33,10 @@ class Street
 				String type = entity['type'];
 				int x = entity['x'];
 				int y = entity['y'];
-				
+
 				//generate a hopefully unique code that stays the same everytime for this object
 				String id = createId(x,y,type,tsid);
-				
+
 				if(type == "Img" || type == "Mood" || type == "Energy" || type == "Currant"
 					|| type == "Mystery" || type == "Favor" || type == "Time" || type == "Quarazy")
 				{
@@ -59,12 +59,12 @@ class Street
                         	plants[id] = classMirror.newInstance(new Symbol(""), [id,x,y]).reflectee;
 						}
 					}
-					catch(e){print("Unable to instantiate a class for $type: $e");}
+					catch(e){}//log("Unable to instantiate a class for $type: $e");}
 				}
 			}
 		}
 	}
-	
+
 	void generateRandomOccupants()
 	{
 		int num = rand.nextInt(30) + 1;
@@ -84,7 +84,7 @@ class Street
 				type = "img";
 			quoins[id] = new Quoin(id,i*200,rand.nextInt(200)+200,type);
 		}
-		
+
 		//generate some piggies
 		num = rand.nextInt(3) + 1;
 		for(int i=1; i<=num; i++)
@@ -93,7 +93,7 @@ class Street
 			String id = "n"+rand.nextInt(1000000000).toString();
 			npcs[id] = new Piggy(id,i*200,0);
 		}
-		
+
 		//generate some fruit trees
 		num = rand.nextInt(3) + 1;
 		for(int i=1; i<=num; i++)

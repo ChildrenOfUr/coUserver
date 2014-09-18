@@ -43,12 +43,21 @@ void main()
 			.catchError((error){},test: (Exception e) => e is WebSocketException);
 		});
 
-		log('\nServing Chat on ${'0.0.0.0'}:8282');
+		log('Serving Chat on ${'0.0.0.0'}:8282');
 	});
 
 	//write out the stats to a file every 1 minute
 	new Timer.periodic(new Duration(seconds:30), (Timer t)
-			=> StatBuffer.writeStatsToFile());
+	{
+		try
+		{
+			StatBuffer.writeStatsToFile();
+		}
+		catch(e)
+		{
+			log("Problem writing stats to file: $e");
+		}
+	});
 }
 
 PostgreSql get postgreSql => app.request.attributes.dbConn;

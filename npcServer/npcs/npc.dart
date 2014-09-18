@@ -7,7 +7,7 @@ abstract class NPC extends Entity
 	 * as it will be dynamically called in street_update_handler when the client
 	 * attempts to perform one of the available actions;
 	 * */
-    	
+
 	Random rand;
 	String id,type;
 	int x,y, speed, actionTime = 2500;
@@ -16,18 +16,18 @@ abstract class NPC extends Entity
 	List<Map> actions = [];
 	Map<String,Spritesheet> states;
 	Spritesheet currentState;
-	
+
 	NPC(this.id,this.x,this.y)
 	{
 		respawn = new DateTime.now();
 		rand = new Random();
 	}
-	
+
 	void update();
-	
+
 	Map getMap()
 	{
-		Map map = new Map();
+		Map map = super.getMap();
 		map["id"] = id;
 		map["url"] = currentState.url;
 		map["type"] = type;

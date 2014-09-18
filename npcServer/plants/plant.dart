@@ -4,7 +4,7 @@ abstract class Plant extends Entity
 {
 	/**
 	 * Will check for plant growth/decay and send updates to clients if needed
-	 * 
+	 *
 	 * The actions map key string should be equivalent to the name of a function
 	 * as it will be dynamically called in street_update_handler when the client
 	 * attempts to perform one of the available actions;
@@ -16,12 +16,12 @@ abstract class Plant extends Entity
 	List<Map> actions = [];
 	Map<String,Spritesheet> states;
     Spritesheet currentState;
-    	
+
 	Plant(this.id,this.x,this.y)
 	{
 		respawn = new DateTime.now();
 	}
-	
+
 	void update()
 	{
 		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0)
@@ -29,14 +29,14 @@ abstract class Plant extends Entity
 			state++;
 			respawn = new DateTime.now().add(new Duration(seconds:30));
 		}
-		
+
 		if(state > maxState)
 			state = maxState;
 	}
-	
+
 	Map getMap()
 	{
-		Map map = new Map();
+		Map map = super.getMap();
 		map['url'] = currentState.url;
 		map['id'] = id;
 		map['type'] = type;

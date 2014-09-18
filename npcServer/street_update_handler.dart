@@ -136,7 +136,7 @@ class StreetUpdateHandler
 			//callMethod means the player is trying to interact with an entity
 			if(map["callMethod"] != null)
 			{
-				String type = map['type'].replaceAll("entity","").trim();
+				String type = map['type'].replaceAll("entity","").replaceAll(' ','');
 				Map entityMap = streets[streetName].entityMaps[type];
 				if(entityMap != null && entityMap[map['id']] != null)
 				{

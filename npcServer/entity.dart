@@ -3,7 +3,8 @@ part of coUserver;
 abstract class Entity
 {
 	List<Map> actions;
-	
+	String bubbleText;
+
 	void setActionEnabled(String action, bool enabled)
 	{
 		try
@@ -18,5 +19,13 @@ abstract class Entity
 			}
 		}
 		catch(e){log("error enabling/disabling action $action: $e");}
+	}
+
+	Map getMap()
+	{
+		Map map = {};
+		if(bubbleText != null)
+			map['bubbleText'] = bubbleText;
+		return map;
 	}
 }

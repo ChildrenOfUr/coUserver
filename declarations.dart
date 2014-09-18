@@ -53,6 +53,7 @@ part 'npcServer/npcs/shrines/pot.dart';
 part 'npcServer/npcs/shrines/spriggan.dart';
 part 'npcServer/npcs/shrines/tii.dart';
 part 'npcServer/npcs/shrines/zille.dart';
+part 'npcServer/npcs/mailbox.dart';
 
 //items
 part 'npcServer/items/item.dart';
