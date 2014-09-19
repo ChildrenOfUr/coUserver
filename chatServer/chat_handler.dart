@@ -44,7 +44,50 @@ class ChatHandler
 		slack.token = globalChatToken;
         slack.team = slackTeam;
 
-        String icon_url = "http://s21.postimg.org/czibb690j/head.png";
+        try
+        {
+        	String icon_url = "http://childrenofur.com/data/heads/$username.head.png";
+            http.get(icon_url).then((response)
+            {
+            	//if the head picture doesn't already exist, try to make one
+            	if(response.statusCode != 200)
+            	{
+            		getSpritesheets(username).then((Map spritesheets)
+                    {
+                    	if(spritesheets['base'] != null)
+                    	{
+                    		http.get(spritesheets['base']).then((response)
+                    		{
+                    			Image image = decodeImage(response.bodyBytes);
+            					image = copyCrop(image,0,0,image.width~/15,(image.height*.6).toInt());
+            					List<int> bytes = encodePng(image);
+
+            					http.MultipartRequest request = new http.MultipartRequest("POST",Uri.parse("http://childrenofur.com/data/heads/uploadhead.php"));
+            					request.files.add(new http.MultipartFile.fromBytes('file', bytes, filename:'$username.head.png'));
+            					request.send().then((http.StreamedResponse response)
+            					{
+            						icon_url = 'http://childrenofur.com/data/heads/$username.head.png';
+            						_sendMessage(text,username,icon_url);
+            					});
+                    		});
+                    	}
+                    	//if the username isn't found, just use the cupcake
+                    	else
+                    	{
+                    		icon_url = 'http://s21.postimg.org/czibb690j/head.png';
+                    		_sendMessage(text,username,icon_url);
+                    	}
+                    });
+            	}
+            	else
+            		_sendMessage(text,username,icon_url);
+            });
+        }
+        catch(err){log('error sending slack message: $err');}
+	}
+
+	static void _sendMessage(String text, String username, String icon_url)
+	{
 		slack.Message message = new slack.Message(text,username:username,icon_url:icon_url);
 		slack.send(message);
 	}
