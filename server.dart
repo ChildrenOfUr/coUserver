@@ -3,6 +3,7 @@ part of coUserver;
 IRCRelay relay;
 double minClientVersion = 0.06;
 PostgreSqlManager dbManager;
+Map<String,int> heightsCache = null;
 
 void main()
 {
@@ -46,12 +47,16 @@ void main()
 		log('Serving Chat on ${'0.0.0.0'}:8282');
 	});
 
-	//write out the stats to a file every 1 minute
+	//useful for making trees speech bubbles appear where they should
+	loadHeightsCacheFromDisk();
+
+	//save some server state to the disk every 30 seconds
 	new Timer.periodic(new Duration(seconds:30), (Timer t)
 	{
 		try
 		{
 			StatBuffer.writeStatsToFile();
+			saveHeightsCacheToDisk();
 		}
 		catch(e)
 		{

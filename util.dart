@@ -195,6 +195,13 @@ void log(String message)
 Future<Map> getSpritesheets(@app.QueryParam('username') String username)
 {
 	Completer c = new Completer();
+
+	if(username.contains(new RegExp("testUser[0-9]+")))
+	{
+		c.complete({});
+		return c.future;
+	}
+
 	Map<String,String> spritesheets = {};
 	File cache = new File('./playerSpritesheets/${username.toLowerCase()}.json');
 	if(!cache.existsSync())
@@ -331,4 +338,47 @@ Future<Map> getStreetFillerStats()
 	});
 
 	return c.future;
+}
+
+@app.Route('/getActualImageHeight')
+Future<int> getActualImageHeight(@app.QueryParam('url') String imageUrl,
+						   		 @app.QueryParam('numRows') int numRows,
+						   		 @app.QueryParam('numColumns') int numColumns)
+{
+	Completer c = new Completer();
+
+	if(heightsCache[imageUrl] != null)
+		c.complete(heightsCache[imageUrl]);
+	else
+	{
+		http.get(imageUrl).then((response)
+    	{
+    		Image image = decodeImage(response.bodyBytes);
+    		int actualHeight = image.height~/numRows-image.getBytes().indexOf(image.getBytes().firstWhere((int byte) => byte != 0))~/image.width~/numColumns;
+    		heightsCache[imageUrl] = actualHeight;
+    		c.complete(actualHeight);
+    	});
+	}
+
+	return c.future;
+}
+
+void loadHeightsCacheFromDisk()
+{
+	File file = new File('heightsCache.json');
+	if(!file.existsSync())
+	{
+		heightsCache = {};
+		return;
+	}
+
+	heightsCache = JSON.decode(file.readAsStringSync());
+}
+
+void saveHeightsCacheToDisk()
+{
+	File file = new File('heightsCache.json');
+	if(!file.existsSync())
+    	file.createSync(recursive:true);
+	file.writeAsStringSync(JSON.encode(heightsCache));
 }

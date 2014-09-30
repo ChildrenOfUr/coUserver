@@ -1,7 +1,7 @@
 part of coUserver;
 
 //I'm not sure writing directly to a file everytime something changes would be very
-//efficient so this will serve as a buffer and be written out to a file every x minutes
+//efficient so this will serve as a buffer and be written out to a file every x seconds
 class StatBuffer
 {
 	static Map<String,num> statMap = {};

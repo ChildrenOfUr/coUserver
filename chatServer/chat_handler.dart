@@ -59,12 +59,17 @@ class ChatHandler
                     		http.get(spritesheets['base']).then((response)
                     		{
                     			Image image = decodeImage(response.bodyBytes);
-            					image = copyCrop(image,0,0,image.width~/15,(image.height*.6).toInt());
+                    			int frameWidth = image.width~/15;
+                    			int frameHeight = (image.height*.6).toInt();
+                    			int xStart = 0;
+                    			if(frameWidth > frameHeight)
+                    				xStart = frameWidth-frameHeight;
+            					image = copyCrop(image,xStart,0,frameWidth,frameHeight);
             					List<int> bytes = encodePng(image);
 
-            					http.MultipartRequest request = new http.MultipartRequest("POST",Uri.parse("http://childrenofur.com/data/heads/uploadhead.php"));
-            					request.files.add(new http.MultipartFile.fromBytes('file', bytes, filename:'$username.head.png'));
-            					request.send().then((http.StreamedResponse response)
+            					MultipartRequest request = new MultipartRequest("POST",Uri.parse("http://childrenofur.com/data/heads/uploadhead.php"));
+            					request.files.add(new MultipartFile.fromBytes('file', bytes, filename:'$username.head.png'));
+            					request.send().then((StreamedResponse response)
             					{
             						icon_url = 'http://childrenofur.com/data/heads/$username.head.png';
             						_sendMessage(text,username,icon_url);

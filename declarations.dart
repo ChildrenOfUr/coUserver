@@ -17,6 +17,9 @@ import 'package:redstone_mapper_pg/manager.dart';
 import 'package:redstone_web_socket/redstone_web_socket.dart';
 import 'package:shelf/shelf.dart' as shelf;
 import 'package:http/http.dart' as http;
+import 'package:http/src/multipart_request.dart';
+import 'package:http/src/multipart_file.dart';
+import 'package:http/src/streamed_response.dart';
 import 'package:image/image.dart';
 
 part 'server.dart';
