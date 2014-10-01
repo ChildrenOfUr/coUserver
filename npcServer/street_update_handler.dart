@@ -101,15 +101,17 @@ class StreetUpdateHandler
 					ws.add(JSON.encode({'error':'version too low'}));
 					c.complete();
 				}
-
-				if(!streets.containsKey(streetName))
-    				loadStreet(streetName,map['tsid']);
-				//log("${map['username']} joined $streetName");
-				streets[streetName].occupants.add(ws);
-				if(map['firstConnect'])
-					fireInventoryAtUser(ws,username).then((_) => c.complete());
 				else
-					c.complete();
+				{
+					if(!streets.containsKey(streetName))
+        				loadStreet(streetName,map['tsid']);
+    				//log("${map['username']} joined $streetName");
+    				streets[streetName].occupants.add(ws);
+    				if(map['firstConnect'])
+    					fireInventoryAtUser(ws,username).then((_) => c.complete());
+    				else
+    					c.complete();
+				}
 			}
 			else if(map["message"] == "left")
 			{

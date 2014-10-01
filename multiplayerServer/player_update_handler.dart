@@ -75,7 +75,7 @@ class PlayerUpdateHandler
     				//tell the other clients that the old guy disconnected
     				userSockets[newUsername] = ws;
     				String street = map['street'];
-    				users[newUsername] = new Identifier(newUsername,"",street);
+    				users[newUsername] = new Identifier(newUsername,street);
 
     				userSockets.remove(username);
     				users.remove(username);
@@ -110,7 +110,7 @@ class PlayerUpdateHandler
     			else //this user must have just connected
     			{
     				userSockets[username] = ws;
-    				users[username] = new Identifier(username,"",map["street"]);
+    				users[username] = new Identifier(username,map["street"]);
     				try
 					{
 						num currentX = num.parse(map['xy'].split(',')[0]);

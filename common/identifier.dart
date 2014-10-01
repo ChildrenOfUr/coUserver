@@ -2,7 +2,7 @@ part of coUserver;
 
 class Identifier
 {
-	String username, channelName, currentStreet;
+	String username, currentStreet;
 	num currentX, currentY;
-	Identifier(this.username,this.channelName,this.currentStreet);
+	Identifier(this.username,this.currentStreet);
 }

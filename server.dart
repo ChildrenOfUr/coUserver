@@ -1,7 +1,7 @@
 part of coUserver;
 
 IRCRelay relay;
-double minClientVersion = 0.06;
+double minClientVersion = 0.07;
 PostgreSqlManager dbManager;
 Map<String,int> heightsCache = null;
 
