@@ -109,3 +109,4 @@ part 'npcServer/quoin.dart';
 part 'util.dart';
 part 'auction.dart';
 part 'inventory.dart';
+part 'auth.dart';
