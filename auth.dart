@@ -10,7 +10,7 @@ class AuthService
     	Completer c = new Completer();
 
     	Map body = {'assertion':parameters['assertion'],
-    				'audience':'play.childrenofur.com'};
+    				'audience':'http://play.childrenofur.com:80'};
 
     	http.post('https://verifier.login.persona.org/verify',body:body).then((response)
 		{
