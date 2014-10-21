@@ -25,4 +25,13 @@ class AuthService
 
     	return c.future;
     }
+
+	@app.Route('/logout', methods: const[app.POST])
+    Map logoutUser(@app.Body(app.JSON) Map parameters)
+    {
+		//does nothing at the moment
+		//should remove any session key associated with parameters['session-key']
+
+		return {'ok':'yes'};
+    }
 }

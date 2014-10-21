@@ -16,8 +16,9 @@ void main()
 	app.addPlugin(getMapperPlugin(dbManager));
 	app.addPlugin(getWebSocketPlugin());
 
+	SecureSocket.initialize(database: "sql:./certdb", password: certdbPassword);
 	app.setupConsoleLog();
-	app.start(port:port);
+	app.start(port:port, secureOptions: {#certificateName: "robertmcdermot.com"});
 
 	//redstone.dart does not support websockets so we have to listen on a
 	//seperate port for those connections :(
