@@ -17,7 +17,7 @@ void main()
 	app.addPlugin(getWebSocketPlugin());
 
 	SecureSocket.initialize(database: "sql:./certdb", password: certdbPassword);
-	app.setupConsoleLog(Level.ALL);
+	app.setupConsoleLog();
 	app.start(port:8383, secureOptions: {#certificateName: "robertmcdermot.com"});
 	app.start(port:port);
 

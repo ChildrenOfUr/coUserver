@@ -9,12 +9,17 @@ class AuthService
 		Random rand = new Random();
     	Completer c = new Completer();
 
+    	String audience = 'http://play.childrenofur.com:80';
+    	if(parameters['testing'] != null)
+    		audience = 'http://localhost:8080';
+
     	Map body = {'assertion':parameters['assertion'],
-    				'audience':'http://play.childrenofur.com:80'};
+    				'audience':audience};
 
     	http.post('https://verifier.login.persona.org/verify',body:body).then((response)
 		{
 			Map responseMap = JSON.decode(response.body);
+			print('responseMap: $responseMap');
 			if(responseMap['status'] == 'okay')
 				c.complete({'ok':'yes',
 							'playerName':'testUser ${rand.nextInt(1000000)}',
