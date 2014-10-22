@@ -6,6 +6,7 @@ class AuthService
 	@app.Route('/login', methods: const[app.POST])
     Future<Map> loginUser(@app.Body(app.JSON) Map parameters)
     {
+		print("got request: $parameters");
 		Random rand = new Random();
     	Completer c = new Completer();
 
@@ -22,7 +23,7 @@ class AuthService
 			print('responseMap: $responseMap');
 			if(responseMap['status'] == 'okay')
 				c.complete({'ok':'yes',
-							'playerName':'testUser ${rand.nextInt(1000000)}',
+							'playerName':'testUser${rand.nextInt(1000000)}',
 							'playerStreet':'LA58KK7B9O522PC'});
 			else
 				c.complete({'ok':'no'});
