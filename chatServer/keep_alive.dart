@@ -7,7 +7,6 @@ class KeepAlive
 
 	static void start()
 	{
-		print("starting keep alive");
 		Timer timer;
 		timer = new Timer.periodic(new Duration(seconds:15), (_)
 		{
