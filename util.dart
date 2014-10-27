@@ -285,56 +285,64 @@ Future<Map> getStreetFillerStats()
 	File finished = _getFinishedFile();
 	finished.readAsString().then((String str)
 	{
-		File file = new File('./streetEntities/streets.json');
-    	Map streets = JSON.decode(file.readAsStringSync());
-
-		int trulyFinished = 0;
-		int reportedBroken = 0;
-		int reportedFinished = 0;
-		int reportedVandalized = 0;
-		int entitiesRequired = 0;
-		int entitiesComplete = 0;
-		Map<String,int> typeTotals = {};
-
-		Map finishedMap = JSON.decode(str);
-		finishedMap.forEach((String key, Map value)
+		try
 		{
-			if(value['streetFinished'] == true)
-				trulyFinished++;
-			if(value['reportedBroken'] == true)
-				reportedBroken++;
-			if(value['reportedFinished'] == true)
-				reportedFinished++;
-			if(value['reportedVandalized'] == true)
-				reportedVandalized++;
-			if(value['entitiesRequired'] != null && value['entitiesRequired'] != -1)
-				entitiesRequired += num.parse(value['entitiesRequired'].toString());
-			if(value['entitiesComplete'] != null && value['entitiesComplete'] != -1)
-				entitiesComplete += num.parse(value['entitiesComplete'].toString());
-		});
+			File file = new File('./streetEntities/streets.json');
+			Map streets = JSON.decode(file.readAsStringSync());
 
-		Directory dir = new Directory('./streetEntities');
-		for(File f in dir.listSync())
-		{
-			if(f.path.contains('.bak') || f.path.contains('streets.json')
-					|| f.path.contains('finished.json'))
-				continue;
+			int trulyFinished = 0;
+			int reportedBroken = 0;
+			int reportedFinished = 0;
+			int reportedVandalized = 0;
+			int entitiesRequired = 0;
+			int entitiesComplete = 0;
+			Map<String,int> typeTotals = {};
 
-			Map entityData = JSON.decode(f.readAsStringSync());
-			List<Map> entities = entityData['entities'];
-			entities.forEach((Map entity)
+			Map finishedMap = JSON.decode(str);
+			finishedMap.forEach((String key, Map value)
 			{
-				if(typeTotals.containsKey(entity['type']))
-					typeTotals[entity['type']]++;
-				else
-					typeTotals[entity['type']] = 1;
+				if(value['streetFinished'] == true)
+					trulyFinished++;
+				if(value['reportedBroken'] == true)
+					reportedBroken++;
+				if(value['reportedFinished'] == true)
+					reportedFinished++;
+				if(value['reportedVandalized'] == true)
+					reportedVandalized++;
+				if(value['entitiesRequired'] != null && value['entitiesRequired'] != -1)
+					entitiesRequired += num.parse(value['entitiesRequired'].toString());
+				if(value['entitiesComplete'] != null && value['entitiesComplete'] != -1)
+					entitiesComplete += num.parse(value['entitiesComplete'].toString());
 			});
+
+			Directory dir = new Directory('./streetEntities');
+			for(File f in dir.listSync())
+			{
+				if(f.path.contains('.bak') || f.path.contains('streets.json')
+				   || f.path.contains('finished.json'))
+					continue;
+
+				Map entityData = JSON.decode(f.readAsStringSync());
+				List<Map> entities = entityData['entities'];
+				entities.forEach((Map entity)
+				{
+					if(typeTotals.containsKey(entity['type']))
+						typeTotals[entity['type']]++;
+					else
+						typeTotals[entity['type']] = 1;
+				});
+			}
+			Map data = {'totalStreets':streets.length,'totalReports':finishedMap.length,
+				'entitiesRequired':entitiesRequired,'entitiesComplete':entitiesComplete,
+				'reportedBroken':reportedBroken,'reportedComplete':reportedFinished,
+				'reportedVandalized':reportedVandalized,'typeTotals':typeTotals};
+			c.complete(data);
 		}
-		Map data = {'totalStreets':streets.length,'totalReports':finishedMap.length,
-		            'entitiesRequired':entitiesRequired,'entitiesComplete':entitiesComplete,
-		            'reportedBroken':reportedBroken,'reportedComplete':reportedFinished,
-		            'reportedVandalized':reportedVandalized,'typeTotals':typeTotals};
-		c.complete(data);
+		catch(err)
+		{
+			log("Unable to read street stats: $err");
+			c.complete({});
+		}
 	});
 
 	return c.future;

@@ -1,7 +1,7 @@
 part of coUserver;
 
 IRCRelay relay;
-double minClientVersion = 0.07;
+double minClientVersion = 0.08;
 PostgreSqlManager dbManager;
 Map<String,int> heightsCache = null;
 
@@ -16,11 +16,12 @@ void main()
 	app.addPlugin(getMapperPlugin(dbManager));
 	app.addPlugin(getWebSocketPlugin());
 
-	//SecureSocket.initialize(database: "sql:./certdb", password: certdbPassword);
+	SecureSocket.initialize(database: "sql:./certdb", password: certdbPassword);
 	app.setupConsoleLog();
-	//app.start(port:8383, secureOptions: {#certificateName: "robertmcdermot.com"});
-	app.start(port:port);
+	app.start(port:8383, autoCompress:true, secureOptions: {#certificateName: "robertmcdermot.com"});
+	app.start(port:port, autoCompress:true);
 
+	KeepAlive.start();
 	//redstone.dart does not support websockets so we have to listen on a
 	//seperate port for those connections :(
 	HttpServer.bind('0.0.0.0', 8282).then((HttpServer server)

@@ -10,7 +10,9 @@ class ChatHandler
 	{
 		/**we are no longer using heroku so this should not be necessary**/
 		//if a heroku app does not send any information for more than 55 seconds, the connection will be terminated
-		//new KeepAlive().start(ws);
+
+		if(!KeepAlive.pingList.contains(ws))
+			KeepAlive.pingList.add(ws);
 
 		ws.listen((message)
 		{
@@ -97,8 +99,15 @@ class ChatHandler
 		slack.send(message);
 	}
 
-	static void cleanupLists(WebSocket ws)
+	static void cleanupLists(WebSocket ws, {String reason:''})
 	{
+		try
+		{
+			ws.close(reason:reason);
+			KeepAlive.pingList.remove(ws);
+		}
+		catch(err){}
+
 		List<String> socketRemove = new List<String>();
 		List<int> usersRemove = new List<int>();
 		String leavingUser;
@@ -134,7 +143,12 @@ class ChatHandler
 				return;
 			}
 
-			if(map["statusMessage"] == 'join')
+			if(map['statusMessage'] == 'pong')
+			{
+				KeepAlive.notResponded.remove(ws);
+				return;
+			}
+			else if(map["statusMessage"] == 'join')
 			{
 				//combine the username with the channel name to keep track of the same user in multiple channels
 				String userName = map["username"];

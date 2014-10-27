@@ -1,20 +1,31 @@
 part of coUserver;
 
 class KeepAlive
-{		
-	start(WebSocket websocket)
+{
+	static List<WebSocket> pingList = [];
+	static List<WebSocket> notResponded = [];
+
+	static void start()
 	{
+		print("starting keep alive");
 		Timer timer;
-		timer = new Timer.periodic(new Duration(seconds:50), (_)
+		timer = new Timer.periodic(new Duration(seconds:15), (_)
 		{
-			if(websocket.readyState != 1) //not yet ready, closing or closed
-				timer.cancel();
-			else
+			notResponded = [];
+
+			pingList.forEach((WebSocket websocket)
 			{
+				notResponded.add(websocket);
 				Map pingMap = new Map();
-				pingMap["message"] = "ping";
+				pingMap["statusMessage"] = "ping";
+				pingMap['channel'] = 'Local Chat';
 				websocket.add(JSON.encode(pingMap));
-			}
+			});
+
+			new Timer(new Duration(seconds:10), ()
+			{
+				notResponded.forEach((WebSocket websocket) => ChatHandler.cleanupLists(websocket,reason:'no response to ping'));
+			});
 		});
 	}
 }
