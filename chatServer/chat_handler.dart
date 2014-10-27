@@ -103,7 +103,7 @@ class ChatHandler
 	{
 		try
 		{
-			ws.close(reason:reason);
+			ws.close(1,reason);
 			KeepAlive.pingList.remove(ws);
 		}
 		catch(err){}
