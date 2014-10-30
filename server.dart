@@ -18,8 +18,8 @@ void main()
 
 	SecureSocket.initialize(database: "sql:./certdb", password: certdbPassword);
 	app.setupConsoleLog();
-	app.start(port:8383, secureOptions: {#certificateName: "robertmcdermot.com"});
-	app.start(port:port);
+	app.start(port:8383, autoCompress:true, secureOptions: {#certificateName: "robertmcdermot.com"});
+	app.start(port:port, autoCompress:true);
 
 	KeepAlive.start();
 	//redstone.dart does not support websockets so we have to listen on a
