@@ -16,9 +16,9 @@ void main()
 	app.addPlugin(getMapperPlugin(dbManager));
 	app.addPlugin(getWebSocketPlugin());
 
-	SecureSocket.initialize(database: "sql:./certdb", password: certdbPassword);
+	//SecureSocket.initialize(database: "sql:./certdb", password: certdbPassword);
 	app.setupConsoleLog();
-	app.start(port:8383, autoCompress:true, secureOptions: {#certificateName: "robertmcdermot.com"});
+	//app.start(port:8383, autoCompress:true, secureOptions: {#certificateName: "robertmcdermot.com"});
 	app.start(port:port, autoCompress:true);
 
 	KeepAlive.start();
