@@ -99,14 +99,14 @@ class ChatHandler
 		slack.send(message);
 	}
 
-	static void cleanupLists(WebSocket ws, {String reason:''})
+	static void cleanupLists(WebSocket ws, {String reason:'No reason given'})
 	{
 		try
 		{
-			ws.close(1,reason);
 			KeepAlive.pingList.remove(ws);
+			ws.close(4001,reason);
 		}
-		catch(err){}
+		catch(err){log('error: $err');}
 
 		List<String> socketRemove = new List<String>();
 		List<int> usersRemove = new List<int>();
