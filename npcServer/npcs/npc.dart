@@ -38,6 +38,8 @@ abstract class NPC extends Entity
 		map["y"] = y;
 		map["width"] = currentState.frameWidth;
         map["height"] = currentState.frameHeight;
+        map['loops'] = currentState.loops;
+        map['loopDelay'] = currentState.loopDelay;
         map["facingRight"] = facingRight;
         map["actions"] = actions;
         return map;

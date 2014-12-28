@@ -45,6 +45,7 @@ part 'npcServer/npcs/animals/piggy.dart';
 part 'npcServer/entity.dart';
 part 'npcServer/npcs/npc.dart';
 part 'npcServer/npcs/streetspiritgroddle.dart';
+part 'npcServer/npcs/auctioneer.dart';
 part 'npcServer/npcs/animals/chicken.dart';
 part 'npcServer/npcs/shrines/shrine.dart';
 part 'npcServer/npcs/shrines/alph.dart';
