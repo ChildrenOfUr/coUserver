@@ -10,7 +10,7 @@ abstract class NPC extends Entity
 
 	Random rand;
 	String id,type;
-	int x,y, speed, actionTime = 2500;
+	int x,y, speed = 0, actionTime = 2500;
 	DateTime respawn;
 	bool facingRight = true;
 	List<Map> actions = [];
@@ -36,6 +36,7 @@ abstract class NPC extends Entity
 		map["numFrames"] = currentState.numFrames;
 		map["x"] = x;
 		map["y"] = y;
+		map['speed'] = speed;
 		map["width"] = currentState.frameWidth;
         map["height"] = currentState.frameHeight;
         map['loops'] = currentState.loops;

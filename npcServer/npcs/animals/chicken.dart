@@ -48,7 +48,7 @@ class Chicken extends NPC
 			(currentState.stateName == "walk" || currentState.stateName == "flying"))
 		{
 			if(facingRight)
-				x += speed; //75 pixels/sec is the speed set on the client atm
+				x += speed;
 			else
 				x -= speed;
 

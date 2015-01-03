@@ -34,8 +34,6 @@ class Street
 				int x = entity['x'];
 				int y = entity['y'];
 
-				print('placing ${entity['type']} at x=${entity['x']}');
-
 				//generate a hopefully unique code that stays the same everytime for this object
 				String id = createId(x,y,type,tsid);
 

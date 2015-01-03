@@ -140,6 +140,8 @@ class StreetUpdateHandler
 			{
 				String type = map['type'].replaceAll("entity","").replaceAll(' ','');
 				Map entityMap = streets[streetName].entityMaps[type];
+				String methodName = normalizeMethodName(map['callMethod']);
+
 				if(entityMap != null && entityMap[map['id']] != null)
 				{
 					var entity = entityMap[map['id']];
@@ -148,7 +150,7 @@ class StreetUpdateHandler
 					Map<Symbol,dynamic> arguments = {#userSocket:ws,#username:username};
 					if(map['arguments'] != null)
 						(map['arguments'] as Map).forEach((key,value) => arguments[new Symbol(key)] = value);
-                    entityMirror.invoke(new Symbol(map['callMethod']),[],arguments);
+                    entityMirror.invoke(new Symbol(methodName),[],arguments);
 				}
 				else
 				{
@@ -158,7 +160,7 @@ class StreetUpdateHandler
 					Map<Symbol,dynamic> arguments = {#userSocket:ws,#username:username};
 					arguments[#streetName] = map['streetName'];
 					arguments[#map] = map['arguments'];
-					instanceMirror.invoke(new Symbol(map['callMethod']),[],arguments);
+					instanceMirror.invoke(new Symbol(methodName),[],arguments);
 				}
 
 				c.complete();
@@ -170,6 +172,22 @@ class StreetUpdateHandler
 		{
 			log("Error processing message (street_update_handler): $error");
 		}
+	}
+
+	static String normalizeMethodName(String name)
+	{
+		String newName = '';
+		List<String> parts = name.split(' ');
+
+		for(int i=0; i<parts.length; i++)
+		{
+			if(i > 0)
+				parts[i] = parts[i].substring(0,1).toUpperCase() + parts[i].substring(1);
+
+			newName += parts[i];
+		}
+
+		return newName;
 	}
 
 	static void loadStreet(String streetName, String tsid)
