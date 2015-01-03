@@ -41,7 +41,13 @@ class StreetSpiritGroddle extends NPC
 
 	void sell({WebSocket userSocket, String username})
 	{
-		userSocket.add(JSON.encode({'openWindow':'vendorSell'}));
+		//prepare the buy window at the same time
+		Map map = {};
+		map['vendorName'] = type;
+		map['id'] = id;
+		map['itemsForSale'] = _getItemsForSale();
+		map['openWindow'] = 'vendorSell';
+		userSocket.add(JSON.encode(map));
 	}
 
 	void buyItem({WebSocket userSocket, String itemName, int num, String username})
