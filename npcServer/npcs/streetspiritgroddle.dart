@@ -5,10 +5,14 @@ class StreetSpiritGroddle extends NPC
 	StreetSpiritGroddle(String id, int x, int y) : super(id,x,y)
 	{
 		actionTime = 0;
-		actions.add({"action":"buy",
-					 "timeRequired":actionTime,
-					 "enabled":true,
-        			 "actionWord":""});
+		actions..add({"action":"buy",
+					  "timeRequired":actionTime,
+					  "enabled":true,
+        			  "actionWord":""})
+			   ..add({"action":"sell",
+ 					  "timeRequired":actionTime,
+ 					  "enabled":true,
+         			  "actionWord":""});
 
 		type = "Street Spirit Groddle";
 		speed = 0;
@@ -33,6 +37,11 @@ class StreetSpiritGroddle extends NPC
 		map['id'] = id;
 		map['itemsForSale'] = _getItemsForSale();
 		userSocket.add(JSON.encode(map));
+	}
+
+	void sell({WebSocket userSocket, String username})
+	{
+		userSocket.add(JSON.encode({'openWindow':'vendorSell'}));
 	}
 
 	void buyItem({WebSocket userSocket, String itemName, int num, String username})
