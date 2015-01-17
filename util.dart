@@ -5,6 +5,7 @@ Map getStreetEntities(String tsid)
 	Map entities = {};
 	if(tsid != null)
 	{
+	  //TODO remove the need for the G/L replace logic
 		if(tsid.startsWith("G"))
     		tsid = tsid.replaceFirst("G", "L");
     	File file = new File('./streetEntities/$tsid');
