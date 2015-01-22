@@ -152,8 +152,12 @@ String restartServer(@app.QueryParam('secret') String secret)
 {
 	if(secret == restartSecret)
 	{
-		Process.runSync("/bin/sh",["restart_server.sh"]);
-		return "OK";
+	  try 
+	  {
+		  Process.runSync("/bin/sh",["restart_server.sh"]);
+		  return "OK";
+	  }
+    catch(e){log("Error restarting server: $e"); return "ERROR";}
 	}
 	else
 		return "NOT AUTHORIZED";
