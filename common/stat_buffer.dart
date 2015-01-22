@@ -53,18 +53,24 @@ Future<Map<String,num>> getGameStats()
 	if(!statsFile.existsSync())
 		c.complete({});
 	else
-		statsFile.readAsString().then((String result)
+	{
+		try
 		{
-			Map<String,num> existingStats = JSON.decode(result);
-			StatBuffer.statMap.forEach((String key, num value)
-    		{
-    			if(existingStats.containsKey(key))
-    				existingStats[key] += value;
-    			else
-    				existingStats[key] = value;
-    		});
-			c.complete(existingStats);
-		});
+			statsFile.readAsString().then((String result)
+			{
+				Map<String,num> existingStats = JSON.decode(result);
+				StatBuffer.statMap.forEach((String key, num value)
+	    		{
+	    			if(existingStats.containsKey(key))
+	    				existingStats[key] += value;
+	    			else
+	    				existingStats[key] = value;
+	    		});
+				c.complete(existingStats);
+			});
+		}
+		catch(e){c.complete({});}
+	}
 
 	return c.future;
 }
