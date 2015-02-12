@@ -13,7 +13,6 @@ class AuctionService
 		String queryString = "select * from auctions";
 		parameters.forEach((String key, String value) => queryString += ' $key $value');
 
-		print('query: $queryString');
 		return postgreSql.query(queryString, Auction);
     }
 
