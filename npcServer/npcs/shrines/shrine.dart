@@ -36,5 +36,5 @@ class Shrine extends NPC
 		userSocket.add(JSON.encode(takeMap));
 	}
 
-	checkFavor({WebSocket userSocket, String username}){}
+	checkFavor({WebSocket userSocket, String email}){}
 }

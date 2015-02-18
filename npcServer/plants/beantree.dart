@@ -50,11 +50,11 @@ class BeanTree extends Tree
      	maxState = currentState.numFrames-1;
 	}
 
-	void harvest({WebSocket userSocket, String username})
+	void harvest({WebSocket userSocket, String email})
 	{
 		super.harvest(userSocket:userSocket);
 
 		//give the player the 'fruits' of their labor
-		addItemToUser(userSocket,username,new Bean().getMap(),1,id);
+		addItemToUser(userSocket,email,new Bean().getMap(),1,id);
 	}
 }

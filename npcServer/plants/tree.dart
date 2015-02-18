@@ -30,7 +30,7 @@ abstract class Tree extends Plant
 			setActionEnabled("harvest",false);
 	}
 
-	harvest({WebSocket userSocket, String username})
+	harvest({WebSocket userSocket, String email})
 	{
 		if(state == 0)
 			return;
@@ -46,7 +46,7 @@ abstract class Tree extends Plant
 			state = 0;
 	}
 
-	water({WebSocket userSocket, String username})
+	water({WebSocket userSocket, String email})
 	{
 		if(state == maxState)
 			return;
@@ -62,7 +62,7 @@ abstract class Tree extends Plant
 			state = maxState;
 	}
 
-	pet({WebSocket userSocket, String username})
+	pet({WebSocket userSocket, String email})
 	{
 		//say a witty thing
 		say(responses['pet'].elementAt(rand.nextInt(responses['pet'].length)));

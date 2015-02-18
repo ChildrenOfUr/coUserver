@@ -3,10 +3,20 @@ part of coUserver;
 class Inventory
 {
 	@Field()
-	String username;
+	int id;
 
 	@Field()
 	String inventory_json;
+
+	@Field()
+	int user_id;
+
+	factory Inventory() => new Inventory._internal();
+
+	Inventory._internal()
+	{
+		this.inventory_json = '[]';
+	}
 
 	Future<int> addItem(Map item, int count, PostgreSql dbConn)
 	{
@@ -49,14 +59,14 @@ class Inventory
 		}
 		inventory_json = JSON.encode(slots);
 
-		String queryString = "update inventories set inventory_json = @inventory_json where username = @username";
+		String queryString = "UPDATE inventories SET inventory_json = @inventory_json FROM users AS u where u.id = @user_id";
 		dbConn.execute(queryString,this).then((int numRowsUpdated)
 		{
 			if(numRowsUpdated > 0)
 				c.complete(numRowsUpdated);
 			else
 			{
-				queryString = "insert into inventories(username,inventory_json) values(@username,@inventory_json)";
+				queryString = "INSERT INTO inventories(inventory_json, user_id) VALUES(@inventory_json,@user_id)";
 				dbConn.execute(queryString,this).then((int numInserted) => c.complete(numInserted));
 			}
 		});
@@ -108,7 +118,7 @@ class Inventory
 
 		inventory_json = JSON.encode(slots);
 
-		String queryString = "update inventories set inventory_json = @inventory_json where username = @username";
+		String queryString = "UPDATE inventories SET inventory_json = @inventory_json FROM users AS u WHERE u.id = @user_id";
 		dbConn.execute(queryString,this).then((int numRowsUpdated) => c.complete(numRowsUpdated));
 
 		return c.future;
@@ -129,15 +139,15 @@ class Inventory
 	}
 }
 
-@app.Route('/getInventory/:username')
+@app.Route('/getInventory/:email')
 @Encode()
-Future<Inventory> getUserInventory(@app.Attr() PostgreSql dbConn, String username)
+Future<Inventory> getUserInventory(@app.Attr() PostgreSql dbConn, String email)
 {
 	Completer c = new Completer();
-	String queryString = "select username,inventory_json from inventories where username = @username";
-    dbConn.query(queryString,Inventory,{'username':username}).then((List<Inventory> inventories)
+	String queryString = "SELECT * FROM inventories JOIN users ON users.id = user_id WHERE users.email = @email";
+    dbConn.query(queryString,Inventory,{'email':email}).then((List<Inventory> inventories)
     {
-    	Inventory inventory = new Inventory()..username=username..inventory_json='[]';
+    	Inventory inventory = new Inventory();
 		if(inventories.length > 0)
 			inventory = inventories.first;
 
@@ -147,12 +157,12 @@ Future<Inventory> getUserInventory(@app.Attr() PostgreSql dbConn, String usernam
     return c.future;
 }
 
-Future<int> addItemToUser(WebSocket userSocket, String username, Map item, int count, String fromObject)
+Future<int> addItemToUser(WebSocket userSocket, String email, Map item, int count, String fromObject)
 {
 	Completer c = new Completer();
 	dbManager.getConnection().then((PostgreSql dbConn)
 	{
-		getUserInventory(dbConn,username).then((Inventory inventory)
+		getUserInventory(dbConn,email).then((Inventory inventory)
     	{
 			//save the item in the user's inventory in the database
   			//then send it to the client
@@ -168,12 +178,12 @@ Future<int> addItemToUser(WebSocket userSocket, String username, Map item, int c
 	return c.future;
 }
 
-Future<int> takeItemFromUser(WebSocket userSocket, String username, String itemName, int count)
+Future<int> takeItemFromUser(WebSocket userSocket, String email, String itemName, int count)
 {
 	Completer c = new Completer();
 	dbManager.getConnection().then((PostgreSql dbConn)
 	{
-		getUserInventory(dbConn,username).then((Inventory inventory)
+		getUserInventory(dbConn,email).then((Inventory inventory)
     	{
 			inventory.takeItem(itemName,count,dbConn).then((int rowsUpdated)
 			{
@@ -188,12 +198,12 @@ Future<int> takeItemFromUser(WebSocket userSocket, String username, String itemN
 	return c.future;
 }
 
-Future fireInventoryAtUser(WebSocket userSocket, String username)
+Future fireInventoryAtUser(WebSocket userSocket, String email)
 {
 	Completer c = new Completer();
 	dbManager.getConnection().then((PostgreSql dbConn)
     {
-		getUserInventory(dbConn,username).then((Inventory inventory)
+		getUserInventory(dbConn,email).then((Inventory inventory)
 		{
 			inventory.getItems().forEach((Map item)
 			{

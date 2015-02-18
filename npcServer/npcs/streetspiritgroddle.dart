@@ -30,7 +30,7 @@ class StreetSpiritGroddle extends NPC
 
 	}
 
-	void buy({WebSocket userSocket, String username})
+	void buy({WebSocket userSocket, String email})
 	{
 		Map map = {};
 		map['vendorName'] = type;
@@ -39,7 +39,7 @@ class StreetSpiritGroddle extends NPC
 		userSocket.add(JSON.encode(map));
 	}
 
-	void sell({WebSocket userSocket, String username})
+	void sell({WebSocket userSocket, String email})
 	{
 		//prepare the buy window at the same time
 		Map map = {};
@@ -50,18 +50,18 @@ class StreetSpiritGroddle extends NPC
 		userSocket.add(JSON.encode(map));
 	}
 
-	void buyItem({WebSocket userSocket, String itemName, int num, String username})
+	void buyItem({WebSocket userSocket, String itemName, int num, String email})
 	{
 		StatBuffer.incrementStat("itemsBoughtFromVendors", num);
 		ClassMirror classMirror = findClassMirror(itemName.replaceAll(" ", ""));
         Item item = classMirror.newInstance(new Symbol(""), []).reflectee;
-		addItemToUser(userSocket,username,item.getMap(),num,id);
+		addItemToUser(userSocket,email,item.getMap(),num,id);
 	}
 
-	void sellItem({WebSocket userSocket, String itemName, int num, String username})
+	void sellItem({WebSocket userSocket, String itemName, int num, String email})
 	{
 		//TODO: obviously do checks to see if this can succeed
-		takeItemFromUser(userSocket,username,itemName,num);
+		takeItemFromUser(userSocket,email,itemName,num);
 	}
 
 	List _getItemsForSale()

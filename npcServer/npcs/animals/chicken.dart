@@ -34,11 +34,11 @@ class Chicken extends NPC
 			};
 	}
 
-	void squeeze({WebSocket userSocket, String username})
+	void squeeze({WebSocket userSocket, String email})
 	{
 		StatBuffer.incrementStat("chickensSqueezed", 1);
 		//give the player the 'fruits' of their labor
-		addItemToUser(userSocket,username,new Grain().getMap(),1,id);
+		addItemToUser(userSocket,email,new Grain().getMap(),1,id);
 	}
 
 	void update()

@@ -28,15 +28,15 @@ abstract class Item
 				"actions":onGround?groundActions:actions};
 	}
 
-	void pickup({WebSocket userSocket, String username})
+	void pickup({WebSocket userSocket, String email})
 	{
 		onGround = false;
-		addItemToUser(userSocket,username,getMap(),1,id);
+		addItemToUser(userSocket,email,getMap(),1,id);
 	}
 
-	void drop({WebSocket userSocket, Map map, String streetName, String username})
+	void drop({WebSocket userSocket, Map map, String streetName, String email})
 	{
-		takeItemFromUser(userSocket,username,map['dropItem']['name'],map['count'])
+		takeItemFromUser(userSocket,email,map['dropItem']['name'],map['count'])
 			.then((int numRows)
 			{
 				if(numRows < 1)

@@ -1,7 +1,7 @@
 part of coUserver;
 
 IRCRelay relay;
-double minClientVersion = 0.08;
+double minClientVersion = 0.09;
 PostgreSqlManager dbManager;
 Map<String,int> heightsCache = null;
 
@@ -152,7 +152,7 @@ String restartServer(@app.QueryParam('secret') String secret)
 {
 	if(secret == restartSecret)
 	{
-	  try 
+	  try
 	  {
 		  Process.runSync("/bin/sh",["restart_server.sh"]);
 		  return "OK";

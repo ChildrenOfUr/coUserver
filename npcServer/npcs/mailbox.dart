@@ -40,17 +40,17 @@ class Mailbox extends NPC
 		}
 	}
 
-	void checkMail({WebSocket userSocket, String username})
+	void checkMail({WebSocket userSocket, String email})
 	{
 		say("No Mail");
 	}
 
-	void sendMail({WebSocket userSocket, String username})
+	void sendMail({WebSocket userSocket, String email})
 	{
 
 	}
 
-	void send({WebSocket userSocket, String username, String recipient, String message})
+	void send({WebSocket userSocket, String email, String recipient, String message})
 	{
 
 	}

@@ -24,7 +24,7 @@ class Auctioneer extends NPC
 
 	}
 
-	void view({WebSocket userSocket, String username})
+	void view({WebSocket userSocket, String email})
 	{
 		Map map = {};
 		map['vendorName'] = type;

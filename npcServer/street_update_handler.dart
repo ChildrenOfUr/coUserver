@@ -92,6 +92,7 @@ class StreetUpdateHandler
 			Map map = JSON.decode(message);
 			String streetName = map["streetName"];
 			String username = map["username"];
+			String email = map['email'];
 
 			//a player has joined or left the street
 			if(map["message"] == "joined")
@@ -108,7 +109,7 @@ class StreetUpdateHandler
     				//log("${map['username']} joined $streetName");
     				streets[streetName].occupants.add(ws);
     				if(map['firstConnect'])
-    					fireInventoryAtUser(ws,username).then((_) => c.complete());
+    					fireInventoryAtUser(ws,email).then((_) => c.complete());
     				else
     					c.complete();
 				}
@@ -147,7 +148,7 @@ class StreetUpdateHandler
 					var entity = entityMap[map['id']];
 					//log("user $username calling ${map['callMethod']} on ${entity.id} in $streetName (${map['tsid']})");
 					InstanceMirror entityMirror = reflect(entity);
-					Map<Symbol,dynamic> arguments = {#userSocket:ws,#username:username};
+					Map<Symbol,dynamic> arguments = {#userSocket:ws,#email:email};
 					if(map['arguments'] != null)
 						(map['arguments'] as Map).forEach((key,value) => arguments[new Symbol(key)] = value);
                     entityMirror.invoke(new Symbol(methodName),[],arguments);
@@ -157,7 +158,7 @@ class StreetUpdateHandler
 					//check if it's an item and not an entity
 					ClassMirror classMirror = findClassMirror(type);
 					InstanceMirror instanceMirror = classMirror.newInstance(new Symbol(""), []);
-					Map<Symbol,dynamic> arguments = {#userSocket:ws,#username:username};
+					Map<Symbol,dynamic> arguments = {#userSocket:ws,#email:email};
 					arguments[#streetName] = map['streetName'];
 					arguments[#map] = map['arguments'];
 					instanceMirror.invoke(new Symbol(methodName),[],arguments);

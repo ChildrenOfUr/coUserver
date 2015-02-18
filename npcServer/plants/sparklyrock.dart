@@ -14,15 +14,15 @@ class SparklyRock extends Rock
      	state = new Random().nextInt(currentState.numFrames);
 	}
 
-	void mine({WebSocket userSocket, String username})
+	void mine({WebSocket userSocket, String email})
 	{
 		super.mine(userSocket:userSocket);
 
 		//give the player the 'fruits' of their labor
-		addItemToUser(userSocket,username,new ChunkofSparkly().getMap(),1,id);
+		addItemToUser(userSocket,email,new ChunkofSparkly().getMap(),1,id);
 
 		//1 in 10 chance to get a ruby as well
 		if(new Random().nextInt(10) == 5)
-			addItemToUser(userSocket,username,new ModestlySizedRuby().getMap(),1,id);
+			addItemToUser(userSocket,email,new ModestlySizedRuby().getMap(),1,id);
 	}
 }

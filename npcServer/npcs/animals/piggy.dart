@@ -28,17 +28,17 @@ class Piggy extends NPC
      	currentState = states['walk'];
 	}
 
-	nibble({WebSocket userSocket, String username})
+	nibble({WebSocket userSocket, String email})
 	{
 		StatBuffer.incrementStat("piggiesNibbled", 1);
 		//give the player the 'fruits' of their labor
-		addItemToUser(userSocket,username,new Meat().getMap(),1,id);
+		addItemToUser(userSocket,email,new Meat().getMap(),1,id);
 
 		currentState = states['nibble'];
 		respawn = new DateTime.now().add(new Duration(seconds:2));
 	}
 
-	pet({WebSocket userSocket, String username})
+	pet({WebSocket userSocket, String email})
 	{
 		StatBuffer.incrementStat("piggiesPetted", 1);
 	}

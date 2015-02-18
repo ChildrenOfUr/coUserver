@@ -21,11 +21,11 @@ class MetalRock extends Rock
      	state = new Random().nextInt(currentState.numFrames);
 	}
 
-	void mine({WebSocket userSocket, String username})
+	void mine({WebSocket userSocket, String email})
 	{
 		super.mine(userSocket:userSocket);
 
 		//give the player the 'fruits' of their labor
-		addItemToUser(userSocket,username,new ChunkofMetalRock().getMap(),1,id);
+		addItemToUser(userSocket,email,new ChunkofMetalRock().getMap(),1,id);
 	}
 }
