@@ -74,9 +74,9 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics)
 	dbConn.query(query, int, metabolics).then((List<int> results)
 	{
 		if(results.length > 0) //user exists
-			query = "UPDATE metabolics SET img = @img, currants = @currants, mood = @mood, energy = @energy, lifetime_img = @lifetime_img, current_street = @current_street WHERE user_id = @user_id";
+			query = "UPDATE metabolics SET img = @img, currants = @currants, mood = @mood, energy = @energy, lifetime_img = @lifetime_img, current_street = @current_street, current_street_x = @current_street_x, current_street_y = @current_street_y, max_energy = @max_energy, max_mood = @max_mood WHERE user_id = @user_id";
 		else //user does not exist
-			query = "INSERT INTO metabolics (img,currants,mood,energy,lifetime_img,user_id,current_street) VALUES(@img,@currants,@mood,@energy,@lifetime_img,@user_id,@current_street);";
+			query = "INSERT INTO metabolics (img,currants,mood,energy,lifetime_img,user_id,current_street,current_street_x,current_street_y,max_energy,max_mood) VALUES(@img,@currants,@mood,@energy,@lifetime_img,@user_id,@current_street,@current_street_x,@current_street_y,@max_energy,@max_mood);";
 
 		dbConn.execute(query,metabolics).then((int result) => c.complete(result));
 	});
