@@ -26,6 +26,7 @@ import 'package:image/image.dart';
 part 'server.dart';
 part 'API_KEYS.dart';
 part 'auctions_service.dart';
+part 'metabolics.dart';
 
 //common to all server parts
 part 'common/identifier.dart';

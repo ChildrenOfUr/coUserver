@@ -67,7 +67,7 @@ void main()
 	});
 }
 
-PostgreSql get postgreSql => app.request.attributes.dbConn;
+PostgreSql get dbConn => app.request.attributes.dbConn;
 
 //add a CORS header to every request
 @app.Interceptor(r'/.*')
@@ -95,7 +95,7 @@ Future<List<Auction>> getAllAuctions(@app.Attr() PostgreSql dbConn) =>
 
 @app.Route('/ah/post', methods: const[app.POST])
 Future addAuction(@Decode() Auction auction) =>
-		postgreSql.execute("insert into auctions (item_name,total_cost,username) "
+		dbConn.execute("insert into auctions (item_name,total_cost,username) "
 						   "values (@item_name, @total_cost, @username)",auction);
 
 @app.Route('/serverStatus')
