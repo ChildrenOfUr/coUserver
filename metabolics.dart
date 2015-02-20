@@ -52,10 +52,10 @@ Future<Metabolics> getMetabolics(@app.QueryParam() String username)
 			c.complete(metabolics[0]);
 		else
 		{
-			http.get('http://localhost/forums/getUser?username=$username').then((response)
+			query = "SELECT user_id FROM users WHERE username = @username";
+			dbConn.query(query, int, {'username':username}).then((List<int> results)
 			{
-				Map user = JSON.decode(response.body);
-				Metabolics m = new Metabolics()..user_id=user['id'];
+				Metabolics m = new Metabolics()..user_id=results[0];
 				c.complete(m);
 			});
 		}
