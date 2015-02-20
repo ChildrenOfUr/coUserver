@@ -52,7 +52,7 @@ Future<Metabolics> getMetabolics(@app.QueryParam() String username)
 			c.complete(metabolics[0]);
 		else
 		{
-			query = "SELECT user_id FROM users WHERE username = @username";
+			query = "SELECT id FROM users WHERE username = @username";
 			dbConn.query(query, int, {'username':username}).then((List<int> results)
 			{
 				Metabolics m = new Metabolics()..user_id=results[0];
