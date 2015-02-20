@@ -3,7 +3,7 @@ part of coUserver;
 class Metabolics
 {
 	@Field()
-	int id = -1;
+	int id;
 
 	@Field()
 	int mood = 50;
@@ -51,7 +51,14 @@ Future<Metabolics> getMetabolics(@app.QueryParam() String username)
 		if(metabolics.length > 0)
 			c.complete(metabolics[0]);
 		else
-			c.complete(new Metabolics());
+		{
+			http.get('http://localhost/forums/getUser?username=$username').then((response)
+			{
+				Map user = JSON.decode(response.body);
+				Metabolics m = new Metabolics()..user_id=user['id'];
+				c.complete(m);
+			});
+		}
 	});
 
 	return c.future;
