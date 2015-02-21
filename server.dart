@@ -1,7 +1,7 @@
 part of coUserver;
 
 IRCRelay relay;
-double minClientVersion = 0.09;
+double minClientVersion = 0.10;
 PostgreSqlManager dbManager;
 Map<String,int> heightsCache = null;
 
@@ -37,6 +37,8 @@ void main()
 					PlayerUpdateHandler.handle(websocket);
 				else if(request.uri.path == "/streetUpdate")
 					StreetUpdateHandler.handle(websocket);
+				else if(request.uri.path == "/metabolics")
+					MetabolicsEndpoint.handle(websocket);
 			})
 			.catchError((error)
 			{

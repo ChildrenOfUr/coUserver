@@ -141,20 +141,18 @@ class Inventory
 
 @app.Route('/getInventory/:email')
 @Encode()
-Future<Inventory> getUserInventory(@app.Attr() PostgreSql dbConn, String email)
+Future<Inventory> getUserInventory(String email) async
 {
-	Completer c = new Completer();
+	PostgreSql dbConn = await dbManager.getConnection();
 	String queryString = "SELECT * FROM inventories JOIN users ON users.id = user_id WHERE users.email = @email";
-    dbConn.query(queryString,Inventory,{'email':email}).then((List<Inventory> inventories)
-    {
-    	Inventory inventory = new Inventory();
-		if(inventories.length > 0)
-			inventory = inventories.first;
+	List<Inventory> inventories = await dbConn.query(queryString,Inventory,{'email':email});
 
-		c.complete(inventory);
-    });
+	Inventory inventory = new Inventory();
+	if(inventories.length > 0)
+		inventory = inventories.first;
 
-    return c.future;
+	dbConn.innerConn.close();
+	return inventory;
 }
 
 Future<int> addItemToUser(WebSocket userSocket, String email, Map item, int count, String fromObject)
@@ -162,7 +160,7 @@ Future<int> addItemToUser(WebSocket userSocket, String email, Map item, int coun
 	Completer c = new Completer();
 	dbManager.getConnection().then((PostgreSql dbConn)
 	{
-		getUserInventory(dbConn,email).then((Inventory inventory)
+		getUserInventory(email).then((Inventory inventory)
     	{
 			//save the item in the user's inventory in the database
   			//then send it to the client
@@ -183,7 +181,7 @@ Future<int> takeItemFromUser(WebSocket userSocket, String email, String itemName
 	Completer c = new Completer();
 	dbManager.getConnection().then((PostgreSql dbConn)
 	{
-		getUserInventory(dbConn,email).then((Inventory inventory)
+		getUserInventory(email).then((Inventory inventory)
     	{
 			inventory.takeItem(itemName,count,dbConn).then((int rowsUpdated)
 			{
@@ -203,7 +201,7 @@ Future fireInventoryAtUser(WebSocket userSocket, String email)
 	Completer c = new Completer();
 	dbManager.getConnection().then((PostgreSql dbConn)
     {
-		getUserInventory(dbConn,email).then((Inventory inventory)
+		getUserInventory(email).then((Inventory inventory)
 		{
 			inventory.getItems().forEach((Map item)
 			{

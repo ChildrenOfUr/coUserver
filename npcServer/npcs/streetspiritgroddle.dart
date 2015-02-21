@@ -50,18 +50,43 @@ class StreetSpiritGroddle extends NPC
 		userSocket.add(JSON.encode(map));
 	}
 
-	void buyItem({WebSocket userSocket, String itemName, int num, String email})
+	buyItem({WebSocket userSocket, String itemName, int num, String email}) async
 	{
 		StatBuffer.incrementStat("itemsBoughtFromVendors", num);
 		ClassMirror classMirror = findClassMirror(itemName.replaceAll(" ", ""));
         Item item = classMirror.newInstance(new Symbol(""), []).reflectee;
-		addItemToUser(userSocket,email,item.getMap(),num,id);
+
+        Metabolics m = await getMetabolics(email:email);
+        if(m.currants >= item.price*num)
+        {
+        	m.currants -= item.price*num;
+        	setMetabolics(m);
+			addItemToUser(userSocket,email,item.getMap(),num,id);
+        }
 	}
 
-	void sellItem({WebSocket userSocket, String itemName, int num, String email})
+	sellItem({WebSocket userSocket, String itemName, int num, String email}) async
 	{
 		//TODO: obviously do checks to see if this can succeed
-		takeItemFromUser(userSocket,email,itemName,num);
+		Inventory inventory = await getUserInventory(email);
+		int count = 0;
+		inventory.getItems().forEach((Map slot)
+		{
+			if(slot['name'] == itemName)
+				count++;
+		});
+		if(count >= num)
+		{
+			ClassMirror classMirror = findClassMirror(itemName.replaceAll(" ", ""));
+			Item item = classMirror.newInstance(new Symbol(""), []).reflectee;
+
+			Metabolics m = await getMetabolics(email:email);
+			m.currants += (item.price*num*.7)~/1;
+			setMetabolics(m);
+
+
+			takeItemFromUser(userSocket,email,itemName,num);
+		}
 	}
 
 	List _getItemsForSale()

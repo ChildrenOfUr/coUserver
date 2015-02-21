@@ -97,6 +97,12 @@ class StreetUpdateHandler
 			//a player has joined or left the street
 			if(map["message"] == "joined")
 			{
+				//set this player as being on this street
+				if(PlayerUpdateHandler.users[username] != null)
+					PlayerUpdateHandler.users[username].tsid = map['tsid'];
+				else
+					PlayerUpdateHandler.users[username] = new Identifier(username,streetName,tsid:map['tsid']);
+
 				if(map['clientVersion'] != null && map['clientVersion'] < minClientVersion)
 				{
 					ws.add(JSON.encode({'error':'version too low'}));
@@ -124,13 +130,21 @@ class StreetUpdateHandler
 			if(!streets.containsKey(streetName))
 				loadStreet(streetName,map['tsid']);
 
-			//the player's hit-box collided with a quion
+			//the said that they collided with a quion, let's check and credit if true
 			if(map["remove"] != null)
 			{
 				if(map["type"] == "quoin")
 				{
-					if(streets[streetName].quoins[map["remove"]] != null)
-						streets[streetName].quoins[map["remove"]].setCollected();
+					Quoin touched = streets[streetName].quoins[map["remove"]];
+					Identifier player = PlayerUpdateHandler.users[username];
+					if(touched != null && !touched.collected)
+					{
+						num xDiff = (touched.x - player.currentX).abs();
+						num yDiff = (touched.y - player.currentY).abs();
+
+						if(xDiff < 130 && yDiff < 500)
+							MetabolicsEndpoint.addQuoin(touched,username);
+					}
 				}
 
 				c.complete();
