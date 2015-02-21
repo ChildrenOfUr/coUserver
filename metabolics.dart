@@ -87,6 +87,8 @@ class MetabolicsEndpoint
 		userSockets.forEach((String username, WebSocket ws) async
 		{
 			Metabolics m = await getMetabolics(username:username);
+			print('simulating $username: ${encode(m)}');
+
 			if(simulateMood)
 			{
 				int max_mood = m.max_mood;
@@ -121,6 +123,7 @@ class MetabolicsEndpoint
 			m.current_street_x = userIdentifier.currentX;
 			m.current_street_y = userIdentifier.currentY;
 
+			print('new metabolics for $username: ${encode(m)}');
 			//store the metabolics back to the database
 			int result = await setMetabolics(m);
 			if(result > 0)
@@ -182,23 +185,25 @@ Future<Metabolics> getMetabolics({@app.QueryParam() String username, String emai
 	String query = "SELECT * FROM metabolics JOIN users ON users.id = metabolics.user_id " + whereClause;
 	List<Metabolics> metabolics = await dbConn.query(query, Metabolics, {'username':username,'email':email});
 
+	Metabolics metabolic;
+
 	if(metabolics.length > 0)
 	{
 		dbConn.innerConn.close();
-		return metabolics[0];
+		metabolic = metabolics[0];
 	}
 	else
 	{
 		query = "SELECT * FROM users " + whereClause;
 		var results = await dbConn.query(query, int, {'username':username,'email':email});
 
-		Metabolics m = new Metabolics();
+		metabolic = new Metabolics();
 		if(results.length > 0)
-			m.user_id=results[0]['id'];
-
-		dbConn.innerConn.close();
-		return m;
+			metabolic.user_id=results[0]['id'];
 	}
+
+	dbManager.closeConnection(dbConn);
+	return metabolic;
 }
 
 @app.Route('/setMetabolics', methods:const[app.POST])
@@ -216,6 +221,6 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async
 		query = "INSERT INTO metabolics (img,currants,mood,energy,lifetime_img,user_id,current_street,current_street_x,current_street_y,max_energy,max_mood) VALUES(@img,@currants,@mood,@energy,@lifetime_img,@user_id,@current_street,@current_street_x,@current_street_y,@max_energy,@max_mood);";
 
 	int result = await dbConn.execute(query,metabolics);
-	dbConn.innerConn.close();
+	dbManager.closeConnection(dbConn);
 	return result;
 }

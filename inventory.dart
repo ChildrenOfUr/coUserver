@@ -144,6 +144,7 @@ class Inventory
 Future<Inventory> getUserInventory(String email) async
 {
 	PostgreSql dbConn = await dbManager.getConnection();
+
 	String queryString = "SELECT * FROM inventories JOIN users ON users.id = user_id WHERE users.email = @email";
 	List<Inventory> inventories = await dbConn.query(queryString,Inventory,{'email':email});
 
@@ -151,68 +152,51 @@ Future<Inventory> getUserInventory(String email) async
 	if(inventories.length > 0)
 		inventory = inventories.first;
 
-	dbConn.innerConn.close();
+	dbManager.closeConnection(dbConn);
 	return inventory;
 }
 
-Future<int> addItemToUser(WebSocket userSocket, String email, Map item, int count, String fromObject)
+Future<int> addItemToUser(WebSocket userSocket, String email, Map item, int count, String fromObject) async
 {
-	Completer c = new Completer();
-	dbManager.getConnection().then((PostgreSql dbConn)
-	{
-		getUserInventory(email).then((Inventory inventory)
-    	{
-			//save the item in the user's inventory in the database
-  			//then send it to the client
-    		inventory.addItem(item, count, dbConn).then((int numRows)
-    		{
-    			sendItemToUser(userSocket,item,count,fromObject);
-    			dbManager.closeConnection(dbConn);
-    			c.complete(numRows);
-    		});
-    	});
-	});
+	PostgreSql dbConn = await dbManager.getConnection();
 
-	return c.future;
+	Inventory inventory = await getUserInventory(email);
+
+	//save the item in the user's inventory in the database
+	//then send it to the client
+	int numRows = await inventory.addItem(item, count, dbConn);
+	sendItemToUser(userSocket,item,count,fromObject);
+
+	dbManager.closeConnection(dbConn);
+	return numRows;
 }
 
-Future<int> takeItemFromUser(WebSocket userSocket, String email, String itemName, int count)
+Future<int> takeItemFromUser(WebSocket userSocket, String email, String itemName, int count) async
 {
-	Completer c = new Completer();
-	dbManager.getConnection().then((PostgreSql dbConn)
-	{
-		getUserInventory(email).then((Inventory inventory)
-    	{
-			inventory.takeItem(itemName,count,dbConn).then((int rowsUpdated)
-			{
-				if(rowsUpdated > 0)
-					takeItem(userSocket,itemName,count);
-				dbManager.closeConnection(dbConn);
-				c.complete(rowsUpdated);
-			});
-    	});
-	});
+	PostgreSql dbConn = await dbManager.getConnection();
 
-	return c.future;
+	Inventory inventory = await getUserInventory(email);
+	int rowsUpdated = await inventory.takeItem(itemName,count,dbConn);
+
+	if(rowsUpdated > 0)
+		takeItem(userSocket,itemName,count);
+
+	dbManager.closeConnection(dbConn);
+	return rowsUpdated;
 }
 
-Future fireInventoryAtUser(WebSocket userSocket, String email)
+Future fireInventoryAtUser(WebSocket userSocket, String email) async
 {
-	Completer c = new Completer();
-	dbManager.getConnection().then((PostgreSql dbConn)
-    {
-		getUserInventory(email).then((Inventory inventory)
-		{
-			inventory.getItems().forEach((Map item)
-			{
-				sendItemToUser(userSocket,item,1,'');
-            });
-			dbManager.closeConnection(dbConn);
-			c.complete();
-		});
+	PostgreSql dbConn = await dbManager.getConnection();
+
+	Inventory inventory = await getUserInventory(email);
+
+	inventory.getItems().forEach((Map item)
+	{
+		sendItemToUser(userSocket,item,1,'');
     });
 
-	return c.future;
+	dbManager.closeConnection(dbConn);
 }
 
 sendItemToUser(WebSocket userSocket, Map item, int count, String fromObject)
