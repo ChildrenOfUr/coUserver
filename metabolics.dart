@@ -87,7 +87,6 @@ class MetabolicsEndpoint
 		userSockets.forEach((String username, WebSocket ws) async
 		{
 			Metabolics m = await getMetabolics(username:username);
-			print('simulating $username: ${encode(m)}');
 
 			if(simulateMood)
 			{
@@ -123,7 +122,6 @@ class MetabolicsEndpoint
 			m.current_street_x = userIdentifier.currentX;
 			m.current_street_y = userIdentifier.currentY;
 
-			print('new metabolics for $username: ${encode(m)}');
 			//store the metabolics back to the database
 			int result = await setMetabolics(m);
 			if(result > 0)
@@ -179,6 +177,7 @@ class MetabolicsEndpoint
 Future<Metabolics> getMetabolics({@app.QueryParam() String username, String email}) async
 {
 	PostgreSql dbConn = await dbManager.getConnection();
+
 	String whereClause = "WHERE users.username = @username";
 	if(email != null)
 		whereClause = "WHERE users.email = @email";
