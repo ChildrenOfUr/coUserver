@@ -18,9 +18,8 @@ class Inventory
 		this.inventory_json = '[]';
 	}
 
-	Future<int> addItem(Map item, int count, PostgreSql dbConn)
+	Future<int> addItem(Map item, int count, String email, PostgreSql dbConn) async
 	{
-		Completer c = new Completer();
 		List<Map> slots = JSON.decode(inventory_json);
 		bool found = false;
 		for(Map slot in slots)
@@ -60,18 +59,19 @@ class Inventory
 		inventory_json = JSON.encode(slots);
 
 		String queryString = "UPDATE inventories SET inventory_json = @inventory_json FROM users AS u where u.id = @user_id";
-		dbConn.execute(queryString,this).then((int numRowsUpdated)
-		{
-			if(numRowsUpdated > 0)
-				c.complete(numRowsUpdated);
-			else
-			{
-				queryString = "INSERT INTO inventories(inventory_json, user_id) VALUES(@inventory_json,@user_id)";
-				dbConn.execute(queryString,this).then((int numInserted) => c.complete(numInserted));
-			}
-		});
+		int numRowsUpdated = await dbConn.execute(queryString,this);
 
-		return c.future;
+		if(numRowsUpdated > 0)
+			return numRowsUpdated;
+		else
+		{
+			String query = "SELECT * FROM users WHERE email = @email";
+			Row row = await dbConn.innerConn.query(query,{'email':email}).first;
+			this.user_id = row.id;
+			queryString = "INSERT INTO inventories(inventory_json, user_id) VALUES(@inventory_json,@user_id)";
+			int result = await dbConn.execute(queryString,this);
+			return result;
+		}
 	}
 
 	Future<int> takeItem(String name, int count, PostgreSql dbConn)
@@ -164,7 +164,7 @@ Future<int> addItemToUser(WebSocket userSocket, String email, Map item, int coun
 
 	//save the item in the user's inventory in the database
 	//then send it to the client
-	int numRows = await inventory.addItem(item, count, dbConn);
+	int numRows = await inventory.addItem(item, count, email, dbConn);
 	sendItemToUser(userSocket,item,count,fromObject);
 
 	dbManager.closeConnection(dbConn);
