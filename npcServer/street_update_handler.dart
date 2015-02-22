@@ -101,7 +101,7 @@ class StreetUpdateHandler
 				if(PlayerUpdateHandler.users[username] != null)
 					PlayerUpdateHandler.users[username].tsid = map['tsid'];
 				else
-					PlayerUpdateHandler.users[username] = new Identifier(username,streetName,tsid:map['tsid']);
+					PlayerUpdateHandler.users[username] = new Identifier(username,streetName,map['tsid']);
 
 				if(map['clientVersion'] != null && map['clientVersion'] < minClientVersion)
 				{
