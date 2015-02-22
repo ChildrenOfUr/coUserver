@@ -3,7 +3,7 @@ part of coUserver;
 class Inventory
 {
 	@Field()
-	int id;
+	int inventory_id;
 
 	@Field()
 	String inventory_json;
