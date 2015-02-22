@@ -144,7 +144,11 @@ class StreetUpdateHandler
 
 						if(xDiff < 130 && yDiff < 500)
 							MetabolicsEndpoint.addQuoin(touched,username);
+						else
+							MetabolicsEndpoint.denyQuoin(touched,username);
 					}
+					else
+						log('(street_update_handler) Could not collect quoin ${map['remove']} for player $username');
 				}
 
 				c.complete();

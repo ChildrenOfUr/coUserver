@@ -132,6 +132,14 @@ class MetabolicsEndpoint
 		});
 	}
 
+	static denyQuoin(Quoin q, String username)
+	{
+		Map map = {'collectQuoin':'true',
+		           'success':'false',
+		           'id':q.id};
+		userSockets[username].add(JSON.encode(map));
+	}
+
 	static addQuoin(Quoin q, String username) async
 	{
 		int amt = rand.nextInt(4)+1;
@@ -156,19 +164,23 @@ class MetabolicsEndpoint
 		if(q.type == 'energy')
 			m.energy += amt;
 
-		int result = await setMetabolics(m);
-		if(result > 0)
+		try
 		{
-			Map map = {'collectQuoin':'true',
-			           'id':q.id,
-			           'amt':amt,
-			           'quoinType':q.type};
+			int result = await setMetabolics(m);
+			if(result > 0)
+			{
+				Map map = {'collectQuoin':'true',
+				           'id':q.id,
+				           'amt':amt,
+				           'quoinType':q.type};
 
-			q.setCollected();
+				q.setCollected();
 
-			userSockets[username].add(JSON.encode(map));
-			userSockets[username].add(JSON.encode(encode(m)));
+				userSockets[username].add(JSON.encode(map));
+				userSockets[username].add(JSON.encode(encode(m)));
+			}
 		}
+		catch(err){log('(metabolics_endpoint) Could not set metabolics $m for player $username: $err');}
 	}
 }
 
