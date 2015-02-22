@@ -156,7 +156,7 @@ class ChatHandler
 				map["statusMessage"] = "true";
     			map["message"] = ' joined.';
 				String street = map["street"];
-				users.add(new Identifier(map["username"],street));
+				users.add(new Identifier(map["username"],street,map['tsid']));
   			}
 			else if(map["statusMessage"] == "changeName")
 			{
