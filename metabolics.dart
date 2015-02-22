@@ -187,10 +187,7 @@ Future<Metabolics> getMetabolics({@app.QueryParam() String username, String emai
 	Metabolics metabolic;
 
 	if(metabolics.length > 0)
-	{
-		dbConn.innerConn.close();
 		metabolic = metabolics[0];
-	}
 	else
 	{
 		query = "SELECT * FROM users " + whereClause;

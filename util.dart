@@ -193,75 +193,59 @@ void log(String message)
 }
 
 @app.Route('/getSpritesheets')
-Future<Map> getSpritesheets(@app.QueryParam('username') String username)
+Future<Map> getSpritesheets(@app.QueryParam('username') String username) async
 {
-	Completer c = new Completer();
-
 	if(username.contains(new RegExp("testUser[0-9]+")))
-	{
-		c.complete({});
-		return c.future;
-	}
+		return {};
 
 	Map<String,String> spritesheets = {};
 	File cache = new File('./playerSpritesheets/${username.toLowerCase()}.json');
-	if(!cache.existsSync())
+	if(!(await cache.exists()))
 	{
 		try
 		{
-			cache.create(recursive:true).then((File cache)
-			{
-				_getSpritesheetsFromWeb(username).then((Map spritesheets)
-	    		{
-	    			cache.writeAsString(JSON.encode(spritesheets))
-	    				.then((_) => c.complete(spritesheets));
-	    		});
-			});
+			await cache.create(recursive:true);
+			Map spritesheets = await _getSpritesheetsFromWeb(username);
+    		await cache.writeAsString(JSON.encode(spritesheets));
+    		return spritesheets;
 		}
-		catch(e){c.complete({});}
+		catch(e){return {};}
 	}
 	else
 	{
 		try
 		{
-			c.complete(JSON.decode(cache.readAsStringSync()));
+			return JSON.decode(cache.readAsStringSync());
 		}
-		catch(err){c.complete({});}
+		catch(err){return {};}
 	}
-
-	return c.future;
 }
 
-Future<Map> _getSpritesheetsFromWeb(String username)
+Future<Map> _getSpritesheetsFromWeb(String username) async
 {
-	Completer c = new Completer();
 	Map spritesheets = {};
 
 	String url = 'http://www.glitchthegame.com/friends/search/?q=${Uri.encodeComponent(username)}';
-	http.read(url)
-	.then((String response)
+	String response = await http.read(url);
+
+	RegExp regex = new RegExp('\/profiles\/(.+)\/" class="friend-name">$username',caseSensitive:false);
+	if(regex.hasMatch(response))
 	{
-		RegExp regex = new RegExp('\/profiles\/(.+)\/" class="friend-name">$username',caseSensitive:false);
-		if(regex.hasMatch(response))
-		{
-			String tsid = regex.firstMatch(response).group(1);
+		String tsid = regex.firstMatch(response).group(1);
 
-			http.read('http://www.glitchthegame.com/profiles/$tsid').then((String response)
-			{
-				List<String> sheets = ['base','angry','climb','happy','idle1','idle2','idle3','idleSleepy','jump','surprise'];
-				sheets.forEach((String sheet)
-                {
-                	RegExp regex = new RegExp('"(.+$sheet\.png)"');
-                	spritesheets[sheet] = regex.firstMatch(response).group(1);
-        		});
-				c.complete(spritesheets);
-			});
-		}
-		else
-			c.complete(_getSpritesheetsFromWeb('Hectaku'));
-	});
+		response = await http.read('http://www.glitchthegame.com/profiles/$tsid');
 
-	return c.future;
+		List<String> sheets = ['base','angry','climb','happy','idle1','idle2','idle3','idleSleepy','jump','surprise'];
+		sheets.forEach((String sheet)
+        {
+        	RegExp regex = new RegExp('"(.+$sheet\.png)"');
+        	spritesheets[sheet] = regex.firstMatch(response).group(1);
+		});
+
+		return spritesheets;
+	}
+	else
+		return _getSpritesheetsFromWeb('Hectaku');
 }
 
 @app.Route('/getItemByName')

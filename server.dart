@@ -92,7 +92,7 @@ _createCorsHeader() => {"Access-Control-Allow-Origin": "*","Access-Control-Allow
 
 @app.Route('/ah/list')
 @Encode()
-Future<List<Auction>> getAllAuctions(@app.Attr() PostgreSql dbConn) =>
+Future<List<Auction>> getAllAuctions() =>
 		dbConn.query("select * from auctions", Auction);
 
 @app.Route('/ah/post', methods: const[app.POST])

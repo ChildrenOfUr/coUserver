@@ -4,7 +4,7 @@ part of coUserver;
 class AuctionService
 {
 	@app.Route('/dropAll')
-	Future dropAllAuctions() => dbConn.innerConn.execute('delete from auctions');
+	Future dropAllAuctions() => dbConn.execute('delete from auctions');
 
 	@app.Route('/list', methods: const[app.POST])
     @Encode()
