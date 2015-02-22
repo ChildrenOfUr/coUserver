@@ -58,7 +58,7 @@ class Inventory
 		}
 		inventory_json = JSON.encode(slots);
 
-		String queryString = "UPDATE inventories SET inventory_json = @inventory_json FROM users AS u where u.id = @user_id";
+		String queryString = "UPDATE inventories SET inventory_json = @inventory_json WHERE user_id = @user_id";
 		int numRowsUpdated = await dbConn.execute(queryString,this);
 
 		if(numRowsUpdated > 0)
@@ -74,9 +74,8 @@ class Inventory
 		}
 	}
 
-	Future<int> takeItem(String name, int count, PostgreSql dbConn)
+	Future<int> takeItem(String name, int count, PostgreSql dbConn) async
 	{
-		Completer c = new Completer();
 		List<Map> slots = JSON.decode(inventory_json);
 		List<int> removeItems = [];
 		List<int> possiblyRemove = [];
@@ -118,10 +117,9 @@ class Inventory
 
 		inventory_json = JSON.encode(slots);
 
-		String queryString = "UPDATE inventories SET inventory_json = @inventory_json FROM users AS u WHERE u.id = @user_id";
-		dbConn.execute(queryString,this).then((int numRowsUpdated) => c.complete(numRowsUpdated));
-
-		return c.future;
+		String queryString = "UPDATE inventories SET inventory_json = @inventory_json WHERE user_id = @user_id";
+		int numRowsUpdated = await dbConn.execute(queryString,this);
+		return numRowsUpdated;
 	}
 
 	List<Map> getItems()
