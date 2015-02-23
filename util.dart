@@ -336,42 +336,39 @@ Future<Map> getStreetFillerStats()
 @app.Route('/getActualImageHeight')
 Future<int> getActualImageHeight(@app.QueryParam('url') String imageUrl,
 						   		 @app.QueryParam('numRows') int numRows,
-						   		 @app.QueryParam('numColumns') int numColumns)
+						   		 @app.QueryParam('numColumns') int numColumns) async
 {
-	Completer c = new Completer();
-
 	if(heightsCache[imageUrl] != null)
-		c.complete(heightsCache[imageUrl]);
+	{
+		return heightsCache[imageUrl];
+	}
 	else
 	{
-		http.get(imageUrl).then((response)
-    	{
-    		Image image = decodeImage(response.bodyBytes);
-    		int actualHeight = image.height~/numRows-image.getBytes().indexOf(image.getBytes().firstWhere((int byte) => byte != 0))~/image.width~/numColumns;
-    		heightsCache[imageUrl] = actualHeight;
-    		c.complete(actualHeight);
-    	});
-	}
+		http.Response response = await http.get(imageUrl);
 
-	return c.future;
+		Image image = decodeImage(response.bodyBytes);
+		int actualHeight = image.height~/numRows-image.getBytes().indexOf(image.getBytes().firstWhere((int byte) => byte != 0))~/image.width~/numColumns;
+		heightsCache[imageUrl] = actualHeight;
+		return actualHeight;
+	}
 }
 
-void loadHeightsCacheFromDisk()
+loadHeightsCacheFromDisk() async
 {
 	File file = new File('heightsCache.json');
-	if(!file.existsSync())
+	if(!(await file.exists()))
 	{
 		heightsCache = {};
 		return;
 	}
 
-	heightsCache = JSON.decode(file.readAsStringSync());
+	heightsCache = JSON.decode(await file.readAsString());
 }
 
-void saveHeightsCacheToDisk()
+saveHeightsCacheToDisk() async
 {
 	File file = new File('heightsCache.json');
-	if(!file.existsSync())
-    	file.createSync(recursive:true);
-	file.writeAsStringSync(JSON.encode(heightsCache));
+	if(!(await file.exists()))
+    	await file.create(recursive:true);
+	await file.writeAsString(JSON.encode(heightsCache));
 }

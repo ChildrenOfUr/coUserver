@@ -38,7 +38,7 @@ class StreetUpdateHandler
 				street.quoins.forEach((String id, Quoin quoin) => quoin.update());
 				street.npcs.forEach((String id, NPC npc) => npc.update());
 
-				Map<String,List> updates = {"quoins":[],"npcs":[],"plants":[],"groundItems":[]};
+				Map<String,List> updates = {"label":streetName,"quoins":[],"npcs":[],"plants":[],"groundItems":[]};
 				street.quoins.forEach((String id, Quoin quoin) => updates["quoins"].add(quoin.getMap()));
 				street.npcs.forEach((String id, NPC npc) => updates["npcs"].add(npc.getMap()));
 				street.plants.forEach((String id, Plant plant) => updates["plants"].add(plant.getMap()));
@@ -115,9 +115,13 @@ class StreetUpdateHandler
     				//log("${map['username']} joined $streetName");
     				streets[streetName].occupants.add(ws);
     				if(map['firstConnect'])
+    				{
     					fireInventoryAtUser(ws,email).then((_) => c.complete());
+    				}
     				else
+    				{
     					c.complete();
+    				}
 				}
 			}
 			else if(map["message"] == "left")
@@ -142,7 +146,8 @@ class StreetUpdateHandler
 						num xDiff = (touched.x - player.currentX).abs();
 						num yDiff = (touched.y - player.currentY).abs();
 
-						if(xDiff < 130 && yDiff < 500)
+						//print('xDiff: $xDiff, yDiff: $yDiff');
+						if(xDiff < 130)// && yDiff < 500)
 							MetabolicsEndpoint.addQuoin(touched,username);
 						else
 							MetabolicsEndpoint.denyQuoin(touched,username);
