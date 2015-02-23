@@ -4,6 +4,7 @@ IRCRelay relay;
 double minClientVersion = 0.11;
 PostgreSqlManager dbManager;
 Map<String,int> heightsCache = null;
+DateTime startDate;
 
 void main()
 {
@@ -67,6 +68,9 @@ void main()
 			log("Problem writing stats to file: $e");
 		}
 	});
+
+	//Keep track of when the server was started
+	startDate = new DateTime.now();
 }
 
 PostgreSql get dbConn => app.request.attributes.dbConn;
@@ -101,7 +105,7 @@ Future addAuction(@Decode() Auction auction) =>
 						   "values (@item_name, @total_cost, @username)",auction);
 
 @app.Route('/serverStatus')
-Map getServerStatus()
+Future<Map> getServerStatus() async
 {
 	Map statusMap = {};
 	try
@@ -114,11 +118,11 @@ Map getServerStatus()
 		});
 		statusMap['playerList'] = users;
 		statusMap['numStreetsLoaded'] = StreetUpdateHandler.streets.length;
-		ProcessResult result = Process.runSync("/bin/sh",["getMemoryUsage.sh"]);
+		ProcessResult result = await Process.run("/bin/sh",["getMemoryUsage.sh"]);
 		statusMap['bytesUsed'] = int.parse(result.stdout)*1024;
-		result = Process.runSync("/bin/sh",["getCpuUsage.sh"]);
+		result = await Process.run("/bin/sh",["getCpuUsage.sh"]);
 		statusMap['cpuUsed'] = double.parse(result.stdout.trim());
-		result = Process.runSync("/bin/sh",["getUptime.sh"]);
+		result = await Process.run("/bin/sh",["getUptime.sh"]);
         statusMap['uptime'] = result.stdout.trim();
 	}
 	catch(e){log("Error getting server status: $e");}
@@ -126,40 +130,34 @@ Map getServerStatus()
 }
 
 @app.Route('/serverLog')
-Future<Map> getServerLog()
+Future<Map> getServerLog() async
 {
 	Map statusMap = {};
-	Completer c = new Completer();
 	try
 	{
-		DateTime date = new DateTime.now();
 		DateFormat format = new DateFormat("MM_dd_yy");
-		Process.run("tail", ['-n','200','serverLogs/${format.format(date)}-server.log'])
-			.then((ProcessResult result)
-			{
-				statusMap['serverLog'] = result.stdout;
-				c.complete(statusMap);
-			});
+		ProcessResult result = await Process.run("tail", ['-n','200','serverLogs/${format.format(startDate)}-server.log']);
+		statusMap['serverLog'] = result.stdout;
+		return statusMap;
 	}
 	catch(exception, stacktrace)
 	{
 		statusMap['serverLog'] = exception.toString();
-		c.complete(statusMap);
+		return statusMap;
 	}
-	return c.future;
 }
 
 @app.Route('/restartServer')
-String restartServer(@app.QueryParam('secret') String secret)
+Future<String> restartServer(@app.QueryParam('secret') String secret) async
 {
 	if(secret == restartSecret)
 	{
-	  try
-	  {
-		  Process.runSync("/bin/sh",["restart_server.sh"]);
-		  return "OK";
-	  }
-    catch(e){log("Error restarting server: $e"); return "ERROR";}
+		try
+		{
+			await Process.run("/bin/sh",["restart_server.sh"]);
+			return "OK";
+		}
+		catch(e){log("Error restarting server: $e"); return "ERROR";}
 	}
 	else
 		return "NOT AUTHORIZED";
