@@ -84,7 +84,6 @@ class MetabolicsEndpoint
 
 	static void simulate()
 	{
-		return;
 		userSockets.forEach((String username, WebSocket ws) async
 		{
 			Metabolics m = await getMetabolics(username:username);

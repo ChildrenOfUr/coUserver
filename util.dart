@@ -195,6 +195,7 @@ void log(String message)
 @app.Route('/getSpritesheets')
 Future<Map> getSpritesheets(@app.QueryParam('username') String username) async
 {
+	return {};
 	if(username.contains(new RegExp("testUser[0-9]+")))
 		return {};
 
@@ -338,6 +339,7 @@ Future<int> getActualImageHeight(@app.QueryParam('url') String imageUrl,
 						   		 @app.QueryParam('numRows') int numRows,
 						   		 @app.QueryParam('numColumns') int numColumns) async
 {
+	return 10;
 	if(heightsCache[imageUrl] != null)
 	{
 		return heightsCache[imageUrl];
