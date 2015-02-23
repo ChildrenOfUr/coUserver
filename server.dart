@@ -29,7 +29,6 @@ void main()
 
 		server.listen((HttpRequest request)
 		{
-			print('got request: ${request.uri.path}');
 			WebSocketTransformer.upgrade(request).then((WebSocket websocket)
 			{
 				if(request.uri.path == "/chat")

@@ -102,6 +102,9 @@ class MetabolicsEndpoint
 				else
 					m.mood -= (max_mood*.015).ceil();
 
+				if(m.mood < 0)
+					m.mood = 0;
+
 				simulateMood = false;
 			}
 			if(simulateEnergy)
@@ -112,6 +115,9 @@ class MetabolicsEndpoint
     			//players lose .8% of their max energy every 90 seconds
     			//https://web.archive.org/web/20120805062536/http://www.glitch-strategy.com/wiki/Energy
     			m.energy -= (max_energy*.008).ceil();
+
+    			if(m.energy < 0)
+                	m.energy = 0;
 
     			simulateEnergy = false;
 			}
