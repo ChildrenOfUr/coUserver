@@ -141,7 +141,6 @@ class Inventory
 @Encode()
 Future<Inventory> getUserInventory(String email) async
 {
-	return new Inventory();
 	PostgreSql dbConn = await dbManager.getConnection();
 
 	String queryString = "SELECT * FROM inventories JOIN users ON users.id = user_id WHERE users.email = @email";
