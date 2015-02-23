@@ -156,7 +156,6 @@ Future<Inventory> getUserInventory(String email) async
 
 Future<int> addItemToUser(WebSocket userSocket, String email, Map item, int count, String fromObject) async
 {
-	return 1;
 	PostgreSql dbConn = await dbManager.getConnection();
 
 	Inventory inventory = await getUserInventory(email);
