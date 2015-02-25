@@ -152,8 +152,8 @@ class StreetUpdateHandler
 						else
 							MetabolicsEndpoint.denyQuoin(touched,username);
 					}
-					else
-						log('(street_update_handler) Could not collect quoin ${map['remove']} for player $username');
+					else if(touched == null)
+						log('(street_update_handler) Could not collect quoin ${map['remove']} for player $username - quoin is null');
 				}
 
 				c.complete();

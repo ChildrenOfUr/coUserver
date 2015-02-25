@@ -86,54 +86,32 @@ class MetabolicsEndpoint
 	{
 		userSockets.forEach((String username, WebSocket ws) async
 		{
-			Metabolics m = await getMetabolics(username:username);
-
-			if(simulateMood)
+			try
 			{
-				int max_mood = m.max_mood;
-				num moodRatio = m.mood/max_mood;
+				Metabolics m = await getMetabolics(username:username);
 
-				//determine how much mood they should lose based on current percentage of max
-				//https://web.archive.org/web/20130106191352/http://www.glitch-strategy.com/wiki/Mood
-				if(moodRatio < .5)
-					m.mood -= (max_mood*.005).ceil();
-				else if(moodRatio >= .5 && moodRatio < .81)
-					m.mood -= (max_mood*.01).ceil();
-				else
-					m.mood -= (max_mood*.015).ceil();
+    			if(simulateMood)
+    				_calcAndSetMood(m);
+    			if(simulateEnergy)
+    				_calcAndSetEnergy(m);
 
-				if(m.mood < 0)
-					m.mood = 0;
+    			//store current street and position
+    			Identifier userIdentifier = PlayerUpdateHandler.users[username];
+    			m.current_street = userIdentifier.tsid;
+    			m.current_street_x = userIdentifier.currentX;
+    			m.current_street_y = userIdentifier.currentY;
 
-				simulateMood = false;
+    			//store the metabolics back to the database
+    			int result = await setMetabolics(m);
+    			if(result > 0)
+    			{
+    				//send the metabolics back to the user
+    				ws.add(JSON.encode(encode(m)));
+    			}
 			}
-			if(simulateEnergy)
+			catch(e)
 			{
-				int energy = m.energy;
-    			int max_energy = m.max_energy;
-
-    			//players lose .8% of their max energy every 90 seconds
-    			//https://web.archive.org/web/20120805062536/http://www.glitch-strategy.com/wiki/Energy
-    			m.energy -= (max_energy*.008).ceil();
-
-    			if(m.energy < 0)
-                	m.energy = 0;
-
-    			simulateEnergy = false;
-			}
-
-			//store current street and position
-			Identifier userIdentifier = PlayerUpdateHandler.users[username];
-			m.current_street = userIdentifier.tsid;
-			m.current_street_x = userIdentifier.currentX;
-			m.current_street_y = userIdentifier.currentY;
-
-			//store the metabolics back to the database
-			int result = await setMetabolics(m);
-			if(result > 0)
-			{
-				//send the metabolics back to the user
-				ws.add(JSON.encode(encode(m)));
+				log("(metabolics endpoint - simulate): $e");
 			}
 		});
 	}
@@ -187,6 +165,41 @@ class MetabolicsEndpoint
 			}
 		}
 		catch(err){log('(metabolics_endpoint) Could not set metabolics $m for player $username: $err');}
+	}
+
+	static void _calcAndSetMood(Metabolics m)
+	{
+		int max_mood = m.max_mood;
+		num moodRatio = m.mood/max_mood;
+
+		//determine how much mood they should lose based on current percentage of max
+		//https://web.archive.org/web/20130106191352/http://www.glitch-strategy.com/wiki/Mood
+		if(moodRatio < .5)
+			m.mood -= (max_mood*.005).ceil();
+		else if(moodRatio >= .5 && moodRatio < .81)
+			m.mood -= (max_mood*.01).ceil();
+		else
+			m.mood -= (max_mood*.015).ceil();
+
+		if(m.mood < 0)
+			m.mood = 0;
+
+		simulateMood = false;
+	}
+
+	static void _calcAndSetEnergy(Metabolics m)
+	{
+		int energy = m.energy;
+		int max_energy = m.max_energy;
+
+		//players lose .8% of their max energy every 90 seconds
+		//https://web.archive.org/web/20120805062536/http://www.glitch-strategy.com/wiki/Energy
+		m.energy -= (max_energy*.008).ceil();
+
+		if(m.energy < 0)
+        	m.energy = 0;
+
+		simulateEnergy = false;
 	}
 }
 
