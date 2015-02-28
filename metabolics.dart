@@ -207,47 +207,62 @@ class MetabolicsEndpoint
 @Encode()
 Future<Metabolics> getMetabolics({@app.QueryParam() String username, String email}) async
 {
-	PostgreSql dbConn = await dbManager.getConnection();
+	Metabolics metabolic = new Metabolics();
 
-	String whereClause = "WHERE users.username = @username";
-	if(email != null)
-		whereClause = "WHERE users.email = @email";
-	String query = "SELECT * FROM metabolics JOIN users ON users.id = metabolics.user_id " + whereClause;
-	List<Metabolics> metabolics = await dbConn.query(query, Metabolics, {'username':username,'email':email});
-
-	Metabolics metabolic;
-
-	if(metabolics.length > 0)
-		metabolic = metabolics[0];
-	else
+	try
 	{
-		query = "SELECT * FROM users " + whereClause;
-		var results = await dbConn.query(query, int, {'username':username,'email':email});
+		PostgreSql dbConn = await dbManager.getConnection();
 
-		metabolic = new Metabolics();
-		if(results.length > 0)
-			metabolic.user_id=results[0]['id'];
+    	String whereClause = "WHERE users.username = @username";
+    	if(email != null)
+    		whereClause = "WHERE users.email = @email";
+    	String query = "SELECT * FROM metabolics JOIN users ON users.id = metabolics.user_id " + whereClause;
+    	List<Metabolics> metabolics = await dbConn.query(query, Metabolics, {'username':username,'email':email});
+
+    	if(metabolics.length > 0)
+    		metabolic = metabolics[0];
+    	else
+    	{
+    		query = "SELECT * FROM users " + whereClause;
+    		var results = await dbConn.query(query, int, {'username':username,'email':email});
+
+    		if(results.length > 0)
+    			metabolic.user_id=results[0]['id'];
+    	}
+
+    	dbManager.closeConnection(dbConn);
+	}
+	catch(e)
+	{
+		log('(getMetabolics): $e');
 	}
 
-	dbManager.closeConnection(dbConn);
 	return metabolic;
 }
 
 @app.Route('/setMetabolics', methods:const[app.POST])
 Future<int> setMetabolics(@Decode() Metabolics metabolics) async
 {
-	PostgreSql dbConn = await dbManager.getConnection();
+	int result = 0;
+	try
+	{
+		PostgreSql dbConn = await dbManager.getConnection();
 
-	//if the user already exists, update their data, otherwise insert them
-	String query = "SELECT user_id FROM metabolics WHERE user_id = @user_id";
-	List<int> results = await dbConn.query(query, int, metabolics);
+		//if the user already exists, update their data, otherwise insert them
+		String query = "SELECT user_id FROM metabolics WHERE user_id = @user_id";
+		List<int> results = await dbConn.query(query, int, metabolics);
 
-	if(results.length > 0) //user exists
-		query = "UPDATE metabolics SET img = @img, currants = @currants, mood = @mood, energy = @energy, lifetime_img = @lifetime_img, current_street = @current_street, current_street_x = @current_street_x, current_street_y = @current_street_y, max_energy = @max_energy, max_mood = @max_mood WHERE user_id = @user_id";
-	else //user does not exist
-		query = "INSERT INTO metabolics (img,currants,mood,energy,lifetime_img,user_id,current_street,current_street_x,current_street_y,max_energy,max_mood) VALUES(@img,@currants,@mood,@energy,@lifetime_img,@user_id,@current_street,@current_street_x,@current_street_y,@max_energy,@max_mood);";
+		if(results.length > 0) //user exists
+			query = "UPDATE metabolics SET img = @img, currants = @currants, mood = @mood, energy = @energy, lifetime_img = @lifetime_img, current_street = @current_street, current_street_x = @current_street_x, current_street_y = @current_street_y, max_energy = @max_energy, max_mood = @max_mood WHERE user_id = @user_id";
+		else //user does not exist
+			query = "INSERT INTO metabolics (img,currants,mood,energy,lifetime_img,user_id,current_street,current_street_x,current_street_y,max_energy,max_mood) VALUES(@img,@currants,@mood,@energy,@lifetime_img,@user_id,@current_street,@current_street_x,@current_street_y,@max_energy,@max_mood);";
 
-	int result = await dbConn.execute(query,metabolics);
-	dbManager.closeConnection(dbConn);
+		result = await dbConn.execute(query,metabolics);
+		dbManager.closeConnection(dbConn);
+	}
+	catch(e)
+	{
+		log('(setMetabolics): $e');
+	}
 	return result;
 }
