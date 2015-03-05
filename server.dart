@@ -5,6 +5,7 @@ double minClientVersion = 0.11;
 PostgreSqlManager dbManager;
 Map<String,int> heightsCache = null;
 DateTime startDate;
+Map<String,Item> items = {};
 
 void main()
 {
@@ -21,6 +22,9 @@ void main()
 	app.start(port:port, autoCompress:true);
 
 	KeepAlive.start();
+
+	//create items from items.json
+	StreetUpdateHandler.loadItems();
 
 	//redstone.dart does not support websockets so we have to listen on a
 	//seperate port for those connections :(
@@ -154,7 +158,7 @@ Future<String> restartServer(@app.QueryParam('secret') String secret) async
 	{
 		try
 		{
-			await Process.run("/bin/sh",["restart_server.sh"]);
+			await Process.run("/bin/sh",["~/restart_server.sh"]);
 			return "OK";
 		}
 		catch(e){log("Error restarting server: $e"); return "ERROR";}
