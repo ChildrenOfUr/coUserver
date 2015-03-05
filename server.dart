@@ -154,7 +154,7 @@ Future<String> restartServer(@app.QueryParam('secret') String secret) async
 	{
 		try
 		{
-			await Process.run("/bin/sh",["restart_server.sh"]);
+			await Process.run("/bin/sh",["~/restart_server.sh"]);
 			return "OK";
 		}
 		catch(e){log("Error restarting server: $e"); return "ERROR";}
