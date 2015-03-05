@@ -151,15 +151,19 @@ Future<Map> getServerLog() async
 	}
 }
 
-@app.Route('/restartServer')
-Future<String> restartServer(@app.QueryParam('secret') String secret) async
+@app.Route('/restartServer', methods: const[app.POST])
+Future<String> restartServer(@app.Body(app.JSON) Map params) async
 {
+	String secret = params['secret'];
 	if(secret == restartSecret)
 	{
 		try
 		{
-			await Process.run("/bin/sh",["~/restart_server.sh"]);
-			return "OK";
+			ProcessResult result = await Process.run("/bin/sh",["restart_server.sh"]);
+			if(result.exitCode == 0)
+				return "OK";
+			else
+				return "ERROR RESTARTING SERVER";
 		}
 		catch(e){log("Error restarting server: $e"); return "ERROR";}
 	}
