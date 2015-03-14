@@ -82,11 +82,11 @@ class Item
         		this.x = x;
         		this.y = y;
         		StreetUpdateHandler.streets[streetName].groundItems[id] = this;
-        		dbManager.getConnection().then((PostgreSql dbConn)
-				{
-					String query = "INSERT INTO items(icon_url,sprite_url,tool_animation,name,description,item_id,user_id,price,stacks_to,icon_num,durability,x,y,on_ground,is_container,actions) VALUES(@icon_url,@sprite_url,@tool_animation,@name,@description,@item_id,@user_id,@price,@stacks_to,@icon_num,@durability,@x,@y,@on_ground,@is_container,@actions)";
-					dbConn.execute(query,this).then((_) => dbManager.closeConnection(dbConn));
-				});
+//        		dbManager.getConnection().then((PostgreSql dbConn)
+//				{
+//					String query = "INSERT INTO items(icon_url,sprite_url,tool_animation,name,description,item_id,user_id,price,stacks_to,icon_num,durability,x,y,on_ground,is_container,actions) VALUES(@icon_url,@sprite_url,@tool_animation,@name,@description,@item_id,@user_id,@price,@stacks_to,@icon_num,@durability,@x,@y,@on_ground,@is_container,@actions)";
+//					dbConn.execute(query,this).then((_) => dbManager.closeConnection(dbConn));
+//				});
         		//log("dropped item: ${getMap()}");
 			});
 	}
