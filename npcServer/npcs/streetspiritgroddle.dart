@@ -53,8 +53,7 @@ class StreetSpiritGroddle extends NPC
 	buyItem({WebSocket userSocket, String itemName, int num, String email}) async
 	{
 		StatBuffer.incrementStat("itemsBoughtFromVendors", num);
-		ClassMirror classMirror = findClassMirror(itemName.replaceAll(" ", ""));
-        Item item = classMirror.newInstance(new Symbol(""), []).reflectee;
+        Item item = items[itemName];
 
         Metabolics m = await getMetabolics(email:email);
         if(m.currants >= item.price*num)
@@ -77,8 +76,7 @@ class StreetSpiritGroddle extends NPC
 		});
 		if(count >= num)
 		{
-			ClassMirror classMirror = findClassMirror(itemName.replaceAll(" ", ""));
-			Item item = classMirror.newInstance(new Symbol(""), []).reflectee;
+			Item item = items[itemName];
 
 			Metabolics m = await getMetabolics(email:email);
 			m.currants += (item.price*num*.7)~/1;
