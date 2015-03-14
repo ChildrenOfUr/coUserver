@@ -130,7 +130,7 @@ class ChatHandler
 		sendAll(JSON.encode(map));
 	}
 
-	static void processMessage(WebSocket ws, String receivedMessage)
+	static void processMessage(WebSocket ws, String receivedMessage) async
 	{
 		try
 		{
@@ -191,6 +191,11 @@ class ChatHandler
 							userId.username = map["newUsername"];
 						}
 					});
+
+					//update their name in the database so they get logged in
+					//this way next time as well
+					String query = "UPDATE users SET username = @newUsername WHERE username = @oldUsername";
+					await dbConn.execute(query,{'newUsername':map['newUsername'],'oldUsername':map['username']});
 				}
 			}
 			else if(map["statusMessage"] == "changeStreet")
