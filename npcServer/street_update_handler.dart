@@ -8,9 +8,19 @@ class StreetUpdateHandler
 
 	static loadItems() async
 	{
-		File itemsFile = new File('npcServer/items/items.json');
-		Map<String,Map> itemsJson = JSON.decode(await itemsFile.readAsString());
-		itemsJson.forEach((String name, Map itemJson) => items[name] = decode(itemJson,Item));
+		try
+		{
+			String directory = Platform.script.toFilePath();
+			directory = directory.substring(0,directory.lastIndexOf('/'));
+
+			File itemsFile = new File('$directory/npcServer/items/items.json');
+			Map<String,Map> itemsJson = JSON.decode(await itemsFile.readAsString());
+			itemsJson.forEach((String name, Map itemJson) => items[name] = decode(itemJson,Item));
+		}
+		catch(e)
+		{
+			log("Problem loading items: $e");
+		}
 	}
 
 	static void handle(WebSocket ws)
