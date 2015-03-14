@@ -55,6 +55,6 @@ class FruitTree extends Tree
 		super.harvest(userSocket:userSocket);
 
 		//give the player the 'fruits' of their labor
-		addItemToUser(userSocket,email,new Cherry().getMap(),1,id);
+		addItemToUser(userSocket,email,items['Cherry'].getMap(),1,id);
 	}
 }

@@ -61,6 +61,6 @@ class PaperTree extends Tree
 		super.harvest(userSocket:userSocket);
 
 		//give the player the 'fruits' of their labor
-		addItemToUser(userSocket,email,new Paper().getMap(),1,id);
+		addItemToUser(userSocket,email,items['Paper'].getMap(),1,id);
 	}
 }

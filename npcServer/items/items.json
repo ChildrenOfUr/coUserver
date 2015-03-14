@@ -1,0 +1,183 @@
+{
+  "Grain": {
+    "name": "Grain",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/grain__x1_iconic_png_1354830084.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/grain__x1_1_x1_2_x1_3_x1_4_png_1354830084.png",
+    "stacksTo": 250,
+    "price": 1,
+    "description": "Some plain grain."
+  },
+  "Allspice": {
+    "name": "Allspice",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/all_spice__x1_iconic_png_1354829700.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/all_spice__x1_1_x1_2_x1_3_x1_4_png_1354829700.png",
+    "stacksTo": 250,
+    "price": 3,
+    "description": "Some basic spice, freshly harvested from a Spice Plant."
+  },
+  "Bean": {
+    "name": "Bean",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/bean_plain__x1_iconic_png_1354829680.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bean_plain__x1_1_x1_2_x1_3_x1_4_png_1354829680.png",
+    "stacksTo": 250,
+    "price": 1,
+    "description": "A bean. It can be used for cooking, or it can be seasoned to turn it into seeds for different trees and plants."
+  },
+  "Cherry": {
+    "name": "Cherry",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/cherry__x1_iconic_png_1354829757.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cherry__x1_1_x1_2_x1_3_x1_4_png_1354829757.png",
+    "stacksTo": 250,
+    "price": 1,
+    "description": "A basic cherry, freshly picked from a Fruit Tree."
+  },
+  "ChunkofBeryl": {
+    "name": "Chunk of Beryl",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/beryl__x1_iconic_png_1354831475.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/beryl__x1_1_x1_2_x1_3_x1_4_png_1354831476.png",
+    "stacksTo": 50,
+    "price": 6,
+    "description": "Halfway between sparkly and dull, it's an innocuous chunk of beryl."
+  },
+  "ChunkofDullite": {
+    "name": "Chunk of Dullite",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/dullite__x1_iconic_png_1354831478.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/dullite__x1_1_x1_2_x1_3_x1_4_png_1354831478.png",
+    "stacksTo": 50,
+    "price": 4,
+    "description": "A hefty chunk of dullite. What it lacks in sparkliness it makes up for in, um, dullness."
+  },
+  "ChunkofMetalRock": {
+    "name": "Chunk of Metal Rock",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/metal_rock__x1_iconic_png_1354832617.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/metal_rock__x1_1_x1_2_x1_3_x1_4_png_1354832618.png",
+    "stacksTo": 50,
+    "price": 3,
+    "description": "Chunky and metally, this rock, when smelted, makes Plain Metal. Boring maybe, but it's an excellent base for more ambitious alchemical experimentation."
+  },
+  "ChunkofSparkly": {
+    "name": "Chunk of Sparkly",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/sparkly__x1_iconic_png_1354831480.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/sparkly__x1_1_x1_2_x1_3_x1_4_png_1354831481.png",
+    "stacksTo": 50,
+    "price": 8,
+    "description": "It's a pleasantly twinkly chunk of sparkly!"
+  },
+  "Egg": {
+    "name": "Egg",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/egg_plain__x1_iconic_png_1354829682.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/egg_plain__x1_1_x1_2_x1_3_x1_4_png_1354829683.png",
+    "stacksTo": 250,
+    "price": 5,
+    "description": "A plain, unseasoned egg, newly harvested from an Egg Plant. It can be used for all kinds of cooking, or it can be hatched into different animals."
+  },
+  "FancyPick": {
+    "name": "Fancy Pick",
+    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/fancy_pick__x1_tool_animation_png_1354831491.png",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/fancy_pick__x1_iconic_png_1354831492.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/fancy_pick__x1_iconic_png_1354831492.png",
+    "stacksTo": 1,
+    "iconNum": 1,
+    "price": 1000,
+    "durability": 200,
+    "description": "A super-deluxe fancy pick for fancy miners. Okay, maybe it doesn't look that fancy on the outside. It's the inside that counts."
+  },
+  "GeneralVapour": {
+    "name": "General Vapour",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/general_vapour__x1_iconic_png_1354830715.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/general_vapour__x1_1_x1_2_x1_3_x1_4_png_1354830715.png",
+    "stacksTo": 250,
+    "price": 5,
+    "description": "A flask of all-purpose general vapour, harvested from a Gas Plant."
+  },
+  "HighClassHoe": {
+    "name": "High Class Hoe",
+    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/high_class_hoe__x1_tool_animation_png_1354836363.png",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/high_class_hoe__x1_iconic_png_1354836364.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/high_class_hoe__x1_iconic_png_1354836364.png",
+    "stacksTo": 1,
+    "price": 600,
+    "iconNum": 1,
+    "durability": 250,
+    "description": "More refined than your average hoe, the High-Class Hoe is a hoe you'll be proud to be seen with. Extra investment brings a five-times longer lifespan: With this glamorous new companion you'll be hoeing the whole night through."
+  },
+  "LumpofEarth": {
+    "name": "Lump of Earth",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/earth__x1_iconic_png_1354832701.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/earth__x1_1_x1_2_x1_3_x1_4_png_1354832702.png",
+    "stacksTo": 50,
+    "price": 3,
+    "description": "Many have tried to sum up the wonder of Earth, with superlatives like \"Earthy\", \"Lumpy\" and \"Eart... oh, that's been said? Brown, then.\" But it's just a lump of earth. For building with."
+  },
+  "LumpofLoam": {
+    "name": "Lump of Loam",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/loam__x1_iconic_png_1354832758.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/loam__x1_1_x1_2_x1_3_x1_4_png_1354832758.png",
+    "stacksTo": 24,
+    "price": 10,
+    "description": "Ah, loam sweet loam. Moist and fertile, and leagues above plain old earth, this rich, meaty chunk of ground will do any building project proud."
+  },
+  "Meat": {
+    "name": "Meat",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/meat__x1_iconic_png_1354829569.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/meat__x1_1_x1_2_x1_3_x1_4_png_1354829570.png",
+    "stacksTo": 60,
+    "price": 10,
+    "description": "A simple meat."
+  },
+  "ModestlySizedRuby": {
+    "name": "Modestly Sized Ruby",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/gem_ruby__x1_1_png_1354831652.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gem_ruby__x1_1_png_1354831652.png",
+    "stacksTo": 5,
+    "price": 700,
+    "iconNum": 1,
+    "description": "A modestly sized ruby of nonetheless staggering beauty."
+  },
+  "Paper": {
+    "name": "Paper",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/paper__x1_iconic_png_1354832570.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/paper__x1_1_x1_2_x1_3_x1_4_png_1354832570.png",
+    "stacksTo": 250,
+    "price": 2,
+    "description": "A blank piece of paper."
+  },
+  "Pick": {
+    "name": "Pick",
+    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/pick__x1_tool_animation_png_1354831483.png",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/pick__x1_iconic_png_1354831483.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pick__x1_iconic_png_1354831483.png",
+    "stacksTo": 1,
+    "iconNum": 1,
+    "price": 500,
+    "durability": 100,
+    "description": "A relatively sturdy pick, without which mining cannot be done. A plain pick takes care of business, but it's not designed to last."
+  },
+  "PlainBubble": {
+    "name": "Plain Bubble",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/plain_bubble__x1_iconic_png_1354829961.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/plain_bubble__x1_1_x1_2_x1_3_x1_4_png_1354829962.png",
+    "stacksTo": 250,
+    "price": 2,
+    "description": "A common, ordinary, plain bubble harvested from Bubble Tree."
+  },
+  "Plank": {
+    "name": "Plank",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/plank__x1_iconic_png_1354829966.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/plank__x1_1_x1_2_x1_3_x1_4_png_1354829971.png",
+    "stacksTo": 250,
+    "price": 5,
+    "description": "A plain wooden plank with many uses."
+  },
+  "Shovel": {
+    "name": "Shovel",
+    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/shovel__x1_tool_animation_png_1354832696.png",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/shovel__x1_iconic_png_1354832694.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/shovel__x1_iconic_png_1354832694.png",
+    "stacksTo": 1,
+    "price": 300,
+    "iconNum": 1,
+    "durability": 100,
+    "description": "An essential for anyone that calls a spade a shovel, this simple tool masterpiece can be used to harvest Peat, dig for dirt (well, Earth), and occasionally land a juicy piece of Loam."
+  }
+}

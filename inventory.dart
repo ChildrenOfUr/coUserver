@@ -67,7 +67,7 @@ class Inventory
 		{
 			String query = "SELECT * FROM users WHERE email = @email";
 			Row row = await dbConn.innerConn.query(query,{'email':email}).first;
-			this.user_id = row.id;
+			this.user_id = row.item_id;
 			queryString = "INSERT INTO inventories(inventory_json, user_id) VALUES(@inventory_json,@user_id)";
 			int result = await dbConn.execute(queryString,this);
 			return result;
@@ -141,7 +141,6 @@ class Inventory
 @Encode()
 Future<Inventory> getUserInventory(String email) async
 {
-	return new Inventory();
 	PostgreSql dbConn = await dbManager.getConnection();
 
 	String queryString = "SELECT * FROM inventories JOIN users ON users.id = user_id WHERE users.email = @email";
@@ -157,7 +156,6 @@ Future<Inventory> getUserInventory(String email) async
 
 Future<int> addItemToUser(WebSocket userSocket, String email, Map item, int count, String fromObject) async
 {
-	return 1;
 	PostgreSql dbConn = await dbManager.getConnection();
 
 	Inventory inventory = await getUserInventory(email);
@@ -173,7 +171,6 @@ Future<int> addItemToUser(WebSocket userSocket, String email, Map item, int coun
 
 Future<int> takeItemFromUser(WebSocket userSocket, String email, String itemName, int count) async
 {
-	return 1;
 	PostgreSql dbConn = await dbManager.getConnection();
 
 	Inventory inventory = await getUserInventory(email);

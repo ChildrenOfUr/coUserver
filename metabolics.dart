@@ -189,12 +189,9 @@ class MetabolicsEndpoint
 
 	static void _calcAndSetEnergy(Metabolics m)
 	{
-		int energy = m.energy;
-		int max_energy = m.max_energy;
-
 		//players lose .8% of their max energy every 90 seconds
 		//https://web.archive.org/web/20120805062536/http://www.glitch-strategy.com/wiki/Energy
-		m.energy -= (max_energy*.008).ceil();
+		m.energy -= (m.max_energy*.008).ceil();
 
 		if(m.energy < 0)
         	m.energy = 0;
@@ -236,8 +233,10 @@ Future<Metabolics> getMetabolics({@app.QueryParam() String username, String emai
 	{
 		log('(getMetabolics): $e');
 	}
-
-	return metabolic;
+	finally
+	{
+		return metabolic;
+	}
 }
 
 @app.Route('/setMetabolics', methods:const[app.POST])
@@ -264,5 +263,8 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async
 	{
 		log('(setMetabolics): $e');
 	}
-	return result;
+	finally
+	{
+		return result;
+	}
 }

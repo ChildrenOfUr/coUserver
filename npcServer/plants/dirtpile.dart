@@ -55,10 +55,10 @@ class DirtPile extends Plant
 			respawn = new DateTime.now().add(new Duration(minutes:2));
 
 		//give the player the 'fruits' of their labor
-		addItemToUser(userSocket,email,new LumpofEarth().getMap(),1,id);
+		addItemToUser(userSocket,email,items['LumpofEarth'].getMap(),1,id);
 
 		//1 in 10 chance to get a lump of loam as well
 		if(new Random().nextInt(10) == 5)
-			addItemToUser(userSocket,email,new LumpofLoam().getMap(),1,id);
+			addItemToUser(userSocket,email,items['LumpofLoam'].getMap(),1,id);
 	}
 }

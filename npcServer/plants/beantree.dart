@@ -55,6 +55,6 @@ class BeanTree extends Tree
 		super.harvest(userSocket:userSocket);
 
 		//give the player the 'fruits' of their labor
-		addItemToUser(userSocket,email,new Bean().getMap(),1,id);
+		addItemToUser(userSocket,email,items['Bean'].getMap(),1,id);
 	}
 }

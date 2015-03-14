@@ -4,7 +4,14 @@ part of coUserver;
 class StreetUpdateHandler
 {
 	static Map<String, Street> streets = new Map();
-	static Timer timer = new Timer.periodic(new Duration(seconds: 1), (Timer timer) => simulateStreets());
+    static Timer timer = new Timer.periodic(new Duration(seconds: 1), (Timer timer) => simulateStreets());
+
+	static loadItems() async
+	{
+		File itemsFile = new File('npcServer/items/items.json');
+		Map<String,Map> itemsJson = JSON.decode(await itemsFile.readAsString());
+		itemsJson.forEach((String name, Map itemJson) => items[name] = decode(itemJson,Item));
+	}
 
 	static void handle(WebSocket ws)
 	{
@@ -179,8 +186,7 @@ class StreetUpdateHandler
 				else
 				{
 					//check if it's an item and not an entity
-					ClassMirror classMirror = findClassMirror(type);
-					InstanceMirror instanceMirror = classMirror.newInstance(new Symbol(""), []);
+					InstanceMirror instanceMirror = reflect(items[type]);
 					Map<Symbol,dynamic> arguments = {#userSocket:ws,#email:email};
 					arguments[#streetName] = map['streetName'];
 					arguments[#map] = map['arguments'];

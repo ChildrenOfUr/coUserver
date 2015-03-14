@@ -55,6 +55,6 @@ class GasPlant extends Tree
 		super.harvest(userSocket:userSocket);
 
 		//give the player the 'fruits' of their labor
-		addItemToUser(userSocket,email,new GeneralVapour().getMap(),1,id);
+		addItemToUser(userSocket,email,items['GeneralVapour'].getMap(),1,id);
 	}
 }

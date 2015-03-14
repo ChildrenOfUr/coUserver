@@ -38,7 +38,7 @@ class Chicken extends NPC
 	{
 		StatBuffer.incrementStat("chickensSqueezed", 1);
 		//give the player the 'fruits' of their labor
-		addItemToUser(userSocket,email,new Grain().getMap(),1,id);
+		addItemToUser(userSocket,email,items['Grain'].getMap(),1,id);
 	}
 
 	void update()

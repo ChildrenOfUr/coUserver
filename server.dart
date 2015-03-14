@@ -24,7 +24,7 @@ void main()
 	KeepAlive.start();
 
 	//create items from items.json
-	//StreetUpdateHandler.loadItems();
+	StreetUpdateHandler.loadItems();
 
 	//redstone.dart does not support websockets so we have to listen on a
 	//seperate port for those connections :(
@@ -149,26 +149,6 @@ Future<Map> getServerLog() async
 		statusMap['serverLog'] = exception.toString();
 		return statusMap;
 	}
-}
-
-@app.Route('/restartServer', methods: const[app.POST])
-Future<String> restartServer(@app.Body(app.JSON) Map params) async
-{
-	String secret = params['secret'];
-	if(secret == restartSecret)
-	{
-		try
-		{
-			ProcessResult result = await Process.run("/bin/sh",["restart_server.sh"]);
-			if(result.exitCode == 0)
-				return "OK";
-			else
-				return "ERROR RESTARTING SERVER";
-		}
-		catch(e){log("Error restarting server: $e"); return "ERROR";}
-	}
-	else
-		return "NOT AUTHORIZED";
 }
 
 @app.Route('/slack', methods: const[app.POST])

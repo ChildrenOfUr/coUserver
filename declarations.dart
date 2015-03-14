@@ -64,28 +64,6 @@ part 'npcServer/npcs/mailbox.dart';
 
 //items
 part 'npcServer/items/item.dart';
-part 'npcServer/items/tool.dart';
-part 'npcServer/items/highclasshoe.dart';
-part 'npcServer/items/fancypick.dart';
-part 'npcServer/items/pick.dart';
-part 'npcServer/items/shovel.dart';
-part 'npcServer/items/bean.dart';
-part 'npcServer/items/cherry.dart';
-part 'npcServer/items/grain.dart';
-part 'npcServer/items/meat.dart';
-part 'npcServer/items/chunkofberyl.dart';
-part 'npcServer/items/chunkofsparkly.dart';
-part 'npcServer/items/chunkofmetalrock.dart';
-part 'npcServer/items/chunkofdullite.dart';
-part 'npcServer/items/modestlysizedruby.dart';
-part 'npcServer/items/generalvapour.dart';
-part 'npcServer/items/allspice.dart';
-part 'npcServer/items/paper.dart';
-part 'npcServer/items/egg.dart';
-part 'npcServer/items/plainbubble.dart';
-part 'npcServer/items/plank.dart';
-part 'npcServer/items/lumpofearth.dart';
-part 'npcServer/items/lumpofloam.dart';
 
 part 'npcServer/spritesheet.dart';
 part 'npcServer/plants/plant.dart';

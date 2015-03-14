@@ -49,6 +49,6 @@ class WoodTree extends Tree
 		super.harvest(userSocket:userSocket);
 
 		//give the player the 'fruits' of their labor
-		addItemToUser(userSocket,email,new Plank().getMap(),1,id);
+		addItemToUser(userSocket,email,items['Plank'].getMap(),1,id);
 	}
 }
