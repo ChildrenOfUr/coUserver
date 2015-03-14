@@ -253,8 +253,7 @@ Map getItemByName(@app.QueryParam('name') String name)
 {
 	try
 	{
-		ClassMirror classMirror = findClassMirror(name.replaceAll(' ', ''));
-		Item item = classMirror.newInstance(new Symbol(""), []).reflectee;
+		Item item = items[name];
 		return item.getMap();
 	}
 	catch(err)
