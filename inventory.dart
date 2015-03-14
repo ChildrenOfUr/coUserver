@@ -67,7 +67,7 @@ class Inventory
 		{
 			String query = "SELECT * FROM users WHERE email = @email";
 			Row row = await dbConn.innerConn.query(query,{'email':email}).first;
-			this.user_id = row.item_id;
+			this.user_id = row.id;
 			queryString = "INSERT INTO inventories(inventory_json, user_id) VALUES(@inventory_json,@user_id)";
 			int result = await dbConn.execute(queryString,this);
 			return result;
