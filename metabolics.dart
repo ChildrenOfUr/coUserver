@@ -97,16 +97,19 @@ class MetabolicsEndpoint
 
     			//store current street and position
     			Identifier userIdentifier = PlayerUpdateHandler.users[username];
-    			m.current_street = userIdentifier.tsid;
-    			m.current_street_x = userIdentifier.currentX;
-    			m.current_street_y = userIdentifier.currentY;
-
-    			//store the metabolics back to the database
-    			int result = await setMetabolics(m);
-    			if(result > 0)
+    			if(userIdentifier != null)
     			{
-    				//send the metabolics back to the user
-    				ws.add(JSON.encode(encode(m)));
+	    			m.current_street = userIdentifier.tsid;
+	    			m.current_street_x = userIdentifier.currentX;
+	    			m.current_street_y = userIdentifier.currentY;
+
+	    			//store the metabolics back to the database
+	    			int result = await setMetabolics(m);
+	    			if(result > 0)
+	    			{
+	    				//send the metabolics back to the user
+	    				ws.add(JSON.encode(encode(m)));
+	    			}
     			}
 			}
 			catch(e)
