@@ -179,13 +179,13 @@ class StreetUpdateHandler
 			//callMethod means the player is trying to interact with an entity
 			if(map["callMethod"] != null)
 			{
-				String type = map['type'];
+				String type = map['type'].replaceAll(" entity","");
 				Map entityMap = streets[streetName].entityMaps[type];
 				String methodName = normalizeMethodName(map['callMethod']);
 
 				if(entityMap != null && entityMap[map['id']] != null)
 				{
-					type = map['type'].replaceAll("entity","").replaceAll(' ','');
+					type = map['type'].replaceAll(' ','');
 					var entity = entityMap[map['id']];
 					//log("user $username calling ${map['callMethod']} on ${entity.id} in $streetName (${map['tsid']})");
 					InstanceMirror entityMirror = reflect(entity);
