@@ -92,8 +92,8 @@ class StreetSpiritGroddle extends NPC
 		List<Map> saleItems = [];
 		saleItems.add(items['Pick'].getMap());
 		saleItems.add(items['Shovel'].getMap());
-		saleItems.add(items['HighClassHoe'].getMap());
-		saleItems.add(items['FancyPick'].getMap());
+		saleItems.add(items['High Class Hoe'].getMap());
+		saleItems.add(items['Fancy Pick'].getMap());
 		saleItems.add(items['Bean'].getMap());
 		saleItems.add(items['Cherry'].getMap());
 
