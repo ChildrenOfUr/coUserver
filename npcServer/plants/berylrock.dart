@@ -19,10 +19,10 @@ class BerylRock extends Rock
 		super.mine(userSocket:userSocket);
 
 		//give the player the 'fruits' of their labor
-		addItemToUser(userSocket,email,items['ChunkofBeryl'].getMap(),1,id);
+		addItemToUser(userSocket,email,items['Chunk of Beryl'].getMap(),1,id);
 
 		//1 in 10 chance to get a ruby as well
 		if(new Random().nextInt(10) == 5)
-			addItemToUser(userSocket,email,items['ModestlySizedRuby'].getMap(),1,id);
+			addItemToUser(userSocket,email,items['Modestly Sized Ruby'].getMap(),1,id);
 	}
 }

@@ -26,6 +26,6 @@ class MetalRock extends Rock
 		super.mine(userSocket:userSocket);
 
 		//give the player the 'fruits' of their labor
-		addItemToUser(userSocket,email,items['ChunkofMetal'].getMap(),1,id);
+		addItemToUser(userSocket,email,items['Chunk of Metal'].getMap(),1,id);
 	}
 }
