@@ -179,7 +179,7 @@ class StreetUpdateHandler
 			//callMethod means the player is trying to interact with an entity
 			if(map["callMethod"] != null)
 			{
-				String type = map['type'].replaceAll("entity","").replaceAll(' ','');
+				String type = map['type'];
 				Map entityMap = streets[streetName].entityMaps[type];
 				String methodName = normalizeMethodName(map['callMethod']);
 
@@ -195,6 +195,7 @@ class StreetUpdateHandler
 				}
 				else
 				{
+					type = map['type'].replaceAll("entity","").replaceAll(' ','');
 					//check if it's an item and not an entity
 					InstanceMirror instanceMirror = reflect(items[type]);
 					Map<Symbol,dynamic> arguments = {#userSocket:ws,#email:email};
