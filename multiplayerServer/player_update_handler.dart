@@ -79,7 +79,12 @@ class PlayerUpdateHandler
     				users[newUsername] = new Identifier(newUsername,street,tsid);
 
     				userSockets.remove(username);
-    				users.remove(username);
+					users.remove(username);
+
+    				//change the username on the metabolics socket
+    				WebSocket metabolicsSocket = MetabolicsEndpoint.userSockets[username];
+    				MetabolicsEndpoint.userSockets[newUsername] = metabolicsSocket;
+    				MetabolicsEndpoint.userSockets.remove(username);
 
     				map = new Map();
     				map["disconnect"] = "true";
@@ -129,7 +134,7 @@ class PlayerUpdateHandler
 		}
 		catch(error, st)
 		{
-			print("Error processing message (player_update_handler): $error");
+			print("Error processing message (player_update_handler): $error\n$st");
 		}
 	}
 

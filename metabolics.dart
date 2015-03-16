@@ -112,9 +112,9 @@ class MetabolicsEndpoint
 	    			}
     			}
 			}
-			catch(e)
+			catch(e,st)
 			{
-				log("(metabolics endpoint - simulate): $e");
+				log("(metabolics endpoint - simulate): $e\n$st");
 			}
 		});
 	}
