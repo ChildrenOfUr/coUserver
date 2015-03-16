@@ -185,6 +185,7 @@ class StreetUpdateHandler
 
 				if(entityMap != null && entityMap[map['id']] != null)
 				{
+					type = map['type'].replaceAll("entity","").replaceAll(' ','');
 					var entity = entityMap[map['id']];
 					//log("user $username calling ${map['callMethod']} on ${entity.id} in $streetName (${map['tsid']})");
 					InstanceMirror entityMirror = reflect(entity);
@@ -195,7 +196,6 @@ class StreetUpdateHandler
 				}
 				else
 				{
-					type = map['type'].replaceAll("entity","").replaceAll(' ','');
 					//check if it's an item and not an entity
 					InstanceMirror instanceMirror = reflect(items[type]);
 					Map<Symbol,dynamic> arguments = {#userSocket:ws,#email:email};
