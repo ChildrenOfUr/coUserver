@@ -31,7 +31,7 @@
     "price": 1,
     "description": "A basic cherry, freshly picked from a Fruit Tree."
   },
-  "ChunkofBeryl": {
+  "Chunk of Beryl": {
     "name": "Chunk of Beryl",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/beryl__x1_iconic_png_1354831475.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/beryl__x1_1_x1_2_x1_3_x1_4_png_1354831476.png",
@@ -39,7 +39,7 @@
     "price": 6,
     "description": "Halfway between sparkly and dull, it's an innocuous chunk of beryl."
   },
-  "ChunkofDullite": {
+  "Chunk of Dullite": {
     "name": "Chunk of Dullite",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/dullite__x1_iconic_png_1354831478.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/dullite__x1_1_x1_2_x1_3_x1_4_png_1354831478.png",
@@ -47,7 +47,7 @@
     "price": 4,
     "description": "A hefty chunk of dullite. What it lacks in sparkliness it makes up for in, um, dullness."
   },
-  "ChunkofMetalRock": {
+  "Chunk of Metal Rock": {
     "name": "Chunk of Metal Rock",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/metal_rock__x1_iconic_png_1354832617.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/metal_rock__x1_1_x1_2_x1_3_x1_4_png_1354832618.png",
@@ -55,7 +55,7 @@
     "price": 3,
     "description": "Chunky and metally, this rock, when smelted, makes Plain Metal. Boring maybe, but it's an excellent base for more ambitious alchemical experimentation."
   },
-  "ChunkofSparkly": {
+  "Chunk of Sparkly": {
     "name": "Chunk of Sparkly",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/sparkly__x1_iconic_png_1354831480.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/sparkly__x1_1_x1_2_x1_3_x1_4_png_1354831481.png",
@@ -71,7 +71,7 @@
     "price": 5,
     "description": "A plain, unseasoned egg, newly harvested from an Egg Plant. It can be used for all kinds of cooking, or it can be hatched into different animals."
   },
-  "FancyPick": {
+  "Fancy Pick": {
     "name": "Fancy Pick",
     "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/fancy_pick__x1_tool_animation_png_1354831491.png",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/fancy_pick__x1_iconic_png_1354831492.png",
@@ -82,7 +82,7 @@
     "durability": 200,
     "description": "A super-deluxe fancy pick for fancy miners. Okay, maybe it doesn't look that fancy on the outside. It's the inside that counts."
   },
-  "GeneralVapour": {
+  "General Vapour": {
     "name": "General Vapour",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/general_vapour__x1_iconic_png_1354830715.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/general_vapour__x1_1_x1_2_x1_3_x1_4_png_1354830715.png",
@@ -90,7 +90,7 @@
     "price": 5,
     "description": "A flask of all-purpose general vapour, harvested from a Gas Plant."
   },
-  "HighClassHoe": {
+  "High Class Hoe": {
     "name": "High Class Hoe",
     "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/high_class_hoe__x1_tool_animation_png_1354836363.png",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/high_class_hoe__x1_iconic_png_1354836364.png",
@@ -101,7 +101,7 @@
     "durability": 250,
     "description": "More refined than your average hoe, the High-Class Hoe is a hoe you'll be proud to be seen with. Extra investment brings a five-times longer lifespan: With this glamorous new companion you'll be hoeing the whole night through."
   },
-  "LumpofEarth": {
+  "Lump of Earth": {
     "name": "Lump of Earth",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/earth__x1_iconic_png_1354832701.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/earth__x1_1_x1_2_x1_3_x1_4_png_1354832702.png",
@@ -109,7 +109,7 @@
     "price": 3,
     "description": "Many have tried to sum up the wonder of Earth, with superlatives like \"Earthy\", \"Lumpy\" and \"Eart... oh, that's been said? Brown, then.\" But it's just a lump of earth. For building with."
   },
-  "LumpofLoam": {
+  "Lump of Loam": {
     "name": "Lump of Loam",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/loam__x1_iconic_png_1354832758.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/loam__x1_1_x1_2_x1_3_x1_4_png_1354832758.png",
@@ -125,7 +125,7 @@
     "price": 10,
     "description": "A simple meat."
   },
-  "ModestlySizedRuby": {
+  "Modestly Sized Ruby": {
     "name": "Modestly Sized Ruby",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/gem_ruby__x1_1_png_1354831652.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gem_ruby__x1_1_png_1354831652.png",
@@ -153,7 +153,7 @@
     "durability": 100,
     "description": "A relatively sturdy pick, without which mining cannot be done. A plain pick takes care of business, but it's not designed to last."
   },
-  "PlainBubble": {
+  "Plain Bubble": {
     "name": "Plain Bubble",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/plain_bubble__x1_iconic_png_1354829961.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/plain_bubble__x1_1_x1_2_x1_3_x1_4_png_1354829962.png",
