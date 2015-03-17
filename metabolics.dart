@@ -124,7 +124,11 @@ class MetabolicsEndpoint
 		Map map = {'collectQuoin':'true',
 		           'success':'false',
 		           'id':q.id};
-		userSockets[username].add(JSON.encode(map));
+		try
+		{
+			userSockets[username].add(JSON.encode(map));
+		}
+		catch(err){log('(metabolics_endpoint_deny_quoin) Could not pass map $map to player $username: $err');}
 	}
 
 	static addQuoin(Quoin q, String username) async
@@ -167,7 +171,7 @@ class MetabolicsEndpoint
 				userSockets[username].add(JSON.encode(encode(m)));
 			}
 		}
-		catch(err){log('(metabolics_endpoint) Could not set metabolics $m for player $username: $err');}
+		catch(err){log('(metabolics_endpoint_add_quoin) Could not set metabolics $m for player $username: $err');}
 	}
 
 	static void _calcAndSetMood(Metabolics m)
