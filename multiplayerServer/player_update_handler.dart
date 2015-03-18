@@ -4,7 +4,6 @@ part of coUserver;
 class PlayerUpdateHandler
 {
 	static Map<String,Identifier> users = {};
-	static Map<String,WebSocket> userSockets = {};
 
 	static void handle(WebSocket ws)
 	{
@@ -26,16 +25,15 @@ class PlayerUpdateHandler
 	{
 		String leavingUser;
 
-		userSockets.forEach((String username, WebSocket socket)
+		users.forEach((String username, Identifier id)
 		{
-			if(ws == socket)
+			if(ws == id.webSocket)
 			{
-				socket = null;
+				id.webSocket = null;
 				leavingUser = username;
 			}
 		});
 
-		userSockets.remove(leavingUser);
 		Identifier leavingID = users.remove(leavingUser);
 		if(leavingID != null)
 		{
@@ -67,18 +65,16 @@ class PlayerUpdateHandler
     			{
     				//don't accept this message from anyone else
     				//(fixes the /setname other players stop moving bug)
-    				if(ws != userSockets[username])
+    				if(ws != users[username].webSocket)
     					c.complete();
 
     				String newUsername = map['newUsername'];
     				//the user used /setname to change their name and it was successful
     				//tell the other clients that the old guy disconnected
-    				userSockets[newUsername] = ws;
     				String street = map['street'];
     				String tsid = map['tsid'];
-    				users[newUsername] = new Identifier(newUsername,street,tsid);
+    				users[newUsername] = new Identifier(newUsername,street,tsid,ws);
 
-    				userSockets.remove(username);
 					users.remove(username);
 
     				//change the username on the metabolics socket
@@ -111,12 +107,11 @@ class PlayerUpdateHandler
 	    				users[username].currentX = currentX;
 	    				users[username].currentY = currentY;
     				}
-    				catch(e){}
+    				catch(e,st){log("(player_update_handler/processMessage): $e\n$st");}
     			}
     			else //this user must have just connected
     			{
-    				userSockets[username] = ws;
-    				users[username] = new Identifier(username,map["street"],map['tsid']);
+    				users[username] = new Identifier(username,map["street"],map['tsid'],ws);
     				try
 					{
 						num currentX = num.parse(map['xy'].split(',')[0]);
@@ -124,7 +119,7 @@ class PlayerUpdateHandler
         				users[username].currentX = currentX;
                         users[username].currentY = currentY;
 					}
-    				catch(e){}
+    				catch(e,st){log("(player_update_handler/processMessage): $e\n$st");}
     			}
 
     			sendAll(map);
@@ -134,19 +129,17 @@ class PlayerUpdateHandler
 		}
 		catch(error, st)
 		{
-			print("Error processing message (player_update_handler): $error\n$st");
+			log("Error processing message (player_update_handler): $error\n$st");
 		}
 	}
 
 	static void sendAll(Map map)
 	{
 		String data = JSON.encode(map);
-		userSockets.forEach((String username, WebSocket socket)
+		users.forEach((String username, Identifier id)
 		{
-			if(users[username] == null || socket == null)
-				1 == 1; //do nothing
-			else if(username != map["username"] && ((map["street"] == users[username].currentStreet || map["changeStreet"] == users[username].currentStreet)))
-				socket.add(data);
+			if(username != map["username"] && ((map["street"] == id.currentStreet || map["changeStreet"] != id.currentStreet)))
+				id.webSocket.add(data);
 		});
 	}
 }

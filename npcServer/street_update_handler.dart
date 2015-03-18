@@ -117,8 +117,6 @@ class StreetUpdateHandler
 				//set this player as being on this street
 				if(PlayerUpdateHandler.users[username] != null)
 					PlayerUpdateHandler.users[username].tsid = map['tsid'];
-				else
-					PlayerUpdateHandler.users[username] = new Identifier(username,streetName,map['tsid']);
 
 				if(map['clientVersion'] != null && map['clientVersion'] < minClientVersion)
 				{

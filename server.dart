@@ -1,7 +1,7 @@
 part of coUserver;
 
 IRCRelay relay;
-double minClientVersion = 0.11;
+double minClientVersion = 0.12;
 PostgreSqlManager dbManager;
 Map<String,int> heightsCache = null;
 DateTime startDate;
@@ -115,7 +115,7 @@ Future<Map> getServerStatus() async
 	try
 	{
 		List<String> users = [];
-		ChatHandler.users.forEach((Identifier user)
+		ChatHandler.users.forEach((String username, Identifier user)
 		{
 			if(!users.contains(user.username))
 				users.add(user.username);
