@@ -138,8 +138,10 @@ class PlayerUpdateHandler
 		String data = JSON.encode(map);
 		users.forEach((String username, Identifier id)
 		{
-			if(username != map["username"] && ((map["street"] == id.currentStreet || map["changeStreet"] != id.currentStreet)))
+			if(username != map["username"] && (map["street"] == id.currentStreet || map['changeStreet'] != null))
+			{
 				id.webSocket.add(data);
+			}
 		});
 	}
 }
