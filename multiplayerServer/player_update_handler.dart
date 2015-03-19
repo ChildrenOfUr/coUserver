@@ -78,8 +78,7 @@ class PlayerUpdateHandler
 					users.remove(username);
 
     				//change the username on the metabolics socket
-    				WebSocket metabolicsSocket = MetabolicsEndpoint.userSockets[username];
-    				MetabolicsEndpoint.userSockets[newUsername] = metabolicsSocket;
+    				MetabolicsEndpoint.userSockets[newUsername] = MetabolicsEndpoint.userSockets[username];
     				MetabolicsEndpoint.userSockets.remove(username);
 
     				map = new Map();

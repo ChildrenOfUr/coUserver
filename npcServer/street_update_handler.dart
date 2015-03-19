@@ -156,7 +156,11 @@ class StreetUpdateHandler
 				{
 					Quoin touched = streets[streetName].quoins[map["remove"]];
 					Identifier player = PlayerUpdateHandler.users[username];
-					if(touched != null && !touched.collected)
+					if(player == null)
+					{
+						log('(street_update_handler) Could not find player $username to collect quoin');
+					}
+					else if(touched != null && !touched.collected)
 					{
 						num xDiff = (touched.x - player.currentX).abs();
 						num yDiff = (touched.y - player.currentY).abs();
@@ -194,6 +198,7 @@ class StreetUpdateHandler
 				}
 				else
 				{
+					print("dropping type:" + type);
 					//check if it's an item and not an entity
 					InstanceMirror instanceMirror = reflect(items[type]);
 					Map<Symbol,dynamic> arguments = {#userSocket:ws,#email:email};
