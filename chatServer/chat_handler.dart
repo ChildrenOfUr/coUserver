@@ -126,7 +126,7 @@ class ChatHandler
 		sendAll(JSON.encode(map));
 	}
 
-	static void processMessage(WebSocket ws, String receivedMessage) async
+	static processMessage(WebSocket ws, String receivedMessage) async
 	{
 		try
 		{

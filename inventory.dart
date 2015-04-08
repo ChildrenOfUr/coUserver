@@ -188,11 +188,24 @@ Future fireInventoryAtUser(WebSocket userSocket, String email) async
 	PostgreSql dbConn = await dbManager.getConnection();
 
 	Inventory inventory = await getUserInventory(email);
-
+	Map<String,Map> itemMap = {};
+	Map inventoryMap = {'inventory':'true','items':itemMap};
 	inventory.getItems().forEach((Map item)
 	{
-		sendItemToUser(userSocket,item,1,'');
+		if(!itemMap.containsKey(item['name']))
+		{
+			item['count'] = 1;
+			itemMap[item['name']] = item;
+		}
+		else
+		{
+			Map i = itemMap[item['name']];
+			i['count'] += 1;
+			itemMap[item['name']] = i;
+		}
+		//sendItemToUser(userSocket,item,1,'');
     });
+	userSocket.add(JSON.encode(inventoryMap));
 
 	dbManager.closeConnection(dbConn);
 }
