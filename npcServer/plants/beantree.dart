@@ -14,6 +14,7 @@ class BeanTree extends Tree
         		"Two bean, or not two bean?…",
         		"You favored us. Now, we fava you. Ha ha. Like \"fava bean\".",
         		"Wassssss-sap! Ha ha ha. Oh just take bean then.",
+		        "Have you seen Jack? I think I gave him the wrong seeds…"
         	],
         	"pet": [
         		"The petting is unbeleafable. Ha ha. Tree made joke. Laugh.",
@@ -21,6 +22,7 @@ class BeanTree extends Tree
         		"Your petting's never bean better. Hee!",
         		"I wooden have thought you'd be so good. Now laugh.",
         		"Tree arbors strong feelings to you. Chuckle now, please.",
+		        "Well it’s bean fun! See you later."
         	],
         	"water": [
         		"Water nice thing to do. Ha! Ha ha?",

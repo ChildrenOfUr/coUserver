@@ -5,7 +5,7 @@ abstract class Entity
 	List<Map> actions;
 	String bubbleText;
 	DateTime sayTimeout = null;
-	Map<String,List<String>> responses = {'harvest':[''],'water':[''],'pet':['']};
+	Map<String,List<String>> responses = {};
 	Random rand = new Random();
 
 	void setActionEnabled(String action, bool enabled)

@@ -26,6 +26,14 @@ class Piggy extends NPC
 				"walk" : new Spritesheet("walk","http://c2.glitch.bz/items/2012-12-06/npc_piggy__x1_walk_png_1354829432.png",704,186,88,62,24,true)
 			};
      	currentState = states['walk'];
+
+		responses =
+		{
+			"nibble": ["Ya bacon me crazy!"
+			],
+			"pet": ["Do I boar you?"
+			]
+		};
 	}
 
 	nibble({WebSocket userSocket, String email})
@@ -36,11 +44,13 @@ class Piggy extends NPC
 
 		currentState = states['nibble'];
 		respawn = new DateTime.now().add(new Duration(seconds:2));
+		say(responses['nibble'].elementAt(rand.nextInt(responses['nibble'].length)));
 	}
 
 	pet({WebSocket userSocket, String email})
 	{
 		StatBuffer.incrementStat("piggiesPetted", 1);
+		say(responses['pet'].elementAt(rand.nextInt(responses['pet'].length)));
 	}
 
 	/**

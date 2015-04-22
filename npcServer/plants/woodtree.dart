@@ -14,6 +14,7 @@ class WoodTree extends Tree
         		"I've got a huge … wood. I have wood. Here, take some.",
         		"Wood you like some planks?",
         		"Mighty chopper you have there.",
+		        "Knot now. Axe me later."
         	],
         	"pet": [
         		"Plank you very much!",
@@ -21,6 +22,7 @@ class WoodTree extends Tree
         		"Don't rub too rough, I'll splinter all over you.",
         		"Go with the grain.",
         		"Yes. Wood-rubbing. I approve.",
+		        "Wanna go out? I’m feeling board."
         	],
         	"water": [
         		"Yep. Nothing like wet kindling.",
