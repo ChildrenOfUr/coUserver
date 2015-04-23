@@ -38,7 +38,17 @@ class Mailbox extends NPC {
 	}
 
 	void checkMail({WebSocket userSocket, String email}) {
-		say("No Mail");
+		String query = "SELECT * FROM messages JOIN users ON username = to_user WHERE email = @email AND read = FALSE";
+		dbManager.getConnection().then((PostgreSql dbConn) {
+			dbConn.query(query, Message, {'email':email}).then((List<Message> messages) {
+				if(messages.length > 0) {
+					say("${messages.length} New Messages");
+				}
+				else
+					say("No Mail");
+			});
+			dbManager.closeConnection(dbConn);
+		});
 	}
 
 	void sendMail({WebSocket userSocket, String email}) {
@@ -47,34 +57,49 @@ class Mailbox extends NPC {
 		map['openWindow'] = 'mailbox';
 		userSocket.add(JSON.encode(map));
 	}
-
-	void send({WebSocket userSocket, String email, String recipient, String message}) {
-
-	}
 }
 
-@app.Route('/getMail',methods: const[app.POST])
+@app.Route('/getMail', methods: const[app.POST])
 @Encode()
 Future<List<Message>> getMail(@app.Body(app.JSON) Map parameters) async
 {
 	String user = parameters['user'];
 
 	String query = "SELECT * FROM messages WHERE to_user = @user";
-	List<Message> messages = await dbConn.query(query,Message,{'user':user});
+	List<Message> messages = await dbConn.query(query, Message, {'user':user});
 
 	return messages;
 }
 
-@app.Route('/sendMail',methods: const[app.POST])
+@app.Route('/sendMail', methods: const[app.POST])
 Future<String> sendMail(@Decode() Message message) async
 {
 	String query = "INSERT INTO messages(to_user, from_user, subject, body) VALUES(@to_user,@from_user,@subject,@body)";
-	int result = await dbConn.execute(query,message);
+	int result = await dbConn.execute(query, message);
 
 	if(result > 0)
 		return "OK";
 	else
 		return "Error";
+}
+
+@app.Route('/deleteMail', methods: const[app.POST])
+Future<String> deleteMail(@app.Body(app.JSON) Map parameters) async
+{
+	String query = "DELETE FROM messages WHERE id = @id";
+	int result = await dbConn.execute(query, {'id':parameters['id']});
+
+	if(result > 0)
+		return "OK";
+	else
+		return "Error";
+}
+
+@app.Route('/readMail', methods: const[app.POST])
+readMail(@Decode() Message message) async
+{
+	String query = "UPDATE messages SET read = TRUE WHERE id = @id";
+	await dbConn.execute(query, message);
 }
 
 class Message {
@@ -88,4 +113,6 @@ class Message {
 	String subject;
 	@Field()
 	String body;
+	@Field()
+	bool read;
 }
