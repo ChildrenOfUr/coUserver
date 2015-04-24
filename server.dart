@@ -102,6 +102,9 @@ Future<List<Item>> getItems(@app.QueryParam('category') String category,
 		}
 	}
 
+	if(name == null && category == null)
+		return new List.from(items.values);
+
 	return itemList;
 }
 
