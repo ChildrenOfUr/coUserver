@@ -3,6 +3,8 @@ part of coUserver;
 class Item
 {
 	@Field()
+	String category;
+	@Field()
 	String iconUrl;
 	@Field()
 	String spriteUrl;
