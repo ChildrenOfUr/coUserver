@@ -85,20 +85,20 @@ Future<List<Item>> getItems(@app.QueryParam('category') String category,
 
 	if(category != null) {
 		if(isRegex) {
-			RegExp reg = new RegExp(category);
-			itemList.addAll(items.values.where((Item i) => reg.hasMatch(i.category)));
+			RegExp reg = new RegExp(category.toLowerCase());
+			itemList.addAll(items.values.where((Item i) => reg.hasMatch(i.category.toLowerCase())));
 		}
 		else
-			itemList.addAll(items.values.where((Item i) => i.category == category));
+			itemList.addAll(items.values.where((Item i) => i.category.toLowerCase() == category.toLowerCase()));
 	}
 
 	if(name != null) {
 		if(isRegex) {
-			RegExp reg = new RegExp(name);
-			itemList.addAll(items.values.where((Item i) => reg.hasMatch(i.name)));
+			RegExp reg = new RegExp(name.toLowerCase());
+			itemList.addAll(items.values.where((Item i) => reg.hasMatch(i.name.toLowerCase())));
 		}
 		else {
-			itemList.addAll(items.values.where((Item i) => i.name == name));
+			itemList.addAll(items.values.where((Item i) => i.name.toLowerCase() == name.toLowerCase()));
 		}
 	}
 
