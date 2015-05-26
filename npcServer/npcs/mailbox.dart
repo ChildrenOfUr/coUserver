@@ -8,7 +8,7 @@ class Mailbox extends NPC {
 				      "timeRequired":actionTime,
 				      "enabled":true,
 				      "actionWord":""})
-			..add({"action":"send mail",
+			..add({"action":"view inbox",
 				      "timeRequired":actionTime,
 				      "enabled":true,
 				      "actionWord":""});
@@ -51,7 +51,7 @@ class Mailbox extends NPC {
 		});
 	}
 
-	void sendMail({WebSocket userSocket, String email}) {
+	void viewInbox({WebSocket userSocket, String email}) {
 		Map map = {};
 		map['id'] = id;
 		map['openWindow'] = 'mailbox';
