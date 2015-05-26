@@ -197,7 +197,6 @@ class StreetUpdateHandler
 				}
 				else
 				{
-					print("dropping type:" + type);
 					//check if it's an item and not an entity
 					InstanceMirror instanceMirror = reflect(items[type]);
 					Map<Symbol,dynamic> arguments = {#userSocket:ws,#email:email};
