@@ -190,10 +190,11 @@ class ChatHandler
 				List<String> alreadySent = [];
 				users.forEach((String username, Identifier id)
 				{
-					id.channelList.remove(map['oldStreetLabel']);
-					id.channelList.add(map['newStreetLabel']);
-					if(username == map["username"])
+					if(username == map["username"]) {
 						id.currentStreet = map["newStreetLabel"];
+						id.channelList.remove(map['oldStreetLabel']);
+						id.channelList.add(map['newStreetLabel']);
+					}
 					if(!alreadySent.contains(id.username) && id.username != map["username"] && id.currentStreet == map["oldStreetTsid"]) //others who were on the street with you
 					{
 						Map leftForMessage = new Map();
