@@ -152,6 +152,7 @@ class ChatHandler
     			map["message"] = ' joined.';
 				String street = map["street"];
 				users[userName] = (new Identifier(map["username"],street,map['tsid'],ws));
+				users[userName].channelList..add(map['street'])..add("Global Chat");
   			}
 			else if(map["statusMessage"] == "changeName")
 			{
@@ -187,11 +188,13 @@ class ChatHandler
 			else if(map["statusMessage"] == "changeStreet")
 			{
 				List<String> alreadySent = [];
-				users.forEach((String usernae, Identifier id)
+				users.forEach((String username, Identifier id)
 				{
-					if(id.username == map["username"])
+					id.channelList.remove(map['oldStreetLabel']);
+					id.channelList.add(map['newStreetLabel']);
+					if(username == map["username"])
 						id.currentStreet = map["newStreetLabel"];
-					if(!alreadySent.contains(id.username) && id.username != map["username"] && id.currentStreet == map["oldStreet"]) //others who were on the street with you
+					if(!alreadySent.contains(id.username) && id.username != map["username"] && id.currentStreet == map["oldStreetTsid"]) //others who were on the street with you
 					{
 						Map leftForMessage = new Map();
 						leftForMessage["statusMessage"] = "leftStreet";

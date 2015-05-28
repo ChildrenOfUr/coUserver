@@ -74,6 +74,18 @@ void main() {
 	startDate = new DateTime.now();
 }
 
+@app.Route('/listUsers')
+Future<List<String>> listUsers(@app.QueryParam('channel') String channel) async
+{
+	List<String> users = [];
+	List<Identifier> ids = ChatHandler.users.values.where((Identifier id) =>
+										id.channelList.contains(channel)).toList();
+
+	ids.forEach((Identifier id) => users.add(id.username));
+
+	return users;
+}
+
 @app.Route('/getItems')
 @Encode()
 Future<List<Item>> getItems(@app.QueryParam('category') String category,
@@ -169,9 +181,18 @@ Future<Map> getServerLog() async
 
 @app.Route('/slack', methods: const[app.POST])
 String parseMessageFromSlack(@app.Body(app.FORM) Map form) {
+	String token = form['token'];
+	if(token != couKey || token != glitchForeverKey)
+		return "NOT AUTHORIZED";
+
 	String username = form['user_name'], text = form['text'];
+	Map map = {};
 	if(username != "slackbot" && text != null && text.isNotEmpty) {
-		Map map = {'username':'dev_$username', 'message': text, 'channel':'Global Chat'};
+		if(token == couKey) {
+			map = {'username':'dev_$username', 'message': text, 'channel':'Global Chat'};
+		} else {
+			map = {'username':'$username', 'message': text, 'channel':'Global Chat'};
+		}
 		ChatHandler.sendAll(JSON.encode(map));
 	}
 
