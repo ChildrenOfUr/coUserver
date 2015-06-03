@@ -20,9 +20,10 @@ class StreetSpiritGroddle extends NPC
 		//has 19 animation frames but I put one because this is it's open animation and it looks weird to loop
 		states = {
 		          "still":new Spritesheet("still",'http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L0dirt_bottom_none_eyes_eyes_L0eyes2_skull_skull_L0dirt_top_none_x1_open_png_1354834585.png',980,300,98,150,1,false),
-		          "open":new Spritesheet("open",'http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L0dirt_bottom_none_eyes_eyes_L0eyes2_skull_skull_L0dirt_top_none_x1_open_png_1354834585.png',980,300,98,150,19,false)
+		          "idle_hold":new Spritesheet("idle_hold",'http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L0dirt_bottom_none_eyes_eyes_L0eyes1_skull_skull_L0dirt_top_none_x1_idle_hold_png_1354834558.png',980,1350,98,135,85,true),
+				  "open":new Spritesheet("open",'http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L0dirt_bottom_none_eyes_eyes_L0eyes2_skull_skull_L0dirt_top_none_x1_open_png_1354834585.png',980,300,98,150,19,false)
 				};
-		currentState = states['still'];
+		currentState = states['idle_hold'];
 	}
 
 	void update()
