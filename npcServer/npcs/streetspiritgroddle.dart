@@ -15,12 +15,14 @@ class StreetSpiritGroddle extends NPC
          			  "actionWord":""});
 
 		type = "Street Spirit Groddle";
-		speed = 0;
+		speed = 75;
 
 		//has 19 animation frames but I put one because this is it's open animation and it looks weird to loop
 		states = {
 		          "still":new Spritesheet("still",'http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L0dirt_bottom_none_eyes_eyes_L0eyes2_skull_skull_L0dirt_top_none_x1_open_png_1354834585.png',980,300,98,150,1,false),
-		          "idle_hold":new Spritesheet("idle_hold",'http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L0dirt_bottom_none_eyes_eyes_L0eyes1_skull_skull_L0dirt_top_none_x1_idle_hold_png_1354834558.png',980,1350,98,135,85,true),
+		          "idle_hold":new Spritesheet("idle_hold",'http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L0dirt_bottom_none_eyes_eyes_L0eyes1_skull_skull_L0dirt_top_none_x1_idle_hold_png_1354834558.png',980,1350,98,150,85,true),
+				  "idle_move":new Spritesheet("idle_move",'http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L0dirt_bottom_none_eyes_eyes_L0eyes1_skull_skull_L0dirt_top_none_x1_idle_move_png_1354834567.png',980,1800,98,150,119,true),
+				  "turn":new Spritesheet("turn",'http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L0dirt_bottom_none_eyes_eyes_L0eyes1_skull_skull_L0dirt_top_none_x1_turn_png_1354834563.png',980,600,98,150,37,false),
 				  "open":new Spritesheet("open",'http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L0dirt_bottom_none_eyes_eyes_L0eyes2_skull_skull_L0dirt_top_none_x1_open_png_1354834585.png',980,300,98,150,19,false)
 				};
 		currentState = states['idle_hold'];
@@ -28,7 +30,20 @@ class StreetSpiritGroddle extends NPC
 
 	void update()
 	{
-
+//		if(respawn != null && respawn.compareTo(new DateTime.now()) <= 0) {
+//			currentState = states['idle_hold'];
+//			respawn = null;
+//			return;
+//		}
+//		if(respawn == null) {
+//			//sometimes move around
+//			int roll = rand.nextInt(10);
+//			if(roll == 7) {
+//				currentState = states['turn'];
+//				int length = (currentState.numFrames/30*1000).toInt();
+//				respawn = new DateTime.now().add(new Duration(milliseconds:length));
+//			}
+//		}
 	}
 
 	void buy({WebSocket userSocket, String email})
