@@ -37,6 +37,7 @@ abstract class NPC extends Entity
 		map["x"] = x;
 		map["y"] = y;
 		map['speed'] = speed;
+		map['animation_name'] = currentState.stateName;
 		map["width"] = currentState.frameWidth;
         map["height"] = currentState.frameHeight;
         map['loops'] = currentState.loops;
