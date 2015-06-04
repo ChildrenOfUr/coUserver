@@ -12,6 +12,18 @@ class DulliteRock extends Rock
 			};
 		currentState = states['5-4-3-2-1'];
      	state = new Random().nextInt(currentState.numFrames);
+		responses['mine_$type'] = [
+			"Ooof. I feel lighter already.",
+			"Mmm, thanks, I've been itching there all day.",
+			"Ow. Ow-hangover. Ow-my-head. Ow.",
+			"Not bad. Work on your backswing.",
+			"You're really picking this up.",
+			"Nothing wrong with a sedimentary lifestyle, chum.",
+			"I should have been a wrestler. I'm rock-hard! Hee!",
+			"Ah. You've taken a lode of my mind.",
+			"You sure have an apatite for this.",
+			"Woah. I'm tuff. But you're tuffer."
+		];
 	}
 
 	void mine({WebSocket userSocket, String email})

@@ -19,7 +19,6 @@ void main() {
 	dbManager = new PostgreSqlManager(databaseUri, min: 1, max: 9);
 
 	app.addPlugin(getMapperPlugin(dbManager));
-	app.addPlugin(getWebSocketPlugin());
 
 	app.setupConsoleLog();
 	app.start(port:port, autoCompress:true);
@@ -72,6 +71,18 @@ void main() {
 
 	//Keep track of when the server was started
 	startDate = new DateTime.now();
+}
+
+@app.Route('/listUsers')
+Future<List<String>> listUsers(@app.QueryParam('channel') String channel) async
+{
+	List<String> users = [];
+	List<Identifier> ids = ChatHandler.users.values.where((Identifier id) =>
+										id.channelList.contains(channel)).toList();
+
+	ids.forEach((Identifier id) => users.add(id.username));
+
+	return users;
 }
 
 @app.Route('/getItems')
@@ -161,7 +172,7 @@ Future<Map> getServerLog() async
 		statusMap['serverLog'] = result.stdout;
 		return statusMap;
 	}
-	catch(exception, stacktrace) {
+	catch(exception) {
 		statusMap['serverLog'] = exception.toString();
 		return statusMap;
 	}
@@ -169,9 +180,19 @@ Future<Map> getServerLog() async
 
 @app.Route('/slack', methods: const[app.POST])
 String parseMessageFromSlack(@app.Body(app.FORM) Map form) {
+	String token = form['token'];
+	if(token != couKey && token != glitchForeverKey && token != devKey) {
+		return "NOT AUTHORIZED";
+	}
+
 	String username = form['user_name'], text = form['text'];
+	Map map = {};
 	if(username != "slackbot" && text != null && text.isNotEmpty) {
-		Map map = {'username':'dev_$username', 'message': text, 'channel':'Global Chat'};
+		if(token == couKey) {
+			map = {'username':'dev_$username', 'message': text, 'channel':'Global Chat'};
+		} else {
+			map = {'username':'$username', 'message': text, 'channel':'Global Chat'};
+		}
 		ChatHandler.sendAll(JSON.encode(map));
 	}
 
@@ -196,19 +217,19 @@ Map getEntities(@app.QueryParam('tsid') String tsid) {
 @app.Route('/getRandomStreet')
 String getRandomStreet() => getTsidOfUnfilledStreet();
 
-@app.Route('/reportStreet')
-String reportStreet(@app.QueryParam('tsid') String tsid,
-                    @app.QueryParam('reason') String reason,
-                    @app.QueryParam('details') String details) {
-	reportBrokenStreet(tsid, reason);
-
-	//post a message to map-filler-reports
-	slack.token = mapFillerReportsToken;
-	slack.team = slackTeam;
-
-	String text = "$tsid: $reason\n$details";
-	slack.Message message = new slack.Message(text, username:"doesn't apply");
-	slack.send(message);
-
-	return "OK";
-}
+//@app.Route('/reportStreet')
+//String reportStreet(@app.QueryParam('tsid') String tsid,
+//                    @app.QueryParam('reason') String reason,
+//                    @app.QueryParam('details') String details) {
+//	reportBrokenStreet(tsid, reason);
+//
+//	//post a message to map-filler-reports
+//	slack.token = mapFillerReportsToken;
+//	slack.team = slackTeam;
+//
+//	String text = "$tsid: $reason\n$details";
+//	slack.Message message = new slack.Message(text, username:"doesn't apply");
+//	slack.send(message);
+//
+//	return "OK";
+//}

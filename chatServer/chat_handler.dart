@@ -42,10 +42,7 @@ class ChatHandler
 
 	static void slackSend(String username, String text)
 	{
-		slack.token = globalChatToken;
-        slack.team = slackTeam;
-
-        try
+		try
         {
         	String icon_url = "http://childrenofur.com/data/heads/$username.head.png";
             http.get(icon_url).then((response)
@@ -94,8 +91,13 @@ class ChatHandler
 
 	static void _sendMessage(String text, String username, String icon_url)
 	{
+		slack.Slack coUGlobal = new slack.Slack('https://hooks.slack.com/services/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');
 		slack.Message message = new slack.Message(text,username:username,icon_url:icon_url);
-		slack.send(message);
+		coUGlobal.send(message);
+
+		slack.Slack glitchForever = new slack.Slack('https://hooks.slack.com/services/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');
+		message = new slack.Message(text,username:username,icon_url:icon_url);
+		glitchForever.send(message);
 	}
 
 	static void cleanupLists(WebSocket ws, {String reason:'No reason given'})
@@ -152,6 +154,7 @@ class ChatHandler
     			map["message"] = ' joined.';
 				String street = map["street"];
 				users[userName] = (new Identifier(map["username"],street,map['tsid'],ws));
+				users[userName].channelList..add(map['street'])..add("Global Chat");
   			}
 			else if(map["statusMessage"] == "changeName")
 			{
@@ -187,11 +190,14 @@ class ChatHandler
 			else if(map["statusMessage"] == "changeStreet")
 			{
 				List<String> alreadySent = [];
-				users.forEach((String usernae, Identifier id)
+				users.forEach((String username, Identifier id)
 				{
-					if(id.username == map["username"])
+					if(username == map["username"]) {
 						id.currentStreet = map["newStreetLabel"];
-					if(!alreadySent.contains(id.username) && id.username != map["username"] && id.currentStreet == map["oldStreet"]) //others who were on the street with you
+						id.channelList.remove(map['oldStreetLabel']);
+						id.channelList.add(map['newStreetLabel']);
+					}
+					if(!alreadySent.contains(id.username) && id.username != map["username"] && id.currentStreet == map["oldStreetTsid"]) //others who were on the street with you
 					{
 						Map leftForMessage = new Map();
 						leftForMessage["statusMessage"] = "leftStreet";

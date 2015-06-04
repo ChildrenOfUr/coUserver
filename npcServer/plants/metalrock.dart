@@ -19,6 +19,18 @@ class MetalRock extends Rock
 			};
 		currentState = states['5-4-3-2-1'];
      	state = new Random().nextInt(currentState.numFrames);
+		responses['mine_$type'] = [
+			"Slave to the GRIND, kid! ROCK ON!",
+			"I’d feel worse if I wasn’t under such heavy sedation.",
+			"Sweet! Air pickaxe solo! C'MON!",
+			"Yeah. Appetite for destruction, man. I feel ya.",
+			"LET THERE BE ROCK!",
+			"Those who seek true metal, we salute you!",
+			"YEAH, man! You SHOOK me!",
+			"All hail the mighty metal power of the axe!",
+			"Metal, man! METAL!",
+			"Wield that axe like a metal-lover, man!"
+		];
 	}
 
 	void mine({WebSocket userSocket, String email})
