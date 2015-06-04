@@ -18,12 +18,29 @@ abstract class Rock extends Plant
 								   }
 								]
 					 });
+
+		responses = {
+			'gone' : [
+				"Oof, where'd I go?",
+				"brb",
+				"kbye",
+				"A la peanut butter sammiches",
+				"Alakazam!",
+				"*poof*",
+				"I'm all mined out!",
+				"Gone to the rock quarry in the sky",
+				"Yes. You hit rock bottom",
+				"All rocked out for now"
+			]
+		};
 	}
 
 	void update()
 	{
-		if(state >= currentState.numFrames)
-			setActionEnabled("mine",false);
+		if(state >= currentState.numFrames) {
+			say(responses['gone'].elementAt(rand.nextInt(responses['gone'].length)));
+			setActionEnabled("mine", false);
+		}
 
 		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0)
 		{
@@ -40,6 +57,8 @@ abstract class Rock extends Plant
 	{
 		//rocks spritesheets go from full to empty which is the opposite of trees
 		//so mining the rock will actually increase its state number
+
+		say(responses['mine_$type'].elementAt(rand.nextInt(responses['mine_$type'].length)));
 
 		StatBuffer.incrementStat("rocksMined", 1);
 		state++;

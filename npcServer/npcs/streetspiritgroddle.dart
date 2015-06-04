@@ -1,6 +1,7 @@
 part of coUserver;
 
 class StreetSpiritGroddle extends NPC {
+	int openCount = 0;
 	StreetSpiritGroddle(String id, int x, int y) : super(id, x, y) {
 		actionTime = 0;
 		actions
@@ -21,7 +22,9 @@ class StreetSpiritGroddle extends NPC {
 			"idle_hold":new Spritesheet("idle_hold", 'http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L0dirt_bottom_none_eyes_eyes_L0eyes1_skull_skull_L0dirt_top_none_x1_idle_hold_png_1354834558.png', 980, 1350, 98, 150, 85, true),
 			"idle_move":new Spritesheet("idle_move", 'http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L0dirt_bottom_none_eyes_eyes_L0eyes1_skull_skull_L0dirt_top_none_x1_idle_move_png_1354834567.png', 980, 1800, 98, 150, 119, true),
 			"turn":new Spritesheet("turn", 'http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L0dirt_bottom_none_eyes_eyes_L0eyes1_skull_skull_L0dirt_top_none_x1_turn_png_1354834563.png', 980, 600, 98, 150, 37, false),
-			"open":new Spritesheet("open", 'http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L0dirt_bottom_none_eyes_eyes_L0eyes1_skull_skull_L0dirt_top_none_x1_open_png_1354834564.png', 980, 300, 98, 150, 19, false)
+			"open":new Spritesheet("open", 'http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L0dirt_bottom_none_eyes_eyes_L0eyes1_skull_skull_L0dirt_top_none_x1_open_png_1354834564.png', 980, 300, 98, 150, 19, false),
+			"close":new Spritesheet("close", 'http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L0dirt_bottom_none_eyes_eyes_L0eyes1_skull_skull_L0dirt_top_none_x1_close_png_1354834565.png', 882, 300, 98, 150, 17, false),
+			"talk":new Spritesheet("talk", 'http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L0dirt_bottom_none_eyes_eyes_L0eyes1_skull_skull_L0dirt_top_none_x1_talk_png_1354834561.png', 882, 300, 98, 150, 17, false)
 		};
 		currentState = states['idle_hold'];
 	}
@@ -60,6 +63,11 @@ class StreetSpiritGroddle extends NPC {
 	}
 
 	void buy({WebSocket userSocket, String email}) {
+		currentState = states['open'];
+		//don't go to another state until closed
+		respawn = new DateTime.now().add(new Duration(days:50));
+		openCount++;
+
 		Map map = {};
 		map['vendorName'] = type;
 		map['id'] = id;
@@ -75,6 +83,17 @@ class StreetSpiritGroddle extends NPC {
 		map['itemsForSale'] = _getItemsForSale();
 		map['openWindow'] = 'vendorSell';
 		userSocket.add(JSON.encode(map));
+	}
+
+	void close({WebSocket userSocket, String email}) {
+		openCount -= 1;
+		//if no one else has them open
+		if(openCount <= 0) {
+			openCount = 0;
+			currentState = states['close'];
+			int length = (currentState.numFrames / 30 * 1000).toInt();
+			respawn = new DateTime.now().add(new Duration(milliseconds:length));
+		}
 	}
 
 	buyItem({WebSocket userSocket, String itemName, int num, String email}) async {

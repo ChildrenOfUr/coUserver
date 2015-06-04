@@ -12,6 +12,21 @@ class SparklyRock extends Rock
 			};
 		currentState = states['5-4-3-2-1'];
      	state = new Random().nextInt(currentState.numFrames);
+
+		responses['mine_$type'] = [
+			"You rock my world!",
+			"I've taken a shine to you.",
+			"Here! What's mined is yours!",
+			"Pick me! Pick me!",
+			"I sparkle! You sparkle! Sparkles!",
+			"Oooh, you're cute. You into carbon-dating?",
+			"Oh yeah! Who's your magma?!?",
+			"Yay! You picked me!",
+			"Hey, cutestuff! You make me sliver.",
+			"You crack me up, Glitchy!",
+			"Yay! Everything should sparkle! Except maybe vampires.",
+			"Together, we'll make the world sparkly, Glitchy"
+		];
 	}
 
 	void mine({WebSocket userSocket, String email})
