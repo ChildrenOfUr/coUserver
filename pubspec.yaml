@@ -9,4 +9,5 @@ dependencies:
   postgresql: any
   redstone_mapper_pg: "0.1.1"
   slack: any
+  shelf: any
   image: any
