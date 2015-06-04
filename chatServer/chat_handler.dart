@@ -91,11 +91,11 @@ class ChatHandler
 
 	static void _sendMessage(String text, String username, String icon_url)
 	{
-		slack.Slack coUGlobal = new slack.Slack('https://hooks.slack.com/services/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');
+		slack.Slack coUGlobal = new slack.Slack(couWebhook);
 		slack.Message message = new slack.Message(text,username:username,icon_url:icon_url);
 		coUGlobal.send(message);
 
-		slack.Slack glitchForever = new slack.Slack('https://hooks.slack.com/services/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');
+		slack.Slack glitchForever = new slack.Slack(glitchForeverWebhook);
 		message = new slack.Message(text,username:username,icon_url:icon_url);
 		glitchForever.send(message);
 	}
