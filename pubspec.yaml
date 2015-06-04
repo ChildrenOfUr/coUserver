@@ -5,9 +5,8 @@ description: The sourcecode/tools needed to hack/compile the Children of Ur serv
 dependencies:
   intl: any
   http: any
-  redstone: any
+  redstone: "^0.5.1"
   postgresql: any
-  redstone_mapper_pg: any
-  redstone_web_socket: any
+  redstone_mapper_pg: "0.1.1"
   slack: any
   image: any

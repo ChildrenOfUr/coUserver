@@ -42,10 +42,7 @@ class ChatHandler
 
 	static void slackSend(String username, String text)
 	{
-		slack.token = globalChatToken;
-        slack.team = slackTeam;
-
-        try
+		try
         {
         	String icon_url = "http://childrenofur.com/data/heads/$username.head.png";
             http.get(icon_url).then((response)
@@ -94,8 +91,9 @@ class ChatHandler
 
 	static void _sendMessage(String text, String username, String icon_url)
 	{
+		slack.Slack coUGlobal = new slack.Slack('https://hooks.slack.com/services/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');
 		slack.Message message = new slack.Message(text,username:username,icon_url:icon_url);
-		slack.send(message);
+		coUGlobal.send(message);
 	}
 
 	static void cleanupLists(WebSocket ws, {String reason:'No reason given'})

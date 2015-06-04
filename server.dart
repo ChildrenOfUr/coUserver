@@ -173,7 +173,7 @@ Future<Map> getServerLog() async
 		statusMap['serverLog'] = result.stdout;
 		return statusMap;
 	}
-	catch(exception, stacktrace) {
+	catch(exception) {
 		statusMap['serverLog'] = exception.toString();
 		return statusMap;
 	}
@@ -217,19 +217,19 @@ Map getEntities(@app.QueryParam('tsid') String tsid) {
 @app.Route('/getRandomStreet')
 String getRandomStreet() => getTsidOfUnfilledStreet();
 
-@app.Route('/reportStreet')
-String reportStreet(@app.QueryParam('tsid') String tsid,
-                    @app.QueryParam('reason') String reason,
-                    @app.QueryParam('details') String details) {
-	reportBrokenStreet(tsid, reason);
-
-	//post a message to map-filler-reports
-	slack.token = mapFillerReportsToken;
-	slack.team = slackTeam;
-
-	String text = "$tsid: $reason\n$details";
-	slack.Message message = new slack.Message(text, username:"doesn't apply");
-	slack.send(message);
-
-	return "OK";
-}
+//@app.Route('/reportStreet')
+//String reportStreet(@app.QueryParam('tsid') String tsid,
+//                    @app.QueryParam('reason') String reason,
+//                    @app.QueryParam('details') String details) {
+//	reportBrokenStreet(tsid, reason);
+//
+//	//post a message to map-filler-reports
+//	slack.token = mapFillerReportsToken;
+//	slack.team = slackTeam;
+//
+//	String text = "$tsid: $reason\n$details";
+//	slack.Message message = new slack.Message(text, username:"doesn't apply");
+//	slack.send(message);
+//
+//	return "OK";
+//}

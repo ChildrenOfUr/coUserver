@@ -80,7 +80,7 @@ class StreetSpiritGroddle extends NPC {
 		//don't go to another state until closed
 		respawn = new DateTime.now().add(new Duration(days:50));
 		openCount++;
-		
+
 		//prepare the buy window at the same time
 		Map map = {};
 		map['vendorName'] = type;
