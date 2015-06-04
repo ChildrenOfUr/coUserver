@@ -182,8 +182,9 @@ Future<Map> getServerLog() async
 @app.Route('/slack', methods: const[app.POST])
 String parseMessageFromSlack(@app.Body(app.FORM) Map form) {
 	String token = form['token'];
-	if(token != couKey || token != glitchForeverKey)
+	if(token != couKey && token != glitchForeverKey) {
 		return "NOT AUTHORIZED";
+	}
 
 	String username = form['user_name'], text = form['text'];
 	Map map = {};
