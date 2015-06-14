@@ -43,6 +43,8 @@ void main() {
 					StreetUpdateHandler.handle(websocket);
 				else if(request.uri.path == "/metabolics")
 					MetabolicsEndpoint.handle(websocket);
+				else if(request.uri.path == "/weather")
+					WeatherEndpoint.handle(websocket);
 			})
 			.catchError((error) {
 				log("error: $error");

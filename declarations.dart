@@ -26,6 +26,8 @@ part 'server.dart';
 part 'API_KEYS.dart';
 part 'auctions_service.dart';
 part 'metabolics.dart';
+part 'weather.dart';
+part 'holidays.dart';
 
 //common to all server parts
 part 'common/identifier.dart';
