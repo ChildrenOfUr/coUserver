@@ -10,7 +10,7 @@ class WeatherEndpoint
 	static Map<String,WebSocket> userSockets = {};
 	static Random rand = new Random();
 	static WeatherState currentState = WeatherState.CLEAR;
-	static DateTime respawn = null;
+	static DateTime respawn = new DateTime.now();
 
 	static void handle(WebSocket ws)
 	{
@@ -25,10 +25,8 @@ class WeatherEndpoint
 	{
 		String leavingUser;
 
-		userSockets.forEach((String username, WebSocket socket)
-		{
-			if(ws == socket)
-			{
+		userSockets.forEach((String username, WebSocket socket) {
+			if(ws == socket) {
 				socket = null;
 				leavingUser = username;
 			}
@@ -49,13 +47,12 @@ class WeatherEndpoint
 		ws.add(JSON.encode({'state':currentState.index}));
 	}
 
-	static void simulate()
-	{
+	static void simulate() {
 		//decide what kind of weather should happen
 		//once we've picked one, we should set a timeout so that we don't change it for a while
 		//maybe 20 in-game minutes to 60 in-game minutes before we decide again
 		//75% chance of clear skies, 25% chance of rain/snow
-		if(respawn == null || respawn.compareTo(new DateTime.now()) > 1) {
+		if(respawn == null || respawn.compareTo(new DateTime.now()) > 0) {
 			return;
 		}
 
@@ -66,12 +63,11 @@ class WeatherEndpoint
 			currentState = WeatherState.CLEAR;
 		}
 
-		//int numGameMinutes = rand.nextInt(40)+20;
-		int numGameMinutes = 1;
+		int numGameMinutes = rand.nextInt(40)+20;
 		respawn = new DateTime.now().add(new Duration(seconds:numGameMinutes*10));
 
 		//once we've decided what to do, send the current weather to all the connected users
-		userSockets.forEach((String username, WebSocket ws) async {
+		userSockets.forEach((String username, WebSocket ws) {
 			ws.add(JSON.encode({'state':currentState.index}));
 		});
 	}
