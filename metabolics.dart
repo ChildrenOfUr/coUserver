@@ -138,22 +138,31 @@ class MetabolicsEndpoint
 		// TODO: change 1 to the real quoin multiplier
 		amt = amt * quoinMultiplier;
 
-		if(q.type == "quarazy")
+		if(q.type == "quarazy") {
 			amt *= 7;
+		}
 
 		Metabolics m = await getMetabolics(username:username);
 
-		if(q.type == 'currant')
+		if(q.type == 'currant') {
 			m.currants += amt;
-		if(q.type == 'img' || q.type == 'quarazy')
-		{
+		}
+		if(q.type == 'img' || q.type == 'quarazy') {
 			m.img += amt;
 			m.lifetime_img += amt;
 		}
-		if(q.type == 'mood')
+		if(q.type == 'mood') {
 			m.mood += amt;
-		if(q.type == 'energy')
+			if (m.mood > m.max_mood) {
+				m.mood = m.max_mood;
+			}
+		}
+		if(q.type == 'energy') {
 			m.energy += amt;
+			if (m.energy > m.max_energy) {
+				m.energy = m.max_energy;
+			}
+		}
 
 		try
 		{
