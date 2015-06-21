@@ -113,6 +113,15 @@
     "durability": 250,
     "description": "More refined than your average hoe, the High-Class Hoe is a hoe you'll be proud to be seen with. Extra investment brings a five-times longer lifespan: With this glamorous new companion you'll be hoeing the whole night through."
   },
+  "Luminous Moonstone": {
+    "category": "Collectibles",
+    "name": "Luminous Moonstone",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/gem_moonstone__x1_iconic_png_1354831649.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gem_moonstone__x1_iconic_png_1354831649.png",
+    "stacksTo": 3,
+    "price": 1000,
+    "description": "A moonstone of eerie luminosity."
+  },
   "Lump of Earth": {
     "category": "Basic Resources",
     "name": "Lump of Earth",
@@ -189,6 +198,15 @@
     "price": 5,
     "description": "A plain wooden plank with many uses."
   },
+  "Pleasing Amber": {
+    "category": "Collectibles",
+    "name": "Pleasing Amber",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/gem_amber__x1_iconic_png_1354831638.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gem_amber__x1_iconic_png_1354831638.png",
+    "stacksTo": 10,
+    "price": 200,
+    "description": "A pleasing chunk of amber."
+  },
   "Shovel": {
     "category": "Tools",
     "name": "Shovel",
@@ -200,5 +218,24 @@
     "iconNum": 1,
     "durability": 100,
     "description": "An essential for anyone that calls a spade a shovel, this simple tool masterpiece can be used to harvest Peat, dig for dirt (well, Earth), and occasionally land a juicy piece of Loam."
+  },
+  "Showy Sapphire": {
+    "category": "Collectibles",
+    "name": "Showy Sapphire",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/gem_sapphire__x1_iconic_png_1354831654.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gem_sapphire__x1_iconic_png_1354831654.png",
+    "stacksTo": 5,
+    "price": 400,
+    "description": "A somewhat showy sapphire."
+  },
+  "Walloping Big Diamond": {
+    "category": "Collectibles",
+    "name": "Walloping Big Diamond",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/gem_diamond__x1_iconic_png_1354831646.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gem_diamond__x1_iconic_png_1354831646.png",
+    "stacksTo": 3,
+    "price": 2000,
+    "iconNum": 1,
+    "description": "Yep, that's a walloping big diamond."
   }
 }

@@ -28,7 +28,7 @@ class DulliteRock extends Rock
 
 	void mine({WebSocket userSocket, String email})
 	{
-		super.mine(userSocket:userSocket);
+		super.mine(userSocket:userSocket,email:email);
 
 		//give the player the 'fruits' of their labor
 		addItemToUser(userSocket,email,items['Chunk of Dullite'].getMap(),1,id);
