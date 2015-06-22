@@ -43,7 +43,18 @@ class DirtPile extends Plant {
 			state = maxState;
 	}
 
-	void dig({WebSocket userSocket, String email}) {
+	Future<bool> dig({WebSocket userSocket, String email}) async {
+		Metabolics m = await getMetabolics(email:email);
+		if(m.energy < 5) {
+			return false;
+		} else {
+			m.energy -= 5;
+			int result = await setMetabolics(m);
+			if(result < 1) {
+				return false;
+			}
+		}
+
 		StatBuffer.incrementStat("dirtDug", 1);
 		state++;
 		if(state >= currentState.numFrames)
@@ -55,5 +66,7 @@ class DirtPile extends Plant {
 		//1 in 10 chance to get a lump of loam as well
 		if(new Random().nextInt(10) == 5)
 			addItemToUser(userSocket, email, items['Lump of Loam'].getMap(), 1, id);
+
+		return true;
 	}
 }
