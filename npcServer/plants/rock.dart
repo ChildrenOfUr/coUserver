@@ -1,21 +1,21 @@
 part of coUserver;
 
 abstract class Rock extends Plant {
-	Rock(String id, int x, int y) : super(id,x,y) {
+	Rock(String id, int x, int y) : super(id, x, y) {
 		maxState = 0;
 		actionTime = 5000;
 
 		actions.add({"action":"mine",
-					 "actionWord":"mining",
-					 "timeRequired":actionTime,
-					 "enabled":true,
-					 "requires":[
-					               {
-								     "num":1,
-								     "of":["Pick","Fancy Pick"]
-								   }
-								]
-					 });
+			            "actionWord":"mining",
+			            "timeRequired":actionTime,
+			            "enabled":true,
+			            "requires":[
+				            {
+					            "num":1,
+					            "of":["Pick", "Fancy Pick"]
+				            }
+			            ]
+		            });
 
 		responses = {
 			'gone' : [
@@ -33,8 +33,7 @@ abstract class Rock extends Plant {
 		};
 	}
 
-	void update()
-	{
+	void update() {
 		if(state >= currentState.numFrames) {
 			say(responses['gone'].elementAt(rand.nextInt(responses['gone'].length)));
 			setActionEnabled("mine", false);
@@ -42,7 +41,7 @@ abstract class Rock extends Plant {
 
 		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0) {
 			state = 0;
-			setActionEnabled("mine",true);
+			setActionEnabled("mine", true);
 			respawn = null;
 		}
 
@@ -51,8 +50,20 @@ abstract class Rock extends Plant {
 		}
 	}
 
-	void mine({WebSocket userSocket, String email})
-	{
+	Future<bool> mine({WebSocket userSocket, String email}) async {
+		//make sure the player has 10 energy to perform this action
+		//if so, allow the action and subtract 10 from their energy
+		Metabolics m = await getMetabolics(email:email);
+		if(m.energy < 10) {
+			return false;
+		} else {
+			m.energy -= 10;
+			int result = await setMetabolics(m);
+			if(result < 1) {
+				return false;
+			}
+		}
+
 		//rocks spritesheets go from full to empty which is the opposite of trees
 		//so mining the rock will actually increase its state number
 
@@ -85,5 +96,7 @@ abstract class Rock extends Plant {
 		if(rand.nextInt(20) == 5) {
 			addItemToUser(userSocket, email, items['Walloping Big Diamond'].getMap(), 1, id);
 		}
+
+		return true;
 	}
 }

@@ -1,39 +1,50 @@
 part of coUserver;
 
-abstract class Tree extends Plant
-{
+abstract class Tree extends Plant {
 	int maturity;
 
-	Tree(String id, int x, int y) : super(id,x,y)
-	{
-		actions..add({"action":"harvest",
-					  "timeRequired":actionTime,
-					  "enabled":true,
-					 "actionWord":"harvesting"})
-			   ..add({"action":"water",
-					  "timeRequired":actionTime,
-					  "enabled":true,
-					  "actionWord":"watering"})
-			   ..add({"action":"pet",
-					  "timeRequired":actionTime,
-					  "enabled":true,
-					  "actionWord":"petting"});
+	Tree(String id, int x, int y) : super(id, x, y) {
+		actions
+			..add({"action":"harvest",
+				      "timeRequired":actionTime,
+				      "enabled":true,
+				      "actionWord":"harvesting"})
+			..add({"action":"water",
+				      "timeRequired":actionTime,
+				      "enabled":true,
+				      "actionWord":"watering"})
+			..add({"action":"pet",
+				      "timeRequired":actionTime,
+				      "enabled":true,
+				      "actionWord":"petting"});
 	}
 
-	void update()
-	{
+	void update() {
 		super.update();
 
 		if(state > 0)
-			setActionEnabled("harvest",true);
+			setActionEnabled("harvest", true);
 		else
-			setActionEnabled("harvest",false);
+			setActionEnabled("harvest", false);
 	}
 
-	harvest({WebSocket userSocket, String email})
-	{
-		if(state == 0)
-			return;
+	Future<bool> harvest({WebSocket userSocket, String email}) async {
+		//make sure the player has 5 energy to perform this action
+		//if so, allow the action and subtract 5 from their energy
+		Metabolics m = await getMetabolics(email:email);
+		if(m.energy < 5) {
+			return false;
+		} else {
+			m.energy -= 5;
+			int result = await setMetabolics(m);
+			if(result < 1) {
+				return false;
+			}
+		}
+
+		if(state == 0) {
+			return false;
+		}
 
 		//say a witty thing
 		say(responses['harvest'].elementAt(rand.nextInt(responses['harvest'].length)));
@@ -42,14 +53,28 @@ abstract class Tree extends Plant
 		respawn = new DateTime.now().add(new Duration(seconds:30));
 		state--;
 
-		if(state < 0)
+		if(state < 0) {
 			state = 0;
+		}
+
+		return true;
 	}
 
-	water({WebSocket userSocket, String email})
-	{
-		if(state == maxState)
-			return;
+	Future<bool> water({WebSocket userSocket, String email}) async {
+		Metabolics m = await getMetabolics(email:email);
+		if(m.energy < 2) {
+			return false;
+		} else {
+			m.energy -= 2;
+			int result = await setMetabolics(m);
+			if(result < 1) {
+				return false;
+			}
+		}
+
+		if(state == maxState) {
+			return false;
+		}
 
 		//say a witty thing
 		say(responses['water'].elementAt(rand.nextInt(responses['water'].length)));
@@ -60,13 +85,29 @@ abstract class Tree extends Plant
 
 		if(state > maxState)
 			state = maxState;
+
+		return true;
 	}
 
-	pet({WebSocket userSocket, String email})
-	{
+	Future<bool> pet({WebSocket userSocket, String email}) async {
+		Metabolics m = await
+		getMetabolics(email:email);
+		if(m.energy < 2) {
+			return false;
+		} else {
+			m.energy -= 2;
+			int result = await
+			setMetabolics(m);
+			if(result < 1) {
+				return false;
+			}
+		}
+
 		//say a witty thing
 		say(responses['pet'].elementAt(rand.nextInt(responses['pet'].length)));
 
 		StatBuffer.incrementStat("treesPetted", 1);
+
+		return true;
 	}
 }

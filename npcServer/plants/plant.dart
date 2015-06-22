@@ -1,7 +1,6 @@
 part of coUserver;
 
-abstract class Plant extends Entity
-{
+abstract class Plant extends Entity {
 	/**
 	 * Will check for plant growth/decay and send updates to clients if needed
 	 *
@@ -14,18 +13,15 @@ abstract class Plant extends Entity
 	int state, maxState, x, y, actionTime = 3000;
 	DateTime respawn;
 	List<Map> actions = [];
-	Map<String,Spritesheet> states;
-    Spritesheet currentState;
+	Map<String, Spritesheet> states;
+	Spritesheet currentState;
 
-	Plant(this.id,this.x,this.y)
-	{
+	Plant(this.id, this.x, this.y) {
 		respawn = new DateTime.now();
 	}
 
-	void update()
-	{
-		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0)
-		{
+	void update() {
+		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0) {
 			state++;
 			respawn = new DateTime.now().add(new Duration(seconds:30));
 		}
@@ -34,8 +30,7 @@ abstract class Plant extends Entity
 			state = maxState;
 	}
 
-	Map getMap()
-	{
+	Map getMap() {
 		Map map = super.getMap();
 		map['url'] = currentState.url;
 		map['id'] = id;
@@ -47,6 +42,6 @@ abstract class Plant extends Entity
 		map["actions"] = actions;
 		map['x'] = x;
 		map['y'] = y;
-        return map;
+		return map;
 	}
 }

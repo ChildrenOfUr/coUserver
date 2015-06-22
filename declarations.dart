@@ -24,6 +24,8 @@ import 'package:image/image.dart';
 //contains the main() method to start the server
 part 'server.dart';
 part 'API_KEYS.dart';
+
+//various service endpoints
 part 'auctions_service.dart';
 part 'metabolics.dart';
 part 'weather.dart';

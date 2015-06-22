@@ -27,10 +27,14 @@ class SparklyRock extends Rock {
 		];
 	}
 
-	void mine({WebSocket userSocket, String email}) {
-		super.mine(userSocket:userSocket,email:email);
+	Future<bool> mine({WebSocket userSocket, String email}) async {
+		bool success = await super.mine(userSocket:userSocket, email:email);
 
-		//give the player the 'fruits' of their labor
-		addItemToUser(userSocket, email, items['Chunk of Sparkly'].getMap(), 1, id);
+		if(success) {
+			//give the player the 'fruits' of their labor
+			addItemToUser(userSocket, email, items['Chunk of Sparkly'].getMap(), 1, id);
+		}
+
+		return success;
 	}
 }

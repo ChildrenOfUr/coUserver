@@ -1,45 +1,41 @@
 part of coUserver;
 
-class DirtPile extends Plant
-{
-	DirtPile(String id, int x, int y) : super(id,x,y)
-	{
+class DirtPile extends Plant {
+	DirtPile(String id, int x, int y) : super(id, x, y) {
 		actionTime = 3000;
 		type = "Dirt Pile";
 
 		actions.add({"action":"dig",
-					 "actionWord":"digging",
-					 "timeRequired":actionTime,
-					 "enabled":true,
-					 "requires":[
-					               {
-								     "num":1,
-								     "of":["Shovel","Ace of Spades"]
-								   }
-								]
-					 });
+			            "actionWord":"digging",
+			            "timeRequired":actionTime,
+			            "enabled":true,
+			            "requires":[
+				            {
+					            "num":1,
+					            "of":["Shovel", "Ace of Spades"]
+				            }
+			            ]
+		            });
 
 		states =
-			{
-				"maturity_1" : new Spritesheet("maturity_1","http://c2.glitch.bz/items/2012-12-06/dirt_pile_dirt_state_x11_1_variant_dirt1_1_png_1354833756.png",780,213,195,71,11,false),
-				"maturity_2" : new Spritesheet("maturity_2","http://c2.glitch.bz/items/2012-12-06/dirt_pile_dirt_state_x11_1_variant_dirt2_1_png_1354833757.png",780,213,195,71,11,false)
-			};
-		int maturity = new Random().nextInt(states.length)+1;
-	 	currentState = states['maturity_$maturity'];
-	 	state = new Random().nextInt(currentState.numFrames);
-	 	maxState = 0;
+		{
+			"maturity_1" : new Spritesheet("maturity_1", "http://c2.glitch.bz/items/2012-12-06/dirt_pile_dirt_state_x11_1_variant_dirt1_1_png_1354833756.png", 780, 213, 195, 71, 11, false),
+			"maturity_2" : new Spritesheet("maturity_2", "http://c2.glitch.bz/items/2012-12-06/dirt_pile_dirt_state_x11_1_variant_dirt2_1_png_1354833757.png", 780, 213, 195, 71, 11, false)
+		};
+		int maturity = new Random().nextInt(states.length) + 1;
+		currentState = states['maturity_$maturity'];
+		state = new Random().nextInt(currentState.numFrames);
+		maxState = 0;
 	}
 
 	@override
-	void update()
-	{
+	void update() {
 		if(state >= currentState.numFrames)
-			setActionEnabled("dig",false);
+			setActionEnabled("dig", false);
 
-		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0)
-		{
+		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0) {
 			state = 0;
-			setActionEnabled("dig",true);
+			setActionEnabled("dig", true);
 			respawn = null;
 		}
 
@@ -47,18 +43,17 @@ class DirtPile extends Plant
 			state = maxState;
 	}
 
-	void dig({WebSocket userSocket, String email})
-	{
+	void dig({WebSocket userSocket, String email}) {
 		StatBuffer.incrementStat("dirtDug", 1);
 		state++;
 		if(state >= currentState.numFrames)
 			respawn = new DateTime.now().add(new Duration(minutes:2));
 
 		//give the player the 'fruits' of their labor
-		addItemToUser(userSocket,email,items['Lump of Earth'].getMap(),1,id);
+		addItemToUser(userSocket, email, items['Lump of Earth'].getMap(), 1, id);
 
 		//1 in 10 chance to get a lump of loam as well
 		if(new Random().nextInt(10) == 5)
-			addItemToUser(userSocket,email,items['Lump of Loam'].getMap(),1,id);
+			addItemToUser(userSocket, email, items['Lump of Loam'].getMap(), 1, id);
 	}
 }
