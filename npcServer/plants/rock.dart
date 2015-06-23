@@ -58,6 +58,7 @@ abstract class Rock extends Plant {
 			return false;
 		} else {
 			m.energy -= 10;
+			m.img = m.img + (10 * ((100 / m.max_mood) * (m.mood / 100))).round();
 			int result = await setMetabolics(m);
 			if(result < 1) {
 				return false;
