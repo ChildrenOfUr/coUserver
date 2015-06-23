@@ -11,7 +11,7 @@ class Humbaba extends Shrine
 				"still" : new Spritesheet("still","http://c2.glitch.bz/items/2012-12-06/npc_shrine_humbaba__x1_open_png_1354831227.png",906,752,151,188,1,false)
 			};
 	 	currentState = states['still'];
-	 	type = 'humbaba';
+	 	type = 'Humbaba';
 
 	 	description = 'This is a shrine to Humbaba, the giant who rules both two-legged and four-legged beasts. Actually, she rules all the beasts with even-numbered quantities of legs. The odd-numbered ones are on their own.';
 	}

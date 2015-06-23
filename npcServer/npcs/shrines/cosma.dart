@@ -11,7 +11,7 @@ class Cosma extends Shrine
 				"still" : new Spritesheet("still","http://c2.glitch.bz/items/2012-12-06/npc_shrine_cosma__x1_open_png_1354831212.png",906,752,151,188,1,false)
 			};
 	 	currentState = states['still'];
-	 	type = 'cosma';
+	 	type = 'Cosma';
 
 	 	description = 'This is a shrine to Cosma. As the giant who governs the sky, Cosma is also the giant of levity and meditation. She is, also, the only giant capable of herding butterflies.';
 	}

@@ -11,7 +11,7 @@ class Grendaline extends Shrine
 				"still" : new Spritesheet("still","http://c2.glitch.bz/items/2012-12-06/npc_shrine_grendaline__x1_open_png_1354831222.png",906,752,151,188,1,false)
 			};
 	 	currentState = states['still'];
-	 	type = 'grendaline';
+	 	type = 'Grendaline';
 
 	 	description = 'This is a shrine to Grendaline. Quietly loyal and fierce, Grendaline is the giant who governs all things watery, from clouds and fogs to mountain streams and oceans. As a sideline, she is also influential in the sphere of big, fluffy towels.';
 	}

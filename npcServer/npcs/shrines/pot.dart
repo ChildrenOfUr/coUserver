@@ -11,7 +11,7 @@ class Pot extends Shrine
 				"still" : new Spritesheet("still","http://c2.glitch.bz/items/2012-12-06/npc_shrine_pot__x1_open_png_1354831241.png",906,752,151,188,1,false)
 			};
 	 	currentState = states['still'];
-	 	type = 'pot';
+	 	type = 'Pot';
 
 	 	description = 'This is a shrine to Pot. Big-hearted and generous, Pot is the giant who dispenses prosperity and good fortune. Which is all well and good if you can keep sloth and indolence at bay. Tricky.';
 	}

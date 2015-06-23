@@ -11,7 +11,7 @@ class Lem extends Shrine
 				"still" : new Spritesheet("still","http://c2.glitch.bz/items/2012-12-06/npc_shrine_lem__x1_open_png_1354831232.png",906,752,151,188,1,false)
 			};
 	 	currentState = states['still'];
-	 	type = 'lem';
+	 	type = 'Lem';
 
 	 	description = 'This is a shrine to Lem, the giant of travel and navigation. If you\'ve ever found yourself somewhere you didn\'t plan to be, chances are it was a Lemish practical joke, for which he is utterly unrepentant.';
 	}

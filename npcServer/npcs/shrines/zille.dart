@@ -11,7 +11,7 @@ class Zille extends Shrine
 				"still" : new Spritesheet("still","http://c2.glitch.bz/items/2012-12-06/npc_shrine_zille__x1_open_png_1354831251.png",906,752,151,188,1,false)
 			};
 	 	currentState = states['still'];
-	 	type = 'zille';
+	 	type = 'Zille';
 
 	 	description = 'This is a shrine to Zille, the giant whose domain is the mountains. Hills, too. Also hillocks, pingos, drumlins and buttes. It\'s safe to consider that any bump in the ground is Zille\'s turf. She takes no responsibility, however, for volcanoes.';
 	}
