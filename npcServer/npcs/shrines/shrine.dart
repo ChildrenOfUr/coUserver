@@ -21,7 +21,7 @@ class Shrine extends NPC {
 
 		String giantName = type.substring(0, 1).toUpperCase() + type.substring(1);
 		Map map = {};
-		map['giantName'] = giantName.substring(0, 1).toUpperCase() + giantName.substring(1, giantName.length);
+		map['giantName'] = giantName;
 		map['favor'] = m.favor[giantName];
 		map['maxFavor'] = 1000;
 		userSocket.add(JSON.encode(map));
