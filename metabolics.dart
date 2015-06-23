@@ -37,6 +37,13 @@ class Metabolics
 
 	@Field()
 	int user_id = -1;
+
+	@Field(model: 'favor')
+	String _favor = '{"alph":0,"cosma":0,"friendly":0,"grendaline":0,"humbaba":0,"lem":0,"mab":0,"pot":0,"spriggan":0,"tii":0,"zille":0}';
+
+	Map<String,int> get favor {
+		return JSON.decode(_favor);
+	}
 }
 
 class MetabolicsEndpoint
