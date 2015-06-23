@@ -39,7 +39,7 @@ class Metabolics
 	int user_id = -1;
 
 	@Field(model: 'favor')
-	String _favor = '{"alph":0,"cosma":0,"friendly":0,"grendaline":0,"humbaba":0,"lem":0,"mab":0,"pot":0,"spriggan":0,"tii":0,"zille":0}';
+	String _favor = '{"Alph":0,"Cosma":0,"Friendly":0,"Grendaline":0,"Humbaba":0,"Lem":0,"Mab":0,"Pot":0,"Spriggan":0,"Tii":0,"Zille":0}';
 
 	Map<String,int> get favor {
 		return JSON.decode(_favor);

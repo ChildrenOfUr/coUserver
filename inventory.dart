@@ -169,18 +169,28 @@ Future<int> addItemToUser(WebSocket userSocket, String email, Map item, int coun
 	return numRows;
 }
 
-Future<int> takeItemFromUser(WebSocket userSocket, String email, String itemName, int count) async
+Future<bool> takeItemFromUser(WebSocket userSocket, String email, String itemName, int count) async
 {
 	PostgreSql dbConn = await dbManager.getConnection();
 
 	Inventory inventory = await getUserInventory(email);
-	int rowsUpdated = await inventory.takeItem(itemName,count,dbConn);
+	int num = 0;
+	inventory.getItems().forEach((Map slot) {
+		if(slot['name'] == itemName)
+			num++;
+	});
+	if(num >= count) {
+		int rowsUpdated = await inventory.takeItem(itemName,count,dbConn);
 
-	if(rowsUpdated > 0)
-		takeItem(userSocket,itemName,count);
+		if(rowsUpdated > 0)
+			takeItem(userSocket,itemName,count);
 
-	dbManager.closeConnection(dbConn);
-	return rowsUpdated;
+		dbManager.closeConnection(dbConn);
+
+		return true;
+	}
+
+	return false;
 }
 
 Future fireInventoryAtUser(WebSocket userSocket, String email) async

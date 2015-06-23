@@ -2,31 +2,41 @@ part of coUserver;
 
 class Shrine extends NPC {
 	String description;
-	String giantName;
 
 	Shrine(String id, int x, int y) : super(id, x, y) {
 		actionTime = 0;
 
-		giantName = type.substring(0, 1).toUpperCase() + type.substring(1);
 		actions
-			..add({"action":"donate",
+			..add({"action":"Commune With",
 				      "timeRequired":actionTime,
-				      "enabled":false,
-				      "actionWord":"Commune with $giantName"});
+				      "enabled":true,
+				      "actionWord":""});
 	}
 
 	@override
-	void update() {
+	void update() {}
 
-	}
-
-	donate({WebSocket userSocket, Map map, String email}) async {
+	communeWith({WebSocket userSocket, String email}) async {
 		Metabolics m = await getMetabolics(email:email);
 
+		String giantName = type.substring(0, 1).toUpperCase() + type.substring(1);
 		Map map = {};
 		map['giantName'] = giantName;
 		map['favor'] = m.favor[giantName];
 		map['maxFavor'] = 1000;
 		userSocket.add(JSON.encode(map));
+	}
+
+	donate({WebSocket userSocket, String itemName, int num, String email}) async {
+		bool success = await takeItemFromUser(userSocket, email, itemName, num);
+
+		if(success) {
+			Item item = items[itemName];
+
+			String giantName = type.substring(0, 1).toUpperCase() + type.substring(1);
+			Metabolics m = await getMetabolics(email:email);
+			m.favor[giantName] += (item.price * num * .35) ~/ 1;
+			setMetabolics(m);
+		}
 	}
 }

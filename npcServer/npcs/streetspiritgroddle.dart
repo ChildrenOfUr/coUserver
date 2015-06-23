@@ -114,22 +114,14 @@ class StreetSpiritGroddle extends NPC {
 	}
 
 	sellItem({WebSocket userSocket, String itemName, int num, String email}) async {
-		//TODO: obviously do checks to see if this can succeed
-		Inventory inventory = await getUserInventory(email);
-		int count = 0;
-		inventory.getItems().forEach((Map slot) {
-			if(slot['name'] == itemName)
-				count++;
-		});
-		if(count >= num) {
+		bool success = await takeItemFromUser(userSocket, email, itemName, num);
+
+		if(success) {
 			Item item = items[itemName];
 
 			Metabolics m = await getMetabolics(email:email);
 			m.currants += (item.price * num * .7) ~/ 1;
 			setMetabolics(m);
-
-
-			takeItemFromUser(userSocket, email, itemName, num);
 		}
 	}
 

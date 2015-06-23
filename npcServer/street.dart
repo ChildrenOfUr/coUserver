@@ -59,7 +59,7 @@ class Street
                         	plants[id] = classMirror.newInstance(new Symbol(""), [id,x,y]).reflectee;
 						}
 					}
-					catch(e){}//log("Unable to instantiate a class for $type: $e");}
+					catch(e){log("Unable to instantiate a class for $type: $e");}
 				}
 			}
 		}
