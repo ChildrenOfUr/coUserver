@@ -73,6 +73,10 @@ void main() {
 
 	//Keep track of when the server was started
 	startDate = new DateTime.now();
+
+	//refill everyone's energy on the start of a new day
+	Clock clock = new Clock();
+	clock.onNewDay.listen((_) => MetabolicsEndpoint.refillAllEnergy());
 }
 
 @app.Route('/listUsers')

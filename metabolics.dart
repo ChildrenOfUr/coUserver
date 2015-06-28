@@ -55,6 +55,14 @@ class MetabolicsEndpoint
 	static Map<String,WebSocket> userSockets = {};
 	static Random rand = new Random();
 
+	static void refillAllEnergy() {
+		userSockets.forEach((String username, WebSocket ws) async {
+			Metabolics m = await getMetabolics(username:username);
+			m.energy = m.max_energy;
+			setMetabolics(m);
+		});
+	}
+
 	static void handle(WebSocket ws)
 	{
 		moodTimer.isActive; energyTimer.isActive; simulateTimer.isActive;
