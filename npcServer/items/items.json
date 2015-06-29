@@ -152,7 +152,7 @@
   "Modestly Sized Ruby": {
     "category": "Collectibles",
     "name": "Modestly Sized Ruby",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/gem_ruby__x1_1_png_1354831652.png",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/gem_ruby__x1_iconic_png_1354831651.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gem_ruby__x1_1_png_1354831652.png",
     "stacksTo": 5,
     "price": 700,
@@ -202,9 +202,10 @@
     "category": "Collectibles",
     "name": "Pleasing Amber",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/gem_amber__x1_iconic_png_1354831638.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gem_amber__x1_iconic_png_1354831638.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gem_amber__x1_1_png_1354831639.png",
     "stacksTo": 10,
     "price": 200,
+    "iconNum": 1,
     "description": "A pleasing chunk of amber."
   },
   "Shovel": {
@@ -223,16 +224,17 @@
     "category": "Collectibles",
     "name": "Showy Sapphire",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/gem_sapphire__x1_iconic_png_1354831654.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gem_sapphire__x1_iconic_png_1354831654.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gem_sapphire__x1_1_png_1354831654.png",
     "stacksTo": 5,
     "price": 400,
+    "iconNum": 1,
     "description": "A somewhat showy sapphire."
   },
   "Walloping Big Diamond": {
     "category": "Collectibles",
     "name": "Walloping Big Diamond",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/gem_diamond__x1_iconic_png_1354831646.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gem_diamond__x1_iconic_png_1354831646.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gem_diamond__x1_1_png_1354831647.png",
     "stacksTo": 3,
     "price": 2000,
     "iconNum": 1,

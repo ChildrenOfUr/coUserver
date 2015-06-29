@@ -24,6 +24,7 @@ class Shrine extends NPC {
 		map['giantName'] = giantName;
 		map['favor'] = m.favor[giantName];
 		map['maxFavor'] = 1000;
+		map['id'] = id;
 		userSocket.add(JSON.encode(map));
 	}
 
