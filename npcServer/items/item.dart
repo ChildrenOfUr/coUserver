@@ -1,7 +1,6 @@
 part of coUserver;
 
-class Item
-{
+class Item {
 	@Field()
 	String category;
 	@Field()
@@ -36,60 +35,50 @@ class Item
 	bool isContainer = false;
 	@Field()
 	List<Map> actions = [{"action":"drop",
-						  "timeRequired":0,
-						  "enabled":true,
-						  "actionWord":""}];
+		"timeRequired":0,
+		"enabled":true,
+		"actionWord":""}];
 	List<Map> groundActions = [{"action":"pickup",
-								"enabled":true,
-								"timeRequired":0,
-								"actionWord":""}];
+		"enabled":true,
+		"timeRequired":0,
+		"actionWord":""}];
 
-	Map getMap()
-	{
+	Map getMap() {
 		return {"iconUrl":iconUrl,
-				"spriteUrl":spriteUrl,
-				"name":name,
-				"isContainer":isContainer,
-				"description":description,
-				"price":price,
-				"stacksTo":stacksTo,
-				"iconNum":iconNum,
-				"id":item_id,
-				"onGround":onGround,
-				"x":x,
-				"y":y,
-				"actions":onGround?groundActions:actions,
-				"tool_animation": toolAnimation,
-                "durability": durability};
+			"spriteUrl":spriteUrl,
+			"name":name,
+			"isContainer":isContainer,
+			"description":description,
+			"price":price,
+			"stacksTo":stacksTo,
+			"iconNum":iconNum,
+			"id":item_id,
+			"onGround":onGround,
+			"x":x,
+			"y":y,
+			"actions":onGround ? groundActions : actions,
+			"tool_animation": toolAnimation,
+			"durability": durability};
 	}
 
-	void pickup({WebSocket userSocket, String email})
-	{
+	void pickup({WebSocket userSocket, String email}) {
 		onGround = false;
-		addItemToUser(userSocket,email,getMap(),1,item_id);
+		addItemToUser(userSocket, email, getMap(), 1, item_id);
 	}
 
-	void drop({WebSocket userSocket, Map map, String streetName, String email})
-	{
-		takeItemFromUser(userSocket,email,map['dropItem']['name'],map['count'])
-			.then((int numRows)
-			{
-				if(numRows < 1)
-					return;
+	Future drop({WebSocket userSocket, Map map, String streetName, String email}) async {
+		bool success = await takeItemFromUser(userSocket, email, map['dropItem']['name'], map['count']);
+		if(!success) {
+			return;
+		}
 
-				num x = map['x'], y = map['y'];
-        		String id = "i" + createId(x,y,map['dropItem']['name'],map['tsid']);
-        		this.item_id = id;
-        		onGround = true;
-        		this.x = x;
-        		this.y = y;
-        		StreetUpdateHandler.streets[streetName].groundItems[id] = this;
-//        		dbManager.getConnection().then((PostgreSql dbConn)
-//				{
-//					String query = "INSERT INTO items(icon_url,sprite_url,tool_animation,name,description,item_id,user_id,price,stacks_to,icon_num,durability,x,y,on_ground,is_container,actions) VALUES(@icon_url,@sprite_url,@tool_animation,@name,@description,@item_id,@user_id,@price,@stacks_to,@icon_num,@durability,@x,@y,@on_ground,@is_container,@actions)";
-//					dbConn.execute(query,this).then((_) => dbManager.closeConnection(dbConn));
-//				});
-        		//log("dropped item: ${getMap()}");
-			});
+		num x = map['x'], y = map['y'];
+		String id = "i" + createId(x, y, map['dropItem']['name'], map['tsid']);
+		this.item_id = id;
+		onGround = true;
+		this.x = x;
+		this.y = y;
+		StreetUpdateHandler.streets[streetName].groundItems[id] = this;
+		//log("dropped item: ${getMap()}");
 	}
 }

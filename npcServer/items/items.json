@@ -237,5 +237,17 @@
     "price": 2000,
     "iconNum": 1,
     "description": "Yep, that's a walloping big diamond."
+  },
+  "Watering Can": {
+    "category": "Tools",
+    "name": "Watering Can",
+    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/watering_can__x1_tool_animation_png_1354830088.png",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/watering_can__x1_1_png_1354830090.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/watering_can__x1_1_png_1354830090.png",
+    "stacksTo": 1,
+    "price": 75,
+    "iconNum": 1,
+    "durability": 100,
+    "description": "A stainless-steel 5-gallon watering can. It can be used to water plants, trees, and crops."
   }
 }

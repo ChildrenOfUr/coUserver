@@ -12,7 +12,13 @@ abstract class Tree extends Plant {
 			..add({"action":"water",
 				      "timeRequired":actionTime,
 				      "enabled":true,
-				      "actionWord":"watering"})
+				      "actionWord":"watering",
+				      "requires":[
+					      {
+						      "num":1,
+						      "of":["Watering Can"]
+					      }
+				      ]})
 			..add({"action":"pet",
 				      "timeRequired":actionTime,
 				      "enabled":true,
