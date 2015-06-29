@@ -11,7 +11,7 @@ class HeliKitty extends NPC {
       "enabled": true,
       "actionWord": "petting"
     });
-    speed = 75; //pixels per second
+    speed = 10; //pixels per second
 
     states = {
       // newborn (variation 1)
@@ -107,8 +107,8 @@ class HeliKitty extends NPC {
     if(!success) {
       return false;
     }
-    currentState = states[sheetName("jumpAntic")];
-    respawn = new DateTime.now().add(new Duration(milliseconds:375));
+    currentState = states[sheetName("hitBall")];
+    respawn = new DateTime.now().add(new Duration(milliseconds:3333));
     StatBuffer.incrementStat("helikittiesPetted", 1);
     say(responses["pet"].elementAt(rand.nextInt(responses["pet"].length)));
 
@@ -119,49 +119,24 @@ class HeliKitty extends NPC {
     if (currentState.stateName == sheetName("fly")) { //we need to update x to hopefully stay in sync with clients
       if (facingRight) {
         x += speed;
-        //75 pixels/sec is the speed set on the client atm
       } else {
         x -= speed;
       }
 
       if (x < 0) {
         x = 0;
-      }
-
-      if (x > 4000) {
+      } else if (x > 4000) {
         //TODO temporary
         x = 4000;
       }
     }
 
-    //hard to check right bounds without actually loading the street
-    //which we aren't doing right now.  we"re just making everything up in the constructor
-    //but at some point, TODO we should get real street info
-    //if(x > street.width-width)
-    //x = street.width-width;
-
-    //if respawn is in the past, it is time to choose a new animation
-
+    // If respawn is in the past, it is time to choose a new animation
     if (respawn != null && new DateTime.now().compareTo(respawn) > 0) {
-      //1 in 4 chance to change direction
+      // 1 in 4 chance to change direction
       if (rand.nextInt(4) == 1) {
         facingRight = !facingRight;
       }
-
-      int num = rand.nextInt(10);
-
-      if (num == 6 || num == 7) {
-        currentState = states[sheetName("blink")];
-      } else {
-        currentState = states[sheetName("fly")];
-      }
-
-      //choose a new animation after this one finishes
-      //we can calculate how long it should last by dividing the number
-      //of frames by 30
-
-      int length = (currentState.numFrames / 30 * 1000).toInt();
-      respawn = new DateTime.now().add(new Duration(milliseconds: length));
     }
   }
 
