@@ -1,7 +1,7 @@
 part of coUserver;
 
 class HeliKitty extends NPC {
-  int age = 3; //TODO: make them get older
+  int age;
 
   HeliKitty(String id, int x, int y) : super(id, x, y) {
     type = "Heli Kitty";
@@ -12,7 +12,7 @@ class HeliKitty extends NPC {
       "actionWord": "petting"
     });
     speed = 10; //pixels per second
-
+    age = 3; //TODO: make them get older
     states = {
       // newborn (variation 1)
       "1blink": new Spritesheet("1blink",
@@ -96,22 +96,21 @@ class HeliKitty extends NPC {
         "http://c2.glitch.bz/items/2012-12-06/npc_kitty_chicken__x1_3sleep_png_1354840561.png",
         952, 1035, 136, 115, 57, true)
     };
-
     currentState = states[sheetName("fly")];
-
-    responses = {};
+    responses = {
+      "pet": ["...purring noises..."]
+    };
   }
 
   Future<bool> pet({WebSocket userSocket, String email}) async {
-    bool success = await super.trySetMetabolics(email,energy:-2,mood:10,imgMin:5,imgRange:3);
+    bool success = await super.trySetMetabolics(email,energy:-5,mood:20,imgMin:10,imgRange:4);
     if(!success) {
       return false;
     }
     currentState = states[sheetName("hitBall")];
-    respawn = new DateTime.now().add(new Duration(milliseconds:3333));
+    respawn = new DateTime.now().add(new Duration(milliseconds:500));
     StatBuffer.incrementStat("helikittiesPetted", 1);
-    say(responses["pet"].elementAt(rand.nextInt(responses["pet"].length)));
-
+    say(responses['pet'].elementAt(rand.nextInt(responses['pet'].length)));
     return true;
   }
 
@@ -133,15 +132,17 @@ class HeliKitty extends NPC {
 
     // If respawn is in the past, it is time to choose a new animation
     if (respawn != null && new DateTime.now().compareTo(respawn) > 0) {
-      // 1 in 4 chance to change direction
-      if (rand.nextInt(4) == 1) {
+      currentState = states[sheetName("fly")];
+      respawn = null;
+      // 50% chance to change direction
+      if (rand.nextInt(2) == 1) {
         facingRight = !facingRight;
       }
     }
   }
 
   String sheetName(String sheet) {
-    // Returns the correct sprite sheet for the heli kitty"s age
+    // Returns the correct sprite sheet for the heli kitty's age
     // Use only for sheets that exist in all three ages
     return age.toString() + sheet;
   }
