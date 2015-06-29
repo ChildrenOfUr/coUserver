@@ -54,7 +54,6 @@ abstract class Entity {
 			}
 		}
 
-
 		return true;
 	}
 
