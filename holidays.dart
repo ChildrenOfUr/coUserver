@@ -7,7 +7,9 @@ Future<List<String>> getHolidays(@app.QueryParam('month') int month,
 
 	String monthName = monthNames[month];
 	Map<int, List<String>> holidaysForMonth = holidaysByMonth[monthName];
-	holidays.addAll(holidaysForMonth[day]);
+	if(holidaysForMonth[day] != null) {
+		holidays.addAll(holidaysForMonth[day]);
+	}
 
 	return holidays;
 }
@@ -62,7 +64,7 @@ class Clock {
 
 		_sendEvents();
 		// Time update Timer.
-		new Timer.periodic(new Duration(seconds: 10), (_) => _sendEvents());
+		new Timer.periodic(new Duration(seconds: 1), (_) => _sendEvents());
 	}
 
 	// timer has updated, send out required events and update interfaces.

@@ -36,8 +36,12 @@ class Piggy extends NPC
 		};
 	}
 
-	nibble({WebSocket userSocket, String email})
-	{
+	Future<bool> nibble({WebSocket userSocket, String email}) async {
+		bool success = await super.trySetMetabolics(email,energy:-3,mood:2,imgMin:7,imgRange:4);
+		if(!success) {
+			return false;
+		}
+
 		StatBuffer.incrementStat("piggiesNibbled", 1);
 		//give the player the 'fruits' of their labor
 		addItemToUser(userSocket,email,items['Meat'].getMap(),1,id);
@@ -45,12 +49,20 @@ class Piggy extends NPC
 		currentState = states['nibble'];
 		respawn = new DateTime.now().add(new Duration(seconds:2));
 		say(responses['nibble'].elementAt(rand.nextInt(responses['nibble'].length)));
+
+		return true;
 	}
 
-	pet({WebSocket userSocket, String email})
-	{
+	Future<bool> pet({WebSocket userSocket, String email}) async {
+		bool success = await super.trySetMetabolics(email,energy:-2,mood:3,imgMin:5,imgRange:3);
+		if(!success) {
+			return false;
+		}
+
 		StatBuffer.incrementStat("piggiesPetted", 1);
 		say(responses['pet'].elementAt(rand.nextInt(responses['pet'].length)));
+
+		return true;
 	}
 
 	/**

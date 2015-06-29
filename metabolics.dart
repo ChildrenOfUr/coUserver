@@ -274,6 +274,15 @@ Future<Metabolics> getMetabolics({@app.QueryParam() String username, String emai
 Future<int> setMetabolics(@Decode() Metabolics metabolics) async
 {
 	int result = 0;
+
+	//try to not overset the metabolics that have maxes
+	if(metabolics.mood > metabolics.max_mood) {
+		metabolics.mood = metabolics.max_mood;
+	}
+	if(metabolics.energy > metabolics.max_energy) {
+		metabolics.energy = metabolics.max_energy;
+	}
+
 	try
 	{
 		PostgreSql dbConn = await dbManager.getConnection();

@@ -53,16 +53,9 @@ abstract class Rock extends Plant {
 	Future<bool> mine({WebSocket userSocket, String email}) async {
 		//make sure the player has 10 energy to perform this action
 		//if so, allow the action and subtract 10 from their energy
-		Metabolics m = await getMetabolics(email:email);
-		if(m.energy < 10) {
+		bool success = await super.trySetMetabolics(email,energy:-10,imgMin:10,imgRange:5);
+		if(!success) {
 			return false;
-		} else {
-			m.energy -= 10;
-			m.img = m.img + (10 * ((100 / m.max_mood) * (m.mood / 100))).round();
-			int result = await setMetabolics(m);
-			if(result < 1) {
-				return false;
-			}
 		}
 
 		//rocks spritesheets go from full to empty which is the opposite of trees

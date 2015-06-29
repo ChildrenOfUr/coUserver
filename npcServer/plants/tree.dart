@@ -37,16 +37,9 @@ abstract class Tree extends Plant {
 	Future<bool> harvest({WebSocket userSocket, String email}) async {
 		//make sure the player has 5 energy to perform this action
 		//if so, allow the action and subtract 5 from their energy
-		Metabolics m = await getMetabolics(email:email);
-		if(m.energy < 5) {
+		bool success = await trySetMetabolics(email,energy:-5,mood:1,imgMin:10,imgRange:5);
+		if(!success) {
 			return false;
-		} else {
-			m.energy -= 5;
-			m.img = m.img + (10 * ((100 / m.max_mood) * (m.mood / 100))).round();
-			int result = await setMetabolics(m);
-			if(result < 1) {
-				return false;
-			}
 		}
 
 		if(state == 0) {
@@ -68,15 +61,9 @@ abstract class Tree extends Plant {
 	}
 
 	Future<bool> water({WebSocket userSocket, String email}) async {
-		Metabolics m = await getMetabolics(email:email);
-		if(m.energy < 2) {
+		bool success = await trySetMetabolics(email,energy:-2,mood:2,imgMin:3,imgRange:2);
+		if(!success) {
 			return false;
-		} else {
-			m.energy -= 2;
-			int result = await setMetabolics(m);
-			if(result < 1) {
-				return false;
-			}
 		}
 
 		if(state == maxState) {
@@ -90,24 +77,17 @@ abstract class Tree extends Plant {
 		respawn = new DateTime.now().add(new Duration(seconds:30));
 		state++;
 
-		if(state > maxState)
+		if(state > maxState) {
 			state = maxState;
+		}
 
 		return true;
 	}
 
 	Future<bool> pet({WebSocket userSocket, String email}) async {
-		Metabolics m = await
-		getMetabolics(email:email);
-		if(m.energy < 2) {
+		bool success = await trySetMetabolics(email,energy:-2,mood:2,imgMin:3,imgRange:2);
+		if(!success) {
 			return false;
-		} else {
-			m.energy -= 2;
-			int result = await
-			setMetabolics(m);
-			if(result < 1) {
-				return false;
-			}
 		}
 
 		//say a witty thing
