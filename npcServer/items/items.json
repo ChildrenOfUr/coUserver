@@ -1,12 +1,15 @@
 {
-  "Grain": {
-    "category": "Basic Resources",
-    "name": "Grain",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/grain__x1_iconic_png_1354830084.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/grain__x1_1_x1_2_x1_3_x1_4_png_1354830084.png",
-    "stacksTo": 250,
-    "price": 1,
-    "description": "Some plain grain."
+  "Ace of Spades": {
+    "category": "Tools",
+    "name": "Ace of Spades",
+    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/ace_of_spades__x1_tool_animation_png_1354839802.png",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/ace_of_spades__x1_iconic_png_1354839801.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/ace_of_spades__x1_1_png_1354839807.png",
+    "stacksTo": 1,
+    "iconNum": 1,
+    "price": 3000,
+    "durability": 500,
+    "description": "Finely honed from old metal, the Ace of Spades is made for the heavy digger. Some say it's overkill, but anyone who dreams of spending another perfect day ruling the world of diggery with an iron fist, this is the ideal purchase, lemme tell you."
   },
   "Allspice": {
     "category": "Basic Resources",
@@ -120,6 +123,27 @@
     "price": 5,
     "description": "A flask of all-purpose general vapour, harvested from a Gas Plant."
   },
+  "Grain": {
+    "category": "Basic Resources",
+    "name": "Grain",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/grain__x1_iconic_png_1354830084.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/grain__x1_1_x1_2_x1_3_x1_4_png_1354830084.png",
+    "stacksTo": 250,
+    "price": 1,
+    "description": "Some plain grain."
+  },
+  "Hatchet": {
+    "category": "Tools",
+    "name": "Hatchet",
+    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/hatchet__x1_tool_animation_png_1354832441.png",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/hatchet__x1_iconic_png_1354832441.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/hatchet__x1_1_png_1354832459.png",
+    "stacksTo": 1,
+    "iconNum": 1,
+    "price": 100,
+    "durability": 100,
+    "description": "A slightly dull hatchet, useful for both dead tree-clearing and showy beard-shaving."
+  },
   "High Class Hoe": {
     "category": "Tools",
     "name": "High Class Hoe",
@@ -131,6 +155,18 @@
     "iconNum": 1,
     "durability": 250,
     "description": "More refined than your average hoe, the High-Class Hoe is a hoe you'll be proud to be seen with. Extra investment brings a five-times longer lifespan: With this glamorous new companion you'll be hoeing the whole night through."
+  },
+  "Hoe": {
+    "category": "Tools",
+    "name": "Hoe",
+    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/hoe__x1_tool_animation_png_1354829606.png",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/hoe__x1_iconic_png_1354829607.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/hoe__x1_1_png_1354829609.png",
+    "stacksTo": 1,
+    "price": 60,
+    "iconNum": 1,
+    "durability": 50,
+    "description": "A garden-variety hoe. It can be used to tend weedy patches."
   },
   "Luminous Moonstone": {
     "category": "Collectibles",
@@ -227,6 +263,15 @@
     "iconNum": 1,
     "description": "A pleasing chunk of amber."
   },
+  "Quill": {
+    "category": "Tools",
+    "name": "Quill",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/quill__x1_iconic_png_1354832691.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/quill__x1_1_png_1354832692.png",
+    "stacksTo": 1,
+    "price": 400,
+    "description": "This fancy quill (and the skill of Penpersonship) will let you write messages and notes. And maybe give yourself inky fingers."
+  },
   "Shovel": {
     "category": "Tools",
     "name": "Shovel",
@@ -248,6 +293,15 @@
     "price": 400,
     "iconNum": 1,
     "description": "A somewhat showy sapphire."
+  },
+  "Spinach": {
+    "category": "Croppery & Gardening Supplies",
+    "name": "Spinach",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/spinach__x1_iconic_png_1354830024.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/spinach__x1_1_x1_2_x1_3_x1_4_png_1354830024.png",
+    "stacksTo": 80,
+    "price": 3,
+    "description": "Hearty green spinach. It's strong to the finich."
   },
   "Walloping Big Diamond": {
     "category": "Collectibles",

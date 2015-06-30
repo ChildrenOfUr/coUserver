@@ -230,7 +230,7 @@ class Butterfly extends NPC {
 
       interacting = true;
 
-      if (new Random().nextInt(10) == 1) {
+      if (rand.nextInt(10) == 1) {
         // bonus milk
         addItemToUser(userSocket, email, items['Butterfly Milk'].getMap(), 3, id);
         StatBuffer.incrementStat("butterfliesMilked", 1);
@@ -265,8 +265,7 @@ class Butterfly extends NPC {
       }
 
       // bob up and down a bit
-      Random random = new Random();
-      y += random.nextInt(50) - 25;
+      y += rand.nextInt(50) - 25;
 
       if(x < 0) {
         x = 0;

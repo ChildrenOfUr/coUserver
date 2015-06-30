@@ -31,6 +31,20 @@ class WoodTree extends Tree {
 			]
 		};
 
+    actions.removeWhere({"action": "harvest"});
+    actions.add({
+      "action": "harvest",
+      "timeRequired": actionTime,
+      "enabled": true,
+      "actionWord": "watering",
+      "requires": [
+        {
+          "num": 1,
+          "of": ["Hatchet"]
+        }
+      ]
+    });
+
 		states =
 		{
 			"maturity_1" : new Spritesheet("maturity_1", "http://c2.glitch.bz/items/2012-12-06/wood_tree_maturity_6_variant_2_x6_1_png_1354833445.png", 528, 138, 88, 138, 6, false),
