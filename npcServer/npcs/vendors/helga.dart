@@ -1,8 +1,8 @@
 part of coUserver;
 
-class ToolVendor extends NPC {
+class Helga extends NPC {
   int openCount = 0;
-  ToolVendor(String id, int x, int y) : super(id, x, y) {
+  Helga(String id, int x, int y) : super(id, x, y) {
     actionTime = 0;
     actions
       ..add({"action":"buy",
@@ -14,31 +14,40 @@ class ToolVendor extends NPC {
       "enabled":true,
       "actionWord":""});
 
-    type = "Tool Vendor";
-    speed = 75;
+    type = "Helga";
+    speed = 40;
 
     states = {
-      "attract": new Spritesheet("attract",
-        "http://c2.glitch.bz/items/2012-12-06/npc_tool_vendor__x1_attract_png_1354831448.png",
-        925, 2500, 185, 250, 50, false),
-      "idle_stand": new Spritesheet("idle_stand",
-        "http://c2.glitch.bz/items/2012-12-06/npc_tool_vendor__x1_idle_stand_png_1354831438.png",
-        4070, 3750, 185, 250, 329, true),
+      "idle_stand_1": new Spritesheet("idle_stand",
+        "http://c2.glitch.bz/items/2012-12-06/npc_jabba2__x1_idle_stand_part1_png_1354831705.png",
+        3942, 4074, 438, 194, 189, true),
+      "idle_stand_2": new Spritesheet("idle_stand",
+        "http://c2.glitch.bz/items/2012-12-06/npc_jabba2__x1_idle_stand_part2_png_1354831715.png",
+        3942, 2910, 438, 194, 131, true),
+      "impatient": new Spritesheet("impatient",
+        "http://c2.glitch.bz/items/2012-12-06/npc_jabba2__x1_impatient_png_1354831691.png",
+        3942, 2134, 438, 194, 98, true),
       "talk": new Spritesheet("talk",
-        "http://c2.glitch.bz/items/2012-12-06/npc_tool_vendor__x1_talk_png_1354831442.png",
-        925, 1500, 185, 250, 26, false),
-      "turn_left": new Spritesheet("turn_left",
-        "http://c2.glitch.bz/items/2012-12-06/npc_tool_vendor__x1_turn_left_png_1354831414.png",
-        925, 500, 185, 250, 10, false),
+        "http://c2.glitch.bz/items/2012-12-06/npc_jabba2__x1_talk_png_1354831682.png",
+        3942, 1552, 438, 194, 72, true),
+      "turn": new Spritesheet("turn",
+        "http://c2.glitch.bz/items/2012-12-06/npc_jabba2__x1_turn_png_1354831675.png",
+        876, 1746, 438, 194, 18, false),
       "turn_right": new Spritesheet("turn_right",
-        "http://c2.glitch.bz/items/2012-12-06/npc_tool_vendor__x1_turn_right_png_1354831419.png",
-        740, 750, 185, 250, 11, false),
+        "http://c2.glitch.bz/items/2012-12-06/npc_jabba2__x1_turn_right_png_1354831667.png",
+        876, 1552, 438, 194, 16, false),
+      "walk_end": new Spritesheet("walk_end",
+        "http://c2.glitch.bz/items/2012-12-06/npc_jabba2__x1_walk_end_png_1354831672.png",
+        876, 1552, 438, 194, 15, false),
+      "walk_left_end": new Spritesheet("walk_left_end",
+        "http://c2.glitch.bz/items/2012-12-06/npc_jabba2__x1_walk_left_end_png_1354831665.png",
+        876, 1552, 438, 194, 15, false),
       "walk_left": new Spritesheet("walk_left",
-        "http://c2.glitch.bz/items/2012-12-06/npc_tool_vendor__x1_walk_left_png_1354831417.png",
-        925, 1250, 185, 250, 25, true),
+        "http://c2.glitch.bz/items/2012-12-06/npc_jabba2__x1_walk_left_png_1354831662.png",
+        876, 1552, 438, 194, 16, true),
       "walk": new Spritesheet("walk",
-        "http://c2.glitch.bz/items/2012-12-06/npc_tool_vendor__x1_walk_png_1354831412.png",
-        925, 1250, 185, 250, 24, true)
+        "http://c2.glitch.bz/items/2012-12-06/npc_jabba2__x1_walk_png_1354831670.png",
+        876, 1552, 438, 194, 16, true),
     };
     currentState = states['idle_stand'];
   }
@@ -70,7 +79,7 @@ class ToolVendor extends NPC {
         // if we haven't just turned
         if(rand.nextInt(2) == 1) {
           // 50% chance of trying to attract buyers
-          currentState = states['attract'];
+          currentState = states['impatient'];
           // respawn when done
           respawn = new DateTime.now().add(new Duration(milliseconds:(currentState.numFrames / 30 * 1000).toInt()));
         } else {
@@ -170,14 +179,7 @@ class ToolVendor extends NPC {
   List _getItemsForSale() {
     List<Map> saleItems = [];
 
-    saleItems.add(items['Hatchet'].getMap());
-    saleItems.add(items['Hoe'].getMap());
-    saleItems.add(items['High Class Hoe'].getMap());
-    saleItems.add(items['Watering Can'].getMap());
-    saleItems.add(items['Pick'].getMap());
-    saleItems.add(items['Fancy Pick'].getMap());
-    saleItems.add(items['Shovel'].getMap());
-    saleItems.add(items['Ace of Spades'].getMap());
+    saleItems.add(items['Coffee'].getMap());
 
     return saleItems;
   }

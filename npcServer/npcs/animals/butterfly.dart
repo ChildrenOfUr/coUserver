@@ -208,7 +208,7 @@ class Butterfly extends NPC {
       return false;
     }
     interacting = true;
-    // if(<user does not have lotion>) {
+    // TODO: if(<user does not have lotion>) {
     //  say(responses['massageFail'].elementAt(rand.nextInt(responses['massageFail'].length)));
     //} else {
     StatBuffer.incrementStat("butterfliesMassaged", 1);

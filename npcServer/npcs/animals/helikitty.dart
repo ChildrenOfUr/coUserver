@@ -108,7 +108,7 @@ class HeliKitty extends NPC {
       return false;
     }
     currentState = states[sheetName("hitBall")];
-    respawn = new DateTime.now().add(new Duration(milliseconds:500));
+    respawn = new DateTime.now().add(new Duration(milliseconds: (currentState.numFrames/30*1000).toInt()));
     StatBuffer.incrementStat("helikittiesPetted", 1);
     say(responses['pet'].elementAt(rand.nextInt(responses['pet'].length)));
     return true;

@@ -127,8 +127,25 @@ class StreetSpiritGroddle extends NPC {
 
 	List _getItemsForSale() {
 		List<Map> saleItems = [];
-		saleItems.add(items['Bean'].getMap());
-		saleItems.add(items['Cherry'].getMap());
+
+    saleItems.add(items['Coffee'].getMap());
+    saleItems.add(items['Spinach'].getMap());
+    saleItems.add(items['Butterfly Lotion'].getMap());
+    saleItems.add(items['Quill'].getMap());
+    saleItems.add(items['Million Currant Trophy'].getMap());
+    saleItems.add(items['Seed_Broccoli'].getMap());
+    saleItems.add(items['Seed_Cabbage'].getMap());
+    saleItems.add(items['Seed_Carrot'].getMap());
+    saleItems.add(items['Seed_Corn'].getMap());
+    saleItems.add(items['Seed_Cucumber'].getMap());
+    saleItems.add(items['Seed_Onion'].getMap());
+    saleItems.add(items['Seed_Parsnip'].getMap());
+    saleItems.add(items['Seed_Potato'].getMap());
+    saleItems.add(items['Seed_Pumpkin'].getMap());
+    saleItems.add(items['Seed_Rice'].getMap());
+    saleItems.add(items['Seed_Spinach'].getMap());
+    saleItems.add(items['Seed_Tomato'].getMap());
+    saleItems.add(items['Seed_Zucchini'].getMap());
 
 		return saleItems;
 	}

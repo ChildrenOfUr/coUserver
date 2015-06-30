@@ -51,6 +51,7 @@ part 'npcServer/entity.dart';
 part 'npcServer/npcs/npc.dart';
 part 'npcServer/npcs/vendors/streetspiritgroddle.dart';
 part 'npcServer/npcs/vendors/toolvendor.dart';
+part 'npcServer/npcs/vendors/helga.dart';
 part 'npcServer/npcs/auctioneer.dart';
 part 'npcServer/npcs/animals/chicken.dart';
 part 'npcServer/npcs/animals/helikitty.dart';
