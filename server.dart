@@ -93,7 +93,7 @@ Future<List<String>> listUsers(@app.QueryParam('channel') String channel) async
 
 @app.Route('/getItems')
 @Encode()
-Future<Map<String,Item>> getItems(@app.QueryParam('category') String category,
+Future<List<Item>> getItems(@app.QueryParam('category') String category,
                             @app.QueryParam('name') String name,
                             @app.QueryParam('isRegex') bool isRegex) async {
 	List<Item> itemList = [];

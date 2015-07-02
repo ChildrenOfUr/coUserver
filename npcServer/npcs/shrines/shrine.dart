@@ -19,11 +19,17 @@ class Shrine extends NPC {
 	communeWith({WebSocket userSocket, String email}) async {
 		Metabolics m = await getMetabolics(email:email);
 
+		print('m: ${m.FriendlyFavor}');
+
 		String giantName = type.substring(0, 1).toUpperCase() + type.substring(1);
+		InstanceMirror instanceMirror = reflect(m);
+		int giantFavor = instanceMirror.getField(new Symbol(giantName+'Favor')).reflectee;
+
+		print('giantFavor: $giantFavor');
+
 		Map map = {};
 		map['giantName'] = giantName;
-		Map favor = JSON.decode(m.favor_json);
-		map['favor'] = favor[giantName];
+		map['favor'] = giantFavor;
 		map['maxFavor'] = 1000;
 		map['id'] = id;
 		userSocket.add(JSON.encode(map));
@@ -37,10 +43,10 @@ class Shrine extends NPC {
 
 			String giantName = type.substring(0, 1).toUpperCase() + type.substring(1);
 			Metabolics m = await getMetabolics(email:email);
-			Map favor = JSON.decode(m.favor_json);
-			favor[giantName] += (item.price * num * .35) ~/ 1;
-			m.favor_json = JSON.encode(m.favor_json);
-			setMetabolics(m);
+			InstanceMirror instanceMirror = reflect(m);
+			int favAmt = (item.price * num * .35) ~/ 1;
+			instanceMirror.setField(new Symbol(giantName+'Favor'),favAmt);
+			await setMetabolics(m);
 		}
 	}
 }

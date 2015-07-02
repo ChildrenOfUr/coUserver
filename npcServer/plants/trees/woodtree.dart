@@ -31,19 +31,12 @@ class WoodTree extends Tree {
 			]
 		};
 
-    actions.removeWhere({"action": "harvest"});
-    actions.add({
-      "action": "harvest",
-      "timeRequired": actionTime,
-      "enabled": true,
-      "actionWord": "watering",
-      "requires": [
-        {
-          "num": 1,
-          "of": ["Hatchet"]
-        }
-      ]
-    });
+		actions[0]['requires'] = [
+			{
+				"num":1,
+				"of":["Hatchet"]
+			}
+		];
 
 		states =
 		{
