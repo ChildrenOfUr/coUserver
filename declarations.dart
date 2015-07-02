@@ -20,7 +20,6 @@ import 'package:http/src/multipart_request.dart';
 import 'package:http/src/multipart_file.dart';
 import 'package:http/src/streamed_response.dart';
 import 'package:image/image.dart';
-import 'package:rpc/rpc.dart';
 
 //contains the main() method to start the server
 part 'server.dart';
