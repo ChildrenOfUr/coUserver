@@ -20,6 +20,7 @@ import 'package:http/src/multipart_request.dart';
 import 'package:http/src/multipart_file.dart';
 import 'package:http/src/streamed_response.dart';
 import 'package:image/image.dart';
+import 'package:rpc/rpc.dart';
 
 //contains the main() method to start the server
 part 'server.dart';
@@ -74,23 +75,23 @@ part 'npcServer/items/item.dart';
 
 part 'npcServer/spritesheet.dart';
 part 'npcServer/plants/plant.dart';
-part 'npcServer/plants/tree.dart';
-part 'npcServer/plants/fruittree.dart';
-part 'npcServer/plants/beantree.dart';
-part 'npcServer/plants/gasplant.dart';
-part 'npcServer/plants/spiceplant.dart';
-part 'npcServer/plants/papertree.dart';
-part 'npcServer/plants/eggplant.dart';
-part 'npcServer/plants/bubbletree.dart';
-part 'npcServer/plants/woodtree.dart';
+part 'npcServer/plants/trees/tree.dart';
+part 'npcServer/plants/trees/fruittree.dart';
+part 'npcServer/plants/trees/beantree.dart';
+part 'npcServer/plants/trees/gasplant.dart';
+part 'npcServer/plants/trees/spiceplant.dart';
+part 'npcServer/plants/trees/papertree.dart';
+part 'npcServer/plants/trees/eggplant.dart';
+part 'npcServer/plants/trees/bubbletree.dart';
+part 'npcServer/plants/trees/woodtree.dart';
 
 part 'npcServer/plants/dirtpile.dart';
 
-part 'npcServer/plants/rock.dart';
-part 'npcServer/plants/berylrock.dart';
-part 'npcServer/plants/sparklyrock.dart';
-part 'npcServer/plants/dulliterock.dart';
-part 'npcServer/plants/metalrock.dart';
+part 'npcServer/plants/rocks/rock.dart';
+part 'npcServer/plants/rocks/berylrock.dart';
+part 'npcServer/plants/rocks/sparklyrock.dart';
+part 'npcServer/plants/rocks/dulliterock.dart';
+part 'npcServer/plants/rocks/metalrock.dart';
 part 'npcServer/quoin.dart';
 
 //various http parts (as opposed to the previous websocket parts)

@@ -7,7 +7,7 @@ Map<String, int> heightsCache = null;
 DateTime startDate;
 Map<String, Item> items = {};
 
-void main() {
+main() async {
 	int port = 8181;
 	try {
 		port = int.parse(Platform.environment['PORT']);
@@ -93,7 +93,7 @@ Future<List<String>> listUsers(@app.QueryParam('channel') String channel) async
 
 @app.Route('/getItems')
 @Encode()
-Future<List<Item>> getItems(@app.QueryParam('category') String category,
+Future<Map<String,Item>> getItems(@app.QueryParam('category') String category,
                             @app.QueryParam('name') String name,
                             @app.QueryParam('isRegex') bool isRegex) async {
 	List<Item> itemList = [];
@@ -126,6 +126,8 @@ Future<List<Item>> getItems(@app.QueryParam('category') String category,
 }
 
 PostgreSql get dbConn => app.request.attributes.dbConn;
+
+Future<PostgreSql> get conn => dbManager.getConnection();
 
 //add a CORS header to every request
 @app.Interceptor(r'/.*')

@@ -22,7 +22,8 @@ class Shrine extends NPC {
 		String giantName = type.substring(0, 1).toUpperCase() + type.substring(1);
 		Map map = {};
 		map['giantName'] = giantName;
-		map['favor'] = m.favor[giantName];
+		Map favor = JSON.decode(m.favor_json);
+		map['favor'] = favor[giantName];
 		map['maxFavor'] = 1000;
 		map['id'] = id;
 		userSocket.add(JSON.encode(map));
@@ -36,7 +37,9 @@ class Shrine extends NPC {
 
 			String giantName = type.substring(0, 1).toUpperCase() + type.substring(1);
 			Metabolics m = await getMetabolics(email:email);
-			m.favor[giantName] += (item.price * num * .35) ~/ 1;
+			Map favor = JSON.decode(m.favor_json);
+			favor[giantName] += (item.price * num * .35) ~/ 1;
+			m.favor_json = JSON.encode(m.favor_json);
 			setMetabolics(m);
 		}
 	}

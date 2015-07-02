@@ -1,7 +1,6 @@
 part of coUserver;
 
-class Metabolics
-{
+class Metabolics {
 	@Field()
 	int id;
 
@@ -39,20 +38,15 @@ class Metabolics
 	int user_id = -1;
 
 	@Field(model: 'favor')
-	String _favor = '{"Alph":0,"Cosma":0,"Friendly":0,"Grendaline":0,"Humbaba":0,"Lem":0,"Mab":0,"Pot":0,"Spriggan":0,"Tii":0,"Zille":0}';
-
-	Map<String,int> get favor {
-		return JSON.decode(_favor);
-	}
+	String favor_json = '{"Alph":0,"Cosma":0,"Friendly":0,"Grendaline":0,"Humbaba":0,"Lem":0,"Mab":0,"Pot":0,"Spriggan":0,"Tii":0,"Zille":0}';
 }
 
-class MetabolicsEndpoint
-{
+class MetabolicsEndpoint {
 	static bool simulateMood = false, simulateEnergy = false;
 	static Timer moodTimer = new Timer.periodic(new Duration(seconds: 60), (Timer timer) => simulateMood = true);
 	static Timer energyTimer = new Timer.periodic(new Duration(seconds: 90), (Timer timer) => simulateEnergy = true);
-    static Timer simulateTimer = new Timer.periodic(new Duration(seconds: 5), (Timer timer) => simulate());
-	static Map<String,WebSocket> userSockets = {};
+	static Timer simulateTimer = new Timer.periodic(new Duration(seconds: 5), (Timer timer) => simulate());
+	static Map<String, WebSocket> userSockets = {};
 	static Random rand = new Random();
 
 	static void refillAllEnergy() {
@@ -63,23 +57,21 @@ class MetabolicsEndpoint
 		});
 	}
 
-	static void handle(WebSocket ws)
-	{
-		moodTimer.isActive; energyTimer.isActive; simulateTimer.isActive;
+	static void handle(WebSocket ws) {
+		moodTimer.isActive;
+		energyTimer.isActive;
+		simulateTimer.isActive;
 
-		ws.listen((message) => processMessage(ws,message),
-		onError: (error) => cleanupList(ws),
-		onDone: () => cleanupList(ws));
+		ws.listen((message) => processMessage(ws, message),
+		          onError: (error) => cleanupList(ws),
+		          onDone: () => cleanupList(ws));
 	}
 
-	static void cleanupList(WebSocket ws)
-	{
+	static void cleanupList(WebSocket ws) {
 		String leavingUser;
 
-		userSockets.forEach((String username, WebSocket socket)
-		{
-			if(ws == socket)
-			{
+		userSockets.forEach((String username, WebSocket socket) {
+			if(ws == socket) {
 				socket = null;
 				leavingUser = username;
 			}
@@ -88,8 +80,7 @@ class MetabolicsEndpoint
 		userSockets.remove(leavingUser);
 	}
 
-	static void processMessage(WebSocket ws, String message)
-	{
+	static void processMessage(WebSocket ws, String message) {
 		Map map = JSON.decode(message);
 		String username = map['username'];
 
@@ -97,58 +88,53 @@ class MetabolicsEndpoint
 			userSockets[username] = ws;
 	}
 
-	static void simulate()
-	{
+	static void simulate() {
 		userSockets.forEach((String username, WebSocket ws) async
 		{
-			try
-			{
+			try {
 				Metabolics m = await getMetabolics(username:username);
 
-    			if(simulateMood)
-    				_calcAndSetMood(m);
-    			if(simulateEnergy)
-    				_calcAndSetEnergy(m);
+				if(simulateMood)
+					_calcAndSetMood(m);
+				if(simulateEnergy)
+					_calcAndSetEnergy(m);
 
-    			//store current street and position
-    			Identifier userIdentifier = PlayerUpdateHandler.users[username];
-    			if(userIdentifier != null)
-    			{
-	    			m.current_street = userIdentifier.tsid;
-	    			m.current_street_x = userIdentifier.currentX;
-	    			m.current_street_y = userIdentifier.currentY;
+				//store current street and position
+				Identifier userIdentifier = PlayerUpdateHandler.users[username];
+				if(userIdentifier != null) {
+					m.current_street = userIdentifier.tsid;
+					m.current_street_x = userIdentifier.currentX;
+					m.current_street_y = userIdentifier.currentY;
 
-	    			//store the metabolics back to the database
-	    			int result = await setMetabolics(m);
-	    			if(result > 0)
-	    			{
-	    				//send the metabolics back to the user
-	    				ws.add(JSON.encode(encode(m)));
-	    			}
-    			}
+					//store the metabolics back to the database
+					int result = await setMetabolics(m);
+					if(result > 0) {
+						//send the metabolics back to the user
+						ws.add(JSON.encode(encode(m)));
+					}
+				}
 			}
-			catch(e,st)
-			{
+			catch(e, st) {
 				log("(metabolics endpoint - simulate): $e\n$st");
 			}
 		});
 	}
 
-	static denyQuoin(Quoin q, String username)
-	{
+	static denyQuoin(Quoin q, String username) {
 		Map map = {'collectQuoin':'true',
-		           'success':'false',
-		           'id':q.id};
-		try
-		{
+			'success':'false',
+			'id':q.id};
+		try {
 			userSockets[username].add(JSON.encode(map));
 		}
-		catch(err){log('(metabolics_endpoint_deny_quoin) Could not pass map $map to player $username: $err');}
+		catch(err) {
+			log('(metabolics_endpoint_deny_quoin) Could not pass map $map to player $username: $err');
+		}
 	}
 
 	static addQuoin(Quoin q, String username) async
 	{
-		int amt = rand.nextInt(4)+1;
+		int amt = rand.nextInt(4) + 1;
 		int quoinMultiplier = 1;
 		// TODO: change 1 to the real quoin multiplier
 		amt = amt * quoinMultiplier;
@@ -168,26 +154,24 @@ class MetabolicsEndpoint
 		}
 		if(q.type == 'mood') {
 			m.mood += amt;
-			if (m.mood > m.max_mood) {
+			if(m.mood > m.max_mood) {
 				m.mood = m.max_mood;
 			}
 		}
 		if(q.type == 'energy') {
 			m.energy += amt;
-			if (m.energy > m.max_energy) {
+			if(m.energy > m.max_energy) {
 				m.energy = m.max_energy;
 			}
 		}
 
-		try
-		{
+		try {
 			int result = await setMetabolics(m);
-			if(result > 0)
-			{
+			if(result > 0) {
 				Map map = {'collectQuoin':'true',
-				           'id':q.id,
-				           'amt':amt,
-				           'quoinType':q.type};
+					'id':q.id,
+					'amt':amt,
+					'quoinType':q.type};
 
 				q.setCollected();
 
@@ -195,22 +179,23 @@ class MetabolicsEndpoint
 				userSockets[username].add(JSON.encode(encode(m)));
 			}
 		}
-		catch(err){log('(metabolics_endpoint_add_quoin) Could not set metabolics $m for player $username: $err');}
+		catch(err) {
+			log('(metabolics_endpoint_add_quoin) Could not set metabolics $m for player $username: $err');
+		}
 	}
 
-	static void _calcAndSetMood(Metabolics m)
-	{
+	static void _calcAndSetMood(Metabolics m) {
 		int max_mood = m.max_mood;
-		num moodRatio = m.mood/max_mood;
+		num moodRatio = m.mood / max_mood;
 
 		//determine how much mood they should lose based on current percentage of max
 		//https://web.archive.org/web/20130106191352/http://www.glitch-strategy.com/wiki/Mood
 		if(moodRatio < .5)
-			m.mood -= (max_mood*.005).ceil();
+			m.mood -= (max_mood * .005).ceil();
 		else if(moodRatio >= .5 && moodRatio < .81)
-			m.mood -= (max_mood*.01).ceil();
+			m.mood -= (max_mood * .01).ceil();
 		else
-			m.mood -= (max_mood*.015).ceil();
+			m.mood -= (max_mood * .015).ceil();
 
 		if(m.mood < 0)
 			m.mood = 0;
@@ -218,14 +203,13 @@ class MetabolicsEndpoint
 		simulateMood = false;
 	}
 
-	static void _calcAndSetEnergy(Metabolics m)
-	{
+	static void _calcAndSetEnergy(Metabolics m) {
 		//players lose .8% of their max energy every 90 seconds
 		//https://web.archive.org/web/20120805062536/http://www.glitch-strategy.com/wiki/Energy
-		m.energy -= (m.max_energy*.008).ceil();
+		m.energy -= (m.max_energy * .008).ceil();
 
 		if(m.energy < 0)
-        	m.energy = 0;
+			m.energy = 0;
 
 		simulateEnergy = false;
 	}
@@ -237,31 +221,28 @@ Future<Metabolics> getMetabolics({@app.QueryParam() String username, String emai
 {
 	Metabolics metabolic = new Metabolics();
 
-	try
-	{
+	try {
 		PostgreSql dbConn = await dbManager.getConnection();
 
-    	String whereClause = "WHERE users.username = @username";
-    	if(email != null)
-    		whereClause = "WHERE users.email = @email";
-    	String query = "SELECT * FROM metabolics JOIN users ON users.id = metabolics.user_id " + whereClause;
-    	List<Metabolics> metabolics = await dbConn.query(query, Metabolics, {'username':username,'email':email});
+		String whereClause = "WHERE users.username = @username";
+		if(email != null)
+			whereClause = "WHERE users.email = @email";
+		String query = "SELECT * FROM metabolics JOIN users ON users.id = metabolics.user_id " + whereClause;
+		List<Metabolics> metabolics = await dbConn.query(query, Metabolics, {'username':username, 'email':email});
 
-    	if(metabolics.length > 0)
-    		metabolic = metabolics[0];
-    	else
-    	{
-    		query = "SELECT * FROM users " + whereClause;
-    		var results = await dbConn.query(query, int, {'username':username,'email':email});
+		if(metabolics.length > 0)
+			metabolic = metabolics[0];
+		else {
+			query = "SELECT * FROM users " + whereClause;
+			var results = await dbConn.query(query, int, {'username':username, 'email':email});
 
-    		if(results.length > 0)
-    			metabolic.user_id=results[0]['id'];
-    	}
+			if(results.length > 0)
+				metabolic.user_id = results[0]['id'];
+		}
 
-    	dbManager.closeConnection(dbConn);
+		dbManager.closeConnection(dbConn);
 	}
-	catch(e)
-	{
+	catch(e) {
 		log('(getMetabolics): $e');
 	}
 	finally
@@ -283,28 +264,26 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async
 		metabolics.energy = metabolics.max_energy;
 	}
 
-	try
-	{
+	try {
 		PostgreSql dbConn = await dbManager.getConnection();
 
 		//if the user already exists, update their data, otherwise insert them
 		String query = "SELECT user_id FROM metabolics WHERE user_id = @user_id";
 		List<int> results = await dbConn.query(query, int, metabolics);
 
-		if(results.length > 0) //user exists
-			query = "UPDATE metabolics SET img = @img, currants = @currants, mood = @mood, energy = @energy, lifetime_img = @lifetime_img, current_street = @current_street, current_street_x = @current_street_x, current_street_y = @current_street_y, max_energy = @max_energy, max_mood = @max_mood WHERE user_id = @user_id";
-		else //user does not exist
-			query = "INSERT INTO metabolics (img,currants,mood,energy,lifetime_img,user_id,current_street,current_street_x,current_street_y,max_energy,max_mood) VALUES(@img,@currants,@mood,@energy,@lifetime_img,@user_id,@current_street,@current_street_x,@current_street_y,@max_energy,@max_mood);";
+		//user exists
+		if(results.length > 0) {
+			query = "UPDATE metabolics SET img = @img, currants = @currants, mood = @mood, energy = @energy, lifetime_img = @lifetime_img, current_street = @current_street, current_street_x = @current_street_x, current_street_y = @current_street_y, max_energy = @max_energy, max_mood = @max_mood, favor = @favor WHERE user_id = @user_id";
+		} else {
+			query = "INSERT INTO metabolics (img,currants,mood,energy,lifetime_img,user_id,current_street,current_street_x,current_street_y,max_energy,max_mood,favor) VALUES(@img,@currants,@mood,@energy,@lifetime_img,@user_id,@current_street,@current_street_x,@current_street_y,@max_energy,@max_mood,@favor);";
+		}
 
-		result = await dbConn.execute(query,metabolics);
+		result = await dbConn.execute(query, metabolics);
 		dbManager.closeConnection(dbConn);
 	}
-	catch(e)
-	{
+	catch(e) {
 		log('(setMetabolics): $e');
-	}
-	finally
-	{
+	} finally {
 		return result;
 	}
 }

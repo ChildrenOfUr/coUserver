@@ -1,47 +1,42 @@
 part of coUserver;
 
-Map getStreetEntities(String tsid)
-{
+Map getStreetEntities(String tsid) {
 	Map entities = {};
-	if(tsid != null)
-	{
-	  //TODO remove the need for the G/L replace logic
+	if(tsid != null) {
+		//TODO remove the need for the G/L replace logic
 		if(tsid.startsWith("G"))
-    		tsid = tsid.replaceFirst("G", "L");
-    	File file = new File('./streetEntities/$tsid');
-    	if(file.existsSync())
-    		entities = JSON.decode(file.readAsStringSync());
+			tsid = tsid.replaceFirst("G", "L");
+		File file = new File('./streetEntities/$tsid');
+		if(file.existsSync())
+			entities = JSON.decode(file.readAsStringSync());
 	}
 
 	return entities;
 }
-saveStreetData(Map params)
-{
+
+saveStreetData(Map params) {
 	String tsid = params['tsid'];
 	if(tsid.startsWith("G"))
 		tsid = tsid.replaceFirst("G", "L");
 
 	List entities = JSON.decode(params['entities']);
 	File file = new File('./streetEntities/$tsid');
-	if(file.existsSync())
-	{
+	if(file.existsSync()) {
 		Map oldFile = JSON.decode(file.readAsStringSync());
 		//backup the older file and replace it with this new file
-    	File backup = new File('./streetEntities/$tsid.bak');
-    	if(backup.existsSync())
-    	{
-    		Map oldData = JSON.decode(backup.readAsStringSync());
-    		List backups = oldData['backups'];
-    		backups.add({new DateTime.now().toIso8601String():oldFile});
-    		backup.writeAsStringSync(JSON.encode({'backups':backups}));
-    	}
-    	else
-    	{
-    		backup.createSync(recursive:true);
-	    	Map oldData = {'backups':[{new DateTime.now().toIso8601String():oldFile}]};
-	    	backup.writeAsStringSync(JSON.encode(oldData));
-    	}
-    }
+		File backup = new File('./streetEntities/$tsid.bak');
+		if(backup.existsSync()) {
+			Map oldData = JSON.decode(backup.readAsStringSync());
+			List backups = oldData['backups'];
+			backups.add({new DateTime.now().toIso8601String():oldFile});
+			backup.writeAsStringSync(JSON.encode({'backups':backups}));
+		}
+		else {
+			backup.createSync(recursive:true);
+			Map oldData = {'backups':[{new DateTime.now().toIso8601String():oldFile}]};
+			backup.writeAsStringSync(JSON.encode(oldData));
+		}
+	}
 	else
 		file.createSync(recursive:true);
 
@@ -53,42 +48,38 @@ saveStreetData(Map params)
 	Map finishedMap = JSON.decode(finished.readAsStringSync());
 	int required = int.parse(params['required']);
 	int complete = int.parse(params['complete']);
-	bool streetFinished = (required-complete == 0) ? true : false;
+	bool streetFinished = (required - complete == 0) ? true : false;
 	finishedMap[tsid] = {"entitiesRequired":params['required'],
-	                     "entitiesComplete":params['complete'],
-	                     "streetFinished":streetFinished};
+		"entitiesComplete":params['complete'],
+		"streetFinished":streetFinished};
 	finished.writeAsStringSync(JSON.encode(finishedMap));
 }
 
-void reportBrokenStreet(String tsid, String reason)
-{
+void reportBrokenStreet(String tsid, String reason) {
 	if(tsid == null)
 		return;
 
 	if(tsid.startsWith("G"))
-    	tsid = tsid.replaceFirst("G", "L");
+		tsid = tsid.replaceFirst("G", "L");
 
 	File finished = _getFinishedFile();
 	Map finishedMap = JSON.decode(finished.readAsStringSync());
 	Map street = {};
-	if(finishedMap[tsid] != null)
-	{
+	if(finishedMap[tsid] != null) {
 		street = finishedMap[tsid];
 		street['reported$reason'] = true;
 		finishedMap[tsid] = street;
 	}
-	else
-	{
+	else {
 		finishedMap[tsid] = {"entitiesRequired":-1,
-    	                     "entitiesComplete":-1,
-    	                     "streetFinished":false,
-    	                     "reported$reason":true};
+			"entitiesComplete":-1,
+			"streetFinished":false,
+			"reported$reason":true};
 	}
 	finished.writeAsStringSync(JSON.encode(finishedMap));
 }
 
-File _getFinishedFile()
-{
+File _getFinishedFile() {
 	File finished = new File('./streetEntities/finished.json');
 	if(!finished.existsSync())
 		_createFinishedFile();
@@ -96,29 +87,25 @@ File _getFinishedFile()
 	return finished;
 }
 
-void _createFinishedFile()
-{
+void _createFinishedFile() {
 	File finished = new File('./streetEntities/finished.json');
 	finished.createSync(recursive:true);
 	//insert any streets that were finished before this file was created
 	Directory streetEntities = new Directory('./streetEntities');
 	Map finishedMap = {};
-	for(FileSystemEntity entity in streetEntities.listSync(recursive:true))
-	{
-		String filename = entity.path.substring(entity.path.lastIndexOf('/')+1);
-		if(!filename.contains('.'))
-		{
+	for(FileSystemEntity entity in streetEntities.listSync(recursive:true)) {
+		String filename = entity.path.substring(entity.path.lastIndexOf('/') + 1);
+		if(!filename.contains('.')) {
 			//we'll assume it's incomplete
 			finishedMap[filename] = {"entitiesRequired":0,
-				                     "entitiesComplete":0,
-            	                     "streetFinished":false};
+				"entitiesComplete":0,
+				"streetFinished":false};
 		}
 	}
 	finished.writeAsStringSync(JSON.encode(finishedMap));
 }
 
-String getTsidOfUnfilledStreet()
-{
+String getTsidOfUnfilledStreet() {
 	String tsid = null;
 
 	File file = new File('./streetEntities/streets.json');
@@ -138,16 +125,14 @@ String getTsidOfUnfilledStreet()
 	String incomplete = null;
 	List<String> streetsList = streets.keys.toList();
 	streetsList.shuffle();
-	for(String t in streetsList)
-	{
-		if(!finishedMap.containsKey(t))
-		{
+	for(String t in streetsList) {
+		if(!finishedMap.containsKey(t)) {
 			tsid = t;
 			break;
 		}
 		else if(!finishedMap[t]['streetFinished'] && !finishedMap[t]['reportedBroken']
-			&& !finishedMap[t]['reportedVandalized'] && !finishedMap[t]['reportedFinished'])
-        	incomplete = t;
+		        && !finishedMap[t]['reportedVandalized'] && !finishedMap[t]['reportedFinished'])
+			incomplete = t;
 	}
 
 	//tsid may still be null after this
@@ -166,20 +151,17 @@ String getTsidOfUnfilledStreet()
  * In the event that a class matching that name does not exist, it will throw
  * an ArgumentError
  **/
-ClassMirror findClassMirror(String name)
-{
-	for (LibraryMirror lib in currentMirrorSystem().libraries.values)
-	{
-        DeclarationMirror mirror = lib.declarations[MirrorSystem.getSymbol(name)];
-        if (mirror != null)
-        	return mirror;
-  	}
-  	throw new ArgumentError("Class $name does not exist");
+ClassMirror findClassMirror(String name) {
+	for(LibraryMirror lib in currentMirrorSystem().libraries.values) {
+		DeclarationMirror mirror = lib.declarations[MirrorSystem.getSymbol(name)];
+		if(mirror != null)
+			return mirror;
+	}
+	throw new ArgumentError("Class $name does not exist");
 }
 
-String createId(num x, num y, String type, String tsid)
-{
-	return (type+x.toString()+y.toString()+tsid).hashCode.toString();
+String createId(num x, num y, String type, String tsid) {
+	return (type + x.toString() + y.toString() + tsid).hashCode.toString();
 }
 
 /**
@@ -187,8 +169,7 @@ String createId(num x, num y, String type, String tsid)
  * Log a message out to the console (and possibly a log file through redirection)
  *
  **/
-void log(String message)
-{
+void log(String message) {
 	print("(${new DateTime.now().toString()}) $message");
 }
 
@@ -198,26 +179,26 @@ Future<Map> getSpritesheets(@app.QueryParam('username') String username) async
 	if(username.contains(new RegExp("testUser[0-9]+")))
 		return {};
 
-	Map<String,String> spritesheets = {};
+	Map<String, String> spritesheets = {};
 	File cache = new File('./playerSpritesheets/${username.toLowerCase()}.json');
-	if(!(await cache.exists()))
-	{
-		try
-		{
+	if(!(await cache.exists())) {
+		try {
 			await cache.create(recursive:true);
-			Map spritesheets = await _getSpritesheetsFromWeb(username);
-    		await cache.writeAsString(JSON.encode(spritesheets));
-    		return spritesheets;
+			spritesheets = await _getSpritesheetsFromWeb(username);
+			await cache.writeAsString(JSON.encode(spritesheets));
+			return spritesheets;
 		}
-		catch(e){return {};}
+		catch(e) {
+			return {};
+		}
 	}
-	else
-	{
-		try
-		{
+	else {
+		try {
 			return JSON.decode(cache.readAsStringSync());
 		}
-		catch(err){return {};}
+		catch(err) {
+			return {};
+		}
 	}
 }
 
@@ -228,18 +209,16 @@ Future<Map> _getSpritesheetsFromWeb(String username) async
 	String url = 'http://www.glitchthegame.com/friends/search/?q=${Uri.encodeComponent(username)}';
 	String response = await http.read(url);
 
-	RegExp regex = new RegExp('\/profiles\/(.+)\/" class="friend-name">$username',caseSensitive:false);
-	if(regex.hasMatch(response))
-	{
+	RegExp regex = new RegExp('\/profiles\/(.+)\/" class="friend-name">$username', caseSensitive:false);
+	if(regex.hasMatch(response)) {
 		String tsid = regex.firstMatch(response).group(1);
 
 		response = await http.read('http://www.glitchthegame.com/profiles/$tsid');
 
-		List<String> sheets = ['base','angry','climb','happy','idle1','idle2','idle3','idleSleepy','jump','surprise'];
-		sheets.forEach((String sheet)
-        {
-        	RegExp regex = new RegExp('"(.+$sheet\.png)"');
-        	spritesheets[sheet] = regex.firstMatch(response).group(1);
+		List<String> sheets = ['base', 'angry', 'climb', 'happy', 'idle1', 'idle2', 'idle3', 'idleSleepy', 'jump', 'surprise'];
+		sheets.forEach((String sheet) {
+			RegExp regex = new RegExp('"(.+$sheet\.png)"');
+			spritesheets[sheet] = regex.firstMatch(response).group(1);
 		});
 
 		return spritesheets;
@@ -249,28 +228,21 @@ Future<Map> _getSpritesheetsFromWeb(String username) async
 }
 
 @app.Route('/getItemByName')
-Map getItemByName(@app.QueryParam('name') String name)
-{
-	try
-	{
-		Item item = items[name];
-		return item.getMap();
+Map getItemByName(@app.QueryParam('name') String name) {
+	try {
+		return items.values.singleWhere((Item i) => i.name == name).getMap();
 	}
-	catch(err)
-	{
-		return {'status':'FAIL','reason':'Could not find item: $name'};
+	catch(err) {
+		return {'status':'FAIL', 'reason':'Could not find item: $name'};
 	}
 }
 
 @app.Route('/getStreetFillerStats')
-Future<Map> getStreetFillerStats()
-{
+Future<Map> getStreetFillerStats() {
 	Completer c = new Completer();
 	File finished = _getFinishedFile();
-	finished.readAsString().then((String str)
-	{
-		try
-		{
+	finished.readAsString().then((String str) {
+		try {
 			File file = new File('./streetEntities/streets.json');
 			Map streets = JSON.decode(file.readAsStringSync());
 
@@ -280,11 +252,10 @@ Future<Map> getStreetFillerStats()
 			int reportedVandalized = 0;
 			int entitiesRequired = 0;
 			int entitiesComplete = 0;
-			Map<String,int> typeTotals = {};
+			Map<String, int> typeTotals = {};
 
 			Map finishedMap = JSON.decode(str);
-			finishedMap.forEach((String key, Map value)
-			{
+			finishedMap.forEach((String key, Map value) {
 				if(value['streetFinished'] == true)
 					trulyFinished++;
 				if(value['reportedBroken'] == true)
@@ -300,30 +271,27 @@ Future<Map> getStreetFillerStats()
 			});
 
 			Directory dir = new Directory('./streetEntities');
-			for(File f in dir.listSync())
-			{
+			for(File f in dir.listSync()) {
 				if(f.path.contains('.bak') || f.path.contains('streets.json')
 				   || f.path.contains('finished.json'))
 					continue;
 
 				Map entityData = JSON.decode(f.readAsStringSync());
 				List<Map> entities = entityData['entities'];
-				entities.forEach((Map entity)
-				{
+				entities.forEach((Map entity) {
 					if(typeTotals.containsKey(entity['type']))
 						typeTotals[entity['type']]++;
 					else
 						typeTotals[entity['type']] = 1;
 				});
 			}
-			Map data = {'totalStreets':streets.length,'totalReports':finishedMap.length,
-				'entitiesRequired':entitiesRequired,'entitiesComplete':entitiesComplete,
-				'reportedBroken':reportedBroken,'reportedComplete':reportedFinished,
-				'reportedVandalized':reportedVandalized,'typeTotals':typeTotals};
+			Map data = {'totalStreets':streets.length, 'totalReports':finishedMap.length,
+				'entitiesRequired':entitiesRequired, 'entitiesComplete':entitiesComplete,
+				'reportedBroken':reportedBroken, 'reportedComplete':reportedFinished,
+				'reportedVandalized':reportedVandalized, 'typeTotals':typeTotals};
 			c.complete(data);
 		}
-		catch(err)
-		{
+		catch(err) {
 			log("Unable to read street stats: $err");
 			c.complete({});
 		}
@@ -334,19 +302,17 @@ Future<Map> getStreetFillerStats()
 
 @app.Route('/getActualImageHeight')
 Future<int> getActualImageHeight(@app.QueryParam('url') String imageUrl,
-						   		 @app.QueryParam('numRows') int numRows,
-						   		 @app.QueryParam('numColumns') int numColumns) async
+                                 @app.QueryParam('numRows') int numRows,
+                                 @app.QueryParam('numColumns') int numColumns) async
 {
-	if(heightsCache[imageUrl] != null)
-	{
+	if(heightsCache[imageUrl] != null) {
 		return heightsCache[imageUrl];
 	}
-	else
-	{
+	else {
 		http.Response response = await http.get(imageUrl);
 
 		Image image = decodeImage(response.bodyBytes);
-		int actualHeight = image.height~/numRows-image.getBytes().indexOf(image.getBytes().firstWhere((int byte) => byte != 0))~/image.width~/numColumns;
+		int actualHeight = image.height ~/ numRows - image.getBytes().indexOf(image.getBytes().firstWhere((int byte) => byte != 0)) ~/ image.width ~/ numColumns;
 		heightsCache[imageUrl] = actualHeight;
 		return actualHeight;
 	}
@@ -355,8 +321,7 @@ Future<int> getActualImageHeight(@app.QueryParam('url') String imageUrl,
 loadHeightsCacheFromDisk() async
 {
 	File file = new File('heightsCache.json');
-	if(!(await file.exists()))
-	{
+	if(!(await file.exists())) {
 		heightsCache = {};
 		return;
 	}
@@ -368,6 +333,6 @@ saveHeightsCacheToDisk() async
 {
 	File file = new File('heightsCache.json');
 	if(!(await file.exists()))
-    	await file.create(recursive:true);
+		await file.create(recursive:true);
 	await file.writeAsString(JSON.encode(heightsCache));
 }
