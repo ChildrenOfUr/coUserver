@@ -4,13 +4,8 @@ class StreetSpiritGroddle extends Vendor {
 	int openCount = 0;
 
 	StreetSpiritGroddle(String id, int x, int y) : super(id, x, y) {
-		actionTime = 0;
-
-		itemsForSale = pickItems(["Alchemical Compounds & Powders", "Croppery & Gardening Supplies", "Drinks", "Food", "Herbalism Supplies", "Herdkeeping Supplies", "Machines & Fuel", "Seeds", "Spices", "Storage", "Tinctures & Potions"]);
-
-		type = "General Vendor";
 		speed = -75;
-
+    itemsPredefined = false;
 		states = {
 			"still":new Spritesheet("still", 'http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L0dirt_bottom_none_eyes_eyes_L0eyes1_skull_skull_L0dirt_top_none_x1_open_png_1354834564.png', 980, 300, 98, 150, 1, false),
 			"idle_hold":new Spritesheet("idle_hold", 'http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L0dirt_bottom_none_eyes_eyes_L0eyes1_skull_skull_L0dirt_top_none_x1_idle_hold_png_1354834558.png', 980, 1350, 98, 150, 85, true),

@@ -8,33 +8,6 @@
     "price": 1100,
     "description": "This die has 12 sides. One for every Giant, plus a mystery guest."
   },
-  "amazing_race_ticket": {
-    "name": "Amazing Race Ticket",
-    "category": "Toys",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_amazing_race__x1_iconic_png_1354836471.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_amazing_race__x1_1_x1_2_x1_3_x1_4_png_1354836471.png",
-    "stacksTo": 5,
-    "price": 20,
-    "description": "Challenge another player to the Amazing Race."
-  },
-  "aquarius_party_pack": {
-    "name": "Aquarius Party Pack",
-    "category": "Toys",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_aquarius__x1_1_png_1354840298.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_aquarius__x1_1_png_1354840298.png",
-    "stacksTo": 1,
-    "price": 1000,
-    "description": "Swim, float & drift your way around this quoin-laden party space. And, remember … quoining is always more fun with friends!"
-  },
-  "aquarius_party_pack_taster": {
-    "name": "Aquarius Party Pack Taster",
-    "category": "Toys",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_aquarius__x1_1_png_1354840303.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_aquarius__x1_1_png_1354840303.png",
-    "stacksTo": 1,
-    "price": 200,
-    "description": "Swim, float & drift your way around this quoin-laden party space. And, remember … quoining is always more fun with friends!"
-  },
   "ayn_rand_doll": {
     "name": "Ayn Rand Doll",
     "category": "Toys",
@@ -52,24 +25,6 @@
     "stacksTo": 1,
     "price": 1000,
     "description": "A useful handheld gizmo with a lens, a button, and lots of complex intricate technical gubbins on the inside. Depending on who you ask, cameras are either for taking pretty pictures, or for stealing the soul of whoever they point at. This one is mainly for pictures though. You'd need a much bigger memory card for souls."
-  },
-  "canyon_run_ticket": {
-    "name": "Canyon Run Ticket",
-    "category": "Toys",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_canyon_run__x1_iconic_png_1354836468.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_canyon_run__x1_1_x1_2_x1_3_x1_4_png_1354836468.png",
-    "stacksTo": 5,
-    "price": 20,
-    "description": "Challenge another player to Canyon Run."
-  },
-  "crystal_climb_ticket": {
-    "name": "Crystal Climb Ticket",
-    "category": "Toys",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_crystal_climb__x1_iconic_png_1354836461.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_crystal_climb__x1_1_x1_2_x1_3_x1_4_png_1354836462.png",
-    "stacksTo": 5,
-    "price": 20,
-    "description": "Challenge another player to Crystal Climb."
   },
   "cubimal_series_1_box": {
     "name": "Cubimal Series 1 Box",
@@ -89,23 +44,14 @@
     "price": 5000,
     "description": "Contains one (1) Series 2 Cubimal. Open it up to find out which one is inside. Collect 'em all!"
   },
-  "double_rainbow_party_pack": {
-    "name": "Double Rainbow Party Pack",
+  "dice": {
+    "name": "Pair of Dice",
     "category": "Toys",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_double_rainbow__x1_1_png_1354836450.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_double_rainbow__x1_1_png_1354836450.png",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/dice__x1_1_png_1354836215.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/dice__x1_1_png_1354836215.png",
     "stacksTo": 1,
-    "price": 1000,
-    "description": "One ephemeral cute-as-a-button party space, perfect for private events. When activated, temporary party location includes complimentary mineables, munchables and mixables, sparkles and lollipops and glee."
-  },
-  "double_rainbow_party_pack_taster": {
-    "name": "Double Rainbow Party Pack Taster",
-    "category": "Toys",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_double_rainbow__x1_1_png_1354836477.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_double_rainbow__x1_1_png_1354836477.png",
-    "stacksTo": 1,
-    "price": 200,
-    "description": "One ephemeral cute-as-a-button party space, perfect for private events. When activated, temporary party location includes complimentary mineables, munchables and mixables, sparkles and lollipops and glee."
+    "price": 500,
+    "description": "Roll up!"
   },
   "emotional_bear": {
     "name": "Emotional Bear",
@@ -142,24 +88,6 @@
     "stacksTo": 1,
     "price": 1009,
     "description": "He sure is talky, but this moustachioed little chap isn't very comforting to cuddle. But then how cuddly, exactly, were you expecting your My Little Nietzsche to be?"
-  },
-  "game_of_crowns_ticket": {
-    "name": "Game of Crowns Ticket",
-    "category": "Toys",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_it_game__x1_iconic_png_1354836240.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_it_game__x1_1_x1_2_x1_3_x1_4_png_1354836240.png",
-    "stacksTo": 5,
-    "price": 20,
-    "description": "Challenge another player to Game of Crowns."
-  },
-  "gameshow_ticket": {
-    "name": "Gameshow Ticket",
-    "category": "Toys",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/gameshow_ticket__x1_iconic_png_1354830731.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gameshow_ticket__x1_1_x1_2_x1_3_x1_4_x1_5_x1_6_x1_7_x1_8_x1_9_x1_10_x1_11_png_1354830731.png",
-    "stacksTo": 11,
-    "price": 0,
-    "description": "One glittery, razzling, dazzling game show ticket. Ain't nothing you can do but USE it."
   },
   "garden_gnome": {
     "name": "Garden Gnome",
@@ -215,24 +143,6 @@
     "price": 1,
     "description": "A joke of dubious quality found in a Glitchmas Cracker. Who writes these things, anyway?"
   },
-  "grab_em_good_ticket": {
-    "name": "Grab 'Em Good Ticket",
-    "category": "Toys",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_grab_em_good__x1_iconic_png_1354836466.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_grab_em_good__x1_1_x1_2_x1_3_x1_4_png_1354836466.png",
-    "stacksTo": 5,
-    "price": 20,
-    "description": "Challenge another player to Grab 'Em Good."
-  },
-  "lava_leap_ticket": {
-    "name": "Lava Leap Ticket",
-    "category": "Toys",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_lava_leap__x1_iconic_png_1354836463.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_lava_leap__x1_1_x1_2_x1_3_x1_4_png_1354836464.png",
-    "stacksTo": 5,
-    "price": 20,
-    "description": "Challenge another player to Lava Leap."
-  },
   "lips": {
     "name": "Lips",
     "category": "Toys",
@@ -251,24 +161,6 @@
     "price": 1009,
     "description": "A depressed, closeted, singularly-focused Anglicized Austrian: student, schoolteacher, professor, maniac ... genius?"
   },
-  "mazzala_gala_party_pack": {
-    "name": "Mazza'la Gala Party Pack",
-    "category": "Toys",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_mazzala_gala__x1_1_png_1354836474.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_mazzala_gala__x1_1_png_1354836474.png",
-    "stacksTo": 1,
-    "price": 1000,
-    "description": "One private and transient five-room wooden party lodge. When activated, temporary party location includes DIY hearty party feast, beer, booze, and one very dark make-out room."
-  },
-  "mazzala_gala_party_pack_taster": {
-    "name": "Mazza'la Gala Party Pack Taster",
-    "category": "Toys",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_mazzala_gala__x1_1_png_1354836486.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_mazzala_gala__x1_1_png_1354836486.png",
-    "stacksTo": 1,
-    "price": 200,
-    "description": "One private and transient five-room wooden party lodge. When activated, temporary party location includes DIY hearty party feast, beer, booze, and one very dark make-out room."
-  },
   "moon": {
     "name": "Moon",
     "category": "Toys",
@@ -278,7 +170,34 @@
     "price": 99,
     "description": "One full, craterous moon, without which mooning cannot happen. Most useful if attached to an Emotional Bear."
   },
-  "nylon_phool_party_pack": {
+  "party_aquarius": {
+    "name": "Aquarius Party Pack",
+    "category": "Toys",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_aquarius__x1_1_png_1354840298.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_aquarius__x1_1_png_1354840298.png",
+    "stacksTo": 1,
+    "price": 1000,
+    "description": "Swim, float & drift your way around this quoin-laden party space. And, remember … quoining is always more fun with friends!"
+  },
+  "party_double_rainbow": {
+    "name": "Double Rainbow Party Pack",
+    "category": "Toys",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_double_rainbow__x1_1_png_1354836450.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_double_rainbow__x1_1_png_1354836450.png",
+    "stacksTo": 1,
+    "price": 1000,
+    "description": "One ephemeral cute-as-a-button party space, perfect for private events. When activated, temporary party location includes complimentary mineables, munchables and mixables, sparkles and lollipops and glee."
+  },
+  "party_mazzala_gala": {
+    "name": "Mazza'la Gala Party Pack",
+    "category": "Toys",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_mazzala_gala__x1_1_png_1354836474.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_mazzala_gala__x1_1_png_1354836474.png",
+    "stacksTo": 1,
+    "price": 1000,
+    "description": "One private and transient five-room wooden party lodge. When activated, temporary party location includes DIY hearty party feast, beer, booze, and one very dark make-out room."
+  },
+  "party_nylon_phool": {
     "name": "Nylon Phool Party Pack",
     "category": "Toys",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_nylon_phool__x1_1_png_1354836447.png",
@@ -287,25 +206,7 @@
     "price": 1000,
     "description": "One temporary underwater pool-party spot. When activated, this ephemeral party place includes a complimentary DIY juice bar, smoothie-zone and Spicy Grog spot, replenishing nibbles and unlimited floatiness."
   },
-  "nylon_phool_party_pack_taster": {
-    "name": "Nylon Phool Party Pack Taster",
-    "category": "Toys",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_nylon_phool__x1_1_png_1354836488.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_nylon_phool__x1_1_png_1354836488.png",
-    "stacksTo": 1,
-    "price": 200,
-    "description": "One temporary underwater pool-party spot. When activated, this ephemeral party place includes a complimentary DIY juice bar, smoothie-zone and Spicy Grog spot, replenishing nibbles and unlimited floatiness."
-  },
-  "dice": {
-    "name": "Pair of Dice",
-    "category": "Toys",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/dice__x1_1_png_1354836215.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/dice__x1_1_png_1354836215.png",
-    "stacksTo": 1,
-    "price": 500,
-    "description": "Roll up!"
-  },
-  "pitchen_lilliputt_party_pack": {
+  "party_pitchen_lilliputt": {
     "name": "Pitchen Lilliputt Party Pack",
     "category": "Toys",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_pitchen_lilliputt__x1_1_png_1354836440.png",
@@ -314,7 +215,43 @@
     "price": 1000,
     "description": "Miniature Ur for Glitchean giants in one small but perfectly formed temporary party location. When activated, this ephemeral party spot includes minables, nibbles, snacks and sammiches, and one DIY fancy-cocktail bar."
   },
-  "pitchen_lilliputt_party_pack_taster": {
+  "party_taster_aquarius": {
+    "name": "Aquarius Party Pack Taster",
+    "category": "Toys",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_aquarius__x1_1_png_1354840303.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_aquarius__x1_1_png_1354840303.png",
+    "stacksTo": 1,
+    "price": 200,
+    "description": "Swim, float & drift your way around this quoin-laden party space. And, remember … quoining is always more fun with friends!"
+  },
+  "party_taster_double_rainbow": {
+    "name": "Double Rainbow Party Pack Taster",
+    "category": "Toys",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_double_rainbow__x1_1_png_1354836477.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_double_rainbow__x1_1_png_1354836477.png",
+    "stacksTo": 1,
+    "price": 200,
+    "description": "One ephemeral cute-as-a-button party space, perfect for private events. When activated, temporary party location includes complimentary mineables, munchables and mixables, sparkles and lollipops and glee."
+  },
+  "party_taster_mazzala_gala": {
+    "name": "Mazza'la Gala Party Pack Taster",
+    "category": "Toys",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_mazzala_gala__x1_1_png_1354836486.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_mazzala_gala__x1_1_png_1354836486.png",
+    "stacksTo": 1,
+    "price": 200,
+    "description": "One private and transient five-room wooden party lodge. When activated, temporary party location includes DIY hearty party feast, beer, booze, and one very dark make-out room."
+  },
+  "party_taster_nylon_phool": {
+    "name": "Nylon Phool Party Pack Taster",
+    "category": "Toys",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_nylon_phool__x1_1_png_1354836488.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_nylon_phool__x1_1_png_1354836488.png",
+    "stacksTo": 1,
+    "price": 200,
+    "description": "One temporary underwater pool-party spot. When activated, this ephemeral party place includes a complimentary DIY juice bar, smoothie-zone and Spicy Grog spot, replenishing nibbles and unlimited floatiness."
+  },
+  "party_taster_pitchen_lilliputt": {
     "name": "Pitchen Lilliputt Party Pack Taster",
     "category": "Toys",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_pitchen_lilliputt__x1_1_png_1354836491.png",
@@ -322,6 +259,60 @@
     "stacksTo": 1,
     "price": 200,
     "description": "Miniature Ur for Glitchean giants in one small but perfectly formed temporary party location. When activated, this ephemeral party spot includes minables, nibbles, snacks and sammiches, and one DIY fancy-cocktail bar."
+  },
+  "party_taster_toxic_moon": {
+    "name": "Toxic Moon Party Pack Taster",
+    "category": "Toys",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_toxic_moon__x1_1_png_1354836493.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_toxic_moon__x1_1_png_1354836493.png",
+    "stacksTo": 1,
+    "price": 200,
+    "description": "One secluded and totally transient lunar location. When activated, temporary party spot includes ingredients for cocktails, sparkly rocks for space-mining, and a notable lack of gravity, for super-awesome-space-jumpiness."
+  },
+  "party_taster_val_holla": {
+    "name": "Val Holla Party Pack Taster",
+    "category": "Toys",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_val_holla__x1_1_png_1354840300.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_val_holla__x1_1_png_1354840300.png",
+    "stacksTo": 1,
+    "price": 200,
+    "description": "Soar to new heights in this quoin-heavy party space. Grab a bunch of your closest friends, and get ready to Party Shardy!"
+  },
+  "party_taster_winter_wingding": {
+    "name": "Winter Wingding Party Pack Taster",
+    "category": "Toys",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_winter_wingding__x1_1_png_1354837530.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_winter_wingding__x1_1_png_1354837530.png",
+    "stacksTo": 1,
+    "price": 200,
+    "description": "One temporary wonderland, perfect for holiday get-togethers and winterly fun. When activated, this icy private party spot includes trees for decorating, ingredients for heart-warming drinkables and a DIY pie bar."
+  },
+  "party_toxic_moon": {
+    "name": "Toxic Moon Party Pack",
+    "category": "Toys",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_toxic_moon__x1_1_png_1354836443.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_toxic_moon__x1_1_png_1354836443.png",
+    "stacksTo": 1,
+    "price": 1000,
+    "description": "One secluded and totally transient lunar location. When activated, temporary party spot includes ingredients for cocktails, sparkly rocks for space-mining, and a notable lack of gravity, for super-awesome-space-jumpiness."
+  },
+  "party_val_holla": {
+    "name": "Val Holla Party Pack",
+    "category": "Toys",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_val_holla__x1_1_png_1354840295.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_val_holla__x1_1_png_1354840295.png",
+    "stacksTo": 1,
+    "price": 1000,
+    "description": "Soar to new heights in this quoin-heavy party space. Grab a bunch of your closest friends, and get ready to Party Shardy!"
+  },
+  "party_winter_wingding": {
+    "name": "Winter Wingding Party Pack",
+    "category": "Toys",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_winter_wingding__x1_1_png_1354837527.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_winter_wingding__x1_1_png_1354837527.png",
+    "stacksTo": 1,
+    "price": 1000,
+    "description": "One temporary wonderland, perfect for holiday get-togethers and winterly fun. When activated, this icy private party spot includes trees for decorating, ingredients for heart-warming drinkables and a DIY pie bar."
   },
   "play_cube": {
     "name": "Play Cube",
@@ -341,7 +332,70 @@
     "price": 0,
     "description": "This priceless item dispenses random kindness."
   },
-  "space_race_ticket": {
+  "ticket_amazing_race": {
+    "name": "Amazing Race Ticket",
+    "category": "Toys",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_amazing_race__x1_iconic_png_1354836471.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_amazing_race__x1_1_x1_2_x1_3_x1_4_png_1354836471.png",
+    "stacksTo": 5,
+    "price": 20,
+    "description": "Challenge another player to the Amazing Race."
+  },
+  "ticket_canyon_run": {
+    "name": "Canyon Run Ticket",
+    "category": "Toys",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_canyon_run__x1_iconic_png_1354836468.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_canyon_run__x1_1_x1_2_x1_3_x1_4_png_1354836468.png",
+    "stacksTo": 5,
+    "price": 20,
+    "description": "Challenge another player to Canyon Run."
+  },
+  "ticket_crystal_climb": {
+    "name": "Crystal Climb Ticket",
+    "category": "Toys",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_crystal_climb__x1_iconic_png_1354836461.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_crystal_climb__x1_1_x1_2_x1_3_x1_4_png_1354836462.png",
+    "stacksTo": 5,
+    "price": 20,
+    "description": "Challenge another player to Crystal Climb."
+  },
+  "ticket_game_of_crowns": {
+    "name": "Game of Crowns Ticket",
+    "category": "Toys",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_it_game__x1_iconic_png_1354836240.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_it_game__x1_1_x1_2_x1_3_x1_4_png_1354836240.png",
+    "stacksTo": 5,
+    "price": 20,
+    "description": "Challenge another player to Game of Crowns."
+  },
+  "ticket_gameshow": {
+    "name": "Gameshow Ticket",
+    "category": "Toys",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/gameshow_ticket__x1_iconic_png_1354830731.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gameshow_ticket__x1_1_x1_2_x1_3_x1_4_x1_5_x1_6_x1_7_x1_8_x1_9_x1_10_x1_11_png_1354830731.png",
+    "stacksTo": 11,
+    "price": 0,
+    "description": "One glittery, razzling, dazzling game show ticket. Ain't nothing you can do but USE it."
+  },
+  "ticket_grab_em_good": {
+    "name": "Grab 'Em Good Ticket",
+    "category": "Toys",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_grab_em_good__x1_iconic_png_1354836466.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_grab_em_good__x1_1_x1_2_x1_3_x1_4_png_1354836466.png",
+    "stacksTo": 5,
+    "price": 20,
+    "description": "Challenge another player to Grab 'Em Good."
+  },
+  "ticket_lava_leap": {
+    "name": "Lava Leap Ticket",
+    "category": "Toys",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_lava_leap__x1_iconic_png_1354836463.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_lava_leap__x1_1_x1_2_x1_3_x1_4_png_1354836464.png",
+    "stacksTo": 5,
+    "price": 20,
+    "description": "Challenge another player to Lava Leap."
+  },
+  "ticket_space_race": {
     "name": "Space Race Ticket",
     "category": "Toys",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_space_race__x1_iconic_png_1354836459.png",
@@ -350,7 +404,7 @@
     "price": 20,
     "description": "Challenge another player to Space Race."
   },
-  "star_sprint_ticket": {
+  "ticket_star_sprint": {
     "name": "Star Sprint Ticket",
     "category": "Toys",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_star_sprint__x1_iconic_png_1354836457.png",
@@ -359,7 +413,7 @@
     "price": 20,
     "description": "Challenge another player to Star Sprint."
   },
-  "the_great_hog_haul_ticket": {
+  "ticket_the_great_hog_haul": {
     "name": "The Great Hog Haul Ticket",
     "category": "Toys",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_hogtie_piggy__x1_iconic_png_1354836452.png",
@@ -368,7 +422,7 @@
     "price": 20,
     "description": "Challenge another player to The Great Hog Haul."
   },
-  "time_warp_ticket": {
+  "ticket_time_warp": {
     "name": "Time Warp Ticket",
     "category": "Toys",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/race_ticket_time_warp__x1_iconic_png_1354836454.png",
@@ -376,60 +430,6 @@
     "stacksTo": 5,
     "price": 20,
     "description": "Challenge another player to Time Warp."
-  },
-  "party_pack_toxic_moon": {
-    "name": "Toxic Moon Party Pack",
-    "category": "Toys",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_toxic_moon__x1_1_png_1354836443.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_toxic_moon__x1_1_png_1354836443.png",
-    "stacksTo": 1,
-    "price": 1000,
-    "description": "One secluded and totally transient lunar location. When activated, temporary party spot includes ingredients for cocktails, sparkly rocks for space-mining, and a notable lack of gravity, for super-awesome-space-jumpiness."
-  },
-  "party_pack_taster_toxic_moon": {
-    "name": "Toxic Moon Party Pack Taster",
-    "category": "Toys",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_toxic_moon__x1_1_png_1354836493.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_toxic_moon__x1_1_png_1354836493.png",
-    "stacksTo": 1,
-    "price": 200,
-    "description": "One secluded and totally transient lunar location. When activated, temporary party spot includes ingredients for cocktails, sparkly rocks for space-mining, and a notable lack of gravity, for super-awesome-space-jumpiness."
-  },
-  "val_holla_party_pack": {
-    "name": "Val Holla Party Pack",
-    "category": "Toys",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_val_holla__x1_1_png_1354840295.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_val_holla__x1_1_png_1354840295.png",
-    "stacksTo": 1,
-    "price": 1000,
-    "description": "Soar to new heights in this quoin-heavy party space. Grab a bunch of your closest friends, and get ready to Party Shardy!"
-  },
-  "val_holla_party_pack_taster": {
-    "name": "Val Holla Party Pack Taster",
-    "category": "Toys",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_val_holla__x1_1_png_1354840300.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_val_holla__x1_1_png_1354840300.png",
-    "stacksTo": 1,
-    "price": 200,
-    "description": "Soar to new heights in this quoin-heavy party space. Grab a bunch of your closest friends, and get ready to Party Shardy!"
-  },
-  "party_pack_winter_wingding": {
-    "name": "Winter Wingding Party Pack",
-    "category": "Toys",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_winter_wingding__x1_1_png_1354837527.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_winter_wingding__x1_1_png_1354837527.png",
-    "stacksTo": 1,
-    "price": 1000,
-    "description": "One temporary wonderland, perfect for holiday get-togethers and winterly fun. When activated, this icy private party spot includes trees for decorating, ingredients for heart-warming drinkables and a DIY pie bar."
-  },
-  "party_pack_taster_winter_wingding": {
-    "name": "Winter Wingding Party Pack Taster",
-    "category": "Toys",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_winter_wingding__x1_1_png_1354837530.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/party_pack_taster_winter_wingding__x1_1_png_1354837530.png",
-    "stacksTo": 1,
-    "price": 200,
-    "description": "One temporary wonderland, perfect for holiday get-togethers and winterly fun. When activated, this icy private party spot includes trees for decorating, ingredients for heart-warming drinkables and a DIY pie bar."
   },
   "wrappable_gift_box": {
     "name": "Wrappable Gift Box",

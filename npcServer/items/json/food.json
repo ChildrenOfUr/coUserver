@@ -109,7 +109,7 @@
   },
   "blue_sno_cone": {
     "name": "Blue Sno Cone",
-    "category": "Food",
+    "category": "Sno Cones",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/sno_cone_blue__x1_iconic_png_1354830753.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/sno_cone_blue__x1_1_x1_2_x1_3_x1_4_png_1354830754.png",
     "stacksTo": 10,
@@ -460,7 +460,7 @@
   },
   "green_sno_cone": {
     "name": "Green Sno Cone",
-    "category": "Food",
+    "category": "Sno Cones",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/sno_cone_green__x1_iconic_png_1354830756.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/sno_cone_green__x1_1_x1_2_x1_3_x1_4_png_1354830757.png",
     "stacksTo": 10,
@@ -811,7 +811,7 @@
   },
   "orange_sno_cone": {
     "name": "Orange Sno Cone",
-    "category": "Food",
+    "category": "Sno Cones",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/sno_cone_orange__x1_iconic_png_1354830759.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/sno_cone_orange__x1_1_x1_2_x1_3_x1_4_png_1354830760.png",
     "stacksTo": 10,
@@ -955,7 +955,7 @@
   },
   "purple_sno_cone": {
     "name": "Purple Sno Cone",
-    "category": "Food",
+    "category": "Sno Cones",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/sno_cone_purple__x1_iconic_png_1354830764.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/sno_cone_purple__x1_1_x1_2_x1_3_x1_4_png_1354830765.png",
     "stacksTo": 10,
@@ -964,7 +964,7 @@
   },
   "rainbo_sno_cone": {
     "name": "Rainbo Sno Cone",
-    "category": "Food",
+    "category": "Sno Cones",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/sno_cone_rainbow__x1_iconic_png_1354840518.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/sno_cone_rainbow__x1_1_x1_2_x1_3_x1_4_png_1354840519.png",
     "stacksTo": 10,
@@ -1000,7 +1000,7 @@
   },
   "red_sno_cone": {
     "name": "Red Sno Cone",
-    "category": "Food",
+    "category": "Sno Cones",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/sno_cone_red__x1_iconic_png_1354830762.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/sno_cone_red__x1_1_x1_2_x1_3_x1_4_png_1354830762.png",
     "stacksTo": 10,
