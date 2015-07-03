@@ -205,7 +205,6 @@ class StreetUpdateHandler
 				{
 					//check if it's an item and not an entity
 					InstanceMirror instanceMirror = reflect(items[type]);
-          print(type);
 					Map<Symbol,dynamic> arguments = {#userSocket:ws,#email:email};
 					arguments[#streetName] = map['streetName'];
 					arguments[#map] = map['arguments'];
