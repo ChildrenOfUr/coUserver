@@ -37,18 +37,17 @@ class Mailbox extends NPC {
 		}
 	}
 
-	void checkMail({WebSocket userSocket, String email}) {
+	Future checkMail({WebSocket userSocket, String email}) async {
 		String query = "SELECT * FROM messages JOIN users ON username = to_user WHERE email = @email AND read = FALSE";
-		dbManager.getConnection().then((PostgreSql dbConn) {
-			dbConn.query(query, Message, {'email':email}).then((List<Message> messages) {
-				if(messages.length > 0) {
-					say("${messages.length} New Messages");
-				}
-				else
-					say("No Mail");
-			});
-			dbManager.closeConnection(dbConn);
-		});
+		PostgreSql dbConn = await dbManager.getConnection();
+		List<Message> messages = await dbConn.query(query, Message, {'email':email});
+		if(messages.length > 0) {
+			say("${messages.length} New Messages");
+		}
+		else {
+			say("No Mail");
+		}
+		dbManager.closeConnection(dbConn);
 	}
 
 	void viewInbox({WebSocket userSocket, String email}) {

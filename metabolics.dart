@@ -264,7 +264,9 @@ Future<Metabolics> getMetabolics({@app.QueryParam() String username, @app.QueryP
 		
 		dbManager.closeConnection(dbConn);
 	} catch(e,st) {
-		dbManager.closeConnection(dbConn);
+		if(dbConn != null) {
+			dbManager.closeConnection(dbConn);
+		}
 		log('(getMetabolics): $e\n$st');
 	} finally {
 		return metabolic;
@@ -302,7 +304,9 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 		dbManager.closeConnection(dbConn);
 	}
 	catch(e,st) {
-		dbManager.closeConnection(dbConn);
+		if(dbConn != null) {
+			dbManager.closeConnection(dbConn);
+		}
 		log('(setMetabolics): $e\n$st');
 	} finally {
 		return result;

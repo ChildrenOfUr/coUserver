@@ -2,10 +2,11 @@ part of coUserver;
 
 class StreetSpiritGroddle extends Vendor {
 	int openCount = 0;
+
 	StreetSpiritGroddle(String id, int x, int y) : super(id, x, y) {
 		actionTime = 0;
 
-    itemsForSale = _pickItems(["Alchemical Compounds & Powders", "Croppery & Gardening Supplies", "Drinks", "Food", "Herbalism Supplies", "Herdkeeping Supplies", "Machines & Fuel", "Seeds", "Spices", "Storage", "Tinctures & Potions"]);
+		itemsForSale = pickItems(["Alchemical Compounds & Powders", "Croppery & Gardening Supplies", "Drinks", "Food", "Herbalism Supplies", "Herdkeeping Supplies", "Machines & Fuel", "Seeds", "Spices", "Storage", "Tinctures & Potions"]);
 
 		type = "General Vendor";
 		speed = -75;
@@ -55,17 +56,14 @@ class StreetSpiritGroddle extends Vendor {
 		}
 	}
 
+	@override
 	void buy({WebSocket userSocket, String email}) {
 		currentState = states['open'];
 		//don't go to another state until closed
 		respawn = new DateTime.now().add(new Duration(days:50));
 		openCount++;
 
-		Map map = {};
-		map['vendorName'] = type;
-		map['id'] = id;
-		map['itemsForSale'] = _getItemsForSale();
-		userSocket.add(JSON.encode(map));
+		super.buy(userSocket:userSocket,email:email);
 	}
 
 	void sell({WebSocket userSocket, String email}) {
@@ -74,13 +72,7 @@ class StreetSpiritGroddle extends Vendor {
 		respawn = new DateTime.now().add(new Duration(days:50));
 		openCount++;
 
-		//prepare the buy window at the same time
-		Map map = {};
-		map['vendorName'] = type;
-		map['id'] = id;
-		map['itemsForSale'] = _getItemsForSale();
-		map['openWindow'] = 'vendorSell';
-		userSocket.add(JSON.encode(map));
+		super.sell(userSocket:userSocket,email:email);
 	}
 
 	void close({WebSocket userSocket, String email}) {
