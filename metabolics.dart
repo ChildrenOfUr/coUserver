@@ -38,27 +38,27 @@ class Metabolics {
 	int user_id = -1;
 
 	@Field()
-	int AlphFavor = 0;
+	int alphfavor = 0;
 	@Field()
-	int CosmaFavor = 0;
+	int cosmafavor = 0;
 	@Field()
-	int FriendlyFavor = 0;
+	int friendlyfavor = 0;
 	@Field()
-	int GrendalineFavor = 0;
+	int grendalinefavor = 0;
 	@Field()
-	int HumbabaFavor = 0;
+	int humbabafavor = 0;
 	@Field()
-	int LemFavor = 0;
+	int lemfavor = 0;
 	@Field()
-	int MabFavor = 0;
+	int mabfavor = 0;
 	@Field()
-	int PotFavor = 0;
+	int potfavor = 0;
 	@Field()
-	int SprigganFavor = 0;
+	int sprigganfavor = 0;
 	@Field()
-	int TiiFavor = 0;
+	int tiifavor = 0;
 	@Field()
-	int ZilleFavor = 0;
+	int zillefavor = 0;
 }
 
 class MetabolicsEndpoint {
@@ -109,7 +109,6 @@ class MetabolicsEndpoint {
 	}
 
 	static void simulate() {
-		return;
 		userSockets.forEach((String username, WebSocket ws) async
 		{
 			try {
@@ -239,7 +238,7 @@ class MetabolicsEndpoint {
 
 @app.Route('/getMetabolics')
 @Encode()
-Future<Metabolics> getMetabolics({@app.QueryParam() String username, String email}) async {
+Future<Metabolics> getMetabolics({@app.QueryParam() String username, @app.QueryParam() String email}) async {
 	Metabolics metabolic = new Metabolics();
 
 	try {
@@ -262,7 +261,7 @@ Future<Metabolics> getMetabolics({@app.QueryParam() String username, String emai
 				metabolic.user_id = results[0]['id'];
 			}
 		}
-
+		
 		dbManager.closeConnection(dbConn);
 	} catch(e,st) {
 		dbManager.closeConnection(dbConn);
@@ -293,9 +292,9 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 
 		//user exists
 		if(results.length > 0) {
-			query = "UPDATE metabolics SET img = @img, currants = @currants, mood = @mood, energy = @energy, lifetime_img = @lifetime_img, current_street = @current_street, current_street_x = @current_street_x, current_street_y = @current_street_y, max_energy = @max_energy, max_mood = @max_mood, AlphFavor = @AlphFavor,CosmaFavor = @CosmaFavor,FriendlyFavor = @FriendlyFavor,GrendalineFavor = @GrendalineFavor,HumbabaFavor = @HumbabaFavor,LemFavor = @LemFavor,MabFavor = @MabFavor,PotFavor = @PotFavor,SprigganFavor = @SprigganFavor,TiiFavor = @TiiFavor,ZilleFavor = @ZilleFavor WHERE user_id = @user_id";
+			query = "UPDATE metabolics SET img = @img, currants = @currants, mood = @mood, energy = @energy, lifetime_img = @lifetime_img, current_street = @current_street, current_street_x = @current_street_x, current_street_y = @current_street_y, max_energy = @max_energy, max_mood = @max_mood, alphfavor = @alphfavor,cosmafavor = @cosmafavor,friendlyfavor = @friendlyfavor,grendalinefavor = @grendalinefavor,humbabafavor = @humbabafavor,lemfavor = @lemfavor,mabfavor = @mabfavor,potfavor = @potfavor,sprigganfavor = @sprigganfavor,tiifavor = @tiifavor,zillefavor = @zillefavor WHERE user_id = @user_id";
 		} else {
-			query = "INSERT INTO metabolics (img,currants,mood,energy,lifetime_img,user_id,current_street,current_street_x,current_street_y,max_energy,max_mood,AlphFavor,CosmaFavor,FriendlyFavor,GrendalineFavor,HumbabaFavor,LemFavor,MabFavor,PotFavor,SprigganFavor,TiiFavor,ZilleFavor) VALUES(@img,@currants,@mood,@energy,@lifetime_img,@user_id,@current_street,@current_street_x,@current_street_y,@max_energy,@max_mood,@AlphFavor,@CosmaFavor,@FriendlyFavor,@GrendalineFavor,@HumbabaFavor,@LemFavor,@MabFavor,@PotFavor,@SprigganFavor,@TiiFavor,@ZilleFavor);";
+			query = "INSERT INTO metabolics (img,currants,mood,energy,lifetime_img,user_id,current_street,current_street_x,current_street_y,max_energy,max_mood,alphfavor,cosmafavor,friendlyfavor,grendalinefavor,humbabafavor,lemfavor,mabfavor,potfavor,sprigganfavor,tiifavor,zillefavor) VALUES(@img,@currants,@mood,@energy,@lifetime_img,@user_id,@current_street,@current_street_x,@current_street_y,@max_energy,@max_mood,@alphfavor,@cosmafavor,@friendlyfavor,@grendalinefavor,@humbabafavor,@lemfavor,@mabfavor,@potfavor,@sprigganfavor,@tiifavor,@zillefavor);";
 		}
 
 		result = await dbConn.execute(query, metabolics);
