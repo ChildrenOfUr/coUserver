@@ -16,7 +16,7 @@ abstract class Tree extends Plant {
 				      "requires":[
 					      {
 						      "num":1,
-						      "of":["Watering Can"]
+						      "of":["watering_can", "irrigator_9000"]
 					      }
 				      ]})
 			..add({"action":"pet",

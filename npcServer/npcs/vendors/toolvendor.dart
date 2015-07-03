@@ -1,22 +1,12 @@
 part of coUserver;
 
-class ToolVendor extends NPC {
+class ToolVendor extends Vendor {
   int openCount = 0;
   ToolVendor(String id, int x, int y) : super(id, x, y) {
     actionTime = 0;
-    actions
-      ..add({"action":"buy",
-      "timeRequired":actionTime,
-      "enabled":true,
-      "actionWord":""})
-      ..add({"action":"sell",
-      "timeRequired":actionTime,
-      "enabled":true,
-      "actionWord":""});
-
     type = "Tool Vendor";
     speed = 75;
-
+    itemsForSale = _pickItems(["Tools"]);
     states = {
       "attract": new Spritesheet("attract",
         "http://c2.glitch.bz/items/2012-12-06/npc_tool_vendor__x1_attract_png_1354831448.png",
@@ -141,44 +131,5 @@ class ToolVendor extends NPC {
       int length = (currentState.numFrames / 30 * 1000).toInt();
       respawn = new DateTime.now().add(new Duration(milliseconds:length));
     }
-  }
-
-  buyItem({WebSocket userSocket, String itemName, int num, String email}) async {
-    StatBuffer.incrementStat("itemsBoughtFromVendors", num);
-    Item item = items[itemName];
-
-    Metabolics m = await getMetabolics(email:email);
-    if(m.currants >= item.price * num) {
-      m.currants -= item.price * num;
-      setMetabolics(m);
-      addItemToUser(userSocket, email, item.getMap(), num, id);
-    }
-  }
-
-  sellItem({WebSocket userSocket, String itemName, int num, String email}) async {
-    bool success = await takeItemFromUser(userSocket, email, itemName, num);
-
-    if(success) {
-      Item item = items[itemName];
-
-      Metabolics m = await getMetabolics(email:email);
-      m.currants += (item.price * num * .7) ~/ 1;
-      setMetabolics(m);
-    }
-  }
-
-  List _getItemsForSale() {
-    List<Map> saleItems = [];
-
-    saleItems.add(items['Hatchet'].getMap());
-    saleItems.add(items['Hoe'].getMap());
-    saleItems.add(items['High Class Hoe'].getMap());
-    saleItems.add(items['Watering Can'].getMap());
-    saleItems.add(items['Pick'].getMap());
-    saleItems.add(items['Fancy Pick'].getMap());
-    saleItems.add(items['Shovel'].getMap());
-    saleItems.add(items['Ace of Spades'].getMap());
-
-    return saleItems;
   }
 }

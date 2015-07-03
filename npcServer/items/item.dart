@@ -15,6 +15,8 @@ class Item {
 	String description;
 	@Field()
 	String item_id;
+  @Field()
+  String itemType;
 	@Field()
 	int user_id;
 	@Field()
@@ -47,6 +49,8 @@ class Item {
 		return {"iconUrl":iconUrl,
 			"spriteUrl":spriteUrl,
 			"name":name,
+      "itemType":itemType,
+      "category":category,
 			"isContainer":isContainer,
 			"description":description,
 			"price":price,

@@ -1,0 +1,74 @@
+{
+  "bubble_blue": {
+    "name": "Blue Bubble",
+    "category": "Gasses & Bubbles",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/blue_bubble__x1_iconic_png_1354829722.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/blue_bubble__x1_1_x1_2_x1_3_x1_4_png_1354829722.png",
+    "stacksTo": 100,
+    "price": 5,
+    "description": "A big blue bubble."
+  },
+  "bubble_hard": {
+    "name": "Hard Bubble",
+    "category": "Gasses & Bubbles",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/hard_bubble__x1_iconic_png_1354829867.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/hard_bubble__x1_1_x1_2_x1_3_x1_4_png_1354829868.png",
+    "stacksTo": 100,
+    "price": 15,
+    "description": "A deceptively hard bubble."
+  },
+  "bubble_tiny": {
+    "name": "Tiny Bubble",
+    "category": "Gasses & Bubbles",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/tiny_bubble__x1_iconic_png_1354830041.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/tiny_bubble__x1_1_x1_2_x1_3_x1_4_png_1354830042.png",
+    "stacksTo": 100,
+    "price": 10,
+    "description": "An eeny-weeny, fizzy-wizzy tiny bubble."
+  },
+  "gas_crying": {
+    "name": "Crying Gas",
+    "category": "Gasses & Bubbles",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/crying_gas__x1_iconic_png_1354830718.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/crying_gas__x1_1_x1_2_x1_3_x1_4_png_1354830719.png",
+    "stacksTo": 100,
+    "price": 20,
+    "description": "A flask of crying gas, saltily infused with real tears."
+  },
+  "gas_heavy": {
+    "name": "Heavy Gas",
+    "category": "Gasses & Bubbles",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/heavy_gas__x1_iconic_png_1354830712.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/heavy_gas__x1_1_x1_2_x1_3_x1_4_png_1354830713.png",
+    "stacksTo": 100,
+    "price": 40,
+    "description": "A hefty flask of heavy gas. Remember to lift with your legs."
+  },
+  "gas_laughing": {
+    "name": "Laughing Gas",
+    "category": "Gasses & Bubbles",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/laughing_gas__x1_iconic_png_1354830724.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/laughing_gas__x1_1_x1_2_x1_3_x1_4_png_1354830724.png",
+    "stacksTo": 100,
+    "price": 20,
+    "description": "One carefully corked container of gigglicious laughing gas."
+  },
+  "gas_white": {
+    "name": "White Gas",
+    "category": "Gasses & Bubbles",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/white_gas__x1_iconic_png_1354830704.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/white_gas__x1_1_x1_2_x1_3_x1_4_png_1354830705.png",
+    "stacksTo": 100,
+    "price": 50,
+    "description": "A vial of pristine white gas."
+  },
+  "helium": {
+    "name": "Helium",
+    "category": "Gasses & Bubbles",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/helium__x1_iconic_png_1354830721.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/helium__x1_1_x1_2_x1_3_x1_4_png_1354830721.png",
+    "stacksTo": 100,
+    "price": 30,
+    "description": "One vial of premium colorless, odorless, tasteless helium. You know, the stuff that makes you sound funny."
+  }
+}

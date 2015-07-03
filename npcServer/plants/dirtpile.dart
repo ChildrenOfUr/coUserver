@@ -12,7 +12,7 @@ class DirtPile extends Plant {
 			            "requires":[
 				            {
 					            "num":1,
-					            "of":["Shovel", "Ace of Spades"]
+					            "of":["shovel", "ace_of_spades"]
 				            }
 			            ]
 		            });

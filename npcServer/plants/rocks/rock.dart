@@ -12,7 +12,7 @@ abstract class Rock extends Plant {
 			            "requires":[
 				            {
 					            "num":1,
-					            "of":["Pick", "Fancy Pick"]
+					            "of":["pick", "fancy_pick"]
 				            }
 			            ]
 		            });

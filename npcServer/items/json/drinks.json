@@ -1,0 +1,263 @@
+{
+  "beer": {
+    "name": "Beer",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/beer__x1_iconic_png_1354829708.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/beer__x1_1_x1_2_x1_3_x1_4_png_1354829709.png",
+    "stacksTo": 24,
+    "price": 10,
+    "description": "A shiny can of mmm... beer."
+  },
+  "bubble_tea": {
+    "name": "Bubble Tea",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/bubble_tea__x1_iconic_png_1354829726.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bubble_tea__x1_1_x1_2_x1_3_x1_4_png_1354829727.png",
+    "stacksTo": 24,
+    "price": 172,
+    "description": "A super-frothy bubble tea."
+  },
+  "butterfly_milk": {
+    "name": "Butterfly Milk",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/milk_butterfly__x1_iconic_png_1354829507.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/milk_butterfly__x1_1_x1_2_x1_3_x1_4_png_1354829507.png",
+    "stacksTo": 80,
+    "price": 8,
+    "description": "A vial of butterfly milk. It has the tingly effervescence of a thousand tiny butterfly farts."
+  },
+  "carrot_margarita": {
+    "name": "Carrot Margarita",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/carrot_margarita__x1_iconic_png_1354829742.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/carrot_margarita__x1_1_x1_2_x1_3_x1_4_png_1354829743.png",
+    "stacksTo": 24,
+    "price": 90,
+    "description": "A thick, warm carrot margarita."
+  },
+  "cloud_11_smoothie": {
+    "name": "Cloud 11 Smoothie",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/cloud_11_smoothie__x1_iconic_png_1354829690.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cloud_11_smoothie__x1_1_x1_2_x1_3_x1_4_png_1354829691.png",
+    "stacksTo": 24,
+    "price": 69,
+    "description": "A Cloud 11 smoothie. Pretty much the best smoothie ever invented in the history of smoothies."
+  },
+  "cloudberry_daiquiri": {
+    "name": "Cloudberry Daiquiri",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/cloudberry_daiquiri__x1_iconic_png_1354829771.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cloudberry_daiquiri__x1_1_x1_2_x1_3_x1_4_png_1354829774.png",
+    "stacksTo": 24,
+    "price": 142,
+    "description": "A nourishing cloudberry daiquiri. It goes down smooth."
+  },
+  "coffee": {
+    "name": "Coffee",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/coffee__x1_iconic_png_1354829779.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/coffee__x1_1_x1_2_x1_3_x1_4_png_1354829780.png",
+    "stacksTo": 24,
+    "price": 5,
+    "description": "A steaming mug of strong, life-affirming coffee."
+  },
+  "cosma_politan": {
+    "name": "Cosma-politan",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/cosmapolitan__x1_iconic_png_1354829788.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cosmapolitan__x1_1_x1_2_x1_3_x1_4_png_1354829789.png",
+    "stacksTo": 24,
+    "price": 131,
+    "description": "An urbane, sophistimicated cosma-politan."
+  },
+  "crabato_juice": {
+    "name": "Crabato Juice",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/crabato_juice__x1_iconic_png_1354831176.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/crabato_juice__x1_1_x1_2_x1_3_x1_4_png_1354831176.png",
+    "stacksTo": 24,
+    "price": 50,
+    "description": "Mmm... all the goodness of crab juice, plus tomatoes!"
+  },
+  "creamy_martini": {
+    "name": "Creamy Martini",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/creamy_martini__x1_iconic_png_1354829793.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/creamy_martini__x1_1_x1_2_x1_3_x1_4_png_1354829793.png",
+    "stacksTo": 24,
+    "price": 60,
+    "description": "A shaken-and-stirred-and-shaken-again creamy martini."
+  },
+  "cup_of_water": {
+    "name": "Cup of Water",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/cup_of_water__x1_1_png_1354833112.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cup_of_water__x1_1_png_1354833112.png",
+    "stacksTo": 1,
+    "price": 1,
+    "description": "This water is so plain, it has no Brownian motion, but Beigien motion instead. Drink at own risk."
+  },
+  "earthshaker": {
+    "name": "Earthshaker",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/earthshaker__x1_iconic_png_1354829805.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/earthshaker__x1_1_x1_2_x1_3_x1_4_png_1354829806.png",
+    "stacksTo": 24,
+    "price": 152,
+    "description": "A seismically upgraded earthshaker."
+  },
+  "exotic_juice": {
+    "name": "Exotic Juice",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/exotic_juice__x1_iconic_png_1354829808.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/exotic_juice__x1_1_x1_2_x1_3_x1_4_png_1354829809.png",
+    "stacksTo": 24,
+    "price": 54,
+    "description": "A goblet of mysteriously yummy exotic juice."
+  },
+  "face_smelter": {
+    "name": "Face Smelter",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/face_smelter__x1_iconic_png_1354839793.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/face_smelter__x1_1_x1_2_x1_3_x1_4_png_1354839794.png",
+    "stacksTo": 24,
+    "price": 141,
+    "description": "A powerful brew with a scent acrid enough to perm your nostril hairs."
+  },
+  "flaming_humbaba": {
+    "name": "Flaming Humbaba",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/flaming_humbaba__x1_iconic_png_1354829817.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/flaming_humbaba__x1_1_x1_2_x1_3_x1_4_png_1354829817.png",
+    "stacksTo": 24,
+    "price": 168,
+    "description": "A 5-alarm flaming Humbaba."
+  },
+  "fruity_juice": {
+    "name": "Fruity Juice",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/fruity_juice__x1_iconic_png_1354829844.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/fruity_juice__x1_1_x1_2_x1_3_x1_4_png_1354829845.png",
+    "stacksTo": 24,
+    "price": 24,
+    "description": "A glass of nigh-ambrosial fruit juice."
+  },
+  "gurly_drink": {
+    "name": "Gurly Drink",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/gurly_drink__x1_iconic_png_1354829865.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gurly_drink__x1_1_x1_2_x1_3_x1_4_png_1354829865.png",
+    "stacksTo": 24,
+    "price": 160,
+    "description": "A sweet, innocent gurly drink."
+  },
+  "hooch": {
+    "name": "Hooch",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/hooch__x1_iconic_png_1354829881.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/hooch__x1_1_x1_2_x1_3_x1_4_png_1354829882.png",
+    "stacksTo": 24,
+    "price": 15,
+    "description": "One jug of premium high-octane hooch."
+  },
+  "lemon_juice": {
+    "name": "Lemon Juice",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/lemon_juice__x1_iconic_png_1354829899.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/lemon_juice__x1_1_x1_2_x1_3_x1_4_png_1354829900.png",
+    "stacksTo": 24,
+    "price": 39,
+    "description": "A tall glass of exquisitely sour lemon juice."
+  },
+  "mabbish_coffee": {
+    "name": "Mabbish Coffee",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/mabbish_coffee__x1_iconic_png_1354829697.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/mabbish_coffee__x1_1_x1_2_x1_3_x1_4_png_1354829698.png",
+    "stacksTo": 24,
+    "price": 54,
+    "description": "A Mabbish coffee has all the goodness of regular coffee, but gooder."
+  },
+  "mega_healthy_veggie_juice": {
+    "name": "Mega Healthy Veggie Juice",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/mega_healthy_veggie_juice__x1_iconic_png_1354829910.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/mega_healthy_veggie_juice__x1_1_x1_2_x1_3_x1_4_png_1354829911.png",
+    "stacksTo": 24,
+    "price": 46,
+    "description": "A bracing tumbler of mega-healthy veggie juice."
+  },
+  "orange_juice": {
+    "name": "Orange Juice",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/orange_juice__x1_iconic_png_1354829944.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/orange_juice__x1_1_x1_2_x1_3_x1_4_png_1354829944.png",
+    "stacksTo": 24,
+    "price": 39,
+    "description": "A surprising glass of orange juice."
+  },
+  "pumpkin_ale": {
+    "name": "Pumpkin Ale",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin_ale__x1_iconic_png_1354836548.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin_ale__x1_1_x1_2_x1_3_x1_4_png_1354836548.png",
+    "stacksTo": 10,
+    "price": 83,
+    "description": "All the refreshment of beer combined with the autumnal savoury heft of pumpkin. Then combined with cinnamon. For no reason anyone can decipher."
+  },
+  "pungent_sunrise": {
+    "name": "Pungent Sunrise",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/pungent_sunrise__x1_iconic_png_1354829980.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pungent_sunrise__x1_1_x1_2_x1_3_x1_4_png_1354829981.png",
+    "stacksTo": 24,
+    "price": 197,
+    "description": "A refreshingly pungent sunrise."
+  },
+  "savory_smoothie": {
+    "name": "Savory Smoothie",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/savory_smoothie__x1_iconic_png_1354829997.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/savory_smoothie__x1_1_x1_2_x1_3_x1_4_png_1354829998.png",
+    "stacksTo": 24,
+    "price": 96,
+    "description": "A savory smoothie. It sticks to your ribs and doesn't let go."
+  },
+  "slow_gin_fizz": {
+    "name": "Slow Gin Fizz",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/slow_gin_fizz__x1_iconic_png_1354830016.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/slow_gin_fizz__x1_1_x1_2_x1_3_x1_4_png_1354830017.png",
+    "stacksTo": 24,
+    "price": 76,
+    "description": "A low and lazy slow gin fizz."
+  },
+  "spicy_grog": {
+    "name": "Spicy Grog",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/spicy_grog__x1_iconic_png_1354830019.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/spicy_grog__x1_1_x1_2_x1_3_x1_4_png_1354830019.png",
+    "stacksTo": 24,
+    "price": 51,
+    "description": "A tall glass of exceedingly spicy grog."
+  },
+  "tooberry_shake": {
+    "name": "Too-Berry Shake",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/tooberry_shake__x1_iconic_png_1354830046.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/tooberry_shake__x1_1_x1_2_x1_3_x1_4_png_1354830047.png",
+    "stacksTo": 24,
+    "price": 76,
+    "description": "A berry tasty too-berry shake."
+  },
+  "wine_of_the_dead": {
+    "name": "Wine of the Dead",
+    "category": "Drink",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/wine_of_the_dead__x1_iconic_png_1354830988.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/wine_of_the_dead__x1_1_x1_2_x1_3_x1_4_png_1354830994.png",
+    "stacksTo": 13,
+    "price": 66,
+    "description": "A forbidding decanter filled with wine of the dead, made from grapes crushed in Purgatory. This Hade-licious drink will revive even the most pooped of hellions... but will kill all who drink it aboveground. Pour it on cultivated items in your home street or yard to unreap what you've sown. Beware its cursed powers!"
+  }
+}

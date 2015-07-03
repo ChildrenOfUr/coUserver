@@ -1,20 +1,13 @@
 part of coUserver;
 
-class StreetSpiritGroddle extends NPC {
+class StreetSpiritGroddle extends Vendor {
 	int openCount = 0;
 	StreetSpiritGroddle(String id, int x, int y) : super(id, x, y) {
 		actionTime = 0;
-		actions
-			..add({"action":"buy",
-				      "timeRequired":actionTime,
-				      "enabled":true,
-				      "actionWord":""})
-			..add({"action":"sell",
-				      "timeRequired":actionTime,
-				      "enabled":true,
-				      "actionWord":""});
 
-		type = "Street Spirit Groddle";
+    itemsForSale = _pickItems(["Alchemical Compounds & Powders", "Croppery & Gardening Supplies", "Drinks", "Food", "Herbalism Supplies", "Herdkeeping Supplies", "Machines & Fuel", "Seeds", "Spices", "Storage", "Tinctures & Potions"]);
+
+		type = "General Vendor";
 		speed = -75;
 
 		states = {
@@ -99,54 +92,5 @@ class StreetSpiritGroddle extends NPC {
 			int length = (currentState.numFrames / 30 * 1000).toInt();
 			respawn = new DateTime.now().add(new Duration(milliseconds:length));
 		}
-	}
-
-	buyItem({WebSocket userSocket, String itemName, int num, String email}) async {
-		StatBuffer.incrementStat("itemsBoughtFromVendors", num);
-		Item item = items[itemName];
-
-		Metabolics m = await getMetabolics(email:email);
-		if(m.currants >= item.price * num) {
-			m.currants -= item.price * num;
-			setMetabolics(m);
-			addItemToUser(userSocket, email, item.getMap(), num, id);
-		}
-	}
-
-	sellItem({WebSocket userSocket, String itemName, int num, String email}) async {
-		bool success = await takeItemFromUser(userSocket, email, itemName, num);
-
-		if(success) {
-			Item item = items[itemName];
-
-			Metabolics m = await getMetabolics(email:email);
-			m.currants += (item.price * num * .7) ~/ 1;
-			setMetabolics(m);
-		}
-	}
-
-	List _getItemsForSale() {
-		List<Map> saleItems = [];
-
-    saleItems.add(items['Coffee'].getMap());
-    saleItems.add(items['Spinach'].getMap());
-    saleItems.add(items['Butterfly Lotion'].getMap());
-    saleItems.add(items['Quill'].getMap());
-    saleItems.add(items['Million Currant Trophy'].getMap());
-    saleItems.add(items['Seed_Broccoli'].getMap());
-    saleItems.add(items['Seed_Cabbage'].getMap());
-    saleItems.add(items['Seed_Carrot'].getMap());
-    saleItems.add(items['Seed_Corn'].getMap());
-    saleItems.add(items['Seed_Cucumber'].getMap());
-    saleItems.add(items['Seed_Onion'].getMap());
-    saleItems.add(items['Seed_Parsnip'].getMap());
-    saleItems.add(items['Seed_Potato'].getMap());
-    saleItems.add(items['Seed_Pumpkin'].getMap());
-    saleItems.add(items['Seed_Rice'].getMap());
-    saleItems.add(items['Seed_Spinach'].getMap());
-    saleItems.add(items['Seed_Tomato'].getMap());
-    saleItems.add(items['Seed_Zucchini'].getMap());
-
-		return saleItems;
 	}
 }

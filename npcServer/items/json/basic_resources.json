@@ -1,0 +1,191 @@
+{
+  "barnacle": {
+    "name": "Mortar Barnacle",
+    "category": "Basic Resources",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/barnacle__x1_iconic_png_1354832734.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/barnacle__x1_1_x1_2_x1_3_x1_4_png_1354832735.png",
+    "stacksTo": 20,
+    "price": 8,
+    "description": "If clinging to things is a skill, this little fella was a champion. Once prised from a cluster (or \"Blister\") of pals, Barnacles can be introduced to the Grinder to find a new purpose."
+  },
+  "bean": {
+    "name": "Bean",
+    "category": "Basic Resources",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/bean_plain__x1_iconic_png_1354829680.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bean_plain__x1_1_x1_2_x1_3_x1_4_png_1354829680.png",
+    "stacksTo": 250,
+    "price": 1,
+    "description": "A bean. It can be used for cooking, or it can be seasoned to turn it into seeds for different trees and plants."
+  },
+  "cherry": {
+    "name": "Cherry",
+    "category": "Basic Resources",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/cherry__x1_iconic_png_1354829757.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cherry__x1_1_x1_2_x1_3_x1_4_png_1354829757.png",
+    "stacksTo": 250,
+    "price": 1,
+    "description": "A basic cherry, freshly picked from a Fruit Tree."
+  },
+  "chunk_beryl": {
+    "name": "Chunk of Beryl",
+    "category": "Basic Resources",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/beryl__x1_iconic_png_1354831475.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/beryl__x1_1_x1_2_x1_3_x1_4_png_1354831476.png",
+    "stacksTo": 50,
+    "price": 6,
+    "description": "Halfway between sparkly and dull, it's an innocuous chunk of beryl."
+  },
+  "chunk_dullite": {
+    "name": "Chunk of Dullite",
+    "category": "Basic Resources",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/dullite__x1_iconic_png_1354831478.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/dullite__x1_1_x1_2_x1_3_x1_4_png_1354831478.png",
+    "stacksTo": 50,
+    "price": 4,
+    "description": "A hefty chunk of dullite. What it lacks in sparkliness it makes up for in, um, dullness."
+  },
+  "chunk_metal": {
+    "name": "Chunk of Metal Rock",
+    "category": "Basic Resources",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/metal_rock__x1_iconic_png_1354832617.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/metal_rock__x1_1_x1_2_x1_3_x1_4_png_1354832618.png",
+    "stacksTo": 50,
+    "price": 3,
+    "description": "Chunky and metally, this rock, when smelted, makes Plain Metal. Boring maybe, but it's an excellent base for more ambitious alchemical experimentation."
+  },
+  "chunk_sparkly": {
+    "name": "Chunk of Sparkly",
+    "category": "Basic Resources",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/sparkly__x1_iconic_png_1354831480.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/sparkly__x1_1_x1_2_x1_3_x1_4_png_1354831481.png",
+    "stacksTo": 50,
+    "price": 8,
+    "description": "It's a pleasantly twinkly chunk of sparkly!"
+  },
+  "earth": {
+    "name": "Lump of Earth",
+    "category": "Basic Resources",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/earth__x1_iconic_png_1354832701.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/earth__x1_1_x1_2_x1_3_x1_4_png_1354832702.png",
+    "stacksTo": 50,
+    "price": 3,
+    "description": "Many have tried to sum up the wonder of Earth, with superlatives like \"Earthy\", \"Lumpy\" and \"Eart... oh, that's been said? Brown, then.\" But it's just a lump of earth. For building with."
+  },
+  "egg": {
+    "name": "Egg",
+    "category": "Basic Resources",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/egg_plain__x1_iconic_png_1354829682.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/egg_plain__x1_1_x1_2_x1_3_x1_4_png_1354829683.png",
+    "stacksTo": 250,
+    "price": 5,
+    "description": "A plain, unseasoned egg, newly harvested from an Egg Plant. It can be used for all kinds of cooking, or it can be hatched into different animals."
+  },
+  "fiber": {
+    "name": "Fiber",
+    "category": "Basic Resources",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/fiber__x1_1_png_1354839574.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/fiber__x1_1_png_1354839574.png",
+    "stacksTo": 999,
+    "price": 1,
+    "description": "A patch of downy hair brushed from the tail of a fox, perfect for spinning into thread or stuffing into furniture for padding.  Also might be perfect for gluing to your face as a moustache, but due to its origin (the underside of a fox tail), no one does."
+  },
+  "general_vapour": {
+    "name": "General Vapour",
+    "category": "Basic Resources",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/general_vapour__x1_iconic_png_1354830715.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/general_vapour__x1_1_x1_2_x1_3_x1_4_png_1354830715.png",
+    "stacksTo": 250,
+    "price": 5,
+    "description": "A flask of all-purpose general vapour, harvested from a Gas Plant."
+  },
+  "grain": {
+    "name": "Grain",
+    "category": "Basic Resources",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/grain__x1_iconic_png_1354830084.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/grain__x1_1_x1_2_x1_3_x1_4_png_1354830084.png",
+    "stacksTo": 250,
+    "price": 1,
+    "description": "Some plain grain."
+  },
+  "guano": {
+    "name": "Guano",
+    "category": "Basic Resources",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/guano__x1_1_png_1354831825.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/guano__x1_1_png_1354831825.png",
+    "stacksTo": 40,
+    "price": 20,
+    "description": "An unobtrusive pellet from the back end of a Batterfly, Guano can be used as a fertilizer to boost the growth of Crops and Herbs, as an ingredient for Potions, or in the street-building trade."
+  },
+  "ice": {
+    "name": "Ice",
+    "category": "Basic Resources",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/ice__x1_iconic_png_1354829891.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/ice__x1_1_x1_2_x1_3_x1_4_png_1354829892.png",
+    "stacksTo": 40,
+    "price": 6,
+    "description": "A nugget of purest ice, plucked with a scraper from the Nubbins of the north and ripe in readiness for sno cones, cocktail making, and icing the occasional strained glitch-groin. Basically: frozen water in pleasingly cuboid form."
+  },
+  "jellisac": {
+    "name": "Clump of Jellisac",
+    "category": "Basic Resources",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/jellisac_clump__x1_iconic_png_1354833095.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/jellisac_clump__x1_1_x1_2_x1_3_x1_4_png_1354833095.png",
+    "stacksTo": 100,
+    "price": 9,
+    "description": "It's like your mother always said, just because it's slimy, doesn't mean it's not desirable. Even if she didn't say it, this stuff is certainly gloopy, and eminently usable. Where ooze is needed, jellisacs are your friend."
+  },
+  "loam": {
+    "name": "Lump of Loam",
+    "category": "Basic Resources",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/loam__x1_iconic_png_1354832758.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/loam__x1_1_x1_2_x1_3_x1_4_png_1354832758.png",
+    "stacksTo": 24,
+    "price": 10,
+    "description": "Ah, loam sweet loam. Moist and fertile, and leagues above plain old earth, this rich, meaty chunk of ground will do any building project proud."
+  },
+  "meat": {
+    "name": "Meat",
+    "category": "Basic Resources",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/meat__x1_iconic_png_1354829569.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/meat__x1_1_x1_2_x1_3_x1_4_png_1354829570.png",
+    "stacksTo": 60,
+    "price": 10,
+    "description": "A simple meat."
+  },
+  "paper": {
+    "name": "Paper",
+    "category": "Basic Resources",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/paper__x1_iconic_png_1354832570.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/paper__x1_1_x1_2_x1_3_x1_4_png_1354832570.png",
+    "stacksTo": 250,
+    "price": 2,
+    "description": "A blank piece of paper."
+  },
+  "peat": {
+    "name": "Block of Peat",
+    "category": "Basic Resources",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/peat__x1_iconic_png_1354832706.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/peat__x1_1_x1_2_x1_3_x1_4_png_1354832707.png",
+    "stacksTo": 24,
+    "price": 12,
+    "description": "After eons of sitting in the bog -- condensing, compacting and quietly conducting Peaty business -- this dense stinky block should be used to boost building projects."
+  },
+  "plain_bubble": {
+    "name": "Plain Bubble",
+    "category": "Basic Resources",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/plain_bubble__x1_iconic_png_1354829961.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/plain_bubble__x1_1_x1_2_x1_3_x1_4_png_1354829962.png",
+    "stacksTo": 250,
+    "price": 2,
+    "description": "A common, ordinary, plain bubble harvested from  Bubble Tree."
+  },
+  "plank": {
+    "name": "Plank",
+    "category": "Basic Resources",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/plank__x1_iconic_png_1354829966.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/plank__x1_1_x1_2_x1_3_x1_4_png_1354829971.png",
+    "stacksTo": 250,
+    "price": 5,
+    "description": "A plain wooden plank with many uses."
+  }
+}

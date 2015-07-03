@@ -13,9 +13,15 @@ class StreetUpdateHandler
 			String directory = Platform.script.toFilePath();
 			directory = directory.substring(0,directory.lastIndexOf('/'));
 
-			File itemsFile = new File('$directory/npcServer/items/items.json');
-			Map<String,Map> itemsJson = JSON.decode(await itemsFile.readAsString());
-			itemsJson.forEach((String name, Map itemJson) => items[name] = decode(itemJson,Item));
+      new Directory('$directory/npcServer/items/json').list().forEach((File category) {
+        JSON.decode(category.readAsStringSync()).forEach((String name, Map itemMap) {
+          Map id = {
+            "itemType": name
+          };
+          itemMap.addAll(id);
+          items[name] = decode(itemMap, Item);
+        });
+      });
 		}
 		catch(e)
 		{
@@ -199,6 +205,7 @@ class StreetUpdateHandler
 				{
 					//check if it's an item and not an entity
 					InstanceMirror instanceMirror = reflect(items[type]);
+          print(type);
 					Map<Symbol,dynamic> arguments = {#userSocket:ws,#email:email};
 					arguments[#streetName] = map['streetName'];
 					arguments[#map] = map['arguments'];

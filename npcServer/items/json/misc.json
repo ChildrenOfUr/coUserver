@@ -1,0 +1,353 @@
+{
+  "bb_music_trophy": {
+    "name": "BB Music Trophy",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_music_b_brown__x1_1_png_1354835978.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_music_b_brown__x1_1_png_1354835978.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "Brilliantly Bodacious are two words often used to describe the bearer of the BB Music Trophy. Also, \"Brutally Beardy\", or \"Big and Bouncy\". Anything celebrating the finding of all five BB Music Blocks, basically."
+  },
+  "bubble_trophy": {
+    "name": "Bubble Trophy",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_bubble__x1_1_png_1354832337.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_bubble__x1_1_png_1354832337.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "This trophy is awarded for the plucky collection of all 4 bubbles."
+  },
+  "conch": {
+    "name": "Conch",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/conch__x1_1_png_1354840278.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/conch__x1_1_png_1354840278.png",
+    "stacksTo": 1,
+    "price": 700,
+    "description": "A Conch!"
+  },
+  "crabpod_headphones": {
+    "name": "CrabPod Headphones",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/crabphones__x1_1_png_1354831597.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/crabphones__x1_1_png_1354831597.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "These appear to be the kind of headphones only a crab could love. The sound quality is fabulous, but they really pinch your earlobes."
+  },
+  "crafty_bot": {
+    "name": "Crafty Bot",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_crafty_bot__x1_idle0_png_1354839494.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_crafty_bot__x1_back_png_1354839521.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "A robot that can make stuff for you."
+  },
+  "trophy_cubimal": {
+    "name": "Cubimal Series 1 Trophy",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_cubimal__x1_1_png_1354836342.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_cubimal__x1_1_png_1354836342.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "This trophy is awarded for the cubular collection of all 23 cubimals of Cubimal Series 1."
+  },
+  "trophy_cubimal_2": {
+    "name": "Cubimal Series 2 Trophy",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_cubimal_2__x1_1_png_1354839876.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_cubimal_2__x1_1_png_1354839876.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "This trophy is awarded for the cubuliscious collection of all 20 Cubimals of Cubimal Series 2."
+  },
+  "db_music_trophy": {
+    "name": "DB Music Trophy",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_music_d_blue__x1_1_png_1354832345.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_music_d_blue__x1_1_png_1354832345.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "This plaque entitles the winner to bragging rights for collecting all five DB Music Blocks."
+  },
+  "dg_music_trophy": {
+    "name": "DG Music Trophy",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_music_d_green__x1_1_png_1354832347.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_music_d_green__x1_1_png_1354832347.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "This plaque shouts out \"Look at me world! I collected all five DG Music Blocks!\" Metaphorically, that is."
+  },
+  "drink_ticket": {
+    "name": "Diabolical Drink Ticket",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/drink_ticket__x1_1_png_1354837724.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/drink_ticket__x1_1_png_1354837724.png",
+    "stacksTo": 5,
+    "price": 0,
+    "description": "Printed in infernal inks on fire-resistant paper, a Diabolical Drink Ticket can be given to Hell's Bartender in exchange for the potent Wine of the Dead—a fermented beverage which revitalizes the devitalized. No one knows what the Bartender does with the tickets, but rumour has it that in sufficient numbers they can be redeemed for either an all-expenses-paid vacation to Ix or the apocalypse."
+  },
+  "dr_music_trophy": {
+    "name": "DR Music Trophy",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_music_d_red__x1_1_png_1354832349.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_music_d_red__x1_1_png_1354832349.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "Let it be known that this here plaque award thingummy honors the finding and collecting of all 5 DR Music Blocks."
+  },
+  "egg_hunter_trophy": {
+    "name": "Egg Hunter Trophy",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_egghunt__x1_1_png_1354833275.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_egghunt__x1_1_png_1354833275.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "This trophy is awarded to the eager egg hunter who collects all five chocolate eggs."
+  },
+  "emblem_trophy": {
+    "name": "Emblem Trophy",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_emblems__x1_1_png_1354832920.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_emblems__x1_1_png_1354832920.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "This trophy is awarded for collecting all 11 Giant Emblems. Giantdamn, you are good at Glitch!"
+  },
+  "faded_heart": {
+    "name": "Faded Heart",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/faded_heart__x1_1_png_1354836238.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/faded_heart__x1_1_png_1354836238.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "This ghostly, Faded Heart is all that remains of a forgotten tragedy."
+  },
+  "fruit_trophy": {
+    "name": "Fruit Trophy",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_fruit__x1_1_png_1354832339.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_fruit__x1_1_png_1354832339.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "This cup is awarded for superior efforts in the fruit collecting sciences."
+  },
+  "gas_trophy": {
+    "name": "Gas Trophy",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_gas__x1_1_png_1354832341.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_gas__x1_1_png_1354832341.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "This trophy is awarded to those who demonstrate noble dedication to gas collecting."
+  },
+  "gem_trophy": {
+    "name": "Gem Trophy",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_gem__x1_1_png_1354832343.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_gem__x1_1_png_1354832343.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "This trophy is awarded for a nigh-unnatural love of shiny things that doesn't involve putting them in one's mouth."
+  },
+  "greeter_twig": {
+    "name": "Greeter Twig",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/greeter_twig__x1_1_png_1354840099.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/greeter_twig__x1_available_png_1354840102.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "This twig vibrates in the frequency of Greeters, the helpful humans inhabiting the world of Glitch."
+  },
+  "hello_pumpkin": {
+    "name": "Hello Pumpkin!",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin_carved_3__x1_1_png_1354836506.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin_carved_3__x1_1_png_1354836506.png",
+    "stacksTo": 1,
+    "price": 41,
+    "description": "The only hollowed out vegetable so cute you'd happily put it in your pocket and carry it around all day. Or at least, you would if it didn't weigh 50lb and smell of decomposing food. Hello Pumpkin!"
+  },
+  "jack_the_pumpkin": {
+    "name": "Jack the Pumpkin",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin_carved_x1_1__1_png_1354836500.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin_carved_x1_1__1_png_1354836500.png",
+    "stacksTo": 1,
+    "price": 41,
+    "description": "Part-vegetable, part-sprite, this is Jack. He makes you feel a little autumnal, a little festive, and a little like your soul might get dragged, screaming, from your sleeping body."
+  },
+  "jack_o_lantern": {
+    "name": "Jack-O-Lantern",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin_lit_x1_1__1_png_1354836521.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin_lit_1__x1_talk_png_1354836521.png",
+    "stacksTo": 1,
+    "price": 151,
+    "description": "A carved pumpkin lit from the inside with the power of fireflies. You'd think this would make it look more warm and comforting. But no, still terrifying (for a vegetable)."
+  },
+  "lem_the_pumpkin": {
+    "name": "Lem the Pumpkin",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin_carved_5__x1_1_png_1354836630.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin_carved_5__x1_1_png_1354836630.png",
+    "stacksTo": 1,
+    "price": 41,
+    "description": "To mark the special relationship between the Lemmites and the Zillots, the Lem Pumpkin was created by a particularly talented Lemmite carver named Myuki. Zille, apparently, was unimpressed at this sharing of her holiday. But Lem loved it."
+  },
+  "lem_o_lantern": {
+    "name": "Lem-O-Lantern",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin_lit_5__x1_1_png_1354836632.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin_lit_5__x1_talk_png_1354836633.png",
+    "stacksTo": 1,
+    "price": 151,
+    "description": "An unusual addition to Zilloween, the Lem-O-Lantern, marking the special relationship between Zillots and Lemmites, has long been created for the festival by vegetablartistes. It is especially prized, as it uses a special flick of the pick known as \"The Myuki Technique\"."
+  },
+  "moving_box": {
+    "name": "Moving Box",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/bag_moving_box__x1_1_png_1354837683.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bag_moving_box__x1_1_png_1354837683.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "The Glitch Advanced Moving Service (GAMS) will pack up your belongings and transfer them to your new home for you."
+  },
+  "note_pole": {
+    "name": "Note Pole",
+    "category": "Other",
+    "iconUrl": "",
+    "spriteUrl": "",
+    "stacksTo": 1,
+    "price": 600,
+    "description": "I'm a little note pole which you can customize to your heart's desire and then place in your yard or your house. Post a note on me to amuse, astonish or edify your visitors."
+  },
+  "pareidolic_cosma_toast": {
+    "name": "Pareidolic Giant Image on Toast",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/pareidolic_cosma_toast__x1_1_png_1354840052.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pareidolic_cosma_toast__x1_1_png_1354840052.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "A piece of toast with what some people claim is an image of Cosma. Initially bought on GleBay."
+  },
+  "piggy_plop": {
+    "name": "Piggy Plop",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/plop__x1_1_png_1354831023.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/plop__x1_1_png_1354831023.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "Piggy plop is the delicately scented excrescence of a healthy piggy. Round, brown, and mysterious, it may contain presents."
+  },
+  "shiny_hello_pumpkin": {
+    "name": "Shiny Hello Pumpkin!",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin_lit_3__x1_1_png_1354836532.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin_lit_3__x1_talk_png_1354836533.png",
+    "stacksTo": 1,
+    "price": 151,
+    "description": "A brightly-lit cute kitty pumpkin lantern. As cute as a vegetable that has been set about with a knife until it resembles an animal and then set on fire with a face full of insects can be. Pretty cute then!"
+  },
+  "spice_trophy": {
+    "name": "Spice Trophy",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_spice__x1_1_png_1354832353.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_spice__x1_1_png_1354832353.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "The paws of the individual holding this award are deserving of your praise, if you consider the collection of all 16 spices praiseworthy. Which you should."
+  },
+  "spigot": {
+    "name": "Spigot",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/spigot__x1_iconic_png_1354830428.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/spigot__x1_1_x1_2_x1_3_x1_4_png_1354830429.png",
+    "stacksTo": 10,
+    "price": 350,
+    "description": "Technically, the Spigot is like a bung, but with a tap. A tapped bung, tapered to accurately fit a Still's bunghole, this spigot is carefully calibrated to control the flow of moonshine from a fresh distilled batch. It's also, for the record, a very fun word to say. Spigot. Spigot."
+  },
+  "steve_the_pumpkin": {
+    "name": "Steve the Pumpkin",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin_carved_2__x1_1_png_1354836502.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin_carved_2__x1_1_png_1354836502.png",
+    "stacksTo": 1,
+    "price": 41,
+    "description": "A widely-grinning pumpkin, ready to party (with the addition of fireflies). Could be accessorised with a pile of pepitas to make a puking pumpkin, but that's a matter of taste. Or lack of taste. Whatever."
+  },
+  "steve_o_lantern": {
+    "name": "Steve-O-Lantern",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin_lit_2__x1_1_png_1354836524.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin_lit_2__x1_talk_png_1354836530.png",
+    "stacksTo": 1,
+    "price": 151,
+    "description": "A gurning, gape-mouthed, firefly-filled glowing pumpkin, smelling of decomposing root, and overcooked vegetables. How very seasonal."
+  },
+  "street_creator_dirt_trophy": {
+    "name": "Street Creator Dirt Trophy",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_dirt__x1_1_png_1354832940.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_dirt__x1_1_png_1354832940.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "This Trophy, artfully depicting a master of dirt, marks a street-building career so great that the holder collected… well, all five parts of this trophy."
+  },
+  "street_creator_earth_trophy": {
+    "name": "Street Creator Earth Trophy",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_earth__x1_1_png_1354832945.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_earth__x1_1_png_1354832945.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "This stunning bauble marks a remarkable amount of street-building by the holder. Enough to collect all five parts of this fine Earth Trophy, at least."
+  },
+  "street_creator_rock_trophy": {
+    "name": "Street Creator Rock Trophy",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_rock__x1_1_png_1354832944.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_rock__x1_1_png_1354832944.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "The holder of this tchotchke has earned their reputation as a rock of the street-creation community. They also earned a patched-up trophy."
+  },
+  "street_creator_wood_trophy": {
+    "name": "Street Creator Wood Trophy",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_wood__x1_1_png_1354832942.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_wood__x1_1_png_1354832942.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "The holder of this trophy hard-earned each of its five fragments through assiduous street-creation activity. Hopefully it won't give splinters."
+  },
+  "xs_music_trophy": {
+    "name": "XS Music Trophy",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_music_x_shiny__x1_1_png_1354832351.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_music_x_shiny__x1_1_png_1354832351.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "As shiny as the soul of its bearer, this plaque recognizes the meritorious Music Block collection skills of said bearer."
+  },
+  "zille_the_pumpkin": {
+    "name": "Zille the Pumpkin",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin_carved_4__x1_1_png_1354836518.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin_carved_4__x1_1_png_1354836518.png",
+    "stacksTo": 1,
+    "price": 41,
+    "description": "A traditional Zilloween decoration, this is a common-or-garden pumpkin carved into a representation of Zille, giant of mountains and mining. Already pretty magical, it will become more magical with the addition of fireflies."
+  },
+  "zille_o_lantern": {
+    "name": "Zille-O-Lantern",
+    "category": "Other",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin_lit_4__x1_1_png_1354836535.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin_lit_4__x1_talk_png_1354836535.png",
+    "stacksTo": 1,
+    "price": 151,
+    "description": "A common seasonal vegetable carved into a representation of Zille, and filled with fireflies to create an eerie glow. And it IS eerie. If you squint, it's like her eyes (and the burny pumpkin smell) are following you around the room."
+  }
+}

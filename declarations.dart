@@ -49,13 +49,19 @@ part 'npcServer/street.dart';
 part 'npcServer/npcs/animals/piggy.dart';
 part 'npcServer/entity.dart';
 part 'npcServer/npcs/npc.dart';
+
+// vendors
 part 'npcServer/npcs/vendors/streetspiritgroddle.dart';
 part 'npcServer/npcs/vendors/toolvendor.dart';
 part 'npcServer/npcs/vendors/helga.dart';
-part 'npcServer/npcs/auctioneer.dart';
+part 'npcServer/npcs/vendors/vendor.dart';
+
+// animals
 part 'npcServer/npcs/animals/chicken.dart';
 part 'npcServer/npcs/animals/helikitty.dart';
 part 'npcServer/npcs/animals/butterfly.dart';
+
+// shrines
 part 'npcServer/npcs/shrines/shrine.dart';
 part 'npcServer/npcs/shrines/alph.dart';
 part 'npcServer/npcs/shrines/friendly.dart';
@@ -67,12 +73,11 @@ part 'npcServer/npcs/shrines/pot.dart';
 part 'npcServer/npcs/shrines/spriggan.dart';
 part 'npcServer/npcs/shrines/tii.dart';
 part 'npcServer/npcs/shrines/zille.dart';
-part 'npcServer/npcs/mailbox.dart';
 
 //items
 part 'npcServer/items/item.dart';
 
-part 'npcServer/spritesheet.dart';
+// plants
 part 'npcServer/plants/plant.dart';
 part 'npcServer/plants/trees/tree.dart';
 part 'npcServer/plants/trees/fruittree.dart';
@@ -84,13 +89,20 @@ part 'npcServer/plants/trees/eggplant.dart';
 part 'npcServer/plants/trees/bubbletree.dart';
 part 'npcServer/plants/trees/woodtree.dart';
 
+// resources
 part 'npcServer/plants/dirtpile.dart';
 
+// rocks
 part 'npcServer/plants/rocks/rock.dart';
 part 'npcServer/plants/rocks/berylrock.dart';
 part 'npcServer/plants/rocks/sparklyrock.dart';
 part 'npcServer/plants/rocks/dulliterock.dart';
 part 'npcServer/plants/rocks/metalrock.dart';
+
+// misc
+part 'npcServer/npcs/mailbox.dart';
+part 'npcServer/npcs/auctioneer.dart';
+part 'npcServer/spritesheet.dart';
 part 'npcServer/quoin.dart';
 
 //various http parts (as opposed to the previous websocket parts)

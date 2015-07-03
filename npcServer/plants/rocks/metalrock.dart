@@ -7,7 +7,7 @@ class MetalRock extends Rock {
 		actions[0]['requires'] = [
 			{
 				"num":1,
-				"of":["Fancy Pick"]
+				"of":["fancy_pick"]
 			}
 		];
 
