@@ -48,8 +48,8 @@ class Shrine extends NPC {
       }
 			setMetabolics(m);
       Map addedFavorMap = {};
-      map['donateComplete'] = true;
-      map['addedFavor'] = favAmt;
+      addedFavorMap['donateComplete'] = true;
+      addedFavorMap['addedFavor'] = favAmt;
       userSocket.add(JSON.encode(addedFavorMap));
 		}
 	}

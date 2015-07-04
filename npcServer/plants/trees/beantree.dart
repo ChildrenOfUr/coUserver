@@ -55,7 +55,7 @@ class BeanTree extends Tree {
 
 		if(success) {
 			//give the player the 'fruits' of their labor
-			addItemToUser(userSocket, email, items['Bean'].getMap(), 1, id);
+			addItemToUser(userSocket, email, items['bean'].getMap(), 1, id);
 		}
 
 		return success;

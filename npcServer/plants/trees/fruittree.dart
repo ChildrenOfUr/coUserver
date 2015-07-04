@@ -53,7 +53,7 @@ class FruitTree extends Tree {
 
 		if(success) {
 			//give the player the 'fruits' of their labor
-			addItemToUser(userSocket, email, items['Cherry'].getMap(), 1, id);
+			addItemToUser(userSocket, email, items['cherry'].getMap(), 1, id);
 		}
 
 		return success;

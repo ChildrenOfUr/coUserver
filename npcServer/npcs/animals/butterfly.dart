@@ -232,11 +232,11 @@ class Butterfly extends NPC {
 
       if (rand.nextInt(10) == 1) {
         // bonus milk
-        addItemToUser(userSocket, email, items['Butterfly Milk'].getMap(), 3, id);
+        addItemToUser(userSocket, email, items['butterfly_milk'].getMap(), 3, id);
         StatBuffer.incrementStat("butterfliesMilked", 1);
         say(responses['milkExtra'].elementAt(rand.nextInt(responses['milkExtra'].length)));
       } else {
-        addItemToUser(userSocket, email, items['Butterfly Milk'].getMap(), 1, id);
+        addItemToUser(userSocket, email, items['butterfly_milk'].getMap(), 1, id);
         StatBuffer.incrementStat("butterfliesMilked", 1);
         say(responses['milk'].elementAt(rand.nextInt(responses['milk'].length)));
       }

@@ -53,7 +53,7 @@ class SpicePlant extends Tree {
 
 		if(success) {
 			//give the player the 'fruits' of their labor
-			addItemToUser(userSocket, email, items['Allspice'].getMap(), 1, id);
+			addItemToUser(userSocket, email, items['allspice'].getMap(), 1, id);
 		}
 
 		return success;

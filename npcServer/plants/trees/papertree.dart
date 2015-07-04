@@ -59,7 +59,7 @@ class PaperTree extends Tree {
 
 		if(success) {
 			//give the player the 'fruits' of their labor
-			addItemToUser(userSocket, email, items['Paper'].getMap(), 1, id);
+			addItemToUser(userSocket, email, items['paper'].getMap(), 1, id);
 		}
 
 		return success;

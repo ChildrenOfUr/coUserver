@@ -53,7 +53,7 @@ class EggPlant extends Tree {
 
 		if(success) {
 			//give the player the 'fruits' of their labor
-			addItemToUser(userSocket, email, items['Egg'].getMap(), 1, id);
+			addItemToUser(userSocket, email, items['egg'].getMap(), 1, id);
 		}
 
 		return success;
