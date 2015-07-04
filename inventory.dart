@@ -163,7 +163,7 @@ Future<bool> takeItemFromUser(WebSocket userSocket, String email, String itemTyp
 	Inventory inventory = await getUserInventory(email);
 	int num = 0;
 	inventory.getItems().forEach((Map slot) {
-		if(slot['name'] == itemType) {
+		if(slot['itemType'] == itemType) {
 			num++;
 		}
 	});

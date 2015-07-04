@@ -31,19 +31,26 @@ class Shrine extends NPC {
 		userSocket.add(JSON.encode(map));
 	}
 
-	donate({WebSocket userSocket, String itemName, int num, String email}) async {
-		bool success = await takeItemFromUser(userSocket, email, itemName, num);
-
+	donate({WebSocket userSocket, String itemType, int num, String email}) async {
+		bool success = await takeItemFromUser(userSocket, email, itemType, num);
 		if(success) {
-			Item item = items[itemName];
-
+			Item item = items[itemType];
 			String giantName = type.substring(0, 1).toUpperCase() + type.substring(1);
 			Metabolics m = await getMetabolics(email:email);
 			InstanceMirror instanceMirror = reflect(m);
 			int giantFavor = instanceMirror.getField(new Symbol(giantName.toLowerCase()+'favor')).reflectee;
 			int favAmt = (item.price * num * .35) ~/ 1;
-			instanceMirror.setField(new Symbol(giantName.toLowerCase()+'favor'),giantFavor+favAmt);
+      if (giantFavor == 1000) {
+        instanceMirror.setField(new Symbol(giantName.toLowerCase()+'favor'),0);
+        addItemToUser(userSocket, email, items['emblem_of_' + giantName.toLowerCase()].getMap(), 1, id);
+      } else {
+        instanceMirror.setField(new Symbol(giantName.toLowerCase() + 'favor'), giantFavor + favAmt);
+      }
 			setMetabolics(m);
+      Map addedFavorMap = {};
+      map['donateComplete'] = true;
+      map['addedFavor'] = favAmt;
+      userSocket.add(JSON.encode(addedFavorMap));
 		}
 	}
 }
