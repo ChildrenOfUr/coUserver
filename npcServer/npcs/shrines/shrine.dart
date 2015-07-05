@@ -41,7 +41,7 @@ class Shrine extends NPC {
 			InstanceMirror instanceMirror = reflect(m);
 			int giantFavor = instanceMirror.getField(new Symbol(giantName.toLowerCase() + 'favor')).reflectee;
 			int favAmt = (item.price * num * .35) ~/ 1;
-			if(giantFavor >= 1000) {
+			if(giantFavor+favAmt >= 1000) {
 				instanceMirror.setField(new Symbol(giantName.toLowerCase() + 'favor'), 0);
 				addItemToUser(userSocket, email, items['emblem_of_' + giantName.toLowerCase()].getMap(), 1, id);
 			} else {
@@ -51,7 +51,7 @@ class Shrine extends NPC {
 
 			Map addedFavorMap = {};
 			addedFavorMap['favorUpdate'] = true;
-			addedFavorMap['favor'] = giantFavor + favAmt;
+			addedFavorMap['favor'] = instanceMirror.getField(new Symbol(giantName.toLowerCase() + 'favor')).reflectee;
 			addedFavorMap['maxFavor'] = 1000;
 			userSocket.add(JSON.encode(addedFavorMap));
 		} else {

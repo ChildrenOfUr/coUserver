@@ -8,7 +8,13 @@ abstract class Tree extends Plant {
 			..add({"action":"harvest",
 				      "timeRequired":actionTime,
 				      "enabled":true,
-				      "actionWord":"harvesting"})
+				      "actionWord":"harvesting",
+				      "requires":[
+					      {
+						      'num':5,
+						      'of':['energy']
+					      }
+				      ]})
 			..add({"action":"water",
 				      "timeRequired":actionTime,
 				      "enabled":true,
@@ -17,12 +23,18 @@ abstract class Tree extends Plant {
 					      {
 						      "num":1,
 						      "of":["watering_can", "irrigator_9000"]
-					      }
+					      }, {"num":2,"of":['energy']}
 				      ]})
 			..add({"action":"pet",
 				      "timeRequired":actionTime,
 				      "enabled":true,
-				      "actionWord":"petting"});
+				      "actionWord":"petting",
+				      "requires":[
+					      {
+						      'num':2,
+						      'of':['energy']
+					      }
+				      ]});
 	}
 
 	void update() {
@@ -37,7 +49,7 @@ abstract class Tree extends Plant {
 	Future<bool> harvest({WebSocket userSocket, String email}) async {
 		//make sure the player has 5 energy to perform this action
 		//if so, allow the action and subtract 5 from their energy
-		bool success = await trySetMetabolics(email,energy:-5,mood:1,imgMin:10,imgRange:5);
+		bool success = await trySetMetabolics(email, energy:-5, mood:1, imgMin:10, imgRange:5);
 		if(!success) {
 			return false;
 		}
@@ -61,7 +73,7 @@ abstract class Tree extends Plant {
 	}
 
 	Future<bool> water({WebSocket userSocket, String email}) async {
-		bool success = await trySetMetabolics(email,energy:-2,mood:2,imgMin:3,imgRange:2);
+		bool success = await trySetMetabolics(email, energy:-2, mood:2, imgMin:3, imgRange:2);
 		if(!success) {
 			return false;
 		}
@@ -85,7 +97,7 @@ abstract class Tree extends Plant {
 	}
 
 	Future<bool> pet({WebSocket userSocket, String email}) async {
-		bool success = await trySetMetabolics(email,energy:-2,mood:2,imgMin:3,imgRange:2);
+		bool success = await trySetMetabolics(email, energy:-2, mood:2, imgMin:3, imgRange:2);
 		if(!success) {
 			return false;
 		}

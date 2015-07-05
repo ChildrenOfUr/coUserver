@@ -77,6 +77,8 @@ main() async {
 	Clock clock = new Clock();
 	clock.onNewDay.listen((_) => MetabolicsEndpoint.refillAllEnergy());
 
+	//This was used to upgrade the inventories in place so that they had the right key/value pairs
+	//Similar code could be needed in the future.
 //	String query = 'SELECT * FROM inventories';
 //	PostgreSql db = await dbManager.getConnection();
 //	List<Inventory> inventories = await db.query(query, Inventory);
