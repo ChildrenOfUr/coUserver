@@ -71,13 +71,13 @@ class Item {
 	}
 
 	Future drop({WebSocket userSocket, Map map, String streetName, String email}) async {
-		bool success = await takeItemFromUser(userSocket, email, map['dropItem']['name'], map['count']);
+		bool success = await takeItemFromUser(userSocket, email, map['dropItem']['itemType'], map['count']);
 		if(!success) {
 			return;
 		}
 
 		num x = map['x'], y = map['y'];
-		String id = "i" + createId(x, y, map['dropItem']['name'], map['tsid']);
+		String id = "i" + createId(x, y, map['dropItem']['itemType'], map['tsid']);
 		this.item_id = id;
 		onGround = true;
 		this.x = x;

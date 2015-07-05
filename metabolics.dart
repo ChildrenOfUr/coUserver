@@ -69,7 +69,7 @@ class MetabolicsEndpoint {
 	static Map<String, WebSocket> userSockets = {};
 	static Random rand = new Random();
 
-	static void refillAllEnergy() async {
+	static Future refillAllEnergy() async {
 		PostgreSql dbConn = await dbManager.getConnection();
 		String query = "UPDATE metabolics SET energy = max_energy";
 		dbConn.execute(query);

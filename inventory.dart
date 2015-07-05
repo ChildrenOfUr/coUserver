@@ -180,9 +180,7 @@ Future<bool> takeItemFromUser(WebSocket userSocket, String email, String itemTyp
 	bool success = false;
 
 	Inventory inventory = await getUserInventory(email);
-	print(inventory.inventory_json);
 	int num = 0;
-	print(itemType);
 	inventory.getItems().forEach((Map item) {
 		if(item['itemType'] == itemType) {
 			num++;
