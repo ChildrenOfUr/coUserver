@@ -190,7 +190,7 @@ Future<bool> takeItemFromUser(WebSocket userSocket, String email, String itemTyp
 		int rowsUpdated = await inventory.takeItem(itemType, count, dbConn);
 
 		if(rowsUpdated > 0) {
-			takeItem(userSocket, items[itemType].name, count);
+			takeItem(userSocket, itemType, count);
 		}
 
 		success = true;
@@ -233,10 +233,10 @@ sendItemToUser(WebSocket userSocket, Map item, int count, String fromObject) {
 	userSocket.add(JSON.encode(map));
 }
 
-takeItem(WebSocket userSocket, String itemName, int count) {
+takeItem(WebSocket userSocket, String itemType, int count) {
 	Map map = {};
 	map['takeItem'] = "true";
-	map['name'] = itemName;
+	map['itemType'] = itemType;
 	map['count'] = count;
 	userSocket.add(JSON.encode(map));
 }
