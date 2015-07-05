@@ -73,13 +73,24 @@ Future<List<Message>> getMail(@app.Body(app.JSON) Map parameters) async
 @app.Route('/sendMail', methods: const[app.POST])
 Future<String> sendMail(@Decode() Message message) async
 {
-	String query = "INSERT INTO messages(to_user, from_user, subject, body) VALUES(@to_user,@from_user,@subject,@body)";
+	if(message.currants > 0) {
+		Metabolics m = await getMetabolics(username:message.from_user);
+		if(m.currants < message.currants) {
+			return "Not enough currants";
+		} else {
+			m.currants -= message.currants;
+			setMetabolics(m);
+		}
+	}
+
+	String query = "INSERT INTO messages(to_user, from_user, subject, body, currants) VALUES(@to_user,@from_user,@subject,@body,@currants)";
 	int result = await dbConn.execute(query, message);
 
-	if(result > 0)
+	if(result > 0) {
 		return "OK";
-	else
+	} else {
 		return "Error";
+	}
 }
 
 @app.Route('/deleteMail', methods: const[app.POST])
@@ -114,4 +125,6 @@ class Message {
 	String body;
 	@Field()
 	bool read;
+	@Field()
+	int currants;
 }

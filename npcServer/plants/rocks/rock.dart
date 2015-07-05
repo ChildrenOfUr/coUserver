@@ -13,7 +13,7 @@ abstract class Rock extends Plant {
 				            {
 					            "num":1,
 					            "of":["pick", "fancy_pick"]
-				            }
+				            }, {"num":10,"of":['energy']}
 			            ]
 		            });
 
