@@ -4,7 +4,54 @@ class ToolVendor extends Vendor {
 	int openCount = 0;
 
 	ToolVendor(String id, int x, int y) : super(id, x, y) {
-    itemsForSale = pickItems(["Tools"]);
+    itemsForSale = [
+      items["pig_bait"].getMap(),
+      items["butterfly_lotion"].getMap(),
+      items["meat_collector"].getMap(),
+      items["piggy_feeder"].getMap(),
+      items["butterfly_milker"].getMap(),
+      items["egg_seasoner"].getMap(),
+      items["bean_seasoner"].getMap(),
+      items["hatchet"].getMap(),
+      items["hoe"].getMap(),
+      items["watering_can"].getMap(),
+      items["bubble_tuner"].getMap(),
+      items["gassifier"].getMap(),
+      items["fruit_changing_machine"].getMap(),
+      items["spice_mill"].getMap(),
+      items["alchemistry_kit"].getMap(),
+      items["elemental_pouch"].getMap(),
+      items["test_tube"].getMap(),
+      items["beaker"].getMap(),
+      items["pick"].getMap(),
+      items["fancy_pick"].getMap(),
+      items["grinder"].getMap(),
+      items["tinkertool"].getMap(),
+      items["focusing_orb"].getMap(),
+      items["alchemical_tongs"].getMap(),
+      items["smelter"].getMap(),
+      items["shovel"].getMap(),
+      items["scraper"].getMap(),
+      items["quill"].getMap(),
+      items["machine_stand"].getMap(),
+      items["blockmaker_chassis"].getMap(),
+      items["machine_engine"].getMap(),
+      items["blockmaker_plates"].getMap(),
+      items["fuelmaker_case"].getMap(),
+      items["fuelmaker_core"].getMap(),
+      items["cauldron"].getMap(),
+      items["tincturing_kit"].getMap(),
+      items["still"].getMap(),
+      items["metalmaker_mechanism"].getMap(),
+      items["metalmaker_tooler"].getMap(),
+      items["woodworker_fuser"].getMap(),
+      items["woodworker_chassis"].getMap(),
+      items["spindle"].getMap(),
+      items["loomer"].getMap(),
+      items["construction_tool"].getMap(),
+      items["bulb"].getMap()
+    ];
+    itemsForSale.addAll(pickItems(["Storage"]));
     itemsPredefined = true;
 		speed = 75;
 		states = {
