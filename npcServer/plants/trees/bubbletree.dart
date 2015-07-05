@@ -53,7 +53,7 @@ class BubbleTree extends Tree {
 
 		if(success) {
 			//give the player the 'fruits' of their labor
-			addItemToUser(userSocket, email, items['Plain Bubble'].getMap(), 1, id);
+			addItemToUser(userSocket, email, items['plain_bubble'].getMap(), 1, id);
 		}
 
 		return success;

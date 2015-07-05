@@ -1,6 +1,6 @@
 {
   "Seed_Broccoli": {
-    "category": "Croppery & Gardening Supplies",
+    "category": "Seeds",
     "name": "Broccoli Seed",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_broccoli__x1_iconic_png_1354830767.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_broccoli__x1_1_x1_2_x1_3_x1_4_png_1354830768.png",
@@ -9,7 +9,7 @@
     "description": "A packet of broccoli seeds. This can be planted to grow Broccoli in a Crop Garden."
   },
   "Seed_Cabbage": {
-    "category": "Croppery & Gardening Supplies",
+    "category": "Seeds",
     "name": "Cabbage Seed",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_cabbage__x1_iconic_png_1354830770.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_cabbage__x1_1_x1_2_x1_3_x1_4_png_1354830771.png",
@@ -18,7 +18,7 @@
     "description": "A packet of cabbage seeds. This can be planted to grow Cabbages in a Crop Garden."
   },
   "Seed_Carrot": {
-    "category": "Croppery & Gardening Supplies",
+    "category": "Seeds",
     "name": "Carrot Seed",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_carrot__x1_iconic_png_1354830773.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_carrot__x1_1_x1_2_x1_3_x1_4_png_1354830773.png",
@@ -27,7 +27,7 @@
     "description": "A packet of carrot seeds. This can be planted to grow Carrot in a Crop Garden."
   },
   "Seed_Corn": {
-    "category": "Croppery & Gardening Supplies",
+    "category": "Seeds",
     "name": "Corn Seed",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_corn__x1_iconic_png_1354830775.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_corn__x1_1_x1_2_x1_3_x1_4_png_1354830776.png",
@@ -36,7 +36,7 @@
     "description": "A packet of corn seeds. This can be planted to grow Corn in a Crop Garden."
   },
   "Seed_Cucumber": {
-    "category": "Croppery & Gardening Supplies",
+    "category": "Seeds",
     "name": "Cucumber Seed",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_cucumber__x1_iconic_png_1354830778.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_cucumber__x1_1_x1_2_x1_3_x1_4_png_1354830778.png",
@@ -45,7 +45,7 @@
     "description": "A packet of cucumber seeds. This can be planted to grow Cucumbers in a Crop Garden."
   },
   "Seed_Onion": {
-    "category": "Croppery & Gardening Supplies",
+    "category": "Seeds",
     "name": "Onion Seed",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_onion__x1_iconic_png_1354830424.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_onion__x1_1_x1_2_x1_3_x1_4_png_1354830425.png",
@@ -54,7 +54,7 @@
     "description": "A packet of black onion seeds. This can be planted to grow Onions in a Crop Garden."
   },
   "Seed_Parsnip": {
-    "category": "Croppery & Gardening Supplies",
+    "category": "Seeds",
     "name": "Parsnip Seed",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_parsnip__x1_iconic_png_1354834551.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_parsnip__x1_1_x1_2_x1_3_x1_4_png_1354834552.png",
@@ -63,7 +63,7 @@
     "description": "A packet of parsnip seeds. This can be planted to grow Parsnips in a Crop Garden."
   },
   "Seed_Potato": {
-    "category": "Croppery & Gardening Supplies",
+    "category": "Seeds",
     "name": "Potato Seed",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_potato__x1_iconic_png_1354830785.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_potato__x1_1_x1_2_x1_3_x1_4_png_1354830785.png",
@@ -72,7 +72,7 @@
     "description": "A packet of tiny potatoes. This can be planted to grow Potatoes in a Crop Garden."
   },
   "Seed_Pumpkin": {
-    "category": "Croppery & Gardening Supplies",
+    "category": "Seeds",
     "name": "Pumpkin Seed",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_pumpkin__x1_iconic_png_1354836494.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_pumpkin__x1_1_x1_2_x1_3_x1_4_png_1354836496.png",
@@ -81,7 +81,7 @@
     "description": "A packet of Pumpkin seeds. This can be planted to grow one mighty Pumpkin at a time in either a Crop Garden or a Herb garden."
   },
   "Seed_Rice": {
-    "category": "Croppery & Gardening Supplies",
+    "category": "Seeds",
     "name": "Rice Seed",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_rice__x1_iconic_png_1354830789.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_rice__x1_1_x1_2_x1_3_x1_4_png_1354830790.png",
@@ -90,7 +90,7 @@
     "description": "A packet of rice seeds. This can be planted to grow Rice in a Crop Garden."
   },
   "Seed_Spinach": {
-    "category": "Croppery & Gardening Supplies",
+    "category": "Seeds",
     "name": "Spinach Seed",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_spinach__x1_iconic_png_1354830793.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_spinach__x1_1_x1_2_x1_3_x1_4_png_1354830793.png",
@@ -99,7 +99,7 @@
     "description": "A packet of spinach seeds. This can be planted to grow Spinach in a Crop Garden."
   },
   "Seed_Tomato": {
-    "category": "Croppery & Gardening Supplies",
+    "category": "Seeds",
     "name": "Tomato Seed",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_tomato__x1_iconic_png_1354830420.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_tomato__x1_1_x1_2_x1_3_x1_4_png_1354830421.png",
@@ -108,7 +108,7 @@
     "description": "A packet of heirloom-quality tomato seeds. This can be planted to grow Tomatoes in a Crop Garden."
   },
   "Seed_Zucchini": {
-    "category": "Croppery & Gardening Supplies",
+    "category": "Seeds",
     "name": "Zucchini Seed",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_zucchini__x1_iconic_png_1354830787.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_zucchini__x1_1_x1_2_x1_3_x1_4_png_1354830788.png",

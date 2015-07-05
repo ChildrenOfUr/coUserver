@@ -25,7 +25,6 @@ main() async {
 
 	KeepAlive.start();
 
-	//create items from items.json
 	StreetUpdateHandler.loadItems();
 
 	//redstone.dart does not support websockets so we have to listen on a

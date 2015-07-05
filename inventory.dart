@@ -156,22 +156,22 @@ Future<int> addItemToUser(WebSocket userSocket, String email, Map item, int coun
 	return numRows;
 }
 
-Future<bool> takeItemFromUser(WebSocket userSocket, String email, String itemName, int count) async {
+Future<bool> takeItemFromUser(WebSocket userSocket, String email, String itemType, int count) async {
 	PostgreSql dbConn = await dbManager.getConnection();
 	bool success = false;
 
 	Inventory inventory = await getUserInventory(email);
 	int num = 0;
 	inventory.getItems().forEach((Map slot) {
-		if(slot['name'] == itemName) {
+		if(slot['itemType'] == itemType) {
 			num++;
 		}
 	});
 	if(num >= count) {
-		int rowsUpdated = await inventory.takeItem(itemName, count, dbConn);
+		int rowsUpdated = await inventory.takeItem(itemType, count, dbConn);
 
 		if(rowsUpdated > 0) {
-			takeItem(userSocket, itemName, count);
+			takeItem(userSocket, itemType, count);
 		}
 
 		success = true;

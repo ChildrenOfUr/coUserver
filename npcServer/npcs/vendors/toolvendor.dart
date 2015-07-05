@@ -4,10 +4,9 @@ class ToolVendor extends Vendor {
 	int openCount = 0;
 
 	ToolVendor(String id, int x, int y) : super(id, x, y) {
-		actionTime = 0;
-		type = "Tool Vendor";
+    itemsForSale = pickItems(["Tools"]);
+    itemsPredefined = true;
 		speed = 75;
-		itemsForSale = pickItems(["Tools"]);
 		states = {
 			"attract": new Spritesheet("attract",
 			                           "http://c2.glitch.bz/items/2012-12-06/npc_tool_vendor__x1_attract_png_1354831448.png",
