@@ -32,7 +32,7 @@ class Vendor extends NPC {
 
 		if(!itemsPredefined) {
 			itemsForSale.clear();
-			String streetName = "Kartika Crams"; // TODO: get this
+			String streetName = "B"; // TODO: get this
 			switch(streetName.substring(0, 1)) {
 				case 'A':
 				case 'T':
@@ -87,14 +87,10 @@ class Vendor extends NPC {
 					super.type = "Street Spirit: Gardening Goods";
 					itemsForSale = [
 						items["hoe"].getMap(),
-						items["high_class_hoe"].getMap(),
 						items["watering_can"].getMap(),
-						items["irrigator_9000"].getMap(),
 						items["hatchet"].getMap(),
-						items["class_axe"].getMap(),
 						items["bean_seasoner"].getMap(),
 						items["shovel"].getMap(),
-						items["ace_of_spades"].getMap(),
 						items["garden_gnome"].getMap()
 					];
 					itemsForSale.addAll(pickItems(["Seeds"]));
@@ -115,7 +111,6 @@ class Vendor extends NPC {
 						items["grinder"].getMap(),
 						items["tinkertool"].getMap(),
 						items["hatchet"].getMap(),
-						items["class_axe"].getMap(),
 						items["emotional_bear"].getMap(),
 						items["lips"].getMap(),
 						items["moon"].getMap(),
@@ -123,7 +118,6 @@ class Vendor extends NPC {
 						items["alchemical_tongs"].getMap(),
 						items["scraper"].getMap(),
 						items["shovel"].getMap(),
-						items["ace_of_spades"].getMap(),
 						items["garden_gnome"].getMap(),
 						items["crystalmalizing_chamber"].getMap(),
 						items["machine_stand"].getMap(),
