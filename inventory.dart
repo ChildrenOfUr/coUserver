@@ -12,13 +12,32 @@ class Inventory {
 
 	factory Inventory() => new Inventory._internal();
 
-	Inventory._internal()
-	{
+	Inventory._internal() {
 		this.inventory_json = '[]';
 	}
 
-	Future<int> addItem(Map item, int count, String email, PostgreSql dbConn) async
-	{
+	static Map<String,String> itemTypes = {};
+
+	void upgradeItems() {
+		List<Map> slots = JSON.decode(inventory_json);
+		for(Map slot in slots) {
+			if(!slot['item'].containsKey('itemType')) {
+				if(itemTypes.containsKey(slot['item']['name'])) {
+					slot['item']['itemType'] = itemTypes[slot['item']['name']];
+				} else {
+					items.forEach((String itemType, Item item) {
+						if(item.name == slot['item']['name']) {
+							slot['item']['itemType'] = itemType;
+							itemTypes[item.name] = itemType;
+						}
+					});
+				}
+			}
+		}
+		inventory_json = JSON.encode(slots);
+	}
+
+	Future<int> addItem(Map item, int count, String email, PostgreSql dbConn) async {
 		List<Map> slots = JSON.decode(inventory_json);
 		bool found = false;
 		for(Map slot in slots) {
@@ -67,7 +86,7 @@ class Inventory {
 		}
 	}
 
-	Future<int> takeItem(String name, int count, PostgreSql dbConn) async {
+	Future<int> takeItem(String itemType, int count, PostgreSql dbConn) async {
 		List<Map> slots = JSON.decode(inventory_json);
 		List<int> removeItems = [];
 		List<int> possiblyRemove = [];
@@ -79,7 +98,7 @@ class Inventory {
 				break;
 			}
 
-			if(slot['item']['name'] == name) {
+			if(slot['item']['itemType'] == itemType) {
 				if(slot['count'] > count) {
 					slot['count'] -= count;
 					count = 0;
@@ -161,9 +180,11 @@ Future<bool> takeItemFromUser(WebSocket userSocket, String email, String itemTyp
 	bool success = false;
 
 	Inventory inventory = await getUserInventory(email);
+	print(inventory.inventory_json);
 	int num = 0;
-	inventory.getItems().forEach((Map slot) {
-		if(slot['itemType'] == itemType) {
+	print(itemType);
+	inventory.getItems().forEach((Map item) {
+		if(item['itemType'] == itemType) {
 			num++;
 		}
 	});
@@ -171,7 +192,7 @@ Future<bool> takeItemFromUser(WebSocket userSocket, String email, String itemTyp
 		int rowsUpdated = await inventory.takeItem(itemType, count, dbConn);
 
 		if(rowsUpdated > 0) {
-			takeItem(userSocket, itemType, count);
+			takeItem(userSocket, items[itemType].name, count);
 		}
 
 		success = true;

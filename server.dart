@@ -76,6 +76,20 @@ main() async {
 	//refill everyone's energy on the start of a new day
 	Clock clock = new Clock();
 	clock.onNewDay.listen((_) => MetabolicsEndpoint.refillAllEnergy());
+
+//	String query = 'SELECT * FROM inventories';
+//	PostgreSql db = await dbManager.getConnection();
+//	List<Inventory> inventories = await db.query(query, Inventory);
+//	print('processing ${inventories.length} inventories for upgrade...');
+//	List<Future> futures = [];
+//	query = 'UPDATE inventories SET inventory_json = @inventory_json WHERE inventory_id = @inventory_id';
+//	inventories.forEach((Inventory inventory) {
+//		inventory.upgradeItems();
+//		futures.add(db.execute(query, inventory));
+//	});
+//	await Future.wait(futures);
+//	print('upgading complete');
+//	dbManager.closeConnection(db);
 }
 
 @app.Route('/listUsers')
@@ -83,7 +97,7 @@ Future<List<String>> listUsers(@app.QueryParam('channel') String channel) async
 {
 	List<String> users = [];
 	List<Identifier> ids = ChatHandler.users.values.where((Identifier id) =>
-										id.channelList.contains(channel)).toList();
+	id.channelList.contains(channel)).toList();
 
 	ids.forEach((Identifier id) => users.add(id.username));
 

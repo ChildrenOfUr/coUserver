@@ -74,11 +74,6 @@ class MetabolicsEndpoint {
 		String query = "UPDATE metabolics SET energy = max_energy";
 		dbConn.execute(query);
 		dbManager.closeConnection(dbConn);
-//		userSockets.forEach((String username, WebSocket ws) async {
-//			Metabolics m = await getMetabolics(username:username);
-//			m.energy = m.max_energy;
-//			setMetabolics(m);
-//		});
 	}
 
 	static void handle(WebSocket ws) {
@@ -268,9 +263,9 @@ Future<Metabolics> getMetabolics({@app.QueryParam() String username, @app.QueryP
 				metabolic.user_id = results[0]['id'];
 			}
 		}
-		
+
 		dbManager.closeConnection(dbConn);
-	} catch(e,st) {
+	} catch(e, st) {
 		if(dbConn != null) {
 			dbManager.closeConnection(dbConn);
 		}
@@ -310,7 +305,7 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 
 		dbManager.closeConnection(dbConn);
 	}
-	catch(e,st) {
+	catch(e, st) {
 		if(dbConn != null) {
 			dbManager.closeConnection(dbConn);
 		}
