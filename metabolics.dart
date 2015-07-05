@@ -69,12 +69,16 @@ class MetabolicsEndpoint {
 	static Map<String, WebSocket> userSockets = {};
 	static Random rand = new Random();
 
-	static void refillAllEnergy() {
-		userSockets.forEach((String username, WebSocket ws) async {
-			Metabolics m = await getMetabolics(username:username);
-			m.energy = m.max_energy;
-			setMetabolics(m);
-		});
+	static void refillAllEnergy() async {
+		PostgreSql dbConn = await dbManager.getConnection();
+		String query = "UPDATE metabolics SET energy = max_energy";
+		dbConn.execute(query);
+		dbManager.closeConnection(dbConn);
+//		userSockets.forEach((String username, WebSocket ws) async {
+//			Metabolics m = await getMetabolics(username:username);
+//			m.energy = m.max_energy;
+//			setMetabolics(m);
+//		});
 	}
 
 	static void handle(WebSocket ws) {
@@ -104,8 +108,9 @@ class MetabolicsEndpoint {
 		Map map = JSON.decode(message);
 		String username = map['username'];
 
-		if(!userSockets.containsKey(username))
+		if(!userSockets.containsKey(username)) {
 			userSockets[username] = ws;
+		}
 	}
 
 	static void simulate() {
@@ -114,10 +119,12 @@ class MetabolicsEndpoint {
 			try {
 				Metabolics m = await getMetabolics(username:username);
 
-				if(simulateMood)
+				if(simulateMood) {
 					_calcAndSetMood(m);
-				if(simulateEnergy)
+				}
+				if(simulateEnergy) {
 					_calcAndSetEnergy(m);
+				}
 
 				//store current street and position
 				Identifier userIdentifier = PlayerUpdateHandler.users[username];
