@@ -93,6 +93,22 @@ Future<String> sendMail(@Decode() Message message) async
 	}
 }
 
+@app.Route('/collectCurrants', methods: const[app.POST])
+Future collectCurrants(@Decode() Message message) async {
+	//mark the currants as already taken so they can't be taken again
+	String query = "UPDATE messages set currants_taken = true where id = @id AND currants_taken = false";
+	int result = await dbConn.execute(query, message);
+
+	if(result < 0) {
+		return "Error";
+	}
+
+	//give the currants to the user
+	Metabolics m = await getMetabolics(username:message.to_user);
+	m.currants += message.currants;
+	setMetabolics(m);
+}
+
 @app.Route('/deleteMail', methods: const[app.POST])
 Future<String> deleteMail(@app.Body(app.JSON) Map parameters) async
 {
@@ -127,4 +143,6 @@ class Message {
 	bool read;
 	@Field()
 	int currants;
+	@Field()
+	bool currants_taken;
 }

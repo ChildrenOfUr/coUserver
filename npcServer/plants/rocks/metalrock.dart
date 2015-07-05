@@ -8,7 +8,7 @@ class MetalRock extends Rock {
 			{
 				"num":1,
 				"of":["fancy_pick"]
-			}
+			},{"num":10,"of":['energy']}
 		];
 
 		states =

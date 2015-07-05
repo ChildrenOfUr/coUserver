@@ -13,7 +13,7 @@ class DirtPile extends Plant {
 				            {
 					            "num":1,
 					            "of":["shovel", "ace_of_spades"]
-				            }
+				            },{"num":8,"of":['energy']}
 			            ]
 		            });
 
@@ -44,16 +44,9 @@ class DirtPile extends Plant {
 	}
 
 	Future<bool> dig({WebSocket userSocket, String email}) async {
-		Metabolics m = await getMetabolics(email:email);
-		if(m.energy < 5) {
+		bool success = await super.trySetMetabolics(email,energy:-8,imgMin:10,imgRange:5);
+		if(!success) {
 			return false;
-		} else {
-			m.energy -= 5;
-			m.img = m.img + (10 * ((100 / m.max_mood) * (m.mood / 100))).round();
-			int result = await setMetabolics(m);
-			if(result < 1) {
-				return false;
-			}
 		}
 
 		StatBuffer.incrementStat("dirtDug", 1);
