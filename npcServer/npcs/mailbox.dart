@@ -99,7 +99,7 @@ Future collectCurrants(@Decode() Message message) async {
 	String query = "UPDATE messages set currants_taken = true where id = @id AND currants_taken = false";
 	int result = await dbConn.execute(query, message);
 
-	if(result < 0) {
+	if(result < 1) {
 		return "Error";
 	}
 
