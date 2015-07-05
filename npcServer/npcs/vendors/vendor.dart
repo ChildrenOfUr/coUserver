@@ -12,7 +12,7 @@ class Vendor extends NPC {
 		'vendorType' decides which items to sell, and is never displayed to the user
 	 **/
 
-	Vendor(String id, int x, int y) : super(id, x, y) {
+	Vendor(String id, String streetName, int x, int y) : super(id, x, y) {
 		//vendor actions are instant
 		actionTime = 0;
 		type = "Street Spirit";
@@ -32,7 +32,6 @@ class Vendor extends NPC {
 
 		if(!itemsPredefined) {
 			itemsForSale.clear();
-			String streetName = "B"; // TODO: get this
 			switch(streetName.substring(0, 1)) {
 				case 'A':
 				case 'T':

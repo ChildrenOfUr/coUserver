@@ -41,7 +41,11 @@ class Street {
 						ClassMirror classMirror = findClassMirror(type.replaceAll(" ", ""));
 						if(classMirror.isSubclassOf(findClassMirror("NPC"))) {
 							id = "n" + id;
-							npcs[id] = classMirror.newInstance(new Symbol(""), [id, x, y]).reflectee;
+							if(classMirror.isSubclassOf(findClassMirror("Vendor"))) {
+								npcs[id] = classMirror.newInstance(new Symbol(""), [id, label, x, y]).reflectee;
+							} else {
+								npcs[id] = classMirror.newInstance(new Symbol(""), [id, x, y]).reflectee;
+							}
 						}
 						if(classMirror.isSubclassOf(findClassMirror("Plant"))) {
 							id = "p" + id;

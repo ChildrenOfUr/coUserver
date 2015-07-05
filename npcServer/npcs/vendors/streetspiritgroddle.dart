@@ -3,9 +3,9 @@ part of coUserver;
 class StreetSpiritGroddle extends Vendor {
 	int openCount = 0;
 
-	StreetSpiritGroddle(String id, int x, int y) : super(id, x, y) {
+	StreetSpiritGroddle(String id, String streetName, int x, int y) : super(id, streetName, x, y) {
 		speed = -75;
-    itemsPredefined = false;
+		itemsPredefined = false;
 		states = {
 			"still":new Spritesheet("still", 'http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L0dirt_bottom_none_eyes_eyes_L0eyes1_skull_skull_L0dirt_top_none_x1_open_png_1354834564.png', 980, 300, 98, 150, 1, false),
 			"idle_hold":new Spritesheet("idle_hold", 'http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L0dirt_bottom_none_eyes_eyes_L0eyes1_skull_skull_L0dirt_top_none_x1_idle_hold_png_1354834558.png', 980, 1350, 98, 150, 85, true),
@@ -58,7 +58,7 @@ class StreetSpiritGroddle extends Vendor {
 		respawn = new DateTime.now().add(new Duration(days:50));
 		openCount++;
 
-		super.buy(userSocket:userSocket,email:email);
+		super.buy(userSocket:userSocket, email:email);
 	}
 
 	void sell({WebSocket userSocket, String email}) {
@@ -67,7 +67,7 @@ class StreetSpiritGroddle extends Vendor {
 		respawn = new DateTime.now().add(new Duration(days:50));
 		openCount++;
 
-		super.sell(userSocket:userSocket,email:email);
+		super.sell(userSocket:userSocket, email:email);
 	}
 
 	void close({WebSocket userSocket, String email}) {

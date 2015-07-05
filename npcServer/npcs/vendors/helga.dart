@@ -2,7 +2,7 @@ part of coUserver;
 
 class Helga extends Vendor {
   int openCount = 0;
-  Helga(String id, int x, int y) : super(id, x, y) {
+  Helga(String id, String streetName, int x, int y) : super(id, streetName, x, y) {
     type = "Helga";
     speed = 40;
 

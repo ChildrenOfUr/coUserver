@@ -3,7 +3,7 @@ part of coUserver;
 class ToolVendor extends Vendor {
 	int openCount = 0;
 
-	ToolVendor(String id, int x, int y) : super(id, x, y) {
+	ToolVendor(String id, String streetName, int x, int y) : super(id, streetName, x, y) {
     itemsForSale = [
       items["pig_bait"].getMap(),
       items["butterfly_lotion"].getMap(),
