@@ -5,7 +5,7 @@ class Auctioneer extends NPC
 	Auctioneer(String id, int x, int y) : super(id,x,y)
 	{
 		actionTime = 0;
-		actions.add({"action":"view",
+		actions.add({"action":"Talk To",
 					 "timeRequired":actionTime,
 					 "enabled":true,
         			 "actionWord":""});
@@ -24,7 +24,7 @@ class Auctioneer extends NPC
 
 	}
 
-	void view({WebSocket userSocket, String email})
+	void talkTo({WebSocket userSocket, String email})
 	{
 		Map map = {};
 		map['vendorName'] = type;
