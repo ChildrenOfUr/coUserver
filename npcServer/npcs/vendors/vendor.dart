@@ -1,6 +1,6 @@
 part of coUserver;
 
-class Vendor extends NPC {
+abstract class Vendor extends NPC {
 	List<Map> itemsForSale = new List();
 	String vendorType;
 	List<Item> itemsToSell;
@@ -38,7 +38,7 @@ class Vendor extends NPC {
 				case 'K':
 				case 'C':
 				// Produce (317)
-					super.type = "Street Spirit: Produce";
+					type = "Street Spirit: Produce";
 					itemsForSale = [
 						items["garlic"].getMap(),
 						items["broccoli"].getMap(),
@@ -61,7 +61,7 @@ class Vendor extends NPC {
 				case 'M':
 				case 'S':
 				// Alchemical Goods (212)
-					super.type = "Street Spirit: Alchemical Goods";
+					type = "Street Spirit: Alchemical Goods";
 					itemsForSale = [
 						items["still"].getMap(),
 						items["tincturing_kit"].getMap(),
@@ -83,7 +83,7 @@ class Vendor extends NPC {
 				case 'B':
 				case 'P':
 				// Gardening Goods (187)
-					super.type = "Street Spirit: Gardening Goods";
+					type = "Street Spirit: Gardening Goods";
 					itemsForSale = [
 						items["hoe"].getMap(),
 						items["watering_can"].getMap(),
@@ -100,7 +100,7 @@ class Vendor extends NPC {
 				case 'E':
 				case 'J':
 				// Hardware (163)
-					super.type = "Street Spirit: Hardware";
+					type = "Street Spirit: Hardware";
 					itemsForSale = [
 						items["gassifier"].getMap(),
 						items["bubble_tuner"].getMap(),
@@ -142,7 +142,7 @@ class Vendor extends NPC {
 				case 'R':
 				case 'D':
 				// Animal Goods (130)
-					super.type = "Street Spirit: Animal Goods";
+					type = "Street Spirit: Animal Goods";
 					itemsForSale = [
 						items["spindle"].getMap(),
 						items["loomer"].getMap(),
@@ -162,7 +162,7 @@ class Vendor extends NPC {
 				case 'L':
 				case 'G':
 				// Groceries (121)
-					super.type = "Street Spirit: Groceries";
+					type = "Street Spirit: Groceries";
 					itemsForSale = [
 						items["coffee"].getMap(),
 						items["honey"].getMap(),
@@ -185,7 +185,7 @@ class Vendor extends NPC {
 				case 'Y':
 				case 'U':
 				// Mining (92)
-					super.type = "Street Spirit: Mining";
+					type = "Street Spirit: Mining";
 					itemsForSale = [
 						items["earthshaker"].getMap(),
 						items["face_smelter"].getMap(),
@@ -203,7 +203,7 @@ class Vendor extends NPC {
 				case 'H':
 				case 'N':
 				// Kitchen Tools (89)
-					super.type = "Street Spirit: Kitchen Tools";
+					type = "Street Spirit: Kitchen Tools";
 					itemsForSale = [
 						items["knife_and_board"].getMap(),
 						items["blender"].getMap(),
@@ -222,7 +222,7 @@ class Vendor extends NPC {
 				case 'Q':
 				case 'X':
 				// Toys (22)
-					super.type = "Street Spirit: Toys";
+					type = "Street Spirit: Toys";
 					itemsForSale = [
 						items["pair_of_dice"].getMap(),
 						items["12_sided_die"].getMap(),
@@ -261,10 +261,6 @@ class Vendor extends NPC {
 		}
 	}
 
-	@override
-	update() {
-	}
-
 	buy({WebSocket userSocket, String email}) {
 		Map map = {};
 		map['vendorName'] = type;
@@ -283,14 +279,13 @@ class Vendor extends NPC {
 		userSocket.add(JSON.encode(map));
 	}
 
-	buyItem(
-		{WebSocket userSocket, String itemType, int num, String email}) async {
+	buyItem({WebSocket userSocket, String itemType, int num, String email}) async {
 		if(!items.containsKey(itemType)) {
 			return;
 		}
 
 		StatBuffer.incrementStat("itemsBoughtFromVendors", num);
-		Item item = items[itemType];
+		Item item = new Item.clone(itemType);
 		Metabolics m = await getMetabolics(email: email);
 		if(m.currants >= item.price * num) {
 			m.currants -= item.price * num;
@@ -299,14 +294,12 @@ class Vendor extends NPC {
 		}
 	}
 
-	sellItem(
-		{WebSocket userSocket, String itemType, int num, String email}) async {
+	sellItem({WebSocket userSocket, String itemType, int num, String email}) async {
 		if(!items.containsKey(itemType)) {
 			return;
 		}
 
-		bool success = await takeItemFromUser(
-			userSocket, email, items[itemType].getMap()['name'], num);
+		bool success = await takeItemFromUser(userSocket, email, itemType, num);
 
 		if(success) {
 			Item item = items[itemType];

@@ -258,7 +258,22 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/tomato__x1_1_x1_2_x1_3_x1_4_png_1354830045.png",
     "stacksTo": 80,
     "price": 5,
-    "description": "A ripe, heirloom-quality tomato."
+    "description": "A ripe, heirloom-quality tomato.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {
+          "any": ["pick","fancy_pick"],
+          "all": ["bib"]
+        },
+        "skillRequirements": {
+          "requiredSkillLevels": {
+            "mining": 2,
+            "nudgery": 1
+          }
+        }
+      }
+    ]
   },
   "tomato_seed": {
     "name": "Tomato Seed",

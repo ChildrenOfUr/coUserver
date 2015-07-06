@@ -13,65 +13,48 @@ class Inventory {
 	factory Inventory() => new Inventory._internal();
 
 	Inventory._internal() {
-		this.inventory_json = '[]';
+		this.inventory_json = '{}';
 	}
-
-	static Map<String,String> itemTypes = {};
 
 	void upgradeItems() {
+		//if it's not a list of map, then we've already upgraded
+		if(JSON.decode(inventory_json) is! List<Map>) {
+			return;
+		}
+
 		List<Map> slots = JSON.decode(inventory_json);
+		Map<String,int> newInventory = {};
 		for(Map slot in slots) {
-			if(!slot['item'].containsKey('itemType')) {
-				if(itemTypes.containsKey(slot['item']['name'])) {
-					slot['item']['itemType'] = itemTypes[slot['item']['name']];
+			String itemType = slot['item']['itemType'];
+			if(itemType != null) {
+				if(!newInventory.containsKey(itemType)) {
+					newInventory[itemType] = slot['count'];
 				} else {
-					items.forEach((String itemType, Item item) {
-						if(item.name == slot['item']['name']) {
-							slot['item']['itemType'] = itemType;
-							itemTypes[item.name] = itemType;
-						}
-					});
+					newInventory[itemType] = newInventory[itemType] + slot['count'];
 				}
 			}
 		}
-		inventory_json = JSON.encode(slots);
+		print(newInventory);
+		inventory_json = JSON.encode(newInventory);
 	}
 
-	Future<int> addItem(Map item, int count, String email, PostgreSql dbConn) async {
-		List<Map> slots = JSON.decode(inventory_json);
-		bool found = false;
-		for(Map slot in slots) {
-			if(found) {
-				break;
-			}
-
-			if(slot['isContainer']) {
-				for(Map slotItem in slot['contents']) {
-					if(slotItem['item']['name'] == item['name']) {
-						slotItem['count'] += count;
-						found = true;
-						break;
-					}
-				}
-			}
-			else {
-				if(slot['item']['name'] == item['name']) {
-					slot['count'] += count;
-					found = true;
-					break;
-				}
-			}
+	Future<int> addItem(Map item, int count, String email) async {
+		Map<String,int> slots = JSON.decode(inventory_json);
+		String newItem = item['itemType'];
+		if(slots.containsKey(newItem)) {
+			slots[newItem] = slots[newItem] + count;
+		} else {
+			slots[newItem] = count;
 		}
 
-		if(!found) {
-			slots.add({'isContainer':item['isContainer'],
-				          'item':item,
-				          'count':count});
-		}
 		inventory_json = JSON.encode(slots);
+
+		PostgreSql dbConn = await dbManager.getConnection();
 
 		String queryString = "UPDATE inventories SET inventory_json = @inventory_json WHERE user_id = @user_id";
 		int numRowsUpdated = await dbConn.execute(queryString, this);
+
+		dbManager.closeConnection(dbConn);
 
 		if(numRowsUpdated > 0) {
 			return numRowsUpdated;
@@ -86,61 +69,40 @@ class Inventory {
 		}
 	}
 
-	Future<int> takeItem(String itemType, int count, PostgreSql dbConn) async {
-		List<Map> slots = JSON.decode(inventory_json);
-		List<int> removeItems = [];
-		List<int> possiblyRemove = [];
-
-		for(int i = 0; i < slots.length; i++) {
-			Map slot = slots.elementAt(i);
-
-			if(count <= 0) {
-				break;
+	Future<int> takeItem(String itemType, int count) async {
+		Map<String,int> slots = JSON.decode(inventory_json);
+		if(slots.containsKey(itemType)) {
+			int have = slots[itemType];
+			if(have > count) {
+				slots[itemType] = slots[itemType] - count;
+			} else if(have == count) {
+				slots.remove(itemType);
+			} else {
+				return 0;
 			}
-
-			if(slot['item']['itemType'] == itemType) {
-				if(slot['count'] > count) {
-					slot['count'] -= count;
-					count = 0;
-				}
-				if(slot['count'] == count) {
-					removeItems.add(i);
-					count = 0;
-				}
-				if(slot['count'] < count) {
-					possiblyRemove.add(i);
-					count -= slot['count'];
-				}
-			}
-		}
-
-		//always remove these, we know they succeeded
-		removeItems.forEach((int index) => slots.removeAt(index));
-
-		//only remove these if the count is now 0
-		//otherwise we failed to take enough items
-		if(count == 0) {
-			possiblyRemove.forEach((int index) => slots.removeAt(index));
 		}
 
 		inventory_json = JSON.encode(slots);
 
+		PostgreSql dbConn = await dbManager.getConnection();
 		String queryString = "UPDATE inventories SET inventory_json = @inventory_json WHERE user_id = @user_id";
 		int numRowsUpdated = await dbConn.execute(queryString, this);
+		dbManager.closeConnection(dbConn);
+
 		return numRowsUpdated;
 	}
 
 	List<Map> getItems() {
-		List<Map> items = [];
+		List<Map> results = [];
 
-		List<Map> slots = JSON.decode(inventory_json);
-		slots.forEach((Map slot) {
-			for(int i = 0; i < slot['count']; i++) {
-				items.add(slot['item']);
+		Map<String,int> slots = JSON.decode(inventory_json);
+		slots.forEach((String itemType, int count) {
+			for(int i = 0; i < count; i++) {
+				results.add(items[itemType].getMap());
 			}
 		});
 
-		return items;
+		return results;
 	}
 }
 
@@ -162,21 +124,17 @@ Future<Inventory> getUserInventory(String email) async {
 }
 
 Future<int> addItemToUser(WebSocket userSocket, String email, Map item, int count, String fromObject) async {
-	PostgreSql dbConn = await dbManager.getConnection();
-
 	Inventory inventory = await getUserInventory(email);
 
 	//save the item in the user's inventory in the database
 	//then send it to the client
-	int numRows = await inventory.addItem(item, count, email, dbConn);
+	int numRows = await inventory.addItem(item, count, email);
 	sendItemToUser(userSocket, item, count, fromObject);
 
-	dbManager.closeConnection(dbConn);
 	return numRows;
 }
 
 Future<bool> takeItemFromUser(WebSocket userSocket, String email, String itemType, int count) async {
-	PostgreSql dbConn = await dbManager.getConnection();
 	bool success = false;
 
 	Inventory inventory = await getUserInventory(email);
@@ -187,7 +145,7 @@ Future<bool> takeItemFromUser(WebSocket userSocket, String email, String itemTyp
 		}
 	});
 	if(num >= count) {
-		int rowsUpdated = await inventory.takeItem(itemType, count, dbConn);
+		int rowsUpdated = await inventory.takeItem(itemType, count);
 
 		if(rowsUpdated > 0) {
 			takeItem(userSocket, itemType, count);
@@ -196,8 +154,6 @@ Future<bool> takeItemFromUser(WebSocket userSocket, String email, String itemTyp
 		success = true;
 	}
 
-	dbManager.closeConnection(dbConn);
-
 	return success;
 }
 
@@ -205,20 +161,19 @@ Future fireInventoryAtUser(WebSocket userSocket, String email) async {
 	PostgreSql dbConn = await dbManager.getConnection();
 
 	Inventory inventory = await getUserInventory(email);
-	Map<String, Map> itemMap = {};
+	Map<String,Map> itemMap = {};
 	Map inventoryMap = {'inventory':'true', 'items':itemMap};
 	inventory.getItems().forEach((Map item) {
 		if(!itemMap.containsKey(item['name'])) {
-			item['count'] = 1;
-			itemMap[item['name']] = item;
+			Map newItem = {'count':1,'item':items[item['itemType']].getMap()};
+			itemMap[item['name']] = newItem;
+		} else {
+			Map existingItem = itemMap[item['name']];
+			existingItem['count'] = existingItem['count'] + 1;
+			itemMap[item['name']] = existingItem;
 		}
-		else {
-			Map i = itemMap[item['name']];
-			i['count'] += 1;
-			itemMap[item['name']] = i;
-		}
-		//sendItemToUser(userSocket,item,1,'');
 	});
+	//{'inventory':'true','items':{'apple':{'count':5,'item':Item},...}}
 	userSocket.add(JSON.encode(inventoryMap));
 
 	dbManager.closeConnection(dbConn);
@@ -227,7 +182,7 @@ Future fireInventoryAtUser(WebSocket userSocket, String email) async {
 sendItemToUser(WebSocket userSocket, Map item, int count, String fromObject) {
 	Map map = {};
 	map['giveItem'] = "true";
-	map['item'] = item;
+	map['item'] = encode(new Item.clone(item['itemType']));
 	map['num'] = count;
 	map['fromObject'] = fromObject;
 	userSocket.add(JSON.encode(map));

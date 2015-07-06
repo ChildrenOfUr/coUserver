@@ -5,18 +5,14 @@ class StreetUpdateHandler {
 	static Map<String, Street> streets = new Map();
 	static Timer timer = new Timer.periodic(new Duration(seconds: 1), (Timer timer) => simulateStreets());
 
-	static loadItems() async
-	{
+	static loadItems() async {
 		try {
 			String directory = Platform.script.toFilePath();
 			directory = directory.substring(0, directory.lastIndexOf('/'));
 
-			new Directory('$directory/npcServer/items/json').list().forEach((File category) {
-				JSON.decode(category.readAsStringSync()).forEach((String name, Map itemMap) {
-					Map id = {
-						"itemType": name
-					};
-					itemMap.addAll(id);
+			new Directory('$directory/npcServer/items/json').list().forEach((File category) async {
+				JSON.decode(await category.readAsString()).forEach((String name, Map itemMap) {
+					itemMap['itemType'] = name;
 					items[name] = decode(itemMap, Item);
 				});
 			});

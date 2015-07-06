@@ -1,5 +1,41 @@
 part of coUserver;
 
+class SkillRequirements {
+	@Field()
+	Map<String, int> requiredSkillLevels = {};
+}
+
+class ItemRequirements {
+	@Field()
+	List<String> any = [];
+	@Field()
+	List<String> all = [];
+}
+
+class Action {
+	@Field()
+	String name;
+	@Field()
+	ItemRequirements itemRequirements = new ItemRequirements();
+	@Field()
+	SkillRequirements skillRequirements = new SkillRequirements();
+
+	Action();
+
+	Action.withName(this.name);
+
+	@override
+	String toString() {
+		String returnString = "$name requires any of ${itemRequirements.any}, all of ${itemRequirements.all} and at least ";
+		skillRequirements.requiredSkillLevels.forEach((String skill, int level) {
+			returnString += "$level level of $skill, ";
+		});
+		returnString = returnString.substring(0, returnString.length - 1);
+
+		return returnString;
+	}
+}
+
 class Item {
 	@Field()
 	String category;
@@ -18,8 +54,6 @@ class Item {
 	@Field()
 	String itemType;
 	@Field()
-	int user_id;
-	@Field()
 	int price;
 	@Field()
 	int stacksTo;
@@ -36,14 +70,30 @@ class Item {
 	@Field()
 	bool isContainer = false;
 	@Field()
-	List<Map> actions = [{"action":"drop",
-		"timeRequired":0,
-		"enabled":true,
-		"actionWord":""}];
-	List<Map> groundActions = [{"action":"pickup",
-		"enabled":true,
-		"timeRequired":0,
-		"actionWord":""}];
+	List<Action> actions;
+
+	Action dropAction = new Action.withName('drop');
+	Action pickupAction = new Action.withName('pickup');
+
+	Item();
+
+	Item.clone(this.itemType) {
+		Item model = items[itemType];
+		category = model.category;
+		iconUrl = model.iconUrl;
+		spriteUrl = model.spriteUrl;
+		toolAnimation = model.toolAnimation;
+		name = model.name;
+		description = model.description;
+		price = model.price;
+		stacksTo = model.stacksTo;
+		iconNum = model.iconNum;
+		durability = model.durability;
+		x = model.x;
+		y = model.y;
+		isContainer = model.isContainer;
+		actions = model.actions;
+	}
 
 	Map getMap() {
 		return {"iconUrl":iconUrl,
@@ -60,14 +110,35 @@ class Item {
 			"onGround":onGround,
 			"x":x,
 			"y":y,
-			"actions":onGround ? groundActions : actions,
+			"actions":actionList,
 			"tool_animation": toolAnimation,
 			"durability": durability};
 	}
 
+	List<Map> get actionList {
+		if(onGround) {
+			return [encode(pickupAction)];
+		} else {
+			List result = [encode(dropAction)];
+			if(actions != null) {
+				result.addAll(encode(actions));
+			}
+			return result;
+		}
+	}
+
+	Future eat({String streetName, Map map, WebSocket userSocket, String email}) async {
+		bool success = await takeItemFromUser(userSocket, email, map['dropItem']['itemType'], map['count']);
+		if(!success) {
+			return;
+		}
+		print('yum');
+	}
+
 	void pickup({WebSocket userSocket, String email}) {
 		onGround = false;
-		addItemToUser(userSocket, email, getMap(), 1, item_id);
+		Item item = new Item.clone(itemType)..onGround = false;
+		addItemToUser(userSocket, email, item.getMap(), 1, item_id);
 	}
 
 	Future drop({WebSocket userSocket, Map map, String streetName, String email}) async {
@@ -76,13 +147,13 @@ class Item {
 			return;
 		}
 
-		num x = map['x'], y = map['y'];
 		String id = "i" + createId(x, y, map['dropItem']['itemType'], map['tsid']);
-		this.item_id = id;
-		onGround = true;
-		this.x = x;
-		this.y = y;
-		StreetUpdateHandler.streets[streetName].groundItems[id] = this;
-		//log("dropped item: ${getMap()}");
+		Item item = new Item.clone(itemType)
+			..x = map['x']
+			..y = map['y']
+			..item_id = id
+			..onGround = true;
+
+		StreetUpdateHandler.streets[streetName].groundItems[id] = item;
 	}
 }
