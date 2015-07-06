@@ -7,15 +7,13 @@
     "stacksTo": 1,
     "price": 1100,
     "description": "This die has 12 sides. One for every Giant, plus a mystery guest.",
-    "actions": {
-      "rollDice": {
+    "actions": [
+      {
         "name": "Roll",
-        "parameters": {
-          "sides": 12,
-          "dice": 1
-        }
+        "itemRequirements": {},
+        "skillRequirements": {}
       }
-    }
+    ]
   },
   "ayn_rand_doll": {
     "name": "Ayn Rand Doll",
@@ -43,14 +41,13 @@
     "stacksTo": 1,
     "price": 5000,
     "description": "Contains one (1) Series 1 Cubimal. Open it up to find out which one is inside. Collect them all!",
-    "actions": {
-      "openCubiBox": {
+    "actions": [
+      {
         "name": "Open",
-        "parameters": {
-          "series": 1
-        }
+        "itemRequirements": {},
+        "skillRequirements": {}
       }
-    }
+    ]
   },
   "cubimal_series_2_box": {
     "name": "Cubimal Series 2 Box",
@@ -60,14 +57,13 @@
     "stacksTo": 1,
     "price": 5000,
     "description": "Contains one (1) Series 2 Cubimal. Open it up to find out which one is inside. Collect 'em all!",
-    "actions": {
-      "openCubiBox": {
+    "actions": [
+      {
         "name": "Open",
-        "parameters": {
-          "series": 2
-        }
+        "itemRequirements": {},
+        "skillRequirements": {}
       }
-    }
+    ]
   },
   "dice": {
     "name": "Pair of Dice",
@@ -77,15 +73,13 @@
     "stacksTo": 1,
     "price": 500,
     "description": "Roll up!",
-    "actions": {
-      "rollDice": {
+    "actions": [
+      {
         "name": "Roll",
-        "parameters": {
-          "sides": 6,
-          "dice": 2
-        }
+        "itemRequirements": {},
+        "skillRequirements": {}
       }
-    }
+    ]
   },
   "emotional_bear": {
     "name": "Emotional Bear",
