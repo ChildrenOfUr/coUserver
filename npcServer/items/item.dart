@@ -132,7 +132,6 @@ class Item {
 		if(!success) {
 			return;
 		}
-		print('yum');
 	}
 
 	void pickup({WebSocket userSocket, String email}) {
