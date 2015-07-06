@@ -104,6 +104,7 @@ part 'npcServer/npcs/mailbox.dart';
 part 'npcServer/npcs/auctioneer.dart';
 part 'npcServer/spritesheet.dart';
 part 'npcServer/quoin.dart';
+part 'npcServer/items/item_action_functions.dart';
 
 //various http parts (as opposed to the previous websocket parts)
 part 'util.dart';

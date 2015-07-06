@@ -6,7 +6,16 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/dice_12sided__x1_spin_png_1354836226.png",
     "stacksTo": 1,
     "price": 1100,
-    "description": "This die has 12 sides. One for every Giant, plus a mystery guest."
+    "description": "This die has 12 sides. One for every Giant, plus a mystery guest.",
+    "actions": {
+      "rollDice": {
+        "name": "Roll",
+        "parameters": {
+          "sides": 12,
+          "dice": 1
+        }
+      }
+    }
   },
   "ayn_rand_doll": {
     "name": "Ayn Rand Doll",
@@ -33,7 +42,15 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cubimal_package__x1_1_png_1354836217.png",
     "stacksTo": 1,
     "price": 5000,
-    "description": "Contains one (1) Series 1 Cubimal. Open it up to find out which one is inside. Collect them all!"
+    "description": "Contains one (1) Series 1 Cubimal. Open it up to find out which one is inside. Collect them all!",
+    "actions": {
+      "openCubiBox": {
+        "name": "Open",
+        "parameters": {
+          "series": 1
+        }
+      }
+    }
   },
   "cubimal_series_2_box": {
     "name": "Cubimal Series 2 Box",
@@ -42,7 +59,15 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cubimal_package_2__x1_1_png_1354839815.png",
     "stacksTo": 1,
     "price": 5000,
-    "description": "Contains one (1) Series 2 Cubimal. Open it up to find out which one is inside. Collect 'em all!"
+    "description": "Contains one (1) Series 2 Cubimal. Open it up to find out which one is inside. Collect 'em all!",
+    "actions": {
+      "openCubiBox": {
+        "name": "Open",
+        "parameters": {
+          "series": 2
+        }
+      }
+    }
   },
   "dice": {
     "name": "Pair of Dice",
@@ -51,7 +76,16 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/dice__x1_1_png_1354836215.png",
     "stacksTo": 1,
     "price": 500,
-    "description": "Roll up!"
+    "description": "Roll up!",
+    "actions": {
+      "rollDice": {
+        "name": "Roll",
+        "parameters": {
+          "sides": 6,
+          "dice": 2
+        }
+      }
+    }
   },
   "emotional_bear": {
     "name": "Emotional Bear",
