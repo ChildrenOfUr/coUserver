@@ -6,7 +6,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/abbasid_ribs__x1_1_x1_2_x1_3_x1_4_png_1354829688.png",
     "stacksTo": 12,
     "price": 201,
-    "description": "Succulent Abbasid ribs, made using a time-honored Abbasidian recipe."
+    "description": "Succulent Abbasid ribs, made using a time-honored Abbasidian recipe.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "apple": {
     "name": "Apple",
@@ -15,7 +22,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/apple__x1_1_x1_2_x1_3_x1_4_png_1354829397.png",
     "stacksTo": 100,
     "price": 5,
-    "description": "A boldly red and brazenly juicy apple."
+    "description": "A boldly red and brazenly juicy apple.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "applejack": {
     "name": "Applejack",
@@ -24,7 +38,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/applejack__x1_1_x1_2_x1_3_x1_4_png_1354830825.png",
     "stacksTo": 40,
     "price": 25,
-    "description": "A bowl of apple-y, oat-y, cinnamon-y applejack. Yummy hot or cold."
+    "description": "A bowl of apple-y, oat-y, cinnamon-y applejack. Yummy hot or cold.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "awesome_stew": {
     "name": "Awesome Stew",
@@ -33,7 +54,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/awesome_stew__x1_1_x1_2_x1_3_x1_4_png_1354829703.png",
     "stacksTo": 12,
     "price": 268,
-    "description": "Chunky awesome stew, so thick you can eat it with a spork."
+    "description": "Chunky awesome stew, so thick you can eat it with a spork.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "bacon": {
     "name": "Rasher of Bacon",
@@ -42,7 +70,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bacon__x1_1_x1_2_png_1354829445.png",
     "stacksTo": 20,
     "price": 20,
-    "description": "A delicious, greasy, surprise Piggy treat from the Piggy's newly discovered Orthogonal Meat Generator (OMG)."
+    "description": "A delicious, greasy, surprise Piggy treat from the Piggy's newly discovered Orthogonal Meat Generator (OMG).",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "banana": {
     "name": "Banana",
@@ -51,7 +86,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/banana__x1_1_x1_2_x1_3_x1_4_png_1354829404.png",
     "stacksTo": 100,
     "price": 10,
-    "description": "A bright yellow, potassium-rich banana."
+    "description": "A bright yellow, potassium-rich banana.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "banana_no_names": {
     "name": "Banana No-Names",
@@ -60,7 +102,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/banana_no_names__x1_1_x1_2_x1_3_x1_4_png_1354830816.png",
     "stacksTo": 20,
     "price": 40,
-    "description": "One banana fried to crispy, buttery perfection and drizzled with honey. Mmmm."
+    "description": "One banana fried to crispy, buttery perfection and drizzled with honey. Mmmm.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "basic_omelet": {
     "name": "Basic Omelet",
@@ -69,7 +118,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/basic_omelet__x1_1_x1_2_x1_3_x1_4_png_1354829707.png",
     "stacksTo": 20,
     "price": 46,
-    "description": "A fluffy three-egg omelet."
+    "description": "A fluffy three-egg omelet.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "berry_bowl": {
     "name": "Berry Bowl",
@@ -78,7 +134,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/berry_bowl__x1_1_x1_2_x1_3_x1_4_png_1354830845.png",
     "stacksTo": 20,
     "price": 46,
-    "description": "A very merry bowl of berries."
+    "description": "A very merry bowl of berries.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "best_bean_dip": {
     "name": "Best Bean Dip",
@@ -87,7 +150,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/best_bean_dip__x1_1_x1_2_x1_3_x1_4_png_1354829712.png",
     "stacksTo": 20,
     "price": 54,
-    "description": "Bowl of beany, dippy bean dip."
+    "description": "Bowl of beany, dippy bean dip.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "big_salad": {
     "name": "Big Salad",
@@ -96,7 +166,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/big_salad__x1_1_x1_2_x1_3_x1_4_png_1354829714.png",
     "stacksTo": 12,
     "price": 58,
-    "description": "It's bigger than small. It's a big salad."
+    "description": "It's bigger than small. It's a big salad.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "birch_candy": {
     "name": "Birch Candy",
@@ -105,7 +182,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/birch_candy__x1_1_x1_2_x1_3_x1_4_png_1354836541.png",
     "stacksTo": 20,
     "price": 13,
-    "description": "Candy made of boiled birch syrup so concentrated and so sweet that one too many and you may see god. Or at least the tooth fairy. And they'll be crying."
+    "description": "Candy made of boiled birch syrup so concentrated and so sweet that one too many and you may see god. Or at least the tooth fairy. And they'll be crying.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "birch_syrup": {
     "name": "Birch Syrup",
@@ -114,7 +198,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/birch_syrup__x1_1_x1_2_x1_3_x1_4_png_1354829717.png",
     "stacksTo": 40,
     "price": 4,
-    "description": "A bottle of sticky birch syrup."
+    "description": "A bottle of sticky birch syrup.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "bubble_and_squeak": {
     "name": "Bubble and Squeak",
@@ -123,7 +214,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bubble_and_squeak__x1_1_x1_2_x1_3_x1_4_png_1354830830.png",
     "stacksTo": 12,
     "price": 60,
-    "description": "Meaty, carroty, potato-y mush, fried to perfection."
+    "description": "Meaty, carroty, potato-y mush, fried to perfection.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "bun": {
     "name": "Bun",
@@ -132,7 +230,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bun__x1_1_x1_2_x1_3_x1_4_png_1354829685.png",
     "stacksTo": 40,
     "price": 9,
-    "description": "A nice round bun."
+    "description": "A nice round bun.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "bunch_of_grapes": {
     "name": "Bunch of Grapes",
@@ -141,7 +246,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bunch_of_grapes__x1_1_x1_2_x1_3_x1_4_png_1354829730.png",
     "stacksTo": 100,
     "price": 4,
-    "description": "A heaping handful of red grapes."
+    "description": "A heaping handful of red grapes.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "butterfly_butter": {
     "name": "Butterfly Butter",
@@ -150,7 +262,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/butterfly_butter__x1_1_x1_2_png_1354829519.png",
     "stacksTo": 40,
     "price": 10,
-    "description": "Butterfly butter might seem like an odd thing, but it is used in many delicious cooking recipes."
+    "description": "Butterfly butter might seem like an odd thing, but it is used in many delicious cooking recipes.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "carobish_treats": {
     "name": "Raw Bio-Organic Carob-ish Treat",
@@ -159,7 +278,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/carobish_treats__x1_1_x1_2_x1_3_x1_4_png_1354836546.png",
     "stacksTo": 20,
     "price": 41,
-    "description": "A chewy, crunchy, apparently ethically-sourced, gritty 'candy-alternative' with a whiff of winter. Leaves a unique chocolatey aftertang you can't quite put your finger on."
+    "description": "A chewy, crunchy, apparently ethically-sourced, gritty 'candy-alternative' with a whiff of winter. Leaves a unique chocolatey aftertang you can't quite put your finger on.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cedar_plank_salmon": {
     "name": "Cedar Plank Salmon",
@@ -168,7 +294,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cedar_plank_salmon__x1_1_x1_2_x1_3_x1_4_png_1354829746.png",
     "stacksTo": 12,
     "price": 70,
-    "description": "A wild salmon cooked on a wild cedar plank."
+    "description": "A wild salmon cooked on a wild cedar plank.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cheese": {
     "name": "Cheese",
@@ -177,7 +310,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cheese__x1_1_x1_2_x1_3_x1_4_png_1354829749.png",
     "stacksTo": 20,
     "price": 15,
-    "description": "A nice wedge of holey cheese."
+    "description": "A nice wedge of holey cheese.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cheese_plate": {
     "name": "Cheese Plate",
@@ -186,7 +326,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cheese_plate__x1_1_x1_2_x1_3_x1_4_png_1354829751.png",
     "stacksTo": 20,
     "price": 58,
-    "description": "An assortment of fine cheeses."
+    "description": "An assortment of fine cheeses.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cheezy_sammich": {
     "name": "Cheezy Sammich",
@@ -195,7 +342,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cheezy_sammich__x1_1_x1_2_x1_3_x1_4_png_1354830842.png",
     "stacksTo": 40,
     "price": 37,
-    "description": "An easy, pleasey, cheezy sammich."
+    "description": "An easy, pleasey, cheezy sammich.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cheezy_sauce": {
     "name": "Cheezy Sauce",
@@ -204,7 +358,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cheezy_sauce__x1_1_x1_2_x1_3_x1_4_png_1354829754.png",
     "stacksTo": 20,
     "price": 59,
-    "description": "A crock full of pleasingly, teasingly cheezy sauce."
+    "description": "A crock full of pleasingly, teasingly cheezy sauce.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "chillybusting_chili": {
     "name": "Chilly-Busting Chili",
@@ -213,7 +374,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/chillybusting_chili__x1_1_x1_2_x1_3_x1_4_png_1354829760.png",
     "stacksTo": 12,
     "price": 349,
-    "description": "A tureen of fiery chilly-busting chili."
+    "description": "A tureen of fiery chilly-busting chili.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "choice_crudites": {
     "name": "Choice Crudites",
@@ -222,7 +390,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/choice_crudites__x1_1_x1_2_x1_3_x1_4_png_1354829763.png",
     "stacksTo": 20,
     "price": 42,
-    "description": "A platter of the very finest crudites."
+    "description": "A platter of the very finest crudites.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cloudberry": {
     "name": "Cloudberry",
@@ -231,7 +406,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cloudberry__x1_1_x1_2_x1_3_x1_4_png_1354829768.png",
     "stacksTo": 100,
     "price": 2,
-    "description": "A pleasingly tart cloudberry."
+    "description": "A pleasingly tart cloudberry.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cloudberry_jam": {
     "name": "Cloudberry Jam",
@@ -240,7 +422,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cloudberry_jam__x1_1_x1_2_x1_3_x1_4_png_1354829776.png",
     "stacksTo": 20,
     "price": 39,
-    "description": "A jar of tart cloudberry jam."
+    "description": "A jar of tart cloudberry jam.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cold_taco": {
     "name": "Cold Taco",
@@ -249,7 +438,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cold_taco__x1_1_x1_2_x1_3_x1_4_png_1354830854.png",
     "stacksTo": 12,
     "price": 69,
-    "description": "A refreshing cold taco."
+    "description": "A refreshing cold taco.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "common_crudites": {
     "name": "Common Crudites",
@@ -258,7 +454,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/common_crudites__x1_1_x1_2_x1_3_x1_4_png_1354829783.png",
     "stacksTo": 20,
     "price": 33,
-    "description": "Everyday crudites served in an easy-to-carry cup."
+    "description": "Everyday crudites served in an easy-to-carry cup.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "corn_off_the_cob": {
     "name": "Corn-off-the-Cob",
@@ -267,7 +470,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/corn_off_the_cob__x1_1_x1_2_x1_3_x1_4_png_1354830806.png",
     "stacksTo": 20,
     "price": 55,
-    "description": "All the goodness of corn-on-the-cob, without the cob."
+    "description": "All the goodness of corn-on-the-cob, without the cob.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "corn_syrup_squares": {
     "name": "Hi-Sucrose Corn Syrup Square",
@@ -276,7 +486,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/corn_syrup_squares__x1_1_x1_2_x1_3_x1_4_png_1354836543.png",
     "stacksTo": 20,
     "price": 31,
-    "description": "Densely-packed brick of pure brain-melting sweetness, proving that sometimes the sum of many food items is either something that is only fit for use as building material in a fairy unicorn happy-palace, or a candy."
+    "description": "Densely-packed brick of pure brain-melting sweetness, proving that sometimes the sum of many food items is either something that is only fit for use as building material in a fairy unicorn happy-palace, or a candy.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "corny_fritter": {
     "name": "Corny Fritter",
@@ -285,7 +502,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/corny_fritter__x1_1_x1_2_x1_3_x1_4_png_1354830804.png",
     "stacksTo": 20,
     "price": 39,
-    "description": "Some delicately frittered corn."
+    "description": "Some delicately frittered corn.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "creamy_catsup": {
     "name": "Creamy Catsup",
@@ -294,7 +518,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/creamy_catsup__x1_1_x1_2_x1_3_x1_4_png_1354829791.png",
     "stacksTo": 12,
     "price": 81,
-    "description": "One gallon of the creamiest catsup in all the land."
+    "description": "One gallon of the creamiest catsup in all the land.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "death_to_veg": {
     "name": "Death to Veg",
@@ -303,7 +534,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/death_to_veg__x1_1_png_1354840587.png",
     "stacksTo": 40,
     "price": 39,
-    "description": "For those who wish a violent end to all harmless vegetables, and desire to feast upon their flesh."
+    "description": "For those who wish a violent end to all harmless vegetables, and desire to feast upon their flesh.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "deluxe_sammich": {
     "name": "Deluxe Sammich",
@@ -312,7 +550,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/deluxe_sammich__x1_1_x1_2_x1_3_x1_4_png_1354829801.png",
     "stacksTo": 12,
     "price": 86,
-    "description": "A deeply satisfying deluxe sammich."
+    "description": "A deeply satisfying deluxe sammich.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "desssert_rub": {
     "name": "Desssert Rub",
@@ -321,7 +566,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/desssert_rub__x1_1_png_1354840578.png",
     "stacksTo": 50,
     "price": 78,
-    "description": "Gritty, sandlike, and strangely sweet, this is both sandy like the desert, and sweet like dessert, and, as such, has the s's of both."
+    "description": "Gritty, sandlike, and strangely sweet, this is both sandy like the desert, and sweet like dessert, and, as such, has the s's of both.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "divine_crepes": {
     "name": "Divine Crepe",
@@ -330,7 +582,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/divine_crepes__x1_1_x1_2_x1_3_x1_4_png_1354829803.png",
     "stacksTo": 12,
     "price": 279,
-    "description": "Life-changingly scrumptious crepes."
+    "description": "Life-changingly scrumptious crepes.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "eggy_scramble": {
     "name": "Eggy Scramble",
@@ -339,7 +598,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/eggy_scramble__x1_1_x1_2_x1_3_x1_4_png_1354830799.png",
     "stacksTo": 40,
     "price": 32,
-    "description": "A messily scrumptious pile of eggs."
+    "description": "A messily scrumptious pile of eggs.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "exotic_fruit_salad": {
     "name": "Exotic Fruit Salad",
@@ -348,7 +614,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/exotic_fruit_salad__x1_1_x1_2_x1_3_x1_4_png_1354830860.png",
     "stacksTo": 20,
     "price": 33,
-    "description": "An enticing array of exotic fruits."
+    "description": "An enticing array of exotic fruits.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "expensive_grilled_cheese": {
     "name": "Expensive Grilled Cheese",
@@ -357,7 +630,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/expensive_grilled_cheese__x1_1_x1_2_x1_3_x1_4_png_1354829811.png",
     "stacksTo": 12,
     "price": 220,
-    "description": "Expensive cheese expensively grilled on expensive bread."
+    "description": "Expensive cheese expensively grilled on expensive bread.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "flour": {
     "name": "Flour",
@@ -366,7 +646,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/flour__x1_1_x1_2_x1_3_x1_4_png_1354829829.png",
     "stacksTo": 80,
     "price": 7,
-    "description": "Some ordinary white, powdery flour."
+    "description": "Some ordinary white, powdery flour.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "flummery": {
     "name": "Flummery",
@@ -375,7 +662,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/flummery__x1_1_x1_2_x1_3_x1_4_png_1354830832.png",
     "stacksTo": 12,
     "price": 229,
-    "description": "Few things in this life are as tasty as a masterfully prepared flummery. \"Just like Mom used to make!\" you might say. If you had a mom, that is."
+    "description": "Few things in this life are as tasty as a masterfully prepared flummery. \"Just like Mom used to make!\" you might say. If you had a mom, that is.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "fortifying_gruel": {
     "name": "Fortifying Gruel",
@@ -384,7 +678,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/fortifying_gruel__x1_1_x1_2_x1_3_x1_4_png_1354829831.png",
     "stacksTo": 12,
     "price": 271,
-    "description": "One bowl of lumpy fortifying gruel."
+    "description": "One bowl of lumpy fortifying gruel.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "fried_egg": {
     "name": "Fried Egg",
@@ -393,7 +694,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/fried_egg__x1_1_x1_2_x1_3_png_1354830101.png",
     "stacksTo": 40,
     "price": 11,
-    "description": "One sunny-side-up egg."
+    "description": "One sunny-side-up egg.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "fried_noodles": {
     "name": "Fried Noodles",
@@ -402,7 +710,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/fried_noodles__x1_1_x1_2_x1_3_x1_4_png_1354830818.png",
     "stacksTo": 20,
     "price": 35,
-    "description": "A small slippery hill of fried noodles."
+    "description": "A small slippery hill of fried noodles.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "fried_rice": {
     "name": "Fried Rice",
@@ -411,7 +726,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/fried_rice__x1_1_x1_2_x1_3_x1_4_png_1354829840.png",
     "stacksTo": 12,
     "price": 114,
-    "description": "A bowl of fried rice with lots of nummy bits."
+    "description": "A bowl of fried rice with lots of nummy bits.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "frog_in_a_hole": {
     "name": "Frog-in-a-Hole",
@@ -420,7 +742,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/frog_in_a_hole__x1_1_x1_2_x1_3_x1_4_png_1354830827.png",
     "stacksTo": 20,
     "price": 44,
-    "description": "A perfect egg perfectly fried in a perfect hole in a slice of bread."
+    "description": "A perfect egg perfectly fried in a perfect hole in a slice of bread.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "fruit_salad": {
     "name": "Fruit Salad",
@@ -429,7 +758,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/fruit_salad__x1_1_x1_2_x1_3_x1_4_png_1354829842.png",
     "stacksTo": 20,
     "price": 29,
-    "description": "A nice fruit salad."
+    "description": "A nice fruit salad.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "gammas_pancakes": {
     "name": "Gamma's Pancake",
@@ -438,7 +774,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gammas_pancakes__x1_1_x1_2_x1_3_x1_4_png_1354829847.png",
     "stacksTo": 20,
     "price": 57,
-    "description": "One mouthwatering pancake, just like Gamma used to make."
+    "description": "One mouthwatering pancake, just like Gamma used to make.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "glitchepoix": {
     "name": "Glitchepoix",
@@ -447,7 +790,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/glitchepoix__x1_1_png_1354840634.png",
     "stacksTo": 40,
     "price": 45,
-    "description": "Combination of vegetables known as the holy quadrinity of the Glitchean cuisine."
+    "description": "Combination of vegetables known as the holy quadrinity of the Glitchean cuisine.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "greasy_frybread": {
     "name": "Greasy Frybread",
@@ -456,7 +806,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/greasy_frybread__x1_1_x1_2_x1_3_x1_4_png_1354830839.png",
     "stacksTo": 20,
     "price": 53,
-    "description": "A fresh chunk of butter-running-down-your-arms greasy frybread."
+    "description": "A fresh chunk of butter-running-down-your-arms greasy frybread.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "green": {
     "name": "Green",
@@ -465,7 +822,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/green__x1_1_png_1354840603.png",
     "stacksTo": 40,
     "price": 48,
-    "description": "So fundamental, so intrinsic to the basic laws of culinary science and a healthy spleen that there was only ever one word needed to describe it: Green. So, so green."
+    "description": "So fundamental, so intrinsic to the basic laws of culinary science and a healthy spleen that there was only ever one word needed to describe it: Green. So, so green.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "green_eggs": {
     "name": "Green Egg",
@@ -474,7 +838,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/green_eggs__x1_1_x1_2_x1_3_x1_4_png_1354830823.png",
     "stacksTo": 40,
     "price": 12,
-    "description": "One order of fried green eggs, hold the ham."
+    "description": "One order of fried green eggs, hold the ham.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "grilled_cheese": {
     "name": "Grilled Cheese",
@@ -483,7 +854,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/grilled_cheese__x1_1_x1_2_x1_3_x1_4_png_1354829863.png",
     "stacksTo": 12,
     "price": 90,
-    "description": "A comforting grilled cheese."
+    "description": "A comforting grilled cheese.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "hash": {
     "name": "Hash",
@@ -492,7 +870,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/hash__x1_1_x1_2_x1_3_x1_4_png_1354829870.png",
     "stacksTo": 12,
     "price": 57,
-    "description": "A serving of oddly satisfying hash."
+    "description": "A serving of oddly satisfying hash.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "hearty_groddle_sammich": {
     "name": "Hearty Groddle Sammich",
@@ -501,7 +886,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/hearty_groddle_sammich__x1_1_x1_2_x1_3_x1_4_png_1354829873.png",
     "stacksTo": 12,
     "price": 93,
-    "description": "A meaty Groddle sammich with extra hot 'n' fizzy sauce for extra hot 'n' fizzy energy."
+    "description": "A meaty Groddle sammich with extra hot 'n' fizzy sauce for extra hot 'n' fizzy energy.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "hearty_omelet": {
     "name": "Hearty Omelet",
@@ -510,7 +902,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/hearty_omelet__x1_1_x1_2_x1_3_x1_4_png_1354829876.png",
     "stacksTo": 12,
     "price": 120,
-    "description": "An unusually nourishing hearty omelet."
+    "description": "An unusually nourishing hearty omelet.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "heston_mash": {
     "name": "Heston Mash",
@@ -519,7 +918,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/heston_mash__x1_1_png_1354840618.png",
     "stacksTo": 10,
     "price": 576,
-    "description": "This is not just mashed potato, this is the fanciest, zaniest, most delicious mashed potato Ur has ever ingested. And yet, really, it's still just mashed potato."
+    "description": "This is not just mashed potato, this is the fanciest, zaniest, most delicious mashed potato Ur has ever ingested. And yet, really, it's still just mashed potato.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "honey": {
     "name": "Honey",
@@ -528,7 +934,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/honey__x1_1_x1_2_x1_3_x1_4_png_1354829878.png",
     "stacksTo": 40,
     "price": 4,
-    "description": "A brimful jar of raw golden honey."
+    "description": "A brimful jar of raw golden honey.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "hot_n_fizzy_sauce": {
     "name": "Hot 'n' Fizzy Sauce",
@@ -537,7 +950,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/hot_n_fizzy_sauce__x1_1_x1_2_x1_3_x1_4_png_1354829885.png",
     "stacksTo": 20,
     "price": 48,
-    "description": "One jar of potent hot 'n' fizzy sauce. This combustible comestible is packed with energy and all kinds of flaming goodness."
+    "description": "One jar of potent hot 'n' fizzy sauce. This combustible comestible is packed with energy and all kinds of flaming goodness.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "hot_potatoes": {
     "name": "Hot Potatoes",
@@ -546,7 +966,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/hot_potatoes__x1_1_png_1354840613.png",
     "stacksTo": 40,
     "price": 66,
-    "description": "If a glitch gives you this 'tato, drop it like it's hot. Because it is."
+    "description": "If a glitch gives you this 'tato, drop it like it's hot. Because it is.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "hototot_rub": {
     "name": "Hototot Rub",
@@ -555,7 +982,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/hototot_rub__x1_1_png_1354840574.png",
     "stacksTo": 50,
     "price": 77,
-    "description": "Oooh. Ow. Hot. Hotot. Hototot."
+    "description": "Oooh. Ow. Hot. Hotot. Hototot.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "hungry_nachos": {
     "name": "Hungry Nachos",
@@ -564,7 +998,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/hungry_nachos__x1_1_png_1354840629.png",
     "stacksTo": 10,
     "price": 508,
-    "description": "Are you hungry for nachos or are nachos hungry for you? It's nacho decision to make."
+    "description": "Are you hungry for nachos or are nachos hungry for you? It's nacho decision to make.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "ixstyle_braised_meat": {
     "name": "Ix-Style Braised Meat",
@@ -573,7 +1014,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/ixstyle_braised_meat__x1_1_x1_2_x1_3_x1_4_png_1354829693.png",
     "stacksTo": 12,
     "price": 234,
-    "description": "A side of rich, meaty meat, braised a la Ix."
+    "description": "A side of rich, meaty meat, braised a la Ix.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "juicy_carpaccio": {
     "name": "Juicy Carpaccio",
@@ -582,7 +1030,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/juicy_carpaccio__x1_1_x1_2_x1_3_x1_4_png_1354829894.png",
     "stacksTo": 12,
     "price": 71,
-    "description": "A tempting platter of juicy carpaccio with all the trimmings."
+    "description": "A tempting platter of juicy carpaccio with all the trimmings.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "kind_breakfurst_burrito": {
     "name": "Kind BreakfURst Burrito (TM)",
@@ -591,7 +1046,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/kind_breakfurst_burrito__x1_1_png_1354840594.png",
     "stacksTo": 20,
     "price": 292,
-    "description": "Warning: Does not contain meat."
+    "description": "Warning: Does not contain meat.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "king_of_condiments": {
     "name": "King of Condiments",
@@ -600,7 +1062,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/kings_of_condiments__x1_1_png_1354840569.png",
     "stacksTo": 50,
     "price": 20,
-    "description": "Otherwise known as the blandest rub in all of Ur. Meh."
+    "description": "Otherwise known as the blandest rub in all of Ur. Meh.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "lazy_salad": {
     "name": "Lazy Salad",
@@ -609,7 +1078,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/lazy_salad__x1_1_x1_2_x1_3_x1_4_png_1354830847.png",
     "stacksTo": 40,
     "price": 38,
-    "description": "Sliced tomatoes and cheese. It doesn't get much lazier than a lazy salad."
+    "description": "Sliced tomatoes and cheese. It doesn't get much lazier than a lazy salad.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "legumes_abbassidienne": {
     "name": "Legumes Abbassidienne",
@@ -618,7 +1094,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/legumes_parisienne__x1_1_png_1354840571.png",
     "stacksTo": 40,
     "price": 22,
-    "description": "The most sophisticated, chic ways to prepare a bean: simply, classically, with a smile, a touch of flair, and a really big guillotine."
+    "description": "The most sophisticated, chic ways to prepare a bean: simply, classically, with a smile, a touch of flair, and a really big guillotine.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "lemburger": {
     "name": "Lemburger",
@@ -627,7 +1110,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/lemburger__x1_1_x1_2_x1_3_x1_4_png_1354829696.png",
     "stacksTo": 12,
     "price": 187,
-    "description": "A single-decker Lemburger with all the fixins."
+    "description": "A single-decker Lemburger with all the fixins.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "lemon": {
     "name": "Lemon",
@@ -636,7 +1126,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/lemon__x1_1_x1_2_x1_3_x1_4_png_1354829897.png",
     "stacksTo": 100,
     "price": 5,
-    "description": "One half of a nice pair of lemons."
+    "description": "One half of a nice pair of lemons.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "lotsa_lox": {
     "name": "Lotsa Lox",
@@ -645,7 +1142,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/lotsa_lox__x1_1_x1_2_x1_3_x1_4_png_1354830852.png",
     "stacksTo": 20,
     "price": 34,
-    "description": "Goodness! It's a lotta lox!"
+    "description": "Goodness! It's a lotta lox!",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "luxury_tortellini": {
     "name": "Luxury Tortellini",
@@ -654,7 +1158,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/luxury_tortellini__x1_1_png_1354840622.png",
     "stacksTo": 10,
     "price": 758,
-    "description": "It's tortellini, stuffed with extravagance and drizzled with grandeur."
+    "description": "It's tortellini, stuffed with extravagance and drizzled with grandeur.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "maburger_royale": {
     "name": "Maburger Royale",
@@ -663,7 +1174,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/maburger_royale__x1_1_png_1354840610.png",
     "stacksTo": 20,
     "price": 350,
-    "description": "It's not just seasoned beans in a bun smothered in stinky cheese - it's so much more than that. Oh no wait. It's just that."
+    "description": "It's not just seasoned beans in a bun smothered in stinky cheese - it's so much more than that. Oh no wait. It's just that.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "mangosteen": {
     "name": "Mangosteen",
@@ -672,7 +1190,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/mangosteen__x1_1_x1_2_x1_3_x1_4_png_1354829465.png",
     "stacksTo": 100,
     "price": 10,
-    "description": "A sweet and tangy mangosteen."
+    "description": "A sweet and tangy mangosteen.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "meat_gumbo": {
     "name": "Meat Gumbo",
@@ -681,7 +1206,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/meat_gumbo__x1_1_x1_2_x1_3_x1_4_png_1354829905.png",
     "stacksTo": 12,
     "price": 225,
-    "description": "A bowl of thick, meaty gumbo."
+    "description": "A bowl of thick, meaty gumbo.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "meat_tetrazzini": {
     "name": "Meat Tetrazzini",
@@ -690,7 +1222,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/meat_tetrazzini__x1_1_x1_2_x1_3_x1_4_png_1354829908.png",
     "stacksTo": 12,
     "price": 192,
-    "description": "Some creamy, meaty tetrazzini."
+    "description": "Some creamy, meaty tetrazzini.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "messy_fry_up": {
     "name": "Messy Fry-Up",
@@ -699,7 +1238,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/messy_fry_up__x1_1_x1_2_x1_3_x1_4_png_1354830821.png",
     "stacksTo": 12,
     "price": 60,
-    "description": "A sloppy, gloppy messy fry-up."
+    "description": "A sloppy, gloppy messy fry-up.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "mexicali_eggs": {
     "name": "Mexicali Eggs",
@@ -708,7 +1254,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/mexicali_eggs__x1_1_x1_2_x1_3_x1_4_png_1354830801.png",
     "stacksTo": 12,
     "price": 78,
-    "description": "A heaping serving of bean-infused eggs."
+    "description": "A heaping serving of bean-infused eggs.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "mild_sauce": {
     "name": "Mild Sauce",
@@ -717,7 +1270,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/mild_sauce__x1_1_x1_2_x1_3_x1_4_png_1354829913.png",
     "stacksTo": 12,
     "price": 26,
-    "description": "Bland ho! It's some inoffensive mild sauce."
+    "description": "Bland ho! It's some inoffensive mild sauce.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "mushroom": {
     "name": "Mushroom",
@@ -726,7 +1286,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/mushroom__x1_1_x1_2_x1_3_x1_4_png_1354829916.png",
     "stacksTo": 40,
     "price": 3,
-    "description": "An unusually sporous mushroom."
+    "description": "An unusually sporous mushroom.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "naraka_flame_rub": {
     "name": "Naraka Flame Rub",
@@ -735,7 +1302,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/naraka_flame_rub__x1_1_png_1354840581.png",
     "stacksTo": 50,
     "price": 84,
-    "description": "A slightly spicy minute on the lips, a horrifically painful burning in the general area of the hips, some people say. But what do they know? Wussies."
+    "description": "A slightly spicy minute on the lips, a horrifically painful burning in the general area of the hips, some people say. But what do they know? Wussies.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "oats": {
     "name": "Oats",
@@ -744,7 +1318,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/oats__x1_1_x1_2_x1_3_x1_4_png_1354829926.png",
     "stacksTo": 40,
     "price": 8,
-    "description": "Regular non-wild oats."
+    "description": "Regular non-wild oats.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "oaty_cake": {
     "name": "Oaty Cake",
@@ -753,7 +1334,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/oaty_cake__x1_1_x1_2_x1_3_x1_4_png_1354830809.png",
     "stacksTo": 20,
     "price": 32,
-    "description": "A slightly dry, somewhat crumbly oaty cake."
+    "description": "A slightly dry, somewhat crumbly oaty cake.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "obvious_panini": {
     "name": "Obvious Panini",
@@ -762,7 +1350,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/obvious_panini__x1_1_x1_2_x1_3_x1_4_png_1354829929.png",
     "stacksTo": 12,
     "price": 132,
-    "description": "A panini, obviously."
+    "description": "A panini, obviously.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "oily_dressing": {
     "name": "Oily Dressing",
@@ -771,7 +1366,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/oily_dressing__x1_1_x1_2_x1_3_x1_4_png_1354829931.png",
     "stacksTo": 40,
     "price": 3,
-    "description": "A bottle of cheap, yet strangely satisfying, oily dressing."
+    "description": "A bottle of cheap, yet strangely satisfying, oily dressing.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "olive_oil": {
     "name": "Olive Oil",
@@ -780,7 +1382,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/olive_oil__x1_1_x1_2_x1_3_x1_4_png_1354829936.png",
     "stacksTo": 40,
     "price": 5,
-    "description": "A bottle of top-notch olive oil, no virgins required."
+    "description": "A bottle of top-notch olive oil, no virgins required.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "onion_ring": {
     "name": "Onion Ring",
@@ -789,7 +1398,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/onion_rings__x1_1_png_1354840637.png",
     "stacksTo": 40,
     "price": 51,
-    "description": "Battered and fried, these are onions prepared the way Pot intended. Rumored to be popular amongst the elves. Wait, what's an elf?"
+    "description": "Battered and fried, these are onions prepared the way Pot intended. Rumored to be popular amongst the elves. Wait, what's an elf?",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "onion_sauce": {
     "name": "Onion Sauce",
@@ -798,7 +1414,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/onion_sauce__x1_1_x1_2_x1_3_x1_4_png_1354829941.png",
     "stacksTo": 12,
     "price": 64,
-    "description": "A jar of eye-wateringly zesty onion sauce."
+    "description": "A jar of eye-wateringly zesty onion sauce.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "orange": {
     "name": "Orange",
@@ -807,7 +1430,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/orange__x1_1_x1_2_x1_3_x1_4_png_1354829400.png",
     "stacksTo": 100,
     "price": 5,
-    "description": "A very orange orange."
+    "description": "A very orange orange.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "pad_tii": {
     "name": "Pad Tii",
@@ -816,7 +1446,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pad_tii__x1_1_png_1354840625.png",
     "stacksTo": 20,
     "price": 392,
-    "description": "Tii has not heard of this dish yet. Chances are it would not approve. Do not tell Tii. Please."
+    "description": "Tii has not heard of this dish yet. Chances are it would not approve. Do not tell Tii. Please.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "pi": {
     "name": "Pi",
@@ -825,7 +1462,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pi__x1_1_png_1354839580.png",
     "stacksTo": 5,
     "price": 314,
-    "description": "The recipe for Pi was described in ancient times by Alphimedes of Salatu, who also purportedly invented a heat ray for attacking the Rook. (If the heat ray ever existed, it has long since been lost.) It was later improved upon by Ludolph the Cerulean, named for his bright blue skin. Ludolph gave a Pi to several of the giants. Tii immediately stated that Pi was irrational. Pot, on the other hand, declared this to be the best pie he’d ever eaten - transcendental, in fact."
+    "description": "The recipe for Pi was described in ancient times by Alphimedes of Salatu, who also purportedly invented a heat ray for attacking the Rook. (If the heat ray ever existed, it has long since been lost.) It was later improved upon by Ludolph the Cerulean, named for his bright blue skin. Ludolph gave a Pi to several of the giants. Tii immediately stated that Pi was irrational. Pot, on the other hand, declared this to be the best pie he’d ever eaten - transcendental, in fact.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "pickle": {
     "name": "Pickle",
@@ -834,7 +1478,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pickle__x1_1_x1_2_x1_3_x1_4_png_1354829952.png",
     "stacksTo": 40,
     "price": 21,
-    "description": "A seriously crunchy pickle."
+    "description": "A seriously crunchy pickle.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "pineapple": {
     "name": "Pineapple",
@@ -843,7 +1494,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pineapple__x1_1_x1_2_x1_3_x1_4_png_1354829958.png",
     "stacksTo": 100,
     "price": 7,
-    "description": "An exceptionally prickly pineapple."
+    "description": "An exceptionally prickly pineapple.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "pineapple_upside_down_pizza": {
     "name": "Pineapple Upside-Down Pizza",
@@ -852,7 +1510,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/papl_upside_down_pizza__x1_1_x1_2_x1_3_x1_4_png_1354829947.png",
     "stacksTo": 12,
     "price": 111,
-    "description": "A plate of exotically topsy-turvy pizza."
+    "description": "A plate of exotically topsy-turvy pizza.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "plain_noodles": {
     "name": "Plain Noodles",
@@ -861,7 +1526,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/plain_noodles__x1_1_x1_2_x1_3_x1_4_png_1354829964.png",
     "stacksTo": 40,
     "price": 13,
-    "description": "Some good, honest, plain noodles."
+    "description": "Some good, honest, plain noodles.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "plum": {
     "name": "Plum",
@@ -870,7 +1542,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/plum__x1_1_x1_2_x1_3_x1_4_png_1354829974.png",
     "stacksTo": 100,
     "price": 3,
-    "description": "A plummy plum."
+    "description": "A plummy plum.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "pocket_salmon": {
     "name": "Pocket Salmon",
@@ -879,7 +1558,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/salmon__x1_1_x1_2_x1_3_x1_4_png_1354829991.png",
     "stacksTo": 40,
     "price": 15,
-    "description": "It's like salmon, but in your pocket! Pocket Salmon! The handy friendly fish-at-your-fingertips that's always ready to go! Why settle for boring old underwater catch-me-if-you-calmon-salmon when you could have the ever-accessible, always-dependable, never-stinky always-yummy Pocket Salmon instead! POCKET SALMON! [TM. Always read the label. Terms and conditions apply]"
+    "description": "It's like salmon, but in your pocket! Pocket Salmon! The handy friendly fish-at-your-fingertips that's always ready to go! Why settle for boring old underwater catch-me-if-you-calmon-salmon when you could have the ever-accessible, always-dependable, never-stinky always-yummy Pocket Salmon instead! POCKET SALMON! [TM. Always read the label. Terms and conditions apply]",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "potato_patty": {
     "name": "Potato Patty",
@@ -888,7 +1574,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/potato_patty__x1_1_x1_2_x1_3_x1_4_png_1354830837.png",
     "stacksTo": 20,
     "price": 33,
-    "description": "One potato, mashed and fried in a pleasing disc shape."
+    "description": "One potato, mashed and fried in a pleasing disc shape.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "potcorn": {
     "name": "Potcorn",
@@ -897,7 +1590,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/potcorn__x1_1_png_1354840616.png",
     "stacksTo": 40,
     "price": 136,
-    "description": "Pot corn is a regular corn made to pop because its kernels have a hard moisture-sealed hull and a dense starchy interior. This allows pressure to build inside the kernel until an explosive \"pop\" results."
+    "description": "Pot corn is a regular corn made to pop because its kernels have a hard moisture-sealed hull and a dense starchy interior. This allows pressure to build inside the kernel until an explosive \"pop\" results.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "potians_feast": {
     "name": "Potian's Feast",
@@ -906,7 +1606,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/potians_feast__x1_1_png_1354840632.png",
     "stacksTo": 10,
     "price": 1000,
-    "description": "The greatest, most magnificent, energy-filled, Pot-approved combination of nourishment. A fitting dish to make or eat for any serious Potian."
+    "description": "The greatest, most magnificent, energy-filled, Pot-approved combination of nourishment. A fitting dish to make or eat for any serious Potian.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "pottine": {
     "name": "Pottine",
@@ -915,7 +1622,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pottine__x1_1_png_1354840608.png",
     "stacksTo": 20,
     "price": 267,
-    "description": "So wrong. But so, so right."
+    "description": "So wrong. But so, so right.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "precious_potato_salad": {
     "name": "Precious Potato Salad",
@@ -924,7 +1638,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/precious_potato_salad__x1_1_png_1354840620.png",
     "stacksTo": 10,
     "price": 860,
-    "description": "Potato salad, traditionally an affordable staple at Glitchen birthdays, is now fit for fancy dinners and lavish banquets with the addition of the particularly precious Trump Rub."
+    "description": "Potato salad, traditionally an affordable staple at Glitchen birthdays, is now fit for fancy dinners and lavish banquets with the addition of the particularly precious Trump Rub.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "proper_rice": {
     "name": "Proper Rice",
@@ -933,7 +1654,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/proper_rice__x1_1_x1_2_x1_3_x1_4_png_1354829978.png",
     "stacksTo": 20,
     "price": 26,
-    "description": "A steaming bowl of slightly sticky rice."
+    "description": "A steaming bowl of slightly sticky rice.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "pumpkin_pie": {
     "name": "Pumpkin Pie",
@@ -942,7 +1670,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin_pie__x1_1_png_1354836551.png",
     "stacksTo": 5,
     "price": 111,
-    "description": "When people use the phrase 'as nice as pie', they are, in fact, talking about this pie. What goes into it? Fresh pumpkin, crispy pastry, spicy spices, and a big dollop of love. (That's an attitude rather than a hidden ingredient, before you start feeling nauseous)."
+    "description": "When people use the phrase 'as nice as pie', they are, in fact, talking about this pie. What goes into it? Fresh pumpkin, crispy pastry, spicy spices, and a big dollop of love. (That's an attitude rather than a hidden ingredient, before you start feeling nauseous).",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "red": {
     "name": "Red",
@@ -951,7 +1686,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/red__x1_1_png_1354840599.png",
     "stacksTo": 40,
     "price": 30,
-    "description": "Some things are so basic, so fundamental that they only need one word to describe what they are. This perfect blend of tomato, onion and butterfly milk sums up the essence of red."
+    "description": "Some things are so basic, so fundamental that they only need one word to describe what they are. This perfect blend of tomato, onion and butterfly milk sums up the essence of red.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "rich_tagine": {
     "name": "Rich Tagine",
@@ -960,7 +1702,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/rich_tagine__x1_1_x1_2_x1_3_x1_4_png_1354829986.png",
     "stacksTo": 12,
     "price": 332,
-    "description": "A steaming pot of zesty, slow-cooked tagine."
+    "description": "A steaming pot of zesty, slow-cooked tagine.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "roasted_pepitas": {
     "name": "Roasted Pepitas",
@@ -969,7 +1718,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pepitas__x1_1_x1_2_x1_3_x1_4_png_1354836538.png",
     "stacksTo": 50,
     "price": 5,
-    "description": "Crunchy, nutty, seeds pulled from a pumpkin ready roasted (it must be that hot knife you used). May cause a roasted pumpkin to grow in your stomach. No, not really. Will cause you to feel smug about your healthy snacking choices, though."
+    "description": "Crunchy, nutty, seeds pulled from a pumpkin ready roasted (it must be that hot knife you used). May cause a roasted pumpkin to grow in your stomach. No, not really. Will cause you to feel smug about your healthy snacking choices, though.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "roux": {
     "name": "Roux",
@@ -978,7 +1734,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/roux__x1_1_png_1354840596.png",
     "stacksTo": 40,
     "price": 22,
-    "description": "Roo!"
+    "description": "Roo!",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "salmon_jaella": {
     "name": "Salmon Jaella",
@@ -987,7 +1750,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/salmon_jaella__x1_1_png_1354840592.png",
     "stacksTo": 20,
     "price": 241,
-    "description": "An assortment of fresh Salmon from Jal, Rice, Legumes and veggies thrown together into a dish Jal-loving Glitchen identify themselves by."
+    "description": "An assortment of fresh Salmon from Jal, Rice, Legumes and veggies thrown together into a dish Jal-loving Glitchen identify themselves by.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "sammich": {
     "name": "Sammich",
@@ -996,7 +1766,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/sammich__x1_1_x1_2_x1_3_x1_4_png_1354829994.png",
     "stacksTo": 20,
     "price": 29,
-    "description": "A basic bun 'n' meat sammich."
+    "description": "A basic bun 'n' meat sammich.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "scrumptious_frittata": {
     "name": "Scrumptious Frittata",
@@ -1005,7 +1782,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/scrumptious_frittata__x1_1_x1_2_x1_3_x1_4_png_1354830001.png",
     "stacksTo": 20,
     "price": 78,
-    "description": "A truly tantalizing scrumptious frittata."
+    "description": "A truly tantalizing scrumptious frittata.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "secret_sauce": {
     "name": "Secret Sauce",
@@ -1014,7 +1798,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/secret_sauce__x1_1_x1_2_x1_3_x1_4_png_1354830004.png",
     "stacksTo": 20,
     "price": 47,
-    "description": "An enigmatic jar full of mysteriously yummy secret sauce."
+    "description": "An enigmatic jar full of mysteriously yummy secret sauce.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "sesame_oil": {
     "name": "Sesame Oil",
@@ -1023,7 +1814,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/sesame_oil__x1_1_x1_2_x1_3_x1_4_png_1354830008.png",
     "stacksTo": 40,
     "price": 4,
-    "description": "Some slippery sesame oil."
+    "description": "Some slippery sesame oil.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "simple_bbq": {
     "name": "Simple BBQ",
@@ -1032,7 +1830,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/simple_bbq__x1_1_x1_2_x1_3_x1_4_png_1354830011.png",
     "stacksTo": 12,
     "price": 116,
-    "description": "Some hot meat with tangy sauce."
+    "description": "Some hot meat with tangy sauce.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "simple_slaw": {
     "name": "Simple Slaw",
@@ -1041,7 +1846,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/simple_slaw__x1_1_x1_2_x1_3_x1_4_png_1354830013.png",
     "stacksTo": 20,
     "price": 27,
-    "description": "The simplest of slaws."
+    "description": "The simplest of slaws.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "snack_pack": {
     "name": "Snack Pack",
@@ -1050,7 +1862,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/snack_pack__x1_1_x1_2_x1_3_x1_4_png_1354830849.png",
     "stacksTo": 20,
     "price": 66,
-    "description": "An apple, some cheese, and a couple of pickles. Not quite a meal, but it'll do until dinner."
+    "description": "An apple, some cheese, and a couple of pickles. Not quite a meal, but it'll do until dinner.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "snocone_blue": {
     "name": "Blue Sno Cone",
@@ -1059,7 +1878,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/sno_cone_blue__x1_1_x1_2_x1_3_x1_4_png_1354830754.png",
     "stacksTo": 10,
     "price": 75,
-    "description": "A delicious, refreshing Blue Sno Cone with a tangy hit of iMG. Blended to perfection using ice, hooch, and the very finest elemental additives and preservatives, it tastes exactly what the the concept of blue should taste like. And a little like raspberry, weirdly."
+    "description": "A delicious, refreshing Blue Sno Cone with a tangy hit of iMG. Blended to perfection using ice, hooch, and the very finest elemental additives and preservatives, it tastes exactly what the the concept of blue should taste like. And a little like raspberry, weirdly.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "snocone_green": {
     "name": "Green Sno Cone",
@@ -1068,7 +1894,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/sno_cone_green__x1_1_x1_2_x1_3_x1_4_png_1354830757.png",
     "stacksTo": 10,
     "price": 150,
-    "description": "A bright green blend of ice, hooch and elements make a drink the color of days when spring is born, or nights when the northern lights perform. Packed with a modest hit of iMG, winter cannot fade it. Mainly because it's 40% elemental additives and preservatives."
+    "description": "A bright green blend of ice, hooch and elements make a drink the color of days when spring is born, or nights when the northern lights perform. Packed with a modest hit of iMG, winter cannot fade it. Mainly because it's 40% elemental additives and preservatives.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "snocone_orange": {
     "name": "Orange Sno Cone",
@@ -1077,7 +1910,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/sno_cone_orange__x1_1_x1_2_x1_3_x1_4_png_1354830760.png",
     "stacksTo": 10,
     "price": 300,
-    "description": "A chillingly refreshing bright Orange Sno Cone, with a medium amount of iMG. A perfect blend of Ice, Hooch, and elemental additives and preservatives, it is the epitome of an orange drink. Not orange the fruit, that is, orange the colour. It's more of a concept."
+    "description": "A chillingly refreshing bright Orange Sno Cone, with a medium amount of iMG. A perfect blend of Ice, Hooch, and elemental additives and preservatives, it is the epitome of an orange drink. Not orange the fruit, that is, orange the colour. It's more of a concept.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "snocone_purple": {
     "name": "Purple Sno Cone",
@@ -1086,7 +1926,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/sno_cone_purple__x1_1_x1_2_x1_3_x1_4_png_1354830765.png",
     "stacksTo": 10,
     "price": 1100,
-    "description": "A refreshing and delicious purple Sno Cone. A sophisticated blend of Ice, Hooch and elemental additives and preservatives. Now you too can get all the social frisson of Purple but with none of the nutritional or mental expansion benefits (contains considerable iMG, though)."
+    "description": "A refreshing and delicious purple Sno Cone. A sophisticated blend of Ice, Hooch and elemental additives and preservatives. Now you too can get all the social frisson of Purple but with none of the nutritional or mental expansion benefits (contains considerable iMG, though).",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "snocone_rainbo": {
     "name": "Rainbo Sno Cone",
@@ -1095,7 +1942,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/sno_cone_rainbow__x1_1_x1_2_x1_3_x1_4_png_1354840519.png",
     "stacksTo": 10,
     "price": 2200,
-    "description": "A rainbo in Sno Cone form, eating this blend of all the other Sno Cones makes your tongue tingle, your sinuses snigger and your spine spontaneously decide to go on a tropical vacation to Shimmyville. Warning: Contains gloriously high levels of iMG."
+    "description": "A rainbo in Sno Cone form, eating this blend of all the other Sno Cones makes your tongue tingle, your sinuses snigger and your spine spontaneously decide to go on a tropical vacation to Shimmyville. Warning: Contains gloriously high levels of iMG.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "snocone_red": {
     "name": "Red Sno Cone",
@@ -1104,7 +1958,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/sno_cone_red__x1_1_x1_2_x1_3_x1_4_png_1354830762.png",
     "stacksTo": 10,
     "price": 600,
-    "description": "A tongue-tingling spine-shiveringly Red Sno Cone. A seamless blend of Ice, Hooch, and a secret blend of elemental additives, preservatives, iMG and raw energy that make you feel slightly, though not to any copyright-infringing extent, like you may have wings."
+    "description": "A tongue-tingling spine-shiveringly Red Sno Cone. A seamless blend of Ice, Hooch, and a secret blend of elemental additives, preservatives, iMG and raw energy that make you feel slightly, though not to any copyright-infringing extent, like you may have wings.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "spicy_quesadilla": {
     "name": "Spicy Quesadilla",
@@ -1113,7 +1974,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/spicy_quesadilla__x1_1_x1_2_x1_3_x1_4_png_1354830022.png",
     "stacksTo": 12,
     "price": 86,
-    "description": "An ooey-gooey spicy quesadilla."
+    "description": "An ooey-gooey spicy quesadilla.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "spinach_salad": {
     "name": "Spinach Salad",
@@ -1122,7 +1990,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/spinach_salad__x1_1_x1_2_x1_3_x1_4_png_1354830857.png",
     "stacksTo": 40,
     "price": 18,
-    "description": "A suspiciously nutritious spinach salad."
+    "description": "A suspiciously nutritious spinach salad.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "stinky_cheese": {
     "name": "Stinky Cheese",
@@ -1131,7 +2006,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cheese_stinky__x1_1_x1_2_png_1354829497.png",
     "stacksTo": 10,
     "price": 21,
-    "description": "A lump of cheese that's been left to stand around for a while. It's what the French call 'ripe'. You could age it longer, but glory only knows what the French would call it then."
+    "description": "A lump of cheese that's been left to stand around for a while. It's what the French call 'ripe'. You could age it longer, but glory only knows what the French would call it then.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "stock_sauce": {
     "name": "Stock Sauce",
@@ -1140,7 +2022,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/stock_sauce__x1_1_png_1354840601.png",
     "stacksTo": 40,
     "price": 34,
-    "description": "As plain and every day as a woman laughing while eating salad, no one even things about Stock Sauce any more. Perhaps they should."
+    "description": "As plain and every day as a woman laughing while eating salad, no one even things about Stock Sauce any more. Perhaps they should.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "strawberry": {
     "name": "Strawberry",
@@ -1149,7 +2038,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/strawberry__x1_1_x1_2_x1_3_x1_4_png_1354830027.png",
     "stacksTo": 100,
     "price": 4,
-    "description": "A luscious red strawberry."
+    "description": "A luscious red strawberry.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "super_veggie_kebabs": {
     "name": "Super Veggie Kebab",
@@ -1158,7 +2054,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/super_veggie_kebabs__x1_1_x1_2_x1_3_x1_4_png_1354830030.png",
     "stacksTo": 12,
     "price": 256,
-    "description": "Chunks of assorted vegetables on a fun pointy stick!"
+    "description": "Chunks of assorted vegetables on a fun pointy stick!",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "swank_zucchini_loaf": {
     "name": "Swank Zucchini Loaf",
@@ -1167,7 +2070,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/swank_zucchini_loaf__x1_1_png_1354840627.png",
     "stacksTo": 10,
     "price": 441,
-    "description": "A good loaf can be made out of anything. A great loaf is made from Zucchini and talks about how rich it is."
+    "description": "A good loaf can be made out of anything. A great loaf is made from Zucchini and talks about how rich it is.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "sweet_n_sour_sauce": {
     "name": "Sweet 'n' Sour Sauce",
@@ -1176,7 +2086,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/sweet_n_sour_sauce__x1_1_x1_2_x1_3_x1_4_png_1354830032.png",
     "stacksTo": 20,
     "price": 63,
-    "description": "Is it sweet? Is it sour? It's both! It's sweet 'n' sour sauce!"
+    "description": "Is it sweet? Is it sour? It's both! It's sweet 'n' sour sauce!",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "swing_batter": {
     "name": "Swing Batter",
@@ -1185,7 +2102,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/swing_batter__x1_1_png_1354840576.png",
     "stacksTo": 40,
     "price": 31,
-    "description": "After roughly chopping with a knife, this batter is not mixed, blended or whisked, but swung at the end of the arm. Swing batter, batter batter swing, batter (as they say)."
+    "description": "After roughly chopping with a knife, this batter is not mixed, blended or whisked, but swung at the end of the arm. Swing batter, batter batter swing, batter (as they say).",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "tangy_noodles": {
     "name": "Tangy Noodles",
@@ -1194,7 +2118,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/tangy_noodles__x1_1_x1_2_x1_3_x1_4_png_1354830835.png",
     "stacksTo": 20,
     "price": 54,
-    "description": "A generous serving of zesty, lemony tangy noodles."
+    "description": "A generous serving of zesty, lemony tangy noodles.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "tangy_sauce": {
     "name": "Tangy Sauce",
@@ -1203,7 +2134,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/tangy_sauce__x1_1_x1_2_x1_3_x1_4_png_1354830034.png",
     "stacksTo": 12,
     "price": 154,
-    "description": "A large jar of gloppy tangy sauce."
+    "description": "A large jar of gloppy tangy sauce.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "tasty_pasta": {
     "name": "Tasty Pasta",
@@ -1212,7 +2150,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/tasty_pasta__x1_1_x1_2_x1_3_x1_4_png_1354830039.png",
     "stacksTo": 12,
     "price": 338,
-    "description": "A bowl of extra-long noodles with rich bolognese sauce."
+    "description": "A bowl of extra-long noodles with rich bolognese sauce.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "tortilla": {
     "name": "Tortilla",
@@ -1221,7 +2166,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/tortilla__x1_1_x1_2_x1_3_x1_4_png_1354830049.png",
     "stacksTo": 40,
     "price": 19,
-    "description": "A roundish tortilla."
+    "description": "A roundish tortilla.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "trump_rub": {
     "name": "Trump Rub",
@@ -1230,7 +2182,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trump_rub__x1_1_png_1354840584.png",
     "stacksTo": 50,
     "price": 128,
-    "description": "So called because it trumps all the other rubs in expense, flavour, and the ability to be extremely annoying (if you get it in your eye)."
+    "description": "So called because it trumps all the other rubs in expense, flavour, and the ability to be extremely annoying (if you get it in your eye).",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "urfu": {
     "name": "Urfu",
@@ -1239,7 +2198,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/urfu__x1_1_png_1354840589.png",
     "stacksTo": 40,
     "price": 73,
-    "description": "A moist beige flaccid matter, imbued with the ability to suck up other flavours."
+    "description": "A moist beige flaccid matter, imbued with the ability to suck up other flavours.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "vegmageddon": {
     "name": "Vegmageddon",
@@ -1248,7 +2214,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/vegmageddon__x1_1_png_1354840606.png",
     "stacksTo": 40,
     "price": 90,
-    "description": "No rich urth-born root or brave brassica can survive the searing heat of a Pugilist Grill. It is a slow, vicious end for them. But justified, they say, in the name of 'Healthy Living'."
+    "description": "No rich urth-born root or brave brassica can survive the searing heat of a Pugilist Grill. It is a slow, vicious end for them. But justified, they say, in the name of 'Healthy Living'.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "very_stinky_cheese": {
     "name": "Very Stinky Cheese",
@@ -1257,7 +2230,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cheese_very_stinky__x1_1_x1_2_png_1354829500.png",
     "stacksTo": 10,
     "price": 27,
-    "description": "Smelling like a manatee bathed in celery juice and old surgical stockings,  goodness knows what would happen if you aged this connoisseurial cheese any longer. You could give it a go, though…"
+    "description": "Smelling like a manatee bathed in celery juice and old surgical stockings,  goodness knows what would happen if you aged this connoisseurial cheese any longer. You could give it a go, though…",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "very_very_stinky_cheese": {
     "name": "Very, Very Stinky Cheese",
@@ -1266,7 +2246,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cheese_very_very_stinky__x1_1_x1_2_png_1354829502.png",
     "stacksTo": 10,
     "price": 33,
-    "description": "This is the very, very stinkiest cheese you've ever seen, or it would be if you could see through the thick veil of tears it's inducing. You can't make this any stinkier. It wouldn't be fair to everyone else."
+    "description": "This is the very, very stinkiest cheese you've ever seen, or it would be if you could see through the thick veil of tears it's inducing. You can't make this any stinkier. It wouldn't be fair to everyone else.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "waffles": {
     "name": "Waffle",
@@ -1275,7 +2262,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/waffles__x1_1_x1_2_x1_3_x1_4_png_1354830054.png",
     "stacksTo": 20,
     "price": 185,
-    "description": "Fluffy waffles with extra-deep waffle-holes."
+    "description": "Fluffy waffles with extra-deep waffle-holes.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "wavy_gravy": {
     "name": "Wavy Gravy",
@@ -1284,7 +2278,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/wavy_gravy__x1_1_x1_2_x1_3_x1_4_png_1354830057.png",
     "stacksTo": 12,
     "price": 75,
-    "description": "One pint of wavy gravy. It's so good, you'll eat it with a spoon."
+    "description": "One pint of wavy gravy. It's so good, you'll eat it with a spoon.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "whortleberry": {
     "name": "Whortleberry",
@@ -1293,7 +2294,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/whortleberry__x1_1_x1_2_x1_3_x1_4_png_1354830060.png",
     "stacksTo": 100,
     "price": 5,
-    "description": "A single delectable whortleberry."
+    "description": "A single delectable whortleberry.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "whortleberry_jelly": {
     "name": "Whortleberry Jelly",
@@ -1302,7 +2310,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/whortleberry_jelly__x1_1_x1_2_x1_3_x1_4_png_1354830063.png",
     "stacksTo": 12,
     "price": 75,
-    "description": "One jar of homemade whortleberry jelly, made from the pulverized remains of a thousand quivering whortleberries."
+    "description": "One jar of homemade whortleberry jelly, made from the pulverized remains of a thousand quivering whortleberries.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "wicked_bolognese_sauce": {
     "name": "Wicked Bolognese Sauce",
@@ -1311,7 +2326,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/wicked_bolognese_sauce__x1_1_x1_2_x1_3_x1_4_png_1354830066.png",
     "stacksTo": 12,
     "price": 79,
-    "description": "A small jar of wicked bolognese sauce, on spaghetti or on its own for a meaty treat."
+    "description": "A small jar of wicked bolognese sauce, on spaghetti or on its own for a meaty treat.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "yummy_gruel": {
     "name": "Yummy Gruel",
@@ -1320,6 +2342,13 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/yummy_gruel__x1_1_x1_2_x1_3_x1_4_png_1354830068.png",
     "stacksTo": 12,
     "price": 237,
-    "description": "Somewhat-fizzy-but-still-yummy gruel."
+    "description": "Somewhat-fizzy-but-still-yummy gruel.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   }
 }

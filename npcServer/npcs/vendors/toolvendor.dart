@@ -49,7 +49,8 @@ class ToolVendor extends Vendor {
 			items["spindle"].getMap(),
 			items["loomer"].getMap(),
 			items["construction_tool"].getMap(),
-			items["bulb"].getMap()
+			items["bulb"].getMap(),
+			items['coffee'].getMap()
 		];
 		itemsForSale.addAll(pickItems(["Storage"]));
 		itemsPredefined = true;

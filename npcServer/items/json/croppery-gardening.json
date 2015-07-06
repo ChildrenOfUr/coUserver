@@ -15,7 +15,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/broccoli__x1_1_x1_2_x1_3_x1_4_png_1354829725.png",
     "stacksTo": 80,
     "price": 5,
-    "description": "One floret of unabashedly healthy broccoli."
+    "description": "One floret of unabashedly healthy broccoli.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "broccoli_seed": {
     "name": "Broccoli Seed",
@@ -42,7 +49,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cabbage__x1_1_x1_2_x1_3_x1_4_png_1354829732.png",
     "stacksTo": 80,
     "price": 7,
-    "description": "A head of tender, delicately pungent cabbage."
+    "description": "A head of tender, delicately pungent cabbage.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cabbage_seed": {
     "name": "Cabbage Seed",
@@ -60,7 +74,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/carrot__x1_1_x1_2_x1_3_x1_4_png_1354829740.png",
     "stacksTo": 80,
     "price": 6,
-    "description": "A fresh, firm carrot."
+    "description": "A fresh, firm carrot.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "carrot_seed": {
     "name": "Carrot Seed",
@@ -78,7 +99,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/corn__x1_1_x1_2_x1_3_x1_4_png_1354829786.png",
     "stacksTo": 80,
     "price": 6,
-    "description": "Many kernels of sweet corn, conveniently located on a sturdy cob."
+    "description": "Many kernels of sweet corn, conveniently located on a sturdy cob.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "corn_seed": {
     "name": "Corn Seed",
@@ -96,7 +124,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cucumber__x1_1_x1_2_x1_3_x1_4_png_1354829796.png",
     "stacksTo": 80,
     "price": 4,
-    "description": "An innocuous cucumber."
+    "description": "An innocuous cucumber.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cucumber_seed": {
     "name": "Cucumber Seed",
@@ -141,7 +176,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/onion__x1_1_x1_2_x1_3_x1_4_png_1354829939.png",
     "stacksTo": 80,
     "price": 4,
-    "description": "A patented no-tears onion."
+    "description": "A patented no-tears onion.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "onion_seed": {
     "name": "Onion Seed",
@@ -159,7 +201,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/parsnip__x1_1_x1_2_x1_3_x1_4_png_1354829950.png",
     "stacksTo": 80,
     "price": 6,
-    "description": "A pungent parsnip."
+    "description": "A pungent parsnip.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "parsnip_seed": {
     "name": "Parsnip Seed",
@@ -177,7 +226,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/potato__x1_1_x1_2_x1_3_x1_4_png_1354829976.png",
     "stacksTo": 80,
     "price": 7,
-    "description": "A humble potato."
+    "description": "A humble potato.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "potato_seed": {
     "name": "Potato Seed",
@@ -195,7 +251,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin__x1_1_x1_2_x1_3_x1_4_png_1354836498.png",
     "stacksTo": 11,
     "price": 41,
-    "description": "One plump and thick-skinned pumpkin. Perfect for carving, mulching, munching, and, in times of need, for using as a carriage drawn by tamed gerbils."
+    "description": "One plump and thick-skinned pumpkin. Perfect for carving, mulching, munching, and, in times of need, for using as a carriage drawn by tamed gerbils.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "pumpkin_seed": {
     "name": "Pumpkin Seed",
@@ -213,7 +276,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/rice__x1_1_x1_2_x1_3_x1_4_png_1354829983.png",
     "stacksTo": 80,
     "price": 4,
-    "description": "A pot of freshly made rice."
+    "description": "A pot of freshly made rice.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "rice_seed": {
     "name": "Rice Seed",
@@ -240,7 +310,19 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/spinach__x1_1_x1_2_x1_3_x1_4_png_1354830024.png",
     "stacksTo": 80,
     "price": 3,
-    "description": "Hearty green spinach. It's strong to the finich."
+    "description": "Hearty green spinach. It's strong to the finich.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      },
+      {
+        "name": "Activate",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "spinach_seed": {
     "name": "Spinach Seed",
@@ -262,16 +344,8 @@
     "actions": [
       {
         "name": "Eat",
-        "itemRequirements": {
-          "any": ["pick","fancy_pick"],
-          "all": ["bib"]
-        },
-        "skillRequirements": {
-          "requiredSkillLevels": {
-            "mining": 2,
-            "nudgery": 1
-          }
-        }
+        "itemRequirements": {},
+        "skillRequirements": {}
       }
     ]
   },
@@ -300,7 +374,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/zucchini__x1_1_x1_2_x1_3_x1_4_png_1354830071.png",
     "stacksTo": 80,
     "price": 5,
-    "description": "A teeny-weeny green zucchini."
+    "description": "A teeny-weeny green zucchini.",
+    "actions": [
+      {
+        "name": "Eat",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "zucchini_seed": {
     "name": "Zucchini Seed",

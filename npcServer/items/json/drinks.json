@@ -6,7 +6,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/beer__x1_1_x1_2_x1_3_x1_4_png_1354829709.png",
     "stacksTo": 24,
     "price": 10,
-    "description": "A shiny can of mmm... beer."
+    "description": "A shiny can of mmm... beer.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "bubble_tea": {
     "name": "Bubble Tea",
@@ -15,7 +22,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bubble_tea__x1_1_x1_2_x1_3_x1_4_png_1354829727.png",
     "stacksTo": 24,
     "price": 172,
-    "description": "A super-frothy bubble tea."
+    "description": "A super-frothy bubble tea.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "butterfly_milk": {
     "name": "Butterfly Milk",
@@ -24,7 +38,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/milk_butterfly__x1_1_x1_2_x1_3_x1_4_png_1354829507.png",
     "stacksTo": 80,
     "price": 8,
-    "description": "A vial of butterfly milk. It has the tingly effervescence of a thousand tiny butterfly farts."
+    "description": "A vial of butterfly milk. It has the tingly effervescence of a thousand tiny butterfly farts.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "carrot_margarita": {
     "name": "Carrot Margarita",
@@ -33,7 +54,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/carrot_margarita__x1_1_x1_2_x1_3_x1_4_png_1354829743.png",
     "stacksTo": 24,
     "price": 90,
-    "description": "A thick, warm carrot margarita."
+    "description": "A thick, warm carrot margarita.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cloud_11_smoothie": {
     "name": "Cloud 11 Smoothie",
@@ -42,7 +70,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cloud_11_smoothie__x1_1_x1_2_x1_3_x1_4_png_1354829691.png",
     "stacksTo": 24,
     "price": 69,
-    "description": "A Cloud 11 smoothie. Pretty much the best smoothie ever invented in the history of smoothies."
+    "description": "A Cloud 11 smoothie. Pretty much the best smoothie ever invented in the history of smoothies.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cloudberry_daiquiri": {
     "name": "Cloudberry Daiquiri",
@@ -51,7 +86,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cloudberry_daiquiri__x1_1_x1_2_x1_3_x1_4_png_1354829774.png",
     "stacksTo": 24,
     "price": 142,
-    "description": "A nourishing cloudberry daiquiri. It goes down smooth."
+    "description": "A nourishing cloudberry daiquiri. It goes down smooth.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "coffee": {
     "name": "Coffee",
@@ -60,7 +102,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/coffee__x1_1_x1_2_x1_3_x1_4_png_1354829780.png",
     "stacksTo": 24,
     "price": 5,
-    "description": "A steaming mug of strong, life-affirming coffee."
+    "description": "A steaming mug of strong, life-affirming coffee.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cosma_politan": {
     "name": "Cosma-politan",
@@ -69,7 +118,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cosmapolitan__x1_1_x1_2_x1_3_x1_4_png_1354829789.png",
     "stacksTo": 24,
     "price": 131,
-    "description": "An urbane, sophistimicated cosma-politan."
+    "description": "An urbane, sophistimicated cosma-politan.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "crabato_juice": {
     "name": "Crabato Juice",
@@ -78,7 +134,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/crabato_juice__x1_1_x1_2_x1_3_x1_4_png_1354831176.png",
     "stacksTo": 24,
     "price": 50,
-    "description": "Mmm... all the goodness of crab juice, plus tomatoes!"
+    "description": "Mmm... all the goodness of crab juice, plus tomatoes!",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "creamy_martini": {
     "name": "Creamy Martini",
@@ -87,7 +150,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/creamy_martini__x1_1_x1_2_x1_3_x1_4_png_1354829793.png",
     "stacksTo": 24,
     "price": 60,
-    "description": "A shaken-and-stirred-and-shaken-again creamy martini."
+    "description": "A shaken-and-stirred-and-shaken-again creamy martini.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cup_of_water": {
     "name": "Cup of Water",
@@ -96,7 +166,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cup_of_water__x1_1_png_1354833112.png",
     "stacksTo": 1,
     "price": 1,
-    "description": "This water is so plain, it has no Brownian motion, but Beigien motion instead. Drink at own risk."
+    "description": "This water is so plain, it has no Brownian motion, but Beigien motion instead. Drink at own risk.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "earthshaker": {
     "name": "Earthshaker",
@@ -105,7 +182,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/earthshaker__x1_1_x1_2_x1_3_x1_4_png_1354829806.png",
     "stacksTo": 24,
     "price": 152,
-    "description": "A seismically upgraded earthshaker."
+    "description": "A seismically upgraded earthshaker.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "exotic_juice": {
     "name": "Exotic Juice",
@@ -114,7 +198,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/exotic_juice__x1_1_x1_2_x1_3_x1_4_png_1354829809.png",
     "stacksTo": 24,
     "price": 54,
-    "description": "A goblet of mysteriously yummy exotic juice."
+    "description": "A goblet of mysteriously yummy exotic juice.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "face_smelter": {
     "name": "Face Smelter",
@@ -123,7 +214,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/face_smelter__x1_1_x1_2_x1_3_x1_4_png_1354839794.png",
     "stacksTo": 24,
     "price": 141,
-    "description": "A powerful brew with a scent acrid enough to perm your nostril hairs."
+    "description": "A powerful brew with a scent acrid enough to perm your nostril hairs.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "flaming_humbaba": {
     "name": "Flaming Humbaba",
@@ -132,7 +230,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/flaming_humbaba__x1_1_x1_2_x1_3_x1_4_png_1354829817.png",
     "stacksTo": 24,
     "price": 168,
-    "description": "A 5-alarm flaming Humbaba."
+    "description": "A 5-alarm flaming Humbaba.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "fruity_juice": {
     "name": "Fruity Juice",
@@ -141,7 +246,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/fruity_juice__x1_1_x1_2_x1_3_x1_4_png_1354829845.png",
     "stacksTo": 24,
     "price": 24,
-    "description": "A glass of nigh-ambrosial fruit juice."
+    "description": "A glass of nigh-ambrosial fruit juice.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "gurly_drink": {
     "name": "Gurly Drink",
@@ -150,7 +262,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gurly_drink__x1_1_x1_2_x1_3_x1_4_png_1354829865.png",
     "stacksTo": 24,
     "price": 160,
-    "description": "A sweet, innocent gurly drink."
+    "description": "A sweet, innocent gurly drink.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "hooch": {
     "name": "Hooch",
@@ -159,7 +278,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/hooch__x1_1_x1_2_x1_3_x1_4_png_1354829882.png",
     "stacksTo": 24,
     "price": 15,
-    "description": "One jug of premium high-octane hooch."
+    "description": "One jug of premium high-octane hooch.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "lemon_juice": {
     "name": "Lemon Juice",
@@ -168,7 +294,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/lemon_juice__x1_1_x1_2_x1_3_x1_4_png_1354829900.png",
     "stacksTo": 24,
     "price": 39,
-    "description": "A tall glass of exquisitely sour lemon juice."
+    "description": "A tall glass of exquisitely sour lemon juice.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "mabbish_coffee": {
     "name": "Mabbish Coffee",
@@ -177,7 +310,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/mabbish_coffee__x1_1_x1_2_x1_3_x1_4_png_1354829698.png",
     "stacksTo": 24,
     "price": 54,
-    "description": "A Mabbish coffee has all the goodness of regular coffee, but gooder."
+    "description": "A Mabbish coffee has all the goodness of regular coffee, but gooder.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "mega_healthy_veggie_juice": {
     "name": "Mega Healthy Veggie Juice",
@@ -186,7 +326,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/mega_healthy_veggie_juice__x1_1_x1_2_x1_3_x1_4_png_1354829911.png",
     "stacksTo": 24,
     "price": 46,
-    "description": "A bracing tumbler of mega-healthy veggie juice."
+    "description": "A bracing tumbler of mega-healthy veggie juice.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "orange_juice": {
     "name": "Orange Juice",
@@ -195,7 +342,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/orange_juice__x1_1_x1_2_x1_3_x1_4_png_1354829944.png",
     "stacksTo": 24,
     "price": 39,
-    "description": "A surprising glass of orange juice."
+    "description": "A surprising glass of orange juice.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "pumpkin_ale": {
     "name": "Pumpkin Ale",
@@ -204,7 +358,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pumpkin_ale__x1_1_x1_2_x1_3_x1_4_png_1354836548.png",
     "stacksTo": 10,
     "price": 83,
-    "description": "All the refreshment of beer combined with the autumnal savoury heft of pumpkin. Then combined with cinnamon. For no reason anyone can decipher."
+    "description": "All the refreshment of beer combined with the autumnal savoury heft of pumpkin. Then combined with cinnamon. For no reason anyone can decipher.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "pungent_sunrise": {
     "name": "Pungent Sunrise",
@@ -213,7 +374,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pungent_sunrise__x1_1_x1_2_x1_3_x1_4_png_1354829981.png",
     "stacksTo": 24,
     "price": 197,
-    "description": "A refreshingly pungent sunrise."
+    "description": "A refreshingly pungent sunrise.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "savory_smoothie": {
     "name": "Savory Smoothie",
@@ -222,7 +390,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/savory_smoothie__x1_1_x1_2_x1_3_x1_4_png_1354829998.png",
     "stacksTo": 24,
     "price": 96,
-    "description": "A savory smoothie. It sticks to your ribs and doesn't let go."
+    "description": "A savory smoothie. It sticks to your ribs and doesn't let go.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "slow_gin_fizz": {
     "name": "Slow Gin Fizz",
@@ -231,7 +406,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/slow_gin_fizz__x1_1_x1_2_x1_3_x1_4_png_1354830017.png",
     "stacksTo": 24,
     "price": 76,
-    "description": "A low and lazy slow gin fizz."
+    "description": "A low and lazy slow gin fizz.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "spicy_grog": {
     "name": "Spicy Grog",
@@ -240,7 +422,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/spicy_grog__x1_1_x1_2_x1_3_x1_4_png_1354830019.png",
     "stacksTo": 24,
     "price": 51,
-    "description": "A tall glass of exceedingly spicy grog."
+    "description": "A tall glass of exceedingly spicy grog.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "tooberry_shake": {
     "name": "Too-Berry Shake",
@@ -249,7 +438,14 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/tooberry_shake__x1_1_x1_2_x1_3_x1_4_png_1354830047.png",
     "stacksTo": 24,
     "price": 76,
-    "description": "A berry tasty too-berry shake."
+    "description": "A berry tasty too-berry shake.",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "wine_of_the_dead": {
     "name": "Wine of the Dead",
@@ -258,6 +454,13 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/wine_of_the_dead__x1_1_x1_2_x1_3_x1_4_png_1354830994.png",
     "stacksTo": 13,
     "price": 66,
-    "description": "A forbidding decanter filled with wine of the dead, made from grapes crushed in Purgatory. This Hade-licious drink will revive even the most pooped of hellions... but will kill all who drink it aboveground. Pour it on cultivated items in your home street or yard to unreap what you've sown. Beware its cursed powers!"
+    "description": "A forbidding decanter filled with wine of the dead, made from grapes crushed in Purgatory. This Hade-licious drink will revive even the most pooped of hellions... but will kill all who drink it aboveground. Pour it on cultivated items in your home street or yard to unreap what you've sown. Beware its cursed powers!",
+    "actions": [
+      {
+        "name": "Drink",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   }
 }

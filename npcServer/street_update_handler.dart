@@ -10,12 +10,19 @@ class StreetUpdateHandler {
 			String directory = Platform.script.toFilePath();
 			directory = directory.substring(0, directory.lastIndexOf('/'));
 
+			// load items
 			new Directory('$directory/npcServer/items/json').list().forEach((File category) async {
 				JSON.decode(await category.readAsString()).forEach((String name, Map itemMap) {
 					itemMap['itemType'] = name;
 					items[name] = decode(itemMap, Item);
 				});
 			});
+
+			// load stats given for eating/drinking
+			JSON.decode(await new File('$directory/npcServer/items/actions/consume.json').readAsString()).forEach((String drink, Map award) {
+				consumeValues[drink] = award;
+			});
+
 		}
 		catch(e) {
 			log("Problem loading items: $e");

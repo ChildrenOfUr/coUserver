@@ -6,6 +6,7 @@ PostgreSqlManager dbManager;
 Map<String, int> heightsCache = null;
 DateTime startDate;
 Map<String, Item> items = {};
+Map<String, Map> consumeValues = {};
 
 main() async {
 	int port = 8181;

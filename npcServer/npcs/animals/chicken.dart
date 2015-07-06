@@ -154,7 +154,7 @@ class Chicken extends NPC {
 
 			//hard to check right bounds without actually loading the street
 			//which we aren't doing right now.  we're just making everything up in the constructor
-			//but at some point, TODO we should get real street info
+			//but at some point, we should get real street info
 			//if(x > street.width-width)
 			//x = street.width-width;
 		}
