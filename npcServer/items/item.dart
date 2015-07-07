@@ -206,7 +206,7 @@ class Item {
 
 	Future<bool> radiate({String streetName, Map map, WebSocket userSocket, String email}) async {
 		List<String> users = [];
-		List<Identifier> ids = ChatHandler.users.values.where((Identifier id) => id.channelList.contains(channel)).toList();
+		List<Identifier> ids = ChatHandler.users.values.where((Identifier id) => id.channelList.contains(streetName)).toList();
 		ids.forEach((Identifier id) => users.add(id.username));
 		int numUsersOnStreet = users.length;
 		if (numUsersOnStreet == 1) {
@@ -220,7 +220,7 @@ class Item {
 			} else {
 				amt = 60;
 			}
-			amt /= numUsersOnStreet;
+			amt = (amt / numUsersOnStreet).ceil();
 			users.forEach((String username) {
 				trySetMetabolics(username, mood: amt, energy: amt, img: amt);
 			});
