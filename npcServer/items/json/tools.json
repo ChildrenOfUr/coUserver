@@ -169,7 +169,54 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/focusing_orb__x1_1_png_1354831839.png",
     "stacksTo": 1,
     "price": 1200,
-    "description": "An iridescent focusing orb. It calms your swirly thoughts, helps you meditate, levitate and fight the enemies of the imagination."
+    "description": "An iridescent focusing orb. It calms your swirly thoughts, helps you meditate, levitate and fight the enemies of the imagination.",
+    "actions": [
+      {
+        "name": "Levitate",
+        "description": "Gives a short burst of levitation using spacebar. Costs 50 energy",
+        "itemRequirements": {},
+        "skillRequirements": {
+          "Levitation": 1
+        },
+        "timeRequired": 5
+      },
+      {
+        "name": "Focus Energy",
+        "description": "Increase your energy",
+        "itemRequirements": {},
+        "skillRequirements": {
+          "Focused Meditation": 1
+        },
+        "timeRequired": 10
+      },
+      {
+        "name": "Focus Mood",
+        "description": "Increase your mood",
+        "itemRequirements": {},
+        "skillRequirements": {
+          "Focused Meditation": 1
+        },
+        "timeRequired": 10
+      },
+      {
+        "name": "Radiate",
+        "description": "Help your neighbors",
+        "itemRequirements": {},
+        "skillRequirements": {
+          "Transcendental Radiation": 1
+        },
+        "timeRequired": 20
+      },
+      {
+        "name": "Meditate",
+        "description": "Focus on the orb",
+        "itemRequirements": {},
+        "skillRequirements": {
+          "Meditative Arts": 1
+        },
+        "timeRequired": 30
+      }
+    ]
   },
   "fox_brush": {
     "name": "Fox Brush",

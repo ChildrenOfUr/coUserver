@@ -148,8 +148,13 @@ class Item {
 
 	// used for consuming
 
-	Future<bool> trySetMetabolics(String email, {int energy:0, int mood:0, int img:0}) async {
-		Metabolics m = await getMetabolics(email:email);
+	Future<bool> trySetMetabolics(String identity, {int energy:0, int mood:0, int img:0}) async {
+		Metabolics m = new Metabolics();
+		if (identity.contains("@")) {
+			m = await getMetabolics(email:identity);
+		} else {
+			m = await getMetabolics(username:identity);
+		}
 		m.energy += energy;
 		m.mood += mood;
 		m.img += img;
@@ -183,6 +188,48 @@ class Item {
 
 	Future drink({String streetName, Map map, WebSocket userSocket, String email}) async {
 		return consume(streetName:streetName, map:map, userSocket:userSocket, email:email);
+	}
+
+	// orb
+
+	Future<bool> levitate({String streetName, Map map, WebSocket userSocket, String email}) async {
+		return false;
+	}
+
+	Future<bool> focusEnergy({String streetName, Map map, WebSocket userSocket, String email}) async {
+		return await trySetMetabolics(email, energy:10);
+	}
+
+	Future<bool> focusMood({String streetName, Map map, WebSocket userSocket, String email}) async {
+		return await trySetMetabolics(email, mood:10);
+	}
+
+	Future<bool> radiate({String streetName, Map map, WebSocket userSocket, String email}) async {
+		List<String> users = [];
+		List<Identifier> ids = ChatHandler.users.values.where((Identifier id) => id.channelList.contains(channel)).toList();
+		ids.forEach((Identifier id) => users.add(id.username));
+		int numUsersOnStreet = users.length;
+		if (numUsersOnStreet == 1) {
+			return false;
+		} else {
+			int amt;
+			if (numUsersOnStreet < 10) {
+				amt = 20;
+			} else if (numUsersOnStreet > 10 && numUsersOnStreet < 20) {
+				amt = 40;
+			} else {
+				amt = 60;
+			}
+			amt /= numUsersOnStreet;
+			users.forEach((String username) {
+				trySetMetabolics(username, mood: amt, energy: amt, img: amt);
+			});
+			return true;
+		}
+	}
+
+	Future<bool> meditate({String streetName, Map map, WebSocket userSocket, String email}) async {
+		return await trySetMetabolics(email, energy:5, mood:5, img: 5);
 	}
 
 	// ground -> inventory
