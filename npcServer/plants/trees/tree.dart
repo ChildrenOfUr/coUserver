@@ -24,7 +24,7 @@ abstract class Tree extends Plant {
 					      {
 						      "num":1,
 						      "of":["watering_can", "irrigator_9000"],
-						      "error": "You need a container of water."
+						      "error": "Trees don't like to be peed on. Go find some clean water, please."
 					      },
 					      {
 						      "num": 2,
