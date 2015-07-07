@@ -4,6 +4,7 @@ class ToolVendor extends Vendor {
 	int openCount = 0;
 
 	ToolVendor(String id, String streetName, int x, int y) : super(id, streetName, x, y) {
+		type = 'Tool Vendor';
 		itemsForSale = [
 			items["pig_bait"].getMap(),
 			items["butterfly_lotion"].getMap(),
