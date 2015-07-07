@@ -19,6 +19,7 @@
     "actions": [
       {
         "name": "Eat",
+        "description": "Eat it raw? If you really want to...",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -53,6 +54,7 @@
     "actions": [
       {
         "name": "Eat",
+        "description": "Eat it raw? If you really want to...",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -78,6 +80,7 @@
     "actions": [
       {
         "name": "Eat",
+        "description": "Eat it raw? If you really want to...",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -103,6 +106,7 @@
     "actions": [
       {
         "name": "Eat",
+        "description": "Eat it raw? If you really want to...",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -128,6 +132,7 @@
     "actions": [
       {
         "name": "Eat",
+        "description": "Eat it raw? If you really want to...",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -180,6 +185,7 @@
     "actions": [
       {
         "name": "Eat",
+        "description": "Eat it raw? If you really want to...",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -205,6 +211,7 @@
     "actions": [
       {
         "name": "Eat",
+        "description": "Eat it raw? If you really want to...",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -230,6 +237,7 @@
     "actions": [
       {
         "name": "Eat",
+        "description": "Eat it raw? If you really want to...",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -255,6 +263,7 @@
     "actions": [
       {
         "name": "Eat",
+        "description": "Eat it raw? If you really want to...",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -280,6 +289,7 @@
     "actions": [
       {
         "name": "Eat",
+        "description": "Eat it raw? If you really want to...",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -314,6 +324,7 @@
     "actions": [
       {
         "name": "Eat",
+        "description": "Eat it raw? If you really want to...",
         "itemRequirements": {},
         "skillRequirements": {}
       },
@@ -344,6 +355,7 @@
     "actions": [
       {
         "name": "Eat",
+        "description": "Eat it raw? If you really want to...",
         "description": "Eat a deliciously ripe tomato.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -379,6 +391,7 @@
     "actions": [
       {
         "name": "Eat",
+        "description": "Eat it raw? If you really want to...",
         "itemRequirements": {},
         "skillRequirements": {}
       }

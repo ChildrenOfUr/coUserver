@@ -7,8 +7,14 @@ class MetalRock extends Rock {
 		actions[0]['requires'] = [
 			{
 				"num":1,
-				"of":["fancy_pick"]
-			},{"num":10,"of":['energy']}
+				"of":["fancy_pick"],
+				"error": "You need a special pick to mine harder rocks."
+			},
+			{
+				"num":10,
+				"of":['energy'],
+				"error": "You need at least 10 energy to mine."
+			}
 		];
 
 		states =

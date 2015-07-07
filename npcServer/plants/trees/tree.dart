@@ -12,7 +12,8 @@ abstract class Tree extends Plant {
 				      "requires":[
 					      {
 						      'num':5,
-						      'of':['energy']
+						      'of':['energy'],
+						      "error": "You need at least 5 energy to harvest."
 					      }
 				      ]})
 			..add({"action":"water",
@@ -22,8 +23,14 @@ abstract class Tree extends Plant {
 				      "requires":[
 					      {
 						      "num":1,
-						      "of":["watering_can", "irrigator_9000"]
-					      }, {"num":2,"of":['energy']}
+						      "of":["watering_can", "irrigator_9000"],
+						      "error": "You need a container of water."
+					      },
+					      {
+						      "num": 2,
+						      "of": ['energy'],
+						      "error": "You need at least 2 energy to water."
+					      }
 				      ]})
 			..add({"action":"pet",
 				      "timeRequired":actionTime,

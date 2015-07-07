@@ -34,7 +34,8 @@ class WoodTree extends Tree {
 		actions[0]['requires'] = [
 			{
 				"num":1,
-				"of":["hatchet", "class_axe"]
+				"of":["hatchet", "class_axe"],
+				"error": "You need something sharp to cut the wood with."
 			}
 		];
 

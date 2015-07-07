@@ -12,8 +12,14 @@ class DirtPile extends Plant {
 			            "requires":[
 				            {
 					            "num":1,
-					            "of":["shovel", "ace_of_spades"]
-				            },{"num":8,"of":['energy']}
+					            "of":["shovel", "ace_of_spades"],
+					            "error": "What, you were going to dig with your bare hands?"
+				            },
+				            {
+					            "num":8,
+					            "of":['energy'],
+					            "error": "You need at least 8 energy to dig."
+				            }
 			            ]
 		            });
 
