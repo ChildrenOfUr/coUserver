@@ -158,8 +158,6 @@ Future<bool> takeItemFromUser(WebSocket userSocket, String email, String itemTyp
 }
 
 Future fireInventoryAtUser(WebSocket userSocket, String email) async {
-	PostgreSql dbConn = await dbManager.getConnection();
-
 	Inventory inventory = await getUserInventory(email);
 	Map<String,Map> itemMap = {};
 	Map inventoryMap = {'inventory':'true', 'items':itemMap};
@@ -175,8 +173,6 @@ Future fireInventoryAtUser(WebSocket userSocket, String email) async {
 	});
 	//{'inventory':'true','items':{'apple':{'count':5,'item':Item},...}}
 	userSocket.add(JSON.encode(inventoryMap));
-
-	dbManager.closeConnection(dbConn);
 }
 
 sendItemToUser(WebSocket userSocket, Map item, int count, String fromObject) {

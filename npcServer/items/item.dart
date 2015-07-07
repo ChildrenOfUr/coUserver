@@ -16,6 +16,8 @@ class Action {
 	@Field()
 	String name;
 	@Field()
+	String description = '';
+	@Field()
 	ItemRequirements itemRequirements = new ItemRequirements();
 	@Field()
 	SkillRequirements skillRequirements = new SkillRequirements();
@@ -70,7 +72,7 @@ class Item {
 	@Field()
 	bool isContainer = false;
 	@Field()
-	List<Action> actions;
+	List<Action> actions = [];
 
 	Action dropAction = new Action.withName('drop');
 	Action pickupAction = new Action.withName('pickup');
@@ -93,6 +95,17 @@ class Item {
 		y = model.y;
 		isContainer = model.isContainer;
 		actions = model.actions;
+
+		bool found = false;
+		actions.forEach((Action action) {
+			if(action.name == 'drop') {
+				found = true;
+			}
+		});
+
+		if(!found) {
+			actions.insert(0,dropAction);
+		}
 	}
 
 	Map getMap() {
@@ -119,9 +132,15 @@ class Item {
 		if(onGround) {
 			return [encode(pickupAction)];
 		} else {
-			List result = [encode(dropAction)];
-			if(actions != null) {
-				result.addAll(encode(actions));
+			List<Map> result = encode(actions);
+			bool found = false;
+			actions.forEach((Action action) {
+				if(action.name == 'drop') {
+					found = true;
+				}
+			});
+			if(!found) {
+				result.insert(0,encode(dropAction));
 			}
 			return result;
 		}
@@ -143,10 +162,10 @@ class Item {
 
 	// takes away item and gives the stats specified in items/actions/consume.json
 
-	Future consume({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future<bool> consume({String streetName, Map map, WebSocket userSocket, String email}) async {
 		bool success = await takeItemFromUser(userSocket, email, map['dropItem']['itemType'], map['count']);
 		if(!success) {
-			return;
+			return false;
 		}
 
 		int energyAward = consumeValues[map['dropItem']['itemType']]['energy'];

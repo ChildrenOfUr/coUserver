@@ -344,7 +344,7 @@
     "actions": [
       {
         "name": "Eat",
-        "itemRequirements": {},
+        "itemRequirements": {"any":["purple"]},
         "skillRequirements": {}
       }
     ]
