@@ -18,6 +18,8 @@ class Action {
 	@Field()
 	String description = '';
 	@Field()
+	int timeRequired = 0;
+	@Field()
 	ItemRequirements itemRequirements = new ItemRequirements();
 	@Field()
 	SkillRequirements skillRequirements = new SkillRequirements();
@@ -220,7 +222,7 @@ class Item {
 			} else {
 				amt = 60;
 			}
-			amt /= numUsersOnStreet;
+			amt ~/= numUsersOnStreet;
 			users.forEach((String username) {
 				trySetMetabolics(username, mood: amt, energy: amt, img: amt);
 			});
