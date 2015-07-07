@@ -76,8 +76,10 @@ class Item {
 	@Field()
 	List<Action> actions = [];
 
-	Action dropAction = new Action.withName('drop')..description="Drop this item on the ground.";
-	Action pickupAction = new Action.withName('pickup')..description="Put this item in your bags.";
+	Action dropAction = new Action.withName('drop')
+		..description = "Drop this item on the ground.";
+	Action pickupAction = new Action.withName('pickup')
+		..description = "Put this item in your bags.";
 
 	Item();
 
@@ -106,7 +108,7 @@ class Item {
 		});
 
 		if(!found) {
-			actions.insert(0,dropAction);
+			actions.insert(0, dropAction);
 		}
 	}
 
@@ -142,7 +144,7 @@ class Item {
 				}
 			});
 			if(!found) {
-				result.insert(0,encode(dropAction));
+				result.insert(0, encode(dropAction));
 			}
 			return result;
 		}
@@ -152,7 +154,7 @@ class Item {
 
 	Future<bool> trySetMetabolics(String identity, {int energy:0, int mood:0, int img:0}) async {
 		Metabolics m = new Metabolics();
-		if (identity.contains("@")) {
+		if(identity.contains("@")) {
 			m = await getMetabolics(email:identity);
 		} else {
 			m = await getMetabolics(username:identity);
@@ -208,21 +210,22 @@ class Item {
 
 	Future<bool> radiate({String streetName, Map map, WebSocket userSocket, String email}) async {
 		List<String> users = [];
-		List<Identifier> ids = ChatHandler.users.values.where((Identifier id) => id.channelList.contains(channel)).toList();
+		List<Identifier> ids = ChatHandler.users.values.where((Identifier id) => id.channelList.contains(streetName)).toList();
 		ids.forEach((Identifier id) => users.add(id.username));
 		int numUsersOnStreet = users.length;
-		if (numUsersOnStreet == 1) {
+		if(numUsersOnStreet == 1) {
 			return false;
 		} else {
 			int amt;
-			if (numUsersOnStreet < 10) {
+			if(numUsersOnStreet < 10) {
 				amt = 20;
-			} else if (numUsersOnStreet > 10 && numUsersOnStreet < 20) {
+			} else if(numUsersOnStreet > 10 && numUsersOnStreet < 20) {
 				amt = 40;
 			} else {
 				amt = 60;
 			}
-			amt ~/= numUsersOnStreet;
+
+			amt = (amt / numUsersOnStreet).ceil();
 			users.forEach((String username) {
 				trySetMetabolics(username, mood: amt, energy: amt, img: amt);
 			});
@@ -238,7 +241,8 @@ class Item {
 
 	void pickup({WebSocket userSocket, String email}) {
 		onGround = false;
-		Item item = new Item.clone(itemType)..onGround = false;
+		Item item = new Item.clone(itemType)
+			..onGround = false;
 		addItemToUser(userSocket, email, item.getMap(), 1, item_id);
 	}
 
