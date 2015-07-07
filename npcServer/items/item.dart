@@ -74,8 +74,8 @@ class Item {
 	@Field()
 	List<Action> actions = [];
 
-	Action dropAction = new Action.withName('drop');
-	Action pickupAction = new Action.withName('pickup');
+	Action dropAction = new Action.withName('drop')..description="Drop this item on the ground.";
+	Action pickupAction = new Action.withName('pickup')..description="Put this item in your bags.";
 
 	Item();
 

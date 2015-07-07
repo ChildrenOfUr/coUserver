@@ -344,7 +344,8 @@
     "actions": [
       {
         "name": "Eat",
-        "itemRequirements": {"any":["purple"]},
+        "description": "Eat a deliciously ripe tomato.",
+        "itemRequirements": {},
         "skillRequirements": {}
       }
     ]
