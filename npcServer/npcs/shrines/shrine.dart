@@ -59,11 +59,12 @@ class Shrine extends NPC {
 			if(giantFavor+favAmt >= 1000) {
 				instanceMirror.setField(new Symbol(giantName.toLowerCase() + 'favor'), 0);
 				addItemToUser(userSocket, email, items['emblem_of_' + giantName.toLowerCase()].getMap(), 1, id);
+				StatBuffer.incrementStat("emblemsCreated", 1);
 			} else {
 				instanceMirror.setField(new Symbol(giantName.toLowerCase() + 'favor'), giantFavor + favAmt);
 			}
 			setMetabolics(m);
-
+			StatBuffer.incrementStat("favorGenerated", favAmt);
 			Map addedFavorMap = {};
 			addedFavorMap['favorUpdate'] = true;
 			addedFavorMap['favor'] = instanceMirror.getField(new Symbol(giantName.toLowerCase() + 'favor')).reflectee;
