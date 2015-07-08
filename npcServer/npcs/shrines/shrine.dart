@@ -2,6 +2,7 @@ part of coUserver;
 
 class Shrine extends NPC {
 	String description;
+	int communeCount = 0;
 
 	Shrine(String id, int x, int y) : super(id, x, y) {
 		actionTime = 0;
@@ -17,6 +18,17 @@ class Shrine extends NPC {
 	void update() {
 	}
 
+	void close({WebSocket userSocket, String email}) {
+		communeCount -= 1;
+		//if no one else has them open
+		if(communeCount <= 0) {
+			communeCount = 0;
+			currentState = states['close'];
+			int length = (currentState.numFrames / 30 * 1000).toInt();
+			new Timer(new Duration(milliseconds:length),() => currentState = states['still']);
+		}
+	}
+
 	communeWith({WebSocket userSocket, String email}) async {
 		Metabolics m = await getMetabolics(email:email);
 
@@ -30,6 +42,9 @@ class Shrine extends NPC {
 		map['maxFavor'] = 1000;
 		map['id'] = id;
 		userSocket.add(JSON.encode(map));
+
+		communeCount++;
+		currentState = states['open'];
 	}
 
 	donate({WebSocket userSocket, String itemType, int num, String email}) async {
