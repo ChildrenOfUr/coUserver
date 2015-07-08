@@ -12,6 +12,7 @@ class FruitTree extends Tree {
 				"Yaaaaaay!",
 				"Frooooot!",
 				"C'est la!",
+				"Oof. Take this. Heavy."
 			],
 			"pet": [
 				"Huh?",
@@ -19,6 +20,7 @@ class FruitTree extends Tree {
 				"Whu?",
 				"Ah.",
 				"Pff.",
+				"Together we make a great pear"
 			],
 			"water": [
 				"Hm?",
