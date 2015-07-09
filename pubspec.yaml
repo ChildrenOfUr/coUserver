@@ -11,4 +11,5 @@ dependencies:
   slack: any
   shelf: any
   image: any
+  crypto: any
 #  rpc: "^0.5.0"

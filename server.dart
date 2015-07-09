@@ -3,7 +3,7 @@ part of coUserver;
 IRCRelay relay;
 double minClientVersion = 0.14;
 PostgreSqlManager dbManager;
-Map<String, int> heightsCache = null;
+Map<String, int> heightsCache = null, headsCache = null;
 DateTime startDate;
 Map<String, Item> items = {};
 Map<String, Map> consumeValues = {};
@@ -58,13 +58,15 @@ main() async {
 	});
 
 	//useful for making trees speech bubbles appear where they should
-	loadHeightsCacheFromDisk();
+	heightsCache = await loadCacheFromDisk('heightsCache.json');
+	headsCache = await loadCacheFromDisk('headsCache.json');
 
 	//save some server state to the disk every 30 seconds
 	new Timer.periodic(new Duration(seconds:30), (Timer t) {
 		try {
 			StatBuffer.writeStatsToFile();
-			saveHeightsCacheToDisk();
+			saveCacheToDisk('heightsCache.json',heightsCache);
+			saveCacheToDisk('headsCache.json',headsCache);
 		}
 		catch(e) {
 			log("Problem writing stats to file: $e");

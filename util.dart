@@ -318,21 +318,41 @@ Future<int> getActualImageHeight(@app.QueryParam('url') String imageUrl,
 	}
 }
 
-loadHeightsCacheFromDisk() async
-{
-	File file = new File('heightsCache.json');
-	if(!(await file.exists())) {
-		heightsCache = {};
-		return;
-	}
+@app.Route('/trimImage')
+Future<String> trimImage(@app.QueryParam('username') String username) async {
+	if(headsCache[username] != null) {
+		return headsCache[username];
+	} else {
+		Map<String, String> spritesheet = await getSpritesheets(username);
+		String imageUrl = spritesheet['base'];
 
-	heightsCache = JSON.decode(await file.readAsString());
+		http.Response response = await http.get(imageUrl);
+
+		Image image = decodeImage(response.bodyBytes);
+		int frameWidth = image.width ~/ 15;
+		image = copyCrop(image, image.width - frameWidth, 0, frameWidth, image.height ~/ 1.5);
+		List<int> trimRect = findTrim(image, mode: TRIM_TRANSPARENT);
+		Image trimmed = copyCrop(image, trimRect[0], trimRect[1], trimRect[2], trimRect[3]);
+
+		String str = CryptoUtils.bytesToBase64(encodePng(trimmed));
+		headsCache[username] = str;
+		return str;
+	}
 }
 
-saveHeightsCacheToDisk() async
-{
-	File file = new File('heightsCache.json');
-	if(!(await file.exists()))
+Future<Map> loadCacheFromDisk(String filename) async {
+	File file = new File(filename);
+	if(!(await file.exists())) {
+		return {};
+	}
+
+	return JSON.decode(await file.readAsString());
+}
+
+saveCacheToDisk(String filename, Map cache) async {
+	File file = new File(filename);
+	if(!(await file.exists())) {
 		await file.create(recursive:true);
-	await file.writeAsString(JSON.encode(heightsCache));
+	}
+	await file.writeAsString(JSON.encode(cache));
 }
