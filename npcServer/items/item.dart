@@ -9,7 +9,7 @@ class ItemRequirements {
 	@Field()
 	List<String> any = [];
 	@Field()
-	List<String> all = [];
+	Map<String, int> all = {};
 }
 
 class Action {
@@ -81,6 +81,8 @@ class Item {
 	Action pickupAction = new Action.withName('pickup')
 		..description = "Put this item in your bags.";
 
+	Random rand = new Random();
+
 	Item();
 
 	Item.clone(this.itemType) {
@@ -150,9 +152,7 @@ class Item {
 		}
 	}
 
-	// used for consuming
-
-	Future<bool> trySetMetabolics(String identity, {int energy:0, int mood:0, int img:0}) async {
+	Future<bool> trySetMetabolics(String identity, {int energy:0, int mood:0, int img:0, int currants:0}) async {
 		Metabolics m = new Metabolics();
 		if(identity.contains("@")) {
 			m = await getMetabolics(email:identity);
@@ -162,12 +162,15 @@ class Item {
 		m.energy += energy;
 		m.mood += mood;
 		m.img += img;
+		m.currants += currants;
 		int result = await setMetabolics(m);
 		if(result < 1) {
 			return false;
 		}
 		return true;
 	}
+
+	/// Food
 
 	// takes away item and gives the stats specified in items/actions/consume.json
 
@@ -187,14 +190,16 @@ class Item {
 	// these two are just aliases to consume because they do the same thing, but are named differently in the item menu
 
 	Future eat({String streetName, Map map, WebSocket userSocket, String email}) async {
+		StatBuffer.incrementStat("foodsConsumed", 1);
 		return consume(streetName:streetName, map:map, userSocket:userSocket, email:email);
 	}
 
 	Future drink({String streetName, Map map, WebSocket userSocket, String email}) async {
+		StatBuffer.incrementStat("drinksConsumed", 1);
 		return consume(streetName:streetName, map:map, userSocket:userSocket, email:email);
 	}
 
-	// orb
+	/// Focusing Orb
 
 	Future<bool> levitate({String streetName, Map map, WebSocket userSocket, String email}) async {
 		return false;
@@ -237,6 +242,68 @@ class Item {
 		return await trySetMetabolics(email, energy:5, mood:5, img: 5);
 	}
 
+	/// Emblem
+
+	Future<bool> caress({String streetName, Map map, WebSocket userSocket, String email}) async {
+		int amt = rand.nextInt(10) + 5;
+		StatBuffer.incrementStat("emblemsCaressed", 1);
+		return await trySetMetabolics(email, mood:amt);
+	}
+
+	Future<bool> consider({String streetName, Map map, WebSocket userSocket, String email}) async {
+		int amt = rand.nextInt(10) + 5;
+		StatBuffer.incrementStat("emblemsConsidered", 1);
+		return await trySetMetabolics(email, energy:amt);
+	}
+
+	Future<bool> contemplate({String streetName, Map map, WebSocket userSocket, String email}) async {
+		int amt = rand.nextInt(10) + 5;
+		StatBuffer.incrementStat("emblemsContemplated", 1);
+		return await trySetMetabolics(email, img:amt);
+	}
+
+	Future<bool> iconize({String streetName, Map map, WebSocket userSocket, String email}) async {
+		int amt = rand.nextInt(10) + 5;
+		String emblemType = itemType;
+		String iconType = "icon_of_" + itemType.substring(10);
+		bool success1 = await takeItemFromUser(userSocket, email, emblemType, 11);
+		if (!success1) {
+			return false;
+		}
+		int success2 = await addItemToUser(userSocket, email, items[iconType].getMap(), 1, item_id);
+		if (success2 == 0) {
+			return false;
+		} else {
+			StatBuffer.incrementStat("emblemsIconized", 11);
+			StatBuffer.incrementStat("iconsCreated", 1);
+			return true;
+		}
+	}
+
+	/// Icon
+
+	Future<bool> tithe({String streetName, Map map, WebSocket userSocket, String email}) async {
+		StatBuffer.incrementStat("iconsTithed", 11);
+		return await trySetMetabolics(email, currants:-100);
+	}
+
+	Future<bool> ruminate({String streetName, Map map, WebSocket userSocket, String email}) async {
+		StatBuffer.incrementStat("iconsRuminated", 11);
+		return await trySetMetabolics(email, mood:50);
+	}
+
+	Future<bool> revere({String streetName, Map map, WebSocket userSocket, String email}) async {
+		StatBuffer.incrementStat("iconsRevered", 11);
+		return await trySetMetabolics(email, energy:50);
+	}
+
+	Future<bool> reflect({String streetName, Map map, WebSocket userSocket, String email}) async {
+		StatBuffer.incrementStat("iconsTithed", 11);
+		return await trySetMetabolics(email, img:50);
+	}
+
+	/// Item
+
 	// ground -> inventory
 
 	void pickup({WebSocket userSocket, String email}) {
@@ -244,6 +311,7 @@ class Item {
 		Item item = new Item.clone(itemType)
 			..onGround = false;
 		addItemToUser(userSocket, email, item.getMap(), 1, item_id);
+		StatBuffer.incrementStat("itemsPickedup", 1);
 	}
 
 	// inventory -> ground
@@ -262,5 +330,7 @@ class Item {
 			..onGround = true;
 
 		StreetUpdateHandler.streets[streetName].groundItems[id] = item;
+
+		StatBuffer.incrementStat("itemsDropped", map['count']);
 	}
 }
