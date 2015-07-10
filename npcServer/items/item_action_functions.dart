@@ -89,18 +89,4 @@ class itemActions {
 
 		return rollValue;
 	}
-
-//	String openCubiBox({int series}) {
-//		String cubimal = '';
-//		num seek = rand.nextInt(10000) / 100;
-//		// cubis from json
-//		for (num cubiChance in cubis.keys) {
-//			if (seek <= cubiChance) {
-//				cubimal = cubis[cubiChance];
-//				break;
-//			}
-//		}
-//
-//		return cubimal;
-//	}
 }

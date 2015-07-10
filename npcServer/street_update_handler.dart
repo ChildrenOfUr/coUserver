@@ -18,6 +18,11 @@ class StreetUpdateHandler {
 				});
 			});
 
+			// load vendor types
+			JSON.decode(await new File('$directory/npcServer/npcs/vendors/vendors.json').readAsString()).forEach((String street, String type) {
+				vendorTypes[street] = type;
+			});
+
 			// load stats given for eating/drinking
 			JSON.decode(await new File('$directory/npcServer/items/actions/consume.json').readAsString()).forEach((String drink, Map award) {
 				consumeValues[drink] = award;

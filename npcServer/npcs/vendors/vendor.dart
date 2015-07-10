@@ -32,12 +32,151 @@ abstract class Vendor extends NPC {
 
 		if(!itemsPredefined) {
 			itemsForSale.clear();
-			switch(streetName.substring(0, 1)) {
-				case 'A':
-				case 'T':
-				case 'K':
-				case 'C':
-				// Produce (317)
+			switch(vendorTypes[streetName]) {
+				case 'alchemical':
+					type = "Street Spirit: Alchemical Goods";
+					itemsForSale = [
+						items["still"].getMap(),
+						items["tincturing_kit"].getMap(),
+						items["cauldron"].getMap(),
+						items["elemental_pouch"].getMap(),
+						items["alchemistry_kit"].getMap(),
+						items["alchemical_tongs"].getMap(),
+						items["test_tube"].getMap(),
+						items["beaker"].getMap(),
+						items["pick"].getMap(),
+						items["fancy_pick"].getMap(),
+						items["scraper"].getMap(),
+						items["grinder"].getMap(),
+						items["smelter"].getMap(),
+						items["crystalmalizing_chamber"].getMap()
+					];
+					break;
+
+				case 'animal':
+					type = "Street Spirit: Animal Goods";
+					itemsForSale = [
+						items["spindle"].getMap(),
+						items["loomer"].getMap(),
+						items["pig_stick"].getMap(),
+						items["butterfly_stick"].getMap(),
+						items["chicken_stick"].getMap(),
+						items["butterfly_lotion"].getMap(),
+						items["pig_bait"].getMap(),
+						items["quill"].getMap(),
+						items["egg_seasoner"].getMap(),
+						items["butterfly_milker"].getMap(),
+						items["piggy_feeder"].getMap(),
+						items["meat_collector"].getMap()
+					];
+					break;
+
+				case 'gardening':
+					type = "Street Spirit: Gardening Goods";
+					itemsForSale = [
+						items["hoe"].getMap(),
+						items["watering_can"].getMap(),
+						items["hatchet"].getMap(),
+						items["bean_seasoner"].getMap(),
+						items["shovel"].getMap(),
+						items["garden_gnome"].getMap()
+					];
+					itemsForSale.addAll(pickItems(["Seeds"]));
+					break;
+
+				case 'groceries':
+					type = "Street Spirit: Groceries";
+					itemsForSale = [
+						items["coffee"].getMap(),
+						items["honey"].getMap(),
+						items["mushroom"].getMap(),
+						items["mustard"].getMap(),
+						items["oats"].getMap(),
+						items["oily_dressing"].getMap(),
+						items["olive_oil"].getMap(),
+						items["sesame_oil"].getMap(),
+						items["birch_syrup"].getMap(),
+						items["beer"].getMap(),
+						items["garlic"].getMap(),
+						items["bun"].getMap()
+					];
+					break;
+
+				case 'hardware':
+					type = "Street Spirit: Hardware";
+					itemsForSale = [
+//						items["gassifier"].getMap(),
+//						items["bubble_tuner"].getMap(),
+//						items["pick"].getMap(),
+//						items["fancy_pick"].getMap(),
+//						items["focusing_orb"].getMap(),
+//						items["grinder"].getMap(),
+//						items["tinkertool"].getMap(),
+//						items["hatchet"].getMap(),
+//						items["emotional_bear"].getMap(),
+//						items["lips"].getMap(),
+//						items["moon"].getMap(),
+//						items["smelter"].getMap(),
+//						items["alchemical_tongs"].getMap(),
+//						items["scraper"].getMap(),
+//						items["shovel"].getMap(),
+//						items["garden_gnome"].getMap(),
+//						items["crystalmalizing_chamber"].getMap(),
+//						items["machine_stand"].getMap(),
+//						items["blockmaker_chassis"].getMap(),
+//						items["blockmaker_plates"].getMap(),
+//						items["machine_engine"].getMap(),
+//						items["fuelmaker_case"].getMap(),
+//						items["fuelmaker_core"].getMap(),
+//						items["cauldron"].getMap(),
+//						items["tincturing_kit"].getMap(),
+//						items["still"].getMap(),
+//						items["metal_machine_mechanism"].getMap(),
+//						items["metal_machine_tooler"].getMap(),
+//						items["woodworker_chassis"].getMap(),
+//						items["spindle"].getMap(),
+//						items["loomer"].getMap(),
+//						items["construction_tool"].getMap(),
+//						items["bulb"].getMap(),
+						items["cubimal_series_1_box"].getMap(),
+						items["cubimal_series_2_box"].getMap()
+					];
+					itemsForSale.addAll(pickItems(["Storage"]));
+					break;
+
+				case 'kitchen':
+					type = "Street Spirit: Kitchen Tools";
+					itemsForSale = [
+						items["knife_and_board"].getMap(),
+						items["blender"].getMap(),
+						items["frying_pan"].getMap(),
+						items["saucepan"].getMap(),
+						items["cocktail_shaker"].getMap(),
+						items["famous_pugilist_grill"].getMap(),
+						items["awesome_pot"].getMap(),
+						items["fruit_changing_machine"].getMap(),
+						items["spice_mill"].getMap(),
+						items["spice_rack"].getMap()
+					];
+					break;
+
+				case 'mining':
+					type = "Street Spirit: Mining";
+					itemsForSale = [
+						items["earthshaker"].getMap(),
+						items["face_smelter"].getMap(),
+						items["flaming_humbaba"].getMap(),
+						items["pick"].getMap(),
+						items["fancy_pick"].getMap(),
+						items["grinder"].getMap(),
+						items["smelter"].getMap(),
+						items["tinkertool"].getMap(),
+						items["elemental_pouch"].getMap(),
+						items["alchemical_tongs"].getMap()
+					];
+					break;
+
+				case 'produce':
 					type = "Street Spirit: Produce";
 					itemsForSale = [
 						items["garlic"].getMap(),
@@ -58,170 +197,7 @@ abstract class Vendor extends NPC {
 					];
 					break;
 
-				case 'M':
-				case 'S':
-				// Alchemical Goods (212)
-					type = "Street Spirit: Alchemical Goods";
-					itemsForSale = [
-						items["still"].getMap(),
-						items["tincturing_kit"].getMap(),
-						items["cauldron"].getMap(),
-						items["elemental_pouch"].getMap(),
-						items["alchemistry_kit"].getMap(),
-						items["alchemical_tongs"].getMap(),
-						items["test_tube"].getMap(),
-						items["beaker"].getMap(),
-						items["pick"].getMap(),
-						items["fancy_pick"].getMap(),
-						items["scraper"].getMap(),
-						items["grinder"].getMap(),
-						items["smelter"].getMap(),
-						items["crystalmalizing_chamber"].getMap()
-					];
-					break;
-
-				case 'B':
-				case 'P':
-				// Gardening Goods (187)
-					type = "Street Spirit: Gardening Goods";
-					itemsForSale = [
-						items["hoe"].getMap(),
-						items["watering_can"].getMap(),
-						items["hatchet"].getMap(),
-						items["bean_seasoner"].getMap(),
-						items["shovel"].getMap(),
-						items["garden_gnome"].getMap()
-					];
-					itemsForSale.addAll(pickItems(["Seeds"]));
-					break;
-
-				case 'V':
-				case 'F':
-				case 'E':
-				case 'J':
-				// Hardware (163)
-					type = "Street Spirit: Hardware";
-					itemsForSale = [
-						items["gassifier"].getMap(),
-						items["bubble_tuner"].getMap(),
-						items["pick"].getMap(),
-						items["fancy_pick"].getMap(),
-						items["focusing_orb"].getMap(),
-						items["grinder"].getMap(),
-						items["tinkertool"].getMap(),
-						items["hatchet"].getMap(),
-						items["emotional_bear"].getMap(),
-						items["lips"].getMap(),
-						items["moon"].getMap(),
-						items["smelter"].getMap(),
-						items["alchemical_tongs"].getMap(),
-						items["scraper"].getMap(),
-						items["shovel"].getMap(),
-						items["garden_gnome"].getMap(),
-						items["crystalmalizing_chamber"].getMap(),
-						items["machine_stand"].getMap(),
-						items["blockmaker_chassis"].getMap(),
-						items["blockmaker_plates"].getMap(),
-						items["machine_engine"].getMap(),
-						items["fuelmaker_case"].getMap(),
-						items["fuelmaker_core"].getMap(),
-						items["cauldron"].getMap(),
-						items["tincturing_kit"].getMap(),
-						items["still"].getMap(),
-						items["metal_machine_mechanism"].getMap(),
-						items["metal_machine_tooler"].getMap(),
-						items["woodworker_chassis"].getMap(),
-						items["spindle"].getMap(),
-						items["loomer"].getMap(),
-						items["construction_tool"].getMap(),
-						items["bulb"].getMap()
-					];
-					itemsForSale.addAll(pickItems(["Storage"]));
-					break;
-
-				case 'R':
-				case 'D':
-				// Animal Goods (130)
-					type = "Street Spirit: Animal Goods";
-					itemsForSale = [
-						items["spindle"].getMap(),
-						items["loomer"].getMap(),
-						items["pig_stick"].getMap(),
-						items["butterfly_stick"].getMap(),
-						items["chicken_stick"].getMap(),
-						items["butterfly_lotion"].getMap(),
-						items["pig_bait"].getMap(),
-						items["quill"].getMap(),
-						items["egg_seasoner"].getMap(),
-						items["butterfly_milker"].getMap(),
-						items["piggy_feeder"].getMap(),
-						items["meat_collector"].getMap()
-					];
-					break;
-
-				case 'L':
-				case 'G':
-				// Groceries (121)
-					type = "Street Spirit: Groceries";
-					itemsForSale = [
-						items["coffee"].getMap(),
-						items["honey"].getMap(),
-						items["mushroom"].getMap(),
-						items["mustard"].getMap(),
-						items["oats"].getMap(),
-						items["oily_dressing"].getMap(),
-						items["olive_oil"].getMap(),
-						items["sesame_oil"].getMap(),
-						items["birch_syrup"].getMap(),
-						items["beer"].getMap(),
-						items["garlic"].getMap(),
-						items["bun"].getMap()
-					];
-					break;
-
-				case 'O':
-				case 'I':
-				case 'W':
-				case 'Y':
-				case 'U':
-				// Mining (92)
-					type = "Street Spirit: Mining";
-					itemsForSale = [
-						items["earthshaker"].getMap(),
-						items["face_smelter"].getMap(),
-						items["flaming_humbaba"].getMap(),
-						items["pick"].getMap(),
-						items["fancy_pick"].getMap(),
-						items["grinder"].getMap(),
-						items["smelter"].getMap(),
-						items["tinkertool"].getMap(),
-						items["elemental_pouch"].getMap(),
-						items["alchemical_tongs"].getMap()
-					];
-					break;
-
-				case 'H':
-				case 'N':
-				// Kitchen Tools (89)
-					type = "Street Spirit: Kitchen Tools";
-					itemsForSale = [
-						items["knife_and_board"].getMap(),
-						items["blender"].getMap(),
-						items["frying_pan"].getMap(),
-						items["saucepan"].getMap(),
-						items["cocktail_shaker"].getMap(),
-						items["famous_pugilist_grill"].getMap(),
-						items["awesome_pot"].getMap(),
-						items["fruit_changing_machine"].getMap(),
-						items["spice_mill"].getMap(),
-						items["spice_rack"].getMap()
-					];
-					break;
-
-				case 'Z':
-				case 'Q':
-				case 'X':
-				// Toys (22)
+				case 'toy':
 					type = "Street Spirit: Toys";
 					itemsForSale = [
 						items["pair_of_dice"].getMap(),

@@ -43,7 +43,7 @@
     "description": "Contains one (1) Series 1 Cubimal. Open it up to find out which one is inside. Collect them all!",
     "actions": [
       {
-        "name": "Open",
+        "name": "Take out S1 Cubi",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -59,7 +59,7 @@
     "description": "Contains one (1) Series 2 Cubimal. Open it up to find out which one is inside. Collect 'em all!",
     "actions": [
       {
-        "name": "Open",
+        "name": "Take out S2 Cubi",
         "itemRequirements": {},
         "skillRequirements": {}
       }

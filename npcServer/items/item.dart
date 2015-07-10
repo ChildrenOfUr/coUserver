@@ -170,7 +170,9 @@ class Item {
 		return true;
 	}
 
-	/// Food
+	// //// //
+	// Food //
+	// //// //
 
 	// takes away item and gives the stats specified in items/actions/consume.json
 
@@ -199,7 +201,9 @@ class Item {
 		return consume(streetName:streetName, map:map, userSocket:userSocket, email:email);
 	}
 
-	/// Focusing Orb
+	// //////////// //
+	// Focusing Orb //
+	// //////////// //
 
 	Future<bool> levitate({String streetName, Map map, WebSocket userSocket, String email}) async {
 		return false;
@@ -242,7 +246,9 @@ class Item {
 		return await trySetMetabolics(email, energy:5, mood:5, img: 5);
 	}
 
-	/// Emblem
+	// ////// //
+	// Emblem //
+	// ////// //
 
 	Future<bool> caress({String streetName, Map map, WebSocket userSocket, String email}) async {
 		int amt = rand.nextInt(10) + 5;
@@ -280,7 +286,9 @@ class Item {
 		}
 	}
 
-	/// Icon
+	// //// //
+	// Icon //
+	// //// //
 
 	Future<bool> tithe({String streetName, Map map, WebSocket userSocket, String email}) async {
 		StatBuffer.incrementStat("iconsTithed", 11);
@@ -302,7 +310,91 @@ class Item {
 		return await trySetMetabolics(email, img:50);
 	}
 
-	/// Item
+	// /////////// //
+	// Cubimal Box //
+	// /////////// //
+
+	Future<bool> takeOutS1Cubi({String streetName, Map map, WebSocket userSocket, String email}) async {
+		Map cubis = {
+			"17.000": "chick",
+			"34.000": "piggy",
+			"50.000": "butterfly",
+			"58.000": "crab",
+			"66.000": "batterfly",
+			"74.000": "frog",
+			"82.000": "firefly",
+			"84.000": "bureaucrat",
+			"86.000": "cactus",
+			"88.000": "snoconevendor",
+			"90.000": "squid",
+			"92.000": "juju",
+			"93.250": "smuggler",
+			"94.500": "deimaginator",
+			"95.750": "greeterbot",
+			"97.000": "dustbunny",
+			"97.500": "gwendolyn",
+			"98.000": "unclefriendly",
+			"98.500": "helga",
+			"99.000": "magicrock",
+			"99.500": "yeti",
+			"99.750": "rube",
+			"100.00": "rook"
+		};
+
+		openCubiBox(cubis, 1, streetName:streetName, map:map, userSocket:userSocket, email:email);
+
+		return true;
+	}
+
+	Future<bool> takeOutS2Cubi({String streetName, Map map, WebSocket userSocket, String email}) async {
+		Map cubis = {
+			"14.500": "fox",
+			"29.000": "sloth",
+			"37.000": "emobear",
+			"45.000": "foxranger",
+			"54.000": "groddlestreetspirit",
+			"61.000": "uraliastreetspirit",
+			"69.000": "firebogstreetspirit",
+			"77.000": "gnome",
+			"81.000": "butler",
+			"85.000": "craftybot",
+			"89.000": "phantom",
+			"93.000": "ilmenskiejones",
+			"94.000": "trisor",
+			"95.000": "toolvendor",
+			"96.000": "mealvendor",
+			"97.000": "gardeningtoolsvendor",
+			"98.000": "maintenancebot",
+			"99.000": "senorfunpickle",
+			"99.500": "hellbartender",
+			"100.50": "scionofpurple"
+		};
+
+		openCubiBox(cubis, 2, streetName:streetName, map:map, userSocket:userSocket, email:email);
+
+		return true;
+	}
+
+	Future<bool> openCubiBox(Map cubis, int series, {String streetName, Map map, WebSocket userSocket, String email}) async {
+		String cubimal = "cubimal_";
+		String box = "cubimal_series_" + series.toString() + "_box";
+		num seek = rand.nextInt(10000) / 100;
+		for (String cubiChance in cubis.keys) {
+			if (seek <= num.parse(cubiChance)) {
+				cubimal += cubis[cubiChance];
+				print(cubimal);
+				break;
+			}
+		}
+		bool success = await takeItemFromUser(userSocket, email, box, 1);
+		await addItemToUser(userSocket, email, items[cubimal].getMap(), 1, box);
+
+		return success;
+	}
+
+	// //// //
+	// Item //
+	// //// //
 
 	// ground -> inventory
 

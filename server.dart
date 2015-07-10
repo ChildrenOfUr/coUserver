@@ -7,6 +7,7 @@ Map<String, int> heightsCache = null, headsCache = null;
 DateTime startDate;
 Map<String, Item> items = {};
 Map<String, Map> consumeValues = {};
+Map<String, String> vendorTypes = {};
 
 main() async {
 	int port = 8181;

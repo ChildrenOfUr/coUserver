@@ -356,3 +356,29 @@ saveCacheToDisk(String filename, Map cache) async {
 	}
 	await file.writeAsString(JSON.encode(cache));
 }
+
+// Lets one false bool spoil it for everyone
+bool spoil(bool a, bool b) {
+	bool result;
+
+	if (!a || !b) {
+		result = false;
+	} else {
+		result = true;
+	}
+
+	return result;
+}
+
+// Lets one true bool raise the other to true
+bool raise(bool a, bool b) {
+	bool result;
+
+	if (a || b) {
+		result = true;
+	} else {
+		result = false;
+	}
+
+	return result;
+}

@@ -867,262 +867,494 @@
     "name": "Batterfly Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_batterfly__x1_1_png_1354836242.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_batterfly__x1_race_png_1354836243.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_batterfly__x1_1_png_1354836242.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Batterfly Cubimal! Collect all Series 1 Cubimals!"
+    "description": "It's a Batterfly Cubimal! Collect all Series 1 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_bureaucrat": {
     "name": "Bureaucrat Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_bureaucrat__x1_1_png_1354836245.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_bureaucrat__x1_race_png_1354836246.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_bureaucrat__x1_1_png_1354836245.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Bureaucrat Cubimal! Collect all Series 1 Cubimals!"
+    "description": "It's a Bureaucrat Cubimal! Collect all Series 1 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_butterfly": {
     "name": "Butterfly Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_butterfly__x1_1_png_1354836248.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_butterfly__x1_race_png_1354836249.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_butterfly__x1_1_png_1354836248.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Butterfly Cubimal! Collect all Series 1 Cubimals!"
+    "description": "It's a Butterfly Cubimal! Collect all Series 1 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_cactus": {
     "name": "Cactus Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_cactus__x1_1_png_1354836251.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_cactus__x1_race_png_1354836252.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_cactus__x1_1_png_1354836251.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Cactus Cubimal! Collect all Series 1 Cubimals!"
+    "description": "It's a Cactus Cubimal! Collect all Series 1 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_chick": {
     "name": "Chick Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2013-12-13/npc_cubimal_chick__x1_1_png_1386989070.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_chick__x1_race_png_1354836255.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2013-12-13/npc_cubimal_chick__x1_1_png_1386989070.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Chick Cubimal! Collect all Series 1 Cubimals!"
+    "description": "It's a Chick Cubimal! Collect all Series 1 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_crab": {
     "name": "Crab Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_crab__x1_1_png_1354836257.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_crab__x1_race_png_1354836258.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_crab__x1_1_png_1354836257.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Crab Cubimal! Collect all Series 1 Cubimals!"
+    "description": "It's a Crab Cubimal! Collect all Series 1 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_deimaginator": {
     "name": "Deimaginator Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_deimaginator__x1_1_png_1354836260.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_deimaginator__x1_race_png_1354836263.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_deimaginator__x1_1_png_1354836260.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Deimaginator Cubimal! Collect all Series 1 Cubimals!"
+    "description": "It's a Deimaginator Cubimal! Collect all Series 1 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_dustbunny": {
     "name": "Dustbunny Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_dustbunny__x1_1_png_1354836265.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_dustbunny__x1_race_png_1354836266.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_dustbunny__x1_1_png_1354836265.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Dustbunny Cubimal! Collect all Series 1 Cubimals!"
+    "description": "It's a Dustbunny Cubimal! Collect all Series 1 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_firefly": {
     "name": "Firefly Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_firefly__x1_1_png_1354836268.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_firefly__x1_race_png_1354836269.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_firefly__x1_1_png_1354836268.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Firefly Cubimal! Collect all Series 1 Cubimals!"
+    "description": "It's a Firefly Cubimal! Collect all Series 1 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_frog": {
     "name": "Frog Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_frog__x1_1_png_1354836276.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_frog__x1_race_png_1354836277.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_frog__x1_1_png_1354836276.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Frog Cubimal! Collect all Series 1 Cubimals!"
+    "description": "It's a Frog Cubimal! Collect all Series 1 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_greeterbot": {
     "name": "Greeterbot Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_greeterbot__x1_1_png_1354836279.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_greeterbot__x1_race_png_1354836279.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_greeterbot__x1_1_png_1354836279.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Greeterbot Cubimal! Collect all Series 1 Cubimals!"
+    "description": "It's a Greeterbot Cubimal! Collect all Series 1 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_gwendolyn": {
     "name": "Gwendolyn Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_gwendolyn__x1_1_png_1354836282.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_gwendolyn__x1_race_png_1354836282.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_gwendolyn__x1_1_png_1354836282.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Gwendolyn Cubimal! Collect all Series 1 Cubimals!"
+    "description": "It's a Gwendolyn Cubimal! Collect all Series 1 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_helga": {
     "name": "Helga Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_helga__x1_1_png_1354836287.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_helga__x1_race_png_1354836288.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_helga__x1_1_png_1354836287.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Helga Cubimal! Collect all Series 1 Cubimals!"
+    "description": "It's a Helga Cubimal! Collect all Series 1 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_juju": {
     "name": "JuJu Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_juju__x1_1_png_1354836284.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_juju__x1_race_png_1354836285.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_juju__x1_1_png_1354836284.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a JuJu Cubimal! Collect all Series 1 Cubimals!"
+    "description": "It's a JuJu Cubimal! Collect all Series 1 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_magicrock": {
     "name": "Magic Rock Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_magicrock__x1_1_png_1354836290.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_magicrock__x1_race_png_1354836290.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_magicrock__x1_1_png_1354836290.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Magic Rock Cubimal! Collect all Series 1 Cubimals!"
+    "description": "It's a Magic Rock Cubimal! Collect all Series 1 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_piggy": {
     "name": "Piggy Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_piggy__x1_1_png_1354836292.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_piggy__x1_race_png_1354836293.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_piggy__x1_1_png_1354836292.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Piggy Cubimal! Collect all Series 1 Cubimals!"
+    "description": "It's a Piggy Cubimal! Collect all Series 1 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_rook": {
     "name": "Rook Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_rook__x1_1_png_1354836295.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_rook__x1_race_png_1354836296.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_rook__x1_1_png_1354836295.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Rook Cubimal! Collect all Series 1 Cubimals!"
+    "description": "It's a Rook Cubimal! Collect all Series 1 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_rube": {
     "name": "Rube Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_rube__x1_1_png_1354836298.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_rube__x1_race_png_1354836298.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_rube__x1_1_png_1354836298.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Rube Cubimal! Collect all Series 1 Cubimals!"
+    "description": "It's a Rube Cubimal! Collect all Series 1 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_smuggler": {
     "name": "Smuggler Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_smuggler__x1_1_png_1354836300.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_smuggler__x1_race_png_1354836301.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_smuggler__x1_1_png_1354836300.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Smuggler Cubimal! Collect all Series 1 Cubimals!"
+    "description": "It's a Smuggler Cubimal! Collect all Series 1 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_snoconevendor": {
     "name": "Sno Cone Vendor Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_snoconevendor__x1_1_png_1354836305.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_snoconevendor__x1_race_png_1354836305.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_snoconevendor__x1_1_png_1354836305.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Sno Cone Vendor Cubimal! Collect all Series 1 Cubimals!"
+    "description": "It's a Sno Cone Vendor Cubimal! Collect all Series 1 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_squid": {
     "name": "Squid Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_squid__x1_1_png_1354836308.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_squid__x1_race_png_1354836309.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_squid__x1_1_png_1354836308.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Squid Cubimal! Collect all Series 1 Cubimals!"
+    "description": "It's a Squid Cubimal! Collect all Series 1 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_unclefriendly": {
     "name": "Uncle Friendly Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_unclefriendly__x1_1_png_1354836311.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_unclefriendly__x1_race_png_1354836312.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_unclefriendly__x1_1_png_1354836311.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's an Uncle Friendly Cubimal! Collect all Series 1 Cubimals!"
+    "description": "It's an Uncle Friendly Cubimal! Collect all Series 1 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_yeti": {
     "name": "Yeti Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_yeti__x1_1_png_1354836344.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_yeti__x1_race_png_1354836351.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_yeti__x1_1_png_1354836344.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Yeti Cubimal! Collect all Series 1 Cubimals!"
+    "description": "It's a Yeti Cubimal! Collect all Series 1 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_butler": {
     "name": "Butler Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_butler__x1_1_png_1354839842.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_butler__x1_race_png_1354839843.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_butler__x1_1_png_1354839842.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Butler Cubimal! Collect all Series 2 Cubimals!"
+    "description": "It's a Butler Cubimal! Collect all Series 2 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_craftybot": {
     "name": "Craftybot Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_craftybot__x1_1_png_1354839845.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_craftybot__x1_race_png_1354839845.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_craftybot__x1_1_png_1354839845.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Craftybot Cubimal! Collect all Series 2 Cubimals!"
+    "description": "It's a Craftybot Cubimal! Collect all Series 2 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_emobear": {
     "name": "Emo-Bear Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_emobear__x1_1_png_1354839824.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_emobear__x1_race_png_1354839825.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_emobear__x1_1_png_1354839824.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's an Emo-Bear Cubimal! Collect all Series 2 Cubimals!"
+    "description": "It's an Emo-Bear Cubimal! Collect all Series 2 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_firebogstreetspirit": {
     "name": "Firebog Street Spirit Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_firebogstreetspirit__x1_1_png_1354839836.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_firebogstreetspirit__x1_race_png_1354839837.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_firebogstreetspirit__x1_1_png_1354839836.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Firebog Street Spirit Cubimal! Collect all Series 2 Cubimals!"
+    "description": "It's a Firebog Street Spirit Cubimal! Collect all Series 2 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_fox": {
     "name": "Fox Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_fox__x1_1_png_1354839817.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_fox__x1_race_png_1354839818.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_fox__x1_1_png_1354839817.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Fox Cubimal! Collect all Series 2 Cubimals!"
+    "description": "It's a Fox Cubimal! Collect all Series 2 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_foxranger": {
     "name": "Fox Ranger Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_foxranger__x1_1_png_1354839827.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_foxranger__x1_race_png_1354839827.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_foxranger__x1_1_png_1354839827.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Fox Ranger Cubimal! Collect all Series 2 Cubimals!"
+    "description": "It's a Fox Ranger Cubimal! Collect all Series 2 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "npc_cubimal_gardeningtoolsvendor": {
     "name": "Gardening Tools Vendor Cubimal",
@@ -1137,37 +1369,69 @@
     "name": "Gnome Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_gnome__x1_1_png_1354839839.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_gnome__x1_race_png_1354839840.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_gnome__x1_1_png_1354839839.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Gnome Cubimal! Collect all Series 2 Cubimals!"
+    "description": "It's a Gnome Cubimal! Collect all Series 2 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_groddlestreetspirit": {
     "name": "Groddle Street Spirit Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_groddlestreetspirit__x1_1_png_1354839829.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_groddlestreetspirit__x1_race_png_1354839830.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_groddlestreetspirit__x1_1_png_1354839829.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Groddle Street Spirit Cubimal! Collect all Series 2 Cubimals!"
+    "description": "It's a Groddle Street Spirit Cubimal! Collect all Series 2 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_hellbartender": {
     "name": "Hell Bartender Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_hellbartender__x1_1_png_1354839854.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_hellbartender__x1_race_png_1354839855.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_hellbartender__x1_1_png_1354839854.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Hell Bartender Cubimal! Collect all Series 2 Cubimals!"
+    "description": "It's a Hell Bartender Cubimal! Collect all Series 2 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_ilmenskiejones": {
     "name": "Ilmenskie Jones Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_ilmenskiejones__x1_1_png_1354839850.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_ilmenskiejones__x1_race_png_1354839851.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_ilmenskiejones__x1_1_png_1354839850.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's an Ilmenskie Jones Cubimal! Collect all Series 2 Cubimals!"
+    "description": "It's an Ilmenskie Jones Cubimal! Collect all Series 2 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "npc_cubimal_maintenancebot": {
     "name": "Maintenance Bot Cubimal",
@@ -1182,73 +1446,137 @@
     "name": "Meal Vendor Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_mealvendor__x1_1_png_1354839860.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_mealvendor__x1_race_png_1354839861.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_mealvendor__x1_1_png_1354839860.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Meal Vendor Cubimal! Collect all Series 2 Cubimals!"
+    "description": "It's a Meal Vendor Cubimal! Collect all Series 2 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_phantom": {
     "name": "Phantom Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_phantom__x1_1_png_1354839847.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_phantom__x1_race_png_1354839848.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_phantom__x1_1_png_1354839847.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Phantom Cubimal! Collect all Series 2 Cubimals!"
+    "description": "It's a Phantom Cubimal! Collect all Series 2 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_scionofpurple": {
     "name": "Scion of Purple Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_scionofpurple__x1_1_png_1354839873.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_scionofpurple__x1_race_png_1354839874.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_scionofpurple__x1_1_png_1354839873.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Scion of Purple Cubimal! Collect all Series 2 Cubimals!"
+    "description": "It's a Scion of Purple Cubimal! Collect all Series 2 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_senorfunpickle": {
     "name": "Señor Funpickle Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_senorfunpickle__x1_1_png_1354839878.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_senorfunpickle__x1_race_png_1354839878.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_senorfunpickle__x1_1_png_1354839878.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Señor Funpickle Cubimal! Collect all Series 2 Cubimals!"
+    "description": "It's a Señor Funpickle Cubimal! Collect all Series 2 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_sloth": {
     "name": "Sloth Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_sloth__x1_1_png_1354839820.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_sloth__x1_race_png_1354839821.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_sloth__x1_1_png_1354839820.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Sloth Cubimal! Collect all Series 2 Cubimals!"
+    "description": "It's a Sloth Cubimal! Collect all Series 2 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_toolvendor": {
     "name": "Tool Vendor Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_toolvendor__x1_1_png_1354839857.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_toolvendor__x1_race_png_1354839858.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_toolvendor__x1_1_png_1354839857.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Tool Vendor Cubimal! Collect all Series 2 Cubimals!"
+    "description": "It's a Tool Vendor Cubimal! Collect all Series 2 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_trisor": {
     "name": "Trisor Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_trisor__x1_1_png_1354839865.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_trisor__x1_race_png_1354839871.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_trisor__x1_1_png_1354839865.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Trisor Cubimal! Collect all Series 2 Cubimals!"
+    "description": "It's a Trisor Cubimal! Collect all Series 2 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "cubimal_uraliastreetspirit": {
     "name": "Uralia Street Spirit Cubimal",
     "category": "Collectibles",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_uraliastreetspirit__x1_1_png_1354839832.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_uraliastreetspirit__x1_race_png_1354839833.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_uraliastreetspirit__x1_1_png_1354839832.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Uralia Street Spirit Cubimal! Collect all Series 2 Cubimals!"
+    "description": "It's a Uralia Street Spirit Cubimal! Collect all Series 2 Cubimals!",
+    "actionsDISABLED": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "musicblock_bb_1": {
     "name": "Musicblock BB-1",
