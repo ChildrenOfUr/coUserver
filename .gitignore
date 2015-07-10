@@ -8,5 +8,6 @@ streetEntities
 playerSpritesheets
 stats.json
 heightsCache.json
+headsCache.json
 .pub
 .idea/
