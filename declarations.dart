@@ -53,6 +53,7 @@ part 'npcServer/npcs/npc.dart';
 
 // vendors
 part 'npcServer/npcs/vendors/streetspiritgroddle.dart';
+part 'npcServer/npcs/vendors/streetspiritfirebog.dart';
 part 'npcServer/npcs/vendors/toolvendor.dart';
 part 'npcServer/npcs/vendors/helga.dart';
 part 'npcServer/npcs/vendors/vendor.dart';
@@ -69,6 +70,7 @@ part 'npcServer/npcs/shrines/friendly.dart';
 part 'npcServer/npcs/shrines/cosma.dart';
 part 'npcServer/npcs/shrines/grendaline.dart';
 part 'npcServer/npcs/shrines/humbaba.dart';
+part 'npcServer/npcs/shrines/lem.dart';
 part 'npcServer/npcs/shrines/mab.dart';
 part 'npcServer/npcs/shrines/pot.dart';
 part 'npcServer/npcs/shrines/spriggan.dart';
