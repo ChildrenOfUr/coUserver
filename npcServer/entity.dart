@@ -43,6 +43,7 @@ abstract class Entity {
 			int baseImg = rand.nextInt(imgRange) + imgMin;
 			int resultImg = (baseImg * m.mood / m.max_mood)~/1;
 			m.img += resultImg;
+			m.lifetime_img += resultImg;
 			gains['energy'] = energy;
 			gains['mood'] = mood;
 			gains['img'] = resultImg;

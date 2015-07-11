@@ -162,6 +162,7 @@ class Item {
 		m.energy += energy;
 		m.mood += mood;
 		m.img += img;
+		m.lifetime_img += img;
 		m.currants += currants;
 		int result = await setMetabolics(m);
 		if(result < 1) {
@@ -382,7 +383,6 @@ class Item {
 		for (String cubiChance in cubis.keys) {
 			if (seek <= num.parse(cubiChance)) {
 				cubimal += cubis[cubiChance];
-				print(cubimal);
 				break;
 			}
 		}
