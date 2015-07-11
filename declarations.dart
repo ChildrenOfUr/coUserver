@@ -54,6 +54,7 @@ part 'npcServer/npcs/npc.dart';
 // vendors
 part 'npcServer/npcs/vendors/streetspiritgroddle.dart';
 part 'npcServer/npcs/vendors/streetspiritfirebog.dart';
+part 'npcServer/npcs/vendors/streetspiritzutto.dart';
 part 'npcServer/npcs/vendors/toolvendor.dart';
 part 'npcServer/npcs/vendors/helga.dart';
 part 'npcServer/npcs/vendors/vendor.dart';
@@ -62,6 +63,7 @@ part 'npcServer/npcs/vendors/vendor.dart';
 part 'npcServer/npcs/animals/chicken.dart';
 part 'npcServer/npcs/animals/helikitty.dart';
 part 'npcServer/npcs/animals/butterfly.dart';
+part 'npcServer/npcs/animals/firefly.dart';
 
 // shrines
 part 'npcServer/npcs/shrines/shrine.dart';
@@ -94,6 +96,9 @@ part 'npcServer/plants/trees/woodtree.dart';
 
 // resources
 part 'npcServer/plants/dirtpile.dart';
+part 'npcServer/plants/peatbog.dart';
+part 'npcServer/plants/mortarbarnacle.dart';
+part 'npcServer/plants/jellisacgrowth.dart';
 
 // rocks
 part 'npcServer/plants/rocks/rock.dart';

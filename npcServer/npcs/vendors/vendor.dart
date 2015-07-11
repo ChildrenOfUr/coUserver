@@ -130,11 +130,11 @@ abstract class Vendor extends NPC {
 						items["fuelmaker_core"].getMap(),
 						items["cauldron"].getMap(),
 						items["tincturing_kit"].getMap(),
-						items["still"].getMap(),
-						items["metal_machine_mechanism"].getMap(),
-						items["metal_machine_tooler"].getMap(),
+						items["still"].getMap(),//
+						items["metalmaker_mechanism"].getMap(),
+						items["metalmaker_tooler"].getMap(),
 						items["woodworker_chassis"].getMap(),
-						items["spindle"].getMap(),
+						items["spindle"].getMap(),//
 						items["loomer"].getMap(),
 						items["construction_tool"].getMap(),
 						items["bulb"].getMap()
