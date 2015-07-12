@@ -56,7 +56,8 @@ part 'npcServer/npcs/vendors/streetspiritgroddle.dart';
 part 'npcServer/npcs/vendors/streetspiritfirebog.dart';
 part 'npcServer/npcs/vendors/streetspiritzutto.dart';
 part 'npcServer/npcs/vendors/toolvendor.dart';
-part 'npcServer/npcs/vendors/helga.dart';
+part 'npcServer/npcs/vendors/jabba_helga.dart';
+part 'npcServer/npcs/vendors/jabba_unclefriendly.dart';
 part 'npcServer/npcs/vendors/vendor.dart';
 
 // animals

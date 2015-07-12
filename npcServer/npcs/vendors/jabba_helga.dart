@@ -4,10 +4,24 @@ class Helga extends Vendor {
   int openCount = 0;
   Helga(String id, String streetName, int x, int y) : super(id, streetName, x, y) {
     type = "Helga";
+    itemsForSale = [
+	    items["still"].getMap(),
+	    items["beer"].getMap(),
+	    items["carrot_margarita"].getMap(),
+	    items["coffee"].getMap(),
+	    items["creamy_martini"].getMap(),
+	    items["exotic_juice"].getMap(),
+	    items["mabbish_coffee"].getMap(),
+	    items["mega_healthy_veggie_juice"].getMap(),
+	    items["savory_smoothie"].getMap(),
+	    items["slow_gin_fizz"].getMap(),
+	    items["spicy_grog"].getMap(),
+	    items["tooberry_shake"].getMap()
+    ];
     speed = 40;
 
     states = {
-      "idle_stand_1": new Spritesheet("idle_stand",
+      "idle_stand": new Spritesheet("idle_stand",
         "http://c2.glitch.bz/items/2012-12-06/npc_jabba2__x1_idle_stand_part1_png_1354831705.png",
         3942, 4074, 438, 194, 189, true),
       "idle_stand_2": new Spritesheet("idle_stand",
@@ -19,7 +33,7 @@ class Helga extends Vendor {
       "talk": new Spritesheet("talk",
         "http://c2.glitch.bz/items/2012-12-06/npc_jabba2__x1_talk_png_1354831682.png",
         3942, 1552, 438, 194, 72, true),
-      "turn": new Spritesheet("turn",
+      "turn_left": new Spritesheet("turn",
         "http://c2.glitch.bz/items/2012-12-06/npc_jabba2__x1_turn_png_1354831675.png",
         876, 1746, 438, 194, 18, false),
       "turn_right": new Spritesheet("turn_right",
