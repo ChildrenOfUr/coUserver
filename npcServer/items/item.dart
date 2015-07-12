@@ -315,68 +315,63 @@ class Item {
 	// Cubimal Box //
 	// /////////// //
 
-	Future<bool> takeOutS1Cubi({String streetName, Map map, WebSocket userSocket, String email}) async {
-		Map cubis = {
-			"17.000": "chick",
-			"34.000": "piggy",
-			"50.000": "butterfly",
-			"58.000": "crab",
-			"66.000": "batterfly",
-			"74.000": "frog",
-			"82.000": "firefly",
-			"84.000": "bureaucrat",
-			"86.000": "cactus",
-			"88.000": "snoconevendor",
-			"90.000": "squid",
-			"92.000": "juju",
-			"93.250": "smuggler",
-			"94.500": "deimaginator",
-			"95.750": "greeterbot",
-			"97.000": "dustbunny",
-			"97.500": "gwendolyn",
-			"98.000": "unclefriendly",
-			"98.500": "helga",
-			"99.000": "magicrock",
-			"99.500": "yeti",
-			"99.750": "rube",
-			"100.00": "rook"
-		};
-
-		openCubiBox(cubis, 1, streetName:streetName, map:map, userSocket:userSocket, email:email);
-
-		return true;
-	}
-
-	Future<bool> takeOutS2Cubi({String streetName, Map map, WebSocket userSocket, String email}) async {
-		Map cubis = {
-			"14.500": "fox",
-			"29.000": "sloth",
-			"37.000": "emobear",
-			"45.000": "foxranger",
-			"54.000": "groddlestreetspirit",
-			"61.000": "uraliastreetspirit",
-			"69.000": "firebogstreetspirit",
-			"77.000": "gnome",
-			"81.000": "butler",
-			"85.000": "craftybot",
-			"89.000": "phantom",
-			"93.000": "ilmenskiejones",
-			"94.000": "trisor",
-			"95.000": "toolvendor",
-			"96.000": "mealvendor",
-			"97.000": "gardeningtoolsvendor",
-			"98.000": "maintenancebot",
-			"99.000": "senorfunpickle",
-			"99.500": "hellbartender",
-			"100.50": "scionofpurple"
-		};
-
-		openCubiBox(cubis, 2, streetName:streetName, map:map, userSocket:userSocket, email:email);
-
-		return true;
-	}
-
-	Future<bool> openCubiBox(Map cubis, int series, {String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future<bool> takeOutCubimal({String streetName, Map map, WebSocket userSocket, String email}) async {
+		int series;
+		Map<String, String> cubis;
+		if (map['dropItem']['itemType'] == 'cubimal_series_1_box') {
+			series = 1;
+			cubis = {
+				"17.000": "chick",
+				"34.000": "piggy",
+				"50.000": "butterfly",
+				"58.000": "crab",
+				"66.000": "batterfly",
+				"74.000": "frog",
+				"82.000": "firefly",
+				"84.000": "bureaucrat",
+				"86.000": "cactus",
+				"88.000": "snoconevendor",
+				"90.000": "squid",
+				"92.000": "juju",
+				"93.250": "smuggler",
+				"94.500": "deimaginator",
+				"95.750": "greeterbot",
+				"97.000": "dustbunny",
+				"97.500": "gwendolyn",
+				"98.000": "unclefriendly",
+				"98.500": "helga",
+				"99.000": "magicrock",
+				"99.500": "yeti",
+				"99.750": "rube",
+				"100.00": "rook"
+			};
+		} else if (map['dropItem']['itemType'] == 'cubimal_series_2_box') {
+			series = 2;
+			cubis = {
+				"14.500": "fox",
+				"29.000": "sloth",
+				"37.000": "emobear",
+				"45.000": "foxranger",
+				"54.000": "groddlestreetspirit",
+				"61.000": "uraliastreetspirit",
+				"69.000": "firebogstreetspirit",
+				"77.000": "gnome",
+				"81.000": "butler",
+				"85.000": "craftybot",
+				"89.000": "phantom",
+				"93.000": "ilmenskiejones",
+				"94.000": "trisor",
+				"95.000": "toolvendor",
+				"96.000": "mealvendor",
+				"97.000": "gardeningtoolsvendor",
+				"98.000": "maintenancebot",
+				"99.000": "senorfunpickle",
+				"99.500": "hellbartender",
+				"100.50": "scionofpurple"
+			};
+		} else {
+			return false;
+		}
 		String cubimal = "cubimal_";
 		String box = "cubimal_series_" + series.toString() + "_box";
 		num seek = rand.nextInt(10000) / 100;
@@ -389,6 +384,18 @@ class Item {
 		bool success = await takeItemFromUser(userSocket, email, box, 1);
 		await addItemToUser(userSocket, email, items[cubimal].getMap(), 1, box);
 
+		return success;
+	}
+
+	// /////// //
+	// Cubimal //
+	// /////// //
+
+	Future<bool> setFree({String streetName, Map map, WebSocket userSocket, String email}) async {
+		String cubiType = map['dropItem']['itemType'];
+		bool success = await takeItemFromUser(userSocket, email, cubiType, 1);
+		if (!success) return;
+		trySetMetabolics(email, mood: 10, img: 10);
 		return success;
 	}
 

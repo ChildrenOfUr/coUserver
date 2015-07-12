@@ -198,7 +198,7 @@ abstract class Vendor extends NPC {
 				case 'toy':
 					type = "Street Spirit: Toys";
 					itemsForSale = [
-						items["pair_of_dice"].getMap(),
+						items["dice"].getMap(),
 						items["12_sided_die"].getMap(),
 						items["fortune_cookie"].getMap(),
 						items["cubimal_series_1_box"].getMap(),

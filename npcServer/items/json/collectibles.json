@@ -878,6 +878,14 @@
         "itemRequirements": {},
         "skillRequirements": {}
       }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
     ]
   },
   "cubimal_bureaucrat": {
@@ -892,6 +900,14 @@
       {
         "name": "Race",
         "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -912,6 +928,14 @@
         "itemRequirements": {},
         "skillRequirements": {}
       }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
     ]
   },
   "cubimal_cactus": {
@@ -926,6 +950,14 @@
       {
         "name": "Race",
         "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -946,6 +978,14 @@
         "itemRequirements": {},
         "skillRequirements": {}
       }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
     ]
   },
   "cubimal_crab": {
@@ -960,6 +1000,14 @@
       {
         "name": "Race",
         "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -980,6 +1028,14 @@
         "itemRequirements": {},
         "skillRequirements": {}
       }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
     ]
   },
   "cubimal_dustbunny": {
@@ -994,6 +1050,14 @@
       {
         "name": "Race",
         "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -1014,6 +1078,14 @@
         "itemRequirements": {},
         "skillRequirements": {}
       }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
     ]
   },
   "cubimal_frog": {
@@ -1028,6 +1100,14 @@
       {
         "name": "Race",
         "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -1048,6 +1128,14 @@
         "itemRequirements": {},
         "skillRequirements": {}
       }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
     ]
   },
   "cubimal_gwendolyn": {
@@ -1062,6 +1150,14 @@
       {
         "name": "Race",
         "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -1082,6 +1178,14 @@
         "itemRequirements": {},
         "skillRequirements": {}
       }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
     ]
   },
   "cubimal_juju": {
@@ -1096,6 +1200,14 @@
       {
         "name": "Race",
         "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -1116,6 +1228,14 @@
         "itemRequirements": {},
         "skillRequirements": {}
       }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
     ]
   },
   "cubimal_piggy": {
@@ -1130,6 +1250,14 @@
       {
         "name": "Race",
         "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -1150,6 +1278,14 @@
         "itemRequirements": {},
         "skillRequirements": {}
       }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
     ]
   },
   "cubimal_rube": {
@@ -1164,6 +1300,14 @@
       {
         "name": "Race",
         "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -1184,6 +1328,14 @@
         "itemRequirements": {},
         "skillRequirements": {}
       }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
     ]
   },
   "cubimal_snoconevendor": {
@@ -1198,6 +1350,14 @@
       {
         "name": "Race",
         "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -1218,6 +1378,14 @@
         "itemRequirements": {},
         "skillRequirements": {}
       }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
     ]
   },
   "cubimal_unclefriendly": {
@@ -1232,6 +1400,14 @@
       {
         "name": "Race",
         "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -1252,6 +1428,14 @@
         "itemRequirements": {},
         "skillRequirements": {}
       }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
     ]
   },
   "cubimal_butler": {
@@ -1266,6 +1450,14 @@
       {
         "name": "Race",
         "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -1286,6 +1478,14 @@
         "itemRequirements": {},
         "skillRequirements": {}
       }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
     ]
   },
   "cubimal_emobear": {
@@ -1300,6 +1500,14 @@
       {
         "name": "Race",
         "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -1320,6 +1528,14 @@
         "itemRequirements": {},
         "skillRequirements": {}
       }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
     ]
   },
   "cubimal_fox": {
@@ -1337,6 +1553,14 @@
         "itemRequirements": {},
         "skillRequirements": {}
       }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
     ]
   },
   "cubimal_foxranger": {
@@ -1351,6 +1575,14 @@
       {
         "name": "Race",
         "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -1380,6 +1612,14 @@
         "itemRequirements": {},
         "skillRequirements": {}
       }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
     ]
   },
   "cubimal_groddlestreetspirit": {
@@ -1394,6 +1634,14 @@
       {
         "name": "Race",
         "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -1414,6 +1662,14 @@
         "itemRequirements": {},
         "skillRequirements": {}
       }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
     ]
   },
   "cubimal_ilmenskiejones": {
@@ -1428,6 +1684,14 @@
       {
         "name": "Race",
         "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -1457,6 +1721,14 @@
         "itemRequirements": {},
         "skillRequirements": {}
       }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
     ]
   },
   "cubimal_phantom": {
@@ -1471,6 +1743,14 @@
       {
         "name": "Race",
         "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -1491,6 +1771,14 @@
         "itemRequirements": {},
         "skillRequirements": {}
       }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
     ]
   },
   "cubimal_senorfunpickle": {
@@ -1505,6 +1793,14 @@
       {
         "name": "Race",
         "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -1525,6 +1821,14 @@
         "itemRequirements": {},
         "skillRequirements": {}
       }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
     ]
   },
   "cubimal_toolvendor": {
@@ -1539,6 +1843,14 @@
       {
         "name": "Race",
         "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -1559,6 +1871,14 @@
         "itemRequirements": {},
         "skillRequirements": {}
       }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
     ]
   },
   "cubimal_uraliastreetspirit": {
@@ -1573,6 +1893,14 @@
       {
         "name": "Race",
         "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ],
+    "actions": [
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
       }
