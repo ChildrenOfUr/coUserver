@@ -30,7 +30,17 @@
     "stacksTo": 1,
     "price": 300,
     "durability": 100,
-    "description": "An awesome pot is used to make special dishes. Very special."
+    "description": "An awesome pot is used to make special dishes. Very special.",
+    "actions": [
+      {
+        "name": "Cook",
+        "description": "Awesome!!",
+        "itemRequirements": {},
+        "skillRequirements": {
+          "Master Chef": 1
+        }
+      }
+    ]
   },
   "beaker": {
     "name": "Beaker",
@@ -40,7 +50,17 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/beaker__x1_1_png_1354832126.png",
     "stacksTo": 1,
     "price": 400,
-    "description": "A state-of-the-art beaker, integral for converting compounds into powders. Now available in exciting Pyrex, specifically designed for today's modern clumsy alchemist."
+    "description": "A state-of-the-art beaker, integral for converting compounds into powders. Now available in exciting Pyrex, specifically designed for today's modern clumsy alchemist.",
+    "actions": [
+      {
+        "name": "Stir",
+        "description": "Make powders",
+        "itemRequirements": {},
+        "skillRequirements": {
+          "Intermediate Admixing": 1
+        }
+      }
+    ]
   },
   "bean_seasoner": {
     "name": "Bean Seasoner",
@@ -50,7 +70,21 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bean_seasoner__x1_1_png_1354830310.png",
     "stacksTo": 1,
     "price": 175,
-    "description": "A Bean Seasoner seasons beans. You probably guessed that already."
+    "description": "A Bean Seasoner seasons beans. You probably guessed that already.",
+    "actions": [
+      {
+        "name": "Season Beans",
+        "description": "Season plain beans",
+        "itemRequirements": {
+          "all": {
+            "bean": 1
+          }
+        },
+        "skillRequirements": {
+          "Botany": 1
+        }
+      }
+    ]
   },
   "blender": {
     "name": "Blender",
@@ -61,7 +95,17 @@
     "stacksTo": 1,
     "price": 150,
     "durability": 100,
-    "description": "A Blender is very good for blending juices, smoothies and other concoctions. This seems a generally sturdy model."
+    "description": "A Blender is very good for blending juices, smoothies and other concoctions. This seems a generally sturdy model.",
+    "actions": [
+      {
+        "name": "Blend",
+        "description": "Blend drinks",
+        "itemRequirements": {},
+        "skillRequirements": {
+          "Blending": 1
+        }
+      }
+    ]
   },
   "bubble_tuner": {
     "name": "Bubble Tuner",
@@ -71,7 +115,21 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bubble_tuner__x1_1_png_1354830318.png",
     "stacksTo": 1,
     "price": 150,
-    "description": "A Bubble Tuner somehow converts plain bubbles into not-plain bubbles. How? Nobody knows."
+    "description": "A Bubble Tuner somehow converts plain bubbles into not-plain bubbles. How? Nobody knows.",
+    "actions": [
+      {
+        "name": "Tune Bubbles",
+        "description": "Make all kinds of bubbles",
+        "itemRequirements": {
+          "all": {
+            "bubble": 1
+          }
+        },
+        "skillRequirements": {
+          "Bubble Tuning": 1
+        }
+      }
+    ]
   },
   "cauldron": {
     "name": "Cauldron",
@@ -82,7 +140,18 @@
     "stacksTo": 1,
     "price": 3500,
     "durability": 200,
-    "description": "A charmed pot for potioneers of all levels. This thick, heavy, magic-imbued cauldron is perfect for potions, from novice concoctions to expert unctions."
+    "description": "A charmed pot for potioneers of all levels. This thick, heavy, magic-imbued cauldron is perfect for potions, from novice concoctions to expert unctions.",
+    "actions": [
+      {
+        "name": "Brew",
+        "description": "Brew a selection of potent potions",
+        "itemRequirements": {},
+        "skillRequirements": {
+          "Botany": 1,
+          "Potionmaking": 1
+        }
+      }
+    ]
   },
   "class_axe": {
     "name": "Class Axe",
@@ -104,7 +173,17 @@
     "stacksTo": 1,
     "price": 150,
     "durability": 100,
-    "description": "A shiny, chrome-plated cocktail shaker for making special drinks."
+    "description": "A shiny, chrome-plated cocktail shaker for making special drinks.",
+    "actions": [
+      {
+        "name": "Shake",
+        "description": "Make cocktails",
+        "itemRequirements": {},
+        "skillRequirements": {
+          "Cocktail Crafting": 1
+        }
+      }
+    ]
   },
   "construction_tool": {
     "name": "Construction Tool",
@@ -136,7 +215,19 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/egg_seasoner__x1_1_png_1354830314.png",
     "stacksTo": 1,
     "price": 175,
-    "description": "An Egg Seasoner is an important tool for seasoning and incubating eggs that hatch into all kinds of exciting animals."
+    "description": "An Egg Seasoner is an important tool for seasoning and incubating eggs that hatch into all kinds of exciting animals.",
+    "actions": [
+      {
+        "name": "Season Eggs",
+        "description": "Season plain eggs",
+        "itemRequirements": {
+          "all": {
+            "egg": 1
+          }
+        },
+        "skillRequirements": {}
+      }
+    ]
   },
   "famous_pugilist_grill": {
     "name": "Famous Pugilist Grill",
@@ -147,7 +238,17 @@
     "stacksTo": 1,
     "price": 175,
     "durability": 100,
-    "description": "For grilling food. Named after the infamous gang of Potian Grillers (all called George) who roamed the countryside in days of yore, indiscriminately punching things into submission then grilling them until they were well done. Whole continents once lived in fear of the Four Georgemen of the Apocgrillypse. You, meanwhile, get to use their tribute novelty cooking item."
+    "description": "For grilling food. Named after the infamous gang of Potian Grillers (all called George) who roamed the countryside in days of yore, indiscriminately punching things into submission then grilling them until they were well done. Whole continents once lived in fear of the Four Georgemen of the Apocgrillypse. You, meanwhile, get to use their tribute novelty cooking item.",
+    "actions": [
+      {
+        "name": "Grill",
+        "description": "Grill food",
+        "itemRequirements": {},
+        "skillRequirements": {
+          "Grilling": 1
+        }
+      }
+    ]
   },
   "fancy_pick": {
     "name": "Fancy Pick",
@@ -237,7 +338,21 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/fruit_changing_machine__x1_1_png_1354830329.png",
     "stacksTo": 1,
     "price": 200,
-    "description": "A triple-carbine fruit-changing machine. It will transmogrify cherries into other fruit. This can come in surprisingly handy."
+    "description": "A triple-carbine fruit-changing machine. It will transmogrify cherries into other fruit. This can come in surprisingly handy.",
+    "actions": [
+      {
+        "name": "Convert Fruit",
+        "description": "Make all kinds of fruit",
+        "itemRequirements": {
+          "all": {
+            "cherry": 1
+          }
+        },
+        "skillRequirements": {
+          "Fruit Changing": 1
+        }
+      }
+    ]
   },
   "frying_pan": {
     "name": "Frying Pan",
@@ -248,7 +363,17 @@
     "stacksTo": 1,
     "price": 125,
     "durability": 100,
-    "description": "A useful pan for frying things in."
+    "description": "A useful pan for frying things in.",
+    "actions": [
+      {
+        "name": "Fry",
+        "description": "Use the pan",
+        "itemRequirements": {},
+        "skillRequirements": {
+          "Cheffery": 1
+        }
+      }
+    ]
   },
   "gassifier": {
     "name": "Gassifier",
@@ -258,7 +383,19 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gassifier__x1_1_png_1354830622.png",
     "stacksTo": 1,
     "price": 150,
-    "description": "An ergonomically correct gassifier. It can turn general vapour into much more exciting gases."
+    "description": "An ergonomically correct gassifier. It can turn general vapour into much more exciting gases.",
+    "actions": [
+      {
+        "name": "Gassify",
+        "description": "Make all kinds of gas",
+        "itemRequirements": {
+          "all": {
+            "general_vapour": 1
+          }
+        },
+        "skillRequirements": {}
+      }
+    ]
   },
   "grand_ol_grinder": {
     "name": "Grand Ol' Grinder",
@@ -269,7 +406,16 @@
     "stacksTo": 1,
     "price": 2000,
     "durability": 500,
-    "description": "More hefty than any grinder you may have met before, a meatier mortar and more powerful pestle means a lot more grind for your currant. Which is good, as it also costs a bunch more currants."
+    "description": "More hefty than any grinder you may have met before, a meatier mortar and more powerful pestle means a lot more grind for your currant. Which is good, as it also costs a bunch more currants.",
+    "actions": [
+      {
+        "name": "Crush",
+        "itemRequirements": {},
+        "skillRequirements": {
+          "Refining": 1
+        }
+      }
+    ]
   },
   "grinder": {
     "name": "Grinder",
@@ -280,7 +426,16 @@
     "stacksTo": 1,
     "price": 200,
     "durability": 100,
-    "description": "A sturdy, no-nonsense grinder. Harness its awesome power to grind rocks (and those rock-like barnacles) into alchemical elements."
+    "description": "A sturdy, no-nonsense grinder. Harness its awesome power to grind rocks (and those rock-like barnacles) into alchemical elements.",
+    "actions": [
+      {
+        "name": "Crush",
+        "itemRequirements": {},
+        "skillRequirements": {
+          "Refining": 1
+        }
+      }
+    ]
   },
   "hatchet": {
     "name": "Hatchet",
@@ -335,7 +490,17 @@
     "stacksTo": 1,
     "price": 75,
     "durability": 100,
-    "description": "A good knife and cutting board. They can be used to make simple foods."
+    "description": "A good knife and cutting board. They can be used to make simple foods.",
+    "actions": [
+      {
+        "name": "Chop",
+        "description": "Get chopping",
+        "itemRequirements": {},
+        "skillRequirements": {
+          "EZ Cooking": 1
+        }
+      }
+    ]
   },
   "loomer": {
     "name": "Loomer",
@@ -424,7 +589,20 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/spice_mill__x1_1_png_1354830433.png",
     "stacksTo": 1,
     "price": 150,
-    "description": "A basic spice mill for converting basic allspice into other more exciting spices."
+    "description": "A basic spice mill for converting basic allspice into other more exciting spices.",
+    "actions": [
+      {
+        "name": "Mill",
+        "itemRequirements": {
+          "all": {
+            "allspice": 1
+          }
+        },
+        "skillRequirements": {
+          "Spice Milling": 1
+        }
+      }
+    ]
   },
   "spindle": {
     "name": "Spindle",

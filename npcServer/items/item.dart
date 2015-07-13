@@ -383,7 +383,7 @@ class Item {
 		}
 		bool success = await takeItemFromUser(userSocket, email, box, 1);
 		await addItemToUser(userSocket, email, items[cubimal].getMap(), 1, box);
-
+		StatBuffer.incrementStat("cubiBoxesOpened", 11);
 		return success;
 	}
 
@@ -396,7 +396,26 @@ class Item {
 		bool success = await takeItemFromUser(userSocket, email, cubiType, 1);
 		if (!success) return false;
 		trySetMetabolics(email, mood: 10, img: 10);
+		StatBuffer.incrementStat("cubisSetFree", 11);
 		return success;
+	}
+
+	// ////////// //
+	// Spice Mill //
+	// ////////// //
+
+	Future<bool> mill({String streetName, Map map, WebSocket userSocket, String email}) async {
+		return false;
+	}
+
+	// //////// //
+	// Grinders //
+	// //////// //
+
+	Future<bool> crush({String streetName, Map map, WebSocket userSocket, String email}) async {
+		// Two types, "grinder" and "grand_ol_grinder"
+		// Send correct type to client, as the actions take different amounts of time once the window is open
+		return false;
 	}
 
 	// //// //
