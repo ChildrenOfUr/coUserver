@@ -59,7 +59,7 @@ class UncleFriendly extends Vendor {
 				// start walking left
 				currentState = states['walk'];
 				// respawn when we finish walking
-				respawn = new DateTime.now().add(new Duration(milliseconds:(currentState.numFrames / 30 * 1000).toInt()));
+				respawn = new DateTime.now().add(new Duration(milliseconds:(currentState.numFrames / 30 * 1000 * 5000).toInt()));
 				return;
 			} else if (currentState.stateName == 'turn_right') {
 				// if we turned right, we are now facing right
@@ -69,7 +69,7 @@ class UncleFriendly extends Vendor {
 				// start walking right
 				currentState = states['walk'];
 				// respawn when we finish walking
-				respawn = new DateTime.now().add(new Duration(milliseconds:(currentState.numFrames / 30 * 1000).toInt()));
+				respawn = new DateTime.now().add(new Duration(milliseconds:(currentState.numFrames / 30 * 1000 * 5000).toInt()));
 				return;
 			} else {
 				// if we haven't just turned

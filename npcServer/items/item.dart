@@ -394,7 +394,7 @@ class Item {
 	Future<bool> setFree({String streetName, Map map, WebSocket userSocket, String email}) async {
 		String cubiType = map['dropItem']['itemType'];
 		bool success = await takeItemFromUser(userSocket, email, cubiType, 1);
-		if (!success) return;
+		if (!success) return false;
 		trySetMetabolics(email, mood: 10, img: 10);
 		return success;
 	}
