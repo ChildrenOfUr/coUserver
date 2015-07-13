@@ -71,18 +71,42 @@ class StreetSpiritGroddle extends Vendor {
 			},
 			"grendaline": {
 				"day": {
-
+					"close": new Spritesheet("close", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_none_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_none_x1_close_png_1354834655.png", 918, 328, 102, 164, 17, false),
+					"idle_hold": new Spritesheet("idle_hold", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_none_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_none_x1_idle_hold_png_1354834647.png", 918, 1640, 102, 164, 85, true),
+					"idle_move": new Spritesheet("idle_move", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_none_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_none_x1_idle_move_png_1354834657.png", 918, 2296, 102, 164, 119, true),
+					"open": new Spritesheet("open", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_none_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_none_x1_open_png_1354834654.png", 714, 492, 102, 164, 19, false),
+					"still": new Spritesheet("still", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_none_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_none_x1_open_png_1354834654.png", 714, 492, 102, 164, 1, false),
+					"talk": new Spritesheet("talk", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_none_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_none_x1_talk_png_1354834651.png", 918, 1476, 102, 164, 73, false),
+					"turn": new Spritesheet("turn", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_none_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_none_x1_turn_png_1354834652.png", 816, 820, 102, 164, 37, false)
 				},
 				"night": {
-
+					"close": new Spritesheet("close", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_none_eyes_eyes_L1eyes3_skull_skull_L1dirt_top_none_x1_close_png_1354834678.png", 918, 328, 102, 164, 17, false),
+					"idle_hold": new Spritesheet("idle_hold", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_none_eyes_eyes_L1eyes3_skull_skull_L1dirt_top_none_x1_idle_hold_png_1354834671.png", 918, 1640, 102, 164, 85, true),
+					"idle_move": new Spritesheet("idle_move", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_none_eyes_eyes_L1eyes3_skull_skull_L1dirt_top_none_x1_idle_move_png_1354834681.png", 918, 2296, 102, 164, 119, true),
+					"open": new Spritesheet("open", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_none_eyes_eyes_L1eyes3_skull_skull_L1dirt_top_none_x1_open_png_1354834677.png", 714, 492, 102, 164, 19, false),
+					"still": new Spritesheet("still", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_none_eyes_eyes_L1eyes3_skull_skull_L1dirt_top_none_x1_open_png_1354834677.png", 714, 492, 102, 164, 1, false),
+					"talk": new Spritesheet("talk", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_none_eyes_eyes_L1eyes3_skull_skull_L1dirt_top_none_x1_talk_png_1354834674.png", 918, 1476, 102, 164, 73, false),
+					"turn": new Spritesheet("turn", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_none_eyes_eyes_L1eyes3_skull_skull_L1dirt_top_none_x1_turn_png_1354834676.png", 816, 820, 102, 164, 37, false)
 				}
 			},
 			"humbaba": {
 				"day": {
-
+					"close": new Spritesheet("close", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1grassSkirt_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_top_L1Grass_x1_close_png_1354834738.png", 999, 344, 111, 172, 17, false),
+					"idle_hold": new Spritesheet("idle_hold", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1grassSkirt_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_top_L1Grass_x1_idle_hold_png_1354834727.png", 999, 1720, 111, 172, 85, true),
+					"idle_move": new Spritesheet("idle_move", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1grassSkirt_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_top_L1Grass_x1_idle_move_png_1354834740.png", 999, 2408, 111, 172, 119, true),
+					"open": new Spritesheet("open", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1grassSkirt_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_top_L1Grass_x1_open_png_1354834736.png", 777, 516, 111, 172, 19, false),
+					"still": new Spritesheet("still", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1grassSkirt_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_top_L1Grass_x1_open_png_1354834736.png", 777, 516, 111, 172, 1, false),
+					"talk": new Spritesheet("talk", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1grassSkirt_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_top_L1Grass_x1_talk_png_1354834731.png", 999, 1548, 111, 172, 73, false),
+					"turn": new Spritesheet("turn", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1grassSkirt_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_top_L1Grass_x1_turn_png_1354834735.png", 888, 860, 111, 172, 37, false)
 				},
 				"night": {
-
+					"close": new Spritesheet("close", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1grassSkirt_eyes_eyes_L1eyes3_skull_skull_L1dirt_top_top_L1Grass_x1_close_png_1354834766.png", 999, 344, 111, 172, 17, false),
+					"idle_hold": new Spritesheet("idle_hold", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1grassSkirt_eyes_eyes_L1eyes3_skull_skull_L1dirt_top_top_L1Grass_x1_idle_hold_png_1354834756.png", 999, 1720, 111, 172, 85, true),
+					"idle_move": new Spritesheet("idle_move", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1grassSkirt_eyes_eyes_L1eyes3_skull_skull_L1dirt_top_top_L1Grass_x1_idle_move_png_1354834769.png", 999, 2408, 111, 172, 119, true),
+					"open": new Spritesheet("open", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1grassSkirt_eyes_eyes_L1eyes3_skull_skull_L1dirt_top_top_L1Grass_x1_open_png_1354834765.png", 777, 516, 111, 172, 19, false),
+					"still": new Spritesheet("still", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1grassSkirt_eyes_eyes_L1eyes3_skull_skull_L1dirt_top_top_L1Grass_x1_open_png_1354834765.png", 777, 516, 111, 172, 1, false),
+					"talk": new Spritesheet("talk", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1grassSkirt_eyes_eyes_L1eyes3_skull_skull_L1dirt_top_top_L1Grass_x1_talk_png_1354834761.png", 999, 1548, 111, 172, 73, false),
+					"turn": new Spritesheet("turn", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1grassSkirt_eyes_eyes_L1eyes3_skull_skull_L1dirt_top_top_L1Grass_x1_turn_png_1354834763.png", 888, 860, 111, 172, 37, false)
 				}
 			},
 			"lem": {
