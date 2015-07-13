@@ -12,7 +12,7 @@ abstract class Vendor extends NPC {
 		'vendorType' decides which items to sell, and is never displayed to the user
 	 **/
 
-	Vendor(String id, String streetName, int x, int y) : super(id, x, y) {
+	Vendor(String id, String streetName, String tsid, int x, int y) : super(id, x, y) {
 		//vendor actions are instant
 		actionTime = 0;
 		type = "Street Spirit";

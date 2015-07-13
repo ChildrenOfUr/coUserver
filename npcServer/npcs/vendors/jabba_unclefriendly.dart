@@ -2,7 +2,7 @@ part of coUserver;
 
 class UncleFriendly extends Vendor {
 	int openCount = 0;
-	UncleFriendly(String id, String streetName, int x, int y) : super(id, streetName, x, y) {
+	UncleFriendly(String id, String streetName, String tsid, int x, int y) : super(id, streetName, tsid, x, y) {
 		type = "Uncle Friendly";
 		itemsForSale = [
 			items["honey"].getMap(),

@@ -3,7 +3,7 @@ part of coUserver;
 class StreetSpiritZutto extends Vendor {
 	int openCount = 0;
 
-	StreetSpiritZutto(String id, String streetName, int x, int y) : super(id, streetName, x, y) {
+	StreetSpiritZutto(String id, String streetName, String tsid, int x, int y) : super(id, streetName, tsid, x, y) {
 		speed = 0;
 		itemsPredefined = false;
 		states = {

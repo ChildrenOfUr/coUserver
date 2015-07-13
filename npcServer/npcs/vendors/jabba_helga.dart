@@ -2,7 +2,7 @@ part of coUserver;
 
 class Helga extends Vendor {
   int openCount = 0;
-  Helga(String id, String streetName, int x, int y) : super(id, streetName, x, y) {
+  Helga(String id, String streetName, String tsid, int x, int y) : super(id, streetName, tsid, x, y) {
     type = "Helga";
     itemsForSale = [
 	    items["still"].getMap(),

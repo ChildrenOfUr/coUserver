@@ -14,6 +14,10 @@ Map getStreetEntities(String tsid) {
 	return entities;
 }
 
+String streetNameToTsid(String name) {
+
+}
+
 saveStreetData(Map params) {
 	String tsid = params['tsid'];
 	if(tsid.startsWith("G"))
