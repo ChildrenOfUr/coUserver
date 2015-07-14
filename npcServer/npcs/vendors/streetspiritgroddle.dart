@@ -136,7 +136,7 @@ class StreetSpiritGroddle extends Vendor {
 					"idle_move": new Spritesheet("idle_move", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1FallLeaves_eyes_eyes_L1eyes2_skull_skull_L1wood_top_top_L1Feathers_x1_idle_move_png_1354835471.png", 882, 2975, 126, 175, 119, true),
 					"open": new Spritesheet("open", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1FallLeaves_eyes_eyes_L1eyes2_skull_skull_L1wood_top_top_L1Feathers_x1_open_png_1354835464.png", 882, 525, 126, 175, 19, false),
 					"still": new Spritesheet("still", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1FallLeaves_eyes_eyes_L1eyes2_skull_skull_L1wood_top_top_L1Feathers_x1_open_png_1354835464.png", 882, 525, 126, 175, 1, false),
-					"talk": new Spritsheet("talk", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1FallLeaves_eyes_eyes_L1eyes2_skull_skull_L1wood_top_top_L1Feathers_x1_talk_png_1354835460.png", 882, 1925, 126, 175, 73, false),
+					"talk": new Spritesheet("talk", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1FallLeaves_eyes_eyes_L1eyes2_skull_skull_L1wood_top_top_L1Feathers_x1_talk_png_1354835460.png", 882, 1925, 126, 175, 73, false),
 					"turn": new Spritesheet("turn", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1FallLeaves_eyes_eyes_L1eyes2_skull_skull_L1wood_top_top_L1Feathers_x1_turn_png_1354835462.png", 882, 1050, 126, 175, 37, false)
 				},
 				"night": {
