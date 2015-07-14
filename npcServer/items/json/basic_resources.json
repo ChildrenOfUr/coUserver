@@ -196,5 +196,14 @@
     "stacksTo": 250,
     "price": 5,
     "description": "A plain wooden plank with many uses."
+  },
+  "salmon_bubble": {
+    "name": "Salmon Bubble",
+    "category": "Basic Resources",
+    "iconUrl": "http://childrenofur.com/assets/game/salmon_bubble/salmon_bubble_iconic.png",
+    "spriteUrl": "http://childrenofur.com/assets/game/salmon_bubble/salmon_bubble_sprites.png",
+    "stacksTo": 10,
+    "price": 1,
+    "description": "A bubble caught from the wake of an escaping Salmon."
   }
 }
