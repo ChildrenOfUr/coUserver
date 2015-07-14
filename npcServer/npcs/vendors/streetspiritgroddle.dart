@@ -111,26 +111,62 @@ class StreetSpiritGroddle extends Vendor {
 			},
 			"lem": {
 				"day": {
-
+					"close": new Spritesheet("close", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1Branches_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_top_L1dirtSpikey_x1_close_png_1354835264.png", 930, 582, 155, 194, 17, false),
+					"idle_hold": new Spritesheet("idle_hold", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1Branches_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_top_L1dirtSpikey_x1_idle_hold_png_1354835252.png", 930, 2910, 155, 194, 85, true),
+					"idle_move": new Spritesheet("idle_move", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1Branches_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_top_L1dirtSpikey_x1_idle_move_png_1354835269.png", 930, 3880, 155, 194, 119, true),
+					"open": new Spritesheet("open", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1Branches_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_top_L1dirtSpikey_x1_open_png_1354835263.png", 775, 776, 155, 194, 19, false),
+					"still": new Spritesheet("still", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1Branches_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_top_L1dirtSpikey_x1_open_png_1354835263.png", 775, 776, 155, 194, 1, false),
+					"talk": new Spritesheet("talk", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1Branches_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_top_L1dirtSpikey_x1_talk_png_1354835257.png", 930, 2522, 155, 194, 73, false),
+					"turn": new Spritesheet("turn", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1Branches_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_top_L1dirtSpikey_x1_turn_png_1354835260.png", 930, 1358, 155, 194, 37, false)
 				},
 				"night": {
-
+					"close": new Spritesheet("close", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1Branches_eyes_eyes_L1eyes3_skull_skull_L1dirt_top_top_L1dirtSpikey_x1_close_png_1354835298.png", 930, 582, 155, 194, 17, false),
+					"idle_hold": new Spritesheet("idle_hold", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1Branches_eyes_eyes_L1eyes3_skull_skull_L1dirt_top_top_L1dirtSpikey_x1_idle_hold_png_1354835285.png", 930, 2910, 155, 194, 85, true),
+					"idle_move": new Spritesheet("idle_move", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1Branches_eyes_eyes_L1eyes3_skull_skull_L1dirt_top_top_L1dirtSpikey_x1_idle_move_png_1354835302.png", 930, 3880, 155, 194, 119, true),
+					"open": new Spritesheet("open", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1Branches_eyes_eyes_L1eyes3_skull_skull_L1dirt_top_top_L1dirtSpikey_x1_open_png_1354835296.png", 775, 776, 155, 194, 19, false),
+					"still": new Spritesheet("still", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1Branches_eyes_eyes_L1eyes3_skull_skull_L1dirt_top_top_L1dirtSpikey_x1_open_png_1354835296.png", 775, 776, 155, 194, 1, false),
+					"talk": new Spritesheet("talk", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1Branches_eyes_eyes_L1eyes3_skull_skull_L1dirt_top_top_L1dirtSpikey_x1_talk_png_1354835291.png", 930, 2522, 155, 194, 73, false),
+					"turn": new Spritesheet("turn", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1Branches_eyes_eyes_L1eyes3_skull_skull_L1dirt_top_top_L1dirtSpikey_x1_turn_png_1354835294.png", 930, 1358, 155, 194, 37, false)
 				}
 			},
 			"mab": {
 				"day": {
-
+					"close": new Spritesheet("close", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1FallLeaves_eyes_eyes_L1eyes2_skull_skull_L1wood_top_top_L1Feathers_x1_close_png_1354835466.png", 756, 525, 126, 175, 17, false),
+					"idle_hold": new Spritesheet("idle_hold", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1FallLeaves_eyes_eyes_L1eyes2_skull_skull_L1wood_top_top_L1Feathers_x1_idle_hold_png_1354835454.png", 882, 2275, 126, 175, 85, true),
+					"idle_move": new Spritesheet("idle_move", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1FallLeaves_eyes_eyes_L1eyes2_skull_skull_L1wood_top_top_L1Feathers_x1_idle_move_png_1354835471.png", 882, 2975, 126, 175, 119, true),
+					"open": new Spritesheet("open", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1FallLeaves_eyes_eyes_L1eyes2_skull_skull_L1wood_top_top_L1Feathers_x1_open_png_1354835464.png", 882, 525, 126, 175, 19, false),
+					"still": new Spritesheet("still", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1FallLeaves_eyes_eyes_L1eyes2_skull_skull_L1wood_top_top_L1Feathers_x1_open_png_1354835464.png", 882, 525, 126, 175, 1, false),
+					"talk": new Spritsheet("talk", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1FallLeaves_eyes_eyes_L1eyes2_skull_skull_L1wood_top_top_L1Feathers_x1_talk_png_1354835460.png", 882, 1925, 126, 175, 73, false),
+					"turn": new Spritesheet("turn", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1FallLeaves_eyes_eyes_L1eyes2_skull_skull_L1wood_top_top_L1Feathers_x1_turn_png_1354835462.png", 882, 1050, 126, 175, 37, false)
 				},
 				"night": {
-
+					"close": new Spritesheet("close", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1FallLeaves_eyes_eyes_L1eyes3_skull_skull_L1wood_top_top_L1Feathers_x1_close_png_1354835503.png", 756, 525, 126, 175, 17, false),
+					"idle_hold": new Spritesheet("idle_hold", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1FallLeaves_eyes_eyes_L1eyes3_skull_skull_L1wood_top_top_L1Feathers_x1_idle_hold_png_1354835490.png", 882, 2275, 126, 175, 85, true),
+					"idle_move": new Spritesheet("idle_move", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1FallLeaves_eyes_eyes_L1eyes3_skull_skull_L1wood_top_top_L1Feathers_x1_idle_move_png_1354835507.png", 882, 2975, 126, 175, 119, true),
+					"open": new Spritesheet("open", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1FallLeaves_eyes_eyes_L1eyes3_skull_skull_L1wood_top_top_L1Feathers_x1_open_png_1354835501.png", 882, 525, 126, 175, 19, false),
+					"still": new Spritesheet("still", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1FallLeaves_eyes_eyes_L1eyes3_skull_skull_L1wood_top_top_L1Feathers_x1_open_png_1354835501.png", 882, 525, 126, 175, 1, false),
+					"talk": new Spritesheet("talk", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1FallLeaves_eyes_eyes_L1eyes3_skull_skull_L1wood_top_top_L1Feathers_x1_talk_png_1354835496.png", 882, 1925, 126, 175, 73, false),
+					"turn": new Spritesheet("turn", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1FallLeaves_eyes_eyes_L1eyes3_skull_skull_L1wood_top_top_L1Feathers_x1_turn_png_1354835499.png", 882, 1050, 126, 175, 37, false)
 				}
 			},
 			"pot": {
 				"day": {
-
+					"close": new Spritesheet("close", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1WoodAcornBranch_eyes_eyes_L1eyes2_skull_skull_L1wood_top_top_L1woodTwig_x1_close_png_1354835579.png", 864, 525, 144, 175, 17, false),
+					"idle_hold": new Spritesheet("idle_hold", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1WoodAcornBranch_eyes_eyes_L1eyes2_skull_skull_L1wood_top_top_L1woodTwig_x1_idle_hold_png_1354835568.png", 864, 2625, 144, 175, 85, true),
+					"idle_move": new Spritesheet("idle_move", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1WoodAcornBranch_eyes_eyes_L1eyes2_skull_skull_L1wood_top_top_L1woodTwig_x1_idle_move_png_1354835587.png", 864, 3500, 144, 175, 119, true),
+					"open": new Spritesheet("open", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1WoodAcornBranch_eyes_eyes_L1eyes2_skull_skull_L1wood_top_top_L1woodTwig_x1_open_png_1354835577.png", 720, 700, 144, 175, 19, false),
+					"still": new Spritesheet("still", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1WoodAcornBranch_eyes_eyes_L1eyes2_skull_skull_L1wood_top_top_L1woodTwig_x1_open_png_1354835577.png", 720, 700, 144, 175, 1, false),
+					"talk": new Spritesheet("talk", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1WoodAcornBranch_eyes_eyes_L1eyes2_skull_skull_L1wood_top_top_L1woodTwig_x1_talk_png_1354835572.png", 864, 2275, 144, 175, 73, false),
+					"turn": new Spritesheet("turn", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1WoodAcornBranch_eyes_eyes_L1eyes2_skull_skull_L1wood_top_top_L1woodTwig_x1_turn_png_1354835575.png", 864, 1225, 144, 175, 37, false)
 				},
 				"night": {
-
+					"close": new Spritesheet("close", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1WoodAcornBranch_eyes_eyes_L1eyes3_skull_skull_L1wood_top_top_L1woodTwig_x1_close_png_1354835621.png", 864, 525, 144, 175, 17, false),
+					"idle_hold": new Spritesheet("idle_hold", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1WoodAcornBranch_eyes_eyes_L1eyes3_skull_skull_L1wood_top_top_L1woodTwig_x1_idle_hold_png_1354835608.png", 864, 2625, 144, 175, 85, true),
+					"idle_move": new Spritesheet("idle_move", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1WoodAcornBranch_eyes_eyes_L1eyes3_skull_skull_L1wood_top_top_L1woodTwig_x1_idle_move_png_1354835628.png", 864, 3500, 144, 175, 119, true),
+					"open": new Spritesheet("open", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1WoodAcornBranch_eyes_eyes_L1eyes3_skull_skull_L1wood_top_top_L1woodTwig_x1_open_png_1354835619.png", 720, 700, 144, 175, 19, false),
+					"still": new Spritesheet("still", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1WoodAcornBranch_eyes_eyes_L1eyes3_skull_skull_L1wood_top_top_L1woodTwig_x1_open_png_1354835619.png", 720, 700, 144, 175, 1, false),
+					"talk": new Spritesheet("talk", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1WoodAcornBranch_eyes_eyes_L1eyes3_skull_skull_L1wood_top_top_L1woodTwig_x1_talk_png_1354835614.png", 864, 2275, 144, 175, 73, false),
+					"turn": new Spritesheet("turn", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1wood_bottom_bottom_L1WoodAcornBranch_eyes_eyes_L1eyes3_skull_skull_L1wood_top_top_L1woodTwig_x1_turn_png_1354835617.png", 864, 1225, 144, 175, 37, false)
 				}
 			},
 			"spriggan": {
