@@ -1,7 +1,7 @@
 part of coUserver;
 
 abstract class Entity {
-	List<Map> actions;
+	List<Map> actions = [];
 	String bubbleText;
 	DateTime sayTimeout = null;
 	Map<String, List<String>> responses = {};

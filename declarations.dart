@@ -110,6 +110,12 @@ part 'npcServer/plants/rocks/sparklyrock.dart';
 part 'npcServer/plants/rocks/dulliterock.dart';
 part 'npcServer/plants/rocks/metalrock.dart';
 
+// doors
+part 'npcServer/doors/door.dart';
+part 'npcServer/doors/bureaucratic_hall_door.dart';
+part 'npcServer/doors/machine_room_door.dart';
+part 'npcServer/doors/shoppe_door.dart';
+
 // misc
 part 'npcServer/npcs/mailbox.dart';
 part 'npcServer/npcs/auctioneer.dart';
