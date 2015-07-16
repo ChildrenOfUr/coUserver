@@ -60,10 +60,11 @@ class StreetUpdateHandler {
 				street.quoins.forEach((String id, Quoin quoin) => quoin.update());
 				street.npcs.forEach((String id, NPC npc) => npc.update());
 
-				Map<String, List> updates = {"label":streetName, "quoins":[], "npcs":[], "plants":[], "groundItems":[]};
+				Map<String, List> updates = {"label":streetName, "quoins":[], "npcs":[], "plants":[], "doors":[], "groundItems":[]};
 				street.quoins.forEach((String id, Quoin quoin) => updates["quoins"].add(quoin.getMap()));
 				street.npcs.forEach((String id, NPC npc) => updates["npcs"].add(npc.getMap()));
 				street.plants.forEach((String id, Plant plant) => updates["plants"].add(plant.getMap()));
+				street.doors.forEach((String id, Door door) => updates["doors"].add(door.getMap()));
 
 				List<String> pickedUpItems = [];
 				street.groundItems.forEach((String id, Item item) {

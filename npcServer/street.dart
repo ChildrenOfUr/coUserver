@@ -17,7 +17,7 @@ class Street {
 		npcs = new Map<String, NPC>();
 		doors = new Map<String, Door>();
 		groundItems = new Map<String, Item>();
-		entityMaps = {"quoin":quoins, "plant":plants, "npc":npcs, "groundItem":groundItems};
+		entityMaps = {"quoin":quoins, "plant":plants, "npc":npcs, "door":doors, "groundItem":groundItems};
 		occupants = new List<WebSocket>();
 
 		//attempt to load street occupants from streetEntities folder
@@ -53,7 +53,7 @@ class Street {
 							id = "p" + id;
 							plants[id] = classMirror.newInstance(new Symbol(""), [id, x, y]).reflectee;
 						}
-						if (classMirror.isSubclassOf(findClassMirror("Door"))) {
+						if(classMirror.isSubclassOf(findClassMirror("Door"))) {
 							id = "d" + id;
 							doors[id] = classMirror.newInstance(new Symbol(""), [id, label, x, y]).reflectee;
 						}

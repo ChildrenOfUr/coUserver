@@ -1,26 +1,41 @@
 part of coUserver;
 
 class Door extends Entity {
-  String id, type, toLocation;
-  bool outside;
-  Spritesheet currentState;
+	String id, type, toLocation, streetName;
+	bool outside;
+	Spritesheet currentState;
+	int x,y;
 
-  Door(String id, String streetName, int x, int y) {
-    type = "Door";
-  }
+	Door(this.id, this.streetName, this.x, this.y) {
+		type = "Door";
+	}
 
-  void enter({WebSocket userSocket, String email}) {
-    useDoor(userSocket:userSocket, email:email);
-  }
+	Map getMap() {
+		Map map = super.getMap();
+		map['url'] = currentState.url;
+		map['id'] = id;
+		map['type'] = type;
+		map["numRows"] = currentState.numRows;
+		map["numColumns"] = currentState.numColumns;
+		map["numFrames"] = currentState.numFrames;
+		map["actions"] = actions;
+		map['x'] = x;
+		map['y'] = y;
+		return map;
+	}
 
-  void exit({WebSocket userSocket, String email}) {
-    useDoor(userSocket:userSocket, email:email);
-  }
+	void enter({WebSocket userSocket, String email}) {
+		useDoor(userSocket:userSocket, email:email);
+	}
 
-  void useDoor({WebSocket userSocket, String email}) {
-    Map map = {}
-      ..["gotoStreet"] = "true"
-      ..["tsid"] = toLocation;
-    userSocket.add(JSON.encode(map));
-  }
+	void exit({WebSocket userSocket, String email}) {
+		useDoor(userSocket:userSocket, email:email);
+	}
+
+	void useDoor({WebSocket userSocket, String email}) {
+		Map map = {}
+			..["gotoStreet"] = "true"
+			..["tsid"] = toLocation;
+		userSocket.add(JSON.encode(map));
+	}
 }
