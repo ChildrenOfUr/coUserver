@@ -20,6 +20,12 @@ class BureaucraticHallDoor extends Door {
 					break;
 			}
 			outside = false;
+			actions.add({
+				"action": "exit",
+				"timeRequired": 0,
+				"enabled": true,
+				"actionWord": "walking out"
+			});
 			currentState = new Spritesheet("door_bh_int", "http://childrenofur.com/assets/game/doors/bureaucratic_hall_door_int.png", 132, 312, 132, 312, 1, true);
 		} else {
 			switch(streetName) {
@@ -39,6 +45,12 @@ class BureaucraticHallDoor extends Door {
 					break;
 			}
 			outside = true;
+			actions.add({
+				"action": "enter",
+				"timeRequired": 0,
+				"enabled": true,
+				"actionWord": "walking in"
+			});
 			currentState = new Spritesheet("door_bh_ext", "http://childrenofur.com/assets/game/doors/bureaucratic_hall_door_ext.png", 116, 122, 116, 122, 1, true);
 		}
 		type = "Bureaucratic Hall";
