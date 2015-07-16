@@ -217,7 +217,7 @@ String parseMessageFromSlack(@app.Body(app.FORM) Map form) {
 	Map map = {};
 	if(username != "slackbot" && text != null && text.isNotEmpty) {
 		if(token == couKey) {
-			map = {'username':'dev_$username', 'message': text, 'channel':'Global Chat'};
+			map = {'username':username, 'message': text, 'channel':'Global Chat'};
 		} else {
 			map = {'username':'$username', 'message': text, 'channel':'Global Chat'};
 		}
