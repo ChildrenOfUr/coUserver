@@ -384,6 +384,11 @@
     "mood": 0,
     "img": 0
   },
+  "meat": {
+    "energy": 2,
+    "mood": 0,
+    "img": 0
+  },
   "meat_gumbo": {
     "energy": 10,
     "mood": 0,
