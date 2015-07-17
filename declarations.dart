@@ -102,6 +102,7 @@ part 'npcServer/plants/dirtpile.dart';
 part 'npcServer/plants/peatbog.dart';
 part 'npcServer/plants/mortarbarnacle.dart';
 part 'npcServer/plants/jellisacgrowth.dart';
+part 'npcServer/plants/icenubbin.dart';
 
 // rocks
 part 'npcServer/plants/rocks/rock.dart';

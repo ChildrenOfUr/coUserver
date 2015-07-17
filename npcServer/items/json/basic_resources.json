@@ -208,10 +208,10 @@
   "salmon_bubble": {
     "name": "Salmon Bubble",
     "category": "Basic Resources",
-    "iconUrl": "http://childrenofur.com/assets/game/salmon_bubble/salmon_bubble_iconic.png",
-    "spriteUrl": "http://childrenofur.com/assets/game/salmon_bubble/salmon_bubble_sprites.png",
+    "iconUrl": "http://childrenofur.com/game-assets/bubble_salmon_iconic.png",
+    "spriteUrl": "http://childrenofur.com/game-assets/bubble_salmon_1234.png",
     "stacksTo": 10,
     "price": 1,
-    "description": "A bubble caught from the wake of an escaping Salmon."
+    "description": "A bubble caught from the wake of an escaping Salmon. Smells kinda fishy."
   }
 }

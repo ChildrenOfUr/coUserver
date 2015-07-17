@@ -57,7 +57,7 @@ class Street {
 							id = "d" + id;
 							doors[id] = classMirror.newInstance(new Symbol(""), [id, label, x, y]).reflectee;
 						}
-					} catch(e, st) {
+					} catch(e) {
 						log("Unable to instantiate a class for $type: $e");
 					}
 				}
