@@ -19,7 +19,7 @@ class Helga extends Vendor {
       "talk": new Spritesheet("talk",
         "http://c2.glitch.bz/items/2012-12-06/npc_jabba2__x1_talk_png_1354831682.png",
         3942, 1552, 438, 194, 72, true),
-      "turn": new Spritesheet("turn",
+      "turn_left": new Spritesheet("turn",
         "http://c2.glitch.bz/items/2012-12-06/npc_jabba2__x1_turn_png_1354831675.png",
         876, 1746, 438, 194, 18, false),
       "turn_right": new Spritesheet("turn_right",
