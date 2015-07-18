@@ -76,6 +76,7 @@
     "category": "Herdkeeping Supplies",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/meat_collector__x1_1_png_1354831017.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/meat_collector__x1_1_png_1354831017.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 500,
     "description": "A farm-grade meat collector. It works around the clock to collect meat from your piggies when you can't."

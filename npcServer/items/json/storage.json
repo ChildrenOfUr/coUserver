@@ -4,6 +4,7 @@
     "category": "Storage",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/bag_alchemistry_kit__x1_1_png_1354832225.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bag_alchemistry_kit__x1_1_png_1354832225.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 100,
     "description": "An alchemistry kit, lovingly handcrafted using wood harvested from ancient bean trees in Groddle Forest. Use it to keep your compounds organized and unexplode-y."
@@ -13,6 +14,7 @@
     "category": "Storage",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/bag_bigger__x1_1_png_1354832599.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bag_bigger__x1_1_png_1354832599.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 1999,
     "description": "A big, big bag for putting things in. Bigger than 15 slots, but not as big as 17."
@@ -22,6 +24,7 @@
     "category": "Storage",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/bag_bigger_blue__x1_1_png_1354832607.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bag_bigger_blue__x1_1_png_1354832607.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 1999,
     "description": "A big, big blue bag for putting things in. Bigger than 15 slots, but not as big as 17."
@@ -31,6 +34,7 @@
     "category": "Storage",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/bag_bigger_gray__x1_1_png_1354832601.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bag_bigger_gray__x1_1_png_1354832601.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 1999,
     "description": "A big, big gray bag for putting things in. Bigger than 15 slots, but not as big as 17."
@@ -40,6 +44,7 @@
     "category": "Storage",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/bag_bigger_green__x1_1_png_1354832604.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bag_bigger_green__x1_1_png_1354832604.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 1999,
     "description": "A big, big green bag for putting things in. Bigger than 15 slots, but not as big as 17."
@@ -49,6 +54,7 @@
     "category": "Storage",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/bag_bigger_pink__x1_1_png_1354832610.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bag_bigger_pink__x1_1_png_1354832610.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 1999,
     "description": "A big, big pink bag for putting things in. Bigger than 15 slots, but not as big as 17."
@@ -58,6 +64,7 @@
     "category": "Storage",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/bag_toolbox_chrome__x1_1_png_1354832914.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bag_toolbox_chrome__x1_1_png_1354832914.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 2500,
     "description": "A sturdy, metal-y, chrome toolbox. It's a box. And you can put tools in it."
@@ -67,6 +74,7 @@
     "category": "Storage",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/bag_cubimal_case__x1_1_png_1354836340.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bag_cubimal_case__x1_1_png_1354836340.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 500,
     "description": "For keeping your Cubimals in peak condition."
@@ -76,6 +84,7 @@
     "category": "Storage",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/bag_elemental_pouch__x1_1_png_1354831495.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bag_elemental_pouch__x1_1_png_1354831495.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 50,
     "description": "An essential elemental pouch. You need it for carrying alchemical elements. What, you thought you could carry them in your HANDS? Requires Element Handling skill."
@@ -85,6 +94,7 @@
     "category": "Storage",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/bag_generic__x1_1_png_1354830380.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bag_generic__x1_1_png_1354830380.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 900,
     "description": "An honest, unpretentious burlap sack. You could probably put things in it, perhaps 10 things, and give it a name. Just a thought."
@@ -94,6 +104,7 @@
     "category": "Storage",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/bag_generic_blue__x1_1_png_1354832382.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bag_generic_blue__x1_1_png_1354832382.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 1000,
     "description": "An honest, unpretentious blue burlap sack. You could probably put things in it, perhaps 10 things, and give it a name. Just a thought."
@@ -103,6 +114,7 @@
     "category": "Storage",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/bag_generic_gray__x1_1_png_1354832388.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bag_generic_gray__x1_1_png_1354832388.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 950,
     "description": "An honest, unpretentious gray burlap sack. You could probably put things in it, perhaps 10 things, and give it a name. Just a thought."
@@ -112,6 +124,7 @@
     "category": "Storage",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/bag_generic_green__x1_1_png_1354832385.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bag_generic_green__x1_1_png_1354832385.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 925,
     "description": "An honest, unpretentious green burlap sack. You could probably put things in it, perhaps 10 things, and give it a name. Just a thought."
@@ -121,6 +134,7 @@
     "category": "Storage",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/bag_generic_pink__x1_1_png_1354832391.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bag_generic_pink__x1_1_png_1354832391.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 975,
     "description": "An honest, unpretentious pink burlap sack. You could probably put things in it, perhaps 10 things, and give it a name. Just a thought."
@@ -130,6 +144,7 @@
     "category": "Storage",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/bag_toolbox_green__x1_1_png_1354832918.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bag_toolbox_green__x1_1_png_1354832918.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 2500,
     "description": "A sturdy, metal-y, green toolbox. It's a box. And you can put tools in it."
@@ -139,6 +154,7 @@
     "category": "Storage",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/bag_toolbox_red__x1_1_png_1354832909.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bag_toolbox_red__x1_1_png_1354832909.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 2500,
     "description": "A sturdy, metal-y, red toolbox. It's a box. And you can put tools in it."
@@ -148,6 +164,7 @@
     "category": "Storage",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/bag_spicerack__x1_1_png_1354830350.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bag_spicerack__x1_1_png_1354830350.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 500,
     "description": "A practical rack for storing spices."
