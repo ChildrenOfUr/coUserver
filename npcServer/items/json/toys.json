@@ -84,8 +84,9 @@
   "emotional_bear": {
     "name": "Emotional Bear",
     "category": "Toys",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/emotional_bear__x1_1_kiss_png_1354831950.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/emotional_bear__x1_high_5_part1_png_1354832061.png",
+    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/emotional_bear__x1_iconic_png_1354831946.png",
+    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/emotional_bear__x1_1_plain_png_1354831949.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 300,
     "description": "When you can't express how you're feeling, this furry companion will emote on your behalf. Particularly when equipped with Lips for kissing or a Moon for you-know-whatting…"
@@ -176,6 +177,7 @@
     "category": "Toys",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/lips__x1_1_png_1354831835.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/lips__x1_1_png_1354831835.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 10,
     "description": "Pre-pursed, super-soft and infused with an antibacterial salve, these lips can be attached to whatever might help you kiss people better. Like, say, an Emotional Bear."

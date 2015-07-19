@@ -50,6 +50,7 @@
     "category": "Machines & Fuel",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/blockmaker_engine__x1_1_png_1354833233.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/blockmaker_engine__x1_1_png_1354833233.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 2500,
     "description": "Install this engine, and your machine is one step closer to purring like the quintessential classic, thrumming like the deeply resonant inner chambers of Zille's enormous throat."

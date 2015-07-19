@@ -104,12 +104,12 @@ class Item {
 
 		bool found = false;
 		actions.forEach((Action action) {
-			if(action.name == 'drop') {
+			if (action.name == 'drop') {
 				found = true;
 			}
 		});
 
-		if(!found) {
+		if (!found) {
 			actions.insert(0, dropAction);
 		}
 	}
@@ -135,17 +135,17 @@ class Item {
 	}
 
 	List<Map> get actionList {
-		if(onGround) {
+		if (onGround) {
 			return [encode(pickupAction)];
 		} else {
 			List<Map> result = encode(actions);
 			bool found = false;
 			actions.forEach((Action action) {
-				if(action.name == 'drop') {
+				if (action.name == 'drop') {
 					found = true;
 				}
 			});
-			if(!found) {
+			if (!found) {
 				result.insert(0, encode(dropAction));
 			}
 			return result;
@@ -154,7 +154,7 @@ class Item {
 
 	Future<bool> trySetMetabolics(String identity, {int energy:0, int mood:0, int img:0, int currants:0}) async {
 		Metabolics m = new Metabolics();
-		if(identity.contains("@")) {
+		if (identity.contains("@")) {
 			m = await getMetabolics(email:identity);
 		} else {
 			m = await getMetabolics(username:identity);
@@ -165,7 +165,7 @@ class Item {
 		m.lifetime_img += img;
 		m.currants += currants;
 		int result = await setMetabolics(m);
-		if(result < 1) {
+		if (result < 1) {
 			return false;
 		}
 		return true;
@@ -179,7 +179,7 @@ class Item {
 
 	Future<bool> consume({String streetName, Map map, WebSocket userSocket, String email}) async {
 		bool success = await takeItemFromUser(userSocket, email, map['dropItem']['itemType'], map['count']);
-		if(!success) {
+		if (!success) {
 			return false;
 		}
 
@@ -228,13 +228,13 @@ class Item {
 		List<Identifier> ids = ChatHandler.users.values.where((Identifier id) => id.channelList.contains(streetName)).toList();
 		ids.forEach((Identifier id) => users.add(id.username));
 		int numUsersOnStreet = users.length;
-		if(numUsersOnStreet == 1) {
+		if (numUsersOnStreet == 1) {
 			return false;
 		} else {
 			int amt;
-			if(numUsersOnStreet < 10) {
+			if (numUsersOnStreet < 10) {
 				amt = 20;
-			} else if(numUsersOnStreet > 10 && numUsersOnStreet < 20) {
+			} else if (numUsersOnStreet > 10 && numUsersOnStreet < 20) {
 				amt = 40;
 			} else {
 				amt = 60;
@@ -278,7 +278,6 @@ class Item {
 	}
 
 	Future<bool> iconize({String streetName, Map map, WebSocket userSocket, String email}) async {
-		int amt = rand.nextInt(10) + 5;
 		String emblemType = itemType;
 		String iconType = "icon_of_" + itemType.substring(10);
 		bool success1 = await takeItemFromUser(userSocket, email, emblemType, 11);
@@ -404,62 +403,55 @@ class Item {
 		bool success = await takeItemFromUser(userSocket, email, cubiType, 1);
 		if (!success) return false;
 		Map<String, double> cubis;
-		if (map['dropItem']['itemType'] == 'cubimal_series_1_box') {
-			cubis = {
-				"chick": 17.000,
-				"piggy": 34.000,
-				"butterfly": 50.000,
-				"crab": 58.000,
-				"batterfly": 66.000,
-				"frog": 74.000,
-				"firefly": 82.000,
-				"bureaucrat": 84.000,
-				"cactus": 86.000,
-				"snoconevendor": 88.000,
-				"squid": 90.000,
-				"juju": 92.000,
-				"smuggler": 93.250,
-				"deimaginator": 94.500,
-				"greeterbot": 95.750,
-				"dustbunny": 97.000,
-				"gwendolyn": 97.500,
-				"unclefriendly": 98.000,
-				"helga": 98.500,
-				"magicrock": 99.000,
-				"yeti": 99.500,
-				"rube": 99.750,
-				"rook": 100.00
-			};
-		} else if (map['dropItem']['itemType'] == 'cubimal_series_2_box') {
-			cubis = {
-				"fox": 14.500,
-				"sloth": 29.000,
-				"emobear": 37.000,
-				"foxranger": 45.000,
-				"groddlestreetspirit": 54.000,
-				"uraliastreetspirit": 61.000,
-				"firebogstreetspirit": 69.000,
-				"gnome": 77.000,
-				"butler": 81.000,
-				"craftybot": 85.000,
-				"phantom": 89.000,
-				"ilmenskiejones": 93.000,
-				"trisor": 94.000,
-				"toolvendor": 95.000,
-				"mealvendor": 96.000,
-				"gardeningtoolsvendor": 97.000,
-				"maintenancebot": 98.000,
-				"senorfunpickle": 99.000,
-				"hellbartender": 99.500,
-				"scionofpurple": 100.50,
-			};
-		} else {
-			return false;
-		}
-		int img = (cubis[(map["dropItem"]["itemType"] as String).substring(8)] / 2) * (rand.nextDouble() + 0.1);
+		cubis = {
+			"chick": 17.000,
+			"piggy": 34.000,
+			"butterfly": 50.000,
+			"crab": 58.000,
+			"batterfly": 66.000,
+			"frog": 74.000,
+			"firefly": 82.000,
+			"bureaucrat": 84.000,
+			"cactus": 86.000,
+			"snoconevendor": 88.000,
+			"squid": 90.000,
+			"juju": 92.000,
+			"smuggler": 93.250,
+			"deimaginator": 94.500,
+			"greeterbot": 95.750,
+			"dustbunny": 97.000,
+			"gwendolyn": 97.500,
+			"unclefriendly": 98.000,
+			"helga": 98.500,
+			"magicrock": 99.000,
+			"yeti": 99.500,
+			"rube": 99.750,
+			"rook": 100.00,
+			"fox": 14.500,
+			"sloth": 29.000,
+			"emobear": 37.000,
+			"foxranger": 45.000,
+			"groddlestreetspirit": 54.000,
+			"uraliastreetspirit": 61.000,
+			"firebogstreetspirit": 69.000,
+			"gnome": 77.000,
+			"butler": 81.000,
+			"craftybot": 85.000,
+			"phantom": 89.000,
+			"ilmenskiejones": 93.000,
+			"trisor": 94.000,
+			"toolvendor": 95.000,
+			"mealvendor": 96.000,
+			"gardeningtoolsvendor": 97.000,
+			"maintenancebot": 98.000,
+			"senorfunpickle": 99.000,
+			"hellbartender": 99.500,
+			"scionofpurple": 100.50
+		};
+		int img = ((cubis[(map["dropItem"]["itemType"] as String).substring(8)] / 2) * (rand.nextDouble() + 0.1)).truncate();
 		trySetMetabolics(email, mood: 10, img: img);
 		StatBuffer.incrementStat("cubisSetFree", 1);
-		toast("Your ${map['name']} was released back into the wild. You got $img iMG.", userSocket);
+		toast("Your cubimal was released back into the wild. You got $img iMG.", userSocket);
 		return success;
 	}
 
@@ -524,7 +516,7 @@ class Item {
 
 	Future drop({WebSocket userSocket, Map map, String streetName, String email}) async {
 		bool success = await takeItemFromUser(userSocket, email, map['dropItem']['itemType'], map['count']);
-		if(!success) {
+		if (!success) {
 			return;
 		}
 
