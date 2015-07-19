@@ -170,29 +170,34 @@ class StreetUpdateHandler {
 
 			//callMethod means the player is trying to interact with an entity
 			if(map["callMethod"] != null) {
-				String type = map['type'].replaceAll(" entity", "");
-				Map entityMap = streets[streetName].entityMaps[type];
-				String methodName = normalizeMethodName(map['callMethod']);
-
-				if(entityMap != null && entityMap[map['id']] != null) {
-					var entity = entityMap[map['id']];
-					//log("user $username calling ${map['callMethod']} on ${entity.id} in $streetName (${map['tsid']})");
-					InstanceMirror entityMirror = reflect(entity);
-					Map<Symbol, dynamic> arguments = {#userSocket:ws, #email:email};
-					if(map['arguments'] != null) {
-						(map['arguments'] as Map).forEach((key, value) => arguments[new Symbol(key)] = value);
-					}
-					entityMirror.invoke(new Symbol(methodName), [], arguments);
+				if(map['id'] == 'global_action_monster') {
+					_callGlobalMethod(map,ws,email);
+					c.complete();
 				} else {
-					//check if it's an item and not an entity
-					InstanceMirror instanceMirror = reflect(items[type]);
-					Map<Symbol, dynamic> arguments = {#userSocket:ws, #email:email};
-					arguments[#streetName] = map['streetName'];
-					arguments[#map] = map['arguments'];
-					instanceMirror.invoke(new Symbol(methodName), [], arguments);
-				}
+					String type = map['type'].replaceAll(" entity", "");
+					Map entityMap = streets[streetName].entityMaps[type];
+					String methodName = normalizeMethodName(map['callMethod']);
 
-				c.complete();
+					if(entityMap != null && entityMap[map['id']] != null) {
+						var entity = entityMap[map['id']];
+						//log("user $username calling ${map['callMethod']} on ${entity.id} in $streetName (${map['tsid']})");
+						InstanceMirror entityMirror = reflect(entity);
+						Map<Symbol, dynamic> arguments = {#userSocket:ws, #email:email};
+						if(map['arguments'] != null) {
+							(map['arguments'] as Map).forEach((key, value) => arguments[new Symbol(key)] = value);
+						}
+						entityMirror.invoke(new Symbol(methodName), [], arguments);
+					} else {
+						//check if it's an item and not an entity
+						InstanceMirror instanceMirror = reflect(items[type]);
+						Map<Symbol, dynamic> arguments = {#userSocket:ws, #email:email};
+						arguments[#streetName] = map['streetName'];
+						arguments[#map] = map['arguments'];
+						instanceMirror.invoke(new Symbol(methodName), [], arguments);
+					}
+
+					c.complete();
+				}
 			}
 
 			return c.future;
@@ -220,5 +225,34 @@ class StreetUpdateHandler {
 	static void loadStreet(String streetName, String tsid) {
 		streets[streetName] = new Street(streetName, tsid);
 		log("Loaded $streetName ($tsid) into memory.");
+	}
+
+	static void _callGlobalMethod(Map map, WebSocket userSocket, String email) {
+		ClassMirror classMirror = findClassMirror('StreetUpdateHandler');
+		Map<Symbol, dynamic> arguments = {#userSocket:userSocket, #email:email};
+		if(map['arguments'] != null) {
+			(map['arguments'] as Map).forEach((key, value) => arguments[new Symbol(key)] = value);
+		}
+		classMirror.invoke(new Symbol(map['callMethod']),[],arguments);
+	}
+
+	static Future<bool> teleport({WebSocket userSocket, String email, String tsid}) async {
+		Metabolics m = await getMetabolics(email:email);
+		if(m.user_id == -1 || m.energy < 50) {
+			return false;
+		} else {
+			m.energy = m.energy - 50;
+			int result = await setMetabolics(m);
+			if(result < 1) {
+				return false;
+			}
+		}
+
+		Map map = {}
+			..["gotoStreet"] = "true"
+			..["tsid"] = tsid;
+		userSocket.add(JSON.encode(map));
+
+		return true;
 	}
 }
