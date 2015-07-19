@@ -187,6 +187,8 @@ class Item {
 		int moodAward = consumeValues[map['dropItem']['itemType']]['mood'];
 		int imgAward = consumeValues[map['dropItem']['itemType']]['img'];
 
+		toast("Consuming that ${map["name"]} gave you $energyAward energy, $moodAward mood, and $imgAward iMG", userSocket);
+
 		return await trySetMetabolics(email, energy:energyAward, mood:moodAward, img:imgAward);
 	}
 
@@ -207,14 +209,17 @@ class Item {
 	// //////////// //
 
 	Future<bool> levitate({String streetName, Map map, WebSocket userSocket, String email}) async {
+		toast("Levitating is not implemented yet. Sorry!", userSocket);
 		return false;
 	}
 
 	Future<bool> focusEnergy({String streetName, Map map, WebSocket userSocket, String email}) async {
+		toast("+10 energy focused", userSocket);
 		return await trySetMetabolics(email, energy:10);
 	}
 
 	Future<bool> focusMood({String streetName, Map map, WebSocket userSocket, String email}) async {
+		toast("+10 mood focused", userSocket);
 		return await trySetMetabolics(email, mood:10);
 	}
 
@@ -236,14 +241,14 @@ class Item {
 			}
 
 			amt = (amt / numUsersOnStreet).ceil();
-			users.forEach((String username) {
-				trySetMetabolics(username, mood: amt, energy: amt, img: amt);
-			});
+			users.forEach((String username) => trySetMetabolics(username, mood: amt, energy: amt, img: amt));
+			StreetUpdateHandler.streets[streetName].occupants.forEach((WebSocket ws) => toast("Someone on $streetName is radiating. Everyone here got $amt energy, mood, and iMG", ws));
 			return true;
 		}
 	}
 
 	Future<bool> meditate({String streetName, Map map, WebSocket userSocket, String email}) async {
+		toast("+5 energy, mood, and iMG", userSocket);
 		return await trySetMetabolics(email, energy:5, mood:5, img: 5);
 	}
 
@@ -254,18 +259,21 @@ class Item {
 	Future<bool> caress({String streetName, Map map, WebSocket userSocket, String email}) async {
 		int amt = rand.nextInt(10) + 5;
 		StatBuffer.incrementStat("emblemsCaressed", 1);
+		toast("+$amt mood for caressing", userSocket);
 		return await trySetMetabolics(email, mood:amt);
 	}
 
 	Future<bool> consider({String streetName, Map map, WebSocket userSocket, String email}) async {
 		int amt = rand.nextInt(10) + 5;
 		StatBuffer.incrementStat("emblemsConsidered", 1);
+		toast("+$amt energy for considering", userSocket);
 		return await trySetMetabolics(email, energy:amt);
 	}
 
 	Future<bool> contemplate({String streetName, Map map, WebSocket userSocket, String email}) async {
 		int amt = rand.nextInt(10) + 5;
 		StatBuffer.incrementStat("emblemsContemplated", 1);
+		toast("+$amt iMG for contemplating", userSocket);
 		return await trySetMetabolics(email, img:amt);
 	}
 
@@ -395,8 +403,63 @@ class Item {
 		String cubiType = map['dropItem']['itemType'];
 		bool success = await takeItemFromUser(userSocket, email, cubiType, 1);
 		if (!success) return false;
-		trySetMetabolics(email, mood: 10, img: 10);
-		StatBuffer.incrementStat("cubisSetFree", 11);
+		Map<String, double> cubis;
+		if (map['dropItem']['itemType'] == 'cubimal_series_1_box') {
+			cubis = {
+				"chick": 17.000,
+				"piggy": 34.000,
+				"butterfly": 50.000,
+				"crab": 58.000,
+				"batterfly": 66.000,
+				"frog": 74.000,
+				"firefly": 82.000,
+				"bureaucrat": 84.000,
+				"cactus": 86.000,
+				"snoconevendor": 88.000,
+				"squid": 90.000,
+				"juju": 92.000,
+				"smuggler": 93.250,
+				"deimaginator": 94.500,
+				"greeterbot": 95.750,
+				"dustbunny": 97.000,
+				"gwendolyn": 97.500,
+				"unclefriendly": 98.000,
+				"helga": 98.500,
+				"magicrock": 99.000,
+				"yeti": 99.500,
+				"rube": 99.750,
+				"rook": 100.00
+			};
+		} else if (map['dropItem']['itemType'] == 'cubimal_series_2_box') {
+			cubis = {
+				"fox": 14.500,
+				"sloth": 29.000,
+				"emobear": 37.000,
+				"foxranger": 45.000,
+				"groddlestreetspirit": 54.000,
+				"uraliastreetspirit": 61.000,
+				"firebogstreetspirit": 69.000,
+				"gnome": 77.000,
+				"butler": 81.000,
+				"craftybot": 85.000,
+				"phantom": 89.000,
+				"ilmenskiejones": 93.000,
+				"trisor": 94.000,
+				"toolvendor": 95.000,
+				"mealvendor": 96.000,
+				"gardeningtoolsvendor": 97.000,
+				"maintenancebot": 98.000,
+				"senorfunpickle": 99.000,
+				"hellbartender": 99.500,
+				"scionofpurple": 100.50,
+			};
+		} else {
+			return false;
+		}
+		int img = (cubis[(map["dropItem"]["itemType"] as String).substring(8)] / 2) * (rand.nextDouble() + 0.1);
+		trySetMetabolics(email, mood: 10, img: img);
+		StatBuffer.incrementStat("cubisSetFree", 1);
+		toast("Your ${map['name']} was released back into the wild. You got $img iMG.", userSocket);
 		return success;
 	}
 
@@ -432,6 +495,15 @@ class Item {
 	Future<bool> gassify({String streetName, Map map, WebSocket userSocket, String email}) async {
 		toast("Gassifying is not implemented yet. Sorry!", userSocket);
 		return false;
+	}
+
+	// //////////////// //
+	// Butterfly Lotion //
+	// //////////////// //
+
+	Future<bool> taste({String streetName, Map map, WebSocket userSocket, String email}) async {
+		toast("That didn't taste as good as it smells. -5 mood", userSocket);
+		return trySetMetabolics(email, mood:-5);
 	}
 
 	// //// //
