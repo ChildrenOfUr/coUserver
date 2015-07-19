@@ -38,7 +38,7 @@ class Helga extends Vendor {
         "http://c2.glitch.bz/items/2012-12-06/npc_jabba2__x1_walk_png_1354831670.png",
         876, 1552, 438, 194, 16, true),
     };
-    currentState = states['idle_stand'];
+    currentState = states['idle_stand_1'];
   }
 
   void update() {
