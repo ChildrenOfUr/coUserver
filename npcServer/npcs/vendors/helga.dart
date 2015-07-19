@@ -7,10 +7,10 @@ class Helga extends Vendor {
     speed = 40;
 
     states = {
-      "idle_stand_1": new Spritesheet("idle_stand",
+      "idle_stand_1": new Spritesheet("idle_stand_1",
         "http://c2.glitch.bz/items/2012-12-06/npc_jabba2__x1_idle_stand_part1_png_1354831705.png",
         3942, 4074, 438, 194, 189, true),
-      "idle_stand_2": new Spritesheet("idle_stand",
+      "idle_stand_2": new Spritesheet("idle_stand_2",
         "http://c2.glitch.bz/items/2012-12-06/npc_jabba2__x1_idle_stand_part2_png_1354831715.png",
         3942, 2910, 438, 194, 131, true),
       "impatient": new Spritesheet("impatient",
@@ -73,7 +73,7 @@ class Helga extends Vendor {
           respawn = new DateTime.now().add(new Duration(milliseconds:(currentState.numFrames / 30 * 1000).toInt()));
         } else {
           // wait
-          currentState = states['idle_stand'];
+          currentState = states['idle_stand_1'];
           respawn = null;
         }
         return;
@@ -107,7 +107,7 @@ class Helga extends Vendor {
     //if no one else has them open
     if(openCount <= 0) {
       openCount = 0;
-      currentState = states['idle_stand'];
+      currentState = states['idle_stand_1'];
       int length = (currentState.numFrames / 30 * 1000).toInt();
       respawn = new DateTime.now().add(new Duration(milliseconds:length));
     }
