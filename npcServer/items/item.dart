@@ -400,11 +400,17 @@ class Item {
 		return success;
 	}
 
+	Future<bool> race({String streetName, Map map, WebSocket userSocket, String email}) async {
+		toast("Cubimal racing is not implemented yet. Sorry!", userSocket);
+		return false;
+	}
+
 	// ////////// //
 	// Spice Mill //
 	// ////////// //
 
 	Future<bool> mill({String streetName, Map map, WebSocket userSocket, String email}) async {
+		toast("Milling is not implemented yet. Sorry!", userSocket);
 		return false;
 	}
 
@@ -415,6 +421,16 @@ class Item {
 	Future<bool> crush({String streetName, Map map, WebSocket userSocket, String email}) async {
 		// Two types, "grinder" and "grand_ol_grinder"
 		// Send correct type to client, as the actions take different amounts of time once the window is open
+		toast("Crushing is not implemented yet. Sorry!", userSocket);
+		return false;
+	}
+
+	// ///////// //
+	// Gassifier //
+	// ///////// //
+
+	Future<bool> gassify({String streetName, Map map, WebSocket userSocket, String email}) async {
+		toast("Gassifying is not implemented yet. Sorry!", userSocket);
 		return false;
 	}
 
