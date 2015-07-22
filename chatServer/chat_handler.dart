@@ -212,7 +212,7 @@ class ChatHandler
 					}
 					if(id.currentStreet == map["newStreet"] && id.username != map["username"]) //others who are on the new street
 					{
-						//display message to others that we're here?
+						toast("${map["username"]} has arrived", id.webSocket);
 					}
 				});
 				return;
