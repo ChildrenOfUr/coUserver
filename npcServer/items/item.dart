@@ -187,7 +187,7 @@ class Item {
     int moodAward = consumeValues[map['dropItem']['itemType']]['mood'];
     int imgAward = consumeValues[map['dropItem']['itemType']]['img'];
 
-    toast("Consuming that ${map["name"]} gave you $energyAward energy, $moodAward mood, and $imgAward iMG", userSocket);
+    toast("Consuming that ${map["dropItem"]["name"]} gave you $energyAward energy, $moodAward mood, and $imgAward iMG", userSocket);
 
     return await trySetMetabolics(email, energy:energyAward, mood:moodAward, img:imgAward);
   }
