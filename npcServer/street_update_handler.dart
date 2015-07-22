@@ -241,7 +241,7 @@ class StreetUpdateHandler {
 		if(m.user_id == -1 || m.energy < 50) {
 			return false;
 		} else {
-			m.energy = m.energy - 50;
+			m.energy -= 50;
 			int result = await setMetabolics(m);
 			if(result < 1) {
 				return false;
