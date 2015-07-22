@@ -1,6 +1,8 @@
 part of coUserver;
 
 class Firefly extends NPC {
+	Clock ffClock = new Clock();
+
 	Firefly(String id, int x, int y) : super(id, x, y) {
 		actionTime = 4000;
 		type = "Firefly";
@@ -43,29 +45,38 @@ class Firefly extends NPC {
 	}
 
 	update() {
-		//if respawn is in the past, it is time to choose a new animation
-		if(respawn != null && new DateTime.now().compareTo(respawn) > 0) {
-			// 50% chance to move the other way...gradually
-			if (rand.nextInt(1) == 0) {
-				facingRight = !facingRight;
-			}
+		bool am = ffClock.time.contains("am");
+		int hour = int.parse(ffClock.time.split(":")[0]);
+		int minute = int.parse(ffClock.time.split(":")[1].substring(0, 2));
+		if ((am && hour < 6) || (!am && hour > 8 && minute >= 30)) {
+			// firefly time is 8:30PM to 6:00 AM
 
-			switch (rand.nextInt(4)) {
-				case 0:
-				case 1:
-					currentState = states["fullPath"];
-					break;
-				case 2:
-				case 3:
-					currentState = states["halfPath"];
-					break;
-				case 4:
-					currentState = states["smallPath"];
-			}
+			//if respawn is in the past, it is time to choose a new animation
+			if(respawn != null && new DateTime.now().compareTo(respawn) > 0) {
+				// 50% chance to move the other way...gradually
+				if (rand.nextInt(1) == 0) {
+					facingRight = !facingRight;
+				}
 
-			// stay for 10 seconds
-			int length = (10000 * (currentState.numFrames / 30 * 1000)).toInt();
-			respawn = new DateTime.now().add(new Duration(milliseconds:length));
+				switch (rand.nextInt(4)) {
+					case 0:
+					case 1:
+						currentState = states["fullPath"];
+						break;
+					case 2:
+					case 3:
+						currentState = states["halfPath"];
+						break;
+					case 4:
+						currentState = states["smallPath"];
+				}
+
+				// stay for 10 seconds
+				int length = (10000 * (currentState.numFrames / 30 * 1000)).toInt();
+				respawn = new DateTime.now().add(new Duration(milliseconds:length));
+			}
+		} else {
+			// not firefly time
 		}
 	}
 }

@@ -123,6 +123,7 @@
     "category": "Toys",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_garden_gnome__x1_idle0_png_1354832661.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_garden_gnome__x1_bounce_png_1354832663.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 2000,
     "description": "Hey, it's that weird old tiny bearded life-companion you've been hoping for! When placed in your yard, house or on your home street, your new little chum will reveal his hidden (or \"creepy\") talents…"

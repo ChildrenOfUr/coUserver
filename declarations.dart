@@ -67,6 +67,7 @@ part 'npcServer/npcs/animals/helikitty.dart';
 part 'npcServer/npcs/animals/butterfly.dart';
 part 'npcServer/npcs/animals/firefly.dart';
 part 'npcServer/npcs/animals/salmon.dart';
+part 'npcServer/npcs/animals/batterfly.dart';
 
 // shrines
 part 'npcServer/npcs/shrines/shrine.dart';
