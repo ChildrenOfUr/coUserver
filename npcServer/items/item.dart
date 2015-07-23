@@ -483,7 +483,6 @@ class Item {
       distance = -(distance / 2);
       message = "$username defective chick cubimal travelled ${distance.toString()} plank$plural, and broke";
     } else {
-      print(map.toString());
       message = "$username ${map["dropItem"]["name"]} travelled ${distance.toString()} plank$plural before stopping";
     }
 

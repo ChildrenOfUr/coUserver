@@ -122,13 +122,18 @@ class MetabolicsEndpoint {
 				}
 
 				Identifier userIdentifier = PlayerUpdateHandler.users[username];
-//				if(m.energy == 0 && !userIdentifier.tsid.endsWith('A5PPFP86NF2FOS')) {
-//					Map map = {}
-//						..['gotoStreet'] = 'true'
-//						..['tsid'] = 'LA5PPFP86NF2FOS'; //hell one
-//					userIdentifier.webSocket.add(JSON.encode(map));
-//					m.energy = 5;
-//				}
+				if(m.energy == 0 && userIdentifier.dead == false && !userIdentifier.tsid.endsWith('A5PPFP86NF2FOS')) {
+					Map<String, String> map = {
+						"gotoStreet": "true",
+						"tsid": "LA5PPFP86NF2FOS", //hell one
+						"dead": "true"
+					};
+					userIdentifier.webSocket.add(JSON.encode(map));
+					userIdentifier.dead = true;
+					//m.energy = 5;
+				} else {
+					userIdentifier.dead = false;
+				}
 
 				//store current street and position
 				if(userIdentifier != null) {

@@ -363,4 +363,5 @@ Future<bool> toast(String message, WebSocket userSocket) {
 		"message": message
 	};
 	userSocket.add(JSON.encode(send));
+	return true;
 }
