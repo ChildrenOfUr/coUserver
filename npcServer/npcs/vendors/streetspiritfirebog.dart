@@ -4,7 +4,7 @@ class StreetSpiritFirebog extends Vendor {
 	int openCount = 0;
 
 	StreetSpiritFirebog(String id, String streetName, String tsid, int x, int y) : super(id, streetName, tsid, x, y) {
-		speed = -75;
+		speed = 10;
 		itemsPredefined = false;
 		states = {
 			"idle_cry":new Spritesheet("idle_cry", 'http://c2.glitch.bz/items/2012-12-06/street_spirit_firebog_size_large_x1_idle_cry_png_1354832895.png', 856, 732, 107, 244, 24, false),
@@ -13,7 +13,7 @@ class StreetSpiritFirebog extends Vendor {
 			"close":new Spritesheet("close", 'http://c2.glitch.bz/items/2012-12-06/street_spirit_firebog_size_large_x1_close_png_1354832889.png', 963, 488, 107, 244, 17, false),
 			"talk":new Spritesheet("talk", 'http://c2.glitch.bz/items/2012-12-06/street_spirit_firebog_size_large_x1_talk_png_1354832886.png', 963, 1708, 107, 244, 17, false)
 		};
-		currentState = states['idle_cry'];
+		currentState = states['idle_move'];
 	}
 
 	void update() {
