@@ -22,38 +22,3 @@ uploadStreetRender(@app.Body(app.JSON) Map street) {
     layer.writeAsBytes(encodePng(image));
   });
 }
-
-List<String> streetsToParse = ['GA58KK7B9O522PC'];
-List<String> streetsParsed = [];
-
-Future parseStreets() async {
-  while (streetsToParse.isNotEmpty) {
-    String currentTsid = streetsToParse.removeLast();
-    streetsParsed.add(currentTsid);
-    Map street = await getStreet(currentTsid);
-    String currentLabel = street['label'];
-
-    List<Map> signposts = street['dynamic']['layers']['middleground']['signposts'];
-    signposts.forEach((Map signpost) {
-      List<Map> connects = signpost['connects'];
-      connects.forEach((Map connection) {
-        String tsid = connection['tsid'];
-        String label = connection['label'];
-        if (!streetsParsed.contains(tsid) && !streetsToParse.contains(tsid)) {
-          streetsToParse.add(tsid);
-          print('queuing up $label');
-        }
-      });
-    });
-  }
-}
-
-Future<Map> getStreet(String tsid) async {
-  if(tsid.startsWith('L')) {
-    tsid = tsid.replaceFirst('L','G');
-  }
-  String url = "http://RobertMcDermot.github.io/CAT422-glitch-location-viewer/locations/$tsid.json";
-  http.Response response = await http.get(url);
-  Map street = JSON.decode(response.body);
-  return street;
-}
