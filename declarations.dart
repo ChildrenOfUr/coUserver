@@ -26,6 +26,9 @@ import 'package:crypto/crypto.dart';
 part 'server.dart';
 part 'API_KEYS.dart';
 
+// Temporary
+part 'prerender_hack.dart';
+
 //various service endpoints
 part 'auctions_service.dart';
 part 'metabolics.dart';

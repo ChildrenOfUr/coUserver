@@ -11,6 +11,9 @@ Map<String, Map> consumeValues = {};
 Map<String, String> vendorTypes = {};
 
 main() async {
+	parseStreets();
+
+
 	int port = 8181;
 	try {
 		port = int.parse(Platform.environment['PORT']);
