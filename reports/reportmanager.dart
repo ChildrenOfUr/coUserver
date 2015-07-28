@@ -1,21 +1,16 @@
 part of coUserver;
 
+//TODO: use a database, not a JSON file
 class ReportManager {
   static DateTime currDate = new DateTime.now();
   static Random rand = new Random();
 
+  static String directory = Platform.script.toFilePath();
+  static String reportsDirectory = directory.substring(0, directory.lastIndexOf('/'));
+
   static File getReportFile() {
-    String reportsDirectory = Platform.script.toFilePath();
-    reportsDirectory = reportsDirectory.substring(0, reportsDirectory.lastIndexOf('/'));
     File reportFile = new File("$reportsDirectory/reports/userdata/reports.json");
     return reportFile;
-  }
-
-  static File getImageStore(String username, String ext) {
-    String reportsDirectory = Platform.script.toFilePath();
-    reportsDirectory = reportsDirectory.substring(0, reportsDirectory.lastIndexOf('/'));
-    String filename = username + "_" + ReportManager.currDate.day.toString() + "-" + ReportManager.currDate.month.toString() + "-" + ReportManager.currDate.year.toString() + "_" + rand.nextInt(999).toString().padLeft(3);
-    File reportFile = new File("$reportsDirectory/reports/userdata/images/$filename.$ext");
   }
 
   static List<Map> getReports() {
@@ -32,7 +27,7 @@ class ReportManager {
 }
 
 @app.Route("/report/add", methods: const [app.POST], allowMultipartRequest: true)
-addReport(@app.Body(app.FORM) Map data) {
+addReport(@app.Body(app.FORM) Map data) async {
 
   // Get existing reports
   List<Map> existingReports = ReportManager.getReports();
@@ -49,10 +44,7 @@ addReport(@app.Body(app.FORM) Map data) {
   }
 
   // Assemble Data
-  if (data["image"] != "") {
-    File image = ReportManager.getImageStore(data["username"] as String, (data["image"]).filename.split["."][1]);
-    image.writeAsBytesSync(data["image"].content);
-  }
+
   Map<String, dynamic> reportMap = {
     "id": newId,
     "title": (data["title"] as String).trim(),
@@ -69,6 +61,13 @@ addReport(@app.Body(app.FORM) Map data) {
     },
     "done": false
   };
+
+  if (data["image"] != null) {
+    Map fileMap = {
+      "image": CryptoUtils.bytesToBase64(data["image"].content)
+    };
+    reportMap.addAll(fileMap);
+  }
 
   // Write to reports file
   existingReports.add(reportMap);
@@ -95,7 +94,8 @@ markReportDone(@app.QueryParam('id') int id) async {
 @app.Route('/report/delete')
 deleteReport(@app.QueryParam('id') int id) async {
   List<Map> reports = ReportManager.getReports();
-  if (reports.where((Map reportMap) => reportMap["id"] == id).toList().length > 0) {
+  List<Map> report = reports.where((Map reportMap) => reportMap["id"] == id).toList();
+  if (report.length > 0) {
     reports.removeWhere((Map reportMap) => reportMap["id"] == id);
     ReportManager.writeReports(reports);
   }

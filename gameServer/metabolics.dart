@@ -132,7 +132,9 @@ class MetabolicsEndpoint {
 					userIdentifier.dead = true;
 					//m.energy = 5;
 				} else {
-					userIdentifier.dead = false;
+					try {
+						userIdentifier.dead = false;
+					} catch(e) {}
 				}
 
 				//store current street and position
