@@ -23,14 +23,14 @@ import 'package:image/image.dart';
 import 'package:crypto/crypto.dart';
 
 //contains the main() method to start the server
-part 'server.dart';
+part 'gameServer/server.dart';
 part 'API_KEYS.dart';
 
 //various service endpoints
-part 'auctions_service.dart';
-part 'metabolics.dart';
-part 'weather.dart';
-part 'holidays.dart';
+part 'gameServer/auctions/auctions_service.dart';
+part 'gameServer/metabolics.dart';
+part 'gameServer/weather.dart';
+part 'gameServer/holidays.dart';
 
 //common to all server parts
 part 'common/identifier.dart';
@@ -125,6 +125,9 @@ part 'npcServer/spritesheet.dart';
 part 'npcServer/quoin.dart';
 
 //various http parts (as opposed to the previous websocket parts)
-part 'util.dart';
-part 'auction.dart';
-part 'inventory.dart';
+part 'common/util.dart';
+part 'gameServer/auctions/auction.dart';
+part 'gameServer/inventory.dart';
+
+// bug reporting
+part 'reports/reportmanager.dart';
