@@ -85,6 +85,7 @@ part 'npcServer/npcs/shrines/zille.dart';
 
 //items
 part 'npcServer/items/item.dart';
+part 'npcServer/items/hellgrapes.dart';
 
 // plants
 part 'npcServer/plants/plant.dart';

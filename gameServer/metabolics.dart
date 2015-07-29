@@ -123,6 +123,7 @@ class MetabolicsEndpoint {
 
 				Identifier userIdentifier = PlayerUpdateHandler.users[username];
 				if(m.energy == 0 && userIdentifier.dead == false && !userIdentifier.tsid.endsWith('A5PPFP86NF2FOS')) {
+					userIdentifier.undeadTSID = userIdentifier.tsid;
 					Map<String, String> map = {
 						"gotoStreet": "true",
 						"tsid": "LA5PPFP86NF2FOS", //hell one
