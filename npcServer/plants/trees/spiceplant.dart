@@ -18,7 +18,7 @@ class SpicePlant extends Tree {
 				"My, my: such soft hands.",
 				"Oh my! This is unexpectedly satisfying…",
 				"Well I never...",
-				"Nice job, kid, but could be spicer. Know whaddai mean?",
+				"Nice job, kid, but could be spicier. Know whaddai mean?",
 			],
 			"water": [
 				"Oh! No, carry on, I like it.",
