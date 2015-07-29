@@ -11,9 +11,7 @@ Future<String> uploadStreetRender(@app.Body(app.JSON) Map street) async {
 	Directory streetDir = new Directory('streetLayers/$tsid');
 	await streetDir.create(recursive: true);
 
-	List<Future> futures = [];
-	layers.forEach((String layerName, String dataUri) => futures.add(writeLayerToFile(tsid, layerName, dataUri)));
-	await Future.wait(futures);
+	await Future.forEach(layers.keys, (String layerName) => writeLayerToFile(tsid, layerName, layers[layerName]));
 
 	print('finished ${street['tsid']}');
 	return 'saved';
@@ -28,8 +26,7 @@ Future writeLayerToFile(String tsid, String layerName, String dataUri) async {
 	await layer.create();
 
 	dataUri = dataUri.substring(dataUri.indexOf(',') + 1);
-	Image image = decodePng(CryptoUtils.base64StringToBytes(dataUri));
-	await layer.writeAsBytes(encodePng(image));
+	await layer.writeAsBytes(CryptoUtils.base64StringToBytes(dataUri));
 
 	print('saved $layerName for $tsid');
 }
