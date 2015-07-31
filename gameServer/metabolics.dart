@@ -221,6 +221,20 @@ class MetabolicsEndpoint {
 				m.energy = m.max_energy;
 			}
 		}
+		if(q.type == "favor") {
+			m.alphfavor += amt;
+			m.cosmafavor += amt;
+			m.friendlyfavor += amt;
+			m.grendalinefavor += amt;
+			m.humbabafavor += amt;
+			m.lemfavor += amt;
+			m.mabfavor += amt;
+			m.potfavor += amt;
+			m.sprigganfavor += amt;
+			m.sprigganfavor += amt;
+			m.tiifavor += amt;
+			m.zillefavor += amt;
+		}
 
 		try {
 			int result = await setMetabolics(m);
