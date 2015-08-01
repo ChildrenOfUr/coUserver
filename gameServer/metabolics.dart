@@ -123,39 +123,37 @@ class MetabolicsEndpoint {
 
 				Identifier userIdentifier = PlayerUpdateHandler.users[username];
 
-				if (userIdentifier != null) {
-
-					if (userIdentifier.tsid.endsWith("A5PPFP86NF2FOS")) {
-						userIdentifier.outOfHell = false;
-					}
-
-					if (m.energy == 0 && !userIdentifier.dead && userIdentifier.outOfHell) {
-						// Dead, not in Hell
-						print("U DED");
-						userIdentifier.undeadTSID = userIdentifier.tsid;
-						Map<String, String> map = {
-							"gotoStreet": "true",
-							"tsid": "LA5PPFP86NF2FOS", // Hell One
-							"dead": "true"
-						};
-						userIdentifier.webSocket.add(JSON.encode(map));
-						userIdentifier.dead = true;
-					} else if (m.energy > 0 && !userIdentifier.outOfHell && userIdentifier.dead) {
-						// Not Dead, but still in Hell
-						print("REVIVE");
-						if (userIdentifier.undeadTSID == null) {
-							userIdentifier.undeadTSID = "LA58KK7B9O522PC"; // Cebarkul
-						}
-						Map<String, String> map = {
-							"gotoStreet": "true",
-							"tsid": userIdentifier.undeadTSID, // Street where they died
-							"dead": "false"
-						};
-						userIdentifier.webSocket.add(JSON.encode(map));
-						userIdentifier.dead = false;
-					}
-
-				}
+//				if (userIdentifier != null) {
+//
+//					if (userIdentifier.tsid.endsWith("A5PPFP86NF2FOS")) {
+//						userIdentifier.outOfHell = false;
+//					}
+//
+//					if (m.energy == 0 && !userIdentifier.dead && userIdentifier.outOfHell) {
+//						// Dead, not in Hell
+//						userIdentifier.undeadTSID = userIdentifier.tsid;
+//						Map<String, String> map = {
+//							"gotoStreet": "true",
+//							"tsid": "LA5PPFP86NF2FOS", // Hell One
+//							"dead": "true"
+//						};
+//						userIdentifier.webSocket.add(JSON.encode(map));
+//						userIdentifier.dead = true;
+//					} else if (m.energy > 0 && !userIdentifier.outOfHell && userIdentifier.dead) {
+//						// Not Dead, but still in Hell
+//						if (userIdentifier.undeadTSID == null) {
+//							userIdentifier.undeadTSID = "LA58KK7B9O522PC"; // Cebarkul
+//						}
+//						Map<String, String> map = {
+//							"gotoStreet": "true",
+//							"tsid": userIdentifier.undeadTSID, // Street where they died
+//							"dead": "false"
+//						};
+//						userIdentifier.webSocket.add(JSON.encode(map));
+//						userIdentifier.dead = false;
+//					}
+//
+//				}
 
 				//store current street and position
 				if(userIdentifier != null) {
