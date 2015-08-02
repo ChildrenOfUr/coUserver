@@ -172,7 +172,7 @@ class StreetSpiritGroddle extends Vendor {
 			"spriggan": {
 				"day": {
 					"close": new Spritesheet("close", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1Branches_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_top_L1dirtSpikey_x1_close_png_1354835264.png", 930, 582, 155, 194, 17, false),
-					"idle_hold": new Spritesheet("idle_hold", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1Branches_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_top_L1dirtSpikey_x1_idle_hold_png_1354835252.png", 930, 960, 191, 192, 21, false),
+					"idle_hold": new Spritesheet("idle_hold", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1Branches_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_top_L1dirtSpikey_x1_idle_hold_png_1354835252.png", 930, 2910, 155, 194, 85, true),
 					"idle_move": new Spritesheet("idle_move", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1Branches_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_top_L1dirtSpikey_x1_idle_move_png_1354835269.png", 930, 3880, 155, 194, 119, true),
 					"open": new Spritesheet("open", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1Branches_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_top_L1dirtSpikey_x1_open_png_1354835263.png", 775, 776, 155, 194, 19, false),
 					"still": new Spritesheet("still", "http://c2.glitch.bz/items/2012-12-06/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1Branches_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_top_L1dirtSpikey_x1_open_png_1354835263.png", 775, 776, 155, 194, 1, false),
