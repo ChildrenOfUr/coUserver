@@ -5,6 +5,7 @@ class Street {
 	Map<String, Quoin> quoins;
 	Map<String, Plant> plants;
 	Map<String, NPC> npcs;
+	Map<String, Door> doors;
 	Map<String, Map> entityMaps;
 	Map<String, Item> groundItems;
 	List<WebSocket> occupants;
@@ -14,8 +15,9 @@ class Street {
 		quoins = new Map<String, Quoin>();
 		plants = new Map<String, Plant>();
 		npcs = new Map<String, NPC>();
+		doors = new Map<String, Door>();
 		groundItems = new Map<String, Item>();
-		entityMaps = {"quoin":quoins, "plant":plants, "npc":npcs, "groundItem":groundItems};
+		entityMaps = {"quoin":quoins, "plant":plants, "npc":npcs, "door":doors, "groundItem":groundItems};
 		occupants = new List<WebSocket>();
 
 		//attempt to load street occupants from streetEntities folder
@@ -42,7 +44,7 @@ class Street {
 						if(classMirror.isSubclassOf(findClassMirror("NPC"))) {
 							id = "n" + id;
 							if(classMirror.isSubclassOf(findClassMirror("Vendor"))) {
-								npcs[id] = classMirror.newInstance(new Symbol(""), [id, label, x, y]).reflectee;
+								npcs[id] = classMirror.newInstance(new Symbol(""), [id, label, tsid, x, y]).reflectee;
 							} else {
 								npcs[id] = classMirror.newInstance(new Symbol(""), [id, x, y]).reflectee;
 							}
@@ -50,6 +52,10 @@ class Street {
 						if(classMirror.isSubclassOf(findClassMirror("Plant"))) {
 							id = "p" + id;
 							plants[id] = classMirror.newInstance(new Symbol(""), [id, x, y]).reflectee;
+						}
+						if(classMirror.isSubclassOf(findClassMirror("Door"))) {
+							id = "d" + id;
+							doors[id] = classMirror.newInstance(new Symbol(""), [id, label, x, y]).reflectee;
 						}
 					} catch(e) {
 						log("Unable to instantiate a class for $type: $e");

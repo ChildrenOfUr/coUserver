@@ -3,10 +3,12 @@ part of coUserver;
 IRCRelay relay;
 double minClientVersion = 0.14;
 PostgreSqlManager dbManager;
-Map<String, int> heightsCache = null, headsCache = null;
+Map<String, int> heightsCache = null;
+Map<String, String> headsCache = null;
 DateTime startDate;
 Map<String, Item> items = {};
 Map<String, Map> consumeValues = {};
+Map<String, String> vendorTypes = {};
 
 main() async {
 	int port = 8181;
@@ -215,7 +217,7 @@ String parseMessageFromSlack(@app.Body(app.FORM) Map form) {
 	Map map = {};
 	if(username != "slackbot" && text != null && text.isNotEmpty) {
 		if(token == couKey) {
-			map = {'username':'dev_$username', 'message': text, 'channel':'Global Chat'};
+			map = {'username':username, 'message': text, 'channel':'Global Chat'};
 		} else {
 			map = {'username':'$username', 'message': text, 'channel':'Global Chat'};
 		}

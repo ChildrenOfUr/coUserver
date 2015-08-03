@@ -15,7 +15,15 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/butterfly_lotion__x1_1_x1_2_png_1354829597.png",
     "stacksTo": 1,
     "price": 10,
-    "description": "A tiny tube of butterfly lotion, without which a butterfly cannot be massaged. Remember: butterflies chafe easily, but they still like it pretty hard."
+    "description": "A tiny tube of butterfly lotion, without which a butterfly cannot be massaged. Remember: butterflies chafe easily, but they still like it pretty hard.",
+    "actions": [
+      {
+        "name": "Taste",
+        "description": "It does smell pretty good...",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "butterfly_milker": {
     "name": "Butterfly Milker",
@@ -76,6 +84,7 @@
     "category": "Herdkeeping Supplies",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/meat_collector__x1_1_png_1354831017.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/meat_collector__x1_1_png_1354831017.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 500,
     "description": "A farm-grade meat collector. It works around the clock to collect meat from your piggies when you can't."

@@ -176,9 +176,6 @@ void log(String message) {
 @app.Route('/getSpritesheets')
 Future<Map> getSpritesheets(@app.QueryParam('username') String username) async
 {
-	if(username.contains(new RegExp("testUser[0-9]+")))
-		return {};
-
 	Map<String, String> spritesheets = {};
 	File cache = new File('./playerSpritesheets/${username.toLowerCase()}.json');
 	if(!(await cache.exists())) {
@@ -325,6 +322,9 @@ Future<String> trimImage(@app.QueryParam('username') String username) async {
 	} else {
 		Map<String, String> spritesheet = await getSpritesheets(username);
 		String imageUrl = spritesheet['base'];
+		if(imageUrl == null) {
+			return '';
+		}
 
 		http.Response response = await http.get(imageUrl);
 
@@ -355,4 +355,13 @@ saveCacheToDisk(String filename, Map cache) async {
 		await file.create(recursive:true);
 	}
 	await file.writeAsString(JSON.encode(cache));
+}
+
+Future<bool> toast(String message, WebSocket userSocket) {
+	Map send = {
+		"toast": true,
+		"message": message
+	};
+	userSocket.add(JSON.encode(send));
+	return true;
 }

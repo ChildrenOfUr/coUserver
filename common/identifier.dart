@@ -4,7 +4,9 @@ class Identifier
 {
 	List<String> channelList = [];
 	String username, currentStreet, tsid;
+	//String undeadTSID;
 	num currentX = 1.0, currentY = 0.0;
 	WebSocket webSocket;
-	Identifier(this.username,this.currentStreet,this.tsid,this.webSocket);
+	//bool dead = false, outOfHell = true;
+	Identifier (this.username,this.currentStreet,this.tsid,this.webSocket);
 }

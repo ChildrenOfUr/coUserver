@@ -1,7 +1,8 @@
 part of coUserver;
 
 abstract class Entity {
-	List<Map> actions;
+	List<Map> actions = [];
+	int actionTime = 2500;
 	String bubbleText;
 	DateTime sayTimeout = null;
 	Map<String, List<String>> responses = {};
@@ -43,6 +44,7 @@ abstract class Entity {
 			int baseImg = rand.nextInt(imgRange) + imgMin;
 			int resultImg = (baseImg * m.mood / m.max_mood)~/1;
 			m.img += resultImg;
+			m.lifetime_img += resultImg;
 			gains['energy'] = energy;
 			gains['mood'] = mood;
 			gains['img'] = resultImg;

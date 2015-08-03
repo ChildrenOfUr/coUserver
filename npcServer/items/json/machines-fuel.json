@@ -4,6 +4,7 @@
     "category": "Machines & Fuel",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/blockmaker_chassis__x1_1_png_1354833231.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/blockmaker_chassis__x1_1_png_1354833231.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 1500,
     "description": "It's commonly known that machines have 'personality'.  Add me to a regular ol' machine stand and forever imbue it with 'blockmaker' personality."
@@ -49,6 +50,7 @@
     "category": "Machines & Fuel",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/blockmaker_engine__x1_1_png_1354833233.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/blockmaker_engine__x1_1_png_1354833233.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 2500,
     "description": "Install this engine, and your machine is one step closer to purring like the quintessential classic, thrumming like the deeply resonant inner chambers of Zille's enormous throat."
@@ -85,6 +87,7 @@
     "category": "Machines & Fuel",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/woodworker_chassis__x1_1_png_1354839744.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/woodworker_chassis__x1_1_png_1354839744.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 1250,
     "description": "One of the four essential parts of the Woodworker, the chassis is essential in helping every upstanding wannabe woodworker gird their woodworkerly loin-parts and whittle their brown stuff into something wonderful."
@@ -94,6 +97,7 @@
     "category": "Machines & Fuel",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/woodworker_fuser__x1_1_png_1354839742.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/woodworker_fuser__x1_1_png_1354839742.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 1750,
     "description": "The business end of the hardworking woodworking Woodworker, this is the bit that actually works the wood. Responsible for fusing planks into boards, boards into posts, posts into beams and dreams into reality (as long as you dream of wood)."

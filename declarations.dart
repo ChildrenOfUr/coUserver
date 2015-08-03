@@ -23,14 +23,14 @@ import 'package:image/image.dart';
 import 'package:crypto/crypto.dart';
 
 //contains the main() method to start the server
-part 'server.dart';
+part 'gameServer/server.dart';
 part 'API_KEYS.dart';
 
 //various service endpoints
-part 'auctions_service.dart';
-part 'metabolics.dart';
-part 'weather.dart';
-part 'holidays.dart';
+part 'gameServer/auctions/auctions_service.dart';
+part 'gameServer/metabolics.dart';
+part 'gameServer/weather.dart';
+part 'gameServer/holidays.dart';
 
 //common to all server parts
 part 'common/identifier.dart';
@@ -53,14 +53,21 @@ part 'npcServer/npcs/npc.dart';
 
 // vendors
 part 'npcServer/npcs/vendors/streetspiritgroddle.dart';
+part 'npcServer/npcs/vendors/streetspiritfirebog.dart';
+part 'npcServer/npcs/vendors/streetspiritzutto.dart';
 part 'npcServer/npcs/vendors/toolvendor.dart';
-part 'npcServer/npcs/vendors/helga.dart';
+part 'npcServer/npcs/vendors/mealvendor.dart';
+part 'npcServer/npcs/vendors/jabba_helga.dart';
+part 'npcServer/npcs/vendors/jabba_unclefriendly.dart';
 part 'npcServer/npcs/vendors/vendor.dart';
 
 // animals
 part 'npcServer/npcs/animals/chicken.dart';
 part 'npcServer/npcs/animals/helikitty.dart';
 part 'npcServer/npcs/animals/butterfly.dart';
+part 'npcServer/npcs/animals/firefly.dart';
+part 'npcServer/npcs/animals/salmon.dart';
+part 'npcServer/npcs/animals/batterfly.dart';
 
 // shrines
 part 'npcServer/npcs/shrines/shrine.dart';
@@ -69,6 +76,7 @@ part 'npcServer/npcs/shrines/friendly.dart';
 part 'npcServer/npcs/shrines/cosma.dart';
 part 'npcServer/npcs/shrines/grendaline.dart';
 part 'npcServer/npcs/shrines/humbaba.dart';
+part 'npcServer/npcs/shrines/lem.dart';
 part 'npcServer/npcs/shrines/mab.dart';
 part 'npcServer/npcs/shrines/pot.dart';
 part 'npcServer/npcs/shrines/spriggan.dart';
@@ -77,6 +85,7 @@ part 'npcServer/npcs/shrines/zille.dart';
 
 //items
 part 'npcServer/items/item.dart';
+part 'npcServer/items/hellgrapes.dart';
 
 // plants
 part 'npcServer/plants/plant.dart';
@@ -92,6 +101,10 @@ part 'npcServer/plants/trees/woodtree.dart';
 
 // resources
 part 'npcServer/plants/dirtpile.dart';
+part 'npcServer/plants/peatbog.dart';
+part 'npcServer/plants/mortarbarnacle.dart';
+part 'npcServer/plants/jellisacgrowth.dart';
+part 'npcServer/plants/icenubbin.dart';
 
 // rocks
 part 'npcServer/plants/rocks/rock.dart';
@@ -100,14 +113,22 @@ part 'npcServer/plants/rocks/sparklyrock.dart';
 part 'npcServer/plants/rocks/dulliterock.dart';
 part 'npcServer/plants/rocks/metalrock.dart';
 
+// doors
+part 'npcServer/doors/door.dart';
+part 'npcServer/doors/bureaucratic_hall_door.dart';
+part 'npcServer/doors/machine_room_door.dart';
+part 'npcServer/doors/shoppe_door.dart';
+
 // misc
 part 'npcServer/npcs/mailbox.dart';
 part 'npcServer/npcs/auctioneer.dart';
 part 'npcServer/spritesheet.dart';
 part 'npcServer/quoin.dart';
-part 'npcServer/items/item_action_functions.dart';
 
 //various http parts (as opposed to the previous websocket parts)
-part 'util.dart';
-part 'auction.dart';
-part 'inventory.dart';
+part 'common/util.dart';
+part 'gameServer/auctions/auction.dart';
+part 'gameServer/inventory.dart';
+
+// bug reporting
+part 'reports/reportmanager.dart';

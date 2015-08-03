@@ -83,12 +83,22 @@ Future<String> sendMail(@Decode() Message message) async
 		}
 	}
 
-	String query = "INSERT INTO messages(to_user, from_user, subject, body, currants) VALUES(@to_user,@from_user,@subject,@body,@currants)";
-	int result = await dbConn.execute(query, message);
+	if(message.subject == null) {
+		message.subject = '';
+	}
+	if(message.body == null) {
+		message.body = '';
+	}
+	try {
+		String query = "INSERT INTO messages(to_user, from_user, subject, body, currants) VALUES(@to_user,@from_user,@subject,@body,@currants)";
+		int result = await dbConn.execute(query, message);
 
-	if(result > 0) {
-		return "OK";
-	} else {
+		if (result > 0) {
+			return "OK";
+		} else {
+			return "Error";
+		}
+	} catch(err) {
 		return "Error";
 	}
 }

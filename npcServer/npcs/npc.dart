@@ -1,7 +1,6 @@
 part of coUserver;
 
-abstract class NPC extends Entity
-{
+abstract class NPC extends Entity {
 	/**
 	 * The actions map key string should be equivalent to the name of a function
 	 * as it will be dynamically called in street_update_handler when the client
@@ -9,24 +8,21 @@ abstract class NPC extends Entity
 	 * */
 
 	Random rand;
-	String id,type;
-	int x,y, speed = 0, actionTime = 2500;
+	String id, type;
+	int x, y, speed = 0;
 	DateTime respawn;
 	bool facingRight = true;
-	List<Map> actions = [];
-	Map<String,Spritesheet> states;
+	Map<String, Spritesheet> states;
 	Spritesheet currentState;
 
-	NPC(this.id,this.x,this.y)
-	{
+	NPC(this.id, this.x, this.y) {
 		respawn = new DateTime.now();
 		rand = new Random();
 	}
 
 	void update();
 
-	Map getMap()
-	{
+	Map getMap() {
 		Map map = super.getMap();
 		map["id"] = id;
 		map["url"] = currentState.url;
@@ -39,11 +35,11 @@ abstract class NPC extends Entity
 		map['speed'] = speed;
 		map['animation_name'] = currentState.stateName;
 		map["width"] = currentState.frameWidth;
-        map["height"] = currentState.frameHeight;
-        map['loops'] = currentState.loops;
-        map['loopDelay'] = currentState.loopDelay;
-        map["facingRight"] = facingRight;
-        map["actions"] = actions;
-        return map;
+		map["height"] = currentState.frameHeight;
+		map['loops'] = currentState.loops;
+		map['loopDelay'] = currentState.loopDelay;
+		map["facingRight"] = facingRight;
+		map["actions"] = actions;
+		return map;
 	}
 }
