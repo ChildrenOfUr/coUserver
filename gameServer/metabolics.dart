@@ -229,7 +229,6 @@ class MetabolicsEndpoint {
 			m.mabfavor += amt;
 			m.potfavor += amt;
 			m.sprigganfavor += amt;
-			m.sprigganfavor += amt;
 			m.tiifavor += amt;
 			m.zillefavor += amt;
 		}
