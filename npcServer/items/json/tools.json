@@ -114,6 +114,7 @@
     "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/bubble_tuner__x1_tool_animation_png_1354830317.png",
     "iconUrl": "http://c2.glitch.bz/items/2012-12-06/bubble_tuner__x1_iconic_png_1354830316.png",
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bubble_tuner__x1_1_png_1354830318.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 150,
     "description": "A Bubble Tuner somehow converts plain bubbles into not-plain bubbles. How? Nobody knows.",
