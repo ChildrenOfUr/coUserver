@@ -1,0 +1,13 @@
+[
+  {
+    "id": 10,
+    "title": "Example Merged Reports",
+    "description": "Providing an example merge to test reading and writing merges.",
+    "category": "bug",
+    "reports": [
+      11,
+      23,
+      37
+    ]
+  }
+]
