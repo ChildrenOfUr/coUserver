@@ -40,25 +40,50 @@ class Metabolics {
 	@Field()
 	int alphfavor = 0;
 	@Field()
+	int alphfavor_max = 1000;
+	@Field()
 	int cosmafavor = 0;
+	@Field()
+	int cosmafavor_max = 1000;
 	@Field()
 	int friendlyfavor = 0;
 	@Field()
+	int friendlyfavor_max = 1000;
+	@Field()
 	int grendalinefavor = 0;
+	@Field()
+	int grendalinefavor_max = 1000;
 	@Field()
 	int humbabafavor = 0;
 	@Field()
+	int humbabafavor_max = 1000;
+	@Field()
 	int lemfavor = 0;
+	@Field()
+	int lemfavor_max = 1000;
 	@Field()
 	int mabfavor = 0;
 	@Field()
+	int mabfavor_max = 1000;
+	@Field()
 	int potfavor = 0;
+	@Field()
+	int potfavor_max = 1000;
 	@Field()
 	int sprigganfavor = 0;
 	@Field()
+	int sprigganfavor_max = 1000;
+	@Field()
 	int tiifavor = 0;
 	@Field()
+	int tiifavor_max = 1000;
+	@Field()
 	int zillefavor = 0;
+	@Field()
+	int zillefavor_max = 1000;
+
+	@Field()
+	List<String> location_history = [];
 }
 
 class MetabolicsEndpoint {

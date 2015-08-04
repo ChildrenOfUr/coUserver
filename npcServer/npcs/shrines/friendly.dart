@@ -41,8 +41,8 @@ class FriendlyIx extends Shrine
 		states =
 		{
 			"close" : new Spritesheet("close","http://c2.glitch.bz/items/2012-12-06/npc_shrine_ix_friendly__x1_close_png_1354831273.png",840,864,168,216,20,false),
-			"open" : new Spritesheet("open","http://c2.glitch.bz/items/2012-12-06/npc_shrine_ix_friendly__x1_open_png_1354831272.png",906,752,151,188,22,false),
-			"still" : new Spritesheet("still","http://c2.glitch.bz/items/2012-12-06/npc_shrine_ix_friendly__x1_open_png_1354831272.png",906,752,151,188,1,false)
+			"open" : new Spritesheet("open","http://c2.glitch.bz/items/2012-12-06/npc_shrine_ix_friendly__x1_open_png_1354831272.png",840,1080,168,216,24,false),
+			"still" : new Spritesheet("still","http://c2.glitch.bz/items/2012-12-06/npc_shrine_ix_friendly__x1_open_png_1354831272.png",840,1080,168,216,1,false)
 		};
 		currentState = states['still'];
 		type = 'Friendly';
