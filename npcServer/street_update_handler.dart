@@ -100,12 +100,11 @@ class StreetUpdateHandler {
 		});
 	}
 
-	static Future processMessage(WebSocket ws, String message) {
+	static Future processMessage(WebSocket ws, String message) async {
 		//we should receive 3 kinds of messages:
 		//player enters street, player exits street, player interacts with object
 		//everything else will be outgoing
 		try {
-			Completer c = new Completer();
 			Map map = JSON.decode(message);
 			String streetName = map["streetName"];
 			String username = map["username"];
@@ -114,29 +113,29 @@ class StreetUpdateHandler {
 			//a player has joined or left the street
 			if(map["message"] == "joined") {
 				//set this player as being on this street
-				if(PlayerUpdateHandler.users[username] != null)
+				if(PlayerUpdateHandler.users[username] != null) {
 					PlayerUpdateHandler.users[username].tsid = map['tsid'];
+				}
 
 				if(map['clientVersion'] != null && map['clientVersion'] < minClientVersion) {
 					ws.add(JSON.encode({'error':'version too low'}));
-					c.complete();
+					return;
 				}
 				else {
-					if(!streets.containsKey(streetName))
+					if(!streets.containsKey(streetName)) {
 						loadStreet(streetName, map['tsid']);
+					}
 					//log("${map['username']} joined $streetName");
 					streets[streetName].occupants.add(ws);
 					if(map['firstConnect']) {
-						fireInventoryAtUser(ws, email).then((_) => c.complete());
+						await fireInventoryAtUser(ws, email);
 					}
-					else {
-						c.complete();
-					}
+					return;
 				}
 			}
 			else if(map["message"] == "left") {
 				cleanupList(ws);
-				c.complete();
+				return;
 			}
 
 			//if the street doesn't yet exist, create it (maybe it got stored back to the datastore)
@@ -147,6 +146,7 @@ class StreetUpdateHandler {
 			//the said that they collided with a quion, let's check and credit if true
 			if(map["remove"] != null) {
 				if(map["type"] == "quoin") {
+					print('remove quoin');
 					Quoin touched = streets[streetName].quoins[map["remove"]];
 					Identifier player = PlayerUpdateHandler.users[username];
 					if(player == null) {
@@ -155,24 +155,28 @@ class StreetUpdateHandler {
 						num xDiff = (touched.x - player.currentX).abs();
 						num yDiff = (touched.y - player.currentY).abs();
 
-						//print('xDiff: $xDiff, yDiff: $yDiff');
-						if(xDiff < 130)// && yDiff < 500)
-							MetabolicsEndpoint.addQuoin(touched, username);
-						else
+						if(xDiff < 130) {
+							await MetabolicsEndpoint.addQuoin(touched, username);
+							print('added');
+						}
+						else {
 							MetabolicsEndpoint.denyQuoin(touched, username);
+							print('denied');
+						}
 					}
-					else if(touched == null)
+					else if(touched == null) {
 						log('(street_update_handler) Could not collect quoin ${map['remove']} for player $username - quoin is null');
+					}
 				}
 
-				c.complete();
+				return;
 			}
 
 			//callMethod means the player is trying to interact with an entity
 			if(map["callMethod"] != null) {
 				if(map['id'] == 'global_action_monster') {
 					_callGlobalMethod(map,ws,email);
-					c.complete();
+					return;
 				} else {
 					String type = map['type'].replaceAll(" entity", "");
 					Map entityMap = streets[streetName].entityMaps[type];
@@ -196,11 +200,9 @@ class StreetUpdateHandler {
 						instanceMirror.invoke(new Symbol(methodName), [], arguments);
 					}
 
-					c.complete();
+					return;
 				}
 			}
-
-			return c.future;
 		}
 		catch(error, st) {
 			log("Error processing message (street_update_handler): $error\n$st");

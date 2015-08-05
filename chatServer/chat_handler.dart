@@ -156,37 +156,6 @@ class ChatHandler
 				users[userName] = (new Identifier(map["username"],street,map['tsid'],ws));
 				users[userName].channelList..add(map['street'])..add("Global Chat");
   			}
-			else if(map["statusMessage"] == "changeName")
-			{
-				bool success = true;
-				if(users.containsKey(map['newUsername']))
-					success = false;
-
-				if(!success)
-				{
-					Map errorResponse = new Map();
-					errorResponse["statusMessage"] = "changeName";
-					errorResponse["success"] = "false";
-					errorResponse["message"] = "This name is already taken.  Please choose another.";
-					errorResponse["channel"] = map["channel"];
-					users[map["username"]].webSocket.add(JSON.encode(errorResponse));
-					return;
-				}
-				else
-				{
-					map["success"] = "true";
-					map["message"] = "is now known as";
-					map["channel"] = "all"; //echo it back to all channels so we can update the connectedUsers list on the client's side
-
-					users[map['newUsername']] = users[map['username']];
-                    users.remove(map['username']);
-
-					//update their name in the database so they get logged in
-					//this way next time as well
-					String query = "UPDATE users SET username = @newUsername WHERE username = @oldUsername";
-					await dbConn.execute(query,{'newUsername':map['newUsername'],'oldUsername':map['username']});
-				}
-			}
 			else if(map["statusMessage"] == "changeStreet")
 			{
 				List<String> alreadySent = [];

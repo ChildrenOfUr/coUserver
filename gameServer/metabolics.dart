@@ -82,8 +82,13 @@ class Metabolics {
 	@Field()
 	int zillefavor_max = 1000;
 
-	@Field()
-	List<String> location_history = [];
+	@Field(model:'location_history')
+	String location_history_json = '[]';
+
+	List<String> get location_history => JSON.decode(location_history_json);
+	set location_history(List<String> history) {
+		location_history_json = JSON.encode(history);
+	}
 }
 
 class MetabolicsEndpoint {
@@ -212,8 +217,7 @@ class MetabolicsEndpoint {
 		}
 	}
 
-	static addQuoin(Quoin q, String username) async
-	{
+	static Future addQuoin(Quoin q, String username) async {
 		int amt = rand.nextInt(4) + 1;
 		int quoinMultiplier = 1;
 		// TODO: change 1 to the real quoin multiplier
@@ -314,9 +318,8 @@ class MetabolicsEndpoint {
 Future<Metabolics> getMetabolics({@app.QueryParam() String username, @app.QueryParam() String email}) async {
 	Metabolics metabolic = new Metabolics();
 
+	PostgreSql dbConn = await dbManager.getConnection();
 	try {
-		PostgreSql dbConn = await dbManager.getConnection();
-
 		String whereClause = "WHERE users.username = @username";
 		if(email != null) {
 			whereClause = "WHERE users.email = @email";
@@ -358,18 +361,17 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 		metabolics.energy = metabolics.max_energy;
 	}
 
+	PostgreSql dbConn = await dbManager.getConnection();
 	try {
-		PostgreSql dbConn = await dbManager.getConnection();
-
 		//if the user already exists, update their data, otherwise insert them
 		String query = "SELECT user_id FROM metabolics WHERE user_id = @user_id";
 		List<int> results = await dbConn.query(query, int, metabolics);
 
 		//user exists
 		if(results.length > 0) {
-			query = "UPDATE metabolics SET img = @img, currants = @currants, mood = @mood, energy = @energy, lifetime_img = @lifetime_img, current_street = @current_street, current_street_x = @current_street_x, current_street_y = @current_street_y, max_energy = @max_energy, max_mood = @max_mood, alphfavor = @alphfavor,cosmafavor = @cosmafavor,friendlyfavor = @friendlyfavor,grendalinefavor = @grendalinefavor,humbabafavor = @humbabafavor,lemfavor = @lemfavor,mabfavor = @mabfavor,potfavor = @potfavor,sprigganfavor = @sprigganfavor,tiifavor = @tiifavor,zillefavor = @zillefavor WHERE user_id = @user_id";
+			query = "UPDATE metabolics SET img = @img, currants = @currants, mood = @mood, energy = @energy, lifetime_img = @lifetime_img, current_street = @current_street, current_street_x = @current_street_x, current_street_y = @current_street_y, max_energy = @max_energy, max_mood = @max_mood, alphfavor = @alphfavor,cosmafavor = @cosmafavor,friendlyfavor = @friendlyfavor,grendalinefavor = @grendalinefavor,humbabafavor = @humbabafavor,lemfavor = @lemfavor,mabfavor = @mabfavor,potfavor = @potfavor,sprigganfavor = @sprigganfavor,tiifavor = @tiifavor,zillefavor = @zillefavor,location_history = @location_history WHERE user_id = @user_id";
 		} else {
-			query = "INSERT INTO metabolics (img,currants,mood,energy,lifetime_img,user_id,current_street,current_street_x,current_street_y,max_energy,max_mood,alphfavor,cosmafavor,friendlyfavor,grendalinefavor,humbabafavor,lemfavor,mabfavor,potfavor,sprigganfavor,tiifavor,zillefavor) VALUES(@img,@currants,@mood,@energy,@lifetime_img,@user_id,@current_street,@current_street_x,@current_street_y,@max_energy,@max_mood,@alphfavor,@cosmafavor,@friendlyfavor,@grendalinefavor,@humbabafavor,@lemfavor,@mabfavor,@potfavor,@sprigganfavor,@tiifavor,@zillefavor);";
+			query = "INSERT INTO metabolics (img,currants,mood,energy,lifetime_img,user_id,current_street,current_street_x,current_street_y,max_energy,max_mood,alphfavor,cosmafavor,friendlyfavor,grendalinefavor,humbabafavor,lemfavor,mabfavor,potfavor,sprigganfavor,tiifavor,zillefavor,location_history) VALUES(@img,@currants,@mood,@energy,@lifetime_img,@user_id,@current_street,@current_street_x,@current_street_y,@max_energy,@max_mood,@alphfavor,@cosmafavor,@friendlyfavor,@grendalinefavor,@humbabafavor,@lemfavor,@mabfavor,@potfavor,@sprigganfavor,@tiifavor,@zillefavor,@location_history);";
 		}
 
 		result = await dbConn.execute(query, metabolics);
