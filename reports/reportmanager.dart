@@ -197,7 +197,8 @@ class ReportManager {
 			"title": title,
 			"description": description,
 			"category": category,
-			"reports": ids
+			"reports": ids,
+			"done": false
 		};
 
 		// Update the reports list
@@ -218,5 +219,30 @@ class ReportManager {
 
 		// Save new merges data to disk
 		await writeMerges(merges);
+	}
+
+	@app.Route('/merge/markDone')
+	Future markMergeDone(@app.QueryParam('id') int id) async {
+		List<Map> merges = await getMerges();
+		if (merges.where((Map mergeMap) => mergeMap["id"] == id).toList().length > 0) {
+			Map merge = merges.where((Map mergeMap) => mergeMap["id"] == id).toList().first;
+			merge["done"] = true;
+			merges.removeWhere((Map mergeMap) => mergeMap["id"] == id);
+			merges.add(merge);
+			merges.sort((Map a, Map b) => (a["id"] as int).compareTo(b["id"] as int));
+			writeReports(merges);
+		}
+		print("DONE!");
+		return;
+	}
+
+	@app.Route('/merge/delete')
+	Future deleteMerge(@app.QueryParam('id') int id) async {
+		List<Map> merges = await getReports();
+		List<Map> merge = merges.where((Map mergeMap) => mergeMap["id"] == id).toList();
+		if (merge.length > 0) {
+			merges.removeWhere((Map mergeMap) => mergeMap["id"] == id);
+			await writeReports(merges);
+		}
 	}
 }
