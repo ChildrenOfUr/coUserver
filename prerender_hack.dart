@@ -8,7 +8,7 @@ Future<String> uploadStreetRender(@app.Body(app.JSON) Map street) async {
 		tsid = 'L' + tsid.substring(1);
 	}
 	Map<String, String> layers = street['layers'];
-	Directory streetDir = new Directory('/home/master/hell/streetLayers/$tsid');
+	Directory streetDir = new Directory('/home/master/streetLayers/$tsid');
 	await streetDir.create(recursive: true);
 
 	await Future.forEach(layers.keys, (String layerName) => writeLayerToFile(tsid, layerName, layers[layerName]));
@@ -19,7 +19,7 @@ Future<String> uploadStreetRender(@app.Body(app.JSON) Map street) async {
 
 Future writeLayerToFile(String tsid, String layerName, String dataUri) async {
 	layerName = layerName.replaceAll(' ', '_');
-	File layer = new File('/home/master/hell/streetLayers/$tsid/$layerName.png');
+	File layer = new File('/home/master/streetLayers/$tsid/$layerName.png');
 	if (await layer.exists()) {
 		await layer.delete();
 	}
