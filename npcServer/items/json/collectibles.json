@@ -1692,7 +1692,21 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_factorydefect_chick__x1_race_png_1354840105.png",
     "stacksTo": 1,
     "price": 1511000,
-    "description": "This Factory Defect Chick Cubimal was hand-picked straight out of the garbage bin by an assembly line worker."
+    "description": "This Factory Defect Chick Cubimal was hand-picked straight out of the garbage bin by an assembly line worker.",
+    "actions": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      },
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "npc_cubimal_gardeningtoolsvendor": {
     "name": "Gardening Tools Vendor Cubimal",
@@ -1701,7 +1715,21 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_gardeningtoolsvendor__x1_race_png_1354839863.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Gardening Tools Vendor Cubimal! Collect all Series 2 Cubimals!"
+    "description": "It's a Gardening Tools Vendor Cubimal! Collect all Series 2 Cubimals!",
+    "actions": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      },
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "npc_cubimal_maintenancebot": {
     "name": "Maintenance Bot Cubimal",
@@ -1710,7 +1738,21 @@
     "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_maintenancebot__x1_race_png_1354839966.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Maintenance Bot Cubimal! Collect all Series 2 Cubimals!"
+    "description": "It's a Mai,ntenance Bot Cubimal! Collect all Series 2 Cubimals!",
+    "actions": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      },
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "nyanite_necklace": {
     "name": "Nyanite Necklace",

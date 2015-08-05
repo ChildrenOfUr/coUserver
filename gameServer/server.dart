@@ -97,6 +97,9 @@ main() async {
 //	await Future.wait(futures);
 //	print('upgading complete');
 //	dbManager.closeConnection(db);
+
+// TEST THE INVENTORY
+await Inventory.upgradeItems();
 }
 
 @app.Route('/listUsers')

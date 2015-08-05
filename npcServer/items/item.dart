@@ -74,6 +74,10 @@ class Item {
   @Field()
   bool isContainer = false;
   @Field()
+  int subSlots;
+  @Field()
+  List<String> subSlotFilter;
+  @Field()
   List<Action> actions = [];
 
   Action dropAction = new Action.withName('drop')
@@ -100,6 +104,8 @@ class Item {
     x = model.x;
     y = model.y;
     isContainer = model.isContainer;
+    subSlots = model.subSlots;
+    subSlotFilter = model.subSlotFilter;
     actions = model.actions;
 
     bool found = false;
