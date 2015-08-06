@@ -44,7 +44,7 @@ class Inventory {
 		// Add 3 picks
 		await testInv.addItem(items["pick"].getMap(), 3, null);
 		// Tell us what it looks like
-		print(testInv.inventory_json);
+		//print(testInv.inventory_json);
 		// Remove 48 coffees
 		await testInv.takeItem(items["coffee"].getMap(), 48, null);
 		// Remove a pick
@@ -54,7 +54,7 @@ class Inventory {
 		// Tell us what it looks like now
 		// Notice how the items are not all compressed to the first few slots.
 		// Personal inventory sorting FTW!
-		print(testInv.inventory_json);
+		//print(testInv.inventory_json);
 		// Make main() happy
 		return 1;
 	}

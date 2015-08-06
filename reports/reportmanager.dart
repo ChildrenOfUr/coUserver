@@ -1,143 +1,88 @@
 part of coUserver;
 
-//TODO: use a database, not a JSON file
+class Report {
+	@Field() int id;
+	@Field() String title;
+	@Field() String description;
+	@Field() String log;
+	@Field() String useragent;
+	@Field() String username;
+	@Field() String email;
+	@Field() String category;
+	@Field() String image;
+	@Field() DateTime date;
+	@Field() bool done;
+	@Field() int merged;
+}
+
+class Merge {
+	@Field() int id;
+	@Field() String title;
+	@Field() String description;
+	@Field() String category;
+	@Field() List<int> reports;
+	@Field() bool done;
+}
+
 @app.Group('/report')
 class ReportManager {
 
 	// Globals
 
 	DateTime currDate = new DateTime.now();
+
 	Random rand = new Random();
-
-	// Get Directory
-
-	String get directory => Platform.script.toFilePath();
-	String get reportsDirectory => directory.substring(0, directory.lastIndexOf('/'));
-
-	// Access Files
-
-	File get reportFile => new File("$reportsDirectory/reports/userdata/reports.json");
-
-	File get mergeFile =>  new File("$reportsDirectory/reports/userdata/merged.json");
-
-	// Read File Data
-
-	Future<List<Map>> getReports() async {
-		String json = await reportFile.readAsString();
-		if (json == "" || json == null) {
-			json = "[]";
-		}
-		return JSON.decode(json);
-	}
-
-	Future<List<Map>> getMerges() async {
-		String json = await mergeFile.readAsString();
-		if (json == "" || json == null) {
-			json = "[]";
-		}
-		return JSON.decode(json);
-	}
-
-	// Write File Data
-
-	Future writeReports(List<Map> reports) async {
-		reportFile.writeAsString(JSON.encode(reports));
-	}
-
-	Future writeMerges(List<Map> merges) async {
-		reportFile.writeAsString(JSON.encode(merges));
-	}
 
 	// Insert a report
 
 	@app.Route("/add", methods: const [app.POST], allowMultipartRequest: true)
 	Future addReport(@app.Body(app.FORM) Map data) async {
 
-		// Get existing reports
-		List<Map> existingReports = await getReports();
+		String title = (data["title"] as String).trim().replaceAll("'", "''");
+		String description = (data["description"] as String).trim().replaceAll("'", "''");
+		String log = (data["log"] as String).trim().replaceAll("'", "''");
+		String useragent = (data["useragent"] as String).trim().replaceAll("'", "''");
+		String username = (data["username"] as String).trim().replaceAll("'", "''");
+		String email = (data["email"] as String).trim().toLowerCase().replaceAll("'", "''");
+		String category = (data["category"] as String).trim().toLowerCase().replaceAll("'", "''");
+		String image = "";
 
-		// Pick the next id
-		List<int> ids = [];
-		int newId = 0;
-		if (existingReports.isNotEmpty) {
-			existingReports.forEach((Map reportMap) => ids.add((reportMap["id"] as int)));
-			ids.sort();
-			newId = ids.last + 1;
-		} else {
-			newId = 1;
+		if (data["image"] != null && data["image"] != "") {
+			image = CryptoUtils.bytesToBase64(data["image"].content);
 		}
 
-		// Assemble Data
+		String query = "INSERT INTO reports (title, description, log, useragent, username, email, category)";
+		query += "VALUES('$title', '$description', '$log', '$useragent', '$username', '$email', '$category')";
 
-		Map<String, dynamic> reportMap = {
-			"id": newId,
-			"title": (data["title"] as String).trim(),
-			"description": (data["description"] as String).trim(),
-			"log": (data["log"] as String).trim(),
-			"useragent": (data["useragent"] as String).trim(),
-			"username": (data["username"] as String).trim(),
-			"email": (data["email"] as String).trim(),
-			"category": (data["category"] as String).trim().toLowerCase(),
-			"date": {
-				"year": currDate.year,
-				"month": currDate.month,
-				"day": currDate.day
-			},
-			"done": false,
-			"merged": -1
-		};
-
-		if (data["image"] != null) {
-			Map fileMap = {
-				"image": CryptoUtils.bytesToBase64(data["image"].content)
-			};
-			reportMap.addAll(fileMap);
-		}
-
-		// Write to reports file
-		existingReports.add(reportMap);
-		await writeReports(existingReports);
+		return await dbConn.execute(query);
 	}
 
 	// Get existing reports
 
 	@app.Route('/list')
-	Future<List<Map>> listReports() async {
-		return await getReports();
+	Future listReports() async {
+		return await dbConn.query("SELECT * FROM reports", Report);
 	}
 
 	// Mark a report as done
 
 	@app.Route('/markDone')
 	Future markReportDone(@app.QueryParam('id') int id) async {
-		List<Map> reports = await getReports();
-		if (reports.where((Map reportMap) => reportMap["id"] == id).toList().length > 0) {
-			Map report = reports.where((Map reportMap) => reportMap["id"] == id).toList().first;
-			report["done"] = true;
-			reports.removeWhere((Map reportMap) => reportMap["id"] == id);
-			reports.add(report);
-			reports.sort((Map a, Map b) => (a["id"] as int).compareTo(b["id"] as int));
-			writeReports(reports);
-		}
+		return await dbConn.execute("UPDATE reports SET done=true WHERE id=$id", String);
 	}
 
 	// Permanently delete a report
 
 	@app.Route('/delete')
 	Future deleteReport(@app.QueryParam('id') int id) async {
-		List<Map> reports = await getReports();
-		List<Map> report = reports.where((Map reportMap) => reportMap["id"] == id).toList();
-		if (report.length > 0) {
-			reports.removeWhere((Map reportMap) => reportMap["id"] == id);
-			await writeReports(reports);
-		}
+		return await dbConn.execute("DELETE FROM reports WHERE id=$id", String);
 	}
 
 	// Get existing merges
 
 	@app.Route('/merge/list')
 	Future<List<Map>> listMerges() async {
-		return await getMerges();
+		return await dbConn.query("SELECT * FROM mergedreports", Map);
 	}
 
 	// Merge reports
@@ -156,24 +101,17 @@ class ReportManager {
 		} catch (e) {
 			// Don't crash the server if the id list is empty
 			print("[ReportManagerInterface] $e");
-			return;
+			return -1;
 		}
 
-		// Read existing merges
-		List<Map> merges = await getMerges();
-
-		// Read existing reports
-		List<Map> allReports = await getReports();
-
-		// Find the ones we are merging
-		List<Map> reports = allReports.where((Map report) => ids.contains(report["id"]));
-
 		// Figure out which category to use (majority of the reports, or bug if equal)
+		List<String> categories = await dbConn.query("SELECT category FROM reports WHERE ", String);
+		// TODO: WHERE ids (above) contains report id in row
 		int bug = 0, suggestion = 0;
 		String category;
-		reports.forEach((Map report) {
-			if (report["category"] == "bug") bug++;
-			if (report["category"] == "suggestion") suggestion++;
+		categories.forEach((String category) {
+			if (category == "bug") bug++;
+			if (category == "suggestion") suggestion++;
 		});
 		if (suggestion > bug) {
 			category = "suggestion";
@@ -181,68 +119,20 @@ class ReportManager {
 			category = "bug";
 		}
 
-		// Pick the next id
-		int newId = 0;
-		if (merges.isNotEmpty) {
-			merges.forEach((Map mergeMap) => ids.add((mergeMap["id"] as int)));
-			ids.sort();
-			newId = ids.last + 1;
-		} else {
-			newId = 1;
-		}
+		String query = "INSERT INTO mergedreports (title, description, category, reports)";
+		query += " VALUES('$title', '$description', '$category', '$ids'";
+		return dbConn.execute(query);
 
-		// Create a new merge
-		Map<String, dynamic> merge = {
-			"id": newId,
-			"title": title,
-			"description": description,
-			"category": category,
-			"reports": ids,
-			"done": false
-		};
-
-		// Update the reports list
-		allReports.forEach((Map report) {
-			if (ids.contains(report["id"])) {
-				report["merged"] = newId;
-			}
-		});
-
-		// Save new reports data to disk
-		await writeReports(allReports);
-
-		// Add merge to merge list
-		merges.add(merge);
-
-		// Sort list by id (asc)
-		merges.sort((Map a, Map b) => (a["id"] as int).compareTo(b["id"] as int));
-
-		// Save new merges data to disk
-		await writeMerges(merges);
+		// TODO: set the value of 'merged' for each report to the new id of this merge
 	}
 
 	@app.Route('/merge/markDone')
 	Future markMergeDone(@app.QueryParam('id') int id) async {
-		List<Map> merges = await getMerges();
-		if (merges.where((Map mergeMap) => mergeMap["id"] == id).toList().length > 0) {
-			Map merge = merges.where((Map mergeMap) => mergeMap["id"] == id).toList().first;
-			merge["done"] = true;
-			merges.removeWhere((Map mergeMap) => mergeMap["id"] == id);
-			merges.add(merge);
-			merges.sort((Map a, Map b) => (a["id"] as int).compareTo(b["id"] as int));
-			writeReports(merges);
-		}
-		print("DONE!");
-		return;
+		return await dbConn.execute("UPDATE mergedreports SET done=true WHERE id=$id");
 	}
 
 	@app.Route('/merge/delete')
 	Future deleteMerge(@app.QueryParam('id') int id) async {
-		List<Map> merges = await getReports();
-		List<Map> merge = merges.where((Map mergeMap) => mergeMap["id"] == id).toList();
-		if (merge.length > 0) {
-			merges.removeWhere((Map mergeMap) => mergeMap["id"] == id);
-			await writeReports(merges);
-		}
+		return await dbConn.execute("DELETE FROM reports WHERE id=$id");
 	}
 }
