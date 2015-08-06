@@ -1,25 +1,31 @@
 part of coUserver;
 
 class Report {
-	@Field() int id;
-	@Field() String title;
-	@Field() String description;
-	@Field() String log;
-	@Field() String useragent;
-	@Field() String username;
-	@Field() String email;
-	@Field() String category;
-	@Field() String image;
+	@Field() int id,merged;
+	@Field() String title,description,log,useragent;
+	@Field() String username,email,category,image;
 	@Field() DateTime date;
 	@Field() bool done;
-	@Field() int merged;
 }
 
-class Merge {
+class MergeModel {
 	@Field() int id;
-	@Field() String title;
-	@Field() String description;
-	@Field() String category;
+	@Field() String title,description,category;
+	@Field() String reports;
+	@Field() bool done;
+}
+
+class MergeView {
+	MergeView.fromModel(MergeModel model) {
+		this.id = model.id;
+		this.title = model.title;
+		this.description = model.description;
+		this.category = model.category;
+		this.reports = JSON.decode(model.reports);
+		this.done = model.done;
+	}
+	@Field() int id;
+	@Field() String title,description,category;
 	@Field() List<int> reports;
 	@Field() bool done;
 }
@@ -36,59 +42,56 @@ class ReportManager {
 	// Insert a report
 
 	@app.Route("/add", methods: const [app.POST], allowMultipartRequest: true)
-	Future addReport(@app.Body(app.FORM) Map data) async {
-
-		String title = (data["title"] as String).trim().replaceAll("'", "''");
-		String description = (data["description"] as String).trim().replaceAll("'", "''");
-		String log = (data["log"] as String).trim().replaceAll("'", "''");
-		String useragent = (data["useragent"] as String).trim().replaceAll("'", "''");
-		String username = (data["username"] as String).trim().replaceAll("'", "''");
-		String email = (data["email"] as String).trim().toLowerCase().replaceAll("'", "''");
-		String category = (data["category"] as String).trim().toLowerCase().replaceAll("'", "''");
-		String image = "";
-
+	Future<int> addReport(@app.Body(app.FORM) Map data) async {
 		if (data["image"] != null && data["image"] != "") {
-			image = CryptoUtils.bytesToBase64(data["image"].content);
+			data['image'] = CryptoUtils.bytesToBase64(data["image"].content);
 		}
 
-		String query = "INSERT INTO reports (title, description, log, useragent, username, email, category)";
-		query += "VALUES('$title', '$description', '$log', '$useragent', '$username', '$email', '$category')";
+		String query = "INSERT INTO reports (title, description, log, useragent, username, email, category, image)";
+		query += "VALUES(@title, @description, @log, @useragent, @username, @email, @category, @image)";
 
-		return await dbConn.execute(query);
+		return await dbConn.execute(query,data);
 	}
 
 	// Get existing reports
 
 	@app.Route('/list')
-	Future listReports() async {
+	@Encode()
+	Future<List<Report>> listReports() async {
 		return await dbConn.query("SELECT * FROM reports", Report);
 	}
 
 	// Mark a report as done
 
 	@app.Route('/markDone')
-	Future markReportDone(@app.QueryParam('id') int id) async {
+	Future<int> markReportDone(@app.QueryParam('id') int id) async {
 		return await dbConn.execute("UPDATE reports SET done=true WHERE id=$id", String);
 	}
 
 	// Permanently delete a report
 
 	@app.Route('/delete')
-	Future deleteReport(@app.QueryParam('id') int id) async {
+	Future<int> deleteReport(@app.QueryParam('id') int id) async {
 		return await dbConn.execute("DELETE FROM reports WHERE id=$id", String);
 	}
 
 	// Get existing merges
 
 	@app.Route('/merge/list')
-	Future<List<Map>> listMerges() async {
-		return await dbConn.query("SELECT * FROM mergedreports", Map);
+	@Encode()
+	Future<List<MergeView>> listMerges() async {
+		List<MergeModel> merges = await dbConn.query("SELECT * FROM mergedreports", MergeModel);
+		List<MergeView> views = [];
+		merges.forEach((MergeModel merge) {
+			views.add(new MergeView.fromModel(merge));
+		});
+		return views;
 	}
 
 	// Merge reports
 
 	@app.Route('/merge/add')
-	Future mergeReport(
+	Future<int> mergeReport(
 		@app.QueryParam('ids') String idList,
 		@app.QueryParam('title') String title,
 		@app.QueryParam('description') String description
@@ -127,12 +130,12 @@ class ReportManager {
 	}
 
 	@app.Route('/merge/markDone')
-	Future markMergeDone(@app.QueryParam('id') int id) async {
+	Future<int> markMergeDone(@app.QueryParam('id') int id) async {
 		return await dbConn.execute("UPDATE mergedreports SET done=true WHERE id=$id");
 	}
 
 	@app.Route('/merge/delete')
-	Future deleteMerge(@app.QueryParam('id') int id) async {
+	Future<int> deleteMerge(@app.QueryParam('id') int id) async {
 		return await dbConn.execute("DELETE FROM reports WHERE id=$id");
 	}
 }
