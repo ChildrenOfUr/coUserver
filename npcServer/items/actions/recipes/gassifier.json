@@ -1,0 +1,57 @@
+[
+    {
+        "id": "gas_crying",
+        "tool": "gassifier",
+        "input": {
+            "general_vapour": 4
+        },
+        "output": "gas_crying",
+        "output_amt": 1,
+        "time": 1,
+        "energy": -5
+    },
+    {
+        "id": "gas_heavy",
+        "tool": "gassifier",
+        "input": {
+            "general_vapour": 6
+        },
+        "output": "gas_heavy",
+        "output_amt": 1,
+        "time": 1,
+        "energy": -19
+    },
+    {
+        "id": "helium",
+        "tool": "gassifier",
+        "input": {
+            "general_vapour": 5
+        },
+        "output": "helium",
+        "output_amt": 1,
+        "time": 1,
+        "energy": -11
+    },
+    {
+        "id": "gas_laughing",
+        "tool": "gassifier",
+        "input": {
+            "general_vapour": 3
+        },
+        "output": "gas_laughing",
+        "output_amt": 1,
+        "time": 1,
+        "energy": -8
+    },
+    {
+        "id": "gas_white",
+        "tool": "gassifier",
+        "input": {
+            "general_vapour": 8
+        },
+        "output": "gas_white",
+        "output_amt": 1,
+        "time": 1,
+        "energy": -19
+    }
+]

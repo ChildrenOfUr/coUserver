@@ -1,0 +1,79 @@
+[
+    {
+        "id": "bean_tree_bean",
+        "tool": "bean_seasoner",
+        "input": {
+            "bean": 1,
+            "nutmeg": 3,
+            "lemon": 3,
+            "general_vapour": 3
+        },
+        "output": "bean_tree_bean",
+        "output_amt": 1,
+        "time": 1
+    },
+    {
+        "id": "bubble_tree_bean",
+        "tool": "bean_seasoner",
+        "input": {
+            "bean": 1,
+            "turmeric": 3,
+            "plum": 4,
+            "helium": 1
+        },
+        "output": "bubble_tree_bean",
+        "output_amt": 1,
+        "time": 1
+    },
+    {
+        "id": "egg_plant_bean",
+        "tool": "bean_seasoner",
+        "input": {
+            "bean": 1,
+            "gas_heavy": 1,
+            "pineapple": 2,
+            "camphor": 1
+        },
+        "output": "egg_plant_bean",
+        "output_amt": 1,
+        "time": 1
+    },
+    {
+        "id": "fruit_tree_bean",
+        "tool": "bean_seasoner",
+        "input": {
+            "bean": 1,
+            "cardamom": 3,
+            "laughing_gas": 2
+        },
+        "output": "fruit_tree_bean",
+        "output_amt": 1,
+        "time": 1
+    },
+    {
+        "id": "gas_plant_bean",
+        "tool": "bean_seasoner",
+        "input": {
+            "bean": 1,
+            "licorice": 4,
+            "bubble_hard": 2,
+            "beer": 1
+        },
+        "output": "gas_plant_bean",
+        "output_amt": 1,
+        "time": 1
+    },
+    {
+        "id": "wood_tree_bean",
+        "tool": "bean_seasoner",
+        "input": {
+            "bean": 1,
+            "mangosteen": 3,
+            "gas_white": 1,
+            "cinnamon": 5
+        },
+        "output": "wood_tree_bean",
+        "output_amt": 1,
+        "time": 1
+    }
+]
