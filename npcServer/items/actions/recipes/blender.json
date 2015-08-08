@@ -1,0 +1,125 @@
+[
+    {
+        "id": "bubble_tea",
+        "tool": "blender",
+        "input": {
+            "bubble_blue": 5,
+            "bubble_hard": 2,
+            "bubble_tiny": 4,
+            "plain_bubble": 7
+        },
+        "output": "bubble_tea",
+        "output_amt": 1,
+        "time": 3
+    },
+    {
+        "id": "cloud_11_smoothie",
+        "tool": "blender",
+        "input": {
+            "cloudberry": 11,
+            "banana": 1,
+            "honey": 1,
+            "butterfly_milk": 1
+        },
+        "output": "cloud_11_smoothie",
+        "output_amt": 1,
+        "time": 3
+    },
+    {
+        "id": "earthshaker",
+        "tool": "blender",
+        "input": {
+            "egg": 6,
+            "banana": 1,
+            "hot_n_fizzy_sauce": 1,
+            "garlic": 1,
+            "beer": 1
+        },
+        "output": "earthshaker",
+        "output_amt": 1,
+        "time": 3
+    },
+    {
+        "id": "exotic_juice",
+        "tool": "blender",
+        "input": {
+            "pineapple": 1,
+            "mangosteens": 3,
+            "banana": 1
+        },
+        "output": "exotic_juice",
+        "output_amt": 1,
+        "time": 3
+    },
+    {
+        "id": "fruity_juice",
+        "tool": "blender",
+        "input": {
+            "cherry": 4,
+            "plum": 2,
+            "orange": 1
+        },
+        "output": "fruity_juice",
+        "output_amt": 1,
+        "time": 3
+    },
+    {
+        "id": "lemon_juice",
+        "tool": "blender",
+        "input": {
+            "lemon": 5
+        },
+        "output": "lemon_juice",
+        "output_amt": 1,
+        "time": 3
+    },
+    {
+        "id": "mega_healthy_veggie_juice",
+        "tool": "blender",
+        "input": {
+            "carrot": 1,
+            "cabbage": 1,
+            "parsnip": 1,
+            "mangosteen": 1
+        },
+        "output": "mega_healthy_veggie_juice",
+        "output_amt": 1,
+        "time": 3
+    },
+    {
+        "id": "orange_juice",
+        "tool": "blender",
+        "input": {
+            "orange": 5
+        },
+        "output": "orange_juice",
+        "output_amt": 1,
+        "time": 3
+    },
+    {
+        "id": "savory_smoothie",
+        "tool": "blender",
+        "input": {
+            "oily_dressing": 1,
+            "bubble_hard": 3,
+            "meat": 1,
+            "allspice": 1
+        },
+        "output": "savory_smoothie",
+        "output_amt": 1,
+        "time": 3
+    },
+    {
+        "id": "tooberry_shake",
+        "tool": "blender",
+        "input": {
+            "butterfly_milk": 1,
+            "strawberry": 4,
+            "whortleberry": 4,
+            "birch_syrup": 1
+        },
+        "output": "tooberry_shake",
+        "output_amt": 1,
+        "time": 3
+    }
+]

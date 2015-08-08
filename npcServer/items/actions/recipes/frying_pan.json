@@ -1,0 +1,297 @@
+[
+    {
+        "id": "applejack",
+        "tool": "frying_pan",
+        "input": {
+            "apple": 1,
+            "oats": 1,
+            "allspice": 1
+        },
+        "output": "applejack",
+        "output_amt": 1,
+        "time": 2
+    },
+    {
+        "id": "banana_no_names",
+        "tool": "frying_pan",
+        "input": {
+            "banana": 1,
+            "butterfly_butter": 1,
+            "honey": 1
+        },
+        "output": "banana_no_names",
+        "output_amt": 2,
+        "time": 2
+    },
+    {
+        "id": "basic_omelet",
+        "tool": "frying_pan",
+        "input": {
+            "cheese": 1,
+            "egg": 3
+        },
+        "output": "basic_omelet",
+        "output_amt": 1,
+        "time": 2
+    },
+    {
+        "id": "best_bean_dip",
+        "tool": "frying_pan",
+        "input": {
+            "cheese": 1,
+            "cumin": 1,
+            "beans": 10
+        },
+        "output": "best_bean_dip",
+        "output_amt": 1,
+        "time": 2
+    },
+    {
+        "id": "bubble_and_squeak",
+        "tool": "frying_pan",
+        "input": {
+            "meat": 1,
+            "carrot": 1,
+            "potato": 1,
+            "bubble_hard": 1
+        },
+        "output": "bubble_and_squeak",
+        "output_amt": 1,
+        "time": 2
+    },
+    {
+        "id": "bun",
+        "tool": "frying_pan",
+        "input": {
+            "flour": 1,
+            "pinch_of_salt": 1
+        },
+        "output": "bun",
+        "output_amt": 1,
+        "time": 2
+    },
+    {
+        "id": "corny_fritter",
+        "tool": "frying_pan",
+        "input": {
+            "egg": 1,
+            "corn": 3,
+            "pinch_of_salt": 1
+        },
+        "output": "corny_fritter",
+        "output_amt": 1,
+        "time": 2
+    },
+    {
+        "id": "corn_off_the_cob",
+        "tool": "frying_pan",
+        "input": {
+            "butterfly_butter": 1,
+            "corn": 4
+        },
+        "output": "corn_off_the_cob",
+        "output_amt": 1,
+        "time": 2
+    },
+    {
+        "id": "divine_crepes",
+        "tool": "frying_pan",
+        "input": {
+            "flour": 1,
+            "strawberry": 3,
+            "butterfly_milk": 1,
+            "egg": 2,
+            "butterfly_butter": 1
+        },
+        "output": "divine_crepes",
+        "output_amt": 2,
+        "time": 2
+    },
+    {
+        "id": "eggy_scramble",
+        "tool": "frying_pan",
+        "input": {
+            "butterfly_butter": 1,
+            "egg": 2
+        },
+        "output": "eggy_scramble",
+        "output_amt": 1,
+        "time": 2
+    },
+    {
+        "id": "fried_egg",
+        "tool": "frying_pan",
+        "input": {
+            "egg": 1,
+            "pinch_of_salt": 1
+        },
+        "output": "fried_egg",
+        "output_amt": 1,
+        "time": 2
+    },
+    {
+        "id": "fried_noodles",
+        "tool": "frying_pan",
+        "input": {
+            "plain_noodles": 1,
+            "butterfly_butter": 1
+        },
+        "output": "fried_noodles",
+        "output_amt": 1,
+        "time": 2
+    },
+    {
+        "id": "fried_rice",
+        "tool": "frying_pan",
+        "input": {
+            "proper_rice": 1,
+            "black_pepper": 1,
+            "sesame_oil": 1,
+            "meat": 1,
+            "egg": 1
+        },
+        "output": "fried_rice",
+        "output_amt": 1,
+        "time": 2
+    },
+    {
+        "id": "gammas_pancakes",
+        "tool": "frying_pan",
+        "input": {
+            "flour": 1,
+            "birch_syrup": 1,
+            "butterfly_milk": 1,
+            "egg": 2
+        },
+        "output": "gammas_pancakes",
+        "output_amt": 1,
+        "time": 2
+    },
+    {
+        "id": "green_eggs",
+        "tool": "frying_pan",
+        "input": {
+            "egg": 1,
+            "spinach": 1
+        },
+        "output": "green_eggs",
+        "output_amt": 1,
+        "time": 2
+    },
+    {
+        "id": "hash",
+        "tool": "frying_pan",
+        "input": {
+            "potato": 2,
+            "meat": 1,
+            "corn": 2
+        },
+        "output": "hash",
+        "output_amt": 1,
+        "time": 2
+    },
+    {
+        "id": "hearty_omelet",
+        "tool": "frying_pan",
+        "input": {
+            "hot_n_fizzy_sauce": 1,
+            "cheese": 1,
+            "mushroom": 2,
+            "egg": 2
+        },
+        "output": "hearty_omelet",
+        "output_amt": 1,
+        "time": 2
+    },
+    {
+        "id": "messy_fry_up",
+        "tool": "frying_pan",
+        "input": {
+            "butterfly_butter": 1,
+            "meat": 1,
+            "egg": 2,
+            "potato": 1
+        },
+        "output": "messy_fry_up",
+        "output_amt": 1,
+        "time": 2
+    },
+    {
+        "id": "mexicali_eggs",
+        "tool": "frying_pan",
+        "input": {
+            "beans": 5,
+            "tortilla": 1,
+            "egg": 2,
+            "cheese": 1
+        },
+        "output": "mexicali_eggs",
+        "output_amt": 1,
+        "time": 2
+    },
+    {
+        "id": "plain_noodles",
+        "tool": "frying_pan",
+        "input": {
+            "rice": 1,
+            "flour": 1
+        },
+        "output": "plain_noodles",
+        "output_amt": 1,
+        "time": 2
+    },
+    {
+        "id": "pumpkin_pie",
+        "tool": "frying_pan",
+        "input": {
+            "nutmeg": 1,
+            "pumpkin": 1,
+            "flour": 1,
+            "honey": 1,
+            "butterfly_butter": 1
+        },
+        "output": "pumpkin_pie",
+        "output_amt": 1,
+        "time": 2
+    },
+    {
+        "id": "scrumptious_frittata",
+        "tool": "frying_pan",
+        "input": {
+            "egg": 2,
+            "cheese": 1,
+            "spinach": 1,
+            "mustard": 1,
+            "black_pepper": 1
+        },
+        "output": "scrumptious_frittata",
+        "output_amt": 1,
+        "time": 2
+    },
+    {
+        "id": "spicy_quesadilla",
+        "tool": "frying_pan",
+        "input": {
+            "cheese": 1,
+            "hot_pepper": 1,
+            "tortilla": 1,
+            "meat": 1,
+            "mustard": 1
+        },
+        "output": "spicy_quesadilla",
+        "output_amt": 1,
+        "time": 2
+    },
+    {
+        "id": "tortilla",
+        "tool": "frying_pan",
+        "input": {
+            "flour": 1,
+            "corn": 1,
+            "pinch_of_salt": 1
+        },
+        "output": "tortilla",
+        "output_amt": 1,
+        "time": 2
+    }
+]
