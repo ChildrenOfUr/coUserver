@@ -9,7 +9,7 @@ class Recipes {
 	Future<String> listRecipes(@app.QueryParam("tool") String tool) {
 	    List<Map> toolRecipes = [];
 	        recipes.forEach((Map recipe) {
-	        if ((tool == "" || tool == "null") || tool == recipe["tool"]) {
+	        if ((tool == "" || tool == null) || tool == recipe["tool"]) {
     		    Map toolRecipe = new Map()
     		      ..["id"] = recipe["id"]
     		      ..["tool"] = recipe["tool"]
