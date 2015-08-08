@@ -6,6 +6,9 @@ class Report {
 	@Field() String username,email,category,image;
 	@Field() DateTime date;
 	@Field() bool done;
+
+	Report();
+	Report.fromData(this.title, this.description, this.log, this.useragent, this.username, this.email, this.category, this.image, this.date, [this.done = false, this.merged = -1]);
 }
 
 class MergeModel {
@@ -65,14 +68,14 @@ class ReportManager {
 
 	@app.Route('/markDone')
 	Future<int> markReportDone(@app.QueryParam('id') int id) async {
-		return await dbConn.execute("UPDATE reports SET done=true WHERE id=$id", String);
+		return await dbConn.execute("UPDATE reports SET done=true WHERE id=$id");
 	}
 
 	// Permanently delete a report
 
 	@app.Route('/delete')
 	Future<int> deleteReport(@app.QueryParam('id') int id) async {
-		return await dbConn.execute("DELETE FROM reports WHERE id=$id", String);
+		return await dbConn.execute("DELETE FROM reports WHERE id=$id");
 	}
 
 	// Get existing merges
@@ -137,5 +140,31 @@ class ReportManager {
 	@app.Route('/merge/delete')
 	Future<int> deleteMerge(@app.QueryParam('id') int id) async {
 		return await dbConn.execute("DELETE FROM reports WHERE id=$id");
+	}
+
+	@app.Route('/convertToDB')
+	Future convertToDB() async {
+		String directory = Platform.script.toFilePath();
+		String reportsDirectory = directory.substring(0, directory.lastIndexOf('/'));
+		File reportFile = new File("$reportsDirectory/reports/userdata/reports.json");
+		List<Map> reports = JSON.decode(reportFile.readAsStringSync());
+		reports.forEach((Map report) async {
+			Report reportObj = new Report.fromData(
+				report["title"],
+				report["description"],
+				report["log"],
+				report["useragent"],
+				report["username"],
+				report["email"],
+				report["category"],
+				report["image"],
+				new DateTime(report["date"]["year"], report["date"]["month"], report["date"]["day"]),
+				report["done"],
+				-1
+			);
+			String query = "INSERT INTO reports (title, description, log, useragent, username, email, category, image, date, done)";
+			query += "VALUES(@title, @description, @log, @useragent, @username, @email, @category, @image, @date, @done)";
+			await dbConn.execute(query, reportObj);
+		});
 	}
 }

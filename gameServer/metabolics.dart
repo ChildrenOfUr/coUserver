@@ -89,6 +89,13 @@ class Metabolics {
 	set location_history(List<String> history) {
 		location_history_json = JSON.encode(history);
 	}
+
+	@Field()
+	int quoins_collected = 0;
+	//TODO: for some reason it won't update this on line 277
+
+	@Field()
+	num quoin_multiplier = 1;
 }
 
 class MetabolicsEndpoint {
@@ -101,7 +108,7 @@ class MetabolicsEndpoint {
 
 	static Future refillAllEnergy() async {
 		PostgreSql dbConn = await dbManager.getConnection();
-		String query = "UPDATE metabolics SET energy = max_energy";
+		String query = "UPDATE metabolics SET energy = max_energy, quoins_collected = 0";
 		dbConn.execute(query);
 		dbManager.closeConnection(dbConn);
 	}
@@ -218,16 +225,21 @@ class MetabolicsEndpoint {
 	}
 
 	static Future addQuoin(Quoin q, String username) async {
+		Metabolics m = await getMetabolics(username:username);
+
+		if (m.quoins_collected >= 100) {
+			// Daily quoin limit of 100
+			denyQuoin(q, username);
+			toast("You've already reached your daily quoin limit of 100 quoins.", userSockets[username]);
+			return;
+		}
+
 		int amt = rand.nextInt(4) + 1;
-		int quoinMultiplier = 1;
-		// TODO: change 1 to the real quoin multiplier
-		amt = amt * quoinMultiplier;
+		amt = (amt * m.quoin_multiplier).round();
 
 		if(q.type == "quarazy") {
 			amt *= 7;
 		}
-
-		Metabolics m = await getMetabolics(username:username);
 
 		if(q.type == 'currant') {
 			m.currants += amt;
@@ -261,6 +273,8 @@ class MetabolicsEndpoint {
 			m.tiifavor += amt;
 			m.zillefavor += amt;
 		}
+
+		m.quoins_collected++;
 
 		try {
 			int result = await setMetabolics(m);
