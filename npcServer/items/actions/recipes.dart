@@ -16,8 +16,7 @@ class Recipes {
 					..["input"] = []
 					..["output_map"] = items[recipe["output"]].getMap()
 					..["output_amt"] = recipe["output_amt"]
-					..["time"] = recipe["time"]
-					..["canMake"] = new Random().nextBool(); //TODO: check user inv
+					..["time"] = recipe["time"];
 
 				if (recipe["energy"] != null) {
 					toolRecipe["energy"] = recipe["energy"];
@@ -31,14 +30,25 @@ class Recipes {
 					toolRecipe["img"] = 0;
 				}
 
+				List<int> itemMax = [];
 				(recipe["input"] as Map<String, int>).forEach((String itemType, int qty) {
 					Map itemMap = items[itemType].getMap();
+					int userHas = (new Random().nextInt(20)); // TODO: check against inventory provided by "email"
 					itemMap.addAll(({
-						"userHas": (new Random().nextBool()), // TODO: check against inventory provided by "email"
+						"userHas": userHas,
 						"qtyReq": qty
 					}));
 					(toolRecipe["input"] as List<Map>).add(itemMap);
+
+					if (userHas > qty) {
+						itemMax.add((userHas / qty).floor());
+					} else {
+						itemMax.add(0);
+					}
 				});
+
+				itemMax.sort();
+				toolRecipe["canMake"] = itemMax.first;
 
 				toolRecipes.add(toolRecipe);
 			}
