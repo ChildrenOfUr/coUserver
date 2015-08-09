@@ -40,7 +40,7 @@
         "input": {
             "cheese": 1,
             "cumin": 1,
-            "beans": 10
+            "bean": 10
         },
         "output": "best_bean_dip",
         "output_amt": 1,
@@ -220,7 +220,7 @@
         "id": "mexicali_eggs",
         "tool": "frying_pan",
         "input": {
-            "beans": 5,
+            "bean": 5,
             "tortilla": 1,
             "egg": 2,
             "cheese": 1

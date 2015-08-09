@@ -19,8 +19,8 @@
         "input": {
             "lemon": 2,
             "olive_oil": 1,
-            "salmon": 1,
-            "planks": 2
+            "pocket_salmon": 1,
+            "plank": 2
         },
         "output": "cedar_plank_salmon",
         "output_amount": 1,

@@ -44,7 +44,7 @@
         "input": {
             "bean": 1,
             "cardamom": 3,
-            "laughing_gas": 2
+            "gas_laughing": 2
         },
         "output": "fruit_tree_bean",
         "output_amt": 1,
