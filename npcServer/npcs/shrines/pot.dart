@@ -58,8 +58,8 @@ class PotUralia extends Shrine
 		states =
 		{
 			"close" : new Spritesheet("close","http://c2.glitch.bz/items/2012-12-06/npc_shrine_uralia_pot__x1_close_png_1354831911.png",756, 752, 126, 188, 23, false),
-			"open" : new Spritesheet("open","http://c2.glitch.bz/items/2012-12-06/npc_shrine_uralia_pot__x1_open_png_1354831908.png",756, 752, 128, 188, 22, false),
-			"still" : new Spritesheet("still","http://c2.glitch.bz/items/2012-12-06/npc_shrine_uralia_pot__x1_open_png_1354831908.png", 756, 752, 128, 188, 1, false)
+			"open" : new Spritesheet("open","http://c2.glitch.bz/items/2012-12-06/npc_shrine_uralia_pot__x1_open_png_1354831908.png",756, 752, 126, 188, 22, false),
+			"still" : new Spritesheet("still","http://c2.glitch.bz/items/2012-12-06/npc_shrine_uralia_pot__x1_open_png_1354831908.png", 756, 752, 126, 188, 1, false)
 		};
 		currentState = states['still'];
 		type = 'Pot';
