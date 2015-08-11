@@ -1,6 +1,6 @@
 part of coUserver;
 
-abstract class Tree extends Plant {
+abstract class Tree extends Plant with Events {
 	int maturity;
 
 	Tree(String id, int x, int y) : super(id, x, y) {
@@ -112,6 +112,7 @@ abstract class Tree extends Plant {
 		//say a witty thing
 		say(responses['pet'].elementAt(rand.nextInt(responses['pet'].length)));
 
+		emit('treePet',null);
 		StatBuffer.incrementStat("treesPetted", 1);
 
 		return true;

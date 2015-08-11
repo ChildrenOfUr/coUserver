@@ -146,22 +146,18 @@ class StreetUpdateHandler {
 			//the said that they collided with a quion, let's check and credit if true
 			if(map["remove"] != null) {
 				if(map["type"] == "quoin") {
-					print('remove quoin');
 					Quoin touched = streets[streetName].quoins[map["remove"]];
 					Identifier player = PlayerUpdateHandler.users[username];
 					if(player == null) {
 						log('(street_update_handler) Could not find player $username to collect quoin');
 					} else if(touched != null && !touched.collected) {
 						num xDiff = (touched.x - player.currentX).abs();
-						num yDiff = (touched.y - player.currentY).abs();
 
 						if(xDiff < 130) {
 							await MetabolicsEndpoint.addQuoin(touched, username);
-							print('added');
 						}
 						else {
 							MetabolicsEndpoint.denyQuoin(touched, username);
-							print('denied');
 						}
 					}
 					else if(touched == null) {

@@ -1,0 +1,32 @@
+[
+  {
+    "id":"Q1",
+    "title":"Kangaroo",
+    "questText":"You feel the urge to jump jump jump around!",
+    "requirements": [
+      {
+        "id":"R1",
+        "fulfilled": false,
+        "text": "Complete 3 triple jumps",
+        "type": "counter",
+        "numRequired": 3,
+        "eventType":"playerTripleJump"
+      }
+    ]
+  },
+  {
+    "id":"Q2",
+    "title":"Tree Petter",
+    "questText":"You should show the trees some love.",
+    "requirements": [
+      {
+        "id":"R2",
+        "fulfilled": false,
+        "text": "Pet 5 different trees",
+        "type": "counter",
+        "numRequired": 5,
+        "eventType":"treePet"
+      }
+    ]
+  }
+]

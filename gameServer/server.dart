@@ -10,6 +10,8 @@ Map<String, Item> items = {};
 Map<String, Map> consumeValues = {};
 Map<String, String> vendorTypes = {};
 
+QuestInstance petTree;
+
 main() async {
 	int port = 8181;
 	try {
@@ -28,7 +30,9 @@ main() async {
 
 	KeepAlive.start();
 
-	StreetUpdateHandler.loadItems();
+	await StreetUpdateHandler.loadItems();
+	await loadQuests();
+	petTree = new QuestInstance('Q2');
 
 	//redstone.dart does not support websockets so we have to listen on a
 	//seperate port for those connections :(
