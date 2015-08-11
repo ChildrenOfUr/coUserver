@@ -1,0 +1,194 @@
+[
+    {
+        "id": "black_pepper",
+        "tool": "spice_mill",
+        "input": {
+            "allspice": 1
+        },
+        "output": "black_pepper",
+        "output_amt": 1,
+        "time": 1,
+        "energy": -3,
+        "img": 1
+    },
+    {
+        "id": "camphor",
+        "tool": "spice_mill",
+        "input": {
+            "allspice": 5
+        },
+        "output": "camphor",
+        "output_amt": 1,
+        "time": 1,
+        "energy": -10,
+        "img": 2
+    },
+    {
+        "id": "cardamom",
+        "tool": "spice_mill",
+        "input": {
+            "allspice": 3
+        },
+        "output": "cardamom",
+        "output_amt": 1,
+        "time": 1,
+        "energy": -5,
+        "img": 1
+    },
+    {
+        "id": "cinnamon",
+        "tool": "spice_mill",
+        "input": {
+            "allspice": 2
+        },
+        "output": "cinnamon",
+        "output_amt": 1,
+        "time": 1,
+        "energy": -4,
+        "img": 1
+    },
+    {
+        "id": "cumin",
+        "tool": "spice_mill",
+        "input": {
+            "allspice": 2
+        },
+        "output": "cumin",
+        "output_amt": 1,
+        "time": 1,
+        "energy": -4,
+        "img": 1
+    },
+    {
+        "id": "curry",
+        "tool": "spice_mill",
+        "input": {
+            "allspice": 1
+        },
+        "output": "curry",
+        "output_amt": 1,
+        "time": 1,
+        "energy": -4,
+        "img": 1
+    },
+    {
+        "id": "garlic",
+        "tool": "spice_mill",
+        "input": {
+            "allspice": 1
+        },
+        "output": "garlic",
+        "output_amt": 1,
+        "time": 1,
+        "energy": -3,
+        "img": 1
+    },
+    {
+        "id": "ginger",
+        "tool": "spice_mill",
+        "input": {
+            "allspice": 1
+        },
+        "output": "ginger",
+        "output_amt": 1,
+        "time": 1,
+        "energy": -3,
+        "img": 1
+    },
+    {
+        "id": "hot_pepper",
+        "tool": "spice_mill",
+        "input": {
+            "allspice": 1
+        },
+        "output": "hot_pepper",
+        "output_amt": 1,
+        "time": 1,
+        "energy": -3,
+        "img": 1
+    },
+    {
+        "id": "licorice",
+        "tool": "spice_mill",
+        "input": {
+            "allspice": 2
+        },
+        "output": "licorice",
+        "output_amt": 1,
+        "time": 1,
+        "energy": -4,
+        "img": 1
+    },
+    {
+        "id": "mustard",
+        "tool": "spice_mill",
+        "input": {
+            "allspice": 1
+        },
+        "output": "mustard",
+        "output_amt": 1,
+        "time": 1,
+        "energy": -3,
+        "img": 1
+    },
+    {
+        "id": "nutmeg",
+        "tool": "spice_mill",
+        "input": {
+            "allspice": 3
+        },
+        "output": "nutmeg",
+        "output_amt": 1,
+        "time": 1,
+        "energy": -5,
+        "img": 1
+    },
+    {
+        "id": "older_spice",
+        "tool": "spice_mill",
+        "input": {
+            "allspice": 5
+        },
+        "output": "older_spice",
+        "output_amt": 1,
+        "time": 1,
+        "energy": -8,
+        "img": 2
+    },
+    {
+        "id": "pinch_of_salt",
+        "tool": "spice_mill",
+        "input": {
+            "allspice": 1
+        },
+        "output": "pinch_of_salt",
+        "output_amt": 1,
+        "time": 1,
+        "energy": -1,
+        "img": 1
+    },
+    {
+        "id": "saffron",
+        "tool": "spice_mill",
+        "input": {
+            "allspice": 3
+        },
+        "output": "saffron",
+        "output_amt": 1,
+        "time": 1,
+        "energy": -5,
+        "img": 1
+    },
+    {
+        "id": "turmeric",
+        "tool": "spice_mill",
+        "input": {
+            "allspice": 3
+        },
+        "output": "turmeric",
+        "output_amt": 1,
+        "time": 1,
+        "energy": -5,
+        "img": 1
+    }
+]

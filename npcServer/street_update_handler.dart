@@ -11,20 +11,27 @@ class StreetUpdateHandler {
 			directory = directory.substring(0, directory.lastIndexOf('/'));
 
 			// load items
-			new Directory('$directory/npcServer/items/json').list().forEach((File category) async {
+			await new Directory('$directory/npcServer/items/json').list().forEach((File category) async {
 				JSON.decode(await category.readAsString()).forEach((String name, Map itemMap) {
 					itemMap['itemType'] = name;
 					items[name] = decode(itemMap, Item);
 				});
 			});
+			
+			// load recipes
+			await new Directory('$directory/npcServer/items/actions/recipes').list().forEach((File category) async {
+    			 JSON.decode(await category.readAsString()).forEach((Map itemMap) {
+    			    Recipes.recipes.add(itemMap);
+    			 });
+			});
 
 			// load vendor types
-			JSON.decode(await new File('$directory/npcServer/npcs/vendors/vendors.json').readAsString()).forEach((String street, String type) {
+			await JSON.decode(await new File('$directory/npcServer/npcs/vendors/vendors.json').readAsString()).forEach((String street, String type) {
 				vendorTypes[street] = type;
 			});
 
 			// load stats given for eating/drinking
-			JSON.decode(await new File('$directory/npcServer/items/actions/consume.json').readAsString()).forEach((String drink, Map award) {
+			await JSON.decode(await new File('$directory/npcServer/items/actions/consume.json').readAsString()).forEach((String drink, Map award) {
 				consumeValues[drink] = award;
 			});
 
@@ -146,18 +153,22 @@ class StreetUpdateHandler {
 			//the said that they collided with a quion, let's check and credit if true
 			if(map["remove"] != null) {
 				if(map["type"] == "quoin") {
+					//print('remove quoin');
 					Quoin touched = streets[streetName].quoins[map["remove"]];
 					Identifier player = PlayerUpdateHandler.users[username];
 					if(player == null) {
 						log('(street_update_handler) Could not find player $username to collect quoin');
 					} else if(touched != null && !touched.collected) {
 						num xDiff = (touched.x - player.currentX).abs();
+						num yDiff = (touched.y - player.currentY).abs();
 
 						if(xDiff < 130) {
 							await MetabolicsEndpoint.addQuoin(touched, username);
+							//print('added');
 						}
 						else {
 							MetabolicsEndpoint.denyQuoin(touched, username);
+							log('denied quoin to $username');
 						}
 					}
 					else if(touched == null) {

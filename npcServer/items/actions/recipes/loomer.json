@@ -1,0 +1,22 @@
+[
+    {
+        "id": "general_fabric",
+        "tool": "loomer",
+        "input": {
+            "thread": 21
+        },
+        "output": "general_fabric",
+        "output_amt": 1,
+        "time": 4
+    },
+    {
+        "id": "string",
+        "tool": "loomer",
+        "input": {
+            "thread": 5
+        },
+        "output": "string",
+        "output_amt": 1,
+        "time": 2
+    }
+]

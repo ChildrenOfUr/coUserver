@@ -89,6 +89,7 @@ part 'npcServer/npcs/shrines/zille.dart';
 part 'npcServer/items/item.dart';
 part 'npcServer/items/hellgrapes.dart';
 part 'npcServer/npcs/dust_trap.dart';
+part 'npcServer/items/actions/recipes.dart';
 
 // plants
 part 'npcServer/plants/plant.dart';

@@ -43,7 +43,8 @@ class Street {
 						ClassMirror classMirror = findClassMirror(type.replaceAll(" ", ""));
 						if(classMirror.isSubclassOf(findClassMirror("NPC"))) {
 							id = "n" + id;
-							if(classMirror.isSubclassOf(findClassMirror("Vendor"))) {
+							if(classMirror.isSubclassOf(findClassMirror("Vendor")) || classMirror == findClassMirror("DustTrap")) {
+								// Vendors and dust traps get a street name/TSID to check for collisions
 								npcs[id] = classMirror.newInstance(new Symbol(""), [id, label, tsid, x, y]).reflectee;
 							} else {
 								npcs[id] = classMirror.newInstance(new Symbol(""), [id, x, y]).reflectee;

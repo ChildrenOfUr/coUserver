@@ -357,7 +357,7 @@ saveCacheToDisk(String filename, Map cache) async {
 	await file.writeAsString(JSON.encode(cache));
 }
 
-void toast(String message, WebSocket userSocket) {
+toast(String message, WebSocket userSocket) {
 	Map send = {
 		"toast": true,
 		"message": message

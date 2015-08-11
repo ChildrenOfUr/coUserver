@@ -1,9 +1,14 @@
 part of coUserver;
 
+@app.Group("/inventory")
 class Inventory {
 
+	// Globals ////////////////////////////////////////////////////////////////////////////////////
+
+	// Sets how many slots each player has
 	final int invSize = 11;
 
+	// Used to fill slots without items, for future use
 	final Map emptySlotTemplate = {
 		"itemType": "",
 		"count": 0,
@@ -11,13 +16,15 @@ class Inventory {
 		"metadata": {}
 	};
 
-	//@Field()
+	// Server Functions ///////////////////////////////////////////////////////////////////////////
+
+	@Field()
 	int inventory_id;
 
-	//@Field()
+	@Field()
 	String inventory_json;
 
-	//@Field()
+	@Field()
 	int user_id;
 
 	factory Inventory() => new Inventory._internal();
@@ -156,9 +163,6 @@ class Inventory {
 	Future<int> takeItem(Map item, int count, String email) async {
 		List<Map> inventory = JSON.decode(inventory_json);
 
-		// Get some basic item data
-		String type = item["itemType"];
-
 		// Keep a record of how many items we have taken from slots already,
 		// and how many more we need to remove
 		int toGrab = count;
@@ -200,33 +204,73 @@ class Inventory {
 		return grabbed;
 	}
 
+	// Return the inventory as a List<Map>, where each slot is a Map in the List
+	// Can then be READ by other functions (but not written to)
 	List<Map> getItems() {
 		return JSON.decode(inventory_json);
 	}
-}
 
-@app.Route("/getInventory/:email")
-@Encode()
-Future<Inventory> getUserInventory(String email) async {
-	return null;
-}
+	// Returns true if the user has the given amount of an item, false if not
+	// If no amount is given, it checks if they have any at all (at least 1)
+	bool containsItem(String itemType, [int count = 1]) {
+		List<Map> inventory = JSON.decode(inventory_json);
 
-Future<int> addItemToUser(WebSocket userSocket, String email, Map item, int count, String fromObject) async {
-	return 0;
-}
+		int toFind = count;
 
-Future<bool> takeItemFromUser(WebSocket userSocket, String email, String itemType, int count) async {
-	return false;
-}
+		inventory.forEach((Map slot) {
+			if (slot["itemType"] == itemType) {
+				toFind -= slot["count"];
+			}
+		});
 
-Future fireInventoryAtUser(WebSocket userSocket, String email) async {
-	return;
-}
+		if (toFind == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
-sendItemToUser(WebSocket userSocket, Map item, int count, String fromObject) {
+	// Returns the number of a certain item a user has
+	int count(String itemType) {
+		List<Map> inventory = JSON.decode(inventory_json);
 
-}
+		int found = 0;
 
-takeItem(WebSocket userSocket, String itemType, int count) {
+		inventory.forEach((Map slot) {
+			if (slot["itemType"] == itemType) {
+				found += slot["count"];
+			}
+		});
 
+		return found;
+	}
+
+	// Client Functions ///////////////////////////////////////////////////////////////////////////
+
+	@app.Route("/getInventory/:email")
+	@Encode()
+	Future<Inventory> getUserInventory(String email) async {
+		return null;
+	}
+
+	Future<int> client_addItemToUser(WebSocket userSocket, String email, Map item, int count, String fromObject) async {
+		return 0;
+	}
+
+	Future<bool> client_takeItemFromUser(WebSocket userSocket, String email, String itemType, int count) async {
+		return false;
+	}
+
+	Future client_fireInventoryAtUser(WebSocket userSocket, String email) async {
+		return;
+	}
+
+	client_sendItemToUser(WebSocket userSocket, Map item, int count, String fromObject) {
+
+	}
+
+	@app.Route("/takeItem")
+	client_takeItem(WebSocket userSocket, String itemType, int count) {
+
+	}
 }
