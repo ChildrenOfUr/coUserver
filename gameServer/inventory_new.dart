@@ -38,32 +38,12 @@ class Inventory {
 		this.inventory_json = JSON.encode(inventory);
 	}
 
-	// Currently run as a test from server.dart,
-	// remove its contents and the statement
-	// at the end of main() when this runs for real
-	static Future<int> upgradeItems() async {
-		// Create a new test inventory
-		Inventory testInv = new Inventory();
-		// Add 22 coffees
-		await testInv.addItem(items["coffee"].getMap(), 22, null);
-		// Add 27 coffees
-		await testInv.addItem(items["coffee"].getMap(), 27, null);
-		// Add 3 picks
-		await testInv.addItem(items["pick"].getMap(), 3, null);
-		// Tell us what it looks like
-		//print(testInv.inventory_json);
-		// Remove 48 coffees
-		await testInv.takeItem(items["coffee"].getMap(), 48, null);
-		// Remove a pick
-		await testInv.takeItem(items["pick"].getMap(), 1, null);
-		// Remove 5 picks (uh oh!)
-		await testInv.takeItem(items["pick"].getMap(), 5, null);
-		// Tell us what it looks like now
-		// Notice how the items are not all compressed to the first few slots.
-		// Personal inventory sorting FTW!
-		//print(testInv.inventory_json);
-		// Make main() happy
-		return 1;
+	static Future<bool> upgradeItems() async {
+		return false;
+	}
+
+	static Inventory getInventory(String email) {
+		return new Inventory(); //TODO: find that user's inventory
 	}
 
 	Future<int> addItem(Map item, int count, String email) async {
