@@ -124,7 +124,7 @@
         "description": "Make all kinds of bubbles",
         "itemRequirements": {
           "all": {
-            "bubble": 1
+            "plain_bubble": 1
           }
         },
         "skillRequirements": {
@@ -522,7 +522,18 @@
     "stacksTo": 1,
     "price": 400,
     "durability": 100,
-    "description": "The Loomer (TM) is used to Loom thread into String, General Fabric and Rugs through a process of Loomeration so complex, only those with a deep enough understanding of the Fiber Arts II can perform the Loomering."
+    "description": "The Loomer (TM) is used to Loom thread into String, General Fabric and Rugs through a process of Loomeration so complex, only those with a deep enough understanding of the Fiber Arts II can perform the Loomering.",
+    "actions": [
+      {
+        "name": "Loom",
+        "itemRequirements": {
+          "all": {
+            "thread": 5
+          }
+        },
+        "skillRequirements": {}
+      }
+    ]
   },
   "pick": {
     "name": "Pick",
@@ -557,7 +568,15 @@
     "stacksTo": 1,
     "price": 200,
     "durability": 100,
-    "description": "A saucepan is a must-have item for making sauces."
+    "description": "A saucepan is a must-have item for making sauces.",
+    "actions": [
+      {
+        "name": "Simmer",
+        "description": "Get saucy",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "scraper": {
     "name": "Scraper",

@@ -1,7 +1,7 @@
 part of coUserver;
 
 @app.Group("/inventory")
-class Inventory {
+class InventoryV2 {
 
 	// Globals ////////////////////////////////////////////////////////////////////////////////////
 
@@ -27,10 +27,10 @@ class Inventory {
 	@Field()
 	int user_id;
 
-	factory Inventory() => new Inventory._internal();
+	factory InventoryV2() => new InventoryV2._internal();
 
-	Inventory._internal() {
-		// Create a new Inventory
+	InventoryV2._internal() {
+		// Create a new InventoryV2
 		List<Map> inventory = new List();
 		// Fill it with blank slots (add on to existing ones)
 		while (inventory.length < invSize) inventory.add(emptySlotTemplate);
@@ -42,8 +42,8 @@ class Inventory {
 		return false;
 	}
 
-	static Inventory getInventory(String email) {
-		return new Inventory(); //TODO: find the user's inventory by email, instead of just an empty inventory
+	static InventoryV2 getInventory(String email) {
+		return new InventoryV2(); //TODO: find the user's inventory by email, instead of just an empty inventory
 	}
 
 	Future<int> addItem(Map item, int count, String email) async {
@@ -136,7 +136,7 @@ class Inventory {
 		inventory_json = JSON.encode(inventory);
 
 		if (toMerge > 0) {
-			log("[Inventory] Cannot give ${item["itemType"]} x $count to user with email $email because they ran out of slots before all items were added. ${toMerge.toString()} items skipped.");
+			log("[InventoryV2] Cannot give ${item["itemType"]} x $count to user with email $email because they ran out of slots before all items were added. ${toMerge.toString()} items skipped.");
 		}
 
 		return merged;
@@ -180,7 +180,7 @@ class Inventory {
 		inventory_json = JSON.encode(inventory);
 
 		if (toGrab > 0) {
-			log("[Inventory] Cannot take ${item["itemType"]} x $count from user with email $email because they ran out of slots before all items were taken. ${toGrab.toString()} items skipped.");
+			log("[InventoryV2] Cannot take ${item["itemType"]} x $count from user with email $email because they ran out of slots before all items were taken. ${toGrab.toString()} items skipped.");
 		}
 
 		return grabbed;
@@ -231,7 +231,7 @@ class Inventory {
 
 	@app.Route("/getInventory/:email")
 	@Encode()
-	Future<Inventory> getUserInventory(String email) async {
+	Future<InventoryV2> client_getUserInventory(String email) async {
 		return null;
 	}
 

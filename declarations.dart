@@ -130,6 +130,7 @@ part 'npcServer/quoin.dart';
 //various http parts (as opposed to the previous websocket parts)
 part 'common/util.dart';
 part 'gameServer/auctions/auction.dart';
+part 'gameServer/inventory.dart';
 part 'gameServer/inventory_new.dart';
 
 // bug reporting
