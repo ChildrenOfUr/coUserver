@@ -43,7 +43,7 @@ class Inventory {
 	}
 
 	static Inventory getInventory(String email) {
-		return new Inventory(); //TODO: find that user's inventory
+		return new Inventory(); //TODO: find the user's inventory by email, instead of just an empty inventory
 	}
 
 	Future<int> addItem(Map item, int count, String email) async {
@@ -66,7 +66,9 @@ class Inventory {
 		// TODO: look inside container slots, but only inside bags that accept this type of item
 		for (Map slot in inventory) {
 			// Check if we are done merging, then stop looping
-			if (toMerge == 0) break;
+			if (toMerge == 0) {
+				break;
+			}
 
 			// If not, decide if we can merge into the slot
 
