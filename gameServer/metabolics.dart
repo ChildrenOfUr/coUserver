@@ -251,12 +251,14 @@ class MetabolicsEndpoint {
 		if(q.type == 'mood') {
 			m.mood += amt;
 			if(m.mood > m.max_mood) {
+				amt = m.max_mood - m.mood;
 				m.mood = m.max_mood;
 			}
 		}
 		if(q.type == 'energy') {
 			m.energy += amt;
 			if(m.energy > m.max_energy) {
+				amt = m.max_energy - m.energy;
 				m.energy = m.max_energy;
 			}
 		}

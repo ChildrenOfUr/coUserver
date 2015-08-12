@@ -25,7 +25,7 @@ class MortarBarnacle extends Plant {
 		});
 
 		states = {
-			"1-2-3-4-5" : new Spritesheet("1-2-3-4-5", "http://childrenofur.com/game-assets/barnacle_left.png", 300, 70, 60, 70, 5, false),
+			"1-2-3-4-5" : new Spritesheet("1-2-3-4-5", "http://childrenofur.com/assets/entityImages/barnacle_left.png", 300, 70, 60, 70, 5, false),
 		};
 		int maturity = new Random().nextInt(states.length) + 1;
 		currentState = states['1-2-3-4-5'];
@@ -41,8 +41,9 @@ class MortarBarnacle extends Plant {
 
 		StatBuffer.incrementStat("barnaclesScraped", 1);
 		state--;
-		if(state >= currentState.numFrames) {
+		if(state < 1) {
 			respawn = new DateTime.now().add(new Duration(minutes:2));
+			return false;
 		}
 
 		int numToGive = 1;

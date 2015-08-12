@@ -12,10 +12,10 @@ class DustTrap extends NPC {
 		speed = 0;
 
 		states = {
-			"smackDown": new Spritesheet("smackDown", "http://c2.glitch.bz/items/2012-12-06/dust_trap__x1_smackDown_png_1354833768.png", 990, 1275, 110, 255, 45, false),
-			"liftUp": new Spritesheet("liftUp", "http://c2.glitch.bz/items/2012-12-06/dust_trap__x1_up_png_1354833769.png", 880, 510, 110, 255, 16, false),
-			"down": new Spritesheet("down", "http://c2.glitch.bz/items/2012-12-06/dust_trap__x1_down_png_1354833768.png", 110, 255, 110, 255, 1, true),
-			"up": new Spritesheet("up", "http://c2.glitch.bz/items/2012-12-06/dust_trap__x1_idle_png_1354833764.png", 110, 255, 110, 255, 1, true)
+			"smackDown": new Spritesheet("smackDown", "http://childrenofur.com/assets/entityImages/dust_trap__x1_smackDown_png_1354833768.png", 990, 1275, 110, 255, 45, false),
+			"liftUp": new Spritesheet("liftUp", "http://childrenofur.com/assets/entityImages/dust_trap__x1_up_png_1354833769.png", 880, 510, 110, 255, 16, false),
+			"down": new Spritesheet("down", "http://childrenofur.com/assets/entityImages/dust_trap__x1_down_png_1354833768.png", 110, 255, 110, 255, 1, true),
+			"up": new Spritesheet("up", "http://childrenofur.com/assets/entityImages/dust_trap__x1_idle_png_1354833764.png", 110, 255, 110, 255, 1, true)
 		};
 		currentState = states["up"];
 		respawn = new DateTime.now();

@@ -1,6 +1,6 @@
 part of coUserver;
 
-class Door extends Entity {
+abstract class Door extends Entity {
 	String id, type, toLocation, streetName;
 	bool outside;
 	Spritesheet currentState;

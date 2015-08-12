@@ -9,11 +9,11 @@ class Batterfly extends NPC {
     speed = 75; //pixels per second
     actions = {};
     states = {
-      "chew": new Spritesheet("chew", "http://c2.glitch.bz/items/2012-12-06/npc_batterfly__x1_chew_png_1354831854.png", 999, 1344, 111, 96, 120, false),
-      "front_turned": new Spritesheet("front_turned", "http://c2.glitch.bz/items/2012-12-06/npc_batterfly__x1_front_turned_png_1354831847.png", 888, 480, 111, 96, 40, true),
-      "front_waiting": new Spritesheet("front_waiting", "http://c2.glitch.bz/items/2012-12-06/npc_batterfly__x1_front_waiting_png_1354831849.png", 888, 480, 111, 96, 40, true),
-      "profile": new Spritesheet("profile", "http://c2.glitch.bz/items/2012-12-06/npc_batterfly__x1_profile_png_1354831844.png", 888, 480, 111, 96, 40, true),
-      "profile_turned": new Spritesheet("profile_turned", "http://c2.glitch.bz/items/2012-12-06/npc_batterfly__x1_profile_turned_png_1354831846.png", 888, 480, 111, 96, 40, true)
+      "chew": new Spritesheet("chew", "http://childrenofur.com/assets/entityImages/npc_batterfly__x1_chew_png_1354831854.png", 999, 1344, 111, 96, 120, false),
+      "front_turned": new Spritesheet("front_turned", "http://childrenofur.com/assets/entityImages/npc_batterfly__x1_front_turned_png_1354831847.png", 888, 480, 111, 96, 40, true),
+      "front_waiting": new Spritesheet("front_waiting", "http://childrenofur.com/assets/entityImages/npc_batterfly__x1_front_waiting_png_1354831849.png", 888, 480, 111, 96, 40, true),
+      "profile": new Spritesheet("profile", "http://childrenofur.com/assets/entityImages/npc_batterfly__x1_profile_png_1354831844.png", 888, 480, 111, 96, 40, true),
+      "profile_turned": new Spritesheet("profile_turned", "http://childrenofur.com/assets/entityImages/npc_batterfly__x1_profile_turned_png_1354831846.png", 888, 480, 111, 96, 40, true)
     };
     currentState = states["profile"];
     facingRight = true;

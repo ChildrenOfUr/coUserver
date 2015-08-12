@@ -46,7 +46,7 @@ class PaperTree extends Tree {
 
 		states =
 		{
-			"maturity_1" : new Spritesheet("maturity_1", "http://c2.glitch.bz/items/2012-12-06/paper_tree_needs_pet_false_needs_water_false_paper_count_21_x22_1_png_1354832565.png", 928, 1296, 232, 216, 22, false)
+			"maturity_1" : new Spritesheet("maturity_1", "http://childrenofur.com/assets/entityImages/paper_tree_needs_pet_false_needs_water_false_paper_count_21_x22_1_png_1354832565.png", 928, 1296, 232, 216, 22, false)
 		};
 		maturity = new Random().nextInt(states.length) + 1;
 		currentState = states['maturity_$maturity'];

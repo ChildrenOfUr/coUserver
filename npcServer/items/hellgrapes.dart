@@ -15,7 +15,7 @@ class HellGrapes extends Plant {
     });
 
     states = {
-      "grapes": new Spritesheet("1-2-3-4", "http://c2.glitch.bz/items/2012-12-06/bunch_of_grapes__x1_1_x1_2_x1_3_x1_4_png_1354829730.png", 228, 30, 57, 30, 1, true)
+      "grapes": new Spritesheet("1-2-3-4", "http://childrenofur.com/assets/entityImages/bunch_of_grapes__x1_1_x1_2_x1_3_x1_4_png_1354829730.png", 228, 30, 57, 30, 1, true)
     };
     currentState = states["grapes"];
     state = 0;
