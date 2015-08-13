@@ -17,12 +17,12 @@ class StreetUpdateHandler {
 					items[name] = decode(itemMap, Item);
 				});
 			});
-			
+
 			// load recipes
-			await new Directory('$directory/npcServer/items/actions/recipes').list().forEach((File category) async {
-    			 JSON.decode(await category.readAsString()).forEach((Map itemMap) {
-    			    Recipes.recipes.add(itemMap);
-    			 });
+			await new Directory('$directory/npcServer/items/actions/recipes').list().forEach((File tool) async {
+				JSON.decode(await tool.readAsString()).forEach((Map recipeMap) {
+					RecipeBook.recipes.add(decode(recipeMap, Recipe));
+				});
 			});
 
 			// load vendor types
@@ -36,7 +36,7 @@ class StreetUpdateHandler {
 			});
 
 		}
-		catch(e) {
+		catch (e) {
 			log("Problem loading items: $e");
 		}
 	}
@@ -49,12 +49,12 @@ class StreetUpdateHandler {
 		ws.listen((message) {
 			processMessage(ws, message);
 		},
-		          onError: (error) {
-			          cleanupList(ws);
-		          },
-		          onDone: () {
-			          cleanupList(ws);
-		          });
+		onError: (error) {
+			cleanupList(ws);
+		},
+		onDone: () {
+			cleanupList(ws);
+		});
 	}
 
 	static void simulateStreets() {
@@ -62,7 +62,7 @@ class StreetUpdateHandler {
 		streets.forEach((String streetName, Street street) {
 			Iterable nonNull = street.occupants.where((WebSocket socket) => socket != null);
 			//only simulate street with someone on it
-			if(nonNull.length > 0) {
+			if (nonNull.length > 0) {
 				street.plants.forEach((String id, Plant plant) => plant.update());
 				street.quoins.forEach((String id, Quoin quoin) => quoin.update());
 				street.npcs.forEach((String id, NPC npc) => npc.update());
@@ -78,14 +78,14 @@ class StreetUpdateHandler {
 					updates["groundItems"].add(item.getMap());
 					//check if item was picked up and if so delete it
 					//(after sending it to the client one more time)
-					if(item.onGround == false)
+					if (item.onGround == false)
 						pickedUpItems.add(id);
 				});
 
 				pickedUpItems.forEach((String id) => street.groundItems.remove(id));
 
 				street.occupants.forEach((WebSocket socket) {
-					if(socket != null)
+					if (socket != null)
 						socket.add(JSON.encode(updates));
 				});
 			}
@@ -102,7 +102,7 @@ class StreetUpdateHandler {
 		//find and remove ws from whichever street has it
 		streets.forEach((String streetName, Street street) {
 			int index = street.occupants.indexOf(ws);
-			if(index > -1)
+			if (index > -1)
 				street.occupants.removeAt(index);
 		});
 	}
@@ -118,51 +118,51 @@ class StreetUpdateHandler {
 			String email = map['email'];
 
 			//a player has joined or left the street
-			if(map["message"] == "joined") {
+			if (map["message"] == "joined") {
 				//set this player as being on this street
-				if(PlayerUpdateHandler.users[username] != null) {
+				if (PlayerUpdateHandler.users[username] != null) {
 					PlayerUpdateHandler.users[username].tsid = map['tsid'];
 				}
 
-				if(map['clientVersion'] != null && map['clientVersion'] < minClientVersion) {
+				if (map['clientVersion'] != null && map['clientVersion'] < minClientVersion) {
 					ws.add(JSON.encode({'error':'version too low'}));
 					return;
 				}
 				else {
-					if(!streets.containsKey(streetName)) {
+					if (!streets.containsKey(streetName)) {
 						loadStreet(streetName, map['tsid']);
 					}
 					//log("${map['username']} joined $streetName");
 					streets[streetName].occupants.add(ws);
-					if(map['firstConnect']) {
+					if (map['firstConnect']) {
 						await fireInventoryAtUser(ws, email);
 					}
 					return;
 				}
 			}
-			else if(map["message"] == "left") {
+			else if (map["message"] == "left") {
 				cleanupList(ws);
 				return;
 			}
 
 			//if the street doesn't yet exist, create it (maybe it got stored back to the datastore)
-			if(!streets.containsKey(streetName)) {
+			if (!streets.containsKey(streetName)) {
 				loadStreet(streetName, map['tsid']);
 			}
 
 			//the said that they collided with a quion, let's check and credit if true
-			if(map["remove"] != null) {
-				if(map["type"] == "quoin") {
+			if (map["remove"] != null) {
+				if (map["type"] == "quoin") {
 					//print('remove quoin');
 					Quoin touched = streets[streetName].quoins[map["remove"]];
 					Identifier player = PlayerUpdateHandler.users[username];
-					if(player == null) {
+					if (player == null) {
 						log('(street_update_handler) Could not find player $username to collect quoin');
-					} else if(touched != null && !touched.collected) {
+					} else if (touched != null && !touched.collected) {
 						num xDiff = (touched.x - player.currentX).abs();
 						num yDiff = (touched.y - player.currentY).abs();
 
-						if(xDiff < 130) {
+						if (xDiff < 130) {
 							await MetabolicsEndpoint.addQuoin(touched, username);
 							//print('added');
 						}
@@ -171,7 +171,7 @@ class StreetUpdateHandler {
 							log('denied quoin to $username');
 						}
 					}
-					else if(touched == null) {
+					else if (touched == null) {
 						log('(street_update_handler) Could not collect quoin ${map['remove']} for player $username - quoin is null');
 					}
 				}
@@ -180,21 +180,21 @@ class StreetUpdateHandler {
 			}
 
 			//callMethod means the player is trying to interact with an entity
-			if(map["callMethod"] != null) {
-				if(map['id'] == 'global_action_monster') {
-					_callGlobalMethod(map,ws,email);
+			if (map["callMethod"] != null) {
+				if (map['id'] == 'global_action_monster') {
+					_callGlobalMethod(map, ws, email);
 					return;
 				} else {
 					String type = map['type'].replaceAll(" entity", "");
 					Map entityMap = streets[streetName].entityMaps[type];
 					String methodName = normalizeMethodName(map['callMethod']);
 
-					if(entityMap != null && entityMap[map['id']] != null) {
+					if (entityMap != null && entityMap[map['id']] != null) {
 						var entity = entityMap[map['id']];
 						//log("user $username calling ${map['callMethod']} on ${entity.id} in $streetName (${map['tsid']})");
 						InstanceMirror entityMirror = reflect(entity);
 						Map<Symbol, dynamic> arguments = {#userSocket:ws, #email:email};
-						if(map['arguments'] != null) {
+						if (map['arguments'] != null) {
 							(map['arguments'] as Map).forEach((key, value) => arguments[new Symbol(key)] = value);
 						}
 						entityMirror.invoke(new Symbol(methodName), [], arguments);
@@ -211,7 +211,7 @@ class StreetUpdateHandler {
 				}
 			}
 		}
-		catch(error, st) {
+		catch (error, st) {
 			log("Error processing message (street_update_handler): $error\n$st");
 		}
 	}
@@ -220,8 +220,8 @@ class StreetUpdateHandler {
 		String newName = '';
 		List<String> parts = name.split(' ');
 
-		for(int i = 0; i < parts.length; i++) {
-			if(i > 0) {
+		for (int i = 0; i < parts.length; i++) {
+			if (i > 0) {
 				parts[i] = parts[i].substring(0, 1).toUpperCase() + parts[i].substring(1);
 			}
 
@@ -239,20 +239,20 @@ class StreetUpdateHandler {
 	static void _callGlobalMethod(Map map, WebSocket userSocket, String email) {
 		ClassMirror classMirror = findClassMirror('StreetUpdateHandler');
 		Map<Symbol, dynamic> arguments = {#userSocket:userSocket, #email:email};
-		if(map['arguments'] != null) {
+		if (map['arguments'] != null) {
 			(map['arguments'] as Map).forEach((key, value) => arguments[new Symbol(key)] = value);
 		}
-		classMirror.invoke(new Symbol(map['callMethod']),[],arguments);
+		classMirror.invoke(new Symbol(map['callMethod']), [], arguments);
 	}
 
 	static Future<bool> teleport({WebSocket userSocket, String email, String tsid}) async {
 		Metabolics m = await getMetabolics(email:email);
-		if(m.user_id == -1 || m.energy < 50) {
+		if (m.user_id == -1 || m.energy < 50) {
 			return false;
 		} else {
 			m.energy -= 50;
 			int result = await setMetabolics(m);
-			if(result < 1) {
+			if (result < 1) {
 				return false;
 			}
 		}
