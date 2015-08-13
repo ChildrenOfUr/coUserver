@@ -395,7 +395,7 @@
         "description": "Make all kinds of gas",
         "itemRequirements": {
           "all": {
-            "general_vapour": 1
+            "general_vapour": 3
           }
         },
         "skillRequirements": {}

@@ -58,6 +58,9 @@ class Recipes {
 
 	@app.Route("/make")
 	Future makeRecipe(@app.QueryParam("id") String id, @app.QueryParam("email") String email) async {
+
+		print("making $id for $email");
+
 		// Get the recipe info
 		List<Map> rList = recipes.where((Map recipe) => recipe["id"] == id).toList();
 		Map recipe;
@@ -69,18 +72,17 @@ class Recipes {
 
 		// Take all of the items
 		(recipe["input"] as Map<String, int>).forEach((String itemType, int qty) async {
-			int qtyTaken = await Inventory.getInventory(email).takeItem(items[itemType].getMap(), qty, email);
-			if (qtyTaken != qty) {
+			if (!await takeItemFromUser(null, email, recipe["output"], qty)) {
 				// If they didn't have a required item, they're not making a smoothie
 				return false;
 			}
 		});
 
 		new Timer(new Duration(seconds: recipe["time"]), () {
-			// Add the item after the client finishes "making" one
-			// (the client calls this for every item made
-			// for better syncing and to allow for easy cancelling)
-			Inventory.getInventory(email).addItem(items[recipe["output"]].getMap(), 1, email);
+			// Add the item after we finish "making" one
+			addItemToUser(null, email, items[recipe["output"]].getMap(), 1, recipe["tool"]);
 		});
 	}
+
+	//TODO: get the user's websocket and put it in place of null above (2x)
 }

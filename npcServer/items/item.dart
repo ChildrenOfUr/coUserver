@@ -545,51 +545,51 @@ class Item {
   // /////// //
 
   // Awesome Pot
-  Future<bool> cook({String streetName, Map map, WebSocket userSocket, String email}) async {
+  Future cook({String streetName, Map map, WebSocket userSocket, String email}) async {
     userSocket.add(JSON.encode(({"useItem": "Awesome Pot"})));
-    return false;
+    return;
   }
 
   // Bean Seasoner
-  Future<bool> seasonBeans({String streetName, Map map, WebSocket userSocket, String email}) async {
+  Future seasonBeans({String streetName, Map map, WebSocket userSocket, String email}) async {
     userSocket.add(JSON.encode(({"useItem": "Bean Seasoner"})));
-    return false;
+    return;
   }
 
   // Blender
-  Future<bool> blend({String streetName, Map map, WebSocket userSocket, String email}) async {
+  Future blend({String streetName, Map map, WebSocket userSocket, String email}) async {
     userSocket.add(JSON.encode(({"useItem": "Blender"})));
-    return false;
+    return;
   }
 
   // Bubble Tuner
-  Future<bool> tuneBubbles({String streetName, Map map, WebSocket userSocket, String email}) async {
+  Future tuneBubbles({String streetName, Map map, WebSocket userSocket, String email}) async {
     userSocket.add(JSON.encode(({"useItem": "Bubble Tuner"})));
-    return false;
+    return;
   }
 
   // Cocktail Shaker
-  Future<bool> shake({String streetName, Map map, WebSocket userSocket, String email}) async {
+  Future shake({String streetName, Map map, WebSocket userSocket, String email}) async {
     userSocket.add(JSON.encode(({"useItem": "Cocktail Shaker"})));
-    return false;
+    return;
   }
 
   // Egg Seasoner
-  Future<bool> seasonEggs({String streetName, Map map, WebSocket userSocket, String email}) async {
+  Future seasonEggs({String streetName, Map map, WebSocket userSocket, String email}) async {
     userSocket.add(JSON.encode(({"useItem": "Egg Seasoner"})));
-    return false;
+    return;
   }
 
   // Famous Pugilist Grill
-  Future<bool> grill({String streetName, Map map, WebSocket userSocket, String email}) async {
+  Future grill({String streetName, Map map, WebSocket userSocket, String email}) async {
     userSocket.add(JSON.encode(({"useItem": "Famous Pugilist Grill"})));
-    return false;
+    return;
   }
 
   // Fruit Changing Machine
-  Future<bool> convertFruit({String streetName, Map map, WebSocket userSocket, String email}) async {
+  Future convertFruit({String streetName, Map map, WebSocket userSocket, String email}) async {
     userSocket.add(JSON.encode(({"useItem": "Fruit Changing Machine"})));
-    return false;
+    return;
   }
 
   // Grinders
@@ -601,32 +601,32 @@ class Item {
   }
 
   // Frying Pan
-  Future<bool> fry({String streetName, Map map, WebSocket userSocket, String email}) async {
+  Future fry({String streetName, Map map, WebSocket userSocket, String email}) async {
     userSocket.add(JSON.encode(({"useItem": "Frying Pan"})));
-    return false;
+    return;
   }
 
   // Gassifier
-  Future<bool> gassify({String streetName, Map map, WebSocket userSocket, String email}) async {
+  Future gassify({String streetName, Map map, WebSocket userSocket, String email}) async {
     userSocket.add(JSON.encode(({"useItem": "Gassifier"})));
-    return false;
+    return;
   }
 
   // Loomer
-  Future<bool> loom({String streetName, Map map, WebSocket userSocket, String email}) async {
+  Future loom({String streetName, Map map, WebSocket userSocket, String email}) async {
     userSocket.add(JSON.encode(({"useItem": "Loomer"})));
-    return false;
+    return;
   }
 
   // Saucepan
-  Future<bool> simmer({String streetName, Map map, WebSocket userSocket, String email}) async {
+  Future simmer({String streetName, Map map, WebSocket userSocket, String email}) async {
     userSocket.add(JSON.encode(({"useItem": "Saucepan"})));
-    return false;
+    return;
   }
 
   // Spice Mill
-  Future<bool> mill({String streetName, Map map, WebSocket userSocket, String email}) async {
+  Future mill({String streetName, Map map, WebSocket userSocket, String email}) async {
     userSocket.add(JSON.encode(({"useItem": "Spice Mill"})));
-    return false;
+    return;
   }
 }
