@@ -6,14 +6,17 @@ class Recipes {
 	static List<Map> recipes = [];
 
 	@app.Route("/list")
-	Future<String> listRecipes(@app.QueryParam("email") String email, @app.QueryParam("tool") String tool, @app.QueryParam("token") String token) async {
+	String listRecipes(@app.QueryParam("email") String email, @app.QueryParam("tool") String tool, @app.QueryParam("token") String token) {
 		if (token != redstoneToken) {
 			return "Invalid token";
 		}
 
 		List<Map> toolRecipes = [];
 		recipes.forEach((Map recipe) {
+
 			if ((tool == "" || tool == null) || tool == items[recipe["tool"]].getMap()["name"]) {
+
+				// Define a returned recipe
 				Map toolRecipe = new Map()
 					..["id"] = recipe["id"]
 					..["tool"] = recipe["tool"]
@@ -36,45 +39,68 @@ class Recipes {
 					toolRecipe["img"] = 0;
 				}
 
-				// Provide user-specific data if an email is available
+				// Provide user-specific data if an email is provided
 				if (email != null && email != "") {
-					List<int> itemMax = [];
-					(recipe["input"] as Map<String, int>).forEach((String itemType, int qty) async {
+
+					// For every item it requires...
+					// TODO: wait for this forEach to finish looping before moving on ("moving on" => anything after "End input items loop" below)
+					(recipe["input"] as Map<String, int>).forEach((String itemType, int qty) {
+
+						// Get the item data
 						Map itemMap = items[itemType].getMap();
-						Inventory inventory = await getUserInventory(email);
-						int userHas = 0;
-						inventory.getItems().forEach((Map item) {
-							if (item['itemType'] == itemType) {
-								userHas++;
+
+						// Compare against the user's inventory
+						getUserInventory(email).then((Inventory inventory) {
+
+							// Figure out how many they have
+
+							List<int> itemMax = [];
+							int userHas = 0;
+
+							inventory.getItems().forEach((Map item) {
+								if (item['itemType'] == itemType) {
+									userHas++;
+								}
+							});
+
+							// Add user inventory data to the item data
+							itemMap.addAll(({
+								"userHas": userHas,
+								"qtyReq": qty
+							}));
+
+							// Add item data to the recipe input data
+							(toolRecipe["input"] as List<Map>).add(itemMap);
+
+							// Find out how many of the recipe they can make
+
+							if (userHas > qty) {
+								itemMax.add((userHas / qty).floor());
+							} else {
+								itemMax.add(0);
 							}
-						});
-						itemMap.addAll(({
-							"userHas": userHas,
-							"qtyReq": qty
-						}));
-						(toolRecipe["input"] as List<Map>).add(itemMap);
 
-						if (userHas > qty) {
-							itemMax.add((userHas / qty).floor());
-						} else {
-							itemMax.add(0);
-						}
-					});
+							itemMax.sort();
 
-					itemMax.sort();
-					if (itemMax.length > 0) {
-						toolRecipe["canMake"] = itemMax.first;
-					} else {
-						toolRecipe["canMake"] = 0;
-					}
-				}
+							if (itemMax.length > 0) {
+								toolRecipe["canMake"] = itemMax.first;
+							} else {
+								toolRecipe["canMake"] = 0;
+							}
 
-				//TODO: fix toolRecipe["input"] being null because of async/await issues
+						}); // End inventory .then()
+
+					}); // End input items loop
+
+				} // End user-specific data
+
 				toolRecipes.add(toolRecipe);
-			}
-		});
 
-		return await JSON.encode(toolRecipes);
+			} // End tool recipe filter
+
+		}); // End recipes loop
+
+		return JSON.encode(toolRecipes);
 	}
 
 	@app.Route("/make")
