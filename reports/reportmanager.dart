@@ -44,9 +44,14 @@ class ReportManager {
 
 	// Insert a report
 
-	//TODO: check token from client
 	@app.Route("/add", methods: const [app.POST], allowMultipartRequest: true)
 	Future<int> addReport(@app.Body(app.FORM) Map data) async {
+		if (data["token"] != redstoneToken) {
+			// Yes, the redstone token.
+			// The client doesn't know the report token (and shouldn't!)
+			return -1;
+		}
+
 		if (data["image"] != null && data["image"] != "") {
 			data['image'] = CryptoUtils.bytesToBase64(data["image"].content);
 		}
