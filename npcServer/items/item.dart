@@ -158,7 +158,7 @@ class Item {
     }
   }
 
-  Future<bool> trySetMetabolics(String identity, {int energy:0, int mood:0, int img:0, int currants:0}) async {
+  static Future<bool> trySetMetabolics(String identity, {int energy:0, int mood:0, int img:0, int currants:0}) async {
     Metabolics m = new Metabolics();
     if (identity.contains("@")) {
       m = await getMetabolics(email:identity);

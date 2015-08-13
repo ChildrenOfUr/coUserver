@@ -44,6 +44,7 @@ class ReportManager {
 
 	// Insert a report
 
+	//TODO: check token from client
 	@app.Route("/add", methods: const [app.POST], allowMultipartRequest: true)
 	Future<int> addReport(@app.Body(app.FORM) Map data) async {
 		if (data["image"] != null && data["image"] != "") {
@@ -60,8 +61,12 @@ class ReportManager {
 
 	@app.Route('/list')
 	@Encode()
-	Future<List<Report>> listReports() async {
-		return await dbConn.query("SELECT * FROM reports", Report);
+	Future<List<Report>> listReports(@app.QueryParam("token") String token) async {
+		if (token == reportToken) {
+			return await dbConn.query("SELECT * FROM reports", Report);
+		} else {
+			return [];
+		}
 	}
 
 	// Mark a report as done
@@ -74,31 +79,44 @@ class ReportManager {
 	// Permanently delete a report
 
 	@app.Route('/delete')
-	Future<int> deleteReport(@app.QueryParam('id') int id) async {
-		return await dbConn.execute("DELETE FROM reports WHERE id=$id");
+	Future<int> deleteReport(@app.QueryParam('token') String token, @app.QueryParam('id') int id) async {
+		if (token == reportToken) {
+			return await dbConn.execute("DELETE FROM reports WHERE id=$id");
+		} else {
+			return -1;
+		}
 	}
 
 	// Get existing merges
 
 	@app.Route('/merge/list')
 	@Encode()
-	Future<List<MergeView>> listMerges() async {
-		List<MergeModel> merges = await dbConn.query("SELECT * FROM mergedreports", MergeModel);
-		List<MergeView> views = [];
-		merges.forEach((MergeModel merge) {
-			views.add(new MergeView.fromModel(merge));
-		});
-		return views;
+	Future<List<MergeView>> listMerges(@app.QueryParam("token") String token) async {
+		if (token == reportToken) {
+			List<MergeModel> merges = await dbConn.query("SELECT * FROM mergedreports", MergeModel);
+			List<MergeView> views = [];
+			merges.forEach((MergeModel merge) {
+				views.add(new MergeView.fromModel(merge));
+			});
+			return views;
+		} else {
+			return [];
+		}
 	}
 
 	// Merge reports
 
 	@app.Route('/merge/add')
 	Future<bool> mergeReport(
+		@app.QueryParam('token') String token,
 		@app.QueryParam('ids') String idList,
 		@app.QueryParam('title') String title,
 		@app.QueryParam('description') String description
 		) async {
+
+		if (token != reportToken) {
+			return false;
+		}
 
 		// Read the id list
 		List<int> ids = new List();
@@ -135,13 +153,21 @@ class ReportManager {
 	}
 
 	@app.Route('/merge/markDone')
-	Future<int> markMergeDone(@app.QueryParam('id') int id) async {
-		return await dbConn.execute("UPDATE mergedreports SET done=true WHERE id=$id");
+	Future<int> markMergeDone(@app.QueryParam('token') String token, @app.QueryParam('id') int id) async {
+		if (token == reportToken) {
+			return await dbConn.execute("UPDATE mergedreports SET done=true WHERE id=$id");
+		} else {
+			return -1;
+		}
 	}
 
 	@app.Route('/merge/delete')
-	Future<int> deleteMerge(@app.QueryParam('id') int id) async {
-		return await dbConn.execute("DELETE FROM reports WHERE id=$id");
+	Future<int> deleteMerge(@app.QueryParam('token') String token, @app.QueryParam('id') int id) async {
+		if (token == reportToken) {
+			return await dbConn.execute("DELETE FROM reports WHERE id=$id");
+		} else {
+			return -1;
+		}
 	}
 
 //	@app.Route('/convertToDB')
