@@ -1,7 +1,7 @@
 part of coUserver;
 
 @app.Group("/inventory")
-class Inventory {
+class InventoryV2 {
 
 	// Globals ////////////////////////////////////////////////////////////////////////////////////
 
@@ -27,10 +27,10 @@ class Inventory {
 	@Field()
 	int user_id;
 
-	factory Inventory() => new Inventory._internal();
+	factory InventoryV2() => new InventoryV2._internal();
 
-	Inventory._internal() {
-		// Create a new Inventory
+	InventoryV2._internal() {
+		// Create a new InventoryV2
 		List<Map> inventory = new List();
 		// Fill it with blank slots (add on to existing ones)
 		while (inventory.length < invSize) inventory.add(emptySlotTemplate);
@@ -38,32 +38,12 @@ class Inventory {
 		this.inventory_json = JSON.encode(inventory);
 	}
 
-	// Currently run as a test from server.dart,
-	// remove its contents and the statement
-	// at the end of main() when this runs for real
-	static Future<int> upgradeItems() async {
-		// Create a new test inventory
-		Inventory testInv = new Inventory();
-		// Add 22 coffees
-		await testInv.addItem(items["coffee"].getMap(), 22, null);
-		// Add 27 coffees
-		await testInv.addItem(items["coffee"].getMap(), 27, null);
-		// Add 3 picks
-		await testInv.addItem(items["pick"].getMap(), 3, null);
-		// Tell us what it looks like
-		//print(testInv.inventory_json);
-		// Remove 48 coffees
-		await testInv.takeItem(items["coffee"].getMap(), 48, null);
-		// Remove a pick
-		await testInv.takeItem(items["pick"].getMap(), 1, null);
-		// Remove 5 picks (uh oh!)
-		await testInv.takeItem(items["pick"].getMap(), 5, null);
-		// Tell us what it looks like now
-		// Notice how the items are not all compressed to the first few slots.
-		// Personal inventory sorting FTW!
-		//print(testInv.inventory_json);
-		// Make main() happy
-		return 1;
+	static Future<bool> upgradeItems() async {
+		return false;
+	}
+
+	static InventoryV2 getInventory(String email) {
+		return new InventoryV2(); //TODO: find the user's inventory by email, instead of just an empty inventory
 	}
 
 	Future<int> addItem(Map item, int count, String email) async {
@@ -86,7 +66,9 @@ class Inventory {
 		// TODO: look inside container slots, but only inside bags that accept this type of item
 		for (Map slot in inventory) {
 			// Check if we are done merging, then stop looping
-			if (toMerge == 0) break;
+			if (toMerge == 0) {
+				break;
+			}
 
 			// If not, decide if we can merge into the slot
 
@@ -154,7 +136,7 @@ class Inventory {
 		inventory_json = JSON.encode(inventory);
 
 		if (toMerge > 0) {
-			log("[Inventory] Cannot give ${item["itemType"]} x $count to user with email $email because they ran out of slots before all items were added. ${toMerge.toString()} items skipped.");
+			log("[InventoryV2] Cannot give ${item["itemType"]} x $count to user with email $email because they ran out of slots before all items were added. ${toMerge.toString()} items skipped.");
 		}
 
 		return merged;
@@ -198,7 +180,7 @@ class Inventory {
 		inventory_json = JSON.encode(inventory);
 
 		if (toGrab > 0) {
-			log("[Inventory] Cannot take ${item["itemType"]} x $count from user with email $email because they ran out of slots before all items were taken. ${toGrab.toString()} items skipped.");
+			log("[InventoryV2] Cannot take ${item["itemType"]} x $count from user with email $email because they ran out of slots before all items were taken. ${toGrab.toString()} items skipped.");
 		}
 
 		return grabbed;
@@ -249,7 +231,7 @@ class Inventory {
 
 	@app.Route("/getInventory/:email")
 	@Encode()
-	Future<Inventory> getUserInventory(String email) async {
+	Future<InventoryV2> client_getUserInventory(String email) async {
 		return null;
 	}
 

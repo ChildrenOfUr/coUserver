@@ -57,8 +57,32 @@ class Recipes {
 	}
 
 	@app.Route("/make")
-	Future<String> makeRecipe(@app.QueryParam("id") String id) async {
-		//TODO: do the action
-		return await JSON.encode(recipes.where((Map recipe) => recipe["id"] == id).toList());
+	Future makeRecipe(@app.QueryParam("id") String id, @app.QueryParam("email") String email) async {
+
+		print("making $id for $email");
+
+		// Get the recipe info
+		List<Map> rList = recipes.where((Map recipe) => recipe["id"] == id).toList();
+		Map recipe;
+		if (rList.length != 1) {
+			return false;
+		} else {
+			recipe = rList.first;
+		}
+
+		// Take all of the items
+		(recipe["input"] as Map<String, int>).forEach((String itemType, int qty) async {
+			if (!await takeItemFromUser(null, email, recipe["output"], qty)) {
+				// If they didn't have a required item, they're not making a smoothie
+				return false;
+			}
+		});
+
+		new Timer(new Duration(seconds: recipe["time"]), () {
+			// Add the item after we finish "making" one
+			addItemToUser(null, email, items[recipe["output"]].getMap(), 1, recipe["tool"]);
+		});
 	}
+
+	//TODO: get the user's websocket and put it in place of null above (2x)
 }

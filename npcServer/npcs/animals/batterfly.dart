@@ -7,7 +7,7 @@ class Batterfly extends NPC {
   Batterfly(String id, int x, int y) : super(id, x, y) {
     type = "Batterfly";
     speed = 75; //pixels per second
-    actions = {};
+    actions = [];
     states = {
       "chew": new Spritesheet("chew", "http://c2.glitch.bz/items/2012-12-06/npc_batterfly__x1_chew_png_1354831854.png", 999, 1344, 111, 96, 120, false),
       "front_turned": new Spritesheet("front_turned", "http://c2.glitch.bz/items/2012-12-06/npc_batterfly__x1_front_turned_png_1354831847.png", 888, 480, 111, 96, 40, true),

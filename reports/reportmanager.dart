@@ -94,7 +94,7 @@ class ReportManager {
 	// Merge reports
 
 	@app.Route('/merge/add')
-	Future<int> mergeReport(
+	Future<bool> mergeReport(
 		@app.QueryParam('ids') String idList,
 		@app.QueryParam('title') String title,
 		@app.QueryParam('description') String description
@@ -107,12 +107,11 @@ class ReportManager {
 		} catch (e) {
 			// Don't crash the server if the id list is empty
 			print("[ReportManagerInterface] $e");
-			return -1;
+			return false;
 		}
 
 		// Figure out which category to use (majority of the reports, or bug if equal)
-		List<String> categories = await dbConn.query("SELECT category FROM reports WHERE ", String);
-		// TODO: WHERE ids (above) contains report id in row
+		List<String> categories = await dbConn.query("SELECT category FROM reports WHERE id = ANY('${ids.toString().replaceAll("[", "").replaceAll("]", "")}'::int[])", String);
 		int bug = 0, suggestion = 0;
 		String category;
 		categories.forEach((String category) {
@@ -125,11 +124,14 @@ class ReportManager {
 			category = "bug";
 		}
 
-		String query = "INSERT INTO mergedreports (title, description, category, reports)";
-		query += " VALUES('$title', '$description', '$category', '$ids'";
-		return dbConn.execute(query);
+		String query1 = "INSERT INTO mergedreports (title, description, category, reports) RETURNING id";
+		query1 += " VALUES('$title', '$description', '$category', '$ids'";
+		int rowId = ((await dbConn.query(query1, int)) as List<int>).first;
 
-		// TODO: set the value of 'merged' for each report to the new id of this merge
+		String query2 = "UPDATE reports SET merged = ${rowId.toString()} WHERE id = ANY('${ids.toString().replaceAll("[", "").replaceAll("]", "")}'::int[])";
+		dbConn.execute(query2);
+
+		return true;
 	}
 
 	@app.Route('/merge/markDone')
@@ -142,29 +144,31 @@ class ReportManager {
 		return await dbConn.execute("DELETE FROM reports WHERE id=$id");
 	}
 
-	@app.Route('/convertToDB')
-	Future convertToDB() async {
-		String directory = Platform.script.toFilePath();
-		String reportsDirectory = directory.substring(0, directory.lastIndexOf('/'));
-		File reportFile = new File("$reportsDirectory/reports/userdata/reports.json");
-		List<Map> reports = JSON.decode(reportFile.readAsStringSync());
-		reports.forEach((Map report) async {
-			Report reportObj = new Report.fromData(
-				report["title"],
-				report["description"],
-				report["log"],
-				report["useragent"],
-				report["username"],
-				report["email"],
-				report["category"],
-				report["image"],
-				new DateTime(report["date"]["year"], report["date"]["month"], report["date"]["day"]),
-				report["done"],
-				-1
-			);
-			String query = "INSERT INTO reports (title, description, log, useragent, username, email, category, image, date, done)";
-			query += "VALUES(@title, @description, @log, @useragent, @username, @email, @category, @image, @date, @done)";
-			await dbConn.execute(query, reportObj);
-		});
-	}
+//	@app.Route('/convertToDB')
+//	Future convertToDB() async {
+//		PostgreSql db = await dbManager.getConnection();
+//		String directory = Platform.script.toFilePath();
+//		String reportsDirectory = directory.substring(0, directory.lastIndexOf('/'));
+//		File reportFile = new File("$reportsDirectory/reports/userdata/reports.json");
+//		List<Map> reports = JSON.decode(reportFile.readAsStringSync());
+//		reports.forEach((Map report) async {
+//			Report reportObj = new Report.fromData(
+//				report["title"],
+//				report["description"],
+//				report["log"],
+//				report["useragent"],
+//				report["username"],
+//				report["email"],
+//				report["category"],
+//				report["image"],
+//				new DateTime(report["date"]["year"], report["date"]["month"], report["date"]["day"]),
+//				report["done"],
+//				-1
+//			);
+//			String query = "INSERT INTO reports (title, description, log, useragent, username, email, category, image, date, done)";
+//			query += "VALUES(@title, @description, @log, @useragent, @username, @email, @category, @image, @date, @done)";
+//			print(await db.execute(query, reportObj));
+//		});
+//		dbManager.closeConnection(db);
+//	}
 }
