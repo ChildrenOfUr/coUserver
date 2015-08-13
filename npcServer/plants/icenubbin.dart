@@ -51,8 +51,9 @@ class IceNubbin extends Plant {
 			addItemToUser(userSocket, email, items['ice'].getMap(), numToGive, id);
 			StatBuffer.incrementStat("iceNubbinsCollected", 1);
 			state--;
-			if(state >= currentState.numFrames) {
+			if(state < 1) {
 				respawn = new DateTime.now().add(new Duration(minutes:2));
+				return false;
 			}
 			return true;
 		} else {

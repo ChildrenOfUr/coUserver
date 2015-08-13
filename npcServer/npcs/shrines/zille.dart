@@ -6,9 +6,9 @@ class Zille extends Shrine
 	{
 		states =
 			{
-				"close" : new Spritesheet("close","http://c2.glitch.bz/items/2012-12-06/npc_shrine_zille__x1_close_png_1354831253.png",906,752,151,188,23,false),
-				"open" : new Spritesheet("open","http://c2.glitch.bz/items/2012-12-06/npc_shrine_zille__x1_open_png_1354831251.png",906,752,151,188,22,false),
-				"still" : new Spritesheet("still","http://c2.glitch.bz/items/2012-12-06/npc_shrine_zille__x1_open_png_1354831251.png",906,752,151,188,1,false)
+				"close" : new Spritesheet("close","http://childrenofur.com/assets/entityImages/npc_shrine_zille__x1_close_png_1354831253.png",906,752,151,188,23,false),
+				"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_zille__x1_open_png_1354831251.png",906,752,151,188,22,false),
+				"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_zille__x1_open_png_1354831251.png",906,752,151,188,1,false)
 			};
 	 	currentState = states['still'];
 	 	type = 'Zille';
@@ -23,9 +23,9 @@ class ZilleFirebog extends Shrine
 	{
 		states =
 		{
-			"close" : new Spritesheet("close","http://c2.glitch.bz/items/2012-12-06/npc_shrine_firebog_zille__x1_close_png_1354832857.png",984, 848, 164, 212, 23, false),
-			"open" : new Spritesheet("open","http://c2.glitch.bz/items/2012-12-06/npc_shrine_firebog_zille__x1_open_png_1354832855.png",984, 848, 164, 212, 22, false),
-			"still" : new Spritesheet("still","http://c2.glitch.bz/items/2012-12-06/npc_shrine_firebog_zille__x1_open_png_1354832855.png",984, 848, 164, 212, 1, false)
+			"close" : new Spritesheet("close","http://childrenofur.com/assets/entityImages/npc_shrine_firebog_zille__x1_close_png_1354832857.png",984, 848, 164, 212, 23, false),
+			"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_firebog_zille__x1_open_png_1354832855.png",984, 848, 164, 212, 22, false),
+			"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_firebog_zille__x1_open_png_1354832855.png",984, 848, 164, 212, 1, false)
 		};
 		currentState = states['still'];
 		type = 'Zille';
@@ -40,9 +40,9 @@ class ZilleIx extends Shrine
 	{
 		states =
 		{
-			"close" : new Spritesheet("close","http://c2.glitch.bz/items/2012-12-06/npc_shrine_ix_zille__x1_close_png_1354831310.png",840,864,168,216,20, false),
-			"open" : new Spritesheet("open","http://c2.glitch.bz/items/2012-12-06/npc_shrine_ix_zille__x1_open_png_1354831308.png",840,864,168,216,24, false),
-			"still" : new Spritesheet("still","http://c2.glitch.bz/items/2012-12-06/npc_shrine_ix_zille__x1_open_png_1354831308.png",840,864,168,216,1, false),
+			"close" : new Spritesheet("close","http://childrenofur.com/assets/entityImages/npc_shrine_ix_zille__x1_close_png_1354831310.png",840,864,168,216,20, false),
+			"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_ix_zille__x1_open_png_1354831308.png",840,864,168,216,24, false),
+			"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_ix_zille__x1_open_png_1354831308.png",840,864,168,216,1, false),
 		};
 		currentState = states['still'];
 		type = 'Zille';
@@ -57,9 +57,9 @@ class ZilleUralia extends Shrine
 	{
 		states =
 		{
-			"close" : new Spritesheet("close","http://c2.glitch.bz/items/2012-12-06/npc_shrine_uralia_zille__x1_close_png_1354831931.png",756, 752, 126, 188, 23, false),
-			"open" : new Spritesheet("open","http://c2.glitch.bz/items/2012-12-06/npc_shrine_uralia_zille__x1_open_png_1354831929.png",756, 752, 126, 188, 22, false),
-			"still" : new Spritesheet("still","http://c2.glitch.bz/items/2012-12-06/npc_shrine_uralia_zille__x1_open_png_1354831929.png",756, 752, 126, 188, 1, false),
+			"close" : new Spritesheet("close","http://childrenofur.com/assets/entityImages/npc_shrine_uralia_zille__x1_close_png_1354831931.png",756, 752, 126, 188, 23, false),
+			"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_uralia_zille__x1_open_png_1354831929.png",756, 752, 126, 188, 22, false),
+			"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_uralia_zille__x1_open_png_1354831929.png",756, 752, 126, 188, 1, false),
 		};
 		currentState = states['still'];
 		type = 'Zille';

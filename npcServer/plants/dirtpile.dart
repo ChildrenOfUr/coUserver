@@ -26,10 +26,10 @@ class DirtPile extends Plant {
 
     states = {
       "maturity_1": new Spritesheet("maturity_1",
-          "http://c2.glitch.bz/items/2012-12-06/dirt_pile_dirt_state_x11_1_variant_dirt1_1_png_1354833756.png",
+          "http://childrenofur.com/assets/entityImages/dirt_pile_dirt_state_x11_1_variant_dirt1_1_png_1354833756.png",
           780, 213, 195, 71, 11, false),
       "maturity_2": new Spritesheet("maturity_2",
-          "http://c2.glitch.bz/items/2012-12-06/dirt_pile_dirt_state_x11_1_variant_dirt2_1_png_1354833757.png",
+          "http://childrenofur.com/assets/entityImages/dirt_pile_dirt_state_x11_1_variant_dirt2_1_png_1354833757.png",
           780, 213, 195, 71, 11, false)
     };
     int maturity = new Random().nextInt(states.length) + 1;
