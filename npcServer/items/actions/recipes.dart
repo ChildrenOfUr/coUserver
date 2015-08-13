@@ -81,6 +81,7 @@ class Recipes {
 		new Timer(new Duration(seconds: recipe["time"]), () {
 			// Add the item after we finish "making" one
 			addItemToUser(null, email, items[recipe["output"]].getMap(), 1, recipe["tool"]);
+			return true;
 		});
 	}
 
