@@ -18,6 +18,7 @@ abstract class Door extends Entity {
 		map["numRows"] = currentState.numRows;
 		map["numColumns"] = currentState.numColumns;
 		map["numFrames"] = currentState.numFrames;
+		map['state'] = 0;
 		map["actions"] = actions;
 		map['x'] = x;
 		map['y'] = y;
