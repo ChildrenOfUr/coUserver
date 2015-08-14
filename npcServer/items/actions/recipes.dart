@@ -129,22 +129,21 @@ class RecipeBook {
 
 		// Take all of the items
 		recipe.input.forEach((String itemType, int qty) async {
-			bool success1 = await takeItemFromUser(ws, email, recipe.output, qty);
-			if (!success1) {
+			bool takeItemSuccess = await takeItemFromUser(ws, email, itemType, qty);
+			if (!takeItemSuccess) {
 				// If they didn't have a required item, they're not making a smoothie
 				return false;
 			}
 		});
 
-		//TODO: it's supposed to stop here if success1 is false above, but it doesn't
-
 		// Take away energy
-		bool success2 = await Item.trySetMetabolics(email, energy: recipe.energy);
-		if (!success2) {
+		bool takeEnergySuccess = await Item.trySetMetabolics(email, energy: recipe.energy);
+		if (!takeEnergySuccess) {
 			// If they don't have enough energy, they're not frying an egg
 			return false;
 		}
 
+		// Wait for it to make it, then give the item
 		await new Timer(new Duration(seconds: recipe.time), () async {
 			// Add the item after we finish "making" one
 			await addItemToUser(ws, email, items[recipe.output].getMap(), 1, "_self");
