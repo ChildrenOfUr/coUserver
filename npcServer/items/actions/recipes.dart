@@ -120,7 +120,7 @@ class RecipeBook {
 
 		// Get the recipe info
 		Recipe recipe;
-		List<Map> rList = recipes.where((Recipe recipe) => recipe.id == id).toList();
+		List<Recipe> rList = recipes.where((Recipe recipe) => recipe.id == id).toList();
 		if (rList.length != 1) {
 			return false;
 		} else {
@@ -128,13 +128,15 @@ class RecipeBook {
 		}
 
 		// Take all of the items
-		(recipe.input as Map<String, int>).forEach((String itemType, int qty) async {
+		recipe.input.forEach((String itemType, int qty) async {
 			bool success1 = await takeItemFromUser(ws, email, recipe.output, qty);
 			if (!success1) {
 				// If they didn't have a required item, they're not making a smoothie
 				return false;
 			}
 		});
+
+		//TODO: it's supposed to stop here if success1 is false above, but it doesn't
 
 		// Take away energy
 		bool success2 = await Item.trySetMetabolics(email, energy: recipe.energy);
@@ -145,11 +147,11 @@ class RecipeBook {
 
 		await new Timer(new Duration(seconds: recipe.time), () async {
 			// Add the item after we finish "making" one
-			await addItemToUser(ws, email, items[recipe.output].getMap(), 1, recipe.tool);
+			await addItemToUser(ws, email, items[recipe.output].getMap(), 1, "_self");
 			// Award iMG
 			await Item.trySetMetabolics(email, img: recipe.img);
 		});
 
-		return;
+		return true;
 	}
 }
