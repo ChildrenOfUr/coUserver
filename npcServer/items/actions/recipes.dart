@@ -1,69 +1,126 @@
 part of coUserver;
 
-@app.Group("/recipes")
-class Recipes {
+class Recipe {
+	@Field() String id;
+	@Field() String tool;
+	@Field() Map<String, int> input;
+	@Field() String output;
+	@Field() int output_amt;
+	@Field() int time;
+	@Field() int energy = 0;
+	@Field() int img = 0;
+
 	// Items are initialized in street_update_handler.dart after all of the items are loaded
-	static List<Map> recipes = [];
+	Recipe();
+
+	toString() {
+		return "Recipe to make ${output_amt} x $output with $tool using ${input.toString()} taking $time seconds";
+	}
+}
+
+@app.Group("/recipes")
+class RecipeBook {
+	static List<Recipe> recipes = [];
+
+	// Client Communication
 
 	@app.Route("/list")
-	Future<String> listRecipes(@app.QueryParam("email") String email, @app.QueryParam("tool") String tool) async {
+	Future<String> listRecipes(@app.QueryParam("email") String email, @app.QueryParam("tool") String tool, @app.QueryParam("token") String token) async {
+		if (token != redstoneToken) {
+			return "Invalid token";
+		}
+
 		List<Map> toolRecipes = [];
-		recipes.forEach((Map recipe) {
-			if ((tool == "" || tool == null) || tool == items[recipe["tool"]].getMap()["name"]) {
+		await Future.forEach(recipes, (Recipe recipe) async {
+
+			// If the recipe is made with the requested tool (if requested)
+			if ((tool == "" || tool == null) || tool == items[recipe.tool].name) {
+
+				// Define a returned recipe
 				Map toolRecipe = new Map()
-					..["id"] = recipe["id"]
-					..["tool"] = recipe["tool"]
+					..["id"] = recipe.id
+					..["tool"] = recipe.tool
 					..["input"] = []
-					..["output_map"] = items[recipe["output"]].getMap()
-					..["output_amt"] = recipe["output_amt"]
-					..["time"] = recipe["time"];
+					..["output_map"] = items[recipe.output].getMap()
+					..["output_amt"] = recipe.output_amt
+					..["time"] = recipe.time
+					..["energy"] = recipe.energy
+					..["img"] = recipe.img;
 
-				if (recipe["energy"] != null) {
-					toolRecipe["energy"] = recipe["energy"];
-				} else {
-					toolRecipe["energy"] = 0;
-				}
+				// Provide user-specific data if an email is provided
+				if (email != null && email != "") {
 
-				if (recipe["img"] != null) {
-					toolRecipe["img"] = recipe["img"];
-				} else {
-					toolRecipe["img"] = 0;
-				}
+					// For every item it requires...
+					await Future.forEach(recipe.input.keys, (String itemType) async {
+						int qty = recipe.input[itemType];
 
-				List<int> itemMax = [];
-				(recipe["input"] as Map<String, int>).forEach((String itemType, int qty) {
-					Map itemMap = items[itemType].getMap();
-					int userHas = (new Random().nextInt(20)); // TODO: check against inventory provided by "email"
-					itemMap.addAll(({
-						"userHas": userHas,
-						"qtyReq": qty
-					}));
-					(toolRecipe["input"] as List<Map>).add(itemMap);
+						// Get the item data to send
+						Map itemMap = items[itemType].getMap();
 
-					if (userHas > qty) {
-						itemMax.add((userHas / qty).floor());
-					} else {
-						itemMax.add(0);
-					}
-				});
+						// Compare against the user's inventory
+						Inventory inv = await getUserInventory(email);
 
-				itemMax.sort();
-				toolRecipe["canMake"] = itemMax.first;
+						// Figure out how many they have
+
+						List<int> itemMax = [];
+						int userHas = 0;
+
+						inv.getItems().forEach((Map item) {
+							if (item["itemType"] == itemType) {
+								userHas++;
+							}
+						});
+
+						// Add user inventory data to the item data
+						itemMap.addAll(({
+							"userHas": userHas,
+							"qtyReq": qty
+						}));
+
+						// Add item data to the recipe input data
+						(toolRecipe["input"] as List<Map>).add(itemMap);
+
+						// Find out how many of the recipe they can make
+
+						if (userHas >= qty) {
+							itemMax.add((userHas / qty).floor());
+						} else {
+							itemMax.add(0);
+						}
+
+						itemMax.sort();
+
+						if (itemMax.length > 0) {
+							toolRecipe["canMake"] = itemMax.first;
+						} else {
+							toolRecipe["canMake"] = 0;
+						}
+
+					}); // End input items loop
+
+				} // End user-specific data
 
 				toolRecipes.add(toolRecipe);
-			}
-		});
-		return await JSON.encode(toolRecipes);
+
+			} // End tool recipe filter
+
+		}); // End recipes loop
+
+		return JSON.encode(toolRecipes);
 	}
 
 	@app.Route("/make")
-	Future makeRecipe(@app.QueryParam("id") String id, @app.QueryParam("email") String email) async {
+	Future makeRecipe(@app.QueryParam("token") String token, @app.QueryParam("id") String id, @app.QueryParam("email") String email, @app.QueryParam("username") String username) async {
 
-		print("making $id for $email");
+		if (token != redstoneToken) {
+			return false;
+		}
+
+		WebSocket ws = PlayerUpdateHandler.users[username].webSocket;
 
 		// Get the recipe info
-		List<Map> rList = recipes.where((Map recipe) => recipe["id"] == id).toList();
-		Map recipe;
+		Recipe recipe;
+		List<Map> rList = recipes.where((Recipe recipe) => recipe.id == id).toList();
 		if (rList.length != 1) {
 			return false;
 		} else {
@@ -71,18 +128,28 @@ class Recipes {
 		}
 
 		// Take all of the items
-		(recipe["input"] as Map<String, int>).forEach((String itemType, int qty) async {
-			if (!await takeItemFromUser(null, email, recipe["output"], qty)) {
+		(recipe.input as Map<String, int>).forEach((String itemType, int qty) async {
+			bool success1 = await takeItemFromUser(ws, email, recipe.output, qty);
+			if (!success1) {
 				// If they didn't have a required item, they're not making a smoothie
 				return false;
 			}
 		});
 
-		new Timer(new Duration(seconds: recipe["time"]), () {
-			// Add the item after we finish "making" one
-			addItemToUser(null, email, items[recipe["output"]].getMap(), 1, recipe["tool"]);
-		});
-	}
+		// Take away energy
+		bool success2 = await Item.trySetMetabolics(email, energy: recipe.energy);
+		if (!success2) {
+			// If they don't have enough energy, they're not frying an egg
+			return false;
+		}
 
-	//TODO: get the user's websocket and put it in place of null above (2x)
+		await new Timer(new Duration(seconds: recipe.time), () async {
+			// Add the item after we finish "making" one
+			await addItemToUser(ws, email, items[recipe.output].getMap(), 1, recipe.tool);
+			// Award iMG
+			await Item.trySetMetabolics(email, img: recipe.img);
+		});
+
+		return;
+	}
 }
