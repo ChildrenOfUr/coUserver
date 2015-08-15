@@ -76,11 +76,7 @@
       {
         "name": "Season Beans",
         "description": "Season plain beans",
-        "itemRequirements": {
-          "all": {
-            "bean": 1
-          }
-        },
+        "itemRequirements": {},
         "skillRequirements": {
           "Botany": 1
         }
@@ -122,11 +118,7 @@
       {
         "name": "Tune Bubbles",
         "description": "Make all kinds of bubbles",
-        "itemRequirements": {
-          "all": {
-            "plain_bubble": 1
-          }
-        },
+        "itemRequirements": {},
         "skillRequirements": {
           "Bubble Tuning": 1
         }
@@ -224,11 +216,7 @@
       {
         "name": "Season Eggs",
         "description": "Season plain eggs",
-        "itemRequirements": {
-          "all": {
-            "egg": 1
-          }
-        },
+        "itemRequirements": {},
         "skillRequirements": {}
       }
     ]
@@ -347,11 +335,7 @@
       {
         "name": "Convert Fruit",
         "description": "Make all kinds of fruit",
-        "itemRequirements": {
-          "all": {
-            "cherry": 1
-          }
-        },
+        "itemRequirements": {},
         "skillRequirements": {
           "Fruit Changing": 1
         }
@@ -393,11 +377,7 @@
       {
         "name": "Gassify",
         "description": "Make all kinds of gas",
-        "itemRequirements": {
-          "all": {
-            "general_vapour": 3
-          }
-        },
+        "itemRequirements": {},
         "skillRequirements": {}
       }
     ]
@@ -526,11 +506,7 @@
     "actions": [
       {
         "name": "Loom",
-        "itemRequirements": {
-          "all": {
-            "thread": 5
-          }
-        },
+        "itemRequirements": {},
         "skillRequirements": {}
       }
     ]
@@ -626,11 +602,7 @@
     "actions": [
       {
         "name": "Mill",
-        "itemRequirements": {
-          "all": {
-            "allspice": 1
-          }
-        },
+        "itemRequirements": {},
         "skillRequirements": {
           "Spice Milling": 1
         }
