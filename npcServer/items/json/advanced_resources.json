@@ -107,7 +107,7 @@
     "price": 300,
     "description": "It shimmers, it glitters, and it's worth a good few currants, but you can't help but think that for a crystal, it's a little bland. Not that you're complaining."
   },
-  "plain_metal": {
+  "ingot": {
     "name": "Plain Metal Ingot",
     "category": "Advanced Resources",
     "iconUrl": "http://childrenofur.com/assets/entityImages/plain_metal__x1_iconic_png_1354832621.png",

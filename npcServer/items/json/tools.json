@@ -20,7 +20,14 @@
     "stacksTo": 1,
     "price": 600,
     "durability": 100,
-    "description": "Handy bendy Alchemical Tongs help you to create exciting metals like Tin, Copper and Molybdenum by adding elements to boring old hot smelted metal."
+    "description": "Handy bendy Alchemical Tongs help you to create exciting metals like Tin, Copper and Molybdenum by adding elements to boring old hot smelted metal.",
+    "actions": [
+      {
+        "name": "Alchemize",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "awesome_pot": {
     "name": "Awesome Pot",
@@ -588,7 +595,17 @@
     "stacksTo": 1,
     "price": 700,
     "durability": 500,
-    "description": "Extracting purest metal from even the dullest chunk of Metal Rock, this classic Smelter is the second step to creating all manner of exciting secondary metals. (Learning Smelting is step one.)"
+    "description": "Extracting purest metal from even the dullest chunk of Metal Rock, this classic Smelter is the second step to creating all manner of exciting secondary metals. (Learning Smelting is step one.)",
+    "actions": [
+      {
+        "name": "Smelt",
+        "description": "Make ingots",
+        "itemRequirements": {},
+        "skillRequirements": {
+          "Smelting": 1
+        }
+      }
+    ]
   },
   "spice_mill": {
     "name": "Spice Mill",
@@ -662,13 +679,22 @@
     "iconNum": 1,
     "stacksTo": 1,
     "price": 100,
-    "description": "If you want to turn elements into compounds, you need a handy-dandy test tube. It's totally tubular."
+    "description": "If you want to turn elements into compounds, you need a handy-dandy test tube. It's totally tubular.",
+    "actions": [
+      {
+        "name": "Test with Tube",
+        "description": "Make compounds",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "tincturing_kit": {
     "name": "Tincturing Kit",
     "category": "Tools",
     "toolAnimation": "http://childrenofur.com/assets/entityImages/tincturing_kit__x1_tool_animation_png_1354836763.png",
     "iconUrl": "http://childrenofur.com/assets/entityImages/tincturing_kit__x1_iconic_png_1354836761.png",
+    "iconNum": 1,
     "spriteUrl": "http://childrenofur.com/assets/entityImages/tincturing_kit__x1_1_png_1354836765.png",
     "stacksTo": 1,
     "price": 1250,

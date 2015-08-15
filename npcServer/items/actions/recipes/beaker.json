@@ -1,0 +1,15 @@
+[
+	{
+		"id": "no_no_powder",
+		"tool": "beaker",
+		"input": {
+			"lemene": 4,
+			"cosmox": 1
+		},
+		"output": "no_no_powder",
+		"output_amt": 1,
+		"energy": -7,
+		"time": 3,
+		"img": 3
+	}
+]

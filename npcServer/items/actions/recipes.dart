@@ -96,6 +96,8 @@ class RecipeBook {
 							toolRecipe["canMake"] = 0;
 						}
 
+
+
 					}); // End input items loop
 
 				} // End user-specific data

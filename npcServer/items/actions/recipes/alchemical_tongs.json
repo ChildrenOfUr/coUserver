@@ -1,0 +1,42 @@
+[
+  {
+    "id": "tin",
+    "tool": "alchemical_tongs",
+    "input": {
+      "ingot": 1,
+      "red_element": 8,
+      "green_element": 8,
+      "blue_element": 8
+    },
+    "output": "tin",
+    "output_amt": 1,
+    "energy": -1,
+    "time": 3
+  },
+  {
+    "id": "copper",
+    "tool": "alchemical_tongs",
+    "input": {
+      "ingot": 1,
+      "red_element": 60,
+      "green_element": 30
+    },
+    "output": "copper",
+    "output_amt": 1,
+    "energy": -1,
+    "time": 4
+  },
+  {
+    "id": "molybdenum",
+    "tool": "alchemical_tongs",
+    "input": {
+      "ingot": 1,
+      "blue_element": 5,
+      "shiny_element": 50
+    },
+    "output": "molybdenum",
+    "output_amt": 1,
+    "energy": -1,
+    "time": 5
+  }
+]

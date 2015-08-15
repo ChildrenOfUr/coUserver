@@ -544,9 +544,21 @@ class Item {
   // Recipes //
   // /////// //
 
+  // Alchemical Tongs
+  Future alchemize({String streetName, Map map, WebSocket userSocket, String email}) async {
+    userSocket.add(JSON.encode(({"useItem": "Alchemical Tongs"})));
+    return;
+  }
+
   // Awesome Pot
   Future cook({String streetName, Map map, WebSocket userSocket, String email}) async {
     userSocket.add(JSON.encode(({"useItem": "Awesome Pot"})));
+    return;
+  }
+
+  // Beaker
+  Future stir({String streetName, Map map, WebSocket userSocket, String email}) async {
+    userSocket.add(JSON.encode(({"useItem": "Beaker"})));
     return;
   }
 
@@ -593,11 +605,13 @@ class Item {
   }
 
   // Grinders
-  Future<bool> crush({String streetName, Map map, WebSocket userSocket, String email}) async {
-    // Two types, "grinder" and "grand_ol_grinder"
-    // TODO: Send correct type to client, as the actions take different amounts of time once the window is open
-    toast("Crushing is not implemented yet. Sorry!", userSocket);
-    return false;
+  Future crush({String streetName, Map map, WebSocket userSocket, String email}) async {
+    if (map["dropItem"]["itemType"] == "grinder") {
+      userSocket.add(JSON.encode(({"useItem": "Grinder"})));
+    } else if (map["dropItem"]["itemType"] == "grand_ol_grinder") {
+      userSocket.add(JSON.encode(({"useItem": "Grand Ol' Grinder"})));
+    }
+    return;
   }
 
   // Frying Pan
@@ -624,9 +638,21 @@ class Item {
     return;
   }
 
+  // Smelter
+  Future smelt({String streetName, Map map, WebSocket userSocket, String email}) async {
+    userSocket.add(JSON.encode(({"useItem": "Smelter"})));
+    return;
+  }
+
   // Spice Mill
   Future mill({String streetName, Map map, WebSocket userSocket, String email}) async {
     userSocket.add(JSON.encode(({"useItem": "Spice Mill"})));
+    return;
+  }
+
+  // Test Tube
+  Future testWithTube({String streetName, Map map, WebSocket userSocket, String email}) async {
+    userSocket.add(JSON.encode(({"useItem": "Test Tube"})));
     return;
   }
 }
