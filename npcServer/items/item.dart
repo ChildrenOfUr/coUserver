@@ -225,9 +225,9 @@ class Item {
         toast("Shaking...", userSocket);
         new Timer(new Duration(seconds: 1), () async {
           toast("You shake the butterfly milk vigorously. Butterfly butter!", userSocket);
-          int success1 = (await addItemToUser(userSocket, email, items["butterfly_butter"].getMap(), 1, "_self") > 0);
+          bool success1 = (await addItemToUser(userSocket, email, items["butterfly_butter"].getMap(), 1, "_self") > 0);
           bool success2 = await trySetMetabolics(email, energy: -2);
-          if (success1 > 0 && success2) {
+          if (success1 && success2) {
             return true;
           } else {
             return false;
@@ -348,12 +348,12 @@ class Item {
 
     toast("Not a good idea. It's going to take a while for that finger-stink to wear off.", userSocket);
 
-    return await addItemToUser(userSocket, email, items["small_worthless"].getMap(), 1, "_self");
+    return (await addItemToUser(userSocket, email, items["small_worthless"].getMap(), 1, "_self") > 0);
   }
 
   Future<bool> sniffCheese(String streetName, Map map, WebSocket userSocket, String email) async {
     if (await getEnergy(email) <= 50) {
-      toast("You are too weak to do that.");
+      toast("You are too weak to do that.", userSocket);
       return false;
     }
 

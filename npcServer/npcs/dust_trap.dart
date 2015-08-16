@@ -50,23 +50,17 @@ class DustTrap extends NPC {
 		// If it's not already triggered...
 		if (currentState == states["up"]) {
 			// Go through players on the street checking for collisions
-			MetabolicsEndpoint.userSockets.forEach((String username, WebSocket ws) {
-				// Get user reference
-				Identifier userIdentifier = PlayerUpdateHandler.users[username];
-
-				if (userIdentifier == null || userIdentifier.currentStreet != streetName) {
+			PlayerUpdateHandler.users.forEach((String username, Identifier id) {
+				if (id.currentStreet != streetName) {
 					// Not on this street
 					return;
 				}
 
 
-				if (hitBox.left < userIdentifier.currentX && hitBox.right > userIdentifier.currentX) {
+				if (hitBox.left < id.currentX && hitBox.right > id.currentX) {
 					// User is in the hitbox, they should step on it
-					stepOn(userSocket: ws, email: userIdentifier.email);
+					stepOn(userSocket: id.webSocket, email: id.email);
 				}
-
-				// Clear user reference
-				userIdentifier = null;
 			});
 		}
 	}
