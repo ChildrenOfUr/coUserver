@@ -546,113 +546,170 @@ class Item {
 
   // Alchemical Tongs
   Future alchemize({String streetName, Map map, WebSocket userSocket, String email}) async {
-    userSocket.add(JSON.encode(({"useItem": "Alchemical Tongs"})));
+    userSocket.add(JSON.encode(({
+      "useItem": "alchemical_tongs",
+      "useItemName": "Alchemical Tongs"
+    })));
     return;
   }
 
   // Awesome Pot
   Future cook({String streetName, Map map, WebSocket userSocket, String email}) async {
-    userSocket.add(JSON.encode(({"useItem": "Awesome Pot"})));
+    userSocket.add(JSON.encode(({
+      "useItem": "awesome_pot",
+      "useItemName": "Awesome Pot"
+    })));
     return;
   }
 
   // Beaker
   Future stir({String streetName, Map map, WebSocket userSocket, String email}) async {
-    userSocket.add(JSON.encode(({"useItem": "Beaker"})));
+    userSocket.add(JSON.encode(({
+      "useItem": "beaker",
+      "useItemName": "Beaker"
+    })));
     return;
   }
 
   // Bean Seasoner
   Future seasonBeans({String streetName, Map map, WebSocket userSocket, String email}) async {
-    userSocket.add(JSON.encode(({"useItem": "Bean Seasoner"})));
+    userSocket.add(JSON.encode(({
+      "useItem": "bean_seasoner",
+      "useItemName": "Bean Seasoner"
+    })));
     return;
   }
 
   // Blender
   Future blend({String streetName, Map map, WebSocket userSocket, String email}) async {
-    userSocket.add(JSON.encode(({"useItem": "Blender"})));
+    userSocket.add(JSON.encode(({
+      "useItem": "blender",
+      "useItemName": "Blender"
+    })));
     return;
   }
 
   // Bubble Tuner
   Future tuneBubbles({String streetName, Map map, WebSocket userSocket, String email}) async {
-    userSocket.add(JSON.encode(({"useItem": "Bubble Tuner"})));
+    userSocket.add(JSON.encode(({
+      "useItem": "bubble_tuner",
+      "useItemName": "Bubble Tuner"
+    })));
     return;
   }
 
   // Cocktail Shaker
   Future shake({String streetName, Map map, WebSocket userSocket, String email}) async {
-    userSocket.add(JSON.encode(({"useItem": "Cocktail Shaker"})));
+    userSocket.add(JSON.encode(({
+      "useItem": "cocktail_shaker",
+      "useItemName": "Cocktail Shaker"
+    })));
     return;
   }
 
   // Egg Seasoner
   Future seasonEggs({String streetName, Map map, WebSocket userSocket, String email}) async {
-    userSocket.add(JSON.encode(({"useItem": "Egg Seasoner"})));
+    userSocket.add(JSON.encode(({
+      "useItem": "egg_seasoner",
+      "useItemName": "Egg Seasoner"
+    })));
     return;
   }
 
   // Famous Pugilist Grill
   Future grill({String streetName, Map map, WebSocket userSocket, String email}) async {
-    userSocket.add(JSON.encode(({"useItem": "Famous Pugilist Grill"})));
+    userSocket.add(JSON.encode(({
+      "useItem": "famous_pugilist_grill",
+      "useItemName": "Famous Pugilist Grill"
+    })));
     return;
   }
 
   // Fruit Changing Machine
   Future convertFruit({String streetName, Map map, WebSocket userSocket, String email}) async {
-    userSocket.add(JSON.encode(({"useItem": "Fruit Changing Machine"})));
+    userSocket.add(JSON.encode(({
+      "useItem": "fruit_changing_machine",
+      "useItemName": "Fruit Changing Machine"
+    })));
     return;
   }
 
   // Grinders
   Future crush({String streetName, Map map, WebSocket userSocket, String email}) async {
     if (map["dropItem"]["itemType"] == "grinder") {
-      userSocket.add(JSON.encode(({"useItem": "Grinder"})));
+      userSocket.add(JSON.encode(({
+        "useItem": "grinder",
+        "useItemName": "Grinder"
+      })));
     } else if (map["dropItem"]["itemType"] == "grand_ol_grinder") {
-      userSocket.add(JSON.encode(({"useItem": "Grand Ol' Grinder"})));
+      userSocket.add(JSON.encode(({
+        "useItem": "grand_ol_grinder",
+        "useItemName": "Grand Ol' Grinder"
+      })));
     }
     return;
   }
 
   // Frying Pan
   Future fry({String streetName, Map map, WebSocket userSocket, String email}) async {
-    userSocket.add(JSON.encode(({"useItem": "Frying Pan"})));
+    userSocket.add(JSON.encode(({
+      "useItem": "frying_pan",
+      "useItemName": "Frying Pan"
+    })));
     return;
   }
 
   // Gassifier
   Future gassify({String streetName, Map map, WebSocket userSocket, String email}) async {
-    userSocket.add(JSON.encode(({"useItem": "Gassifier"})));
+    userSocket.add(JSON.encode(({
+      "useItem": "gassifier",
+      "useItemName": "Gassifier"
+    })));
     return;
   }
 
   // Loomer
   Future loom({String streetName, Map map, WebSocket userSocket, String email}) async {
-    userSocket.add(JSON.encode(({"useItem": "Loomer"})));
+    userSocket.add(JSON.encode(({
+      "useItem": "loomer",
+      "useItemName": "Loomer"
+    })));
     return;
   }
 
   // Saucepan
   Future simmer({String streetName, Map map, WebSocket userSocket, String email}) async {
-    userSocket.add(JSON.encode(({"useItem": "Saucepan"})));
+    userSocket.add(JSON.encode(({
+      "useItem": "saucepan",
+      "useItemName": "Saucepan"
+    })));
     return;
   }
 
   // Smelter
   Future smelt({String streetName, Map map, WebSocket userSocket, String email}) async {
-    userSocket.add(JSON.encode(({"useItem": "Smelter"})));
+    userSocket.add(JSON.encode(({
+      "useItem": "smelter",
+      "useItemName": "Smelter"
+    })));
     return;
   }
 
   // Spice Mill
   Future mill({String streetName, Map map, WebSocket userSocket, String email}) async {
-    userSocket.add(JSON.encode(({"useItem": "Spice Mill"})));
+    userSocket.add(JSON.encode(({
+      "useItem": "spice_mill",
+      "useItemName": "Spice Mill"
+    })));
     return;
   }
 
   // Test Tube
   Future testWithTube({String streetName, Map map, WebSocket userSocket, String email}) async {
-    userSocket.add(JSON.encode(({"useItem": "Test Tube"})));
+    userSocket.add(JSON.encode(({
+      "useItem": "test_tube",
+      "useItemName": "Test Tube"
+    })));
     return;
   }
 }

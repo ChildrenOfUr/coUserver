@@ -34,7 +34,7 @@ class RecipeBook {
 		await Future.forEach(recipes, (Recipe recipe) async {
 
 			// If the recipe is made with the requested tool (if requested)
-			if ((tool == "" || tool == null) || tool == items[recipe.tool].name) {
+			if ((tool == "" || tool == null) || tool == items[recipe.tool].itemType) {
 
 				// Define a returned recipe
 				Map toolRecipe = new Map()
@@ -50,6 +50,8 @@ class RecipeBook {
 				// Provide user-specific data if an email is provided
 				if (email != null && email != "") {
 
+					List<int> itemMax = [];
+
 					// For every item it requires...
 					await Future.forEach(recipe.input.keys, (String itemType) async {
 						int qty = recipe.input[itemType];
@@ -62,7 +64,6 @@ class RecipeBook {
 
 						// Figure out how many they have
 
-						List<int> itemMax = [];
 						int userHas = 0;
 
 						inv.getItems().forEach((Map item) {
@@ -95,8 +96,6 @@ class RecipeBook {
 						} else {
 							toolRecipe["canMake"] = 0;
 						}
-
-
 
 					}); // End input items loop
 
