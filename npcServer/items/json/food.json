@@ -276,6 +276,7 @@
     "category": "Food",
     "iconUrl": "http://childrenofur.com/assets/entityImages/butterfly_butter__x1_iconic_png_1354829519.png",
     "spriteUrl": "http://childrenofur.com/assets/entityImages/butterfly_butter__x1_1_x1_2_png_1354829519.png",
+    "iconNum": 1,
     "stacksTo": 40,
     "price": 10,
     "description": "Butterfly butter might seem like an odd thing, but it is used in many delicious cooking recipes.",
@@ -283,6 +284,12 @@
       {
         "name": "Eat",
         "description": "Shove it into your mouth, but with manners.",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      },
+      {
+        "name": "Compress",
+        "description": "Makes cheese. Costs 3 energy.",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -334,6 +341,12 @@
       {
         "name": "Eat",
         "description": "Shove it into your mouth, but with manners.",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      },
+      {
+        "name": "Age",
+        "description": "Add some stink. Costs 4 energy and 2 mood.",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -2130,6 +2143,7 @@
     "category": "Food",
     "iconUrl": "http://childrenofur.com/assets/entityImages/cheese_stinky__x1_iconic_png_1354829497.png",
     "spriteUrl": "http://childrenofur.com/assets/entityImages/cheese_stinky__x1_1_x1_2_png_1354829497.png",
+    "iconNum": 1,
     "stacksTo": 10,
     "price": 21,
     "description": "A lump of cheese that's been left to stand around for a while. It's what the French call 'ripe'. You could age it longer, but glory only knows what the French would call it then.",
@@ -2137,6 +2151,12 @@
       {
         "name": "Eat",
         "description": "Everyone is already plugging their noses, and it's not even unwrapped yet.",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      },
+      {
+        "name": "Age",
+        "description": "Increase the stink. Costs 5 energy and 3 mood.",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -2370,11 +2390,18 @@
     "spriteUrl": "http://childrenofur.com/assets/entityImages/cheese_very_stinky__x1_1_x1_2_png_1354829500.png",
     "stacksTo": 10,
     "price": 27,
+    "iconNum": 2,
     "description": "Smelling like a manatee bathed in celery juice and old surgical stockings,  goodness knows what would happen if you aged this connoisseurial cheese any longer. You could give it a go, though…",
     "actions": [
       {
         "name": "Eat",
         "description": "Everyone is already plugging their noses, and it's not even unwrapped yet.",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      },
+      {
+        "name": "Age",
+        "description": "Increase the stink. Costs 6 energy and 4 mood.",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -2387,11 +2414,24 @@
     "spriteUrl": "http://childrenofur.com/assets/entityImages/cheese_very_very_stinky__x1_1_x1_2_png_1354829502.png",
     "stacksTo": 10,
     "price": 33,
+    "iconNum": 2,
     "description": "This is the very, very stinkiest cheese you've ever seen, or it would be if you could see through the thick veil of tears it's inducing. You can't make this any stinkier. It wouldn't be fair to everyone else.",
     "actions": [
       {
         "name": "Eat",
         "description": "Everyone is already plugging their noses, and it's not even unwrapped yet.",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      },
+      {
+        "name": "Prod",
+        "description": "Caution: potential stink-finger",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      },
+      {
+        "name": "Sniff",
+        "description": "Caution: potential life-altering experience",
         "itemRequirements": {},
         "skillRequirements": {}
       }

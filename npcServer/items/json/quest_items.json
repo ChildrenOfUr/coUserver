@@ -40,6 +40,7 @@
     "category": "Quest Items",
     "iconUrl": "http://childrenofur.com/assets/entityImages/small_worthless__x1_iconic_png_1354829516.png",
     "spriteUrl": "http://childrenofur.com/assets/entityImages/small_worthless__x1_1_x1_2_png_1354829517.png",
+    "iconNum": 2,
     "stacksTo": 1,
     "price": 0,
     "description": "Shiny, but you can barely see the shine so it ends up a little dull. Totally worthless: it has no purpose. Holding on to this little object simply cannot be recommended."

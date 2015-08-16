@@ -1,0 +1,24 @@
+[
+  {
+    "id": "thread-spindle",
+    "tool": "spindle",
+    "input": {
+      "fiber": 7
+    },
+    "output": "thread",
+    "output_amt": 1,
+    "time": 4,
+    "energy": -2
+  },
+  {
+    "id": "thread-splendid_spindle",
+    "tool": "splendid_spindle",
+    "input": {
+      "fiber": 7
+    },
+    "output": "thread",
+    "output_amt": 1,
+    "time": 2,
+    "energy": -1
+  }
+]

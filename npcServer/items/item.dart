@@ -177,13 +177,215 @@ class Item {
     return true;
   }
 
+  static Future<int> getEnergy(String identity) async {
+    Metabolics m = new Metabolics();
+    if (identity.contains("@")) {
+      m = await getMetabolics(email:identity);
+    } else {
+      m = await getMetabolics(username:identity);
+    }
+    return m.energy;
+  }
+
+  static Future<int> getMood(String identity) async {
+    Metabolics m = new Metabolics();
+    if (identity.contains("@")) {
+      m = await getMetabolics(email:identity);
+    } else {
+      m = await getMetabolics(username:identity);
+    }
+    return m.mood;
+  }
+
+  // ////////////// //
+  // Butterfly Milk //
+  // ////////////// //
+
+  Future<bool> sniff({String streetName, Map map, WebSocket userSocket, String email}) async {
+    if (map["dropItem"]["itemType"] == "very_very_stinky_cheese") {
+      sniffCheese(streetName, map, userSocket, email);
+    } else {
+      int mood = await getMood(email);
+      if (mood <= 40) {
+        toast("Butterfly milk smells like perfume from France. You experience a momentary surge of elation.", userSocket);
+        return await trySetMetabolics(email, mood: 12);
+      } else {
+        toast("Sniffing Butterfly Milk only works when you're feeling down.", userSocket);
+        return false;
+      }
+    }
+  }
+
+  Future<bool> shakeBottle({String streetName, Map map, WebSocket userSocket, String email}) async {
+    if (await getEnergy(email) <= 2) {
+      toast("You don't have enough energy to shake that.", userSocket);
+      return false;
+    } else {
+      if (await takeItemFromUser(userSocket, email, "butterfly_milk", 1)) {
+        toast("Shaking...", userSocket);
+        new Timer(new Duration(seconds: 1), () async {
+          toast("You shake the butterfly milk vigorously. Butterfly butter!", userSocket);
+          int success1 = (await addItemToUser(userSocket, email, items["butterfly_butter"].getMap(), 1, "_self") > 0);
+          bool success2 = await trySetMetabolics(email, energy: -2);
+          if (success1 > 0 && success2) {
+            return true;
+          } else {
+            return false;
+          }
+        });
+      } else {
+        return false;
+      }
+    }
+  }
+
+  // //////////////// //
+  // Butterfly Butter //
+  // //////////////// //
+
+  Future<bool> compress({String streetName, Map map, WebSocket userSocket, String email}) async {
+    if (await getEnergy(email) <= 3) {
+      toast("You don't have enough energy to compress that.", userSocket);
+      return false;
+    } else {
+      if (await takeItemFromUser(userSocket, email, "butterfly_butter", 1)) {
+        toast("Compressing...", userSocket);
+        new Timer(new Duration(seconds: 2), () async {
+          toast("You squeeze the butterfly butter with all your might and cheese appears!", userSocket);
+          bool success1 = (await addItemToUser(userSocket, email, items["cheese"].getMap(), 1, "_self") > 0);
+          bool success2 = await trySetMetabolics(email, energy: -3);
+          if (success1 && success2) {
+            return true;
+          } else {
+            return false;
+          }
+        });
+      } else {
+        return false;
+      }
+    }
+  }
+
+  // ////// //
+  // Cheese //
+  // ////// //
+
+  Future<bool> age({String streetName, Map map, WebSocket userSocket, String email}) async {
+    int energyReq, moodReq;
+    String doneMsg;
+    String energyFailMsg = "You are way too tired to age that much cheese. Maybe you should eat something first.";
+    String moodFailMsg = "You are way too depressed to feel like aging that much cheese. Maybe you should drink a tasty drink instead.";
+    String itemIn, itemOut;
+    int time;
+
+    switch (map["dropItem"]["itemType"]) {
+      case "cheese":
+        energyReq = 4;
+        moodReq = 2;
+        doneMsg = "You put the cheese in your pocket for a while and it ages nicely. It left a bit of a smell in your pocket though.";
+        itemIn = "cheese";
+        itemOut = "stinky_cheese";
+        time = 3;
+        break;
+
+      case "stinky_cheese":
+        energyReq = 5;
+        moodReq = 3;
+        doneMsg = "If you concentrate really hard on it, the cheese does indeed age.";
+        itemIn = "stinky_cheese";
+        itemOut = "very_stinky_cheese";
+        time = 4;
+        break;
+
+      case "very_stinky_cheese":
+        energyReq = 6;
+        moodReq = 4;
+        doneMsg = "Wow, is that ever draining. But the cheese *is* visibly aged.";
+        itemIn = "very_stinky_cheese";
+        itemOut = "very_very_stinky_cheese";
+        time = 5;
+        break;
+    }
+
+    bool fail = false;
+
+    if (await getEnergy(email) <= 4) {
+      toast(energyFailMsg, userSocket);
+      fail = true;
+    }
+
+    if (await getMood(email) <= 2) {
+      toast(moodFailMsg, userSocket);
+      fail = true;
+    }
+
+    if (fail) {
+      return false;
+    } else {
+      if (await takeItemFromUser(userSocket, email, itemIn, 1)) {
+        toast("Aging...", userSocket);
+        new Timer(new Duration(seconds: time), () async {
+          toast(doneMsg, userSocket);
+          bool success1 = (await addItemToUser(userSocket, email, items[itemOut].getMap(), 1, "_self") > 0);
+          bool success2 = await trySetMetabolics(email, energy: -energyReq, mood: -moodReq);
+          if (success1 && success2) {
+            return true;
+          } else {
+            return false;
+          }
+        });
+      } else {
+        return false;
+      }
+    }
+  }
+
+  Future<bool> prod({String streetName, Map map, WebSocket userSocket, String email}) async {
+    if (await getMood(email) <= 50) {
+      toast("You need more mood to do that.", userSocket);
+      return false;
+    }
+
+    toast("Not a good idea. It's going to take a while for that finger-stink to wear off.", userSocket);
+
+    return await addItemToUser(userSocket, email, items["small_worthless"].getMap(), 1, "_self");
+  }
+
+  Future<bool> sniffCheese(String streetName, Map map, WebSocket userSocket, String email) async {
+    if (await getEnergy(email) <= 50) {
+      toast("You are too weak to do that.");
+      return false;
+    }
+
+    toast("*deep sniff*", userSocket);
+
+    new Timer(new Duration(seconds: 1), () {
+      toast("*deeper sniff*", userSocket);
+    });
+
+    new Timer(new Duration(seconds: 2), () async {
+      toast(
+          "At first sniff, this is one of the worst olfactory experiences of your life. "
+          "On your second sniff, you experience an epiphany, which you forget almost immediately."
+          , userSocket);
+
+      // 50% chance to destroy it
+      if (rand.nextBool()) {
+        await takeItemFromUser(userSocket, email, "very_very_stinky_cheese", 1);
+        toast("The cheese was destroyed by your intense sniffing.", userSocket);
+      }
+
+      return await trySetMetabolics(email, energy: -10, mood: 10);
+    });
+  }
+
   // //////////////// //
   // Butterfly Lotion //
   // //////////////// //
 
   Future<bool> taste({String streetName, Map map, WebSocket userSocket, String email}) async {
     toast("That didn't taste as good as it smells. -5 mood", userSocket);
-    return trySetMetabolics(email, mood:-5);
+    return await trySetMetabolics(email, mood:-5);
   }
 
   // /////// //
@@ -564,10 +766,17 @@ class Item {
 
   // Beaker
   Future stir({String streetName, Map map, WebSocket userSocket, String email}) async {
-    userSocket.add(JSON.encode(({
-      "useItem": "beaker",
-      "useItemName": "Beaker"
-    })));
+    if (map["dropItem"]["itemType"] == "test_tube") {
+      userSocket.add(JSON.encode(({
+        "useItem": "test_tube",
+        "useItemName": "Test Tube"
+      })));
+    } else if (map["dropItem"]["itemType"] == "beaker") {
+      userSocket.add(JSON.encode(({
+        "useItem": "beaker",
+        "useItemName": "Beaker"
+      })));
+    }
     return;
   }
 
@@ -598,11 +807,29 @@ class Item {
     return;
   }
 
+  // Cauldron
+  Future brew({String streetName, Map map, WebSocket userSocket, String email}) async {
+    userSocket.add(JSON.encode(({
+      "useItem": "cauldron",
+      "useItemName": "Cauldron"
+    })));
+    return;
+  }
+
   // Cocktail Shaker
   Future shake({String streetName, Map map, WebSocket userSocket, String email}) async {
     userSocket.add(JSON.encode(({
       "useItem": "cocktail_shaker",
       "useItemName": "Cocktail Shaker"
+    })));
+    return;
+  }
+
+  // Construction Tool
+  Future construct({String streetName, Map map, WebSocket userSocket, String email}) async {
+    userSocket.add(JSON.encode(({
+      "useItem": "construction_tool",
+      "useItemName": "Construction Tool"
     })));
     return;
   }
@@ -704,11 +931,36 @@ class Item {
     return;
   }
 
-  // Test Tube
-  Future testWithTube({String streetName, Map map, WebSocket userSocket, String email}) async {
+  // Spindles
+  Future spin({String streetName, Map map, WebSocket userSocket, String email}) async {
+    if (map["dropItem"]["itemType"] == "spindle") {
+      userSocket.add(JSON.encode(({
+        "useItem": "spindle",
+        "useItemName": "Spindle"
+      })));
+    } else if (map["dropItem"]["itemType"] == "splendid_spindle") {
+      userSocket.add(JSON.encode(({
+        "useItem": "splendid_spindle",
+        "useItemName": "Splendid Spindle"
+      })));
+    }
+    return;
+  }
+
+  // Tincturing Kit
+  Future tincture({String streetName, Map map, WebSocket userSocket, String email}) async {
     userSocket.add(JSON.encode(({
-      "useItem": "test_tube",
-      "useItemName": "Test Tube"
+      "useItem": "tincturing_kit",
+      "useItemName": "Tincturing Kit"
+    })));
+    return;
+  }
+
+  // Tinkertool
+  Future tinker({String streetName, Map map, WebSocket userSocket, String email}) async {
+    userSocket.add(JSON.encode(({
+      "useItem": "tinkertool",
+      "useItemName": "Tinkertool"
     })));
     return;
   }

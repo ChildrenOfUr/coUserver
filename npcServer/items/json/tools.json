@@ -197,7 +197,14 @@
     "stacksTo": 1,
     "price": 500,
     "durability": 100,
-    "description": "One handy pocketsized gadget for all your furniture construction needs. Comes complete with four pokey whojamaflilps, one specializing in tweaking the wotsit, one in cranking the doodah, and the other two in levering the begiantus out of any sticky-outty bits. A true professional's tool."
+    "description": "One handy pocketsized gadget for all your furniture construction needs. Comes complete with four pokey whojamaflilps, one specializing in tweaking the wotsit, one in cranking the doodah, and the other two in levering the begiantus out of any sticky-outty bits. A true professional's tool.",
+    "actions": [
+      {
+        "name": "Construct",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "crystalmalizing_chamber": {
     "name": "Crystalmalizing Chamber",
@@ -636,7 +643,14 @@
     "stacksTo": 1,
     "price": 200,
     "durability": 100,
-    "description": "In the mists of time, storytellers spoke of  a magical spindle that could be used to spin starlight into downy threads to weave into a cloak of invisibility. But it's not this spindle. This is just a spindle. It's used to turn fibers into thread. But that other one sounds amazing, right?"
+    "description": "In the mists of time, storytellers spoke of  a magical spindle that could be used to spin starlight into downy threads to weave into a cloak of invisibility. But it's not this spindle. This is just a spindle. It's used to turn fibers into thread. But that other one sounds amazing, right?",
+    "actions": [
+      {
+        "name": "Spin",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "splendid_spindle": {
     "name": "Splendid Spindle",
@@ -647,7 +661,14 @@
     "stacksTo": 1,
     "price": 2000,
     "durability": 500,
-    "description": "The ancients whispered of the spindle of Cosma that could spin the very fibres of air into cloths of heaven, enwrought with golden and silver light; blue and dim and dark cloths of night and light and the half-light. This is not that spindle. But it is really quite a good spindle, and it lasts longer than the other kind of spindle."
+    "description": "The ancients whispered of the spindle of Cosma that could spin the very fibres of air into cloths of heaven, enwrought with golden and silver light; blue and dim and dark cloths of night and light and the half-light. This is not that spindle. But it is really quite a good spindle, and it lasts longer than the other kind of spindle.",
+    "actions": [
+      {
+        "name": "Spin",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "still": {
     "name": "Still",
@@ -682,7 +703,7 @@
     "description": "If you want to turn elements into compounds, you need a handy-dandy test tube. It's totally tubular.",
     "actions": [
       {
-        "name": "Test with Tube",
+        "name": "Stir",
         "description": "Make compounds",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -699,7 +720,17 @@
     "stacksTo": 1,
     "price": 1250,
     "durability": 100,
-    "description": "Anyone who wants to beef up the benefits of herbs or create ingredients for powerful potions would do well to avail themselves of this basic Tincturing Kit and the Tincturing skill. As the name suggests, it is perfect for making tinctures. And no use at all for anything else."
+    "description": "Anyone who wants to beef up the benefits of herbs or create ingredients for powerful potions would do well to avail themselves of this basic Tincturing Kit and the Tincturing skill. As the name suggests, it is perfect for making tinctures. And no use at all for anything else.",
+    "actions": [
+      {
+        "name": "Tincture",
+        "description": "Essencify",
+        "itemRequirements": {},
+        "skillRequirements": {
+          "tincturing": 1
+        }
+      }
+    ]
   },
   "tinkertool": {
     "name": "Tinkertool",
@@ -711,7 +742,14 @@
     "stacksTo": 1,
     "price": 500,
     "durability": 200,
-    "description": "Are you the DIY type who likes to repair your own tools? The nitpicky type who likes to craft their own gear from scratch? Then a Tinkertool is a very handy thing for you to have."
+    "description": "Are you the DIY type who likes to repair your own tools? The nitpicky type who likes to craft their own gear from scratch? Then a Tinkertool is a very handy thing for you to have.",
+    "actions": [
+      {
+        "name": "Tinker",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "watering_can": {
     "name": "Watering Can",

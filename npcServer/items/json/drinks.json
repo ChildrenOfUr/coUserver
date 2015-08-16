@@ -38,13 +38,26 @@
     "category": "Drink",
     "iconUrl": "http://childrenofur.com/assets/entityImages/milk_butterfly__x1_iconic_png_1354829507.png",
     "spriteUrl": "http://childrenofur.com/assets/entityImages/milk_butterfly__x1_1_x1_2_x1_3_x1_4_png_1354829507.png",
+    "iconNum": 4,
     "stacksTo": 80,
     "price": 8,
     "description": "A vial of butterfly milk. It has the tingly effervescence of a thousand tiny butterfly farts.",
     "actions": [
       {
+        "name": "Sniff",
+        "description": "Advised for curing the blues",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      },
+      {
         "name": "Drink",
-        "description": "Think of the butterfly you got this from while you're at it.",
+        "description": "Think of the butterfly you got this from while you're at it",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      },
+      {
+        "name": "Shake Bottle",
+        "description": "Makes butter. Costs 2 energy.",
         "itemRequirements": {},
         "skillRequirements": {}
       }
