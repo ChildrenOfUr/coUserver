@@ -81,7 +81,7 @@
     "description": "A Bean Seasoner seasons beans. You probably guessed that already.",
     "actions": [
       {
-        "name": "Season Beans",
+        "name": "Season",
         "description": "Season plain beans",
         "itemRequirements": {},
         "skillRequirements": {
@@ -123,7 +123,7 @@
     "description": "A Bubble Tuner somehow converts plain bubbles into not-plain bubbles. How? Nobody knows.",
     "actions": [
       {
-        "name": "Tune Bubbles",
+        "name": "Convert",
         "description": "Make all kinds of bubbles",
         "itemRequirements": {},
         "skillRequirements": {
@@ -228,7 +228,7 @@
     "description": "An Egg Seasoner is an important tool for seasoning and incubating eggs that hatch into all kinds of exciting animals.",
     "actions": [
       {
-        "name": "Season Eggs",
+        "name": "Season",
         "description": "Season plain eggs",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -361,6 +361,7 @@
     "category": "Tools",
     "toolAnimation": "http://childrenofur.com/assets/entityImages/frying_pan__x1_tool_animation_png_1354830080.png",
     "iconUrl": "http://childrenofur.com/assets/entityImages/frying_pan__x1_iconic_png_1354830081.png",
+    "iconNum": 1,
     "spriteUrl": "http://childrenofur.com/assets/entityImages/frying_pan__x1_1_png_1354830082.png",
     "stacksTo": 1,
     "price": 125,
@@ -389,7 +390,7 @@
     "description": "An ergonomically correct gassifier. It can turn general vapour into much more exciting gases.",
     "actions": [
       {
-        "name": "Gassify",
+        "name": "Convert",
         "description": "Make all kinds of gas",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -490,6 +491,7 @@
     "category": "Tools",
     "toolAnimation": "http://childrenofur.com/assets/entityImages/knife_and_board__x1_tool_animation_png_1354830074.png",
     "iconUrl": "http://childrenofur.com/assets/entityImages/knife_and_board__x1_iconic_png_1354830075.png",
+    "iconNum": 1,
     "spriteUrl": "http://childrenofur.com/assets/entityImages/knife_and_board__x1_1_png_1354830076.png",
     "stacksTo": 1,
     "price": 75,

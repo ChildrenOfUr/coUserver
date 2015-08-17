@@ -87,9 +87,16 @@ part "npcServer/npcs/shrines/zille.dart";
 
 //items
 part "npcServer/items/item.dart";
+part "npcServer/items/actions/action.dart";
+part "npcServer/items/item_user.dart";
 part "npcServer/items/hellgrapes.dart";
 part "npcServer/npcs/dust_trap.dart";
 part "npcServer/items/actions/recipes.dart";
+part "npcServer/items/actions/itemgroups/cubimals.dart";
+part "npcServer/items/actions/itemgroups/emblems.dart";
+part "npcServer/items/actions/itemgroups/milk-butter-cheese.dart";
+part "npcServer/items/actions/itemgroups/orb.dart";
+part "npcServer/items/actions/itemgroups/consume.dart";
 
 // plants
 part "npcServer/plants/plant.dart";

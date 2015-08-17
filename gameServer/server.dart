@@ -7,7 +7,6 @@ Map<String, int> heightsCache = null;
 Map<String, String> headsCache = null;
 DateTime startDate;
 Map<String, Item> items = {};
-Map<String, Map> consumeValues = {};
 Map<String, String> vendorTypes = {};
 
 QuestInstance petTree;

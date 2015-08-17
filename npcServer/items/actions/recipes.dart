@@ -16,6 +16,13 @@ class Recipe {
 	toString() {
 		return "Recipe to make ${output_amt} x $output with $tool using ${input.toString()} taking $time seconds";
 	}
+
+	static Future useItem(Map map, WebSocket userSocket) async {
+		userSocket.add(JSON.encode(({
+			"useItem": map["dropItem"]["itemType"],
+			"useItemName": map["dropItem"]["name"]
+		})));
+	}
 }
 
 @app.Group("/recipes")
@@ -138,7 +145,7 @@ class RecipeBook {
 		});
 
 		// Take away energy
-		bool takeEnergySuccess = await Item.trySetMetabolics(email, energy: recipe.energy);
+		bool takeEnergySuccess = await ItemUser.trySetMetabolics(email, energy: recipe.energy);
 		if (!takeEnergySuccess) {
 			// If they don't have enough energy, they're not frying an egg
 			return false;
@@ -149,7 +156,7 @@ class RecipeBook {
 			// Add the item after we finish "making" one
 			await addItemToUser(ws, email, items[recipe.output].getMap(), 1, "_self");
 			// Award iMG
-			await Item.trySetMetabolics(email, img: recipe.img);
+			await ItemUser.trySetMetabolics(email, img: recipe.img);
 		});
 
 		return true;
