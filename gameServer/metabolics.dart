@@ -248,18 +248,16 @@ class MetabolicsEndpoint {
 			m.lifetime_img += amt;
 		}
 		if(q.type == 'mood') {
-			m.mood += amt;
-			if(m.mood > m.max_mood) {
+			if((m.mood + amt) > m.max_mood) {
 				amt = m.max_mood - m.mood;
-				m.mood = m.max_mood;
 			}
+			m.mood += amt;
 		}
 		if(q.type == 'energy') {
-			m.energy += amt;
-			if(m.energy > m.max_energy) {
+			if((m.energy + amt) > m.max_energy) {
 				amt = m.max_energy - m.energy;
-				m.energy = m.max_energy;
 			}
+			m.energy += amt;
 		}
 		if(q.type == "favor") {
 			m.alphfavor += amt;
