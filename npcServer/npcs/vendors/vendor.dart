@@ -154,7 +154,7 @@ abstract class Vendor extends NPC {
 						items["awesome_pot"].getMap(),
 						items["fruit_changing_machine"].getMap(),
 						items["spice_mill"].getMap(),
-						items["spice_rack"].getMap()
+						items["spicerack"].getMap()
 					];
 					break;
 
