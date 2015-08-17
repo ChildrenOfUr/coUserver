@@ -28,13 +28,13 @@ class Piggy extends NPC {
 
 		states =
 		{
-			"chew" : new Spritesheet("chew", "http://c2.glitch.bz/items/2012-12-06/npc_piggy__x1_chew_png_1354829433.png", 968, 310, 88, 62, 53, true),
-			"look_screen" : new Spritesheet("look_screen", "http://c2.glitch.bz/items/2012-12-06/npc_piggy__x1_look_screen_png_1354829434.png", 880, 310, 88, 62, 48, false),
-			"nibble" : new Spritesheet("nibble", "http://c2.glitch.bz/items/2012-12-06/npc_piggy__x1_nibble_png_1354829441.png", 880, 372, 88, 62, 60, false),
-			"rooked1" : new Spritesheet("rooked1", "http://c2.glitch.bz/items/2012-12-06/npc_piggy__x1_rooked1_png_1354829442.png", 880, 62, 88, 62, 10, true),
-			"rooked2" : new Spritesheet("rooked2", "http://c2.glitch.bz/items/2012-12-06/npc_piggy__x1_rooked2_png_1354829443.png", 704, 186, 88, 62, 24, false),
-			"too_much_nibble" : new Spritesheet("too_much_nibble", "http://c2.glitch.bz/items/2012-12-06/npc_piggy__x1_too_much_nibble_png_1354829441.png", 968, 372, 88, 62, 65, false),
-			"walk" : new Spritesheet("walk", "http://c2.glitch.bz/items/2012-12-06/npc_piggy__x1_walk_png_1354829432.png", 704, 186, 88, 62, 24, true)
+			"chew" : new Spritesheet("chew", "http://childrenofur.com/assets/entityImages/npc_piggy__x1_chew_png_1354829433.png", 968, 310, 88, 62, 53, true),
+			"look_screen" : new Spritesheet("look_screen", "http://childrenofur.com/assets/entityImages/npc_piggy__x1_look_screen_png_1354829434.png", 880, 310, 88, 62, 48, false),
+			"nibble" : new Spritesheet("nibble", "http://childrenofur.com/assets/entityImages/npc_piggy__x1_nibble_png_1354829441.png", 880, 372, 88, 62, 60, false),
+			"rooked1" : new Spritesheet("rooked1", "http://childrenofur.com/assets/entityImages/npc_piggy__x1_rooked1_png_1354829442.png", 880, 62, 88, 62, 10, true),
+			"rooked2" : new Spritesheet("rooked2", "http://childrenofur.com/assets/entityImages/npc_piggy__x1_rooked2_png_1354829443.png", 704, 186, 88, 62, 24, false),
+			"too_much_nibble" : new Spritesheet("too_much_nibble", "http://childrenofur.com/assets/entityImages/npc_piggy__x1_too_much_nibble_png_1354829441.png", 968, 372, 88, 62, 65, false),
+			"walk" : new Spritesheet("walk", "http://childrenofur.com/assets/entityImages/npc_piggy__x1_walk_png_1354829432.png", 704, 186, 88, 62, 24, true)
 		};
 		currentState = states['walk'];
 

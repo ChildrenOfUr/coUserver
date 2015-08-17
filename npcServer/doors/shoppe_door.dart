@@ -13,7 +13,7 @@ class ShoppeDoor extends Door {
 				"actionWord": "walking out"
 			});
       currentState = new Spritesheet("door_shoppe_int",
-          "http://childrenofur.com/svgs/door_asset_shoppeIn.svg", 187,
+          "http://childrenofur.com/assets/entityImages/door_asset_shoppeIn.svg", 187,
           164, 187, 164, 1, true);
     } else if (streetName == "Guillermo Gamera Way") {
       toLocation = "LM4118MEHFDMM"; // Uncle Friendly's Emporium
@@ -25,7 +25,7 @@ class ShoppeDoor extends Door {
 				"actionWord": "walking in"
 			});
       currentState = new Spritesheet("door_shoppe_int",
-          "http://childrenofur.com/svgs/door_asset_shoppe.svg", 182,
+          "http://childrenofur.com/assets/entityImages/door_asset_shoppe.svg", 182,
           166, 182, 166, 1, true);
     }
     type = "Uncle Friendly's Emporium";

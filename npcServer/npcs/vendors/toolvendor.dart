@@ -57,25 +57,25 @@ class ToolVendor extends Vendor {
 		speed = 75;
 		states = {
 			"attract": new Spritesheet("attract",
-			                           "http://c2.glitch.bz/items/2012-12-06/npc_tool_vendor__x1_attract_png_1354831448.png",
+			                           "http://childrenofur.com/assets/entityImages/npc_tool_vendor__x1_attract_png_1354831448.png",
 			                           925, 2500, 185, 250, 50, false),
 			"idle_stand": new Spritesheet("idle_stand",
-			                              "http://c2.glitch.bz/items/2012-12-06/npc_tool_vendor__x1_idle_stand_png_1354831438.png",
+			                              "http://childrenofur.com/assets/entityImages/npc_tool_vendor__x1_idle_stand_png_1354831438.png",
 			                              4070, 3750, 185, 250, 329, true),
 			"talk": new Spritesheet("talk",
-			                        "http://c2.glitch.bz/items/2012-12-06/npc_tool_vendor__x1_talk_png_1354831442.png",
+			                        "http://childrenofur.com/assets/entityImages/npc_tool_vendor__x1_talk_png_1354831442.png",
 			                        925, 1500, 185, 250, 26, false),
 			"turn_left": new Spritesheet("turn_left",
-			                             "http://c2.glitch.bz/items/2012-12-06/npc_tool_vendor__x1_turn_left_png_1354831414.png",
+			                             "http://childrenofur.com/assets/entityImages/npc_tool_vendor__x1_turn_left_png_1354831414.png",
 			                             925, 500, 185, 250, 10, false),
 			"turn_right": new Spritesheet("turn_right",
-			                              "http://c2.glitch.bz/items/2012-12-06/npc_tool_vendor__x1_turn_right_png_1354831419.png",
+			                              "http://childrenofur.com/assets/entityImages/npc_tool_vendor__x1_turn_right_png_1354831419.png",
 			                              740, 750, 185, 250, 11, false),
 			"walk_left": new Spritesheet("walk_left",
-			                             "http://c2.glitch.bz/items/2012-12-06/npc_tool_vendor__x1_walk_left_png_1354831417.png",
+			                             "http://childrenofur.com/assets/entityImages/npc_tool_vendor__x1_walk_left_png_1354831417.png",
 			                             925, 1250, 185, 250, 25, true),
 			"walk": new Spritesheet("walk",
-			                        "http://c2.glitch.bz/items/2012-12-06/npc_tool_vendor__x1_walk_png_1354831412.png",
+			                        "http://childrenofur.com/assets/entityImages/npc_tool_vendor__x1_walk_png_1354831412.png",
 			                        925, 1250, 185, 250, 24, true)
 		};
 		currentState = states['idle_stand'];

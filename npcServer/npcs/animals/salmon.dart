@@ -16,13 +16,13 @@ class Salmon extends NPC {
     speed = 35;
     ySpeed = 0;
     states = {
-      "swimDown15": new Spritesheet("swimRightDown15", "http://c2.glitch.bz/items/2012-12-06/npc_salmon__x1_swimRightDown15_png_1354840510.png", 649, 74, 59, 37, 22, true),
-      "swimDown30": new Spritesheet("swimRightDown30", "http://c2.glitch.bz/items/2012-12-06/npc_salmon__x1_swimRightDown30_png_1354840511.png", 649, 74, 59, 37, 22, true),
-      "swimUp15": new Spritesheet("swimRightUp15", "http://c2.glitch.bz/items/2012-12-06/npc_salmon__x1_swimRightUp15_png_1354840509.png", 649, 74, 59, 37, 22, true),
-      "swimUp30": new Spritesheet("swimRightUp30", "http://c2.glitch.bz/items/2012-12-06/npc_salmon__x1_swimRightUp30_png_1354840509.png", 649, 74, 59, 37, 22, true),
-      "swim": new Spritesheet("swimRight", "http://c2.glitch.bz/items/2012-12-06/npc_salmon__x1_swimRight_png_1354840508.png", 649, 74, 59, 37, 22, true),
-      "turn": new Spritesheet("turnRight", "http://c2.glitch.bz/items/2012-12-06/npc_salmon__x1_turnRight_png_1354840511.png", 649, 37, 59, 37, 11, false),
-      "gone": new Spritesheet("gone", "http://childrenofur.com/assets/game/blank.png", 1, 1, 1, 1, 1, false)
+      "swimDown15": new Spritesheet("swimRightDown15", "http://childrenofur.com/assets/entityImages/npc_salmon__x1_swimRightDown15_png_1354840510.png", 649, 74, 59, 37, 22, true),
+      "swimDown30": new Spritesheet("swimRightDown30", "http://childrenofur.com/assets/entityImages/npc_salmon__x1_swimRightDown30_png_1354840511.png", 649, 74, 59, 37, 22, true),
+      "swimUp15": new Spritesheet("swimRightUp15", "http://childrenofur.com/assets/entityImages/npc_salmon__x1_swimRightUp15_png_1354840509.png", 649, 74, 59, 37, 22, true),
+      "swimUp30": new Spritesheet("swimRightUp30", "http://childrenofur.com/assets/entityImages/npc_salmon__x1_swimRightUp30_png_1354840509.png", 649, 74, 59, 37, 22, true),
+      "swim": new Spritesheet("swimRight", "http://childrenofur.com/assets/entityImages/npc_salmon__x1_swimRight_png_1354840508.png", 649, 74, 59, 37, 22, true),
+      "turn": new Spritesheet("turnRight", "http://childrenofur.com/assets/entityImages/npc_salmon__x1_turnRight_png_1354840511.png", 649, 37, 59, 37, 11, false),
+      "gone": new Spritesheet("gone", "http://childrenofur.com/assets/entityImages/blank.png", 1, 1, 1, 1, 1, false)
     };
     currentState = states["swim"];
   }

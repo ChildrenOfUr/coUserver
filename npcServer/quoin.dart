@@ -2,7 +2,7 @@ part of coUserver;
 
 class Quoin
 {
-	String url = "https://raw.github.com/robertmcdermot/couspritesheets/master/spritesheets/quoin/quoin__x1_1_x1_2_x1_3_x1_4_x1_5_x1_6_x1_7_x1_8_png_1354829599.png";
+	String url = "http://childrenofur.com/assets/entityImages/quoin__x1_1_x1_2_x1_3_x1_4_x1_5_x1_6_x1_7_x1_8_png_1354829599.png";
 	String id, type;
 	int x,y;
 	DateTime respawn;

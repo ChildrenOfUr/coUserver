@@ -28,11 +28,11 @@ class MealVendor extends Vendor {
     itemsPredefined = true;
     speed = 40;
     states = {
-      "attract": new Spritesheet("attract", "http://c2.glitch.bz/items/2012-12-06/npc_cooking_vendor__x1_attract_png_1354831634.png", 945, 2300, 189, 230, 50, false),
-      "idle_stand": new Spritesheet("idle_stand", "http://c2.glitch.bz/items/2012-12-06/npc_cooking_vendor__x1_idle_stand_part1_png_1354831629.png", 3969, 3910, 189, 230, 357, true),
-      "talk": new Spritesheet("talk", "http://c2.glitch.bz/items/2012-12-06/npc_cooking_vendor__x1_talk_png_1354831616.png", 945, 1840, 189, 230, 36, false),
-      "walk_left": new Spritesheet("walk_left", "http://c2.glitch.bz/items/2012-12-06/npc_cooking_vendor__x1_walk_left_png_1354831611.png", 756, 920, 189, 230, 16, true),
-      "walk": new Spritesheet("walk_right", "http://c2.glitch.bz/items/2012-12-06/npc_cooking_vendor__x1_walk_right_png_1354831603.png", 756, 920, 189, 230, 16, true)
+      "attract": new Spritesheet("attract", "http://childrenofur.com/assets/entityImages/npc_cooking_vendor__x1_attract_png_1354831634.png", 945, 2300, 189, 230, 50, false),
+      "idle_stand": new Spritesheet("idle_stand", "http://childrenofur.com/assets/entityImages/npc_cooking_vendor__x1_idle_stand_part1_png_1354831629.png", 3969, 3910, 189, 230, 357, true),
+      "talk": new Spritesheet("talk", "http://childrenofur.com/assets/entityImages/npc_cooking_vendor__x1_talk_png_1354831616.png", 945, 1840, 189, 230, 36, false),
+      "walk_left": new Spritesheet("walk_left", "http://childrenofur.com/assets/entityImages/npc_cooking_vendor__x1_walk_left_png_1354831611.png", 756, 920, 189, 230, 16, true),
+      "walk": new Spritesheet("walk_right", "http://childrenofur.com/assets/entityImages/npc_cooking_vendor__x1_walk_right_png_1354831603.png", 756, 920, 189, 230, 16, true)
     };
 		facingRight = true;
     currentState = states['idle_stand'];

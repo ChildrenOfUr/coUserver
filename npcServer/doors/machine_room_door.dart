@@ -26,7 +26,7 @@ class MachineRoomDoor extends Door {
 				"enabled": true,
 				"actionWord": "walking out"
 			});
-			currentState = new Spritesheet("door_mr_int", "http://childrenofur.com/assets/game/doors/machine_room_door_int.png", 57, 244, 57, 244, 1, true);
+			currentState = new Spritesheet("door_mr_int", "http://childrenofur.com/assets/entityImages/machine_room_door_int.png", 57, 244, 57, 244, 1, true);
 		} else {
 			switch(streetName) {
 				case "Canary Send":
@@ -51,7 +51,7 @@ class MachineRoomDoor extends Door {
 				"enabled": true,
 				"actionWord": "walking out"
 			});
-			currentState = new Spritesheet("door_mr_ext", "http://childrenofur.com/svgs/door_asset_community_machine_room_ext.svg", 57, 244, 57, 244, 1, true);
+			currentState = new Spritesheet("door_mr_ext", "http://childrenofur.com/assets/entityImages/door_asset_community_machine_room_ext.svg", 57, 244, 57, 244, 1, true);
 		}
 		type = "Machine Room";
 	}
