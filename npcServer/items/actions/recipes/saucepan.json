@@ -76,7 +76,9 @@
         "id": "onion_sauce",
         "tool": "saucepan",
         "input": {
-            
+            "butterfly_butter": 1,
+            "onion": 4,
+            "nutmeg": 1
         },
         "output": "onion_sauce",
         "output_amt": 1,

@@ -176,6 +176,9 @@
         "id": "tangy_noodles",
         "tool": "awesome_pot",
         "input": {
+            "plain_noodles": 1,
+            "butterfly_butter": 1,
+            "lemon": 1
         },
         "output": "tangy_noodles",
         "output_amt": 1,
