@@ -111,22 +111,17 @@ class ReportManager {
 
 	// Merge reports
 
-	@app.Route('/merge/add')
-	Future<bool> mergeReport(
-		@app.QueryParam('token') String token,
-		@app.QueryParam('ids') String idList,
-		@app.QueryParam('title') String title,
-		@app.QueryParam('description') String description
-		) async {
+	@app.Route("/merge/add", methods: const [app.POST], allowMultipartRequest: true)
+	Future<bool> mergeReport(@app.Body(app.FORM) Map data) async {
 
-		if (token != reportToken) {
+		if (data["token"] != reportToken) {
 			return false;
 		}
 
 		// Read the id list
 		List<int> ids = new List();
 		try {
-			ids = JSON.decode(idList);
+			ids = decodeJson(data["ids"], int);
 		} catch (e) {
 			// Don't crash the server if the id list is empty
 			print("[ReportManagerInterface] $e");
@@ -147,9 +142,13 @@ class ReportManager {
 			category = "bug";
 		}
 
+		// Query 1: Add the merge and return its id
+
 		String query1 = "INSERT INTO mergedreports (title, description, category, reports) RETURNING id";
-		query1 += " VALUES('$title', '$description', '$category', '$ids'";
+		query1 += " VALUES('${data["title"]}', '${data["description"]}', '$category', '$ids'";
 		int rowId = ((await dbConn.query(query1, int)) as List<int>).first;
+
+		// Query 2: Mark the reports as merged
 
 		String query2 = "UPDATE reports SET merged = ${rowId.toString()} WHERE id = ANY('${ids.toString().replaceAll("[", "").replaceAll("]", "")}'::int[])";
 		dbConn.execute(query2);
