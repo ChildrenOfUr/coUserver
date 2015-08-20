@@ -86,6 +86,7 @@ class Metabolics {
 	String location_history_json = '[]';
 
 	List<String> get location_history => JSON.decode(location_history_json);
+
 	set location_history(List<String> history) {
 		location_history_json = JSON.encode(history);
 	}
@@ -118,15 +119,15 @@ class MetabolicsEndpoint {
 		simulateTimer.isActive;
 
 		ws.listen((message) => processMessage(ws, message),
-		          onError: (error) => cleanupList(ws),
-		          onDone: () => cleanupList(ws));
+		onError: (error) => cleanupList(ws),
+		onDone: () => cleanupList(ws));
 	}
 
 	static void cleanupList(WebSocket ws) {
 		String leavingUser;
 
 		userSockets.forEach((String username, WebSocket socket) {
-			if(ws == socket) {
+			if (ws == socket) {
 				socket = null;
 				leavingUser = username;
 			}
@@ -139,7 +140,7 @@ class MetabolicsEndpoint {
 		Map map = JSON.decode(message);
 		String username = map['username'];
 
-		if(!userSockets.containsKey(username)) {
+		if (!userSockets.containsKey(username)) {
 			userSockets[username] = ws;
 		}
 	}
@@ -150,10 +151,10 @@ class MetabolicsEndpoint {
 			try {
 				Metabolics m = await getMetabolics(username:username);
 
-				if(simulateMood) {
+				if (simulateMood) {
 					_calcAndSetMood(m);
 				}
-				if(simulateEnergy) {
+				if (simulateEnergy) {
 					_calcAndSetEnergy(m);
 				}
 
@@ -192,20 +193,20 @@ class MetabolicsEndpoint {
 //				}
 
 				//store current street and position
-				if(userIdentifier != null) {
+				if (userIdentifier != null) {
 					m.current_street = userIdentifier.tsid;
 					m.current_street_x = userIdentifier.currentX;
 					m.current_street_y = userIdentifier.currentY;
 
 					//store the metabolics back to the database
 					int result = await setMetabolics(m);
-					if(result > 0) {
+					if (result > 0) {
 						//send the metabolics back to the user
 						ws.add(JSON.encode(encode(m)));
 					}
 				}
 			}
-			catch(e, st) {
+			catch (e, st) {
 				log("(metabolics endpoint - simulate): $e\n$st");
 			}
 		});
@@ -218,7 +219,7 @@ class MetabolicsEndpoint {
 		try {
 			userSockets[username].add(JSON.encode(map));
 		}
-		catch(err) {
+		catch (err) {
 			log('(metabolics_endpoint_deny_quoin) Could not pass map $map to player $username: $err');
 		}
 	}
@@ -236,46 +237,89 @@ class MetabolicsEndpoint {
 		int amt = rand.nextInt(4) + 1;
 		amt = (amt * m.quoin_multiplier).round();
 
-		if(q.type == "quarazy") {
+		if (q.type == "quarazy") {
 			amt *= 7;
 		}
 
-		if(q.type == 'currant') {
+		if (q.type == 'currant') {
 			m.currants += amt;
 		}
-		if(q.type == 'img' || q.type == 'quarazy') {
+		if (q.type == 'img' || q.type == 'quarazy') {
 			m.img += amt;
 			m.lifetime_img += amt;
 		}
-		if(q.type == 'mood') {
-			if((m.mood + amt) > m.max_mood) {
+		if (q.type == 'mood') {
+			if ((m.mood + amt) > m.max_mood) {
 				amt = m.max_mood - m.mood;
 			}
 			m.mood += amt;
 		}
-		if(q.type == 'energy') {
-			if((m.energy + amt) > m.max_energy) {
+		if (q.type == 'energy') {
+			if ((m.energy + amt) > m.max_energy) {
 				amt = m.max_energy - m.energy;
 			}
 			m.energy += amt;
 		}
-		if(q.type == "favor") {
+		if (q.type == "favor") {
 			m.alphfavor += amt;
+			if (m.alphfavor >= m.alphfavor_max) {
+				m.alphfavor = m.alphfavor_max - 1;
+			}
+
 			m.cosmafavor += amt;
+			if (m.cosmafavor >= m.cosmafavor_max) {
+				m.cosmafavor = m.cosmafavor_max - 1;
+			}
+
 			m.friendlyfavor += amt;
+			if (m.friendlyfavor >= m.friendlyfavor_max) {
+				m.friendlyfavor = m.friendlyfavor_max - 1;
+			}
+
 			m.grendalinefavor += amt;
+			if (m.grendalinefavor >= m.grendalinefavor_max) {
+				m.grendalinefavor = m.grendalinefavor_max - 1;
+			}
+
 			m.humbabafavor += amt;
+			if (m.humbabafavor >= m.humbabafavor_max) {
+				m.humbabafavor = m.humbabafavor_max - 1;
+			}
+
 			m.lemfavor += amt;
+			if (m.lemfavor >= m.lemfavor_max) {
+				m.lemfavor = m.lemfavor_max - 1;
+			}
+
 			m.mabfavor += amt;
+			if (m.mabfavor >= m.mabfavor_max) {
+				m.mabfavor = m.mabfavor_max - 1;
+			}
+
 			m.potfavor += amt;
+			if (m.potfavor >= m.potfavor_max) {
+				m.potfavor = m.potfavor_max - 1;
+			}
+
 			m.sprigganfavor += amt;
+			if (m.sprigganfavor >= m.sprigganfavor_max) {
+				m.sprigganfavor = m.sprigganfavor_max - 1;
+			}
+
 			m.tiifavor += amt;
+			if (m.tiifavor >= m.tiifavor_max) {
+				m.tiifavor = m.tiifavor_max - 1;
+			}
+
 			m.zillefavor += amt;
+			if (m.zillefavor >= m.zillefavor_max) {
+				m.zillefavor = m.zillefavor_max - 1;
+			}
 		}
 
 		try {
 			int result = await setMetabolics(m);
-			if(result > 0) {
+			if (result > 0) {
 				Map map = {'collectQuoin':'true',
 					'id':q.id,
 					'amt':amt,
@@ -289,7 +333,7 @@ class MetabolicsEndpoint {
 				userSockets[username].add(JSON.encode(encode(m)));
 			}
 		}
-		catch(err) {
+		catch (err) {
 			log('(metabolics_endpoint_add_quoin) Could not set metabolics $m for player $username: $err');
 		}
 	}
@@ -300,14 +344,14 @@ class MetabolicsEndpoint {
 
 		//determine how much mood they should lose based on current percentage of max
 		//https://web.archive.org/web/20130106191352/http://www.glitch-strategy.com/wiki/Mood
-		if(moodRatio < .5)
+		if (moodRatio < .5)
 			m.mood -= (max_mood * .005).ceil();
-		else if(moodRatio >= .5 && moodRatio < .81)
+		else if (moodRatio >= .5 && moodRatio < .81)
 			m.mood -= (max_mood * .01).ceil();
 		else
 			m.mood -= (max_mood * .015).ceil();
 
-		if(m.mood < 0)
+		if (m.mood < 0)
 			m.mood = 0;
 
 		simulateMood = false;
@@ -318,7 +362,7 @@ class MetabolicsEndpoint {
 		//https://web.archive.org/web/20120805062536/http://www.glitch-strategy.com/wiki/Energy
 		m.energy -= (m.max_energy * .008).ceil();
 
-		if(m.energy < 0) {
+		if (m.energy < 0) {
 			m.energy = 0;
 		}
 
@@ -334,26 +378,26 @@ Future<Metabolics> getMetabolics({@app.QueryParam() String username, @app.QueryP
 	PostgreSql dbConn = await dbManager.getConnection();
 	try {
 		String whereClause = "WHERE users.username = @username";
-		if(email != null) {
+		if (email != null) {
 			whereClause = "WHERE users.email = @email";
 		}
 		String query = "SELECT * FROM metabolics JOIN users ON users.id = metabolics.user_id " + whereClause;
 		List<Metabolics> metabolics = await dbConn.query(query, Metabolics, {'username':username, 'email':email});
 
-		if(metabolics.length > 0) {
+		if (metabolics.length > 0) {
 			metabolic = metabolics[0];
 		} else {
 			query = "SELECT * FROM users " + whereClause;
 			var results = await dbConn.query(query, int, {'username':username, 'email':email});
 
-			if(results.length > 0) {
+			if (results.length > 0) {
 				metabolic.user_id = results[0]['id'];
 			}
 		}
 
 		dbManager.closeConnection(dbConn);
-	} catch(e, st) {
-		if(dbConn != null) {
+	} catch (e, st) {
+		if (dbConn != null) {
 			dbManager.closeConnection(dbConn);
 		}
 		log('(getMetabolics): $e\n$st');
@@ -367,10 +411,10 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 	int result = 0;
 
 	//try to not overset the metabolics that have maxes
-	if(metabolics.mood > metabolics.max_mood) {
+	if (metabolics.mood > metabolics.max_mood) {
 		metabolics.mood = metabolics.max_mood;
 	}
-	if(metabolics.energy > metabolics.max_energy) {
+	if (metabolics.energy > metabolics.max_energy) {
 		metabolics.energy = metabolics.max_energy;
 	}
 
@@ -381,7 +425,7 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 		List<int> results = await dbConn.query(query, int, metabolics);
 
 		//user exists
-		if(results.length > 0) {
+		if (results.length > 0) {
 			query = "UPDATE metabolics SET img = @img, currants = @currants, mood = @mood, energy = @energy, lifetime_img = @lifetime_img, current_street = @current_street, current_street_x = @current_street_x, current_street_y = @current_street_y, max_energy = @max_energy, max_mood = @max_mood, alphfavor = @alphfavor,cosmafavor = @cosmafavor,friendlyfavor = @friendlyfavor,grendalinefavor = @grendalinefavor,humbabafavor = @humbabafavor,lemfavor = @lemfavor,mabfavor = @mabfavor,potfavor = @potfavor,sprigganfavor = @sprigganfavor,tiifavor = @tiifavor,zillefavor = @zillefavor, quoin_multiplier = @quoin_multiplier, quoins_collected = @quoins_collected WHERE user_id = @user_id";
 		} else {
 			query = "INSERT INTO metabolics (img,currants,mood,energy,lifetime_img,user_id,current_street,current_street_x,current_street_y,max_energy,max_mood,alphfavor,cosmafavor,friendlyfavor,grendalinefavor,humbabafavor,lemfavor,mabfavor,potfavor,sprigganfavor,tiifavor,zillefavor,location_history) VALUES(@img,@currants,@mood,@energy,@lifetime_img,@user_id,@current_street,@current_street_x,@current_street_y,@max_energy,@max_mood,@alphfavor,@cosmafavor,@friendlyfavor,@grendalinefavor,@humbabafavor,@lemfavor,@mabfavor,@potfavor,@sprigganfavor,@tiifavor,@zillefavor,@quoin_multiplier,@quoins_collected);";
@@ -391,8 +435,8 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 
 		dbManager.closeConnection(dbConn);
 	}
-	catch(e, st) {
-		if(dbConn != null) {
+	catch (e, st) {
+		if (dbConn != null) {
 			dbManager.closeConnection(dbConn);
 		}
 		log('(setMetabolics): $e\n$st');
