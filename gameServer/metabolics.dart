@@ -230,7 +230,6 @@ class MetabolicsEndpoint {
 		if (m.quoins_collected >= 100) {
 			// Daily quoin limit of 100
 			denyQuoin(q, username);
-			toast("You've already reached your daily quoin limit of 100 quoins.", userSockets[username]);
 			return;
 		}
 
@@ -317,6 +316,10 @@ class MetabolicsEndpoint {
 			}
 		}
 
+		if (amt > 0) {
+			m.quoins_collected++;
+		}
+
 		try {
 			int result = await setMetabolics(m);
 			if (result > 0) {
@@ -326,8 +329,6 @@ class MetabolicsEndpoint {
 					'quoinType':q.type};
 
 				q.setCollected();
-
-				m.quoins_collected++;
 
 				userSockets[username].add(JSON.encode(map));
 				userSockets[username].add(JSON.encode(encode(m)));
@@ -426,9 +427,84 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 
 		//user exists
 		if (results.length > 0) {
-			query = "UPDATE metabolics SET img = @img, currants = @currants, mood = @mood, energy = @energy, lifetime_img = @lifetime_img, current_street = @current_street, current_street_x = @current_street_x, current_street_y = @current_street_y, max_energy = @max_energy, max_mood = @max_mood, alphfavor = @alphfavor,cosmafavor = @cosmafavor,friendlyfavor = @friendlyfavor,grendalinefavor = @grendalinefavor,humbabafavor = @humbabafavor,lemfavor = @lemfavor,mabfavor = @mabfavor,potfavor = @potfavor,sprigganfavor = @sprigganfavor,tiifavor = @tiifavor,zillefavor = @zillefavor, quoin_multiplier = @quoin_multiplier, quoins_collected = @quoins_collected WHERE user_id = @user_id";
+			query = "UPDATE metabolics "
+			"SET img = @img, "
+			"currants = @currants, "
+			"mood = @mood, "
+			"energy = @energy, "
+			"lifetime_img = @lifetime_img, "
+			"current_street = @current_street, "
+			"current_street_x = @current_street_x, "
+			"current_street_y = @current_street_y, "
+			"max_energy = @max_energy, "
+			"max_mood = @max_mood, "
+			"alphfavor = @alphfavor, "
+			"cosmafavor = @cosmafavor, "
+			"friendlyfavor = @friendlyfavor, "
+			"grendalinefavor = @grendalinefavor, "
+			"humbabafavor = @humbabafavor, "
+			"lemfavor = @lemfavor, "
+			"mabfavor = @mabfavor, "
+			"potfavor = @potfavor, "
+			"sprigganfavor = @sprigganfavor, "
+			"tiifavor = @tiifavor, "
+			"zillefavor = @zillefavor, "
+			"quoin_multiplier = @quoin_multiplier, "
+			"quoins_collected = @quoins_collected "
+			"WHERE user_id = @user_id";
 		} else {
-			query = "INSERT INTO metabolics (img,currants,mood,energy,lifetime_img,user_id,current_street,current_street_x,current_street_y,max_energy,max_mood,alphfavor,cosmafavor,friendlyfavor,grendalinefavor,humbabafavor,lemfavor,mabfavor,potfavor,sprigganfavor,tiifavor,zillefavor,location_history) VALUES(@img,@currants,@mood,@energy,@lifetime_img,@user_id,@current_street,@current_street_x,@current_street_y,@max_energy,@max_mood,@alphfavor,@cosmafavor,@friendlyfavor,@grendalinefavor,@humbabafavor,@lemfavor,@mabfavor,@potfavor,@sprigganfavor,@tiifavor,@zillefavor,@quoin_multiplier,@quoins_collected);";
+			query = "INSERT INTO metabolics ("
+			"img, "
+			"currants, "
+			"mood, "
+			"energy, "
+			"lifetime_img, "
+			"user_id, "
+			"current_street, "
+			"current_street_x, "
+			"current_street_y, "
+			"max_energy, "
+			"max_mood, "
+			"alphfavor, "
+			"cosmafavor, "
+			"friendlyfavor, "
+			"grendalinefavor, "
+			"humbabafavor, "
+			"lemfavor, "
+			"mabfavor, "
+			"potfavor, "
+			"sprigganfavor, "
+			"tiifavor, "
+			"zillefavor, "
+			"location_history, "
+			"quoin_multiplier, "
+			"quoins_collected"
+			") VALUES("
+			"@img, "
+			"@currants, "
+			"@mood, "
+			"@energy, "
+			"@lifetime_img, "
+			"@user_id, "
+			"@current_street, "
+			"@current_street_x, "
+			"@current_street_y, "
+			"@max_energy, "
+			"@max_mood, "
+			"@alphfavor, "
+			"@cosmafavor, "
+			"@friendlyfavor, "
+			"@grendalinefavor, "
+			"@humbabafavor, "
+			"@lemfavor, "
+			"@mabfavor, "
+			"@potfavor, "
+			"@sprigganfavor, "
+			"@tiifavor, "
+			"@zillefavor, "
+			"@location_history, "
+			"@quoin_multiplier, "
+			"@quoins_collected)";
 		}
 
 		result = await dbConn.execute(query, metabolics);
