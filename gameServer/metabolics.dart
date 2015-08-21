@@ -91,6 +91,10 @@ class Metabolics {
 		location_history_json = JSON.encode(history);
 	}
 
+	void addToLocationHistory(String TSID) {
+		this.location_history = this.location_history..add(TSID);
+	}
+
 	@Field()
 	int quoins_collected = 0;
 
@@ -449,6 +453,17 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 			"sprigganfavor = @sprigganfavor, "
 			"tiifavor = @tiifavor, "
 			"zillefavor = @zillefavor, "
+			"alphfavor_max = @alphfavor_max, "
+			"cosmafavor_max = @cosmafavor_max, "
+			"friendlyfavor_max = @friendlyfavor_max, "
+			"grendalinefavor_max = @grendalinefavor_max, "
+			"humbabafavor_max = @humbabafavor_max, "
+			"lemfavor_max = @lemfavor_max, "
+			"mabfavor_max = @mabfavor_max, "
+			"potfavor_max = @potfavor_max, "
+			"sprigganfavor_max = @sprigganfavor_max, "
+			"tiifavor_max = @tiifavor_max, "
+			"zillefavor_max = @zillefavor_max, "
 			"quoin_multiplier = @quoin_multiplier, "
 			"quoins_collected = @quoins_collected "
 			"WHERE user_id = @user_id";
@@ -476,6 +491,17 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 			"sprigganfavor, "
 			"tiifavor, "
 			"zillefavor, "
+			"alphfavor_max, "
+			"cosmafavor_max, "
+			"friendlyfavor_max, "
+			"grendalinefavor_max, "
+			"humbabafavor_max, "
+			"lemfavor_max, "
+			"mabfavor_max, "
+			"potfavor_max, "
+			"sprigganfavor_max, "
+			"tiifavor_max, "
+			"zillefavor_max, "
 			"location_history, "
 			"quoin_multiplier, "
 			"quoins_collected"
@@ -502,6 +528,17 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 			"@sprigganfavor, "
 			"@tiifavor, "
 			"@zillefavor, "
+			"@alphfavor_max, "
+			"@cosmafavor_max, "
+			"@friendlyfavor_max, "
+			"@grendalinefavor_max, "
+			"@humbabafavor_max, "
+			"@lemfavor_max, "
+			"@mabfavor_max, "
+			"@potfavor_max, "
+			"@sprigganfavor_max, "
+			"@tiifavor_max, "
+			"@zillefavor_max, "
 			"@location_history, "
 			"@quoin_multiplier, "
 			"@quoins_collected)";

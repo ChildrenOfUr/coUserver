@@ -134,6 +134,9 @@ class StreetUpdateHandler {
 					}
 					//log("${map['username']} joined $streetName");
 					streets[streetName].occupants.add(ws);
+					getMetabolics(username: username, email: email).then((Metabolics m) {
+						m.addToLocationHistory(map["tsid"]);
+					});
 					if (map['firstConnect']) {
 						await fireInventoryAtUser(ws, email);
 					}

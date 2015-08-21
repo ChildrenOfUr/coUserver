@@ -35,11 +35,12 @@ class Shrine extends NPC {
 		String giantName = type.substring(0, 1).toUpperCase() + type.substring(1);
 		InstanceMirror instanceMirror = reflect(m);
 		int giantFavor = instanceMirror.getField(new Symbol(giantName.toLowerCase() + 'favor')).reflectee;
+		int maxAmt = instanceMirror.getField(new Symbol(giantName.toLowerCase() + 'favor_max')).reflectee;
 
 		Map map = {};
 		map['giantName'] = giantName;
 		map['favor'] = giantFavor;
-		map['maxFavor'] = 1000;
+		map['maxFavor'] = maxAmt;
 		map['id'] = id;
 		userSocket.add(JSON.encode(map));
 
@@ -47,17 +48,20 @@ class Shrine extends NPC {
 		currentState = states['open'];
 	}
 
-	donate({WebSocket userSocket, String itemType, int num, String email}) async {
-		bool success = await takeItemFromUser(userSocket, email, itemType, num);
+	donate({WebSocket userSocket, String itemType, int qty, String email}) async {
+		bool success = await takeItemFromUser(userSocket, email, itemType, qty);
 		if(success) {
 			Item item = items[itemType];
 			String giantName = type.substring(0, 1).toUpperCase() + type.substring(1);
 			Metabolics m = await getMetabolics(email:email);
 			InstanceMirror instanceMirror = reflect(m);
 			int giantFavor = instanceMirror.getField(new Symbol(giantName.toLowerCase() + 'favor')).reflectee;
-			int favAmt = (item.price * num * .35) ~/ 1;
-			if(giantFavor+favAmt >= 1000) {
+			int favAmt = (item.price * qty * .35) ~/ 1;
+			int maxAmt = instanceMirror.getField(new Symbol(giantName.toLowerCase() + 'favor_max')).reflectee;
+			if(giantFavor + favAmt >= maxAmt) {
 				instanceMirror.setField(new Symbol(giantName.toLowerCase() + 'favor'), 0);
+				maxAmt += 100;
+				instanceMirror.setField(new Symbol(giantName.toLowerCase() + 'favor_max'), maxAmt);
 				addItemToUser(userSocket, email, items['emblem_of_' + giantName.toLowerCase()].getMap(), 1, id);
 				StatBuffer.incrementStat("emblemsCreated", 1);
 			} else {
@@ -68,10 +72,10 @@ class Shrine extends NPC {
 			Map addedFavorMap = {};
 			addedFavorMap['favorUpdate'] = true;
 			addedFavorMap['favor'] = instanceMirror.getField(new Symbol(giantName.toLowerCase() + 'favor')).reflectee;
-			addedFavorMap['maxFavor'] = 1000;
+			addedFavorMap['maxFavor'] = maxAmt;
 			userSocket.add(JSON.encode(addedFavorMap));
 		} else {
-			print("$email failed to donate $num $itemType to $type");
+			print("$email failed to donate $qty $itemType to $type");
 		}
 	}
 }
