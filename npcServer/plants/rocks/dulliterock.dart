@@ -29,7 +29,7 @@ class DulliteRock extends Rock {
 
 		if(success) {
 			//give the player the 'fruits' of their labor
-			addItemToUser(userSocket, email, items['chunk_dullite'].getMap(), 1, id);
+			InventoryV2.addItemToUser(userSocket, email, items['chunk_dullite'].getMap(), 1, id);
 		}
 
 		return success;

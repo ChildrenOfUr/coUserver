@@ -4,8 +4,8 @@ class Item_Consumable {
 	static Map<String, Map> consumeValues = {};
 
 	static Future<bool> consume(Map map, WebSocket userSocket, String email) async {
-		bool success = await takeItemFromUser(userSocket, email, map['dropItem']['itemType'], map['count']);
-		if (!success) {
+		int success = await InventoryV2.takeItemFromUser(userSocket, email, map['dropItem']['itemType'], map['count']);
+		if (success == -1) {
 			return false;
 		}
 

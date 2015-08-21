@@ -264,7 +264,7 @@ abstract class Vendor extends NPC {
 		if(m.currants >= item.price * num) {
 			m.currants -= item.price * num;
 			setMetabolics(m);
-			addItemToUser(userSocket, email, item.getMap(), num, id);
+			InventoryV2.addItemToUser(userSocket, email, item.getMap(), num, id);
 		}
 	}
 
@@ -273,7 +273,7 @@ abstract class Vendor extends NPC {
 			return;
 		}
 
-		bool success = await takeItemFromUser(userSocket, email, itemType, num);
+		bool success = (await InventoryV2.takeItemFromUser(userSocket, email, itemType, num) == num);
 
 		if(success) {
 			Item item = items[itemType];

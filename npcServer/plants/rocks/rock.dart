@@ -85,21 +85,21 @@ abstract class Rock extends Plant {
     //moonstone = 1 in 15
     //diamond = 1 in 20
     if (rand.nextInt(5) == 5) {
-      addItemToUser(userSocket, email, items['pleasing_amber'].getMap(), 1, id);
+      InventoryV2.addItemToUser(userSocket, email, items['pleasing_amber'].getMap(), 1, id);
     }
     if (rand.nextInt(7) == 5) {
-      addItemToUser(userSocket, email, items['showy_sapphire'].getMap(), 1, id);
+      InventoryV2.addItemToUser(userSocket, email, items['showy_sapphire'].getMap(), 1, id);
     }
     if (rand.nextInt(10) == 5) {
-      addItemToUser(
+      InventoryV2.addItemToUser(
           userSocket, email, items['modestly_sized_ruby'].getMap(), 1, id);
     }
     if (rand.nextInt(15) == 5) {
-      addItemToUser(
+      InventoryV2.addItemToUser(
           userSocket, email, items['luminous_moonstone'].getMap(), 1, id);
     }
     if (rand.nextInt(20) == 5) {
-      addItemToUser(
+      InventoryV2.addItemToUser(
           userSocket, email, items['walloping_big_diamond'].getMap(), 1, id);
     }
 

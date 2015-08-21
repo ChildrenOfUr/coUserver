@@ -253,18 +253,24 @@ Future<Map> getStreetFillerStats() {
 
 			Map finishedMap = JSON.decode(str);
 			finishedMap.forEach((String key, Map value) {
-				if(value['streetFinished'] == true)
+				if(value['streetFinished'] == true) {
 					trulyFinished++;
-				if(value['reportedBroken'] == true)
+				}
+				if(value['reportedBroken'] == true) {
 					reportedBroken++;
-				if(value['reportedFinished'] == true)
+				}
+				if(value['reportedFinished'] == true) {
 					reportedFinished++;
-				if(value['reportedVandalized'] == true)
+				}
+				if(value['reportedVandalized'] == true) {
 					reportedVandalized++;
-				if(value['entitiesRequired'] != null && value['entitiesRequired'] != -1)
+				}
+				if(value['entitiesRequired'] != null && value['entitiesRequired'] != -1) {
 					entitiesRequired += num.parse(value['entitiesRequired'].toString());
-				if(value['entitiesComplete'] != null && value['entitiesComplete'] != -1)
+				}
+				if(value['entitiesComplete'] != null && value['entitiesComplete'] != -1) {
 					entitiesComplete += num.parse(value['entitiesComplete'].toString());
+				}
 			});
 
 			Directory dir = new Directory('./streetEntities');

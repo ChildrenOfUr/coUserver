@@ -16,8 +16,6 @@ class InventoryV2 {
 		"metadata": {}
 	};
 
-	// Server Functions ///////////////////////////////////////////////////////////////////////////
-
 	@Field()
 	int inventory_id;
 
@@ -27,26 +25,27 @@ class InventoryV2 {
 	@Field()
 	int user_id;
 
+	// Private Methods ////////////////////////////////////////////////////////////////////////////
+
 	factory InventoryV2() => new InventoryV2._internal();
 
 	InventoryV2._internal() {
 		// Create a new InventoryV2
 		List<Map> inventory = new List();
 		// Fill it with blank slots (add on to existing ones)
-		while (inventory.length < invSize) inventory.add(emptySlotTemplate);
+		while (inventory.length < invSize) {
+			inventory.add(emptySlotTemplate);
+		}
 		// Store as JSON
 		this.inventory_json = JSON.encode(inventory);
 	}
 
-	static Future<bool> upgradeItems() async {
-		return false;
-	}
+	// Might need this
+//	static Future<bool> _upgradeItems() async {
+//		return false;
+//	}
 
-	static InventoryV2 getInventory(String email) {
-		return new InventoryV2(); //TODO: find the user's inventory by email, instead of just an empty inventory
-	}
-
-	Future<int> addItem(Map item, int count, String email) async {
+	Future<int> _addItem(Map item, int count, String email) async {
 		List<Map> inventory = JSON.decode(inventory_json);
 
 		// Get some basic item data
@@ -94,10 +93,10 @@ class InventoryV2 {
 				// Figure out how many we can merge
 				int diff = toMerge - slot["count"];
 
-				// Don't ever merge more than a full stack
+				// Don"t ever merge more than a full stack
 				if (diff > max_stack) diff = max_stack;
 
-				// Don't merge over a stack if the slot is not empty
+				// Don"t merge over a stack if the slot is not empty
 				if (diff + slot["count"] > max_stack) diff = max_stack - slot["count"];
 
 				// Merge
@@ -142,7 +141,7 @@ class InventoryV2 {
 		return merged;
 	}
 
-	Future<int> takeItem(Map item, int count, String email) async {
+	Future<int> _takeItem(Map item, int count, String email) async {
 		List<Map> inventory = JSON.decode(inventory_json);
 
 		// Keep a record of how many items we have taken from slots already,
@@ -186,6 +185,15 @@ class InventoryV2 {
 		return grabbed;
 	}
 
+	// Public Methods /////////////////////////////////////////////////////////////////////////////
+
+	@app.Route("/getInventory/:email")
+	@Encode()
+	static Future<InventoryV2> getInventory(String email) async {
+		return await new InventoryV2(null);
+		//TODO: find the user's inventory by email, instead of just an empty inventory
+	}
+
 	// Return the inventory as a List<Map>, where each slot is a Map in the List
 	// Can then be READ by other functions (but not written to)
 	List<Map> getItems() {
@@ -213,7 +221,7 @@ class InventoryV2 {
 	}
 
 	// Returns the number of a certain item a user has
-	int count(String itemType) {
+	int countItem(String itemType) {
 		List<Map> inventory = JSON.decode(inventory_json);
 
 		int found = 0;
@@ -227,32 +235,39 @@ class InventoryV2 {
 		return found;
 	}
 
-	// Client Functions ///////////////////////////////////////////////////////////////////////////
-
-	@app.Route("/getInventory/:email")
-	@Encode()
-	Future<InventoryV2> client_getUserInventory(String email) async {
-		return null;
+	static Future<int> addItemToUser(WebSocket userSocket, String email, Map item, int count, [String fromObject = "_self"]) async {
+		InventoryV2 inv = await InventoryV2.getInventory(email);
+		int added = await inv._addItem(item, count, email);
+		if (added == count) {
+			Map send = new Map()
+				..["giveItem"] = "true"
+				..["item"] = encode(new Item.clone(item["itemType"]))
+				..["num"] = count
+				..["fromObject"] = fromObject;
+			userSocket.add(JSON.encode(send));
+			return count;
+		} else {
+			return -1;
+		}
 	}
 
-	Future<int> client_addItemToUser(WebSocket userSocket, String email, Map item, int count, String fromObject) async {
-		return 0;
+	static Future<int> takeItemFromUser(WebSocket userSocket, String email, String itemType, int count) async {
+		InventoryV2 inv = await InventoryV2.getInventory(email);
+		int taken = await inv._takeItem(items[itemType].getMap(), count, email);
+		if (taken == count) {
+			Map send = new Map()
+				..["takeItem"] = "true"
+				..["itemType"] = itemType
+				..["count"] = count;
+			userSocket.add(JSON.encode(send));
+			return count;
+		} else {
+			return -1;
+		}
 	}
 
-	Future<bool> client_takeItemFromUser(WebSocket userSocket, String email, String itemType, int count) async {
-		return false;
-	}
-
-	Future client_fireInventoryAtUser(WebSocket userSocket, String email) async {
-		return;
-	}
-
-	client_sendItemToUser(WebSocket userSocket, Map item, int count, String fromObject) {
-
-	}
-
-	@app.Route("/takeItem")
-	client_takeItem(WebSocket userSocket, String itemType, int count) {
-
+	fireInventoryAtUser(WebSocket userSocket, String email) async {
+		InventoryV2 inv = await InventoryV2.getInventory(email);
+		userSocket.add(inv.inventory_json);
 	}
 }

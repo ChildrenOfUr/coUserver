@@ -7,8 +7,7 @@ class KeepAlive
 
 	static void start()
 	{
-		Timer timer;
-		timer = new Timer.periodic(new Duration(seconds:15), (_)
+		new Timer.periodic(new Duration(seconds:15), (_)
 		{
 			notResponded = [];
 

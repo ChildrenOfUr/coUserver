@@ -53,7 +53,7 @@ class GasPlant extends Tree {
 
 		if(success) {
 			//give the player the 'fruits' of their labor
-			addItemToUser(userSocket, email, items['general_vapour'].getMap(), 1, id);
+			InventoryV2.addItemToUser(userSocket, email, items['general_vapour'].getMap(), 1, id);
 		}
 
 		return success;

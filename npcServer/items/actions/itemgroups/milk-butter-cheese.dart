@@ -17,11 +17,11 @@ abstract class Item_Milk {
 			toast("You don't have enough energy to shake that.", userSocket);
 			return false;
 		} else {
-			if (await takeItemFromUser(userSocket, email, "butterfly_milk", 1)) {
+			if (await InventoryV2.takeItemFromUser(userSocket, email, "butterfly_milk", 1) == 1) {
 				toast("Shaking...", userSocket);
 				new Timer(new Duration(seconds: 1), () async {
 					toast("You shake the butterfly milk vigorously. Butterfly butter!", userSocket);
-					bool success1 = (await addItemToUser(userSocket, email, items["butterfly_butter"].getMap(), 1, "_self") > 0);
+					bool success1 = (await InventoryV2.addItemToUser(userSocket, email, items["butterfly_butter"].getMap(), 1, "_self") > 0);
 					bool success2 = await ItemUser.trySetMetabolics(email, energy: -2);
 					if (success1 && success2) {
 						return true;
@@ -44,11 +44,11 @@ abstract class Item_Butter {
 			toast("You don't have enough energy to compress that.", userSocket);
 			return false;
 		} else {
-			if (await takeItemFromUser(userSocket, email, "butterfly_butter", 1)) {
+			if (await InventoryV2.takeItemFromUser(userSocket, email, "butterfly_butter", 1) == 1) {
 				toast("Compressing...", userSocket);
 				new Timer(new Duration(seconds: 2), () async {
 					toast("You squeeze the butterfly butter with all your might and cheese appears!", userSocket);
-					bool success1 = (await addItemToUser(userSocket, email, items["cheese"].getMap(), 1, "_self") > 0);
+					bool success1 = (await InventoryV2.addItemToUser(userSocket, email, items["cheese"].getMap(), 1, "_self") > 0);
 					bool success2 = await ItemUser.trySetMetabolics(email, energy: -3);
 					if (success1 && success2) {
 						return true;
@@ -118,11 +118,11 @@ abstract class Item_Cheese {
 		if (fail) {
 			return false;
 		} else {
-			if (await takeItemFromUser(userSocket, email, itemIn, 1)) {
+			if (await InventoryV2.takeItemFromUser(userSocket, email, itemIn, 1) == 1) {
 				toast("Aging...", userSocket);
 				new Timer(new Duration(seconds: time), () async {
 					toast(doneMsg, userSocket);
-					bool success1 = (await addItemToUser(userSocket, email, items[itemOut].getMap(), 1, "_self") > 0);
+					bool success1 = (await InventoryV2.addItemToUser(userSocket, email, items[itemOut].getMap(), 1, "_self") > 0);
 					bool success2 = await ItemUser.trySetMetabolics(email, energy: -energyReq, mood: -moodReq);
 					if (success1 && success2) {
 						return true;
@@ -146,7 +146,7 @@ abstract class Item_Cheese {
 
 		toast("Not a good idea. It's going to take a while for that finger-stink to wear off.", userSocket);
 
-		return (await addItemToUser(userSocket, email, items["small_worthless"].getMap(), 1, "_self") > 0);
+		return (await InventoryV2.addItemToUser(userSocket, email, items["small_worthless"].getMap(), 1, "_self") > 0);
 	}
 
 	static Future<bool> sniff(WebSocket userSocket, String email) async {
@@ -169,7 +169,7 @@ abstract class Item_Cheese {
 
 			// 50% chance to destroy it
 			if (ItemUser.rand.nextBool()) {
-				await takeItemFromUser(userSocket, email, "very_very_stinky_cheese", 1);
+				await InventoryV2.takeItemFromUser(userSocket, email, "very_very_stinky_cheese", 1);
 				toast("The cheese was destroyed by your intense sniffing.", userSocket);
 			}
 

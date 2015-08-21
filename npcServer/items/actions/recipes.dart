@@ -67,7 +67,7 @@ class RecipeBook {
 						Map itemMap = items[itemType].getMap();
 
 						// Compare against the user's inventory
-						Inventory inv = await getUserInventory(email);
+						InventoryV2 inv = await InventoryV2.getInventory(email);
 
 						// Figure out how many they have
 
@@ -137,7 +137,7 @@ class RecipeBook {
 
 		// Take all of the items
 		recipe.input.forEach((String itemType, int qty) async {
-			bool takeItemSuccess = await takeItemFromUser(ws, email, itemType, qty);
+			bool takeItemSuccess = (await InventoryV2.takeItemFromUser(ws, email, itemType, qty) == qty);
 			if (!takeItemSuccess) {
 				// If they didn't have a required item, they're not making a smoothie
 				return false;
@@ -154,7 +154,7 @@ class RecipeBook {
 		// Wait for it to make it, then give the item
 		await new Timer(new Duration(seconds: recipe.time), () async {
 			// Add the item after we finish "making" one
-			await addItemToUser(ws, email, items[recipe.output].getMap(), 1, "_self");
+			await InventoryV2.addItemToUser(ws, email, items[recipe.output].getMap(), 1, "_self");
 			// Award iMG
 			await ItemUser.trySetMetabolics(email, img: recipe.img);
 		});

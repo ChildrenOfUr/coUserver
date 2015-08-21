@@ -138,7 +138,7 @@ class StreetUpdateHandler {
 						m.addToLocationHistory(map["tsid"]);
 					});
 					if (map['firstConnect']) {
-						await fireInventoryAtUser(ws, email);
+						await InventoryV2.getInventory(email)..fireInventoryAtUser(ws, email);
 					}
 					return;
 				}
@@ -163,7 +163,7 @@ class StreetUpdateHandler {
 						log('(street_update_handler) Could not find player $username to collect quoin');
 					} else if (touched != null && !touched.collected) {
 						num xDiff = (touched.x - player.currentX).abs();
-						num yDiff = (touched.y - player.currentY).abs();
+						//num yDiff = (touched.y - player.currentY).abs();
 
 						if (xDiff < 130) {
 							await MetabolicsEndpoint.addQuoin(touched, username);

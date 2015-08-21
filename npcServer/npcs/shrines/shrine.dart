@@ -49,7 +49,7 @@ class Shrine extends NPC {
 	}
 
 	donate({WebSocket userSocket, String itemType, int qty, String email}) async {
-		bool success = await takeItemFromUser(userSocket, email, itemType, qty);
+		bool success = (await InventoryV2.takeItemFromUser(userSocket, email, itemType, qty) == qty);
 		if(success) {
 			Item item = items[itemType];
 			String giantName = type.substring(0, 1).toUpperCase() + type.substring(1);
@@ -62,7 +62,7 @@ class Shrine extends NPC {
 				instanceMirror.setField(new Symbol(giantName.toLowerCase() + 'favor'), 0);
 				maxAmt += 100;
 				instanceMirror.setField(new Symbol(giantName.toLowerCase() + 'favor_max'), maxAmt);
-				addItemToUser(userSocket, email, items['emblem_of_' + giantName.toLowerCase()].getMap(), 1, id);
+				InventoryV2.addItemToUser(userSocket, email, items['emblem_of_' + giantName.toLowerCase()].getMap(), 1, id);
 				StatBuffer.incrementStat("emblemsCreated", 1);
 			} else {
 				instanceMirror.setField(new Symbol(giantName.toLowerCase() + 'favor'), giantFavor + favAmt);

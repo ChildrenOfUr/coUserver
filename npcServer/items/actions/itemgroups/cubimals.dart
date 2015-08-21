@@ -40,7 +40,7 @@ abstract class Item_Cubimal {
 
 	static Future<bool> setFree(Map map, WebSocket userSocket, String email) async {
 		String cubiType = map['dropItem']['itemType'];
-		bool success = await takeItemFromUser(userSocket, email, cubiType, 1);
+		bool success = (await InventoryV2.takeItemFromUser(userSocket, email, cubiType, 1) == 1);
 		if (!success) return false;
 		int img = ((freeValues[(map["dropItem"]["itemType"] as String).substring(8)] / 2) * (ItemUser.rand.nextDouble() + 0.1)).truncate();
 		ItemUser.trySetMetabolics(email, mood: 10, img: img);
@@ -119,8 +119,8 @@ abstract class Item_CubimalBox {
 				break;
 			}
 		}
-		bool success = await takeItemFromUser(userSocket, email, box, 1);
-		await addItemToUser(userSocket, email, items[cubimal].getMap(), 1, box);
+		bool success = (await InventoryV2.takeItemFromUser(userSocket, email, box, 1) == 1);
+		await InventoryV2.addItemToUser(userSocket, email, items[cubimal].getMap(), 1, box);
 		StatBuffer.incrementStat("cubiBoxesOpened", 11);
 		return success;
 	}
