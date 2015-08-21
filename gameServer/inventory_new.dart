@@ -185,14 +185,12 @@ class InventoryV2 {
 		return grabbed;
 	}
 
-	// Public Methods /////////////////////////////////////////////////////////////////////////////
-
-	@app.Route("/getInventory/:email")
-	@Encode()
-	static Future<InventoryV2> getInventory(String email) async {
-		return await new InventoryV2(null);
-		//TODO: find the user's inventory by email, instead of just an empty inventory
+	static _fireInventoryAtUser(WebSocket userSocket, String email) async {
+		InventoryV2 inv = await InventoryV2.getInventory(email);
+		userSocket.add(inv.inventory_json);
 	}
+
+	// Public Methods /////////////////////////////////////////////////////////////////////////////
 
 	// Return the inventory as a List<Map>, where each slot is a Map in the List
 	// Can then be READ by other functions (but not written to)
@@ -235,6 +233,15 @@ class InventoryV2 {
 		return found;
 	}
 
+	// Static Public Methods //////////////////////////////////////////////////////////////////////
+
+	@app.Route("/getInventory/:email")
+	@Encode()
+	static Future<InventoryV2> getInventory(String email) async {
+		return await new InventoryV2();
+		//TODO: find the user's inventory by email, instead of just an empty inventory
+	}
+
 	static Future<int> addItemToUser(WebSocket userSocket, String email, Map item, int count, [String fromObject = "_self"]) async {
 		InventoryV2 inv = await InventoryV2.getInventory(email);
 		int added = await inv._addItem(item, count, email);
@@ -264,10 +271,5 @@ class InventoryV2 {
 		} else {
 			return -1;
 		}
-	}
-
-	fireInventoryAtUser(WebSocket userSocket, String email) async {
-		InventoryV2 inv = await InventoryV2.getInventory(email);
-		userSocket.add(inv.inventory_json);
 	}
 }
