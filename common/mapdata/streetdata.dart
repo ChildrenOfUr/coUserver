@@ -5815,7 +5815,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"The forgotten floor": {
 		"tsid": "GDOOSA8V29J24I3",
-		"hub_id": 97
+		"hub_id": 97,
+		"map_hidden": true
 	},
 	"Thicket": {
 		"vendor": "Animal Goods",

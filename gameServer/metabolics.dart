@@ -82,18 +82,8 @@ class Metabolics {
 	@Field()
 	int zillefavor_max = 1000;
 
-	@Field(model:'location_history')
-	String location_history_json = '[]';
-
-	List<String> get location_history => JSON.decode(location_history_json);
-
-	set location_history(List<String> history) {
-		location_history_json = JSON.encode(history);
-	}
-
-	void addToLocationHistory(String TSID) {
-		this.location_history = this.location_history..add(TSID);
-	}
+	@Field()
+	String location_history = '[]';
 
 	@Field()
 	int quoins_collected = 0;
@@ -214,6 +204,21 @@ class MetabolicsEndpoint {
 				log("(metabolics endpoint - simulate): $e\n$st");
 			}
 		});
+	}
+
+	static Future<bool> addToLocationHistory(String username, String TSID) async {
+		Metabolics m = await getMetabolics(username:username);
+		List<String> locations = JSON.decode(m.location_history);
+
+		// If it's not already in the history
+		if (!locations.contains(TSID)) {
+			locations.add(TSID);
+			m.location_history = JSON.encode(locations);
+			int result = await setMetabolics(m);
+			return (result > 0);
+		} else {
+			return false;
+		}
 	}
 
 	static denyQuoin(Quoin q, String username) {
@@ -428,7 +433,6 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 		//if the user already exists, update their data, otherwise insert them
 		String query = "SELECT user_id FROM metabolics WHERE user_id = @user_id";
 		List<int> results = await dbConn.query(query, int, metabolics);
-
 		//user exists
 		if (results.length > 0) {
 			query = "UPDATE metabolics "
@@ -465,7 +469,8 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 			"tiifavor_max = @tiifavor_max, "
 			"zillefavor_max = @zillefavor_max, "
 			"quoin_multiplier = @quoin_multiplier, "
-			"quoins_collected = @quoins_collected "
+			"quoins_collected = @quoins_collected, "
+			"location_history = @location_history "
 			"WHERE user_id = @user_id";
 		} else {
 			query = "INSERT INTO metabolics ("
