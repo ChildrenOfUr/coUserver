@@ -94,10 +94,14 @@ class InventoryV2 {
 				int diff = toMerge - slot["count"];
 
 				// Don"t ever merge more than a full stack
-				if (diff > max_stack) diff = max_stack;
+				if (diff > max_stack) {
+					diff = max_stack;
+				}
 
 				// Don"t merge over a stack if the slot is not empty
-				if (diff + slot["count"] > max_stack) diff = max_stack - slot["count"];
+				if (diff + slot["count"] > max_stack) {
+					diff = max_stack - slot["count"];
+				}
 
 				// Merge
 				slot["count"] += diff;
@@ -154,7 +158,9 @@ class InventoryV2 {
 		// TODO: look inside container slots
 		for (Map slot in inventory) {
 			// Check if we are done taking, then stop looping
-			if (toGrab == 0) break;
+			if (toGrab == 0) {
+				break;
+			}
 
 			// Skip empty slots
 			if (slot["itemType"] == "" && slot["count"] == 0) {
