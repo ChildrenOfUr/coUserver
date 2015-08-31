@@ -12,4 +12,4 @@ dependencies:
   shelf: any
   image: any
   crypto: any
-  events: any
+  harvest: "^2.0.0"

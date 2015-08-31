@@ -21,7 +21,7 @@ import "package:http/src/multipart_file.dart";
 import "package:http/src/streamed_response.dart";
 import "package:image/image.dart";
 import "package:crypto/crypto.dart";
-import "package:events/events.dart";
+import "package:harvest/harvest.dart" as harvest;
 
 //contains the main() method to start the server
 part "gameServer/server.dart";
@@ -32,7 +32,11 @@ part "gameServer/auctions/auctions_service.dart";
 part "gameServer/metabolics.dart";
 part "gameServer/weather.dart";
 part "gameServer/holidays.dart";
+
+//quests
 part "gameServer/quests/quest.dart";
+part 'gameServer/quests/quest_service.dart';
+part 'gameServer/quests/quest_endpoint.dart';
 
 //common to all server parts
 part "common/identifier.dart";
