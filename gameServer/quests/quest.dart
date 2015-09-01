@@ -1,83 +1,237 @@
 part of coUserver;
 
-Map<String,Quest> quests = {};
-loadQuests() async {
-	try {
-		String directory = Platform.script.toFilePath();
-		directory = directory.substring(0, directory.lastIndexOf('/'));
-		File questsFile = new File('$directory/gameServer/quests/quests.json');
+class CompleteRequirement extends harvest.Message {
+	Requirement requirement;
+	String email;
 
-		// load quests
-		List<Quest> qList = decode(JSON.decode(await questsFile.readAsString()), Quest);
-		qList.forEach((Quest q) => quests[q.id] = q);
-	}
-	catch(e) {
-		log("Problem loading quests: $e");
-	}
+	CompleteRequirement(this.requirement, this.email);
 }
 
-class Requirement {
-	@Field() String id, text, type, eventType;
-	@Field() bool fulfilled = false;
+class CompleteQuest extends harvest.Message {
+	Quest quest;
+	String email;
+
+	CompleteQuest(this.quest, this.email);
+}
+
+class RequirementProgress extends harvest.Message {
+	String eventType, email;
+
+	RequirementProgress(this.eventType, this.email);
+}
+
+class RequirementUpdated extends harvest.Message {
+	Requirement requirement;
+	String email;
+
+	RequirementUpdated(this.requirement, this.email);
+}
+
+abstract class Trackable {
+	String email;
+
+	void startTracking(String email) {
+		this.email = email;
+	}
+
+	void stopTracking();
+}
+
+class Requirement extends Trackable {
+	bool _fulfilled = false;
+	int _numFulfilled = 0;
 	@Field() int numRequired;
-	int numFulfilled = 0;
+	@Field() String id, text, type, eventType;
+
+	@Field() bool get fulfilled => _fulfilled;
+
+	@Field() void set fulfilled(bool value) {
+		_fulfilled = value;
+		if (_fulfilled) {
+			messageBus.publish(new CompleteRequirement(this, email));
+		}
+	}
+
+	@Field() int get numFulfilled => _numFulfilled;
+
+	@Field() void set numFulfilled(int value) {
+		_numFulfilled = value;
+		if (_numFulfilled >= numRequired) {
+			fulfilled = true;
+		}
+	}
+
+	@override
+	void startTracking(String email) {
+		super.startTracking(email);
+		messageBus.subscribe(RequirementProgress, (RequirementProgress progress) {
+			if (progress.eventType != eventType || progress.email != email|| fulfilled) {
+				print('sorry, no go: $eventType, $email, $fulfilled');
+				return;
+			}
+			numFulfilled += 1;
+			messageBus.publish(new RequirementUpdated(this, email));
+			print('1 more ${eventType} towards completion of ${text}');
+		});
+	}
+
+	@override
+	void stopTracking() {
+		messageBus.unsubscribe(RequirementProgress);
+	}
+
+	@override
+	String toString() => encode(this).toString();
+
+	@override
+	bool operator ==(Requirement other) => this.id == other.id;
+
+	@override
+	int get hashCode => id.hashCode;
 }
 
-class Quest {
-	@Field() String id, title, text;
+class Quest extends Trackable {
+	@Field() String id, title, questText, completionText;
 	@Field() bool complete = false;
 	@Field() List<Quest> prerequisites = [];
 	@Field() List<Requirement> requirements = [];
-}
 
-class UserQuest {
-	@Field() int id, user_id;
-	@Field() String completed_list, in_progress_list;
-}
+	@override
+	void startTracking(String email) {
+		super.startTracking(email);
 
-class QuestInstance extends Object with Events {
-	Quest quest;
+		requirements.forEach((Requirement r) => r.startTracking(email));
 
-	QuestInstance(String questId) {
-		quest = quests[questId];
-		quest.requirements.forEach((Requirement r) {
-			on(r.eventType,(dynamic d){print('1 more ${r.eventType} towards completion of ${r.text}');});
+		messageBus.subscribe(CompleteRequirement, (CompleteRequirement r) {
+			if (!requirements.contains(r.requirement) || r.email != email) {
+				return;
+			}
+
+			List<Requirement> tmp = [];
+			requirements.forEach((Requirement req) {
+				if (req.id != r.requirement.id) {
+					tmp.add(req);
+				}
+			});
+			tmp.add(r.requirement);
+			requirements = tmp;
+
+			try {
+				requirements.firstWhere((Requirement r) => !r.fulfilled);
+			} catch (e) {
+				complete = true;
+				messageBus.publish(new CompleteQuest(this, email));
+				print('quest is complete');
+			}
 		});
 	}
+
+	@override
+	void stopTracking() {
+		messageBus.unsubscribe(CompleteRequirement);
+		requirements.forEach((Requirement r) => r.stopTracking());
+	}
+
+	@override
+	bool operator ==(Quest other) => this.id == other.id;
+
+	@override
+	int get hashCode => id.hashCode;
 }
 
-@app.Group("/quest")
-class QuestService {
-	@app.Route("/completed/:playerId")
-	@Encode()
-	Future<List<Quest>> getCompleted(int playerId) async {
-		return await _getQuestList(playerId,'completed_list');
+class UserQuestLog extends Trackable {
+	int questNum = 0;
+	@Field() int id, user_id;
+	@Field() String completed_list, in_progress_list;
+
+	@override
+	void startTracking(String email) {
+		super.startTracking(email);
+
+		//start tracking on all our in progress quests
+		inProgressQuests.forEach((Quest q) => q.startTracking(email));
+
+		//listen for quest completion events
+		//if they don't belong to us, let someone else get them
+		//if they do belong to us, send a message to the client to tell them of their success
+		messageBus.subscribe(CompleteQuest, (CompleteQuest q) {
+			if (q.email != email) {
+				return;
+			}
+
+			q.quest.complete = true;
+			q.quest.stopTracking();
+
+			Map map = {'questComplete':encode(q.quest)};
+			if (QuestEndpoint.userSockets[email] != null) {
+				QuestEndpoint.userSockets[email].add(JSON.encode(map));
+			}
+
+			inProgressQuests = inProgressQuests.where((Quest quest) => quest != q.quest).toList();
+			List<Quest> tmp = completedQuests;
+			tmp.add(q.quest);
+			completedQuests = tmp;
+
+			QuestService.updateQuestLog(this);
+		});
+
+		//save our progress to the database so it doesn't get lost
+		messageBus.subscribe(RequirementUpdated, (RequirementUpdated update) {
+			print('got a progress event: ${update.requirement.eventType}, ${update.requirement.email}');
+			if (update.email != email) {
+				return;
+			}
+
+			List<Quest> tmp = [];
+			inProgressQuests.forEach((Quest q) {
+				q.requirements.removeWhere((Requirement r) => r == update.requirement);
+				q.requirements.add(update.requirement);
+				tmp.add(q);
+			});
+			inProgressQuests = tmp;
+
+			QuestService.updateQuestLog(this);
+		});
 	}
 
-	@app.Route("/inProgress/:playerId")
-	@Encode()
-	Future<List<Quest>> getInProgress(int playerId) async {
-		return await _getQuestList(playerId,'in_progress_list');
+	@override
+	void stopTracking() {
+		inProgressQuests.forEach((Quest q) => q.stopTracking());
+		messageBus.unsubscribe(CompleteQuest);
+		messageBus.unsubscribe(RequirementUpdated);
 	}
 
-	Future<List<Quest>> _getQuestList(int playerId, String listType) async {
-		String query = "SELECT * FROM user_quests WHERE user_id = @user_id";
-		List<UserQuest> results = await dbConn.query(query,UserQuest,{'user_id':playerId});
-		if(results.length <= 0) {
-			return [];
+	Future<bool> addInProgressQuest(String questId) async {
+		Quest questToAdd = quests[questId];
+		if (questToAdd == null) {
+			return false;
 		}
 
-		List<String> ids;
-		if(listType == 'completed_list') {
-			ids = JSON.decode(results.first.completed_list);
-		} else if (listType == 'in_progress_list') {
-			ids = JSON.decode(results.first.in_progress_list);
-		} else {
-			return [];
+		if (completedQuests.contains(questToAdd) ||
+		    inProgressQuests.contains(questToAdd)) {
+			return false;
 		}
 
-		List<Quest> questList = [];
-		ids.forEach((String id) => questList.add(quests[id]));
-		return questList;
+		List<Quest> tmp = inProgressQuests;
+		tmp.add(questToAdd);
+		inProgressQuests = tmp;
+		await QuestService.updateQuestLog(this);
+
+		return true;
 	}
+
+	List<Quest> get completedQuests => decode(JSON.decode(completed_list), Quest);
+
+	void set completedQuests(List<Quest> value) {
+		completed_list = JSON.encode(encode(value));
+	}
+
+	List<Quest> get inProgressQuests => decode(JSON.decode(in_progress_list), Quest);
+
+	void set inProgressQuests(List<Quest> value) {
+		in_progress_list = JSON.encode(encode(value));
+	}
+
+	@override
+	String toString() => 'UserQuestLog: ${encode(this)}';
 }

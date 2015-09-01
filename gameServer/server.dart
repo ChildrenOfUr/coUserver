@@ -9,7 +9,7 @@ DateTime startDate;
 Map<String, Item> items = {};
 Map<String, String> vendorTypes = {};
 
-QuestInstance petTree;
+harvest.MessageBus messageBus = new harvest.MessageBus.async();
 
 main() async {
 	int port = 8181;
@@ -30,8 +30,7 @@ main() async {
 	KeepAlive.start();
 
 	await StreetUpdateHandler.loadItems();
-	await loadQuests();
-	petTree = new QuestInstance('Q2');
+	await QuestService.loadQuests();
 
 	//redstone.dart does not support websockets so we have to listen on a
 	//seperate port for those connections :(
@@ -50,6 +49,9 @@ main() async {
 					MetabolicsEndpoint.handle(websocket);
 				else if(request.uri.path == "/weather")
 					WeatherEndpoint.handle(websocket);
+				else if(request.uri.path == '/quest') {
+					QuestEndpoint.handle(websocket);
+				}
 			})
 			.catchError((error) {
 				log("error: $error");

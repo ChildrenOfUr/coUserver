@@ -129,6 +129,7 @@ class ReportManager {
 		}
 
 		// Figure out which category to use (majority of the reports, or bug if equal)
+		//TODO: fix the ANY(...)
 		List<String> categories = await dbConn.query("SELECT category FROM reports WHERE id = ANY('${ids.toString().replaceAll("[", "").replaceAll("]", "")}'::int[])", String);
 		int bug = 0, suggestion = 0;
 		String category;
@@ -144,13 +145,16 @@ class ReportManager {
 
 		// Query 1: Add the merge and return its id
 
-		String query1 = "INSERT INTO mergedreports (title, description, category, reports) RETURNING id";
-		query1 += " VALUES('${data["title"]}', '${data["description"]}', '$category', '$ids'";
+		String query1 =
+		"INSERT INTO mergedreports (title, description, category, reports) RETURNING id "
+		"VALUES('${data["title"]}', '${data["description"]}', '$category', '$ids'";
 		int rowId = ((await dbConn.query(query1, int)) as List<int>).first;
 
 		// Query 2: Mark the reports as merged
 
-		String query2 = "UPDATE reports SET merged = ${rowId.toString()} WHERE id = ANY('${ids.toString().replaceAll("[", "").replaceAll("]", "")}'::int[])";
+		String query2 =
+		"UPDATE reports SET merged = ${rowId.toString()} "
+		"WHERE id = ANY('{${ids.toString().replaceAll("[", "").replaceAll("]", "")}}'::int[])";
 		dbConn.execute(query2);
 
 		return true;
