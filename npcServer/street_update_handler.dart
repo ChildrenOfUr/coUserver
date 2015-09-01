@@ -138,7 +138,7 @@ class StreetUpdateHandler {
 						MetabolicsEndpoint.addToLocationHistory(username, map["tsid"]);
 					});
 					if (map['firstConnect']) {
-						await InventoryV2.getInventory(email)..fireInventoryAtUser(ws, email);
+						await InventoryV2.fireInventoryAtUser(ws, email);
 					}
 					return;
 				}

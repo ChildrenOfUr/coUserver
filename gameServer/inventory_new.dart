@@ -40,10 +40,10 @@ class InventoryV2 {
 		this.inventory_json = JSON.encode(inventory);
 	}
 
-	// Might need this
-//	static Future<bool> _upgradeItems() async {
-//		return false;
-//	}
+//	 Might need this
+	Future<bool> _upgradeItems() async {
+		return false;
+	}
 
 	Future<int> _addItem(Map item, int count, String email) async {
 		List<Map> inventory = JSON.decode(inventory_json);
@@ -191,7 +191,7 @@ class InventoryV2 {
 		return grabbed;
 	}
 
-	static _fireInventoryAtUser(WebSocket userSocket, String email) async {
+	static Future fireInventoryAtUser(WebSocket userSocket, String email) async {
 		InventoryV2 inv = await InventoryV2.getInventory(email);
 		userSocket.add(inv.inventory_json);
 	}
@@ -244,8 +244,18 @@ class InventoryV2 {
 	@app.Route("/getInventory/:email")
 	@Encode()
 	static Future<InventoryV2> getInventory(String email) async {
-		return await new InventoryV2();
-		//TODO: find the user's inventory by email, instead of just an empty inventory
+		PostgreSql dbConn = await dbManager.getConnection();
+
+		String queryString = "SELECT * FROM inventories JOIN users ON users.id = user_id WHERE users.email = @email";
+		List<InventoryV2> inventories = await dbConn.query(queryString, InventoryV2, {'email':email});
+
+		InventoryV2 inventory = new InventoryV2();
+		if(inventories.length > 0) {
+			inventory = inventories.first;
+		}
+
+		dbManager.closeConnection(dbConn);
+		return inventory;
 	}
 
 	static Future<int> addItemToUser(WebSocket userSocket, String email, Map item, int count, [String fromObject = "_self"]) async {
