@@ -26,6 +26,8 @@ class QuestService {
 		List<UserQuestLog> questLogs = await dbConn.query(query, UserQuestLog, {'email':email});
 		if (questLogs.length > 0) {
 			questLog = questLogs.first;
+		} else {
+			questLog = await createQuestLog(email);
 		}
 
 		await dbManager.closeConnection(dbConn);
@@ -33,12 +35,31 @@ class QuestService {
 	}
 
 	@app.Route("/updateQuestLog", methods: const[app.POST])
-	static Future updateQuestLog(@Decode() UserQuestLog questLog) async {
-		print(questLog);
+	static Future<bool> updateQuestLog(@Decode() UserQuestLog questLog) async {
 		PostgreSql dbConn = await dbManager.getConnection();
 		String query = "UPDATE user_quests SET completed_list = @completed_list, in_progress_list = @in_progress_list where id = @id";
-		await dbConn.execute(query, questLog);
+		int numUpdated = await dbConn.execute(query, questLog);
 		await dbManager.closeConnection(dbConn);
+
+		if(numUpdated < 1) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	static Future<UserQuestLog> createQuestLog(String email) async {
+		PostgreSql dbConn = await dbManager.getConnection();
+		String query = "SELECT * FROM users where email = @email";
+		List<User> users = await dbConn.query(query, User, {'email':email});
+		if(users.length > 0) {
+			int userId = users.first.id;
+			query = "INSERT INTO user_quests(user_id) VALUES(@id)";
+			dbConn.execute(query,{'id':userId});
+		}
+		await dbManager.closeConnection(dbConn);
+
+		return await getQuestLog(email);
 	}
 
 	static Future<List<Quest>> _getQuestList(String email, String listType) async {
