@@ -3783,7 +3783,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"shrine": "Friendly",
 		"vendor": "Hardware",
 		"tsid": "GA58KK7B9O522PC",
-		"hub_id": 89
+		"hub_id": 89,
+		"disallow_bound_expansion": true
 	},
 	"MitMit Meets": {
 		"vendor": "Mining",
