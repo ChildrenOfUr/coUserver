@@ -37,6 +37,7 @@ part "gameServer/holidays.dart";
 part "gameServer/quests/quest.dart";
 part 'gameServer/quests/quest_service.dart';
 part 'gameServer/quests/quest_endpoint.dart';
+part 'gameServer/quests/user.dart';
 
 //common to all server parts
 part "common/identifier.dart";
