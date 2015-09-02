@@ -22,6 +22,7 @@ import "package:http/src/streamed_response.dart";
 import "package:image/image.dart";
 import "package:crypto/crypto.dart";
 import "package:harvest/harvest.dart" as harvest;
+import 'package:jsonx/jsonx.dart' as jsonx;
 
 //contains the main() method to start the server
 part "gameServer/server.dart";
