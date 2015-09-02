@@ -70,14 +70,7 @@ class RecipeBook {
 						InventoryV2 inv = await InventoryV2.getInventory(email);
 
 						// Figure out how many they have
-
-						int userHas = 0;
-
-						inv.getItems().forEach((Map item) {
-							if (item["itemType"] == itemType) {
-								userHas++;
-							}
-						});
+						int userHas = inv.countItem(itemType);
 
 						// Add user inventory data to the item data
 						itemMap.addAll(({
