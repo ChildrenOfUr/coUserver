@@ -7,6 +7,7 @@ class Item {
 	@Field() bool onGround = false, isContainer = false;
 	@Field() List<String> subSlotFilter;
 	@Field() List<Action> actions = [];
+	@Field() Map<String, dynamic> metadata = {};
 
 	Action dropAction = new Action.withName('drop')
 		..description = "Drop this item on the ground.";
@@ -32,6 +33,7 @@ class Item {
 		isContainer = model.isContainer;
 		subSlots = model.subSlots;
 		subSlotFilter = model.subSlotFilter;
+		metadata = model.metadata;
 		actions = model.actions;
 
 		bool found = false;
@@ -47,7 +49,8 @@ class Item {
 	}
 
 	Map getMap() {
-		return {"iconUrl":iconUrl,
+		return {
+			"iconUrl":iconUrl,
 			"spriteUrl":spriteUrl,
 			"name":name,
 			"itemType":itemType,
@@ -63,7 +66,9 @@ class Item {
 			"y":y,
 			"actions":actionList,
 			"tool_animation": toolAnimation,
-			"durability": durability};
+			"durability": durability,
+			"metadata": metadata
+		};
 	}
 
 	List<Map> get actionList {
