@@ -100,12 +100,12 @@ class InventoryV2 {
 				// Figure out how many we can merge
 				int diff = toMerge - slot.count;
 
-				// Don"t ever merge more than a full stack
+				// Don't ever merge more than a full stack
 				if (diff > item.stacksTo) {
 					diff = item.stacksTo;
 				}
 
-				// Don"t merge over a stack if the slot is not empty
+				// Don't merge over a stack if the slot is not empty
 				if (diff + slot.count > item.stacksTo) {
 					diff = item.stacksTo - slot.count;
 				}
@@ -132,8 +132,11 @@ class InventoryV2 {
 				// Give it empty bag slots
 				if (item.isContainer) {
 					// TODO: keep original slot contents
-					while ((slot.metadata["slots"] as List<Map>).length < item.subSlots) {
-						(slot.metadata["slots"] as List<Map>).add(encode(new Slot()));
+					if (slot.metadata["sub_slots"] == null) {
+						slot.metadata["sub_slots"] = [];
+					}
+					while ((slot.metadata["sub_slots"] as List<Map>).length < item.subSlots) {
+						(slot.metadata["sub_slots"] as List<Map>).add(encode(new Slot()));
 					}
 				}
 

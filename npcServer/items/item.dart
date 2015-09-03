@@ -2,7 +2,7 @@ part of coUserver;
 
 class Item {
 	@Field() String category, iconUrl, spriteUrl, toolAnimation, name, description, itemType, item_id;
-	@Field() int price, stacksTo, iconNum = 4, durability, durabilityUsed = 0, subSlots;
+	@Field() int price, stacksTo, iconNum = 4, durability, durabilityUsed = 0, subSlots = 0;
 	@Field() num x, y;
 	@Field() bool onGround = false, isContainer = false;
 	@Field() List<String> subSlotFilter;
