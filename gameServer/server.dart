@@ -120,6 +120,7 @@ Future<List<String>> listUsers(@app.QueryParam('channel') String channel) async
 @Encode()
 Future<List<Item>> getItems(@app.QueryParam('category') String category,
                             @app.QueryParam('name') String name,
+							@app.QueryParam('type') String type,
                             @app.QueryParam('isRegex') bool isRegex) async {
 	List<Item> itemList = [];
 	if(isRegex == null)
@@ -144,7 +145,16 @@ Future<List<Item>> getItems(@app.QueryParam('category') String category,
 		}
 	}
 
-	if(name == null && category == null)
+	if (type != null) {
+		if(isRegex) {
+			RegExp reg = new RegExp(type.toLowerCase());
+			itemList.addAll(items.values.where((Item i) => reg.hasMatch(i.itemType.toLowerCase())));
+		} else {
+			itemList.addAll(items.values.where((Item i) => i.itemType.toLowerCase() == type.toLowerCase()));
+		}
+	}
+
+	if(name == null && category == null && type == null)
 		return new List.from(items.values);
 
 	return itemList;
