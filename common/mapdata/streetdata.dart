@@ -6335,6 +6335,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GTJ12O0H7AO1IBS",
 		"hub_id": 63
 	},
+	"Visvedevas Divergence": {
+		"tsid": "LUV1BKIJU8A3VL1",
+		"hub_id": 136
+	},
 	"Vivere Aestas": {
 		"tsid": "GA5M93LAV313EBJ",
 		"hub_id": 128

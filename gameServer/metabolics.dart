@@ -242,7 +242,7 @@ class MetabolicsEndpoint {
 			return;
 		}
 
-		int amt = rand.nextInt(4) + 1;
+		num amt = rand.nextInt(4) + 1;
 		amt = (amt * m.quoin_multiplier).round();
 
 		if (q.type == "quarazy") {
@@ -323,6 +323,11 @@ class MetabolicsEndpoint {
 			if (m.zillefavor >= m.zillefavor_max) {
 				m.zillefavor = m.zillefavor_max - 1;
 			}
+		}
+
+		if (q.type == "mystery") {
+			amt = num.parse(rand.nextDouble().toString().substring(0, 3)).clamp(0.1, 0.9); // Sorry
+			m.quoin_multiplier += amt;
 		}
 
 		if (amt > 0) {
