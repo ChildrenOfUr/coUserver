@@ -13,6 +13,7 @@
     "category": "Herdkeeping Supplies",
     "iconUrl": "http://childrenofur.com/assets/entityImages/butterfly_lotion__x1_iconic_png_1354829593.png",
     "spriteUrl": "http://childrenofur.com/assets/entityImages/butterfly_lotion__x1_1_x1_2_png_1354829597.png",
+    "iconNum": 2,
     "stacksTo": 1,
     "price": 10,
     "description": "A tiny tube of butterfly lotion, without which a butterfly cannot be massaged. Remember: butterflies chafe easily, but they still like it pretty hard.",
