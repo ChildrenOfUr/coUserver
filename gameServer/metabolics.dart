@@ -572,3 +572,109 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 		return result;
 	}
 }
+
+// LEVELS
+
+//Map<int, int> scaleLevels([num sf = 1.37]) {
+//	Map<int, num> scale = {
+//		1: 0
+//	};
+//	int base = 100;
+//	for (int i = 1; i <= 60; i++) {
+//		scale.addAll(({i: base}));
+//		base = (base * sf).round();
+//	}
+//	return scale;
+//}
+
+Map <int, int> imgLevels = {
+	1: 100,
+	2: 137,
+	3: 188,
+	4: 258,
+	5: 353,
+	6: 484,
+	7: 663,
+	8: 908,
+	9: 1244,
+	10: 1704,
+	11: 2334,
+	12: 3198,
+	13: 4381,
+	14: 6002,
+	15: 8223,
+	16: 11266,
+	17: 15434,
+	18: 21145,
+	19: 28969,
+	20: 39688,
+	21: 54373,
+	22: 74491,
+	23: 102053,
+	24: 139813,
+	25: 191544,
+	26: 262415,
+	27: 359509,
+	28: 492527,
+	29: 674762,
+	30: 924424,
+	31: 1266461,
+	32: 1735052,
+	33: 2377021,
+	34: 3256519,
+	35: 4461431,
+	36: 6112160,
+	37: 8373659,
+	38: 11471913,
+	39: 15716521,
+	40: 21531634,
+	41: 29498339,
+	42: 40412724,
+	43: 55365432,
+	44: 75850642,
+	45: 103915380,
+	46: 142364071,
+	47: 195038777,
+	48: 267203124,
+	49: 366068280,
+	50: 501513544,
+	51: 687073555,
+	52: 941290770,
+	53: 1289568355,
+	54: 1766708646,
+	55: 2420390845,
+	56: 3315935458,
+	57: 4542831577,
+	58: 6223679260,
+	59: 8526440586,
+	60: 11681223603
+};
+
+@app.Route("/getLevel")
+int getLevel(@app.QueryParam("img") int img) {
+	int result;
+
+	if (img >= imgLevels[60]) {
+		result = 60;
+	} else {
+		for (int data_lvl in imgLevels.keys) {
+			int data_lvl_img = imgLevels[data_lvl];
+
+			if (img < data_lvl_img) {
+				result = data_lvl - 1;
+				break;
+			}
+		}
+	}
+
+	return result;
+}
+
+@app.Route("/getImgForLevel")
+int getImgForLevel(@app.QueryParam("level") int lvl) {
+	if (lvl > 0 && lvl <= 60) {
+		return imgLevels[lvl];
+	} else {
+		return -1;
+	}
+}
