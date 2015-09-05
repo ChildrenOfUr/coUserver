@@ -242,8 +242,18 @@ class MetabolicsEndpoint {
 			return;
 		}
 
-		num amt = rand.nextInt(4) + 1;
-		amt = (amt * m.quoin_multiplier).round();
+		num amt;
+		if (q.type != "mystery") {
+			// Choose a number 1-5
+			amt = rand.nextInt(4) + 1;
+			// Multiply it by the player's quoin multiplier
+			amt = (amt * m.quoin_multiplier).round();
+		} else {
+			// Chose a number 0.1-0.9
+			amt = (rand.nextInt(9) + 1) / 10;
+			// Add it to the player's quoin multiplier
+			m.quoin_multiplier += amt;
+		}
 
 		if (q.type == "quarazy") {
 			amt *= 7;
@@ -323,11 +333,6 @@ class MetabolicsEndpoint {
 			if (m.zillefavor >= m.zillefavor_max) {
 				m.zillefavor = m.zillefavor_max - 1;
 			}
-		}
-
-		if (q.type == "mystery") {
-			amt = num.parse(rand.nextDouble().toString().substring(0, 3)).clamp(0.1, 0.9); // Sorry
-			m.quoin_multiplier += amt;
 		}
 
 		if (amt > 0) {
