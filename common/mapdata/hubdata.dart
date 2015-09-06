@@ -107,7 +107,8 @@ final Map<String, Map<String, dynamic>> mapdata_hubs = {
 		"name": "Groddle Heights",
 		"x": 310,
 		"y": 171,
-		"music": "forest"
+		"music": "forest",
+		"players_have_letters": true
 	},
 	"58": {
 		"name": "Groddle Meadow",
