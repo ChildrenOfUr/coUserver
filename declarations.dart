@@ -33,6 +33,7 @@ part "gameServer/auctions/auctions_service.dart";
 part "gameServer/metabolics.dart";
 part "gameServer/weather.dart";
 part "gameServer/holidays.dart";
+part "gameServer/letters.dart";
 
 //quests
 part "gameServer/quests/quest.dart";
