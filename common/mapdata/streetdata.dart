@@ -663,7 +663,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"vendor": "Grocery",
 		"shrine": "Pot",
 		"tsid": "GCR143M18PK1774",
-		"hub_id": 56
+		"hub_id": 56,
+		"minimap_expand": true
 	},
 	"Blottnass": {
 		"vendor": "Produce",
