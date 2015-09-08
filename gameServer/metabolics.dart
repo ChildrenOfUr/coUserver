@@ -36,10 +36,12 @@ class Metabolics {
 			// Die
 			undead_street = current_street;
 			energy = 0;
+			mood = 0;
 		} else {
 			// Revive
 			undead_street = null;
 			energy = max_energy;
+			mood = max_mood;
 		}
 	}
 
