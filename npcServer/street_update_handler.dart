@@ -139,6 +139,7 @@ class StreetUpdateHandler {
 					});
 					if (map['firstConnect']) {
 						await InventoryV2.fireInventoryAtUser(ws, email);
+						MetabolicsEndpoint.updateDeath(PlayerUpdateHandler.users[username], null, true);
 					}
 					return;
 				}

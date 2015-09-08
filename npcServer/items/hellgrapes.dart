@@ -40,28 +40,21 @@ class HellGrapes extends Plant {
   }
 
   Future<bool> squish({WebSocket userSocket, String email}) async {
-    if (state < 1) return false;
-    bool success = await trySetMetabolics(email, energy: 50);
-    if (!success) return false;
+    if (state < 1) {
+      return false;
+    }
+    bool success = await trySetMetabolics(email, energy: 5);
+    if (!success) {
+      return false;
+    }
 
     // Update global stat
     StatBuffer.incrementStat("grapesSquished", 1);
     // Hide
+    setActionEnabled("squish", false);
     state = 5;
     // Show after 2 minutes
     respawn = new DateTime.now().add(new Duration(minutes: 2));
-
-    // Send the player home
-//    Map<String, dynamic> map = {
-//      //TODO: gotoStreet undeadTSID
-//      "dead": false
-//    };
-//    userSocket.add(JSON.encode(map));
-
-    //TODO: userIdentifier.dead = false;
-
-    setActionEnabled("squish", false);
-
     return success;
   }
 }

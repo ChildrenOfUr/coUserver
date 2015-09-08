@@ -29,6 +29,21 @@ class Metabolics {
 	String current_street = 'LA58KK7B9O522PC';
 
 	@Field()
+	String undead_street = null;
+
+	set dead(bool value) {
+		if (value) {
+			// Die
+			undead_street = current_street;
+			energy = 0;
+		} else {
+			// Revive
+			undead_street = null;
+			energy = max_energy;
+		}
+	}
+
+	@Field()
 	num current_street_x = 1.0;
 
 	@Field()
@@ -154,37 +169,9 @@ class MetabolicsEndpoint {
 
 				Identifier userIdentifier = PlayerUpdateHandler.users[username];
 
-//				if (userIdentifier != null) {
-//
-//					if (userIdentifier.tsid.endsWith("A5PPFP86NF2FOS")) {
-//						userIdentifier.outOfHell = false;
-//					}
-//
-//					if (m.energy == 0 && !userIdentifier.dead && userIdentifier.outOfHell) {
-//						// Dead, not in Hell
-//						userIdentifier.undeadTSID = userIdentifier.tsid;
-//						Map<String, String> map = {
-//							"gotoStreet": "true",
-//							"tsid": "LA5PPFP86NF2FOS", // Hell One
-//							"dead": "true"
-//						};
-//						userIdentifier.webSocket.add(JSON.encode(map));
-//						userIdentifier.dead = true;
-//					} else if (m.energy > 0 && !userIdentifier.outOfHell && userIdentifier.dead) {
-//						// Not Dead, but still in Hell
-//						if (userIdentifier.undeadTSID == null) {
-//							userIdentifier.undeadTSID = "LA58KK7B9O522PC"; // Cebarkul
-//						}
-//						Map<String, String> map = {
-//							"gotoStreet": "true",
-//							"tsid": userIdentifier.undeadTSID, // Street where they died
-//							"dead": "false"
-//						};
-//						userIdentifier.webSocket.add(JSON.encode(map));
-//						userIdentifier.dead = false;
-//					}
-//
-//				}
+				if (userIdentifier != null) {
+					updateDeath(userIdentifier, m);
+				}
 
 				//store current street and position
 				if (userIdentifier != null) {
@@ -204,6 +191,34 @@ class MetabolicsEndpoint {
 				log("(metabolics endpoint - simulate): $e\n$st");
 			}
 		});
+	}
+
+	/// Supply m to speed it up, and init to only check energy (in case they left the game while in Hell)
+	static Future updateDeath(Identifier userIdentifier, [Metabolics m, bool init = false]) async {
+		if (userIdentifier == null) {
+			return;
+		}
+		if (m == null) {
+			m = await getMetabolics(username: userIdentifier.username);
+		}
+
+		if (m.energy == 0 && (m.undead_street == null || init)) {
+			// Dead, but not in Hell
+			Map<String, String> map = {
+				"gotoStreet": "true",
+				"tsid": "LA5PPFP86NF2FOS" // Hell One
+			};
+			m.dead = true;
+			userIdentifier.webSocket.add(JSON.encode(map));
+		} else if (m.energy >= 10 && m.undead_street != null) {
+			// Not dead (at least 10 energy), but in Hell
+			Map<String, String> map = {
+				"gotoStreet": "true",
+				"tsid": m.undead_street // Street where they died
+			};
+			m.dead = false;
+			userIdentifier.webSocket.add(JSON.encode(map));
+		}
 	}
 
 	static Future<bool> addToLocationHistory(String username, String TSID) async {
@@ -454,6 +469,7 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 			"current_street = @current_street, "
 			"current_street_x = @current_street_x, "
 			"current_street_y = @current_street_y, "
+			"undead_street = @undead_street, "
 			"max_energy = @max_energy, "
 			"max_mood = @max_mood, "
 			"alphfavor = @alphfavor, "
@@ -493,6 +509,7 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 			"current_street, "
 			"current_street_x, "
 			"current_street_y, "
+			"undead_street, "
 			"max_energy, "
 			"max_mood, "
 			"alphfavor, "
@@ -530,6 +547,7 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 			"@current_street, "
 			"@current_street_x, "
 			"@current_street_y, "
+			"@undead_street, "
 			"@max_energy, "
 			"@max_mood, "
 			"@alphfavor, "
