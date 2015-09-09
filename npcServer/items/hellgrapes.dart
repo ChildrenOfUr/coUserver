@@ -40,10 +40,10 @@ class HellGrapes extends Plant {
   }
 
   Future<bool> squish({WebSocket userSocket, String email}) async {
-    if (state < 1) {
+    if (state > 1) {
       return false;
     }
-    bool success = await trySetMetabolics(email, energy: 5);
+    bool success = await trySetMetabolics(email, energy: 3);
     if (!success) {
       return false;
     }
