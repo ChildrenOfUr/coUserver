@@ -67,7 +67,7 @@ class RecipeBook {
 						Map itemMap = items[itemType].getMap();
 
 						// Compare against the user's inventory
-						InventoryV2 inv = await InventoryV2.getInventory(email);
+						InventoryV2 inv = await getInventory(email);
 
 						// Figure out how many they have
 						int userHas = inv.countItem(itemType);

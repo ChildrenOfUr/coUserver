@@ -30,8 +30,6 @@ class InventoryV2 {
 
 	// Private Methods ////////////////////////////////////////////////////////////////////////////
 
-	String _encodeJson() => jsonx.encode(slots);
-
 //	 Might need this
 //	void _upgradeItems() {
 //		if (JSON.decode(inventory_json) is Map) {
@@ -98,7 +96,7 @@ class InventoryV2 {
 						innerSlots = jsonx.decode(slot.metadata['slots'], type: listOfSlots);
 					} else {
 						innerSlots = [];
-						while(innerSlots.length < slotItem.subSlots) {
+						while (innerSlots.length < slotItem.subSlots) {
 							innerSlots.add(new Slot());
 						}
 					}
@@ -222,8 +220,8 @@ class InventoryV2 {
 			}
 
 			Item slotItem = items[slot.itemType];
-			if(slotItem.isContainer &&
-			   (slotItem.subSlotFilter.contains(item.itemType) || slotItem.subSlotFilter.length == 0)) {
+			if (slotItem.isContainer &&
+			    (slotItem.subSlotFilter.contains(item.itemType) || slotItem.subSlotFilter.length == 0)) {
 				Type listOfSlots = new jsonx.TypeHelper<List<Slot>>().type;
 				List<Slot> innerSlots = [];
 				if (slot.metadata.containsKey('slots')) {
@@ -304,8 +302,8 @@ class InventoryV2 {
 		}
 	}
 
-	static Future fireInventoryAtUser(WebSocket userSocket, String email) async {
-		InventoryV2 inv = await InventoryV2.getInventory(email);
+	static Future fireInventoryAtUser(WebSocket userSocket, String email, {bool update: false}) async {
+		InventoryV2 inv = await getInventory(email);
 		List<Map> slotMaps = [];
 		for (Slot slot in inv.slots) {
 			Item item = null;
@@ -320,7 +318,7 @@ class InventoryV2 {
 			};
 			slotMaps.add(slotMap);
 		}
-		Map inventoryMap = {'inventory':'true', 'slots':slotMaps};
+		Map inventoryMap = {'inventory':'true', 'update':update, 'slots':slotMaps};
 		userSocket.add(JSON.encode(inventoryMap));
 	}
 
@@ -369,33 +367,11 @@ class InventoryV2 {
 
 	// Static Public Methods //////////////////////////////////////////////////////////////////////
 
-	@app.Route("/getInventory/:email")
-	@Encode()
-	static Future<InventoryV2> getInventory(String email) async {
-		PostgreSql dbConn = await dbManager.getConnection();
-
-		String queryString = "SELECT * FROM inventories JOIN users ON users.id = user_id WHERE users.email = @email";
-		List<InventoryV2> inventories = await dbConn.query(queryString, InventoryV2, {'email':email});
-
-		InventoryV2 inventory = new InventoryV2();
-		if (inventories.length > 0) {
-			inventory = inventories.first;
-		}
-
-		dbManager.closeConnection(dbConn);
-		return inventory;
-	}
-
 	static Future<int> addItemToUser(WebSocket userSocket, String email, Map item, int count, [String fromObject = "_self"]) async {
-		InventoryV2 inv = await InventoryV2.getInventory(email);
+		InventoryV2 inv = await getInventory(email);
 		int added = await inv._addItem(item, count, email);
 		if (added == count) {
-			Map send = new Map()
-				..["giveItem"] = "true"
-				..["item"] = encode(new Item.clone(item["itemType"]))
-				..["num"] = count
-				..["fromObject"] = fromObject;
-			userSocket.add(JSON.encode(send));
+			await fireInventoryAtUser(userSocket, email, update:true);
 			return count;
 		} else {
 			return -1;
@@ -403,17 +379,30 @@ class InventoryV2 {
 	}
 
 	static Future<int> takeItemFromUser(WebSocket userSocket, String email, String itemType, int count) async {
-		InventoryV2 inv = await InventoryV2.getInventory(email);
+		InventoryV2 inv = await getInventory(email);
 		int taken = await inv._takeItem(items[itemType].getMap(), count, email);
 		if (taken == count) {
-			Map send = new Map()
-				..["takeItem"] = "true"
-				..["itemType"] = itemType
-				..["count"] = count;
-			userSocket.add(JSON.encode(send));
+			await fireInventoryAtUser(userSocket, email, update:true);
 			return count;
 		} else {
 			return -1;
 		}
 	}
+}
+
+@app.Route("/getInventory/:email")
+@Encode()
+Future<InventoryV2> getInventory(String email) async {
+	PostgreSql dbConn = await dbManager.getConnection();
+
+	String queryString = "SELECT * FROM inventories JOIN users ON users.id = user_id WHERE users.email = @email";
+	List<InventoryV2> inventories = await dbConn.query(queryString, InventoryV2, {'email':email});
+
+	InventoryV2 inventory = new InventoryV2();
+	if (inventories.length > 0) {
+		inventory = inventories.first;
+	}
+
+	dbManager.closeConnection(dbConn);
+	return inventory;
 }

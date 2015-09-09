@@ -271,17 +271,19 @@ class Item {
 	// inventory -> ground
 
 	Future drop({WebSocket userSocket, Map map, String streetName, String email}) async {
-		bool success = (await InventoryV2.takeItemFromUser(userSocket, email, map['dropItem']['itemType'], map['count']) == map['count']);
+		Item droppedItem = jsonx.decode(map['dropItem'], type:Item);
+		bool success = (await InventoryV2.takeItemFromUser(userSocket, email, itemType, map['count']) == map['count']);
 		if (!success) {
 			return;
 		}
 
-		String id = "i" + createId(x, y, map['dropItem']['itemType'], map['tsid']);
+		String id = "i" + createId(x, y, itemType, map['tsid']);
 		Item item = new Item.clone(itemType)
 			..x = map['x']
 			..y = map['y']
 			..item_id = id
-			..onGround = true;
+			..onGround = true
+			..metadata = droppedItem.metadata;
 
 		StreetUpdateHandler.streets[streetName].groundItems[id] = item;
 
