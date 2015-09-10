@@ -263,7 +263,8 @@ class Item {
 	void pickup({WebSocket userSocket, String email}) {
 		onGround = false;
 		Item item = new Item.clone(itemType)
-			..onGround = false;
+			..onGround = false
+			..metadata = this.metadata;
 		InventoryV2.addItemToUser(userSocket, email, item.getMap(), 1, item_id);
 		StatBuffer.incrementStat("itemsPickedup", 1);
 	}
@@ -271,23 +272,27 @@ class Item {
 	// inventory -> ground
 
 	Future drop({WebSocket userSocket, Map map, String streetName, String email}) async {
-		Item droppedItem = jsonx.decode(map['dropItem'], type:Item);
-		bool success = (await InventoryV2.takeItemFromUser(userSocket, email, itemType, map['count']) == map['count']);
-		if (!success) {
+
+		Item droppedItem = await InventoryV2.takeItemFromUser(userSocket, email, map['slot'], map['subSlot'], map['count']);
+		if (droppedItem == null) {
 			return;
 		}
 
-		String id = "i" + createId(x, y, itemType, map['tsid']);
-		Item item = new Item.clone(itemType)
-			..x = map['x']
-			..y = map['y']
-			..item_id = id
-			..onGround = true
-			..metadata = droppedItem.metadata;
-
-		StreetUpdateHandler.streets[streetName].groundItems[id] = item;
+		droppedItem.putItemOnGround(x,y,streetName);
 
 		StatBuffer.incrementStat("itemsDropped", map['count']);
+	}
+
+	putItemOnGround(int x, int y, String streetName) {
+		String id = "i" + createId(x, y, itemType, streetName);
+		Item item = new Item.clone(itemType)
+			..x = x
+			..y = y
+			..item_id = id
+			..onGround = true
+			..metadata = this.metadata;
+
+		StreetUpdateHandler.streets[streetName].groundItems[id] = item;
 	}
 
 	// /////// //
