@@ -253,6 +253,104 @@ class InventoryV2 {
 		return droppedItem;
 	}
 
+	Future<int> _takeAnyItems(Map itemMap, int count, String email) async {
+		Item item = jsonx.decode(JSON.encode(itemMap), type:Item);
+		// Keep a record of how many items we have taken from slots already,
+		// and how many more we need to remove
+		int toGrab = count, grabbed = 0;
+
+		// Go through entire inventory and try to find a slot that has this item,
+		// and continue until all are taken
+		List<Slot> tmpSlots = slots;
+		for (Slot slot in tmpSlots) {
+			// Check if we are done taking, then stop looping
+			if (toGrab == 0) {
+				break;
+			}
+
+			Item slotItem = items[slot.itemType];
+			if (slotItem.isContainer &&
+			    (slotItem.subSlotFilter.contains(item.itemType) || slotItem.subSlotFilter.length == 0)) {
+				Type listOfSlots = new jsonx.TypeHelper<List<Slot>>().type;
+				List<Slot> innerSlots = [];
+				if (slot.metadata.containsKey('slots')) {
+					innerSlots = jsonx.decode(slot.metadata['slots'], type: listOfSlots);
+				}
+				for (Slot slot in innerSlots) {
+					//does this slot have the type of item we are taking?
+					if (slot.itemType != item.itemType) {
+						continue;
+					}
+
+					// Skip empty slots
+					if (slot.itemType == "" && slot.count == 0) {
+						continue;
+					}
+
+					int have = slot.count, diff;
+
+					if (have >= toGrab) {
+						diff = toGrab;
+						slot.count -= toGrab;
+					} else {
+						diff = toGrab - have;
+						slot.count = 0;
+					}
+
+					if (slot.count == 0) {
+						slot.itemType = "";
+						slot.metadata = {};
+					}
+
+					// Update counters and move to the next slot
+					toGrab -= diff;
+					grabbed += diff;
+				}
+				slot.metadata['slots'] = jsonx.encode(innerSlots);
+			}
+
+			//does this slot have the type of item we are taking?
+			if (slot.itemType != item.itemType) {
+				continue;
+			}
+
+			// Skip empty slots
+			if (slot.itemType == "" && slot.count == 0) {
+				continue;
+			}
+
+			int have = slot.count, diff;
+
+			if (have >= toGrab) {
+				diff = toGrab;
+				slot.count -= toGrab;
+			} else {
+				diff = toGrab - have;
+				slot.count = 0;
+			}
+
+			if (slot.count == 0) {
+				slot.itemType = "";
+				slot.metadata = {};
+			}
+
+			// Update counters and move to the next slot
+			toGrab -= diff;
+			grabbed += diff;
+		}
+
+		if (toGrab > 0) {
+			//abort - if we can't have it all, we can't have any
+			log("[InventoryV2] Cannot take ${item.itemType} x $count from user with email $email because they ran"
+			    + " out of slots before all items were taken. $toGrab items skipped.");
+			return 0;
+		} else {
+			inventory_json = jsonx.encode(tmpSlots);
+			await _updateDatabase(email);
+			return grabbed;
+		}
+	}
+
 	static Future fireInventoryAtUser(WebSocket userSocket, String email, {bool update: false}) async {
 		InventoryV2 inv = await getInventory(email);
 		List<Map> slotMaps = [];
@@ -354,6 +452,17 @@ class InventoryV2 {
 			await fireInventoryAtUser(userSocket, email, update:true);
 		}
 		return itemTaken;
+	}
+
+	static Future<int> takeAnyItemsFromUser(WebSocket userSocket, String email, String itemType, int count) async {
+		InventoryV2 inv = await getInventory(email);
+		int taken = await inv._takeAnyItems(items[itemType].getMap(), count, email);
+		if (taken == count) {
+			await fireInventoryAtUser(userSocket, email, update:true);
+			return count;
+		} else {
+			return -1;
+		}
 	}
 }
 
