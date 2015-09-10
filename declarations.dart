@@ -155,4 +155,4 @@ part "gameServer/auctions/auction.dart";
 part "gameServer/inventory_new.dart";
 
 // bug reporting
-part "reports/reportmanager.dart";
+part "common/report.dart";
