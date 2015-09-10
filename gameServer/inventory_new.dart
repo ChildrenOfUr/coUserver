@@ -1,5 +1,7 @@
 part of coUserver;
 
+Type listOfSlots = new jsonx.TypeHelper<List<Slot>>().type;
+
 class Slot {
 	//a new instance of a Slot is empty by default
 	@Field() String itemType = "";
@@ -19,7 +21,7 @@ class InventoryV2 {
 	@Field() String inventory_json = '[]';
 
 	List<Slot> get slots {
-		List<Slot> s = jsonx.decode(inventory_json, type: new jsonx.TypeHelper<List<Slot>>().type);
+		List<Slot> s = jsonx.decode(inventory_json, type: listOfSlots);
 		while (s.length < invSize) {
 			s.add(new Slot());
 		}
@@ -77,7 +79,7 @@ class InventoryV2 {
 			// If not, decide if we can merge into the slot
 			bool canMerge = false, emptySlot = false;
 
-			if (slot.itemType == "" || slot.count == 0) {
+			if (slot.itemType.isEmpty || slot.count == 0) {
 				canMerge = true;
 				emptySlot = true;
 			} else {
@@ -90,7 +92,6 @@ class InventoryV2 {
 				Item slotItem = items[slot.itemType];
 				if (slotItem.isContainer &&
 				    (slotItem.subSlotFilter.contains(item.itemType) || slotItem.subSlotFilter.length == 0)) {
-					Type listOfSlots = new jsonx.TypeHelper<List<Slot>>().type;
 					List<Slot> innerSlots;
 					if (slot.metadata.containsKey('slots')) {
 						innerSlots = jsonx.decode(slot.metadata['slots'], type: listOfSlots);
@@ -179,6 +180,7 @@ class InventoryV2 {
 		if (toMerge > 0) {
 			log("[InventoryV2] Cannot give ${item.itemType} x $count to user with email $email because they ran"
 			    + " out of slots before all items were added. $toMerge items skipped.");
+//			item.putItemOnGround()
 		}
 
 		await _updateDatabase(email);
@@ -204,7 +206,54 @@ class InventoryV2 {
 		dbManager.closeConnection(dbConn);
 	}
 
-	Future<int> _takeItem(Map itemMap, int count, String email) async {
+	Future<Item> _takeItem(int slot, int subSlot, int count, String email) async {
+		List<Slot> tmpSlots = slots;
+		Slot toModify = tmpSlots.elementAt(slot);
+		Slot dropped;
+
+		//if we're taking from a bag
+		if (subSlot > -1) {
+			List<Slot> bagSlots = jsonx.decode(toModify.metadata['slots'], type:listOfSlots);
+			Slot bagSlotToModify = bagSlots.elementAt(subSlot);
+			if (bagSlotToModify.count < count) {
+				return null;
+			} else {
+				if (bagSlotToModify.count == count) {
+					bagSlotToModify = new Slot();
+				} else {
+					bagSlotToModify.count -= count;
+				}
+			}
+
+			dropped = bagSlots.removeAt(subSlot);
+			bagSlots.insert(subSlot, bagSlotToModify);
+			toModify.metadata['slots'] = jsonx.encode(bagSlots);
+			tmpSlots.remove(slot);
+
+		} else {
+			if (toModify.count < count) {
+				return null;
+			}
+			if (toModify.count == count) {
+				toModify = new Slot();
+			} else {
+				toModify.count -= count;
+			}
+
+			dropped = tmpSlots.removeAt(slot);
+		}
+
+		tmpSlots.insert(slot, toModify);
+
+		inventory_json = jsonx.encode(tmpSlots);
+		await _updateDatabase(email);
+
+		Item droppedItem = new Item.clone(dropped.itemType);
+		droppedItem.metadata = dropped.metadata;
+		return droppedItem;
+	}
+
+	Future<int> _takeAnyItems(Map itemMap, int count, String email) async {
 		Item item = jsonx.decode(JSON.encode(itemMap), type:Item);
 		// Keep a record of how many items we have taken from slots already,
 		// and how many more we need to remove
@@ -310,6 +359,24 @@ class InventoryV2 {
 			if (slot.itemType != "") {
 				item = new Item.clone(slot.itemType);
 				item.metadata = slot.metadata;
+				if (item.isContainer && item.metadata['slots'] != null) {
+					List<Slot> bagSlots = jsonx.decode(item.metadata['slots'], type: listOfSlots);
+					List<Map> bagSlotMaps = [];
+					bagSlots.forEach((Slot bagSlot) {
+						Item bagItem = null;
+						if (bagSlot.itemType != "") {
+							bagItem = new Item.clone(bagSlot.itemType);
+							bagItem.metadata = bagSlot.metadata;
+						}
+						Map bagSlotMap = {
+							'itemType':bagSlot.itemType,
+							'item':encode(bagItem),
+							'count':bagSlot.count
+						};
+						bagSlotMaps.add(bagSlotMap);
+					});
+					item.metadata['slots'] = bagSlotMaps;
+				}
 			}
 			Map slotMap = {
 				'itemType':slot.itemType,
@@ -378,9 +445,18 @@ class InventoryV2 {
 		}
 	}
 
-	static Future<int> takeItemFromUser(WebSocket userSocket, String email, String itemType, int count) async {
+	static Future<Item> takeItemFromUser(WebSocket userSocket, String email, int slot, int subSlot, int count) async {
 		InventoryV2 inv = await getInventory(email);
-		int taken = await inv._takeItem(items[itemType].getMap(), count, email);
+		Item itemTaken = await inv._takeItem(slot, subSlot, count, email);
+		if (itemTaken != null) {
+			await fireInventoryAtUser(userSocket, email, update:true);
+		}
+		return itemTaken;
+	}
+
+	static Future<int> takeAnyItemsFromUser(WebSocket userSocket, String email, String itemType, int count) async {
+		InventoryV2 inv = await getInventory(email);
+		int taken = await inv._takeAnyItems(items[itemType].getMap(), count, email);
 		if (taken == count) {
 			await fireInventoryAtUser(userSocket, email, update:true);
 			return count;

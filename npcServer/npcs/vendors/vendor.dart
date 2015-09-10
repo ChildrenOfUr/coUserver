@@ -273,7 +273,7 @@ abstract class Vendor extends NPC {
 			return;
 		}
 
-		bool success = (await InventoryV2.takeItemFromUser(userSocket, email, itemType, num) == num);
+		bool success = (await InventoryV2.takeAnyItemsFromUser(userSocket, email, itemType, num) == num);
 
 		if(success) {
 			Item item = items[itemType];
