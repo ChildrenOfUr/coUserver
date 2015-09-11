@@ -36,7 +36,7 @@ class Report {
 		};
 
 		if (data["category"] != null) {
-			(assembleData["labels"] as List<String>).insert(0, data["category"]);
+			(assembleData["labels"] as List<String>).insert(0, "type: ${data["category"]}");
 		}
 
 		String sendData = JSON.encode(assembleData);
@@ -49,15 +49,23 @@ class Report {
 
 		http.Response ghReturn = await http.post("https://api.github.com/repos/$issuesUrl", headers: headers, body: sendData);
 
-		int newIssueId = JSON.decode(ghReturn.body)["number"];
+		Map ghReturnData = JSON.decode(ghReturn.body);
+		int newIssueId = ghReturnData["number"];
 
 		// Notify in Slack
 
-		slack.Slack slackWebhook = new slack.Slack(slackReportWebhook);
-		slack.Message slackMessage = new slack.Message(
-			"New ${data["category"]}: ${data["title"]}"
-			"\nhttps://github.com/$issuesUrl/${newIssueId.toString()}"
+		slack.Attachment slackAttachment = new slack.Attachment(
+			"New ${data["category"]}: https://github.com/$issuesUrl/${newIssueId.toString()}",
+			title: data["title"],
+			title_link: "https://github.com/$issuesUrl/${newIssueId.toString()}",
+			color: "#${ghReturnData["labels"][0]["color"]}"
 		);
-		slackWebhook.send(slackMessage);
+
+		slack.Message slackMessage = new slack.Message("")
+			..icon_url = "data:image/png;base64,${await trimImage(data["username"])}"
+			..username = data["username"]
+			..attachments = [slackAttachment];
+
+		new slack.Slack(slackReportWebhook).send(slackMessage);
 	}
 }
