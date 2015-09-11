@@ -23,9 +23,11 @@ abstract class Item_Emblem {
 	}
 
 	static Future<bool> iconize(Map map, WebSocket userSocket, String email) async {
-		String emblemType = map["dropItem"]["itemType"];
+		InventoryV2 inv = await getInventory(email);
+		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
+		String emblemType = itemInSlot.itemType;
 		String iconType = "icon_of_" + emblemType.substring(10);
-		bool success1 = (await InventoryV2.takeItemFromUser(userSocket, email, emblemType, 11) == 11);
+		bool success1 = (await InventoryV2.takeAnyItemsFromUser(userSocket, email, emblemType, 11) == 11);
 		if (!success1) {
 			return false;
 		}

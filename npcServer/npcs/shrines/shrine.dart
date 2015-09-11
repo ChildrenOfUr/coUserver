@@ -49,7 +49,7 @@ class Shrine extends NPC {
 	}
 
 	donate({WebSocket userSocket, String itemType, int qty, String email}) async {
-		bool success = (await InventoryV2.takeItemFromUser(userSocket, email, itemType, qty) == qty);
+		bool success = (await InventoryV2.takeAnyItemsFromUser(userSocket, email, itemType, qty) == qty);
 		if(success) {
 			Item item = items[itemType];
 			String giantName = type.substring(0, 1).toUpperCase() + type.substring(1);

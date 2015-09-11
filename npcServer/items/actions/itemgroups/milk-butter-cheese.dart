@@ -17,7 +17,7 @@ abstract class Item_Milk {
 			toast("You don't have enough energy to shake that.", userSocket);
 			return false;
 		} else {
-			if (await InventoryV2.takeItemFromUser(userSocket, email, "butterfly_milk", 1) == 1) {
+			if (await InventoryV2.takeAnyItemsFromUser(userSocket, email, "butterfly_milk", 1) == 1) {
 				toast("Shaking...", userSocket);
 				new Timer(new Duration(seconds: 1), () async {
 					toast("You shake the butterfly milk vigorously. Butterfly butter!", userSocket);
@@ -44,7 +44,7 @@ abstract class Item_Butter {
 			toast("You don't have enough energy to compress that.", userSocket);
 			return false;
 		} else {
-			if (await InventoryV2.takeItemFromUser(userSocket, email, "butterfly_butter", 1) == 1) {
+			if (await InventoryV2.takeAnyItemsFromUser(userSocket, email, "butterfly_butter", 1) == 1) {
 				toast("Compressing...", userSocket);
 				new Timer(new Duration(seconds: 2), () async {
 					toast("You squeeze the butterfly butter with all your might and cheese appears!", userSocket);
@@ -67,6 +67,8 @@ abstract class Item_Butter {
 
 abstract class Item_Cheese {
 	static Future<bool> age(Map map, WebSocket userSocket, String email) async {
+		InventoryV2 inv = await getInventory(email);
+		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
 		int energyReq, moodReq;
 		String doneMsg;
 		String energyFailMsg = "You are way too tired to age that much cheese. Maybe you should eat something first.";
@@ -74,7 +76,7 @@ abstract class Item_Cheese {
 		String itemIn, itemOut;
 		int time;
 
-		switch (map["dropItem"]["itemType"]) {
+		switch (itemInSlot.itemType) {
 			case "cheese":
 				energyReq = 4;
 				moodReq = 2;
@@ -118,7 +120,7 @@ abstract class Item_Cheese {
 		if (fail) {
 			return false;
 		} else {
-			if (await InventoryV2.takeItemFromUser(userSocket, email, itemIn, 1) == 1) {
+			if (await InventoryV2.takeAnyItemsFromUser(userSocket, email, itemIn, 1) == 1) {
 				toast("Aging...", userSocket);
 				new Timer(new Duration(seconds: time), () async {
 					toast(doneMsg, userSocket);
@@ -169,7 +171,7 @@ abstract class Item_Cheese {
 
 			// 50% chance to destroy it
 			if (ItemUser.rand.nextBool()) {
-				await InventoryV2.takeItemFromUser(userSocket, email, "very_very_stinky_cheese", 1);
+				await InventoryV2.takeAnyItemsFromUser(userSocket, email, "very_very_stinky_cheese", 1);
 				toast("The cheese was destroyed by your intense sniffing.", userSocket);
 			}
 

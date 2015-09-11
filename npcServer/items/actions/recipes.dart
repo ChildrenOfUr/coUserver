@@ -17,11 +17,13 @@ class Recipe {
 		return "Recipe to make ${output_amt} x $output with $tool using ${input.toString()} taking $time seconds";
 	}
 
-	static Future useItem(Map map, WebSocket userSocket) async {
-		userSocket.add(JSON.encode(({
-			"useItem": map["dropItem"]["itemType"],
-			"useItemName": map["dropItem"]["name"]
-		})));
+	static Future useItem(Map map, WebSocket userSocket, String email) async {
+		InventoryV2 inv = await getInventory(email);
+		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
+		userSocket.add(JSON.encode({
+			"useItem": itemInSlot.itemType,
+			"useItemName": itemInSlot.name
+		}));
 	}
 }
 
@@ -97,13 +99,16 @@ class RecipeBook {
 							toolRecipe["canMake"] = 0;
 						}
 
-					}); // End input items loop
+					});
+					// End input items loop
 
-				} // End user-specific data
+				}
+				// End user-specific data
 
 				toolRecipes.add(toolRecipe);
 
-			} // End tool recipe filter
+			}
+			// End tool recipe filter
 
 		}); // End recipes loop
 
@@ -130,7 +135,7 @@ class RecipeBook {
 
 		// Take all of the items
 		recipe.input.forEach((String itemType, int qty) async {
-			bool takeItemSuccess = (await InventoryV2.takeItemFromUser(ws, email, itemType, qty) == qty);
+			bool takeItemSuccess = (await InventoryV2.takeAnyItemsFromUser(ws, email, itemType, qty) == qty);
 			if (!takeItemSuccess) {
 				// If they didn't have a required item, they're not making a smoothie
 				return false;

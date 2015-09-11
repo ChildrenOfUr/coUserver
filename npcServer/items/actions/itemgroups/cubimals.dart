@@ -3,6 +3,9 @@ part of coUserver;
 abstract class Item_Cubimal {
 
 	static Future<bool> race(String streetName, Map map, WebSocket userSocket, String email) async {
+		InventoryV2 inv = await getInventory(email);
+		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
+
 		// number 1 to 50
 		int base = ItemUser.rand.nextInt(49) + 1;
 		// number 0.0 (incl) to 1.0 (excl)
@@ -26,11 +29,11 @@ abstract class Item_Cubimal {
 		String message;
 		String username = "A "; //TODO: get username from userSocket
 
-		if (map["dropItem"]["itemType"] == 'npc_cubimal_factorydefect_chick') {
+		if (itemInSlot.itemType == 'npc_cubimal_factorydefect_chick') {
 			distance = -(distance / 2);
 			message = "$username defective chick cubimal travelled ${distance.toString()} plank$plural, and broke";
 		} else {
-			message = "$username ${map["dropItem"]["name"]} travelled ${distance.toString()} plank$plural before stopping";
+			message = "$username ${itemInSlot.name} travelled ${distance.toString()} plank$plural before stopping";
 		}
 
 		StreetUpdateHandler.streets[streetName].occupants.forEach((WebSocket ws) => toast(message, ws));
@@ -39,10 +42,12 @@ abstract class Item_Cubimal {
 	}
 
 	static Future<bool> setFree(Map map, WebSocket userSocket, String email) async {
-		String cubiType = map['dropItem']['itemType'];
-		bool success = (await InventoryV2.takeItemFromUser(userSocket, email, cubiType, 1) == 1);
+		InventoryV2 inv = await getInventory(email);
+		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
+		String cubiType = itemInSlot.itemType;
+		bool success = (await InventoryV2.takeAnyItemsFromUser(userSocket, email, cubiType, 1) == 1);
 		if (!success) return false;
-		int img = ((freeValues[(map["dropItem"]["itemType"] as String).substring(8)] / 2) * (ItemUser.rand.nextDouble() + 0.1)).truncate();
+		int img = ((freeValues[itemInSlot.itemType.substring(8)] / 2) * (ItemUser.rand.nextDouble() + 0.1)).truncate();
 		ItemUser.trySetMetabolics(email, mood: 10, img: img);
 		StatBuffer.incrementStat("cubisSetFree", 1);
 		toast("Your cubimal was released back into the wild. You got $img iMG.", userSocket);
@@ -99,12 +104,14 @@ abstract class Item_Cubimal {
 abstract class Item_CubimalBox {
 
 	static Future<bool> takeOutCubimal(Map map, WebSocket userSocket, String email) async {
+		InventoryV2 inv = await getInventory(email);
+		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
 		int series;
 		Map<String, String> cubis;
-		if (map['dropItem']['itemType'] == 'cubimal_series_1_box') {
+		if (itemInSlot.itemType == 'cubimal_series_1_box') {
 			series = 1;
 			cubis = series1;
-		} else if (map['dropItem']['itemType'] == 'cubimal_series_2_box') {
+		} else if (itemInSlot.itemType == 'cubimal_series_2_box') {
 			series = 2;
 			cubis = series2;
 		} else {
@@ -119,7 +126,7 @@ abstract class Item_CubimalBox {
 				break;
 			}
 		}
-		bool success = (await InventoryV2.takeItemFromUser(userSocket, email, box, 1) == 1);
+		bool success = (await InventoryV2.takeAnyItemsFromUser(userSocket, email, box, 1) == 1);
 		await InventoryV2.addItemToUser(userSocket, email, items[cubimal].getMap(), 1, box);
 		StatBuffer.incrementStat("cubiBoxesOpened", 11);
 		return success;

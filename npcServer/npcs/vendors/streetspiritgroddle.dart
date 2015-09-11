@@ -8,7 +8,7 @@ class StreetSpiritGroddle extends Vendor {
 		speed = -75;
 		itemsPredefined = false;
 
-		Map <String, Map<String, Spritesheet>> AllStates = {
+		Map <String, Map<String, Map<String, Spritesheet>>> AllStates = {
 			"alph": {
 				"day": {
 					"close": new Spritesheet("close", "http://childrenofur.com/assets/entityImages/street_spirit_groddle_base_base_L1dirt_bottom_bottom_L1LeafSkirt_eyes_eyes_L1eyes2_skull_skull_L1dirt_top_top_L1LeafSprout_x1_close_png_1354835031.png", 792, 591, 132, 197, 17, false),

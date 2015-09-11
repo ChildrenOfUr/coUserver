@@ -206,7 +206,7 @@ class InventoryV2 {
 		dbManager.closeConnection(dbConn);
 	}
 
-	Future<Item> _takeItem(int slot, int subSlot, int count, String email) async {
+	Future<Item> _takeItem(int slot, int subSlot, int count, String email, {bool simulate:false}) async {
 		List<Slot> tmpSlots = slots;
 		Slot toModify = tmpSlots.elementAt(slot);
 		Slot dropped;
@@ -245,8 +245,10 @@ class InventoryV2 {
 
 		tmpSlots.insert(slot, toModify);
 
-		inventory_json = jsonx.encode(tmpSlots);
-		await _updateDatabase(email);
+		if(!simulate) {
+			inventory_json = jsonx.encode(tmpSlots);
+			await _updateDatabase(email);
+		}
 
 		Item droppedItem = new Item.clone(dropped.itemType);
 		droppedItem.metadata = dropped.metadata;
@@ -433,6 +435,10 @@ class InventoryV2 {
 	}
 
 	// Static Public Methods //////////////////////////////////////////////////////////////////////
+	Future<Item> getItemInSlot(int slot, int subSlot, String email) async {
+		Item itemTaken = await _takeItem(slot, subSlot, 0, email, simulate:true);
+		return itemTaken;
+	}
 
 	static Future<int> addItemToUser(WebSocket userSocket, String email, Map item, int count, [String fromObject = "_self"]) async {
 		InventoryV2 inv = await getInventory(email);
