@@ -90,7 +90,7 @@ class InventoryV2 {
 				}
 
 				Item slotItem = items[slot.itemType];
-				if (slotItem.isContainer &&
+				if (slotItem.isContainer && !item.isContainer &&
 				    (slotItem.subSlotFilter.contains(item.itemType) || slotItem.subSlotFilter.length == 0)) {
 					List<Slot> innerSlots;
 					if (slot.metadata.containsKey('slots')) {
