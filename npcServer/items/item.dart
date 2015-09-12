@@ -112,6 +112,14 @@ class Item {
 		}
 	}
 
+	bool filterAllows(Item testItem) {
+		if (subSlotFilter.length == 0) {
+			return true;
+		} else {
+			return subSlotFilter.contains(testItem.itemType);
+		}
+	}
+
 	// Client-Sent Actions //////////////////////////////////////////////////////////////////////////
 
 	// ////////////////////// //

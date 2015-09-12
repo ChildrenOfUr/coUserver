@@ -488,3 +488,128 @@ Future<InventoryV2> getInventory(String email) async {
 	dbManager.closeConnection(dbConn);
 	return inventory;
 }
+
+Future<bool> moveItem({WebSocket userSocket, String email, bool from_bag: false, int from_index: -1, int from_bag_index: -1, bool to_bag: false, int to_bag_index: -1, int to_index: -1}) async {
+
+	InventoryV2 inv = await getInventory(email);
+
+	/// Moving within the inventory slots
+	if (!to_bag && !from_bag) {
+		if (inv.slots[to_index].itemType != "") {
+			// Destination slot is empty
+			try {
+				// Transfer the data
+				inv.slots[to_index] = inv.slots[from_index];
+
+				// Clear the old slot
+				inv.slots[from_index]
+					..itemType = ""
+					..count = 0
+					..metadata = {};
+			} catch (e) {
+				log("Could not move item within inventory of $email: $e");
+			}
+		}
+	}
+
+	/// Moving item to a bag
+	if (to_bag && !from_bag) {
+		if (inv.slots[to_index].itemType == "") {
+			// Destination slot is empty
+			try {
+				if (items[inv.slots[to_bag_index]].filterAllows(items[inv.slots[from_index]])) {
+					// Item can go in this bag
+
+					// Get the item data from the bag
+					List fromMetadata = jsonx.decode(inv.slots[to_bag_index].metadata["slots"]);
+
+					// Transfer the data to the bag slot
+					fromMetadata[to_index]
+						..["itemType"] = inv.slots[from_index].itemType
+						..["count"] = inv.slots[from_index].count
+						..["metadata"] = inv.slots[from_index].metadata;
+
+					// Clear the old slot (in inventory)
+					inv.slots[from_index]
+						..itemType = ""
+						..count = 0
+						..metadata = {};
+
+					// Store the new bag data
+					String toMetadata = jsonx.encode(fromMetadata);
+					inv.slots[to_bag_index].metadata["slots"] = toMetadata;
+				}
+			} catch (e) {
+				log("Could not move item to bag of $email: $e");
+			}
+		}
+	}
+
+	/// Moving item out of a bag
+	if (from_bag && !to_bag) {
+		if (inv.slots[to_index].itemType != "") {
+			// Destination slot is empty
+			try {
+				// Get the item data from the bag
+				List fromMetadata = jsonx.decode(inv.slots[to_bag_index].metadata["slots"]);
+
+				// Transfer the data to the inventory slot
+				inv.slots[to_index]
+					..itemType = fromMetadata[from_index]["itemType"]
+					..count = fromMetadata[from_index]["count"]
+					..metadata = fromMetadata[from_index]["metadata"];
+
+				// Clear the old slot (in bag)
+				fromMetadata[from_index]
+					..["itemType"] = ""
+					..["count"] = 0
+					..["metadata"] = {};
+
+				// Store the new bag data
+				String toMetadata = jsonx.encode(fromMetadata);
+				inv.slots[from_bag_index].metadata["slots"] = toMetadata;
+			} catch (e) {
+				log("Could not move item out of bag of $email: $e");
+			}
+		}
+	}
+
+	/// Moving item from one bag to another
+	if (from_bag && to_bag) {
+		if (inv.slots[to_index].itemType != "") {
+			// Destination slot is not empty
+			try {
+				// FROM bag data
+				List fromMetadata = jsonx.decode(inv.slots[from_bag_index].metadata["slots"]);
+
+				// TO bag data
+				List toMetadata = jsonx.decode(inv.slots[to_bag_index].metadata["slots"]);
+
+				// Transfer the data to the destination bag slot
+				toMetadata[to_index]
+					..["itemType"] = fromMetadata[from_index].itemType
+					..["count"] = fromMetadata[from_index].count
+					..["metadata"] = fromMetadata[from_index].metadata;
+
+				// Clear the old (in bag) slot
+				fromMetadata[from_index]
+					..["itemType"] = ""
+					..["count"] = 0
+					..["metadata"] = {};
+
+				// Store the old bag data
+				String fromMetadataStr = jsonx.encode(fromMetadata);
+				inv.slots[from_bag_index].metadata["slots"] = fromMetadataStr;
+
+				// And the new bag data
+				String toMetadataStr = jsonx.encode(toMetadata);
+				inv.slots[from_bag_index].metadata["slots"] = toMetadataStr;
+			} catch (e) {
+				log("Could not move item between bags of $email: $e");
+			}
+		}
+	}
+
+	/// Update the client
+	return await InventoryV2.fireInventoryAtUser(userSocket, email, update: true);
+}
