@@ -1,6 +1,20 @@
 part of coUserver;
 
 class Item {
+	/// Discounts, stored as itemType: part paid out of 1 (eg. 0.8 for 20% off)
+	static Map<String, num> discountedItems = {
+		"generic_bag": 0.8,
+		"generic_blue_bag": 0.8,
+		"generic_gray_bag": 0.8,
+		"generic_green_bag": 0.8,
+		"generic_pink_bag": 0.8,
+		"bigger_bag": 0.7,
+		"bigger_blue_bag": 0.7,
+		"bigger_gray_bag": 0.7,
+		"bigger_green_bag": 0.7,
+		"bigger_pink_bag": 0.7
+	};
+
 	@Field() String category, iconUrl, spriteUrl, toolAnimation, name, description, itemType, item_id;
 	@Field() int price, stacksTo, iconNum = 4, durability, durabilityUsed = 0, subSlots = 0;
 	@Field() num x, y;
@@ -13,6 +27,14 @@ class Item {
 		..description = "Drop this item on the ground.";
 	Action pickupAction = new Action.withName('pickup')
 		..description = "Put this item in your bags.";
+
+	num get discount {
+		if (discountedItems[itemType] != null) {
+			return discountedItems[itemType];
+		} else {
+			return 1;
+		}
+	}
 
 	Item();
 
@@ -67,7 +89,8 @@ class Item {
 			"actions":actionList,
 			"tool_animation": toolAnimation,
 			"durability": durability,
-			"metadata": metadata
+			"metadata": metadata,
+			"discount": discount
 		};
 	}
 
