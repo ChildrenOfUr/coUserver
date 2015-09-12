@@ -90,8 +90,7 @@ class InventoryV2 {
 				}
 
 				Item slotItem = items[slot.itemType];
-				if (slotItem.isContainer && !item.isContainer &&
-				    (slotItem.subSlotFilter.contains(item.itemType) || slotItem.subSlotFilter.length == 0)) {
+				if (slotItem.isContainer && !item.isContainer && slotItem.filterAllows(itemType: item.itemType)) {
 					List<Slot> innerSlots;
 					if (slot.metadata.containsKey('slots')) {
 						innerSlots = jsonx.decode(slot.metadata['slots'], type: listOfSlots);
@@ -271,8 +270,7 @@ class InventoryV2 {
 			}
 
 			Item slotItem = items[slot.itemType];
-			if (slotItem.isContainer &&
-			    (slotItem.subSlotFilter.contains(item.itemType) || slotItem.subSlotFilter.length == 0)) {
+			if (slotItem.isContainer && slotItem.filterAllows(itemType: item.itemType)) {
 				Type listOfSlots = new jsonx.TypeHelper<List<Slot>>().type;
 				List<Slot> innerSlots = [];
 				if (slot.metadata.containsKey('slots')) {
@@ -517,7 +515,7 @@ Future<bool> moveItem({WebSocket userSocket, String email, bool from_bag: false,
 		if (inv.slots[to_index].itemType == "") {
 			// Destination slot is empty
 			try {
-				if (items[inv.slots[to_bag_index]].filterAllows(items[inv.slots[from_index]])) {
+				if (items[inv.slots[to_bag_index]].filterAllows(testItem: items[inv.slots[from_index]])) {
 					// Item can go in this bag
 
 					// Get the item data from the bag

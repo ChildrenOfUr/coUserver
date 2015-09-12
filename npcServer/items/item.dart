@@ -112,11 +112,14 @@ class Item {
 		}
 	}
 
-	bool filterAllows(Item testItem) {
+	bool filterAllows({Item testItem, String itemType}) {
 		if (subSlotFilter.length == 0) {
 			return true;
 		} else {
-			return subSlotFilter.contains(testItem.itemType);
+			if (itemType == null) {
+				itemType = testItem.itemType;
+			}
+			return subSlotFilter.contains(itemType);
 		}
 	}
 
