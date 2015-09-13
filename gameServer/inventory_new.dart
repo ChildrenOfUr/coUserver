@@ -7,6 +7,54 @@ class Slot {
 	@Field() String itemType = "";
 	@Field() int count = 0;
 	@Field() Map metadata = {};
+
+	/// Create a slot from type, count, and metadata
+	Slot([this.itemType, this.count, this.metadata]);
+
+	/// Create a slot from a map containg the data
+	Slot.withMap(Map data) {
+		itemType = data["itemType"];
+		count = data["count"];
+		metadata = data["metadata"];
+	}
+
+	/// Check if the slot is empty
+	bool get isEmpty {
+		// Fix null slots
+		if (itemType == null || count == null) {
+			empty = true;
+		}
+
+		return (itemType == "" || count == 0);
+	}
+
+	/// Empty the slot
+	set empty(bool clear) {
+		if (clear) {
+			itemType = "";
+			count = 0;
+			metadata = {};
+		}
+	}
+
+	/// Get a map representing the slot
+	Map get toMap {
+		return ({
+			"itemType": itemType,
+			"count": count,
+			"metadata": metadata
+		});
+	}
+
+	/// Get a human-readable string representing the slot
+	@override
+	String toString() {
+		if (isEmpty) {
+			return "Empty player inventory slot";
+		} else {
+			return "Player inventory slot containing $count x $itemType with metadata: $metadata";
+		}
+	}
 }
 
 @app.Group("/inventory")
@@ -56,6 +104,64 @@ class InventoryV2 {
 //			return;
 //		}
 //	}
+
+	/**
+	 * Replace a slot in the inventory with the specified
+	 * replaceWithSlot. If replaceWithSlot is not provided,
+	 * the slot will be emptied.
+	 * No checking is done for existing slot data, so if you
+	 * want to make sure the slot is empty before replacing it,
+	 * use Inventory.slots[index].isEmpty first.
+	 */
+	void changeSlot(int index, [Slot replaceWithSlot]) {
+		// Get the new slot data
+		Slot slot = replaceWithSlot;
+		if (slot == null) {
+			slot = new Slot();
+		}
+		// Get the old slot data
+		List<Slot> list = slots;
+		// Merge them
+		list[index] = replaceWithSlot;
+		// Save the new inventory slot data
+		inventory_json = jsonx.encode(list);
+	}
+
+	/**
+	 * Replace a slot (bagSlotIndex) of a bag (bagIndex)
+	 * in the inventory with the specified replaceWithSlot.
+	 * If replaceWithSlot is not provided, the slot will be emptied.
+	 * No checking is done for existing slot data, so if you
+	 * want to make sure the slot is empty before replacing it,
+	 * use Inventory.slots[index].isEmpty first.
+	 */
+	void changeBagSlot(int bagIndex, int bagSlotIndex, [Slot replaceWithSlot]) {
+		// Get the new slot data
+		Slot slot = replaceWithSlot;
+		if (slot == null) {
+			slot = new Slot();
+		}
+		// Read down the slot tree
+		List<Slot> invSlots = slots; // Hotbar
+		Slot bagSlot = invSlots[bagIndex]; // Bag in hotbar
+		List<Slot> bagSlots = jsonx.decode(bagSlot.metadata["slots"], type: listOfSlots); // Bag contents
+		Slot bagSubSlot = bagSlots[bagSlotIndex]; // Slot inside bag
+		// Change out the bag slot
+		bagSubSlot = replaceWithSlot;
+		// Save up the slot tree
+		bagSlots[bagSlotIndex] = bagSubSlot; // Slot inside bag
+		bagSlot.metadata["slots"] = jsonx.encode(bagSlots); // Bag contents
+		invSlots[bagIndex] = bagSlot; // Bag in hotbar
+		inventory_json = jsonx.encode(invSlots); // Hotbar
+	}
+
+	/**
+	 * Updates the inventory's JSON representation
+	 * with its current slot contents.
+	 */
+	void updateJson() {
+		inventory_json = jsonx.encode(slots);
+	}
 
 	Future<int> _addItem(Map itemMap, int count, String email) async {
 		//instantiate an item object based on the map
@@ -109,7 +215,7 @@ class InventoryV2 {
 						// If not, decide if we can merge into the slot
 						bool canMerge = false, emptySlot = false;
 
-						if (slot.itemType == "" || slot.count == 0) {
+						if (slot.isEmpty) {
 							canMerge = true;
 							emptySlot = true;
 						} else {
@@ -283,7 +389,7 @@ class InventoryV2 {
 					}
 
 					// Skip empty slots
-					if (slot.itemType == "" && slot.count == 0) {
+					if (slot.isEmpty) {
 						continue;
 					}
 
@@ -298,8 +404,7 @@ class InventoryV2 {
 					}
 
 					if (slot.count == 0) {
-						slot.itemType = "";
-						slot.metadata = {};
+						slot.empty = true;
 					}
 
 					// Update counters and move to the next slot
@@ -315,7 +420,7 @@ class InventoryV2 {
 			}
 
 			// Skip empty slots
-			if (slot.itemType == "" && slot.count == 0) {
+			if (slot.isEmpty) {
 				continue;
 			}
 
@@ -330,8 +435,7 @@ class InventoryV2 {
 			}
 
 			if (slot.count == 0) {
-				slot.itemType = "";
-				slot.metadata = {};
+				slot.empty = true;
 			}
 
 			// Update counters and move to the next slot
@@ -356,7 +460,10 @@ class InventoryV2 {
 		List<Map> slotMaps = [];
 		for (Slot slot in inv.slots) {
 			Item item = null;
-			if (slot.itemType != "") {
+			if (slot == null) {
+				slot = new Slot();
+			}
+			if (!slot.isEmpty) {
 				item = new Item.clone(slot.itemType);
 				item.metadata = slot.metadata;
 				if (item.isContainer && item.metadata['slots'] != null) {
@@ -364,7 +471,7 @@ class InventoryV2 {
 					List<Map> bagSlotMaps = [];
 					bagSlots.forEach((Slot bagSlot) {
 						Item bagItem = null;
-						if (bagSlot.itemType != "") {
+						if (!bagSlot.isEmpty) {
 							bagItem = new Item.clone(bagSlot.itemType);
 							bagItem.metadata = bagSlot.metadata;
 						}
@@ -468,6 +575,28 @@ class InventoryV2 {
 			return -1;
 		}
 	}
+
+	Slot getSlot(int invIndex, [int bagIndex]) {
+		if (bagIndex == null) {
+			try {
+				return slots[invIndex];
+			} catch (e) {
+				log("Error accessing inventory slot $invIndex: $e");
+				return new Slot();
+			}
+		} else {
+			try {
+				String mdsString = slots[invIndex].metadata["slots"];
+				Map<String, dynamic> mdsSlot = jsonx.decode(mdsString)[bagIndex];
+				return new Slot(mdsSlot["itemType"], mdsSlot["count"], mdsSlot["metadata"]);
+			} catch (e) {
+				log("Error accessing bag slot $bagIndex of inventory slot $invIndex: $e");
+				return new Slot();
+			}
+		}
+	}
+
+	/// moveItem is in street_update_handler.dart
 }
 
 @app.Route("/getInventory/:email")
@@ -485,129 +614,4 @@ Future<InventoryV2> getInventory(String email) async {
 
 	dbManager.closeConnection(dbConn);
 	return inventory;
-}
-
-Future<bool> moveItem({WebSocket userSocket, String email, bool from_bag: false, int from_index: -1, int from_bag_index: -1, bool to_bag: false, int to_bag_index: -1, int to_index: -1}) async {
-
-	InventoryV2 inv = await getInventory(email);
-
-	/// Moving within the inventory slots
-	if (!to_bag && !from_bag) {
-		if (inv.slots[to_index].itemType != "") {
-			// Destination slot is empty
-			try {
-				// Transfer the data
-				inv.slots[to_index] = inv.slots[from_index];
-
-				// Clear the old slot
-				inv.slots[from_index]
-					..itemType = ""
-					..count = 0
-					..metadata = {};
-			} catch (e) {
-				log("Could not move item within inventory of $email: $e");
-			}
-		}
-	}
-
-	/// Moving item to a bag
-	if (to_bag && !from_bag) {
-		if (inv.slots[to_index].itemType == "") {
-			// Destination slot is empty
-			try {
-				if (items[inv.slots[to_bag_index]].filterAllows(testItem: items[inv.slots[from_index]])) {
-					// Item can go in this bag
-
-					// Get the item data from the bag
-					List fromMetadata = jsonx.decode(inv.slots[to_bag_index].metadata["slots"]);
-
-					// Transfer the data to the bag slot
-					fromMetadata[to_index]
-						..["itemType"] = inv.slots[from_index].itemType
-						..["count"] = inv.slots[from_index].count
-						..["metadata"] = inv.slots[from_index].metadata;
-
-					// Clear the old slot (in inventory)
-					inv.slots[from_index]
-						..itemType = ""
-						..count = 0
-						..metadata = {};
-
-					// Store the new bag data
-					String toMetadata = jsonx.encode(fromMetadata);
-					inv.slots[to_bag_index].metadata["slots"] = toMetadata;
-				}
-			} catch (e) {
-				log("Could not move item to bag of $email: $e");
-			}
-		}
-	}
-
-	/// Moving item out of a bag
-	if (from_bag && !to_bag) {
-		if (inv.slots[to_index].itemType != "") {
-			// Destination slot is empty
-			try {
-				// Get the item data from the bag
-				List fromMetadata = jsonx.decode(inv.slots[to_bag_index].metadata["slots"]);
-
-				// Transfer the data to the inventory slot
-				inv.slots[to_index]
-					..itemType = fromMetadata[from_index]["itemType"]
-					..count = fromMetadata[from_index]["count"]
-					..metadata = fromMetadata[from_index]["metadata"];
-
-				// Clear the old slot (in bag)
-				fromMetadata[from_index]
-					..["itemType"] = ""
-					..["count"] = 0
-					..["metadata"] = {};
-
-				// Store the new bag data
-				String toMetadata = jsonx.encode(fromMetadata);
-				inv.slots[from_bag_index].metadata["slots"] = toMetadata;
-			} catch (e) {
-				log("Could not move item out of bag of $email: $e");
-			}
-		}
-	}
-
-	/// Moving item from one bag to another
-	if (from_bag && to_bag) {
-		if (inv.slots[to_index].itemType != "") {
-			// Destination slot is not empty
-			try {
-				// FROM bag data
-				List fromMetadata = jsonx.decode(inv.slots[from_bag_index].metadata["slots"]);
-
-				// TO bag data
-				List toMetadata = jsonx.decode(inv.slots[to_bag_index].metadata["slots"]);
-
-				// Transfer the data to the destination bag slot
-				toMetadata[to_index]
-					..["itemType"] = fromMetadata[from_index].itemType
-					..["count"] = fromMetadata[from_index].count
-					..["metadata"] = fromMetadata[from_index].metadata;
-
-				// Clear the old (in bag) slot
-				fromMetadata[from_index]
-					..["itemType"] = ""
-					..["count"] = 0
-					..["metadata"] = {};
-
-				// Store the old bag data
-				String fromMetadataStr = jsonx.encode(fromMetadata);
-				inv.slots[from_bag_index].metadata["slots"] = fromMetadataStr;
-
-				// And the new bag data
-				String toMetadataStr = jsonx.encode(toMetadata);
-				inv.slots[from_bag_index].metadata["slots"] = toMetadataStr;
-			} catch (e) {
-				log("Could not move item between bags of $email: $e");
-			}
-		}
-	}
-
-	/// Update the client
-	return await InventoryV2.fireInventoryAtUser(userSocket, email, update: true);
 }

@@ -268,4 +268,116 @@ class StreetUpdateHandler {
 
 		return true;
 	}
+
+	static Future<bool> moveItem({
+															 WebSocket userSocket,
+															 String email,
+															 bool from_bag: false,
+															 var from_index: -1,
+															 var from_bag_index: -1,
+															 bool to_bag: false,
+															 var to_bag_index: -1,
+															 var to_index: -1
+															 }) async {
+		/// Work out some mirror typing issues
+		int fromIndex, fromBagIndex, toIndex, toBagIndex;
+		if (from_index is! int) {
+			fromIndex = int.parse(from_index);
+		} else {
+			fromIndex = from_index;
+		}
+		if (from_bag_index is! int) {
+			fromBagIndex = int.parse(from_bag_index);
+		} else {
+			fromBagIndex = from_bag_index;
+		}
+		if (to_index is! int) {
+			toIndex = int.parse(to_index);
+		} else {
+			toIndex = to_index;
+		}
+		if (to_bag_index is! int) {
+			toBagIndex = int.parse(to_bag_index);
+		} else {
+			toBagIndex = to_bag_index;
+		}
+
+		/// Get the user's inventory to work on
+		InventoryV2 inv = await getInventory(email);
+
+		/// Moving within the inventory slots
+		if (!to_bag && !from_bag) {
+			try {
+				// Make sure the destination slot is clear
+				assert(inv.slots[toIndex].isEmpty);
+				// Transfer the data
+				inv.changeSlot(toIndex, inv.slots[fromIndex]);
+				// Clear the old slot
+				inv.changeSlot(fromIndex);
+			} catch (e) {
+				log("Could not move item within inventory of $email: $e");
+			}
+		}
+
+		/// Moving item to a bag
+		if (to_bag && !from_bag) {
+			try {
+				// Make sure the bag accepts this item
+				assert(items[inv.slots[toBagIndex].itemType].filterAllows(itemType: inv.slots[fromIndex].itemType));
+				// Make sure the bag slot is empty
+				assert(new Slot.withMap(jsonx.decode(inv.slots[toBagIndex].metadata["slots"])[toIndex]).isEmpty);
+				// Copy the item to the bag
+				inv.changeBagSlot(toBagIndex, toIndex, inv.slots[fromIndex]);
+				// Clear the old slot
+				inv.changeSlot(fromIndex);
+			} catch (e) {
+				log("Could not move item into bag of $email: $e");
+			}
+		}
+
+		/// Moving item out of a bag
+		if (from_bag && !to_bag) {
+			try {
+				// Make sure the inventory slot is empty
+				assert(inv.slots[toIndex].isEmpty);
+				// Get the bag slots
+				Slot bagSlot = inv.slots[fromBagIndex]; // Bag in hotbar
+				List<Slot> bagSlots = jsonx.decode(bagSlot.metadata["slots"], type: listOfSlots); // Bag contents
+				Slot bagSubSlot = bagSlots[fromIndex]; // Slot inside bag
+				// Copy the item to the inventory bar
+				inv.changeSlot(toIndex, bagSubSlot);
+				// Clear the old bag slot
+				inv.changeBagSlot(fromBagIndex, fromIndex);
+			} catch (e, st) {
+				log("Could not move item out of bag of $email: $e\n$st");
+			}
+		}
+
+		/// Moving item between bag slots
+		if (from_bag && to_bag) {
+			/// In the same bag
+			if (fromBagIndex == toBagIndex) {
+				try {
+
+				} catch (e) {
+					log("Could not move item between bag slots of $email: $e");
+				}
+			}
+			/// In different bags
+			else {
+				try {
+
+				} catch (e) {
+					log("Could not move item between bags of $email: $e");
+				}
+			}
+		}
+
+		/// Update the inventory
+		inv.updateJson();
+		/// Update the database
+		await inv._updateDatabase(email);
+		/// Update the client
+		return await InventoryV2.fireInventoryAtUser(userSocket, email, update: true);
+	}
 }
