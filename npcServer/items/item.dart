@@ -113,13 +113,21 @@ class Item {
 	}
 
 	bool filterAllows({Item testItem, String itemType}) {
-		if (subSlotFilter.length == 0) {
+		assert(testItem != null || itemType != null);
+
+		if(itemType.isEmpty) {
+			//bags except empty item types (this is an empty slot)
 			return true;
+		}
+
+		if(testItem == null) {
+			testItem = items[itemType];
+		}
+
+		if (subSlotFilter.length == 0) {
+			return !testItem.isContainer;
 		} else {
-			if (itemType == null) {
-				itemType = testItem.itemType;
-			}
-			return subSlotFilter.contains(itemType);
+			return subSlotFilter.contains(testItem.itemType);
 		}
 	}
 

@@ -113,18 +113,22 @@ class InventoryV2 {
 	 * want to make sure the slot is empty before replacing it,
 	 * use Inventory.slots[index].isEmpty first.
 	 */
-	void changeSlot(int index, [Slot replaceWithSlot]) {
-		// Get the new slot data
-		Slot slot = replaceWithSlot;
-		if (slot == null) {
-			slot = new Slot();
+	Slot changeSlot(int index, int subIndex, Slot newContents) {
+		//we're putting it into a bag
+		if(subIndex > -1) {
+			return _changeBagSlot(index,subIndex,newContents);
 		}
+
 		// Get the old slot data
 		List<Slot> list = slots;
+
 		// Merge them
-		list[index] = replaceWithSlot;
+		Slot origContents = list[index];
+		list[index] = newContents;
+
 		// Save the new inventory slot data
 		inventory_json = jsonx.encode(list);
+		return origContents;
 	}
 
 	/**
@@ -135,24 +139,26 @@ class InventoryV2 {
 	 * want to make sure the slot is empty before replacing it,
 	 * use Inventory.slots[index].isEmpty first.
 	 */
-	void changeBagSlot(int bagIndex, int bagSlotIndex, [Slot replaceWithSlot]) {
-		// Get the new slot data
-		Slot slot = replaceWithSlot;
-		if (slot == null) {
-			slot = new Slot();
+	Slot _changeBagSlot(int bagIndex, int bagSlotIndex, Slot newContents) {
+		try {
+			// Make sure the bag accepts this item
+			assert(items[slots[bagIndex].itemType].filterAllows(itemType: newContents.itemType));
+		} catch(e) {
+			return null;
 		}
+
 		// Read down the slot tree
 		List<Slot> invSlots = slots; // Hotbar
 		Slot bagSlot = invSlots[bagIndex]; // Bag in hotbar
 		List<Slot> bagSlots = jsonx.decode(bagSlot.metadata["slots"], type: listOfSlots); // Bag contents
-		Slot bagSubSlot = bagSlots[bagSlotIndex]; // Slot inside bag
+		Slot origContents = bagSlots[bagSlotIndex]; // Slot inside bag
 		// Change out the bag slot
-		bagSubSlot = replaceWithSlot;
+		bagSlots[bagSlotIndex] = newContents; // Slot inside bag
 		// Save up the slot tree
-		bagSlots[bagSlotIndex] = bagSubSlot; // Slot inside bag
 		bagSlot.metadata["slots"] = jsonx.encode(bagSlots); // Bag contents
 		invSlots[bagIndex] = bagSlot; // Bag in hotbar
 		inventory_json = jsonx.encode(invSlots); // Hotbar
+		return origContents;
 	}
 
 	/**
