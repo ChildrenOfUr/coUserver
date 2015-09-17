@@ -13,4 +13,4 @@ dependencies:
   image: any
   crypto: any
   harvest: "^2.0.0"
-  jsonx: any
+  jsonx: "2.0.0"

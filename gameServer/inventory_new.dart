@@ -1,6 +1,6 @@
 part of coUserver;
 
-Type listOfSlots = new jsonx.TypeHelper<List<Slot>>().type;
+Type listOfSlots = const jsonx.TypeHelper<List<Slot>>().type;
 
 class Slot {
 	//a new instance of a Slot is empty by default
