@@ -73,6 +73,13 @@ class InventoryV2 {
 		while (s.length < invSize) {
 			s.add(new Slot());
 		}
+		s.forEach((Slot slot) {
+			if(slot.itemType == null) {
+				slot.itemType = "";
+				slot.count = 0;
+				slot.metadata = {};
+			}
+		});
 		return s;
 	}
 
