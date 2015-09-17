@@ -161,7 +161,8 @@ ClassMirror findClassMirror(String name) {
 }
 
 String createId(num x, num y, String type, String tsid) {
-	return (type + x.toString() + y.toString() + tsid).hashCode.toString();
+	String randString = new Random().nextInt(1000).toString();
+	return (type + x.toString() + y.toString() + tsid + randString).hashCode.toString();
 }
 
 /**
