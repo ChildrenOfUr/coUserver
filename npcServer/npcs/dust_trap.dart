@@ -22,47 +22,48 @@ class DustTrap extends NPC {
 		hitBox = new Rectangle(x - 25, y + 25, 160, 305);
 	}
 
+	@override
 	void update() {
-		// Update clock
-		now = new DateTime.now();
-
-		// Check if flipping down has finished
-		if (currentState == states["smackDown"] && respawn.compareTo(now) <= 0) {
-			// Switch to static down image
-			currentState = states["down"];
-			// Flip back up in 1 minute
-			respawn = now.add(new Duration(minutes: 1));
-		}
-
-		// Check if flipping up has finished
-		if (currentState == states["liftUp"] && respawn.compareTo(now) <= 0) {
-			// Switch to static up image
-			currentState = states["up"];
-		}
-
-		// Check if down and need to reset
-		if (currentState == states["down"] && respawn.compareTo(now) <= 0) {
-			// Switch to resetting animation
-			currentState = states["liftUp"];
-			respawn = now.add(new Duration(milliseconds:(currentState.numFrames / 30 * 1000).toInt()));
-		}
-
-		// If it's not already triggered...
-		if (currentState == states["up"]) {
-			// Go through players on the street checking for collisions
-			PlayerUpdateHandler.users.forEach((String username, Identifier id) {
-				if (id.currentStreet != streetName) {
-					// Not on this street
-					return;
-				}
-
-
-				if (hitBox.left < id.currentX && hitBox.right > id.currentX) {
-					// User is in the hitbox, they should step on it
-					stepOn(userSocket: id.webSocket, email: id.email);
-				}
-			});
-		}
+//		// Update clock
+//		now = new DateTime.now();
+//
+//		// Check if flipping down has finished
+//		if (currentState == states["smackDown"] && respawn.compareTo(now) <= 0) {
+//			// Switch to static down image
+//			currentState = states["down"];
+//			// Flip back up in 1 minute
+//			respawn = now.add(new Duration(minutes: 1));
+//		}
+//
+//		// Check if flipping up has finished
+//		if (currentState == states["liftUp"] && respawn.compareTo(now) <= 0) {
+//			// Switch to static up image
+//			currentState = states["up"];
+//		}
+//
+//		// Check if down and need to reset
+//		if (currentState == states["down"] && respawn.compareTo(now) <= 0) {
+//			// Switch to resetting animation
+//			currentState = states["liftUp"];
+//			respawn = now.add(new Duration(milliseconds:(currentState.numFrames / 30 * 1000).toInt()));
+//		}
+//
+//		// If it's not already triggered...
+//		if (currentState == states["up"]) {
+//			// Go through players on the street checking for collisions
+//			PlayerUpdateHandler.users.forEach((String username, Identifier id) {
+//				if (id.currentStreet != streetName) {
+//					// Not on this street
+//					return;
+//				}
+//
+//
+//				if (hitBox.left < id.currentX && hitBox.right > id.currentX) {
+//					// User is in the hitbox, they should step on it
+//					stepOn(userSocket: id.webSocket, email: id.email);
+//				}
+//			});
+//		}
 	}
 
 	Future stepOn({WebSocket userSocket, String email}) async {
