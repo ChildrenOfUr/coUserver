@@ -35,7 +35,7 @@ abstract class Item_Orb {
 
 			amt = (amt / numUsersOnStreet).ceil();
 			users.forEach((String username) => ItemUser.trySetMetabolics(username, mood: amt, energy: amt, img: amt));
-			StreetUpdateHandler.streets[streetName].occupants.forEach((WebSocket ws) => toast("Someone on $streetName is radiating. Everyone here got $amt energy, mood, and iMG", ws));
+			StreetUpdateHandler.streets[streetName].occupants.forEach((String username, WebSocket ws) => toast("$username is radiating. Everyone here got $amt energy, mood, and iMG", ws));
 			return true;
 		}
 	}

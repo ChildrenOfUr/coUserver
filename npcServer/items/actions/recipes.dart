@@ -116,13 +116,17 @@ class RecipeBook {
 	}
 
 	@app.Route("/make")
-	Future makeRecipe(@app.QueryParam("token") String token, @app.QueryParam("id") String id, @app.QueryParam("email") String email, @app.QueryParam("username") String username) async {
+	Future makeRecipe(@app.QueryParam("token") String token,
+	                  @app.QueryParam("id") String id,
+	                  @app.QueryParam("email") String email,
+	                  @app.QueryParam("username") String username) async {
 
 		if (token != redstoneToken) {
 			return false;
 		}
 
-		WebSocket ws = PlayerUpdateHandler.users[username].webSocket;
+		String street = PlayerUpdateHandler.users[username].currentStreet;
+		WebSocket ws = StreetUpdateHandler.streets[street].occupants[username];
 
 		// Get the recipe info
 		Recipe recipe;
@@ -133,6 +137,13 @@ class RecipeBook {
 			recipe = rList.first;
 		}
 
+		// Take away energy
+		bool takeEnergySuccess = await ItemUser.trySetMetabolics(email, energy: recipe.energy);
+		if (!takeEnergySuccess) {
+			// If they don't have enough energy, they're not frying an egg
+			return false;
+		}
+
 		// Take all of the items
 		recipe.input.forEach((String itemType, int qty) async {
 			bool takeItemSuccess = (await InventoryV2.takeAnyItemsFromUser(ws, email, itemType, qty) == qty);
@@ -141,13 +152,6 @@ class RecipeBook {
 				return false;
 			}
 		});
-
-		// Take away energy
-		bool takeEnergySuccess = await ItemUser.trySetMetabolics(email, energy: recipe.energy);
-		if (!takeEnergySuccess) {
-			// If they don't have enough energy, they're not frying an egg
-			return false;
-		}
 
 		// Wait for it to make it, then give the item
 		await new Timer(new Duration(seconds: recipe.time), () async {

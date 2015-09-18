@@ -60,9 +60,8 @@ class StreetUpdateHandler {
 	static void simulateStreets() {
 		List<String> toRemove = [];
 		streets.forEach((String streetName, Street street) {
-			Iterable nonNull = street.occupants.where((WebSocket socket) => socket != null);
 			//only simulate street with someone on it
-			if (nonNull.length > 0) {
+			if (street.occupants.length > 0) {
 				street.plants.forEach((String id, Plant plant) => plant.update());
 				street.quoins.forEach((String id, Quoin quoin) => quoin.update());
 				street.npcs.forEach((String id, NPC npc) => npc.update());
@@ -84,7 +83,7 @@ class StreetUpdateHandler {
 
 				pickedUpItems.forEach((String id) => street.groundItems.remove(id));
 
-				street.occupants.forEach((WebSocket socket) {
+				street.occupants.forEach((String username, WebSocket socket) {
 					if (socket != null)
 						socket.add(JSON.encode(updates));
 				});
@@ -100,10 +99,16 @@ class StreetUpdateHandler {
 
 	static void cleanupList(WebSocket ws) {
 		//find and remove ws from whichever street has it
+		String userToRemove;
 		streets.forEach((String streetName, Street street) {
-			int index = street.occupants.indexOf(ws);
-			if (index > -1)
-				street.occupants.removeAt(index);
+			street.occupants.forEach((String username, WebSocket socket) {
+				if(socket == ws) {
+					userToRemove = username;
+				}
+			});
+			if(userToRemove != null) {
+				street.occupants.remove(userToRemove);
+			}
 		});
 	}
 
@@ -133,7 +138,7 @@ class StreetUpdateHandler {
 						loadStreet(streetName, map['tsid']);
 					}
 					//log("${map['username']} joined $streetName");
-					streets[streetName].occupants.add(ws);
+					streets[streetName].occupants[username] = ws;
 					getMetabolics(username: username, email: email).then((Metabolics m) {
 						MetabolicsEndpoint.addToLocationHistory(username, map["tsid"]);
 					});

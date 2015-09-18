@@ -389,6 +389,9 @@ class InventoryV2 {
 			}
 
 			Item slotItem = items[slot.itemType];
+			if(slotItem == null) {
+				continue;
+			}
 			if (slotItem.isContainer && slotItem.filterAllows(itemType: item.itemType)) {
 				Type listOfSlots = new jsonx.TypeHelper<List<Slot>>().type;
 				List<Slot> innerSlots = [];
@@ -517,39 +520,30 @@ class InventoryV2 {
 		return JSON.decode(inventory_json);
 	}
 
-	// Returns true if the user has the given amount of an item, false if not
-	// If no amount is given, it checks if they have any at all (at least 1)
-	bool containsItem(String itemType, [int count = 1]) {
-		List<Map> inventory = JSON.decode(inventory_json);
-
-		int toFind = count;
-
-		inventory.forEach((Map slot) {
-			if (slot["itemType"] == itemType) {
-				toFind -= slot["count"];
-			}
-		});
-
-		if (toFind == 0) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
 	// Returns the number of a certain item a user has
 	int countItem(String itemType) {
-		List<Map> inventory = JSON.decode(inventory_json);
+		int count = 0;
 
-		int found = 0;
-
-		inventory.forEach((Map slot) {
-			if (slot["itemType"] == itemType) {
-				found += slot["count"];
+		//count all the normal slots
+		slots.forEach((Slot s) {
+			if(s.itemType == itemType) {
+				count += s.count;
 			}
 		});
 
-		return found;
+		//add the bag contents
+		slots.where((Slot s) => !s.itemType.isEmpty && items[s.itemType].isContainer && items[s.itemType].subSlots != null).forEach((Slot s) {
+			List<Slot> bagSlots = jsonx.decode(s.metadata['slots'], type: listOfSlots);
+			if (bagSlots != null) {
+				bagSlots.forEach((Slot bagSlot) {
+					if (bagSlot.itemType == itemType) {
+						count += bagSlot.count;
+					}
+				});
+			}
+		});
+
+		return count;
 	}
 
 	// Static Public Methods //////////////////////////////////////////////////////////////////////

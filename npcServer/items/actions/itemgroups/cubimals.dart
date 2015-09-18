@@ -36,7 +36,7 @@ abstract class Item_Cubimal {
 			message = "$username ${itemInSlot.name} travelled ${distance.toString()} plank$plural before stopping";
 		}
 
-		StreetUpdateHandler.streets[streetName].occupants.forEach((WebSocket ws) => toast(message, ws));
+		StreetUpdateHandler.streets[streetName].occupants.forEach((String username, WebSocket ws) => toast(message, ws));
 
 		return true;
 	}
