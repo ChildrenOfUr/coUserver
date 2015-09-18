@@ -290,25 +290,29 @@ class StreetUpdateHandler {
 		// Get the user's inventory to work on
 		InventoryV2 inv = await getInventory(email);
 
-		//swap the from and to items
-		Slot newContents = inv.slots[fromIndex];
-		if(fromBagIndex > -1) {
-			Slot bagSlot = inv.slots[fromIndex]; // Bag in hotbar
-			List<Slot> bagSlots = jsonx.decode(bagSlot.metadata["slots"], type: listOfSlots); // Bag contents
-			newContents = bagSlots[fromBagIndex]; // Slot inside bag
-		}
-		Slot origContents = inv.changeSlot(toIndex, toBagIndex, newContents);
-		if(origContents == null) {
-			log("Could not move ${newContents.itemType} to $toIndex.$toBagIndex within inventory of $email");
-			return false;
-		}
-		// Move old item into other slot
-		inv.changeSlot(fromIndex, fromBagIndex, origContents);
+		try {
+			//swap the from and to items
+			Slot newContents = inv.slots[fromIndex];
+			if(fromBagIndex > -1) {
+				Slot bagSlot = inv.slots[fromIndex]; // Bag in hotbar
+				List<Slot> bagSlots = jsonx.decode(bagSlot.metadata["slots"], type: listOfSlots); // Bag contents
+				newContents = bagSlots[fromBagIndex]; // Slot inside bag
+			}
+			Slot origContents = inv.changeSlot(toIndex, toBagIndex, newContents);
+			if(origContents == null) {
+				log("Could not move ${newContents.itemType} to $toIndex.$toBagIndex within inventory of $email");
+				return false;
+			}
+			// Move old item into other slot
+			inv.changeSlot(fromIndex, fromBagIndex, origContents);
 
-		// Update the inventory
-		inv.updateJson();
-		// Update the database
-		await inv._updateDatabase(email);
+			// Update the inventory
+			inv.updateJson();
+			// Update the database
+			await inv._updateDatabase(email);
+		} catch(e,st) {
+			log("Problem moving item: $e\n$st");
+		}
 		// Update the client
 		return await InventoryV2.fireInventoryAtUser(userSocket, email, update: true);
 	}
