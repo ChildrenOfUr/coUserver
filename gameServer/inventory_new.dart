@@ -194,6 +194,14 @@ class InventoryV2 {
 	Future<int> _addItem(Map itemMap, int count, String email) async {
 		//instantiate an item object based on the map
 		Item item = jsonx.decode(JSON.encode(itemMap), type:Item);
+		if(item.isContainer && item.metadata['slots'] == null) {
+			List<Slot> emptySlots = [];
+			for(int i=0; i<item.subSlots; i++) {
+				emptySlots.add(new Slot());
+			}
+			print('size: ${emptySlots.length}');
+			item.metadata['slots'] = jsonx.encode(emptySlots);
+		}
 
 		// Keep a record of how many items we have merged into slots already,
 		// and how many more need to find homes
