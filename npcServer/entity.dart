@@ -36,12 +36,15 @@ abstract class Entity {
 		_resetGains();
 
 		Metabolics m = await getMetabolics(email:email);
-		if(m.energy < energy.abs()) {
+		if(m.energy != 0 && m.energy < energy.abs()) {
 			return false;
 		} else {
 			m.energy += energy;
 			m.mood += mood;
-			int baseImg = rand.nextInt(imgRange) + imgMin;
+			int baseImg = 0;
+			if (imgRange > 0) {
+				baseImg = rand.nextInt(imgRange) + imgMin;
+			}
 			int resultImg = (baseImg * m.mood / m.max_mood)~/1;
 			m.img += resultImg;
 			m.lifetime_img += resultImg;

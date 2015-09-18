@@ -1,6 +1,6 @@
 part of coUserver;
 
-class Door extends Entity {
+abstract class Door extends Entity {
 	String id, type, toLocation, streetName;
 	bool outside;
 	Spritesheet currentState;
@@ -18,6 +18,7 @@ class Door extends Entity {
 		map["numRows"] = currentState.numRows;
 		map["numColumns"] = currentState.numColumns;
 		map["numFrames"] = currentState.numFrames;
+		map['state'] = 0;
 		map["actions"] = actions;
 		map['x'] = x;
 		map['y'] = y;

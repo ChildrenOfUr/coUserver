@@ -8,7 +8,7 @@ class Street {
 	Map<String, Door> doors;
 	Map<String, Map> entityMaps;
 	Map<String, Item> groundItems;
-	List<WebSocket> occupants;
+	Map<String, WebSocket> occupants;
 	String label;
 
 	Street(this.label, String tsid) {
@@ -18,7 +18,7 @@ class Street {
 		doors = new Map<String, Door>();
 		groundItems = new Map<String, Item>();
 		entityMaps = {"quoin":quoins, "plant":plants, "npc":npcs, "door":doors, "groundItem":groundItems};
-		occupants = new List<WebSocket>();
+		occupants = new Map<String, WebSocket>();
 
 		//attempt to load street occupants from streetEntities folder
 		Map entities = getStreetEntities(tsid);
@@ -43,7 +43,8 @@ class Street {
 						ClassMirror classMirror = findClassMirror(type.replaceAll(" ", ""));
 						if(classMirror.isSubclassOf(findClassMirror("NPC"))) {
 							id = "n" + id;
-							if(classMirror.isSubclassOf(findClassMirror("Vendor"))) {
+							if(classMirror.isSubclassOf(findClassMirror("Vendor")) || classMirror == findClassMirror("DustTrap")) {
+								// Vendors and dust traps get a street name/TSID to check for collisions
 								npcs[id] = classMirror.newInstance(new Symbol(""), [id, label, tsid, x, y]).reflectee;
 							} else {
 								npcs[id] = classMirror.newInstance(new Symbol(""), [id, x, y]).reflectee;

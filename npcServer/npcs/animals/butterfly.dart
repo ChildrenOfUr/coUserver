@@ -37,28 +37,28 @@ class Butterfly extends NPC {
 		speed = 75; //pixels per second
 		states = {
 			"fly-angle1": new Spritesheet("fly-angle1",
-			                              "http://c2.glitch.bz/items/2012-12-06/npc_butterfly__x1_fly-angle1_png_1354829526.png",
+			                              "http://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-angle1_png_1354829526.png",
 			                              840, 195, 70, 65, 34, true),
 			"fly-angle2": new Spritesheet("fly-angle2",
-			                              "http://c2.glitch.bz/items/2012-12-06/npc_butterfly__x1_fly-angle2_png_1354829527.png",
+			                              "http://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-angle2_png_1354829527.png",
 			                              700, 130, 70, 65, 20, true),
 			"fly-rooked": new Spritesheet("fly-rooked",
-			                              "http://c2.glitch.bz/items/2012-12-06/npc_butterfly__x1_fly-rooked_png_1354829525.png",
+			                              "http://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-rooked_png_1354829525.png",
 			                              980, 65, 70, 65, 14, true),
 			"fly-side": new Spritesheet("fly-side",
-			                            "http://c2.glitch.bz/items/2012-12-06/npc_butterfly__x1_fly-side_png_1354829525.png",
+			                            "http://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-side_png_1354829525.png",
 			                            980, 390, 70, 65, 84, true),
 			"fly-top": new Spritesheet("fly-top",
-			                           "http://c2.glitch.bz/items/2012-12-06/npc_butterfly__x1_fly-top_png_1354829528.png",
+			                           "http://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-top_png_1354829528.png",
 			                           910, 455, 70, 65, 87, true),
 			"rest-angle1": new Spritesheet("rest-angle1",
-			                               "http://c2.glitch.bz/items/2012-12-06/npc_butterfly__x1_rest-angle1_png_1354829530.png",
+			                               "http://childrenofur.com/assets/entityImages/npc_butterfly__x1_rest-angle1_png_1354829530.png",
 			                               420, 65, 70, 65, 6, true),
 			"rest-angle2": new Spritesheet("rest-angle2",
-			                               "http://c2.glitch.bz/items/2012-12-06/npc_butterfly__x1_rest-angle2_png_1354829531.png",
+			                               "http://childrenofur.com/assets/entityImages/npc_butterfly__x1_rest-angle2_png_1354829531.png",
 			                               700, 65, 70, 65, 10, true),
 			"rest-top": new Spritesheet("rest-top",
-			                            "http://c2.glitch.bz/items/2012-12-06/npc_butterfly__x1_rest-top_png_1354829532.png",
+			                            "http://childrenofur.com/assets/entityImages/npc_butterfly__x1_rest-top_png_1354829532.png",
 			                            980, 195, 70, 65, 42, true)
 		};
 		currentState = states["fly-side"];
@@ -247,11 +247,11 @@ class Butterfly extends NPC {
 
 			if(rand.nextInt(10) == 1) {
 				// bonus milk
-				addItemToUser(userSocket, email, items['butterfly_milk'].getMap(), 3, id);
+				InventoryV2.addItemToUser(userSocket, email, items['butterfly_milk'].getMap(), 3, id);
 				StatBuffer.incrementStat("butterfliesMilked", 1);
 				say(responses['milkExtra'].elementAt(rand.nextInt(responses['milkExtra'].length)));
 			} else {
-				addItemToUser(userSocket, email, items['butterfly_milk'].getMap(), 1, id);
+				InventoryV2.addItemToUser(userSocket, email, items['butterfly_milk'].getMap(), 1, id);
 				StatBuffer.incrementStat("butterfliesMilked", 1);
 				say(responses['milk'].elementAt(rand.nextInt(responses['milk'].length)));
 			}

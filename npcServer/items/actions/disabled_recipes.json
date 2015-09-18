@@ -1,0 +1,126 @@
+{
+  "beaker": [
+    {
+      "id": "extremely_hallowed_shrine_powder",
+      "tool": "beaker",
+      "input": {
+        "zillene": 175,
+        "humbabol": 160,
+        "groddlene": 40
+      },
+      "output": "extremely_hallowed_shrine_powder",
+      "output_amt": 1,
+      "energy": -10,
+      "time": 4,
+      "img": 4
+    },
+    {
+      "id": "fairly_hallowed_shrine_powder",
+      "tool": "beaker",
+      "input": {
+        "zillene": 65,
+        "humbabol": 55,
+        "groddlene": 20
+      },
+      "output": "fairly_hallowed_shrine_powder",
+      "output_amt": 1,
+      "energy": -10,
+      "time": 2,
+      "img": 2
+    },
+    {
+      "id": "fertilidust",
+      "tool": "beaker",
+      "input": {
+        "humbabol": 40,
+        "potoxin": 20,
+        "cosmox": 10
+      },
+      "output": "fertilidust",
+      "output_amt": 1,
+      "energy": -10,
+      "time": 4,
+      "img": 4
+    },
+    {
+      "id": "fertilidust_lite",
+      "tool": "beaker",
+      "input": {
+        "humbabol": 15,
+        "potoxin": 10
+      },
+      "output": "fertilidust_lite",
+      "output_amt": 1,
+      "energy": -10,
+      "time": 2,
+      "img": 2
+    },
+    {
+      "id": "krazy_salts",
+      "tool": "beaker",
+      "input": {
+        "ixite": 11,
+        "lemene": 11,
+        "tiite": 11
+      },
+      "output": "krazy_salts",
+      "output_amt": 1,
+      "energy": -3,
+      "time": 1,
+      "img": 1
+    },
+    {
+      "id": "powder_of_mild_fecundity",
+      "tool": "beaker",
+      "input": {
+        "alphose": 40,
+        "rubemycin": 45
+      },
+      "output": "powder_of_mild_fecundity",
+      "output_amt": 1,
+      "energy": -3,
+      "time": 6,
+      "img": 7
+    },
+    {
+      "id": "powder_of_startling_fecundity",
+      "tool": "beaker",
+      "input": {
+        "grendalinunin": 60,
+        "rubemycin": 75,
+        "cosmox": 50
+      },
+      "output": "powder_of_startling_fecundity",
+      "output_amt": 1,
+      "energy": -6,
+      "time": 6,
+      "img": 6
+    },
+    {
+      "id": "sneezing_powder",
+      "tool": "beaker",
+      "input": {
+        "ixite": 20,
+        "tiite": 65
+      },
+      "output": "sneezing_powder",
+      "output_amt": 1,
+      "energy": -6,
+      "time": 6,
+      "img": 6
+    },
+    {
+      "id": "sparkle_powder",
+      "tool": "beaker",
+      "input": {
+        "abbasidose": 30,
+        "spriggase": 30
+      },
+      "output": "sparkle_powder",
+      "output_amt": 1,
+      "energy": -3,
+      "time": 3,
+      "img": 3
+    }
+  ]
+}

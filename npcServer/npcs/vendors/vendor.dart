@@ -154,7 +154,7 @@ abstract class Vendor extends NPC {
 						items["awesome_pot"].getMap(),
 						items["fruit_changing_machine"].getMap(),
 						items["spice_mill"].getMap(),
-						items["spice_rack"].getMap()
+						items["spicerack"].getMap()
 					];
 					break;
 
@@ -261,10 +261,10 @@ abstract class Vendor extends NPC {
 		StatBuffer.incrementStat("itemsBoughtFromVendors", num);
 		Item item = new Item.clone(itemType);
 		Metabolics m = await getMetabolics(email: email);
-		if(m.currants >= item.price * num) {
-			m.currants -= item.price * num;
+		if(m.currants >= calcPrice(item) * num) {
+			m.currants -= calcPrice(item) * num;
 			setMetabolics(m);
-			addItemToUser(userSocket, email, item.getMap(), num, id);
+			InventoryV2.addItemToUser(userSocket, email, item.getMap(), num, id);
 		}
 	}
 
@@ -273,7 +273,7 @@ abstract class Vendor extends NPC {
 			return;
 		}
 
-		bool success = await takeItemFromUser(userSocket, email, itemType, num);
+		bool success = (await InventoryV2.takeAnyItemsFromUser(userSocket, email, itemType, num) == num);
 
 		if(success) {
 			Item item = items[itemType];
@@ -282,6 +282,10 @@ abstract class Vendor extends NPC {
 			m.currants += (item.price * num * .7) ~/ 1;
 			setMetabolics(m);
 		}
+	}
+
+	int calcPrice(Item item) {
+		return (item.price * item.discount).toInt();
 	}
 
 	List<Map> pickItems(List<String> categories) {

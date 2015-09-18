@@ -1,0 +1,165 @@
+[
+    {
+        "id": "abbasid_ribs",
+        "tool": "famous_pugilist_grill",
+        "input": {
+            "older_spice": 1,
+            "meat": 2,
+            "hot_pepper": 2,
+            "pinch_of_salt": 1
+        },
+        "output": "abbasid_ribs",
+        "output_amount": 1,
+        "energy": -7,
+        "time": 4
+    },
+    {
+        "id": "cedar_plank_salmon",
+        "tool": "famous_pugilist_grill",
+        "input": {
+            "lemon": 2,
+            "olive_oil": 1,
+            "pocket_salmon": 1,
+            "plank": 2
+        },
+        "output": "cedar_plank_salmon",
+        "output_amount": 1,
+        "energy": -7,
+        "time": 4
+    },
+    {
+        "id": "expensive_grilled_cheese",
+        "tool": "famous_pugilist_grill",
+        "input": {
+            "creamy_catsup": 1,
+            "cheese": 1,
+            "very_stinky_cheese": 1,
+            "bun": 1
+        },
+        "output": "expensive_grilled_cheese",
+        "output_amount": 1,
+        "energy": -7,
+        "time": 4
+    },
+    {
+        "id": "frog_in_a_hole",
+        "tool": "famous_pugilist_grill",
+        "input": {
+            "bun": 1,
+            "butterfly_butter": 1,
+            "egg": 1
+        },
+        "output": "frog_in_a_hole",
+        "output_amount": 1,
+        "energy": -7,
+        "time": 4
+    },
+    {
+        "id": "greasy_frybread",
+        "tool": "famous_pugilist_grill",
+        "input": {
+            "bun": 1,
+            "butterfly_butter": 2
+        },
+        "output": "greasy_frybread",
+        "output_amount": 1,
+        "energy": -7,
+        "time": 4
+    },
+    {
+        "id": "grilled_cheese",
+        "tool": "famous_pugilist_grill",
+        "input": {
+            "bun": 2,
+            "cheese": 2
+        },
+        "output": "grilled_cheese",
+        "output_amount": 1,
+        "energy": -7,
+        "time": 4
+    },
+    {
+        "id": "lemburger",
+        "tool": "famous_pugilist_grill",
+        "input": {
+            "meat": 1,
+            "bun": 1,
+            "hot_n_fizzy_sauce": 1,
+            "cheese": 1,
+            "tomato": 1
+        },
+        "output": "lemburger",
+        "output_amount": 1,
+        "energy": -7,
+        "time": 4
+    },
+    {
+        "id": "obvious_panini",
+        "tool": "famous_pugilist_grill",
+        "input": {
+            "bun": 1,
+            "cheese": 1,
+            "meat": 1,
+            "secret_sauce": 1
+        },
+        "output": "obvious_panini",
+        "output_amount": 1,
+        "energy": -7,
+        "time": 4
+    },
+    {
+        "id": "pineapple_upside_down_pizza",
+        "tool": "famous_pugilist_grill",
+        "input": {
+            "olive_oil": 1,
+            "cheese": 2,
+            "butterfly_butter": 1,
+            "pineapple": 1
+        },
+        "output": "pineapple_upside_down_pizza",
+        "output_amount": 1,
+        "energy": -7,
+        "time": 4
+    },
+    {
+        "id": "simple_bbq",
+        "tool": "famous_pugilist_grill",
+        "input": {
+            "meat": 1,
+            "sweet_n_sour_sauce": 1
+        },
+        "output": "simple_bbq",
+        "output_amount": 1,
+        "energy": -7,
+        "time": 4
+    },
+    {
+        "id": "super_veggie_kebabs",
+        "tool": "famous_pugilist_grill",
+        "input": {
+            "black_pepper": 1,
+            "broccoli": 1,
+            "mushroom": 2,
+            "onion": 2,
+            "tomato": 2
+        },
+        "output": "super_veggie_kebabs",
+        "output_amount": 1,
+        "energy": -7,
+        "time": 4
+    },
+    {
+        "id": "waffles",
+        "tool": "famous_pugilist_grill",
+        "input": {
+            "flour": 1,
+            "birch_syrup": 1,
+            "honey": 1,
+            "butterfly_butter": 2
+        },
+        "output": "waffles",
+        "output_amount": 1,
+        "energy": -7,
+        "time": 4
+    }
+]

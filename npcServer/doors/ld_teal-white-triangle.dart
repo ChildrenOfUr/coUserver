@@ -25,6 +25,6 @@ class TealWhiteTriangleLockedDoor extends LockedDoor {
 			});
 		}
 
-		currentState = new Spritesheet("door_bh_int", "http://childrenofur.com/svgs/door_asset_bureaucratic_hall_int.svg", 132, 312, 132, 312, 1, true);
+		currentState = new Spritesheet("door_bh_int", "http://childrenofur.com/assets/entityImages/door_asset_bureaucratic_hall_int.svg", 132, 312, 132, 312, 1, true);
 	}
 }

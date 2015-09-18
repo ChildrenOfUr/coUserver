@@ -2,8 +2,8 @@
   "Seed_Broccoli": {
     "category": "Seeds",
     "name": "Broccoli Seed",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_broccoli__x1_iconic_png_1354830767.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_broccoli__x1_1_x1_2_x1_3_x1_4_png_1354830768.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_broccoli__x1_iconic_png_1354830767.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_broccoli__x1_1_x1_2_x1_3_x1_4_png_1354830768.png",
     "stacksTo": 50,
     "price": 24,
     "description": "A packet of broccoli seeds. This can be planted to grow Broccoli in a Crop Garden."
@@ -11,8 +11,8 @@
   "Seed_Cabbage": {
     "category": "Seeds",
     "name": "Cabbage Seed",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_cabbage__x1_iconic_png_1354830770.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_cabbage__x1_1_x1_2_x1_3_x1_4_png_1354830771.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_cabbage__x1_iconic_png_1354830770.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_cabbage__x1_1_x1_2_x1_3_x1_4_png_1354830771.png",
     "stacksTo": 50,
     "price": 26,
     "description": "A packet of cabbage seeds. This can be planted to grow Cabbages in a Crop Garden."
@@ -20,8 +20,8 @@
   "Seed_Carrot": {
     "category": "Seeds",
     "name": "Carrot Seed",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_carrot__x1_iconic_png_1354830773.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_carrot__x1_1_x1_2_x1_3_x1_4_png_1354830773.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_carrot__x1_iconic_png_1354830773.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_carrot__x1_1_x1_2_x1_3_x1_4_png_1354830773.png",
     "stacksTo": 50,
     "price": 28,
     "description": "A packet of carrot seeds. This can be planted to grow Carrot in a Crop Garden."
@@ -29,8 +29,8 @@
   "Seed_Corn": {
     "category": "Seeds",
     "name": "Corn Seed",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_corn__x1_iconic_png_1354830775.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_corn__x1_1_x1_2_x1_3_x1_4_png_1354830776.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_corn__x1_iconic_png_1354830775.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_corn__x1_1_x1_2_x1_3_x1_4_png_1354830776.png",
     "stacksTo": 50,
     "price": 25,
     "description": "A packet of corn seeds. This can be planted to grow Corn in a Crop Garden."
@@ -38,8 +38,8 @@
   "Seed_Cucumber": {
     "category": "Seeds",
     "name": "Cucumber Seed",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_cucumber__x1_iconic_png_1354830778.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_cucumber__x1_1_x1_2_x1_3_x1_4_png_1354830778.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_cucumber__x1_iconic_png_1354830778.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_cucumber__x1_1_x1_2_x1_3_x1_4_png_1354830778.png",
     "stacksTo": 50,
     "price": 25,
     "description": "A packet of cucumber seeds. This can be planted to grow Cucumbers in a Crop Garden."
@@ -47,8 +47,8 @@
   "Seed_Onion": {
     "category": "Seeds",
     "name": "Onion Seed",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_onion__x1_iconic_png_1354830424.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_onion__x1_1_x1_2_x1_3_x1_4_png_1354830425.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_onion__x1_iconic_png_1354830424.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_onion__x1_1_x1_2_x1_3_x1_4_png_1354830425.png",
     "stacksTo": 50,
     "price": 15,
     "description": "A packet of black onion seeds. This can be planted to grow Onions in a Crop Garden."
@@ -56,8 +56,8 @@
   "Seed_Parsnip": {
     "category": "Seeds",
     "name": "Parsnip Seed",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_parsnip__x1_iconic_png_1354834551.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_parsnip__x1_1_x1_2_x1_3_x1_4_png_1354834552.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_parsnip__x1_iconic_png_1354834551.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_parsnip__x1_1_x1_2_x1_3_x1_4_png_1354834552.png",
     "stacksTo": 50,
     "price": 24,
     "description": "A packet of parsnip seeds. This can be planted to grow Parsnips in a Crop Garden."
@@ -65,8 +65,8 @@
   "Seed_Potato": {
     "category": "Seeds",
     "name": "Potato Seed",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_potato__x1_iconic_png_1354830785.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_potato__x1_1_x1_2_x1_3_x1_4_png_1354830785.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_potato__x1_iconic_png_1354830785.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_potato__x1_1_x1_2_x1_3_x1_4_png_1354830785.png",
     "stacksTo": 50,
     "price": 40,
     "description": "A packet of tiny potatoes. This can be planted to grow Potatoes in a Crop Garden."
@@ -74,8 +74,8 @@
   "Seed_Pumpkin": {
     "category": "Seeds",
     "name": "Pumpkin Seed",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_pumpkin__x1_iconic_png_1354836494.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_pumpkin__x1_1_x1_2_x1_3_x1_4_png_1354836496.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_pumpkin__x1_iconic_png_1354836494.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_pumpkin__x1_1_x1_2_x1_3_x1_4_png_1354836496.png",
     "stacksTo": 50,
     "price": 17,
     "description": "A packet of Pumpkin seeds. This can be planted to grow one mighty Pumpkin at a time in either a Crop Garden or a Herb garden."
@@ -83,8 +83,8 @@
   "Seed_Rice": {
     "category": "Seeds",
     "name": "Rice Seed",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_rice__x1_iconic_png_1354830789.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_rice__x1_1_x1_2_x1_3_x1_4_png_1354830790.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_rice__x1_iconic_png_1354830789.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_rice__x1_1_x1_2_x1_3_x1_4_png_1354830790.png",
     "stacksTo": 50,
     "price": 19,
     "description": "A packet of rice seeds. This can be planted to grow Rice in a Crop Garden."
@@ -92,8 +92,8 @@
   "Seed_Spinach": {
     "category": "Seeds",
     "name": "Spinach Seed",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_spinach__x1_iconic_png_1354830793.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_spinach__x1_1_x1_2_x1_3_x1_4_png_1354830793.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_spinach__x1_iconic_png_1354830793.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_spinach__x1_1_x1_2_x1_3_x1_4_png_1354830793.png",
     "stacksTo": 50,
     "price": 12,
     "description": "A packet of spinach seeds. This can be planted to grow Spinach in a Crop Garden."
@@ -101,8 +101,8 @@
   "Seed_Tomato": {
     "category": "Seeds",
     "name": "Tomato Seed",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_tomato__x1_iconic_png_1354830420.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_tomato__x1_1_x1_2_x1_3_x1_4_png_1354830421.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_tomato__x1_iconic_png_1354830420.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_tomato__x1_1_x1_2_x1_3_x1_4_png_1354830421.png",
     "stacksTo": 50,
     "price": 20,
     "description": "A packet of heirloom-quality tomato seeds. This can be planted to grow Tomatoes in a Crop Garden."
@@ -110,8 +110,8 @@
   "Seed_Zucchini": {
     "category": "Seeds",
     "name": "Zucchini Seed",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/seed_zucchini__x1_iconic_png_1354830787.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/seed_zucchini__x1_1_x1_2_x1_3_x1_4_png_1354830788.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_zucchini__x1_iconic_png_1354830787.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_zucchini__x1_1_x1_2_x1_3_x1_4_png_1354830788.png",
     "stacksTo": 50,
     "price": 34,
     "description": "A packet of zucchini seeds. This can be planted to grow Zucchinis in a Crop Garden."

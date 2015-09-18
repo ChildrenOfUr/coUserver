@@ -25,7 +25,7 @@ class IceNubbin extends Plant {
 		});
 
 		states = {
-			"1-2-3-4-5" : new Spritesheet("1-2-3-4-5", "http://childrenofur.com/game-assets/ice_knob.png", 290, 84, 58, 84, 5, false),
+			"1-2-3-4-5" : new Spritesheet("1-2-3-4-5", "http://childrenofur.com/assets/entityImages/ice_knob.png", 290, 84, 58, 84, 5, false),
 		};
 		int maturity = new Random().nextInt(states.length) + 1;
 		currentState = states['1-2-3-4-5'];
@@ -48,15 +48,16 @@ class IceNubbin extends Plant {
 		// 50% chance to get an ice cube
 		// 50% chance to let it melt before you collect it
 		if(new Random().nextInt(1) == 1) {
-			addItemToUser(userSocket, email, items['ice'].getMap(), numToGive, id);
+			InventoryV2.addItemToUser(userSocket, email, items['ice'].getMap(), numToGive, id);
 			StatBuffer.incrementStat("iceNubbinsCollected", 1);
 			state--;
-			if(state >= currentState.numFrames) {
+			if(state < 1) {
 				respawn = new DateTime.now().add(new Duration(minutes:2));
+				return false;
 			}
 			return true;
 		} else {
-			addItemToUser(userSocket, email, items['cup_of_water'].getMap(), 1, id);
+			InventoryV2.addItemToUser(userSocket, email, items['cup_of_water'].getMap(), 1, id);
 			say("You have to grab it faster next time. It melted!");
 			return false;
 		}

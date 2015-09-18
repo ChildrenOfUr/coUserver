@@ -161,7 +161,8 @@ ClassMirror findClassMirror(String name) {
 }
 
 String createId(num x, num y, String type, String tsid) {
-	return (type + x.toString() + y.toString() + tsid).hashCode.toString();
+	String randString = new Random().nextInt(1000).toString();
+	return (type + x.toString() + y.toString() + tsid + randString).hashCode.toString();
 }
 
 /**
@@ -253,18 +254,24 @@ Future<Map> getStreetFillerStats() {
 
 			Map finishedMap = JSON.decode(str);
 			finishedMap.forEach((String key, Map value) {
-				if(value['streetFinished'] == true)
+				if(value['streetFinished'] == true) {
 					trulyFinished++;
-				if(value['reportedBroken'] == true)
+				}
+				if(value['reportedBroken'] == true) {
 					reportedBroken++;
-				if(value['reportedFinished'] == true)
+				}
+				if(value['reportedFinished'] == true) {
 					reportedFinished++;
-				if(value['reportedVandalized'] == true)
+				}
+				if(value['reportedVandalized'] == true) {
 					reportedVandalized++;
-				if(value['entitiesRequired'] != null && value['entitiesRequired'] != -1)
+				}
+				if(value['entitiesRequired'] != null && value['entitiesRequired'] != -1) {
 					entitiesRequired += num.parse(value['entitiesRequired'].toString());
-				if(value['entitiesComplete'] != null && value['entitiesComplete'] != -1)
+				}
+				if(value['entitiesComplete'] != null && value['entitiesComplete'] != -1) {
 					entitiesComplete += num.parse(value['entitiesComplete'].toString());
+				}
 			});
 
 			Directory dir = new Directory('./streetEntities');
@@ -357,11 +364,10 @@ saveCacheToDisk(String filename, Map cache) async {
 	await file.writeAsString(JSON.encode(cache));
 }
 
-Future<bool> toast(String message, WebSocket userSocket) {
+toast(String message, WebSocket userSocket) {
 	Map send = {
 		"toast": true,
 		"message": message
 	};
 	userSocket.add(JSON.encode(send));
-	return true;
 }

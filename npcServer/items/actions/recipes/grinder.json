@@ -1,0 +1,118 @@
+[
+  {
+    "id": "barnacle_talc-grinder",
+    "tool": "grinder",
+    "input": {
+      "barnacle": 1
+    },
+    "output": "barnacle_talc",
+    "output_amt": 1,
+    "time": 2,
+    "energy": -2
+  },
+  {
+    "id": "barnacle_talc-grand_ol_grinder",
+    "tool": "grand_ol_grinder",
+    "input": {
+      "barnacle": 1
+    },
+    "output": "barnacle_talc",
+    "output_amt": 1,
+    "time": 1,
+    "energy": -1
+  },
+
+  {
+    "id": "blue_element-grinder",
+    "tool": "grinder",
+    "input": {
+      "chunk_dullite": 1
+    },
+    "output": "blue_element",
+    "output_amt": 2,
+    "time": 2,
+    "energy": -2
+  },
+  {
+    "id": "blue_element-grand_ol_grinder",
+    "tool": "grand_ol_grinder",
+    "input": {
+      "chunk_dullite": 1
+    },
+    "output": "blue_element",
+    "output_amt": 2,
+    "time": 1,
+    "energy": -1
+  },
+
+  {
+    "id": "green_element-grinder",
+    "tool": "grinder",
+    "input": {
+      "chunk_beryl": 1
+    },
+    "output": "green_element",
+    "output_amt": 2,
+    "time": 2,
+    "energy": -2
+  },
+  {
+    "id": "green_element-grand_ol_grinder",
+    "tool": "grand_ol_grinder",
+    "input": {
+      "chunk_beryl": 1
+    },
+    "output": "green_element",
+    "output_amt": 2,
+    "time": 1,
+    "energy": -1
+  },
+
+  {
+    "id": "red_element-grinder",
+    "tool": "grinder",
+    "input": {
+      "chunk_dullite": 1,
+      "cherry": 1
+    },
+    "output": "red_element",
+    "output_amt": 3,
+    "time": 2,
+    "energy": -2
+  },
+  {
+    "id": "red_element-grand_ol_grinder",
+    "tool": "grand_ol_grinder",
+    "input": {
+      "chunk_dullite": 1,
+      "cherry": 1
+    },
+    "output": "red_element",
+    "output_amt": 3,
+    "time": 1,
+    "energy": -1
+  },
+
+  {
+    "id": "shiny_element-grinder",
+    "tool": "grinder",
+    "input": {
+      "chunk_sparkly": 1
+    },
+    "output": "shiny_element",
+    "output_amt": 2,
+    "time": 2,
+    "energy": -2
+  },
+  {
+    "id": "shiny_element-grand_ol_grinder",
+    "tool": "grand_ol_grinder",
+    "input": {
+      "chunk_sparkly": 1
+    },
+    "output": "shiny_element",
+    "output_amt": 2,
+    "time": 1,
+    "energy": -1
+  }
+]

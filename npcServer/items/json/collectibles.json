@@ -2,8 +2,8 @@
   "antique_spigot": {
     "name": "Antique Spigot",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/antique_spigot__x1_1_png_1354840049.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/antique_spigot__x1_1_png_1354840049.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/antique_spigot__x1_1_png_1354840049.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/antique_spigot__x1_1_png_1354840049.png",
     "stacksTo": 1,
     "price": 251000,
     "description": "Water once flowed freely through this residual, rusting spigot. Old water, from times long by. Surely, you must have it!"
@@ -29,8 +29,8 @@
   "bead_of_caiyotite_necklace": {
     "name": "Bead of Caiyotite Necklace",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_necklace_rhyolite_piece__x1_1_png_1354840503.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_necklace_rhyolite_piece__x1_1_png_1354840503.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_necklace_rhyolite_piece__x1_1_png_1354840503.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_necklace_rhyolite_piece__x1_1_png_1354840503.png",
     "stacksTo": 17,
     "price": 0,
     "description": "A single multicoloured bead from a Caiyotite Necklace, which hums gently in the palm of the hand. 1/17th of a necklace unremarkable in beauty, low in price, but rich in sentimental value."
@@ -38,8 +38,8 @@
   "bead_of_gnipperite_gnecklace": {
     "name": "Bead of Gnipperite Gnecklace",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_necklace_onyx_piece__x1_1_png_1354840498.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_necklace_onyx_piece__x1_1_png_1354840498.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_necklace_onyx_piece__x1_1_png_1354840498.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_necklace_onyx_piece__x1_1_png_1354840498.png",
     "stacksTo": 19,
     "price": 0,
     "description": "A single inky bead from a Gnipperite Gnecklace, cold, smooth, and with a faint sparkle of a billion stars when looked at closely. Acquire 19 of them to remember the whole necklace."
@@ -47,8 +47,8 @@
   "bead_of_nyanite_necklace": {
     "name": "Bead of Nyanite Necklace",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_necklace_amazonite_piece__x1_1_png_1354840506.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_necklace_amazonite_piece__x1_1_png_1354840506.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_necklace_amazonite_piece__x1_1_png_1354840506.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_necklace_amazonite_piece__x1_1_png_1354840506.png",
     "stacksTo": 17,
     "price": 0,
     "description": "A single deep-green bead, warm to the touch, from a Nyanite necklace. Aquire 17 of them to form the remembrance of a whole necklace."
@@ -56,8 +56,8 @@
   "bead_of_ouzian_necklace": {
     "name": "Bead of Ouzian Necklace",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_necklace_imperial_piece__x1_1_png_1354840496.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_necklace_imperial_piece__x1_1_png_1354840496.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_necklace_imperial_piece__x1_1_png_1354840496.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_necklace_imperial_piece__x1_1_png_1354840496.png",
     "stacksTo": 23,
     "price": 0,
     "description": "A single swirling blue bead from a Ouzian Necklace, which, when reunited with 22 others of its kind, form the remembrance of a single flowing neck-river."
@@ -65,8 +65,8 @@
   "bead_of_red_tiger_eye_necklace": {
     "name": "Bead of Red Tiger Eye Necklace",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_necklace_redtigereye_piece__x1_1_png_1354840501.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_necklace_redtigereye_piece__x1_1_png_1354840501.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_necklace_redtigereye_piece__x1_1_png_1354840501.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_necklace_redtigereye_piece__x1_1_png_1354840501.png",
     "stacksTo": 19,
     "price": 0,
     "description": "A single blood-coloured bead named after the eye of a red tiger, or the red eye of a normal tiger (no one can decide) that constitutes 1/19th of a necklace."
@@ -83,8 +83,8 @@
   "bugsbury_creme_egg": {
     "name": "Bugsbury Creme Egg",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/egghunt_egg_2__x1_1_png_1354833279.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/egghunt_egg_2__x1_1_png_1354833279.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/egghunt_egg_2__x1_1_png_1354833279.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/egghunt_egg_2__x1_1_png_1354833279.png",
     "stacksTo": 1,
     "price": 150,
     "description": "An 'oh-so-delicious' and delightfully decorated chocolate egg. Inarguably tasty, this treat is not affiliated with any known holiday or group, religious or otherwise."
@@ -92,8 +92,8 @@
   "butterfly_bone_hair_clip": {
     "name": "Butterfly Bone Hair Clip",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_butterfly_hair_clip__x1_1_png_1354840312.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_butterfly_hair_clip__x1_1_png_1354840312.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_butterfly_hair_clip__x1_1_png_1354840312.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_butterfly_hair_clip__x1_1_png_1354840312.png",
     "stacksTo": 1,
     "price": 0,
     "description": "This hair-clip belonged to Gwendolyn, but was lost when a strong wind from a quick-approaching storm swept belongings out her open window. Originally given to her by her cousin, Earnest, on the occasion of her memorization of the 137 verses of the first Book of Cosma, the clip is made of hand carved butterfly bones and encrusted with the dust of shiny elements."
@@ -110,8 +110,8 @@
   "button_shape_of_bird": {
     "name": "Button in the Shape of a Bird",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_button_bird__x1_1_png_1354840663.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_button_bird__x1_1_png_1354840663.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_button_bird__x1_1_png_1354840663.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_button_bird__x1_1_png_1354840663.png",
     "stacksTo": 1,
     "price": 0,
     "description": "This is a lost artifact, known only through ancient stories of long-deceased ancestors, and has not been discovered in Ur.     For a while, the intricately carved buttons that fastened the garments of Grendalinians were the envy of everyone. Though slightly scuffed and with a chip to the beak, this button, which once adorned the bonnet of Phoebe - a Grendalinian cocktail guru with an ever-present glint in her eye - so perfectly resembles a miniature Sandpiper that the fact it doesn’t run off onto nearby beach is a constant surprise to anyone who sees it."
@@ -119,8 +119,8 @@
   "button_shape_of_cloud": {
     "name": "Button in the Shape of a Cloud",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_button_cloud__x1_1_png_1354840661.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_button_cloud__x1_1_png_1354840661.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_button_cloud__x1_1_png_1354840661.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_button_cloud__x1_1_png_1354840661.png",
     "stacksTo": 1,
     "price": 0,
     "description": "This is a lost artifact, known only through ancient stories of long-deceased ancestors, and has not been discovered in Ur.     Helen, sister of Harris, spent months making this button, marked down in the annals of Grendaline as one of the most beautiful ever to fasten a pair of trousers.  Using individual strands of batterfly silk, harvested from their tough underground webs, Helen slowly wound, twisted and knotted until she had a soft, delicate, but indestructible cloud-shaped button. Only a buttonbarian would say it now looks like pocket fluff."
@@ -128,8 +128,8 @@
   "button_shape_of_frog": {
     "name": "Button in the Shape of a Frog",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_button_frog__x1_1_png_1354840658.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_button_frog__x1_1_png_1354840658.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_button_frog__x1_1_png_1354840658.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_button_frog__x1_1_png_1354840658.png",
     "stacksTo": 1,
     "price": 0,
     "description": "This is a lost artifact, known only through ancient stories of long-deceased ancestors, and has not been discovered in Ur.     Button-making - creating perfect miniatures out of moulded sudstone, carved dullite or cast ore - was once the most highly prized and closely guarded skill of those who sought Grendaline’s favor. Harris Toofanies, the Grendalinian whose cape this button once graced, made up for his unfortunate name with his exemplary button-making skill. Careful examination and cleaning reveals that the eyes on the frog button, individually carved out of sapphire, move as the wearer walks."
@@ -137,8 +137,8 @@
   "button_shape_of_wasp": {
     "name": "Button in the Shape of a Wasp",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_button_wasp__x1_1_png_1354840666.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_button_wasp__x1_1_png_1354840666.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_button_wasp__x1_1_png_1354840666.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_button_wasp__x1_1_png_1354840666.png",
     "stacksTo": 1,
     "price": 0,
     "description": "This is a lost artifact, known only through ancient stories of long-deceased ancestors, and has not been discovered in Ur.     Created by master-buttonwrangler Phil O’Kleon to fasten the bonnet he wore on the Feast of Grendaline, this button was renowned not only for its vivid stripes of amber and dullite, but by the fact that if the body is twisted, very carefully, and then released, it buzzed loud enough to knock spices from the trees and cause small avalanches in the wintery place from some miles away. This function was disabled some time before the great forgetting."
@@ -146,8 +146,8 @@
   "caiyotite_necklace": {
     "name": "Caiyotite Necklace",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_necklace_rhyolite__x1_1_png_1354840491.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_necklace_rhyolite__x1_1_png_1354840491.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_necklace_rhyolite__x1_1_png_1354840491.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_necklace_rhyolite__x1_1_png_1354840491.png",
     "stacksTo": 1,
     "price": 0,
     "description": "A necklace of 17 multi-coloured beads, traditionally given as gifts between the ancients to celebrate a successful Feat. Possibly the most democratically forged (and cheap) ancient jewellery, the beads were first forged when devotees of all the giants came together, each bringing their sacred stones and melding them over intense heat to form this marbled, chaotic but undeniably pleasing piece."
@@ -155,8 +155,8 @@
   "caterpillar_trousers": {
     "name": "Caterpillar Trousers",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_caterpillar_trousers__x1_1_png_1354841579.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_caterpillar_trousers__x1_1_png_1354841579.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_caterpillar_trousers__x1_1_png_1354841579.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_caterpillar_trousers__x1_1_png_1354841579.png",
     "stacksTo": 1,
     "price": 0,
     "description": "This is a lost artifact, known only through ancient stories of long-deceased ancestors, and has not been discovered in Ur.     Perhaps the most useless piece of clothing in existence, this pair of trousers - pair is possibly the wrong word for something with 16 legs - this Multiplicity of Trouser was created by a loyal Humbabarian as a gift for a passing caterpillar, in order to cover his modesty. However, since caterpillars famously have no modesty (or, in fact, shame) not a single trouser in this multiplicitous garmental gathering have even been worn."
@@ -164,8 +164,8 @@
   "certified_organic_chocolate_egg": {
     "name": "Certified Organic Chocolate Egg",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/egghunt_egg_x1_1__1_png_1354833277.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/egghunt_egg_x1_1__1_png_1354833277.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/egghunt_egg_x1_1__1_png_1354833277.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/egghunt_egg_x1_1__1_png_1354833277.png",
     "stacksTo": 1,
     "price": 150,
     "description": "An 'oh-so-delicious' and delightfully decorated chocolate egg. Inarguably tasty, this treat is not affiliated with any known holiday or group, religious or otherwise."
@@ -173,8 +173,8 @@
   "chicken_shaped_brick": {
     "name": "Chicken-Shaped Brick",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_chicken_brick__x1_1_png_1354840316.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_chicken_brick__x1_1_png_1354840316.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_chicken_brick__x1_1_png_1354840316.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_chicken_brick__x1_1_png_1354840316.png",
     "stacksTo": 1,
     "price": 0,
     "description": "Children of the houses of Friendly got used at a young age to their special skill of squeezing chickens. Partly because they were taught at night, when chickens are notoriously easier to sneak up on, and partly because, once they went to bed, they were put down with a heated brick in the shape of poultry. This is one of those."
@@ -182,8 +182,8 @@
   "collectors_edition_2010_glitchmas_yeti": {
     "name": "Collectors' Edition 2010 Glitchmas Yeti",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/collectors_edition_2010_glitchmas_yeti__x1_1_png_1354832922.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/collectors_edition_2010_glitchmas_yeti__x1_1_png_1354832922.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/collectors_edition_2010_glitchmas_yeti__x1_1_png_1354832922.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/collectors_edition_2010_glitchmas_yeti__x1_1_png_1354832922.png",
     "stacksTo": 1,
     "price": 1000,
     "description": "A rare collector's edition stuffed Yeti for the wonderous, goodly, splendid Glitchen who helped test the world in 2010. This item is Limited Edition: if you sell it, give it away, donate it or otherwise lose it, you will not be able to get it back."
@@ -191,8 +191,8 @@
   "cubimal_batterfly": {
     "name": "Batterfly Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_batterfly__x1_1_png_1354836242.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_batterfly__x1_1_png_1354836242.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_batterfly__x1_1_png_1354836242.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_batterfly__x1_1_png_1354836242.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -215,8 +215,8 @@
   "cubimal_bureaucrat": {
     "name": "Bureaucrat Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_bureaucrat__x1_1_png_1354836245.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_bureaucrat__x1_1_png_1354836245.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_bureaucrat__x1_1_png_1354836245.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_bureaucrat__x1_1_png_1354836245.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -239,8 +239,8 @@
   "cubimal_butler": {
     "name": "Butler Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_butler__x1_1_png_1354839842.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_butler__x1_1_png_1354839842.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_butler__x1_1_png_1354839842.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_butler__x1_1_png_1354839842.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -263,8 +263,8 @@
   "cubimal_butterfly": {
     "name": "Butterfly Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_butterfly__x1_1_png_1354836248.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_butterfly__x1_1_png_1354836248.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_butterfly__x1_1_png_1354836248.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_butterfly__x1_1_png_1354836248.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -287,8 +287,8 @@
   "cubimal_cactus": {
     "name": "Cactus Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_cactus__x1_1_png_1354836251.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_cactus__x1_1_png_1354836251.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_cactus__x1_1_png_1354836251.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_cactus__x1_1_png_1354836251.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -311,8 +311,8 @@
   "cubimal_chick": {
     "name": "Chick Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2013-12-13/npc_cubimal_chick__x1_1_png_1386989070.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2013-12-13/npc_cubimal_chick__x1_1_png_1386989070.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_chick__x1_1_png_1386989070.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_chick__x1_1_png_1386989070.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -335,8 +335,8 @@
   "cubimal_crab": {
     "name": "Crab Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_crab__x1_1_png_1354836257.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_crab__x1_1_png_1354836257.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_crab__x1_1_png_1354836257.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_crab__x1_1_png_1354836257.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -359,8 +359,8 @@
   "cubimal_craftybot": {
     "name": "Craftybot Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_craftybot__x1_1_png_1354839845.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_craftybot__x1_1_png_1354839845.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_craftybot__x1_1_png_1354839845.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_craftybot__x1_1_png_1354839845.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -383,8 +383,8 @@
   "cubimal_deimaginator": {
     "name": "Deimaginator Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_deimaginator__x1_1_png_1354836260.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_deimaginator__x1_1_png_1354836260.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_deimaginator__x1_1_png_1354836260.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_deimaginator__x1_1_png_1354836260.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -407,8 +407,8 @@
   "cubimal_dustbunny": {
     "name": "Dustbunny Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_dustbunny__x1_1_png_1354836265.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_dustbunny__x1_1_png_1354836265.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_dustbunny__x1_1_png_1354836265.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_dustbunny__x1_1_png_1354836265.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -431,8 +431,8 @@
   "cubimal_emobear": {
     "name": "Emo-Bear Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_emobear__x1_1_png_1354839824.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_emobear__x1_1_png_1354839824.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_emobear__x1_1_png_1354839824.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_emobear__x1_1_png_1354839824.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -455,8 +455,8 @@
   "cubimal_firebogstreetspirit": {
     "name": "Firebog Street Spirit Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_firebogstreetspirit__x1_1_png_1354839836.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_firebogstreetspirit__x1_1_png_1354839836.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_firebogstreetspirit__x1_1_png_1354839836.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_firebogstreetspirit__x1_1_png_1354839836.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -479,8 +479,8 @@
   "cubimal_firefly": {
     "name": "Firefly Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_firefly__x1_1_png_1354836268.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_firefly__x1_1_png_1354836268.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_firefly__x1_1_png_1354836268.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_firefly__x1_1_png_1354836268.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -503,8 +503,8 @@
   "cubimal_fox": {
     "name": "Fox Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_fox__x1_1_png_1354839817.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_fox__x1_1_png_1354839817.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_fox__x1_1_png_1354839817.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_fox__x1_1_png_1354839817.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -527,8 +527,8 @@
   "cubimal_foxranger": {
     "name": "Fox Ranger Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_foxranger__x1_1_png_1354839827.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_foxranger__x1_1_png_1354839827.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_foxranger__x1_1_png_1354839827.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_foxranger__x1_1_png_1354839827.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -551,8 +551,8 @@
   "cubimal_frog": {
     "name": "Frog Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_frog__x1_1_png_1354836276.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_frog__x1_1_png_1354836276.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_frog__x1_1_png_1354836276.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_frog__x1_1_png_1354836276.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -575,8 +575,8 @@
   "cubimal_gnome": {
     "name": "Gnome Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_gnome__x1_1_png_1354839839.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_gnome__x1_1_png_1354839839.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_gnome__x1_1_png_1354839839.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_gnome__x1_1_png_1354839839.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -599,8 +599,8 @@
   "cubimal_greeterbot": {
     "name": "Greeterbot Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_greeterbot__x1_1_png_1354836279.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_greeterbot__x1_1_png_1354836279.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_greeterbot__x1_1_png_1354836279.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_greeterbot__x1_1_png_1354836279.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -623,8 +623,8 @@
   "cubimal_groddlestreetspirit": {
     "name": "Groddle Street Spirit Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_groddlestreetspirit__x1_1_png_1354839829.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_groddlestreetspirit__x1_1_png_1354839829.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_groddlestreetspirit__x1_1_png_1354839829.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_groddlestreetspirit__x1_1_png_1354839829.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -647,8 +647,8 @@
   "cubimal_gwendolyn": {
     "name": "Gwendolyn Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_gwendolyn__x1_1_png_1354836282.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_gwendolyn__x1_1_png_1354836282.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_gwendolyn__x1_1_png_1354836282.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_gwendolyn__x1_1_png_1354836282.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -671,8 +671,8 @@
   "cubimal_helga": {
     "name": "Helga Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_helga__x1_1_png_1354836287.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_helga__x1_1_png_1354836287.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_helga__x1_1_png_1354836287.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_helga__x1_1_png_1354836287.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -695,8 +695,8 @@
   "cubimal_hellbartender": {
     "name": "Hell Bartender Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_hellbartender__x1_1_png_1354839854.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_hellbartender__x1_1_png_1354839854.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_hellbartender__x1_1_png_1354839854.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_hellbartender__x1_1_png_1354839854.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -719,8 +719,8 @@
   "cubimal_ilmenskiejones": {
     "name": "Ilmenskie Jones Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_ilmenskiejones__x1_1_png_1354839850.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_ilmenskiejones__x1_1_png_1354839850.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_ilmenskiejones__x1_1_png_1354839850.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_ilmenskiejones__x1_1_png_1354839850.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -743,8 +743,8 @@
   "cubimal_juju": {
     "name": "JuJu Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_juju__x1_1_png_1354836284.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_juju__x1_1_png_1354836284.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_juju__x1_1_png_1354836284.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_juju__x1_1_png_1354836284.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -767,8 +767,8 @@
   "cubimal_magicrock": {
     "name": "Magic Rock Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_magicrock__x1_1_png_1354836290.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_magicrock__x1_1_png_1354836290.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_magicrock__x1_1_png_1354836290.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_magicrock__x1_1_png_1354836290.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -791,8 +791,8 @@
   "cubimal_mealvendor": {
     "name": "Meal Vendor Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_mealvendor__x1_1_png_1354839860.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_mealvendor__x1_1_png_1354839860.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_mealvendor__x1_1_png_1354839860.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_mealvendor__x1_1_png_1354839860.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -815,8 +815,8 @@
   "cubimal_phantom": {
     "name": "Phantom Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_phantom__x1_1_png_1354839847.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_phantom__x1_1_png_1354839847.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_phantom__x1_1_png_1354839847.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_phantom__x1_1_png_1354839847.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -839,8 +839,8 @@
   "cubimal_piggy": {
     "name": "Piggy Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_piggy__x1_1_png_1354836292.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_piggy__x1_1_png_1354836292.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_piggy__x1_1_png_1354836292.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_piggy__x1_1_png_1354836292.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -863,8 +863,8 @@
   "cubimal_rook": {
     "name": "Rook Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_rook__x1_1_png_1354836295.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_rook__x1_1_png_1354836295.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_rook__x1_1_png_1354836295.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_rook__x1_1_png_1354836295.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -887,8 +887,8 @@
   "cubimal_rube": {
     "name": "Rube Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_rube__x1_1_png_1354836298.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_rube__x1_1_png_1354836298.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_rube__x1_1_png_1354836298.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_rube__x1_1_png_1354836298.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -911,8 +911,8 @@
   "cubimal_scionofpurple": {
     "name": "Scion of Purple Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_scionofpurple__x1_1_png_1354839873.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_scionofpurple__x1_1_png_1354839873.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_scionofpurple__x1_1_png_1354839873.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_scionofpurple__x1_1_png_1354839873.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -935,8 +935,8 @@
   "cubimal_senorfunpickle": {
     "name": "Señor Funpickle Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_senorfunpickle__x1_1_png_1354839878.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_senorfunpickle__x1_1_png_1354839878.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_senorfunpickle__x1_1_png_1354839878.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_senorfunpickle__x1_1_png_1354839878.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -959,8 +959,8 @@
   "cubimal_sloth": {
     "name": "Sloth Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_sloth__x1_1_png_1354839820.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_sloth__x1_1_png_1354839820.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_sloth__x1_1_png_1354839820.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_sloth__x1_1_png_1354839820.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -983,8 +983,8 @@
   "cubimal_smuggler": {
     "name": "Smuggler Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_smuggler__x1_1_png_1354836300.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_smuggler__x1_1_png_1354836300.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_smuggler__x1_1_png_1354836300.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_smuggler__x1_1_png_1354836300.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -1007,8 +1007,8 @@
   "cubimal_snoconevendor": {
     "name": "Sno Cone Vendor Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_snoconevendor__x1_1_png_1354836305.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_snoconevendor__x1_1_png_1354836305.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_snoconevendor__x1_1_png_1354836305.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_snoconevendor__x1_1_png_1354836305.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -1031,8 +1031,8 @@
   "cubimal_squid": {
     "name": "Squid Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_squid__x1_1_png_1354836308.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_squid__x1_1_png_1354836308.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_squid__x1_1_png_1354836308.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_squid__x1_1_png_1354836308.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -1055,8 +1055,8 @@
   "cubimal_toolvendor": {
     "name": "Tool Vendor Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_toolvendor__x1_1_png_1354839857.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_toolvendor__x1_1_png_1354839857.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_toolvendor__x1_1_png_1354839857.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_toolvendor__x1_1_png_1354839857.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -1079,8 +1079,8 @@
   "cubimal_trisor": {
     "name": "Trisor Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_trisor__x1_1_png_1354839865.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_trisor__x1_1_png_1354839865.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_trisor__x1_1_png_1354839865.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_trisor__x1_1_png_1354839865.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -1103,8 +1103,8 @@
   "cubimal_unclefriendly": {
     "name": "Uncle Friendly Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_unclefriendly__x1_1_png_1354836311.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_unclefriendly__x1_1_png_1354836311.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_unclefriendly__x1_1_png_1354836311.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_unclefriendly__x1_1_png_1354836311.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -1127,8 +1127,8 @@
   "cubimal_uraliastreetspirit": {
     "name": "Uralia Street Spirit Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_uraliastreetspirit__x1_1_png_1354839832.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_uraliastreetspirit__x1_1_png_1354839832.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_uraliastreetspirit__x1_1_png_1354839832.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_uraliastreetspirit__x1_1_png_1354839832.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -1151,8 +1151,8 @@
   "cubimal_yeti": {
     "name": "Yeti Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_yeti__x1_1_png_1354836344.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_yeti__x1_1_png_1354836344.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_yeti__x1_1_png_1354836344.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_yeti__x1_1_png_1354836344.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 0,
@@ -1184,8 +1184,8 @@
   "dusty_stick": {
     "name": "Dusty Stick",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/dusty_stick__x1_1_png_1354839557.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/dusty_stick__x1_1_png_1354839557.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/dusty_stick__x1_1_png_1354839557.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/dusty_stick__x1_1_png_1354839557.png",
     "stacksTo": 1,
     "price": 0,
     "description": "A special gift to commemorate the Great Item Loss of early 2012. Build up the power of your stick throughout the day. When ready, release it in order to spread happiness to all those around you."
@@ -1193,8 +1193,8 @@
   "ear_trumpet": {
     "name": "Ear Trumpet",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_ear_trumpet__x1_1_png_1354840656.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_ear_trumpet__x1_1_png_1354840656.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_ear_trumpet__x1_1_png_1354840656.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_ear_trumpet__x1_1_png_1354840656.png",
     "stacksTo": 1,
     "price": 0,
     "description": "This is a lost artifact, known only through ancient stories of long-deceased ancestors, and has not been discovered in Ur.     Carefully curved to hear not only from short distances, but long distances, through walls and round corners as well. This ear trumpet once belonged to a loyal supplicant of Friendly, Anton, who would use it to pick up all manner of snippets of juicy gossip and scandalous rumor, and then to relay it to the giant as he worked, turning it around to form a megaphone, and standing on Friendly’s shoulder to be heard."
@@ -1211,8 +1211,8 @@
   "extremely_long_scarf": {
     "name": "Extremely Long Scarf",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_scarf__x1_1_png_1354840652.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_scarf__x1_1_png_1354840652.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_scarf__x1_1_png_1354840652.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_scarf__x1_1_png_1354840652.png",
     "stacksTo": 1,
     "price": 0,
     "description": "Tanu and Sitha’s mother, a worrity woman of many arms and several dozen busy fingers, could whip up a knitted scarf like this one in twelve minutes if the wind turned. The “double rainbow” scarf (named for its colours and ability to stretch twice around the house) could bundle every child in a regular-sized Alphibian family at once. Once, a scarf was given to a tall handsome stranger who wore it all on his own, but no one caught the strange man’s name."
@@ -1220,8 +1220,8 @@
   "fake_nose_made_of_china": {
     "name": "Fake Nose Made of China",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_nose_of_china__x1_1_png_1354840318.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_nose_of_china__x1_1_png_1354840318.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_nose_of_china__x1_1_png_1354840318.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_nose_of_china__x1_1_png_1354840318.png",
     "stacksTo": 1,
     "price": 0,
     "description": "Initially worn on high days and holidays by the loyal supplicants to Humbaba, this fake nose was created in the mould (literally) of Dorothy the Mad Humbabarian Elder’s original falsenez. Painted with inks made by mixing the dyes of various flowers, leaves and spices with donated piggy spittle, the faded scene on this chipped but magnificent nose is intended to portray the birth of Humbaba herself. It is a somewhat messy scene."
@@ -1229,8 +1229,8 @@
   "fake_nose_made_of_plaster": {
     "name": "Fake Nose Made of Plaster",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_nose_of_plaster__x1_1_png_1354841583.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_nose_of_plaster__x1_1_png_1354841583.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_nose_of_plaster__x1_1_png_1354841583.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_nose_of_plaster__x1_1_png_1354841583.png",
     "stacksTo": 1,
     "price": 0,
     "description": "This is a lost artifact, known only through ancient stories of long-deceased ancestors, and has not been discovered in Ur.     Dorothy, who made this nose, had over the course of her life developed a firmly held belief that one day she would sneeze so hard her nose would fall off and prove itself difficult to reattach. Ever practical (if slightly delusional) Dorothy chose to prepare for her impending noselessness by creating fake noses, beautifully ornate and lightweight, to cover the problem. Though Dorothy never mislaid her nose, the fancy falsenez became extremely fashionable."
@@ -1238,8 +1238,8 @@
   "fake_nose_made_of_wool": {
     "name": "Fake Nose Made of Wool",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_nose_of_wool__x1_1_png_1354841585.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_nose_of_wool__x1_1_png_1354841585.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_nose_of_wool__x1_1_png_1354841585.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_nose_of_wool__x1_1_png_1354841585.png",
     "stacksTo": 1,
     "price": 0,
     "description": "This is a lost artifact, known only through ancient stories of long-deceased ancestors, and has not been discovered in Ur.     Once the fashion of the falsenez - started by Mad Humbabarian Elder Dorothy  - had firmly caught the imagination of the Groddleforestians, the fake noses sported for the remainder of that century ranged from the practical to the frankly ridiculous. This was one of the former, a child-sized tightly-knitted woollen nose intended for cold days and misty mornings that belonged to a little boy named Adam."
@@ -1247,8 +1247,8 @@
   "fan": {
     "name": "Fan",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_fan__x1_1_png_1354840644.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_fan__x1_1_png_1354840644.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_fan__x1_1_png_1354840644.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_fan__x1_1_png_1354840644.png",
     "stacksTo": 1,
     "price": 0,
     "description": "Carefully made for Cecily in her declining years, by her great niece, Margaret, intended as a gift that brought the breath of Cosma to her aging great aunt’s cheek. It is made from the wings of brightly coloured butterflies, sewn on to a structure of plank splinters, and hinged with cherry stalks, At least, that is what it is meant to look like. Butterfly wings are delicate things."
@@ -1256,8 +1256,8 @@
   "game": {
     "name": "Game",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/game_box__x1_1_png_1354836384.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/game_box__x1_1_png_1354836384.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/game_box__x1_1_png_1354836384.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/game_box__x1_1_png_1354836384.png",
     "stacksTo": 1,
     "price": 0,
     "description": "This is a tiny box containing a whole imaginary world, created in the minds of 11 Giants. At the bottom, there's a tagline: \"Do stuff. In a game.\" it says. Wow. That's a terrible tag line. Game looks pretty awesome, though."
@@ -1265,8 +1265,8 @@
   "gameserver": {
     "name": "Game Server",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/gameserver__x1_1_png_1354833076.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gameserver__x1_1_png_1354833076.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/gameserver__x1_1_png_1354833076.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/gameserver__x1_1_png_1354833076.png",
     "stacksTo": 1,
     "price": 0,
     "description": "A plain old game server. This one is labelled \"gs4\"."
@@ -1274,8 +1274,8 @@
   "glitchmas_present": {
     "name": "Glitchmas Present",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/glitchmas_present__x1_1_png_1354832924.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/glitchmas_present__x1_1_png_1354832924.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/glitchmas_present__x1_1_png_1354832924.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/glitchmas_present__x1_1_png_1354832924.png",
     "stacksTo": 1,
     "price": 1,
     "description": "Merry Glitchmas!"
@@ -1283,8 +1283,8 @@
   "gnipperite_gnecklace": {
     "name": "Gnipperite Gnecklace",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_necklace_onyx__x1_1_png_1354840482.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_necklace_onyx__x1_1_png_1354840482.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_necklace_onyx__x1_1_png_1354840482.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_necklace_onyx__x1_1_png_1354840482.png",
     "stacksTo": 1,
     "price": 0,
     "description": "A necklace of 19 beads, as black as night. Given by the followers of Friendly to their loved ones on Recurse Eve, in mourning for the year that had passed and holding the promise of Recurse and the year to come. It was also said that the original Gnipperite Gnecklace, owned by a ancient called Masha, had hollow beads, each big enough to hold a stiff swig of hooch. But this reproduction, cheaper version, is boringly solid."
@@ -1301,8 +1301,8 @@
   "golden_egg": {
     "name": "Golden Egg",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/egghunt_egg_5__x1_1_png_1354833292.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/egghunt_egg_5__x1_1_png_1354833292.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/egghunt_egg_5__x1_1_png_1354833292.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/egghunt_egg_5__x1_1_png_1354833292.png",
     "stacksTo": 1,
     "price": 150,
     "description": "An 'oh-so-delicious' and delightfully decorated chocolate egg. Inarguably tasty, this treat is not affiliated with any known holiday or group, religious or otherwise."
@@ -1310,8 +1310,8 @@
   "handbag_clasp": {
     "name": "Handbag Clasp",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_handbag_clasp__x1_1_png_1354840642.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_handbag_clasp__x1_1_png_1354840642.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_handbag_clasp__x1_1_png_1354840642.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_handbag_clasp__x1_1_png_1354840642.png",
     "stacksTo": 1,
     "price": 0,
     "description": "This is a lost artifact, known only through ancient stories of long-deceased ancestors, and has not been discovered in Ur.     Long fallen of the handbag of Egeria, a forgetful woman with a love of large handbags, this heavy metal handbag clasp, fashioned out of the strongest metal available to the formidable bag-wranglers of Groddle Forest. Furthermore, it is secured by the clasping of two perfect glass pyramids that produce a perfect rainbow shadow when hit by the sun."
@@ -1328,8 +1328,8 @@
   "intricately_carved_wooden_ear": {
     "name": "Intricately Carved Wooden Ear",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_carved_ear__x1_1_png_1354840671.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_carved_ear__x1_1_png_1354840671.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_carved_ear__x1_1_png_1354840671.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_carved_ear__x1_1_png_1354840671.png",
     "stacksTo": 1,
     "price": 0,
     "description": "This is a lost artifact, known only through ancient stories of long-deceased ancestors, and has not been discovered in Ur.     Artifactologists believe that this is one of seven ears that would have graced the mask worn by the chief dancer on the feast of Grendaline. Known for their rhythm, their ribald and raucuous moves and their apparent tirelessness, people would come from miles around to see the Grendalinian dancers. This ear would have fitted on the elaborate full-face mask that formed the most impressive - well, the only, really - part of their costume."
@@ -1346,8 +1346,8 @@
   "large_mysterious_cube": {
     "name": "Large Mysterious Cube",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_mysterious_cube__x1_1_png_1354840305.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_mysterious_cube__x1_1_png_1354840305.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_mysterious_cube__x1_1_png_1354840305.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_mysterious_cube__x1_1_png_1354840305.png",
     "stacksTo": 1,
     "price": 0,
     "description": "The people who lived under the auspices of Lem were always a curious lot, never more so than when they stumbled on something the giant had left behind when off on travels. This cube was kept on display at the house of Isabella, the great explorer, whose theories on the different numbers of prongs and holes on each face were rich, varied, and all completely wrong."
@@ -1355,8 +1355,8 @@
   "large_petrified_rock": {
     "name": "Large Petrified Rock",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/petrified_rock_large__x1_1_png_1354840407.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/petrified_rock_large__x1_1_png_1354840407.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/petrified_rock_large__x1_1_png_1354840407.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/petrified_rock_large__x1_1_png_1354840407.png",
     "stacksTo": 5,
     "price": 0,
     "description": "A once-stable living rock, shocked and shaken to its very core by witnessing a truly awesome feat, and drawn to the 13 who contributed the most awe to the act. The pulverising and rejigging of its internal components mean that, when cracked open, a large selection of rare delights may be recovered."
@@ -1364,8 +1364,8 @@
   "limited_edition_imitation_grichmas_yeti": {
     "name": "Highest Quality #1 \"Imported\" Glitchmas Yeti",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/limited_edition_imitation_grichmas_yeti__x1_1_png_1354840054.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/limited_edition_imitation_grichmas_yeti__x1_1_png_1354840054.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/limited_edition_imitation_grichmas_yeti__x1_1_png_1354840054.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/limited_edition_imitation_grichmas_yeti__x1_1_png_1354840054.png",
     "stacksTo": 1,
     "price": 3001000,
     "description": "A genuine, imitation Glitchmas Yeti. It is qualities without peer and it is always ensuring you are satisfy."
@@ -1373,8 +1373,8 @@
   "luminous_moonstone": {
     "name": "Luminous Moonstone",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/gem_moonstone__x1_1_png_1354831649.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gem_moonstone__x1_1_png_1354831649.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/gem_moonstone__x1_1_png_1354831649.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/gem_moonstone__x1_1_png_1354831649.png",
     "stacksTo": 3,
     "price": 1000,
     "description": "A moonstone of eerie luminosity."
@@ -1382,8 +1382,8 @@
   "magical_pendant": {
     "name": "Magical Pendant",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_magical_pendant__x1_1_png_1354840314.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_magical_pendant__x1_1_png_1354840314.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_magical_pendant__x1_1_png_1354840314.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_magical_pendant__x1_1_png_1354840314.png",
     "stacksTo": 1,
     "price": 0,
     "description": "A high priestess of Grendaline once bestowed this piece of jewelry, known as the ‘Kommangerrit Neckpiece” to Helen, having observed that her low confidence was stalling her romantic life. Helen, who became the most desirable girl in Groddle, and believed it to have magical properties, though under duress, the priestess would admit that the vaguely suggestive shape and beer-scented pheromones sprinkled on it might have been more responsible."
@@ -1391,8 +1391,8 @@
   "medium_petrified_rock": {
     "name": "Medium Petrified Rock",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/petrified_rock_medium__x1_1_png_1354840404.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/petrified_rock_medium__x1_1_png_1354840404.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/petrified_rock_medium__x1_1_png_1354840404.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/petrified_rock_medium__x1_1_png_1354840404.png",
     "stacksTo": 5,
     "price": 0,
     "description": "A once-vibrant medium-sized rock, shocked into a state of frozen fossilized awe when it witnessed an epic feat, and drawn, like a magnet, to the generous contributors who brought about the most awe. The fragile structure of elements in its core suggest that a modest selection of rare delights may be found when it is cracked open."
@@ -1409,8 +1409,8 @@
   "million_currant_trophy": {
     "name": "Million Currant Trophy",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/million_currant_trophy__x1_1_png_1354840056.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/million_currant_trophy__x1_1_png_1354840056.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/million_currant_trophy__x1_1_png_1354840056.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/million_currant_trophy__x1_1_png_1354840056.png",
     "stacksTo": 1,
     "price": 1000000,
     "description": "Why earn, if not to display? Imagine the awe and jealousy this trophy will inspire! Sweet, sweet jealousy..."
@@ -1418,8 +1418,8 @@
   "mirror_with_scribbles_on_it": {
     "name": "A Mirror with Scribbles On It",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_mirror_with_scribbles__x1_1_png_1354840310.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_mirror_with_scribbles__x1_1_png_1354840310.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_mirror_with_scribbles__x1_1_png_1354840310.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_mirror_with_scribbles__x1_1_png_1354840310.png",
     "stacksTo": 1,
     "price": 0,
     "description": "A loyal Cosmapolitan, Algie once gave this to his best friend in Groddle Forest, Jack, in retaliation for bestowing the nickname ‘Pond-scum’ upon him. A normal mirror, Algie hung it in such a way that he could reach in through Jack’s window at night and draw on it. Leading Jack to believe that he was sprouting unheard of amounts of ear hair overnight, every night."
@@ -1427,8 +1427,8 @@
   "modestly_sized_ruby": {
     "name": "Modestly Sized Ruby",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/gem_ruby__x1_1_png_1354831652.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gem_ruby__x1_1_png_1354831652.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/gem_ruby__x1_1_png_1354831652.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/gem_ruby__x1_1_png_1354831652.png",
     "stacksTo": 5,
     "price": 700,
     "description": "A modestly sized ruby of nonetheless staggering beauty."
@@ -1436,8 +1436,8 @@
   "musicblock_bb_1": {
     "name": "Musicblock BB-1",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_b_brown_01__x1_1_png_1354835968.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_b_brown_01__x1_1_png_1354835968.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_b_brown_01__x1_1_png_1354835968.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_b_brown_01__x1_1_png_1354835968.png",
     "stacksTo": 5,
     "price": 400,
     "description": "The hit single off the best selling album \"Music For Batterflies\", inspired by the enchanting noises inside a batterfly's gastrointestinal tract."
@@ -1445,8 +1445,8 @@
   "musicblock_bb_2": {
     "name": "Musicblock BB-2",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_b_brown_02__x1_1_png_1354835970.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_b_brown_02__x1_1_png_1354835970.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_b_brown_02__x1_1_png_1354835970.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_b_brown_02__x1_1_png_1354835970.png",
     "stacksTo": 5,
     "price": 400,
     "description": "Warning: excessive volume may cause eyeball jelly to vibrate (in a good way)."
@@ -1454,8 +1454,8 @@
   "musicblock_bb_3": {
     "name": "Musicblock BB-3",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_b_brown_03__x1_1_png_1354835972.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_b_brown_03__x1_1_png_1354835972.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_b_brown_03__x1_1_png_1354835972.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_b_brown_03__x1_1_png_1354835972.png",
     "stacksTo": 5,
     "price": 500,
     "description": "Lie back, close your eyes, and let the music wash over you, like the a cool sea breeze on a hot Alakol day. Or the tongues of a thousand piggies."
@@ -1463,8 +1463,8 @@
   "musicblock_bb_4": {
     "name": "Musicblock BB-4",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_b_brown_04__x1_1_png_1354835974.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_b_brown_04__x1_1_png_1354835974.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_b_brown_04__x1_1_png_1354835974.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_b_brown_04__x1_1_png_1354835974.png",
     "stacksTo": 5,
     "price": 600,
     "description": "Voted Head-bumpingest, Toe-tappingest, Ear-wormingest, Air-drummingest Music Block of the Year, every year, for three centuries running."
@@ -1472,8 +1472,8 @@
   "musicblock_bb_5": {
     "name": "Musicblock BB-5",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_b_brown_05__x1_1_png_1354835976.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_b_brown_05__x1_1_png_1354835976.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_b_brown_05__x1_1_png_1354835976.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_b_brown_05__x1_1_png_1354835976.png",
     "stacksTo": 5,
     "price": 700,
     "description": "Like the noise of Tii's sleeping brain, creating whole new rhythmical logarithms of imagination, but in musical form."
@@ -1481,8 +1481,8 @@
   "musicblock_db_1": {
     "name": "Musicblock DB-1",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_blue_01__x1_1_png_1354832292.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_blue_01__x1_1_png_1354832292.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_blue_01__x1_1_png_1354832292.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_blue_01__x1_1_png_1354832292.png",
     "stacksTo": 5,
     "price": 400,
     "description": "Knees, prepare to be slapped. This musicblock takes no prisoners with its twangy goodness."
@@ -1490,8 +1490,8 @@
   "musicblock_db_2": {
     "name": "Musicblock DB-2",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_blue_02__x1_1_png_1354832294.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_blue_02__x1_1_png_1354832294.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_blue_02__x1_1_png_1354832294.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_blue_02__x1_1_png_1354832294.png",
     "stacksTo": 5,
     "price": 400,
     "description": "Like the songs that giants hum to themselves when they're feeling blue. Unless they ARE blue, in which case they don't sing this way at all."
@@ -1499,8 +1499,8 @@
   "musicblock_db_3": {
     "name": "Musicblock DB-3",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_blue_03__x1_1_png_1354832296.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_blue_03__x1_1_png_1354832296.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_blue_03__x1_1_png_1354832296.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_blue_03__x1_1_png_1354832296.png",
     "stacksTo": 5,
     "price": 500,
     "description": "Warning: May cause you to do the chicken boogie."
@@ -1508,8 +1508,8 @@
   "musicblock_db_4": {
     "name": "Musicblock DB-4",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_blue_04__x1_1_png_1354832298.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_blue_04__x1_1_png_1354832298.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_blue_04__x1_1_png_1354832298.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_blue_04__x1_1_png_1354832298.png",
     "stacksTo": 5,
     "price": 600,
     "description": "Feet everywhere will tap despite themselves when they hear this."
@@ -1517,8 +1517,8 @@
   "musicblock_db_5": {
     "name": "Musicblock DB-5",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_blue_05__x1_1_png_1354832301.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_blue_05__x1_1_png_1354832301.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_blue_05__x1_1_png_1354832301.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_blue_05__x1_1_png_1354832301.png",
     "stacksTo": 5,
     "price": 700,
     "description": "If you could amplify butterfly song, this is roughly what it would sound like."
@@ -1526,8 +1526,8 @@
   "musicblock_dg2": {
     "name": "Musicblock DG-2",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_green_02__x1_1_png_1354832305.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_green_02__x1_1_png_1354832305.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_green_02__x1_1_png_1354832305.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_green_02__x1_1_png_1354832305.png",
     "stacksTo": 5,
     "price": 400,
     "description": "Dig those crazy pincer-snapping beats."
@@ -1535,8 +1535,8 @@
   "musicblock_dg3": {
     "name": "Musicblock DG-3",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_green_03__x1_1_png_1354832307.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_green_03__x1_1_png_1354832307.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_green_03__x1_1_png_1354832307.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_green_03__x1_1_png_1354832307.png",
     "stacksTo": 5,
     "price": 500,
     "description": "Some would ban this musicblock. Might not be a bad idea."
@@ -1544,8 +1544,8 @@
   "musicblock_dg4": {
     "name": "Musicblock DG-4",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_green_04__x1_1_png_1354832309.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_green_04__x1_1_png_1354832309.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_green_04__x1_1_png_1354832309.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_green_04__x1_1_png_1354832309.png",
     "stacksTo": 5,
     "price": 600,
     "description": "This one is like that song from that guy who did that other musicblock."
@@ -1553,8 +1553,8 @@
   "musicblock_dg5": {
     "name": "Musicblock DG-5",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_green_05__x1_1_png_1354832311.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_green_05__x1_1_png_1354832311.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_green_05__x1_1_png_1354832311.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_green_05__x1_1_png_1354832311.png",
     "stacksTo": 5,
     "price": 700,
     "description": "Rock out with your block out. This is the musicblock anthem that's taking Groddle Forest by storm."
@@ -1562,8 +1562,8 @@
   "musicblock_dg_1": {
     "name": "Musicblock DG-1",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_green_01__x1_1_png_1354832302.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_green_01__x1_1_png_1354832302.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_green_01__x1_1_png_1354832302.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_green_01__x1_1_png_1354832302.png",
     "stacksTo": 5,
     "price": 400,
     "description": "Hoe Magazine gave this musicblock 6.8 out of a possible 7 pointlets."
@@ -1571,8 +1571,8 @@
   "musicblock_dr_1": {
     "name": "Musicblock DR-1",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_red_01__x1_1_png_1354832313.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_red_01__x1_1_png_1354832313.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_red_01__x1_1_png_1354832313.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_red_01__x1_1_png_1354832313.png",
     "stacksTo": 5,
     "price": 400,
     "description": "Music to drink a Cloud 11 Smoothie by."
@@ -1580,8 +1580,8 @@
   "musicblock_dr_2": {
     "name": "Musicblock DR-2",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_red_02__x1_1_png_1354832315.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_red_02__x1_1_png_1354832315.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_red_02__x1_1_png_1354832315.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_red_02__x1_1_png_1354832315.png",
     "stacksTo": 5,
     "price": 400,
     "description": "The bestselling theme song from 'A Pig Petter's Diary'."
@@ -1589,8 +1589,8 @@
   "musicblock_dr_3": {
     "name": "Musicblock DR-3",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_red_03__x1_1_png_1354832317.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_red_03__x1_1_png_1354832317.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_red_03__x1_1_png_1354832317.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_red_03__x1_1_png_1354832317.png",
     "stacksTo": 5,
     "price": 500,
     "description": "Underpants have been known to become airborne at the sound of this musicblock. Watch your back."
@@ -1598,8 +1598,8 @@
   "musicblock_dr_4": {
     "name": "Musicblock DR-4",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_red_04__x1_1_png_1354832319.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_red_04__x1_1_png_1354832319.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_red_04__x1_1_png_1354832319.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_red_04__x1_1_png_1354832319.png",
     "stacksTo": 5,
     "price": 600,
     "description": "The best ear-wormy racket-pop currants can buy."
@@ -1607,8 +1607,8 @@
   "musicblock_dr_5": {
     "name": "Musicblock DR-5",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_red_05__x1_1_png_1354832321.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_d_red_05__x1_1_png_1354832321.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_red_05__x1_1_png_1354832321.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_d_red_05__x1_1_png_1354832321.png",
     "stacksTo": 5,
     "price": 700,
     "description": "This friendly little tune reaches into your brain and scratches your hypothalamus. Tickly."
@@ -1616,8 +1616,8 @@
   "musicblock_gng": {
     "name": "Musicblock GNG",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_goodnight_groddle__x1_1_png_1354836374.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_goodnight_groddle__x1_1_png_1354836374.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_goodnight_groddle__x1_1_png_1354836374.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_goodnight_groddle__x1_1_png_1354836374.png",
     "stacksTo": 1,
     "price": 5000,
     "description": "Once upon a time, this was the song that sent the world into slumber."
@@ -1625,8 +1625,8 @@
   "musicblock_stoot": {
     "name": "Musicblock SB-1",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_sb_secret_01__x1_1_png_1354832513.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_sb_secret_01__x1_1_png_1354832513.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_sb_secret_01__x1_1_png_1354832513.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_sb_secret_01__x1_1_png_1354832513.png",
     "stacksTo": 1,
     "price": 10000,
     "description": "This is the rare original recording of the song the Giants were humming when they were imagining the world."
@@ -1634,8 +1634,8 @@
   "musicblock_trumpets": {
     "name": "Musicblock T-1",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_trumpets__x1_1_png_1354836377.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_trumpets__x1_1_png_1354836377.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_trumpets__x1_1_png_1354836377.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_trumpets__x1_1_png_1354836377.png",
     "stacksTo": 1,
     "price": 3000,
     "description": ""
@@ -1643,8 +1643,8 @@
   "musicblock_xs_1": {
     "name": "Musicblock XS-1",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_x_shiny_01__x1_1_png_1354832323.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_x_shiny_01__x1_1_png_1354832323.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_x_shiny_01__x1_1_png_1354832323.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_x_shiny_01__x1_1_png_1354832323.png",
     "stacksTo": 5,
     "price": 400,
     "description": "This is sort of an experimental, free-form, jazzy, fusiony something-or-other. Heavy on the experimental."
@@ -1652,8 +1652,8 @@
   "musicblock_xs_2": {
     "name": "Musicblock XS-2",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_x_shiny_02__x1_1_png_1354832326.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_x_shiny_02__x1_1_png_1354832326.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_x_shiny_02__x1_1_png_1354832326.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_x_shiny_02__x1_1_png_1354832326.png",
     "stacksTo": 5,
     "price": 400,
     "description": "It's a little-known fact that this snappy little ditty was the inspiration for the phrase 'snappy little ditty'."
@@ -1661,8 +1661,8 @@
   "musicblock_xs_3": {
     "name": "Musicblock XS-3",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_x_shiny_03__x1_1_png_1354832329.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_x_shiny_03__x1_1_png_1354832329.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_x_shiny_03__x1_1_png_1354832329.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_x_shiny_03__x1_1_png_1354832329.png",
     "stacksTo": 5,
     "price": 500,
     "description": "This rare musicblock is a bootleg from a Lapulapu Cavern rave dance party."
@@ -1670,8 +1670,8 @@
   "musicblock_xs_4": {
     "name": "Musicblock XS-4",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_x_shiny_04__x1_1_png_1354832331.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_x_shiny_04__x1_1_png_1354832331.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_x_shiny_04__x1_1_png_1354832331.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_x_shiny_04__x1_1_png_1354832331.png",
     "stacksTo": 5,
     "price": 600,
     "description": "Rare recording of classic Glitch-hop before it all went mainstream."
@@ -1679,8 +1679,8 @@
   "musicblock_xs_5": {
     "name": "Musicblock XS-5",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_x_shiny_05__x1_1_png_1354832333.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/musicblock_x_shiny_05__x1_1_png_1354832333.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/musicblock_x_shiny_05__x1_1_png_1354832333.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/musicblock_x_shiny_05__x1_1_png_1354832333.png",
     "stacksTo": 5,
     "price": 700,
     "description": "If you played a butterfly song backward, this is roughly what it would sound like. You can barely hear the demons."
@@ -1688,35 +1688,77 @@
   "npc_cubimal_factorydefect_chick": {
     "name": "Factory Defect Chick Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_factorydefect_chick__x1_1_png_1354840104.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_factorydefect_chick__x1_race_png_1354840105.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_factorydefect_chick__x1_1_png_1354840104.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_factorydefect_chick__x1_race_png_1354840105.png",
     "stacksTo": 1,
     "price": 1511000,
-    "description": "This Factory Defect Chick Cubimal was hand-picked straight out of the garbage bin by an assembly line worker."
+    "description": "This Factory Defect Chick Cubimal was hand-picked straight out of the garbage bin by an assembly line worker.",
+    "actions": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      },
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "npc_cubimal_gardeningtoolsvendor": {
     "name": "Gardening Tools Vendor Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_gardeningtoolsvendor__x1_1_png_1354839863.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_gardeningtoolsvendor__x1_race_png_1354839863.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_gardeningtoolsvendor__x1_1_png_1354839863.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_gardeningtoolsvendor__x1_race_png_1354839863.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Gardening Tools Vendor Cubimal! Collect all Series 2 Cubimals!"
+    "description": "It's a Gardening Tools Vendor Cubimal! Collect all Series 2 Cubimals!",
+    "actions": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      },
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "npc_cubimal_maintenancebot": {
     "name": "Maintenance Bot Cubimal",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_maintenancebot__x1_1_png_1354839965.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/npc_cubimal_maintenancebot__x1_race_png_1354839966.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_maintenancebot__x1_1_png_1354839965.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_maintenancebot__x1_race_png_1354839966.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "It's a Maintenance Bot Cubimal! Collect all Series 2 Cubimals!"
+    "description": "It's a Mai,ntenance Bot Cubimal! Collect all Series 2 Cubimals!",
+    "actions": [
+      {
+        "name": "Race",
+        "description": "Race it against another Cubimal",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      },
+      {
+        "name": "Set Free",
+        "description": "Release your cubimal back into the wild",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "nyanite_necklace": {
     "name": "Nyanite Necklace",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_necklace_amazonite__x1_1_png_1354840494.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_necklace_amazonite__x1_1_png_1354840494.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_necklace_amazonite__x1_1_png_1354840494.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_necklace_amazonite__x1_1_png_1354840494.png",
     "stacksTo": 1,
     "price": 0,
     "description": "A necklace of 17 pleasingly square beads, given by devotees of Mab to celebrate Croppaday. Based on a necklace owned by an ancient Mabbite priest called Timbernasleigh which would, when placed around the right neck, play the most alluring yet annoying tune Ur had ever heard so repetitiously that anyone within earshot could never unhear it. This replica, thank Mab, does not do that."
@@ -1733,8 +1775,8 @@
   "ouzian_necklace": {
     "name": "Ouzian Necklace",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_necklace_imperial__x1_1_png_1354840479.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_necklace_imperial__x1_1_png_1354840479.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_necklace_imperial__x1_1_png_1354840479.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_necklace_imperial__x1_1_png_1354840479.png",
     "stacksTo": 1,
     "price": 0,
     "description": "A necklace of 23 swirling blue beads, traditionally given to family (and those loved like family) to celebrate the feast of the Sprinkling. Based on the necklace of ancient Mistress of the Water-filled Can, Nephelokokkygia (though not named after her, because during Sprinkling most people tended to lose the ability to pronounce her name)."
@@ -1742,8 +1784,8 @@
   "oversized_protective_goggles": {
     "name": "Oversized Brass-Rimmed Protective Goggles",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_goggles__x1_1_png_1354840648.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_goggles__x1_1_png_1354840648.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_goggles__x1_1_png_1354840648.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_goggles__x1_1_png_1354840648.png",
     "stacksTo": 1,
     "price": 0,
     "description": "This is a lost artifact, known only through ancient stories of long-deceased ancestors, and has not been discovered in Ur.     There’s a list somewhere of all the things from which this particular class of protective goggle can protect the wearer. Weena, one of the great scientists of the beforetimes, ran a series of tests flinging various substances at testers and making a mark on her notepad whenever someone said “ouch”, and a larger mark if they suddenly stopped saying anything at all. Erring on the side of caution, most goggle-wearers trusted them to protect against hard airs, soft liquids and lukewarm steam, and learned just to avoid Weena entirely."
@@ -1751,8 +1793,8 @@
   "piece_of_a_mirror_with_scribbles_on_it_1": {
     "name": "Piece of A Mirror with Scribbles On It",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_mirror_with_scribbles_piece1__x1_1_png_1354840351.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_mirror_with_scribbles_piece1__x1_1_png_1354840351.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_mirror_with_scribbles_piece1__x1_1_png_1354840351.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_mirror_with_scribbles_piece1__x1_1_png_1354840351.png",
     "stacksTo": 5,
     "price": 0,
     "description": "One fifth of a shattered mirror. Combining all of them will undoubtedly bring good luck at the expense of whomever broke it."
@@ -1760,8 +1802,8 @@
   "piece_of_a_mirror_with_scribbles_on_it_2": {
     "name": "Piece of A Mirror with Scribbles On It",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_mirror_with_scribbles_piece2__x1_1_png_1354840353.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_mirror_with_scribbles_piece2__x1_1_png_1354840353.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_mirror_with_scribbles_piece2__x1_1_png_1354840353.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_mirror_with_scribbles_piece2__x1_1_png_1354840353.png",
     "stacksTo": 5,
     "price": 0,
     "description": "One fifth of a shattered mirror. Combining all of them will undoubtedly bring good luck at the expense of whomever broke it."
@@ -1769,8 +1811,8 @@
   "piece_of_a_mirror_with_scribbles_on_it_3": {
     "name": "Piece of A Mirror with Scribbles On It",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_mirror_with_scribbles_piece3__x1_1_png_1354840355.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_mirror_with_scribbles_piece3__x1_1_png_1354840355.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_mirror_with_scribbles_piece3__x1_1_png_1354840355.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_mirror_with_scribbles_piece3__x1_1_png_1354840355.png",
     "stacksTo": 5,
     "price": 0,
     "description": "One fifth of a shattered mirror. Combining all of them will undoubtedly bring good luck at the expense of whomever broke it."
@@ -1778,8 +1820,8 @@
   "piece_of_a_mirror_with_scribbles_on_it_4": {
     "name": "Piece of A Mirror with Scribbles On It",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_mirror_with_scribbles_piece4__x1_1_png_1354840357.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_mirror_with_scribbles_piece4__x1_1_png_1354840357.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_mirror_with_scribbles_piece4__x1_1_png_1354840357.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_mirror_with_scribbles_piece4__x1_1_png_1354840357.png",
     "stacksTo": 5,
     "price": 0,
     "description": "One fifth of a shattered mirror. Combining all of them will undoubtedly bring good luck at the expense of whomever broke it."
@@ -1787,8 +1829,8 @@
   "piece_of_a_mirror_with_scribbles_on_it_5": {
     "name": "Piece of A Mirror with Scribbles On It",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_mirror_with_scribbles_piece5__x1_1_png_1354840359.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_mirror_with_scribbles_piece5__x1_1_png_1354840359.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_mirror_with_scribbles_piece5__x1_1_png_1354840359.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_mirror_with_scribbles_piece5__x1_1_png_1354840359.png",
     "stacksTo": 5,
     "price": 0,
     "description": "One fifth of a shattered mirror. Combining all of them will undoubtedly bring good luck at the expense of whomever broke it."
@@ -1796,8 +1838,8 @@
   "piece_of_butterfly_hair_clip_1": {
     "name": "Piece of Butterfly Bone Hair Clip",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_butterfly_hair_clip_piece1__x1_1_png_1354840344.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_butterfly_hair_clip_piece1__x1_1_png_1354840344.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_butterfly_hair_clip_piece1__x1_1_png_1354840344.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_butterfly_hair_clip_piece1__x1_1_png_1354840344.png",
     "stacksTo": 5,
     "price": 0,
     "description": "One of four fragments that make up Gwendolyn's long-forgotten hair-clip. Acquire them all to remember it again."
@@ -1805,8 +1847,8 @@
   "piece_of_butterfly_hair_clip_2": {
     "name": "Piece of Butterfly Bone Hair Clip",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_butterfly_hair_clip_piece2__x1_1_png_1354840346.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_butterfly_hair_clip_piece2__x1_1_png_1354840346.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_butterfly_hair_clip_piece2__x1_1_png_1354840346.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_butterfly_hair_clip_piece2__x1_1_png_1354840346.png",
     "stacksTo": 5,
     "price": 0,
     "description": "One of four fragments that make up Gwendolyn's long-forgotten hair-clip. Acquire them all to remember it again."
@@ -1814,8 +1856,8 @@
   "piece_of_butterfly_hair_clip_3": {
     "name": "Piece of Butterfly Bone Hair Clip",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_butterfly_hair_clip_piece3__x1_1_png_1354840348.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_butterfly_hair_clip_piece3__x1_1_png_1354840348.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_butterfly_hair_clip_piece3__x1_1_png_1354840348.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_butterfly_hair_clip_piece3__x1_1_png_1354840348.png",
     "stacksTo": 5,
     "price": 0,
     "description": "One of four fragments that make up Gwendolyn's long-forgotten hair-clip. Acquire them all to remember it again."
@@ -1823,8 +1865,8 @@
   "piece_of_butterfly_hair_clip_4": {
     "name": "Piece of Butterfly Bone Hair Clip",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_butterfly_hair_clip_piece4__x1_1_png_1354840350.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_butterfly_hair_clip_piece4__x1_1_png_1354840350.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_butterfly_hair_clip_piece4__x1_1_png_1354840350.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_butterfly_hair_clip_piece4__x1_1_png_1354840350.png",
     "stacksTo": 5,
     "price": 0,
     "description": "One of four fragments that make up Gwendolyn's long-forgotten hair-clip. Acquire them all to remember it again."
@@ -1832,8 +1874,8 @@
   "piece_of_chicken_shaped_brick_1": {
     "name": "Piece of Chicken-Shaped Brick",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_chicken_brick_piece1__x1_1_png_1354840367.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_chicken_brick_piece1__x1_1_png_1354840367.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_chicken_brick_piece1__x1_1_png_1354840367.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_chicken_brick_piece1__x1_1_png_1354840367.png",
     "stacksTo": 5,
     "price": 0,
     "description": "A piece of brick that resembles one fifth of a chicken and is warm to the touch. All of them will likely combine to make a whole fowl."
@@ -1841,8 +1883,8 @@
   "piece_of_chicken_shaped_brick_2": {
     "name": "Piece of Chicken-Shaped Brick",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_chicken_brick_piece2__x1_1_png_1354840369.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_chicken_brick_piece2__x1_1_png_1354840369.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_chicken_brick_piece2__x1_1_png_1354840369.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_chicken_brick_piece2__x1_1_png_1354840369.png",
     "stacksTo": 5,
     "price": 0,
     "description": "A piece of brick that resembles one fifth of a chicken and is warm to the touch. All of them will likely combine to make a whole fowl."
@@ -1850,8 +1892,8 @@
   "piece_of_chicken_shaped_brick_3": {
     "name": "Piece of Chicken-Shaped Brick",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_chicken_brick_piece3__x1_1_png_1354840371.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_chicken_brick_piece3__x1_1_png_1354840371.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_chicken_brick_piece3__x1_1_png_1354840371.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_chicken_brick_piece3__x1_1_png_1354840371.png",
     "stacksTo": 5,
     "price": 0,
     "description": "A piece of brick that resembles one fifth of a chicken and is warm to the touch. All of them will likely combine to make a whole fowl."
@@ -1859,8 +1901,8 @@
   "piece_of_chicken_shaped_brick_4": {
     "name": "Piece of Chicken-Shaped Brick",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_chicken_brick_piece4__x1_1_png_1354840372.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_chicken_brick_piece4__x1_1_png_1354840372.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_chicken_brick_piece4__x1_1_png_1354840372.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_chicken_brick_piece4__x1_1_png_1354840372.png",
     "stacksTo": 5,
     "price": 0,
     "description": "A piece of brick that resembles one fifth of a chicken and is warm to the touch. All of them will likely combine to make a whole fowl."
@@ -1868,8 +1910,8 @@
   "piece_of_chicken_shaped_brick_5": {
     "name": "Piece of Chicken-Shaped Brick",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_chicken_brick_piece5__x1_1_png_1354840374.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_chicken_brick_piece5__x1_1_png_1354840374.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_chicken_brick_piece5__x1_1_png_1354840374.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_chicken_brick_piece5__x1_1_png_1354840374.png",
     "stacksTo": 5,
     "price": 0,
     "description": "A piece of brick that resembles one fifth of a chicken and is warm to the touch. All of them will likely combine to make a whole fowl."
@@ -1877,8 +1919,8 @@
   "piece_of_fake_nose_made_of_china_1": {
     "name": "Piece of Fake Nose Made of China",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_nose_of_china_piece1__x1_1_png_1354840376.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_nose_of_china_piece1__x1_1_png_1354840376.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_nose_of_china_piece1__x1_1_png_1354840376.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_nose_of_china_piece1__x1_1_png_1354840376.png",
     "stacksTo": 5,
     "price": 0,
     "description": "A single and somewhat snotty half of a fake nose made from delicate china."
@@ -1886,8 +1928,8 @@
   "piece_of_fake_nose_made_of_china_2": {
     "name": "Piece of Fake Nose Made of China",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_nose_of_china_piece2__x1_1_png_1354840378.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_nose_of_china_piece2__x1_1_png_1354840378.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_nose_of_china_piece2__x1_1_png_1354840378.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_nose_of_china_piece2__x1_1_png_1354840378.png",
     "stacksTo": 5,
     "price": 0,
     "description": "A single and somewhat snotty half of a fake nose made from delicate china."
@@ -1895,8 +1937,8 @@
   "piece_of_large_mysterious_cube_1": {
     "name": "Piece of Large Mysterious Cube",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_mysterious_cube_piece1__x1_1_png_1354840327.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_mysterious_cube_piece1__x1_1_png_1354840327.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_mysterious_cube_piece1__x1_1_png_1354840327.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_mysterious_cube_piece1__x1_1_png_1354840327.png",
     "stacksTo": 5,
     "price": 0,
     "description": "One of five small fragments that, never mind the laws of geometry, combine to make one large cube. Mysterious."
@@ -1904,8 +1946,8 @@
   "piece_of_large_mysterious_cube_2": {
     "name": "Piece of Large Mysterious Cube",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_mysterious_cube_piece2__x1_1_png_1354840328.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_mysterious_cube_piece2__x1_1_png_1354840328.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_mysterious_cube_piece2__x1_1_png_1354840328.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_mysterious_cube_piece2__x1_1_png_1354840328.png",
     "stacksTo": 5,
     "price": 0,
     "description": "One of five small fragments that, never mind the laws of geometry, combine to make one large cube. Mysterious."
@@ -1913,8 +1955,8 @@
   "piece_of_large_mysterious_cube_3": {
     "name": "Piece of Large Mysterious Cube",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_mysterious_cube_piece3__x1_1_png_1354840330.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_mysterious_cube_piece3__x1_1_png_1354840330.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_mysterious_cube_piece3__x1_1_png_1354840330.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_mysterious_cube_piece3__x1_1_png_1354840330.png",
     "stacksTo": 5,
     "price": 0,
     "description": "One of five small fragments that, never mind the laws of geometry, combine to make one large cube. Mysterious."
@@ -1922,8 +1964,8 @@
   "piece_of_large_mysterious_cube_4": {
     "name": "Piece of Large Mysterious Cube",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_mysterious_cube_piece4__x1_1_png_1354840332.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_mysterious_cube_piece4__x1_1_png_1354840332.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_mysterious_cube_piece4__x1_1_png_1354840332.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_mysterious_cube_piece4__x1_1_png_1354840332.png",
     "stacksTo": 5,
     "price": 0,
     "description": "One of five small fragments that, never mind the laws of geometry, combine to make one large cube. Mysterious."
@@ -1931,8 +1973,8 @@
   "piece_of_large_mysterious_cube_5": {
     "name": "Piece of Large Mysterious Cube",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_mysterious_cube_piece5__x1_1_png_1354840334.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_mysterious_cube_piece5__x1_1_png_1354840334.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_mysterious_cube_piece5__x1_1_png_1354840334.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_mysterious_cube_piece5__x1_1_png_1354840334.png",
     "stacksTo": 5,
     "price": 0,
     "description": "One of five small fragments that, never mind the laws of geometry, combine to make one large cube. Mysterious."
@@ -1940,8 +1982,8 @@
   "piece_of_magical_pendant_1": {
     "name": "Piece of Magical Pendant",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_magical_pendant_piece1__x1_1_png_1354840361.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_magical_pendant_piece1__x1_1_png_1354840361.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_magical_pendant_piece1__x1_1_png_1354840361.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_magical_pendant_piece1__x1_1_png_1354840361.png",
     "stacksTo": 5,
     "price": 0,
     "description": "One charming, chipped off chunk of a total of three romantically charged necklace pieces."
@@ -1949,8 +1991,8 @@
   "piece_of_magical_pendant_2": {
     "name": "Piece of Magical Pendant",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_magical_pendant_piece2__x1_1_png_1354840363.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_magical_pendant_piece2__x1_1_png_1354840363.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_magical_pendant_piece2__x1_1_png_1354840363.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_magical_pendant_piece2__x1_1_png_1354840363.png",
     "stacksTo": 5,
     "price": 0,
     "description": "One charming, chipped off chunk of a total of three romantically charged necklace pieces."
@@ -1958,8 +2000,8 @@
   "piece_of_magical_pendant_3": {
     "name": "Piece of Magical Pendant",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_magical_pendant_piece3__x1_1_png_1354840365.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_magical_pendant_piece3__x1_1_png_1354840365.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_magical_pendant_piece3__x1_1_png_1354840365.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_magical_pendant_piece3__x1_1_png_1354840365.png",
     "stacksTo": 5,
     "price": 0,
     "description": "One charming, chipped off chunk of a total of three romantically charged necklace pieces."
@@ -1967,8 +2009,8 @@
   "piece_of_platinumium_spork_1": {
     "name": "Piece of Platinumium Spork",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_platinumium_spork_piece1__x1_1_png_1354840380.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_platinumium_spork_piece1__x1_1_png_1354840380.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_platinumium_spork_piece1__x1_1_png_1354840380.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_platinumium_spork_piece1__x1_1_png_1354840380.png",
     "stacksTo": 5,
     "price": 0,
     "description": "Half of a platinuminium spork that requires its partner before functioning like a spoon, fork, or both."
@@ -1976,8 +2018,8 @@
   "piece_of_platinumium_spork_2": {
     "name": "Piece of Platinumium Spork",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_platinumium_spork_piece2__x1_1_png_1354840383.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_platinumium_spork_piece2__x1_1_png_1354840383.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_platinumium_spork_piece2__x1_1_png_1354840383.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_platinumium_spork_piece2__x1_1_png_1354840383.png",
     "stacksTo": 5,
     "price": 0,
     "description": "Half of a platinuminium spork that requires its partner before functioning like a spoon, fork, or both."
@@ -1985,8 +2027,8 @@
   "piece_of_street_creator_dirt_trophy_1": {
     "name": "A Piece of Street Creator Dirt Trophy",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_dirt_piece1__x1_1_png_1354832947.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_dirt_piece1__x1_1_png_1354832947.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_dirt_piece1__x1_1_png_1354832947.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_dirt_piece1__x1_1_png_1354832947.png",
     "stacksTo": 1,
     "price": 50,
     "description": "One part of a trophy for contributing to street-building. Four more parts like it, you might have a whole trophy! A Dirt Trophy. Like they say: where there's muck, there's brass."
@@ -1994,8 +2036,8 @@
   "piece_of_street_creator_dirt_trophy_2": {
     "name": "A Piece of Street Creator Dirt Trophy",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_dirt_piece2__x1_1_png_1354832949.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_dirt_piece2__x1_1_png_1354832949.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_dirt_piece2__x1_1_png_1354832949.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_dirt_piece2__x1_1_png_1354832949.png",
     "stacksTo": 1,
     "price": 50,
     "description": "One part of a trophy for contributing to street-building. Four more parts like it, you might have a whole trophy! A Dirt Trophy. Like they say: where there's muck, there's brass."
@@ -2003,8 +2045,8 @@
   "piece_of_street_creator_dirt_trophy_3": {
     "name": "A Piece of Street Creator Dirt Trophy",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_dirt_piece3__x1_1_png_1354832951.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_dirt_piece3__x1_1_png_1354832951.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_dirt_piece3__x1_1_png_1354832951.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_dirt_piece3__x1_1_png_1354832951.png",
     "stacksTo": 1,
     "price": 50,
     "description": "One part of a trophy for contributing to street-building. Four more parts like it, you might have a whole trophy! A Dirt Trophy. Like they say: where there's muck, there's brass."
@@ -2012,8 +2054,8 @@
   "piece_of_street_creator_dirt_trophy_4": {
     "name": "A Piece of Street Creator Dirt Trophy",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_dirt_piece4__x1_1_png_1354832953.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_dirt_piece4__x1_1_png_1354832953.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_dirt_piece4__x1_1_png_1354832953.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_dirt_piece4__x1_1_png_1354832953.png",
     "stacksTo": 1,
     "price": 50,
     "description": "One part of a trophy for contributing to street-building. Four more parts like it, you might have a whole trophy! A Dirt Trophy. Like they say: where there's muck, there's brass."
@@ -2021,8 +2063,8 @@
   "piece_of_street_creator_dirt_trophy_5": {
     "name": "A Piece of Street Creator Dirt Trophy",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_dirt_piece5__x1_1_png_1354832955.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_dirt_piece5__x1_1_png_1354832955.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_dirt_piece5__x1_1_png_1354832955.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_dirt_piece5__x1_1_png_1354832955.png",
     "stacksTo": 1,
     "price": 50,
     "description": "One part of a trophy for contributing to street-building. Four more parts like it, you might have a whole trophy! A Dirt Trophy. Like they say: where there's muck, there's brass."
@@ -2030,8 +2072,8 @@
   "piece_of_street_creator_earth_trophy_1": {
     "name": "A Piece of Street Creator Earth Trophy",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_earth_piece1__x1_1_png_1354832975.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_earth_piece1__x1_1_png_1354832975.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_earth_piece1__x1_1_png_1354832975.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_earth_piece1__x1_1_png_1354832975.png",
     "stacksTo": 1,
     "price": 50,
     "description": "One piece of a street-building trophy. Five different pieces of this - the Earth\" Trophy - put together will make one whole ornament. Heal the earth! (Trophy)!"
@@ -2039,8 +2081,8 @@
   "piece_of_street_creator_earth_trophy_2": {
     "name": "A Piece of Street Creator Earth Trophy",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_earth_piece2__x1_1_png_1354832976.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_earth_piece2__x1_1_png_1354832976.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_earth_piece2__x1_1_png_1354832976.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_earth_piece2__x1_1_png_1354832976.png",
     "stacksTo": 1,
     "price": 50,
     "description": "One piece of a street-building trophy. Five different pieces of this - the Earth\" Trophy - put together will make one whole ornament. Heal the earth! (Trophy)!"
@@ -2048,8 +2090,8 @@
   "piece_of_street_creator_earth_trophy_3": {
     "name": "A Piece of Street Creator Earth Trophy",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_earth_piece3__x1_1_png_1354832978.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_earth_piece3__x1_1_png_1354832978.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_earth_piece3__x1_1_png_1354832978.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_earth_piece3__x1_1_png_1354832978.png",
     "stacksTo": 1,
     "price": 50,
     "description": "One piece of a street-building trophy. Five different pieces of this - the Earth\" Trophy - put together will make one whole ornament. Heal the earth! (Trophy)!"
@@ -2057,8 +2099,8 @@
   "piece_of_street_creator_earth_trophy_4": {
     "name": "A Piece of Street Creator Earth Trophy",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_earth_piece4__x1_1_png_1354832980.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_earth_piece4__x1_1_png_1354832980.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_earth_piece4__x1_1_png_1354832980.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_earth_piece4__x1_1_png_1354832980.png",
     "stacksTo": 1,
     "price": 50,
     "description": "One piece of a street-building trophy. Five different pieces of this - the Earth\" Trophy - put together will make one whole ornament. Heal the earth! (Trophy)!"
@@ -2066,8 +2108,8 @@
   "piece_of_street_creator_earth_trophy_5": {
     "name": "A Piece of Street Creator Earth Trophy",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_earth_piece5__x1_1_png_1354832982.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_earth_piece5__x1_1_png_1354832982.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_earth_piece5__x1_1_png_1354832982.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_earth_piece5__x1_1_png_1354832982.png",
     "stacksTo": 1,
     "price": 50,
     "description": "One piece of a street-building trophy. Five different pieces of this - the Earth\" Trophy - put together will make one whole ornament. Heal the earth! (Trophy)!"
@@ -2075,8 +2117,8 @@
   "piece_of_street_creator_rock_trophy_1": {
     "name": "A Piece of Street Creator Rock Trophy",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_rock_piece1__x1_1_png_1354832966.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_rock_piece1__x1_1_png_1354832966.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_rock_piece1__x1_1_png_1354832966.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_rock_piece1__x1_1_png_1354832966.png",
     "stacksTo": 1,
     "price": 50,
     "description": "One fifth of a trophy celebrating top street-creators. Four more pieces similar to it, and one mighty Rock Trophy would be born."
@@ -2084,8 +2126,8 @@
   "piece_of_street_creator_rock_trophy_2": {
     "name": "A Piece of Street Creator Rock Trophy",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_rock_piece2__x1_1_png_1354832968.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_rock_piece2__x1_1_png_1354832968.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_rock_piece2__x1_1_png_1354832968.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_rock_piece2__x1_1_png_1354832968.png",
     "stacksTo": 1,
     "price": 50,
     "description": "One fifth of a trophy celebrating top street-creators. Four more pieces similar to it, and one mighty Rock Trophy would be born."
@@ -2093,8 +2135,8 @@
   "piece_of_street_creator_rock_trophy_3": {
     "name": "A Piece of Street Creator Rock Trophy",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_rock_piece3__x1_1_png_1354832969.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_rock_piece3__x1_1_png_1354832969.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_rock_piece3__x1_1_png_1354832969.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_rock_piece3__x1_1_png_1354832969.png",
     "stacksTo": 1,
     "price": 50,
     "description": "One fifth of a trophy celebrating top street-creators. Four more pieces similar to it, and one mighty Rock Trophy would be born."
@@ -2102,8 +2144,8 @@
   "piece_of_street_creator_rock_trophy_4": {
     "name": "A Piece of Street Creator Rock Trophy",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_rock_piece4__x1_1_png_1354832971.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_rock_piece4__x1_1_png_1354832971.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_rock_piece4__x1_1_png_1354832971.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_rock_piece4__x1_1_png_1354832971.png",
     "stacksTo": 1,
     "price": 50,
     "description": "One fifth of a trophy celebrating top street-creators. Four more pieces similar to it, and one mighty Rock Trophy would be born."
@@ -2111,8 +2153,8 @@
   "piece_of_street_creator_rock_trophy_5": {
     "name": "A Piece of Street Creator Rock Trophy",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_rock_piece5__x1_1_png_1354832973.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_rock_piece5__x1_1_png_1354832973.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_rock_piece5__x1_1_png_1354832973.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_rock_piece5__x1_1_png_1354832973.png",
     "stacksTo": 1,
     "price": 50,
     "description": "One fifth of a trophy celebrating top street-creators. Four more pieces similar to it, and one mighty Rock Trophy would be born."
@@ -2120,8 +2162,8 @@
   "piece_of_street_creator_rock_wood_1": {
     "name": "A Piece of Street Creator Wood Trophy",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_wood_piece1__x1_1_png_1354832957.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_wood_piece1__x1_1_png_1354832957.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_wood_piece1__x1_1_png_1354832957.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_wood_piece1__x1_1_png_1354832957.png",
     "stacksTo": 1,
     "price": 50,
     "description": "One fragment of a trophy (the \"Wood\" trophy) marking top street-creation activity. If you earned four more fragments similar to this, would you have a whole trophy? Yes: You = Wood."
@@ -2129,8 +2171,8 @@
   "piece_of_street_creator_rock_wood_2": {
     "name": "A Piece of Street Creator Wood Trophy",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_wood_piece2__x1_1_png_1354832958.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_wood_piece2__x1_1_png_1354832958.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_wood_piece2__x1_1_png_1354832958.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_wood_piece2__x1_1_png_1354832958.png",
     "stacksTo": 1,
     "price": 50,
     "description": "One fragment of a trophy (the \"Wood\" trophy) marking top street-creation activity. If you earned four more fragments similar to this, would you have a whole trophy? Yes: You = Wood."
@@ -2138,8 +2180,8 @@
   "piece_of_street_creator_rock_wood_3": {
     "name": "A Piece of Street Creator Wood Trophy",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_wood_piece3__x1_1_png_1354832960.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_wood_piece3__x1_1_png_1354832960.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_wood_piece3__x1_1_png_1354832960.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_wood_piece3__x1_1_png_1354832960.png",
     "stacksTo": 1,
     "price": 50,
     "description": "One fragment of a trophy (the \"Wood\" trophy) marking top street-creation activity. If you earned four more fragments similar to this, would you have a whole trophy? Yes: You = Wood."
@@ -2147,8 +2189,8 @@
   "piece_of_street_creator_rock_wood_4": {
     "name": "A Piece of Street Creator Wood Trophy",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_wood_piece4__x1_1_png_1354832962.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_wood_piece4__x1_1_png_1354832962.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_wood_piece4__x1_1_png_1354832962.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_wood_piece4__x1_1_png_1354832962.png",
     "stacksTo": 1,
     "price": 50,
     "description": "One fragment of a trophy (the \"Wood\" trophy) marking top street-creation activity. If you earned four more fragments similar to this, would you have a whole trophy? Yes: You = Wood."
@@ -2156,8 +2198,8 @@
   "piece_of_street_creator_rock_wood_5": {
     "name": "A Piece of Street Creator Wood Trophy",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_wood_piece5__x1_1_png_1354832964.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/trophy_street_creator_wood_piece5__x1_1_png_1354832964.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_wood_piece5__x1_1_png_1354832964.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_wood_piece5__x1_1_png_1354832964.png",
     "stacksTo": 1,
     "price": 50,
     "description": "One fragment of a trophy (the \"Wood\" trophy) marking top street-creation activity. If you earned four more fragments similar to this, would you have a whole trophy? Yes: You = Wood."
@@ -2165,8 +2207,8 @@
   "piece_of_torn_manuscript_1": {
     "name": "Piece of Torn Manuscript",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_torn_manuscript_piece1__x1_1_png_1354840336.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_torn_manuscript_piece1__x1_1_png_1354840336.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_torn_manuscript_piece1__x1_1_png_1354840336.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_torn_manuscript_piece1__x1_1_png_1354840336.png",
     "stacksTo": 5,
     "price": 0,
     "description": "One of four pieces of paper and frame that, when stitched together, create a string of words which probably shouldn't be read."
@@ -2174,8 +2216,8 @@
   "piece_of_torn_manuscript_2": {
     "name": "Piece of Torn Manuscript",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_torn_manuscript_piece2__x1_1_png_1354840337.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_torn_manuscript_piece2__x1_1_png_1354840337.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_torn_manuscript_piece2__x1_1_png_1354840337.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_torn_manuscript_piece2__x1_1_png_1354840337.png",
     "stacksTo": 5,
     "price": 0,
     "description": "One of four pieces of paper and frame that, when stitched together, create a string of words which probably shouldn't be read."
@@ -2183,8 +2225,8 @@
   "piece_of_torn_manuscript_3": {
     "name": "Piece of Torn Manuscript",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_torn_manuscript_piece3__x1_1_png_1354840339.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_torn_manuscript_piece3__x1_1_png_1354840339.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_torn_manuscript_piece3__x1_1_png_1354840339.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_torn_manuscript_piece3__x1_1_png_1354840339.png",
     "stacksTo": 5,
     "price": 0,
     "description": "One of four pieces of paper and frame that, when stitched together, create a string of words which probably shouldn't be read."
@@ -2192,8 +2234,8 @@
   "piece_of_torn_manuscript_4": {
     "name": "Piece of Torn Manuscript",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_torn_manuscript_piece4__x1_1_png_1354840341.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_torn_manuscript_piece4__x1_1_png_1354840341.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_torn_manuscript_piece4__x1_1_png_1354840341.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_torn_manuscript_piece4__x1_1_png_1354840341.png",
     "stacksTo": 5,
     "price": 0,
     "description": "One of four pieces of paper and frame that, when stitched together, create a string of words which probably shouldn't be read."
@@ -2201,8 +2243,8 @@
   "piece_of_wooden_apple_1": {
     "name": "Piece of Wooden Apple",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_wooden_apple_piece1__x1_1_png_1354840386.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_wooden_apple_piece1__x1_1_png_1354840386.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_wooden_apple_piece1__x1_1_png_1354840386.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_wooden_apple_piece1__x1_1_png_1354840386.png",
     "stacksTo": 5,
     "price": 0,
     "description": "A splinter of spice tree wood that makes up one fourth of a most wonderful apple decoration, fit for a mantelpiece."
@@ -2210,8 +2252,8 @@
   "piece_of_wooden_apple_2": {
     "name": "Piece of Wooden Apple",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_wooden_apple_piece2__x1_1_png_1354840388.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_wooden_apple_piece2__x1_1_png_1354840388.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_wooden_apple_piece2__x1_1_png_1354840388.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_wooden_apple_piece2__x1_1_png_1354840388.png",
     "stacksTo": 5,
     "price": 0,
     "description": "A splinter of spice tree wood that makes up one fourth of a most wonderful apple decoration, fit for a mantelpiece."
@@ -2219,8 +2261,8 @@
   "piece_of_wooden_apple_3": {
     "name": "Piece of Wooden Apple",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_wooden_apple_piece3__x1_1_png_1354840390.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_wooden_apple_piece3__x1_1_png_1354840390.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_wooden_apple_piece3__x1_1_png_1354840390.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_wooden_apple_piece3__x1_1_png_1354840390.png",
     "stacksTo": 5,
     "price": 0,
     "description": "A splinter of spice tree wood that makes up one fourth of a most wonderful apple decoration, fit for a mantelpiece."
@@ -2228,8 +2270,8 @@
   "piece_of_wooden_apple_4": {
     "name": "Piece of Wooden Apple",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_wooden_apple_piece4__x1_1_png_1354840392.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_wooden_apple_piece4__x1_1_png_1354840392.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_wooden_apple_piece4__x1_1_png_1354840392.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_wooden_apple_piece4__x1_1_png_1354840392.png",
     "stacksTo": 5,
     "price": 0,
     "description": "A splinter of spice tree wood that makes up one fourth of a most wonderful apple decoration, fit for a mantelpiece."
@@ -2237,8 +2279,8 @@
   "piece_of_woolly_glove_darned_with_a_metal_finger_1": {
     "name": "Piece of Woolly Glove Darned with a Metal Finger",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_glove_metal_finger_piece1__x1_1_png_1354840394.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_glove_metal_finger_piece1__x1_1_png_1354840394.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_glove_metal_finger_piece1__x1_1_png_1354840394.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_glove_metal_finger_piece1__x1_1_png_1354840394.png",
     "stacksTo": 5,
     "price": 0,
     "description": "A shred of wool and a chunk of metal that look remarkably like one third of a glove."
@@ -2246,8 +2288,8 @@
   "piece_of_woolly_glove_darned_with_a_metal_finger_2": {
     "name": "Piece of Woolly Glove Darned with a Metal Finger",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_glove_metal_finger_piece2__x1_1_png_1354840395.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_glove_metal_finger_piece2__x1_1_png_1354840395.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_glove_metal_finger_piece2__x1_1_png_1354840395.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_glove_metal_finger_piece2__x1_1_png_1354840395.png",
     "stacksTo": 5,
     "price": 0,
     "description": "A shred of wool and a chunk of metal that look remarkably like one third of a glove."
@@ -2255,8 +2297,8 @@
   "piece_of_woolly_glove_darned_with_a_metal_finger_3": {
     "name": "Piece of Woolly Glove Darned with a Metal Finger",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_glove_metal_finger_piece3__x1_1_png_1354840397.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_glove_metal_finger_piece3__x1_1_png_1354840397.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_glove_metal_finger_piece3__x1_1_png_1354840397.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_glove_metal_finger_piece3__x1_1_png_1354840397.png",
     "stacksTo": 5,
     "price": 0,
     "description": "A shred of wool and a chunk of metal that look remarkably like one third of a glove."
@@ -2273,8 +2315,8 @@
   "platinumium_spork": {
     "name": "Platinumium Spork",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_platinumium_spork__x1_1_png_1354840320.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_platinumium_spork__x1_1_png_1354840320.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_platinumium_spork__x1_1_png_1354840320.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_platinumium_spork__x1_1_png_1354840320.png",
     "stacksTo": 1,
     "price": 0,
     "description": "The traditional gift given to a child born under the auspices of Alph, this particular platinumium Spork belonged to a baby named Weena, who was only allowed to gaze at it, glinting, rounded and pointy, from her crib. Not so much because of the rarity of the material - but because of her mother Jules' fear that she would take someone’s eye out experimenting with it."
@@ -2282,8 +2324,8 @@
   "pleasing_amber": {
     "name": "Pleasing Amber",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/gem_amber__x1_1_png_1354831639.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gem_amber__x1_1_png_1354831639.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/gem_amber__x1_1_png_1354831639.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/gem_amber__x1_1_png_1354831639.png",
     "stacksTo": 10,
     "price": 200,
     "description": "A pleasing chunk of amber."
@@ -2291,8 +2333,8 @@
   "pouch_full_of_old_seeds": {
     "name": "Pouch Full of Old Seeds",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_seed_pouch__x1_1_png_1354840668.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_seed_pouch__x1_1_png_1354840668.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_seed_pouch__x1_1_png_1354840668.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_seed_pouch__x1_1_png_1354840668.png",
     "stacksTo": 1,
     "price": 0,
     "description": "This is a lost artifact, known only through ancient stories of long-deceased ancestors, and has not been discovered in Ur. It is several millennia since these seeds were considered viable for producing a fruit tree crop, and some centuries since they could be considered viable for grinding into fruit-salts. However, in their solid, rollable form, they were considered very viable for games of marbles between Harris and his best friend Phil, and this, evidenced by the chips on the shells of some of the seeds, is how they were most recently utilized."
@@ -2300,8 +2342,8 @@
   "pysanka": {
     "name": "Pysanka",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/egghunt_egg_3__x1_1_png_1354833281.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/egghunt_egg_3__x1_1_png_1354833281.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/egghunt_egg_3__x1_1_png_1354833281.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/egghunt_egg_3__x1_1_png_1354833281.png",
     "stacksTo": 1,
     "price": 150,
     "description": "An 'oh-so-delicious' and delightfully decorated chocolate egg. Inarguably tasty, this treat is not affiliated with any known holiday or group, religious or otherwise."
@@ -2309,8 +2351,8 @@
   "red_tiger_eye_necklace": {
     "name": "Red Tiger Eye Necklace",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_necklace_redtigereye__x1_1_png_1354840484.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_necklace_redtigereye__x1_1_png_1354840484.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_necklace_redtigereye__x1_1_png_1354840484.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_necklace_redtigereye__x1_1_png_1354840484.png",
     "stacksTo": 1,
     "price": 0,
     "description": "A necklace of 19 rich red beads, given one year during the annual festival of Alphcon to all who attended the festival or bought anything at it. No one knows why the name is given. There have never been Red Tigers in Ur, or, for that matter, Tigers with Red Eyes. So not only were no tigers harmed in the making of this necklace, no tigers existed to be harmed in the first place. Also: what are tigers?"
@@ -2318,8 +2360,8 @@
   "remains_of_a_daybag": {
     "name": "Remains of a Daybag",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_daybag__x1_1_png_1354840639.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_daybag__x1_1_png_1354840639.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_daybag__x1_1_png_1354840639.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_daybag__x1_1_png_1354840639.png",
     "stacksTo": 1,
     "price": 0,
     "description": "This is a lost artifact, known only through ancient stories of long-deceased ancestors, and has not been discovered in Ur.     Apart from a sprinkling of shiny element dust gathered in the corners, it would be easy to discount it as a particularly well structured old pigskin trash-bag, apart from the a) the sturdy handle, b) that would be a waste of a good piggy and c) no one piggy would be enough for this bag, which is large enough when closed to hold a 1200-page manuscript, or possibly an infant."
@@ -2345,8 +2387,8 @@
   "rube_shaped_potato": {
     "name": "Rube Shaped Potato",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/rube_potato__x1_1_png_1354840060.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/rube_potato__x1_1_png_1354840060.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/rube_potato__x1_1_png_1354840060.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/rube_potato__x1_1_png_1354840060.png",
     "stacksTo": 1,
     "price": 503000,
     "description": "A spud that's a dud, with the self-evolved claim to resemble a rubbed-on Rube. Miraculous! Fries not included."
@@ -2354,8 +2396,8 @@
   "secular_holiday_egg": {
     "name": "Secular Holiday Egg",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/egghunt_egg_4__x1_1_png_1354833290.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/egghunt_egg_4__x1_1_png_1354833290.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/egghunt_egg_4__x1_1_png_1354833290.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/egghunt_egg_4__x1_1_png_1354833290.png",
     "stacksTo": 1,
     "price": 150,
     "description": "An 'oh-so-delicious' and delightfully decorated chocolate egg. Inarguably tasty, this treat is not affiliated with any known holiday or group, religious or otherwise."
@@ -2372,8 +2414,8 @@
   "showy_sapphire": {
     "name": "Showy Sapphire",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/gem_sapphire__x1_1_png_1354831654.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gem_sapphire__x1_1_png_1354831654.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/gem_sapphire__x1_1_png_1354831654.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/gem_sapphire__x1_1_png_1354831654.png",
     "iconNum": 1,
     "stacksTo": 5,
     "price": 400,
@@ -2391,8 +2433,8 @@
   "small_petrified_rock": {
     "name": "Small Petrified Rock",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/petrified_rock_small__x1_1_png_1354840402.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/petrified_rock_small__x1_1_png_1354840402.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/petrified_rock_small__x1_1_png_1354840402.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/petrified_rock_small__x1_1_png_1354840402.png",
     "stacksTo": 5,
     "price": 0,
     "description": "A once-modest small rock, frozen into a state of petrified awe when it witnessed a truly epic feat, then drawn, like a magnet, to the contributors of whatever act of rock-debilitating awesomenity petrified it. When cracked open, a small selection of rare delights may be found."
@@ -2418,8 +2460,8 @@
   "special_item_that_only_beta_testers_get": {
     "name": "Special Item That Only Beta Testers Get",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/special_item_that_only_beta_testers_get__x1_1_png_1354833774.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/special_item_that_only_beta_testers_get__x1_bounce2_png_1354833791.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/special_item_that_only_beta_testers_get__x1_1_png_1354833774.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/special_item_that_only_beta_testers_get__x1_bounce2_png_1354833791.png",
     "stacksTo": 1,
     "price": 0,
     "description": "Best selling toy in a year that the historians have glossed over, sales plummeted when it was discovered that many of the advertised functions of Señor Funpickle could cause injury, death, or severe unpopularity. Hastily rebranded, the remaining stock were quietly farmed out as commemorative free gifts at a time known as \"The Great Reset\"."
@@ -2436,8 +2478,8 @@
   "stoot_barfield_pullstring_doll": {
     "name": "Stoot Barfield Pullstring Doll",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/stoot_barfield_pullstring_doll__x1_1_png_1354840058.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/stoot_barfield_pullstring_doll__x1_1_png_1354840058.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/stoot_barfield_pullstring_doll__x1_1_png_1354840058.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/stoot_barfield_pullstring_doll__x1_1_png_1354840058.png",
     "stacksTo": 1,
     "price": 1333100,
     "description": "Stoot Barfield Pullstring Doll. Loaded with a goodly amount of \"inspirational\" phrases."
@@ -2445,8 +2487,8 @@
   "tangled_pair_of_sock_garters": {
     "name": "Tangled Pair of Sock Garters",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-10/artifact_sock_garters__x1_1_png_1355169382.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-10/artifact_sock_garters__x1_1_png_1355169382.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_sock_garters__x1_1_png_1355169382.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_sock_garters__x1_1_png_1355169382.png",
     "stacksTo": 1,
     "price": 0,
     "description": "No giant in the history of giants prized sock-garters like Tii.  To be fair, none of the other giants (or any other living soul) could work out or knew what they were for. Nevertheless, at one point, all born under the auspice of the mighty Tii were expected to have sock garters with them at all times. Like this tangled example, owned by Elaine Melange, they were barely ever removed from a pocket, never worn, and lost in the woods before too long."
@@ -2454,8 +2496,8 @@
   "three_cornered_hat": {
     "name": "Three-Cornered Hat",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_three_cornered_hat__x1_1_png_1354841591.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_three_cornered_hat__x1_1_png_1354841591.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_three_cornered_hat__x1_1_png_1354841591.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_three_cornered_hat__x1_1_png_1354841591.png",
     "stacksTo": 1,
     "price": 0,
     "description": "This is a lost artifact, known only through ancient stories of long-deceased ancestors, and has not been discovered in Ur.     Knowing of Tii’s love of all things faceted and precise, the Tii-ites once sought to curry favor from their giant by creating hats of perfectly measured geometric shapes. The idea was that, looking down at them, Tii would merely see perfect prime-number-sided objects scuttling far below, and be pleased. The great head-measurer and millinery-material manipulator, Elaine Melange created this hat for the great Tii-ite scholar, Luigi."
@@ -2463,8 +2505,8 @@
   "torn_manuscript": {
     "name": "Torn Manuscript",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_torn_manuscript__x1_1_png_1354840307.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_torn_manuscript__x1_1_png_1354840307.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_torn_manuscript__x1_1_png_1354840307.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_torn_manuscript__x1_1_png_1354840307.png",
     "stacksTo": 1,
     "price": 0,
     "description": "This small fragment, dusted with shiny elements is all that remains of a VERY long very bad novel. But since, once upon a time, a tired finger took the pains to carefully hammer it out  on a rudimentary typewriter, it should be kept. However, since the fragment of complex story that can be seen seems to focus on hot, passionate clinches between the giants - it’s probably best we can’t read it."
@@ -2472,8 +2514,8 @@
   "twenty_nine_cornered_hat": {
     "name": "Twenty-Nine Cornered Hat",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_twenty_nine_cornered_hat__x1_1_png_1354841594.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_twenty_nine_cornered_hat__x1_1_png_1354841594.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_twenty_nine_cornered_hat__x1_1_png_1354841594.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_twenty_nine_cornered_hat__x1_1_png_1354841594.png",
     "stacksTo": 1,
     "price": 0,
     "description": "This is a lost artifact, known only through ancient stories of long-deceased ancestors, and has not been discovered in Ur.     Deep in the beforetimes, the supplicants of Tii decided that in order to please their great overseer, they would make perfectly-measured, prime-number-sided hats. Elaine Melange, millinery-material manipulator had such success with the simple three, five and seven-cornered hats that she became ambitious. This unwieldy, unattractive, much battered, stained, and long-buried example of one of her “High Prime” collection is testament to her ambition’s collapse."
@@ -2490,8 +2532,8 @@
   "very_tall_top_hat": {
     "name": "Very Tall Top Hat",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_top_hat__x1_1_png_1354840650.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_top_hat__x1_1_png_1354840650.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_top_hat__x1_1_png_1354840650.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_top_hat__x1_1_png_1354840650.png",
     "stacksTo": 1,
     "price": 0,
     "description": "This is a lost artifact, known only through ancient stories of long-deceased ancestors, and has not been discovered in Ur.     “Keep it under your hat” is a phrase that, for too long, has been considered a metaphor, meaning to keep something concealed, tucked into one’s most prized mind-pocket. But for the followers of Alph, this was a literal instruction. This hat, belonging to Dovim, a scientist of Alph’s highest order, was consequently one of the highest hats allowed in Alphibian society. Things that Dovim could keep under it included bottles of whiskey, blueprints, bunting and, on one occasion, his youngest child."
@@ -2499,8 +2541,8 @@
   "walloping_big_diamond": {
     "name": "Walloping Big Diamond",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/gem_diamond__x1_1_png_1354831647.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gem_diamond__x1_1_png_1354831647.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/gem_diamond__x1_1_png_1354831647.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/gem_diamond__x1_1_png_1354831647.png",
     "iconNum": 1,
     "stacksTo": 3,
     "price": 2000,
@@ -2509,8 +2551,8 @@
   "wooden_apple": {
     "name": "Wooden Apple",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_wooden_apple__x1_1_png_1354840322.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_wooden_apple__x1_1_png_1354840322.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_wooden_apple__x1_1_png_1354840322.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_wooden_apple__x1_1_png_1354840322.png",
     "stacksTo": 1,
     "price": 0,
     "description": "Carved of hardest spice tree wood, once adorning the mantlepiece of Gaia, mother of Helen and Harris, this apple was once painted a startlingly shiny gold. This was made by mixing a secret combination of elements, grinding them down with powdered chunks of sparkly and turning them to liquid paint with the careful addition of happy butterfly tears. So desperate were others for the secret recipe that the Apple was stolen almost daily, a little of the patina scraped off each time."
@@ -2518,8 +2560,8 @@
   "wooly_glove_darned_with_a_metal_finger": {
     "name": "Woolly Glove Darned with a Metal Finger",
     "category": "Collectibles",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_glove_metal_finger__x1_1_png_1354840324.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/artifact_glove_metal_finger__x1_1_png_1354840324.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/artifact_glove_metal_finger__x1_1_png_1354840324.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/artifact_glove_metal_finger__x1_1_png_1354840324.png",
     "stacksTo": 1,
     "price": 0,
     "description": "Brother and sister, Tanu and Sitha, once each had a pair of gloves. When one glove was lost, Tanu and Sitha used the three remaining gloves between them, holding hands inside the third wherever they went out. When another glove was lost, they only went out in snow one at a time. But down to one glove, they simply sat at home making sure the remaining glove would never be lost. The metal finger on this one may look harmless, but is unbreakable, the weight of an elephant and once on, refuses to leave the finger of whomsoever it has been placed upon."

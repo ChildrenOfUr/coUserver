@@ -24,7 +24,7 @@ class PeatBog extends Plant {
 		});
 
 		states = {
-			"5-4-3-2-1" : new Spritesheet("5-4-3-2-1", "http://c2.glitch.bz/items/2012-12-06/peat_x1_5_x1_4_x1_3_x1_2_x1_1__1_png_1354832710.png", 633, 104, 211, 52, 5, false),
+			"5-4-3-2-1" : new Spritesheet("5-4-3-2-1", "http://childrenofur.com/assets/entityImages/peat_x1_5_x1_4_x1_3_x1_2_x1_1__1_png_1354832710.png", 633, 104, 211, 52, 5, false),
 		};
 		int maturity = new Random().nextInt(states.length) + 1;
 		currentState = states['5-4-3-2-1'];
@@ -60,7 +60,7 @@ class PeatBog extends Plant {
 		}
 
 		//give the player the 'fruits' of their labor
-		addItemToUser(userSocket, email, items['peat'].getMap(), 1, id);
+		InventoryV2.addItemToUser(userSocket, email, items['peat'].getMap(), 1, id);
 
 		return true;
 	}

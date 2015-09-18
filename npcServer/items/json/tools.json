@@ -2,9 +2,9 @@
   "ace_of_spades": {
     "name": "Ace of Spades",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/ace_of_spades__x1_tool_animation_png_1354839802.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/ace_of_spades__x1_iconic_png_1354839801.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/ace_of_spades__x1_1_png_1354839807.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/ace_of_spades__x1_tool_animation_png_1354839802.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/ace_of_spades__x1_iconic_png_1354839801.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/ace_of_spades__x1_1_png_1354839807.png",
     "stacksTo": 1,
     "price": 3000,
     "durability": 500,
@@ -13,21 +13,29 @@
   "alchemical_tongs": {
     "name": "Alchemical Tongs",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/alchemical_tongs__x1_tool_animation_png_1354832647.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/alchemical_tongs__x1_iconic_png_1354832645.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/alchemical_tongs__x1_1_png_1354832658.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/alchemical_tongs__x1_tool_animation_png_1354832647.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/alchemical_tongs__x1_iconic_png_1354832645.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/alchemical_tongs__x1_1_png_1354832658.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 600,
     "durability": 100,
-    "description": "Handy bendy Alchemical Tongs help you to create exciting metals like Tin, Copper and Molybdenum by adding elements to boring old hot smelted metal."
+    "description": "Handy bendy Alchemical Tongs help you to create exciting metals like Tin, Copper and Molybdenum by adding elements to boring old hot smelted metal.",
+    "actions": [
+      {
+        "name": "Alchemize",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "awesome_pot": {
     "name": "Awesome Pot",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/awesome_pot__x1_tool_animation_png_1354830341.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/awesome_pot__x1_iconic_png_1354830337.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/awesome_pot__x1_1_png_1354830342.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/awesome_pot__x1_tool_animation_png_1354830341.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/awesome_pot__x1_iconic_png_1354830337.png",
+    "iconNum": 1,
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/awesome_pot__x1_1_png_1354830342.png",
     "stacksTo": 1,
     "price": 300,
     "durability": 100,
@@ -46,9 +54,9 @@
   "beaker": {
     "name": "Beaker",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/beaker__x1_tool_animation_png_1354832125.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/beaker__x1_iconic_png_1354832125.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/beaker__x1_1_png_1354832126.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/beaker__x1_tool_animation_png_1354832125.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/beaker__x1_iconic_png_1354832125.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/beaker__x1_1_png_1354832126.png",
     "stacksTo": 1,
     "price": 400,
     "description": "A state-of-the-art beaker, integral for converting compounds into powders. Now available in exciting Pyrex, specifically designed for today's modern clumsy alchemist.",
@@ -66,21 +74,17 @@
   "bean_seasoner": {
     "name": "Bean Seasoner",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/bean_seasoner__x1_tool_animation_png_1354830309.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/bean_seasoner__x1_iconic_png_1354830307.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bean_seasoner__x1_1_png_1354830310.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/bean_seasoner__x1_tool_animation_png_1354830309.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/bean_seasoner__x1_iconic_png_1354830307.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/bean_seasoner__x1_1_png_1354830310.png",
     "stacksTo": 1,
     "price": 175,
     "description": "A Bean Seasoner seasons beans. You probably guessed that already.",
     "actions": [
       {
-        "name": "Season Beans",
+        "name": "Season",
         "description": "Season plain beans",
-        "itemRequirements": {
-          "all": {
-            "bean": 1
-          }
-        },
+        "itemRequirements": {},
         "skillRequirements": {
           "Botany": 1
         }
@@ -90,9 +94,9 @@
   "blender": {
     "name": "Blender",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/blender__x1_tool_animation_png_1354829408.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/blender__x1_1_png_1354829409.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/blender__x1_1_png_1354829409.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/blender__x1_tool_animation_png_1354829408.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/blender__x1_1_png_1354829409.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/blender__x1_1_png_1354829409.png",
     "stacksTo": 1,
     "price": 150,
     "durability": 100,
@@ -111,22 +115,18 @@
   "bubble_tuner": {
     "name": "Bubble Tuner",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/bubble_tuner__x1_tool_animation_png_1354830317.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/bubble_tuner__x1_iconic_png_1354830316.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/bubble_tuner__x1_1_png_1354830318.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/bubble_tuner__x1_tool_animation_png_1354830317.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/bubble_tuner__x1_iconic_png_1354830316.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/bubble_tuner__x1_1_png_1354830318.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 150,
     "description": "A Bubble Tuner somehow converts plain bubbles into not-plain bubbles. How? Nobody knows.",
     "actions": [
       {
-        "name": "Tune Bubbles",
+        "name": "Convert",
         "description": "Make all kinds of bubbles",
-        "itemRequirements": {
-          "all": {
-            "bubble": 1
-          }
-        },
+        "itemRequirements": {},
         "skillRequirements": {
           "Bubble Tuning": 1
         }
@@ -136,9 +136,9 @@
   "cauldron": {
     "name": "Cauldron",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/cauldron__x1_tool_animation_png_1354836768.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/cauldron__x1_1_png_1354836770.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cauldron__x1_1_png_1354836770.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/cauldron__x1_tool_animation_png_1354836768.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/cauldron__x1_1_png_1354836770.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/cauldron__x1_1_png_1354836770.png",
     "stacksTo": 1,
     "price": 3500,
     "durability": 200,
@@ -158,9 +158,9 @@
   "class_axe": {
     "name": "Class Axe",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/class_axe__x1_tool_animation_png_1354839796.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/class_axe__x1_iconic_png_1354839797.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/class_axe__x1_iconic_png_1354839797.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/class_axe__x1_tool_animation_png_1354839796.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/class_axe__x1_iconic_png_1354839797.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/class_axe__x1_iconic_png_1354839797.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 900,
@@ -170,9 +170,9 @@
   "cocktail_shaker": {
     "name": "Cocktail Shaker",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/cocktail_shaker__x1_tool_animation_png_1354830094.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/cocktail_shaker__x1_iconic_png_1354830095.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/cocktail_shaker__x1_1_png_1354830096.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/cocktail_shaker__x1_tool_animation_png_1354830094.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/cocktail_shaker__x1_iconic_png_1354830095.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/cocktail_shaker__x1_1_png_1354830096.png",
     "stacksTo": 1,
     "price": 150,
     "durability": 100,
@@ -191,21 +191,28 @@
   "construction_tool": {
     "name": "Construction Tool",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/construction_tool__x1_tool_animation_png_1354833722.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/construction_tool__x1_iconic_png_1354833722.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/construction_tool__x1_1_png_1354833724.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/construction_tool__x1_tool_animation_png_1354833722.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/construction_tool__x1_iconic_png_1354833722.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/construction_tool__x1_1_png_1354833724.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 500,
     "durability": 100,
-    "description": "One handy pocketsized gadget for all your furniture construction needs. Comes complete with four pokey whojamaflilps, one specializing in tweaking the wotsit, one in cranking the doodah, and the other two in levering the begiantus out of any sticky-outty bits. A true professional's tool."
+    "description": "One handy pocketsized gadget for all your furniture construction needs. Comes complete with four pokey whojamaflilps, one specializing in tweaking the wotsit, one in cranking the doodah, and the other two in levering the begiantus out of any sticky-outty bits. A true professional's tool.",
+    "actions": [
+      {
+        "name": "Construct",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "crystalmalizing_chamber": {
     "name": "Crystalmalizing Chamber",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/crystallizer__x1_tool_animation_png_1354833105.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/crystallizer__x1_iconic_png_1354833106.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/crystallizer__x1_1_png_1354833107.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/crystallizer__x1_tool_animation_png_1354833105.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/crystallizer__x1_iconic_png_1354833106.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/crystallizer__x1_1_png_1354833107.png",
     "stacksTo": 1,
     "price": 2500,
     "durability": 1000,
@@ -214,21 +221,17 @@
   "egg_seasoner": {
     "name": "Egg Seasoner",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/egg_seasoner__x1_tool_animation_png_1354830313.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/egg_seasoner__x1_iconic_png_1354830312.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/egg_seasoner__x1_1_png_1354830314.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/egg_seasoner__x1_tool_animation_png_1354830313.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/egg_seasoner__x1_iconic_png_1354830312.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/egg_seasoner__x1_1_png_1354830314.png",
     "stacksTo": 1,
     "price": 175,
     "description": "An Egg Seasoner is an important tool for seasoning and incubating eggs that hatch into all kinds of exciting animals.",
     "actions": [
       {
-        "name": "Season Eggs",
+        "name": "Season",
         "description": "Season plain eggs",
-        "itemRequirements": {
-          "all": {
-            "egg": 1
-          }
-        },
+        "itemRequirements": {},
         "skillRequirements": {}
       }
     ]
@@ -236,9 +239,9 @@
   "famous_pugilist_grill": {
     "name": "Famous Pugilist Grill",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/mike_tyson_grill__x1_tool_animation_png_1354830323.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/mike_tyson_grill__x1_1_png_1354830325.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/mike_tyson_grill__x1_1_png_1354830325.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/mike_tyson_grill__x1_tool_animation_png_1354830323.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/mike_tyson_grill__x1_1_png_1354830325.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/mike_tyson_grill__x1_1_png_1354830325.png",
     "stacksTo": 1,
     "price": 175,
     "durability": 100,
@@ -257,9 +260,9 @@
   "fancy_pick": {
     "name": "Fancy Pick",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/fancy_pick__x1_tool_animation_png_1354831491.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/fancy_pick__x1_iconic_png_1354831492.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/fancy_pick__x1_iconic_png_1354831492.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/fancy_pick__x1_tool_animation_png_1354831491.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/fancy_pick__x1_iconic_png_1354831492.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/fancy_pick__x1_iconic_png_1354831492.png",
     "stacksTo": 1,
     "iconNum": 1,
     "price": 1000,
@@ -269,9 +272,9 @@
   "focusing_orb": {
     "name": "Focusing Orb",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/focusing_orb__x1_tool_animation_png_1354831838.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/focusing_orb__x1_iconic_png_1354831839.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/focusing_orb__x1_1_png_1354831839.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/focusing_orb__x1_tool_animation_png_1354831838.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/focusing_orb__x1_iconic_png_1354831839.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/focusing_orb__x1_1_png_1354831839.png",
     "stacksTo": 1,
     "price": 1200,
     "description": "An iridescent focusing orb. It calms your swirly thoughts, helps you meditate, levitate and fight the enemies of the imagination.",
@@ -327,8 +330,8 @@
     "name": "Fox Brush",
     "category": "Tools",
     "toolAnimation": "",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/fox_brush__x1_iconic_png_1354839616.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/fox_brush__x1_iconic_png_1354839616.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/fox_brush__x1_iconic_png_1354839616.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/fox_brush__x1_iconic_png_1354839616.png",
     "stacksTo": 1,
     "price": 200,
     "durability": 100,
@@ -337,9 +340,9 @@
   "fruit_changing_machine": {
     "name": "Fruit Changing Machine",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/fruit_changing_machine__x1_tool_animation_png_1354830329.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/fruit_changing_machine__x1_iconic_png_1354830327.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/fruit_changing_machine__x1_1_png_1354830329.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/fruit_changing_machine__x1_tool_animation_png_1354830329.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/fruit_changing_machine__x1_iconic_png_1354830327.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/fruit_changing_machine__x1_1_png_1354830329.png",
     "stacksTo": 1,
     "price": 200,
     "description": "A triple-carbine fruit-changing machine. It will transmogrify cherries into other fruit. This can come in surprisingly handy.",
@@ -347,11 +350,7 @@
       {
         "name": "Convert Fruit",
         "description": "Make all kinds of fruit",
-        "itemRequirements": {
-          "all": {
-            "cherry": 1
-          }
-        },
+        "itemRequirements": {},
         "skillRequirements": {
           "Fruit Changing": 1
         }
@@ -361,9 +360,10 @@
   "frying_pan": {
     "name": "Frying Pan",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/frying_pan__x1_tool_animation_png_1354830080.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/frying_pan__x1_iconic_png_1354830081.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/frying_pan__x1_1_png_1354830082.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/frying_pan__x1_tool_animation_png_1354830080.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/frying_pan__x1_iconic_png_1354830081.png",
+    "iconNum": 1,
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/frying_pan__x1_1_png_1354830082.png",
     "stacksTo": 1,
     "price": 125,
     "durability": 100,
@@ -382,22 +382,18 @@
   "gassifier": {
     "name": "Gassifier",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/gassifier__x1_tool_animation_png_1354830621.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/gassifier__x1_1_png_1354830622.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/gassifier__x1_1_png_1354830622.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/gassifier__x1_tool_animation_png_1354830621.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/gassifier__x1_1_png_1354830622.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/gassifier__x1_1_png_1354830622.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 150,
     "description": "An ergonomically correct gassifier. It can turn general vapour into much more exciting gases.",
     "actions": [
       {
-        "name": "Gassify",
+        "name": "Convert",
         "description": "Make all kinds of gas",
-        "itemRequirements": {
-          "all": {
-            "general_vapour": 1
-          }
-        },
+        "itemRequirements": {},
         "skillRequirements": {}
       }
     ]
@@ -405,9 +401,9 @@
   "grand_ol_grinder": {
     "name": "Grand Ol' Grinder",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/grand_ol_grinder__x1_tool_animation_png_1354836354.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/grand_ol_grinder__x1_iconic_png_1354836355.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/grand_ol_grinder__x1_1_png_1354836356.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/grand_ol_grinder__x1_tool_animation_png_1354836354.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/grand_ol_grinder__x1_iconic_png_1354836355.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/grand_ol_grinder__x1_1_png_1354836356.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 2000,
@@ -426,9 +422,9 @@
   "grinder": {
     "name": "Grinder",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/ore_grinder__x1_tool_animation_png_1354831497.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/ore_grinder__x1_iconic_png_1354831498.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/ore_grinder__x1_1_png_1354831500.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/ore_grinder__x1_tool_animation_png_1354831497.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/ore_grinder__x1_iconic_png_1354831498.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/ore_grinder__x1_1_png_1354831500.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 200,
@@ -447,9 +443,9 @@
   "hatchet": {
     "name": "Hatchet",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/hatchet__x1_tool_animation_png_1354832441.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/hatchet__x1_iconic_png_1354832441.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/hatchet__x1_iconic_png_1354832441.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/hatchet__x1_tool_animation_png_1354832441.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/hatchet__x1_iconic_png_1354832441.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/hatchet__x1_iconic_png_1354832441.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 100,
@@ -459,9 +455,9 @@
   "high_class_hoe": {
     "name": "High-Class Hoe",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/high_class_hoe__x1_tool_animation_png_1354836363.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/high_class_hoe__x1_iconic_png_1354836364.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/high_class_hoe__x1_iconic_png_1354836364.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/high_class_hoe__x1_tool_animation_png_1354836363.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/high_class_hoe__x1_iconic_png_1354836364.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/high_class_hoe__x1_iconic_png_1354836364.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 600,
@@ -471,9 +467,9 @@
   "hoe": {
     "name": "Hoe",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/hoe__x1_tool_animation_png_1354829606.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/hoe__x1_iconic_png_1354829607.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/hoe__x1_iconic_png_1354829607.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/hoe__x1_tool_animation_png_1354829606.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/hoe__x1_iconic_png_1354829607.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/hoe__x1_iconic_png_1354829607.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 60,
@@ -483,9 +479,9 @@
   "irrigator_9000": {
     "name": "Irrigator 9000",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/irrigator_9000__x1_tool_animation_png_1354836367.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/irrigator_9000__x1_iconic_png_1354836368.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/irrigator_9000__x1_1_png_1354836370.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/irrigator_9000__x1_tool_animation_png_1354836367.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/irrigator_9000__x1_iconic_png_1354836368.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/irrigator_9000__x1_1_png_1354836370.png",
     "stacksTo": 1,
     "price": 750,
     "durability": 500,
@@ -494,9 +490,10 @@
   "knife_and_board": {
     "name": "Knife & Board",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/knife_and_board__x1_tool_animation_png_1354830074.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/knife_and_board__x1_iconic_png_1354830075.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/knife_and_board__x1_1_png_1354830076.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/knife_and_board__x1_tool_animation_png_1354830074.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/knife_and_board__x1_iconic_png_1354830075.png",
+    "iconNum": 1,
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/knife_and_board__x1_1_png_1354830076.png",
     "stacksTo": 1,
     "price": 75,
     "durability": 100,
@@ -515,21 +512,28 @@
   "loomer": {
     "name": "Loomer",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/loomer__x1_tool_animation_png_1354839642.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/loomer__x1_iconic_png_1354839644.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/loomer__x1_1_png_1354839645.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/loomer__x1_tool_animation_png_1354839642.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/loomer__x1_iconic_png_1354839644.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/loomer__x1_1_png_1354839645.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 400,
     "durability": 100,
-    "description": "The Loomer (TM) is used to Loom thread into String, General Fabric and Rugs through a process of Loomeration so complex, only those with a deep enough understanding of the Fiber Arts II can perform the Loomering."
+    "description": "The Loomer (TM) is used to Loom thread into String, General Fabric and Rugs through a process of Loomeration so complex, only those with a deep enough understanding of the Fiber Arts II can perform the Loomering.",
+    "actions": [
+      {
+        "name": "Loom",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "pick": {
     "name": "Pick",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/pick__x1_tool_animation_png_1354831483.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/pick__x1_iconic_png_1354831483.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/pick__x1_iconic_png_1354831483.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/pick__x1_tool_animation_png_1354831483.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/pick__x1_iconic_png_1354831483.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/pick__x1_iconic_png_1354831483.png",
     "stacksTo": 1,
     "iconNum": 1,
     "price": 500,
@@ -540,8 +544,8 @@
     "name": "Quill",
     "category": "Tools",
     "toolAnimation": "",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/quill__x1_iconic_png_1354832691.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/quill__x1_1_png_1354832692.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/quill__x1_iconic_png_1354832691.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/quill__x1_1_png_1354832692.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 400,
@@ -551,20 +555,29 @@
   "saucepan": {
     "name": "Saucepan",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/saucepan__x1_tool_animation_png_1354830344.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/saucepan__x1_iconic_png_1354830345.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/saucepan__x1_1_png_1354830347.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/saucepan__x1_tool_animation_png_1354830344.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/saucepan__x1_iconic_png_1354830345.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/saucepan__x1_1_png_1354830347.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 200,
     "durability": 100,
-    "description": "A saucepan is a must-have item for making sauces."
+    "description": "A saucepan is a must-have item for making sauces.",
+    "actions": [
+      {
+        "name": "Simmer",
+        "description": "Get saucy",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "scraper": {
     "name": "Scraper",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/scraper__x1_tool_animation_png_1354832719.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/scraper__x1_iconic_png_1354832718.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/scraper__x1_1_png_1354832721.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/scraper__x1_tool_animation_png_1354832719.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/scraper__x1_iconic_png_1354832718.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/scraper__x1_1_png_1354832721.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 300,
@@ -574,9 +587,9 @@
   "shovel": {
     "name": "Shovel",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/shovel__x1_tool_animation_png_1354832696.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/shovel__x1_iconic_png_1354832694.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/shovel__x1_iconic_png_1354832694.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/shovel__x1_tool_animation_png_1354832696.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/shovel__x1_iconic_png_1354832694.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/shovel__x1_iconic_png_1354832694.png",
     "stacksTo": 1,
     "iconNum": 1,
     "price": 300,
@@ -586,32 +599,38 @@
   "smelter": {
     "name": "Smelter",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/smelter__x1_tool_animation_png_1354832633.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/smelter__x1_1_png_1354832634.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/smelter__x1_1_png_1354832634.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/smelter__x1_tool_animation_png_1354832633.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/smelter__x1_1_png_1354832634.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/smelter__x1_1_png_1354832634.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 700,
     "durability": 500,
-    "description": "Extracting purest metal from even the dullest chunk of Metal Rock, this classic Smelter is the second step to creating all manner of exciting secondary metals. (Learning Smelting is step one.)"
+    "description": "Extracting purest metal from even the dullest chunk of Metal Rock, this classic Smelter is the second step to creating all manner of exciting secondary metals. (Learning Smelting is step one.)",
+    "actions": [
+      {
+        "name": "Smelt",
+        "description": "Make ingots",
+        "itemRequirements": {},
+        "skillRequirements": {
+          "Smelting": 1
+        }
+      }
+    ]
   },
   "spice_mill": {
     "name": "Spice Mill",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/spice_mill__x1_tool_animation_png_1354830432.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/spice_mill__x1_iconic_png_1354830430.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/spice_mill__x1_1_png_1354830433.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/spice_mill__x1_tool_animation_png_1354830432.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/spice_mill__x1_iconic_png_1354830430.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/spice_mill__x1_1_png_1354830433.png",
     "stacksTo": 1,
     "price": 150,
     "description": "A basic spice mill for converting basic allspice into other more exciting spices.",
     "actions": [
       {
         "name": "Mill",
-        "itemRequirements": {
-          "all": {
-            "allspice": 1
-          }
-        },
+        "itemRequirements": {},
         "skillRequirements": {
           "Spice Milling": 1
         }
@@ -621,31 +640,45 @@
   "spindle": {
     "name": "Spindle",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/spindle__x1_tool_animation_png_1354839668.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/spindle__x1_iconic_png_1354839668.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/spindle__x1_1_png_1354839670.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/spindle__x1_tool_animation_png_1354839668.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/spindle__x1_iconic_png_1354839668.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/spindle__x1_1_png_1354839670.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 200,
     "durability": 100,
-    "description": "In the mists of time, storytellers spoke of  a magical spindle that could be used to spin starlight into downy threads to weave into a cloak of invisibility. But it's not this spindle. This is just a spindle. It's used to turn fibers into thread. But that other one sounds amazing, right?"
+    "description": "In the mists of time, storytellers spoke of  a magical spindle that could be used to spin starlight into downy threads to weave into a cloak of invisibility. But it's not this spindle. This is just a spindle. It's used to turn fibers into thread. But that other one sounds amazing, right?",
+    "actions": [
+      {
+        "name": "Spin",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "splendid_spindle": {
     "name": "Splendid Spindle",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/splendid_spindle__x1_tool_animation_png_1354839809.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/splendid_spindle__x1_iconic_png_1354839809.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/splendid_spindle__x1_1_png_1354839811.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/splendid_spindle__x1_tool_animation_png_1354839809.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/splendid_spindle__x1_iconic_png_1354839809.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/splendid_spindle__x1_1_png_1354839811.png",
     "stacksTo": 1,
     "price": 2000,
     "durability": 500,
-    "description": "The ancients whispered of the spindle of Cosma that could spin the very fibres of air into cloths of heaven, enwrought with golden and silver light; blue and dim and dark cloths of night and light and the half-light. This is not that spindle. But it is really quite a good spindle, and it lasts longer than the other kind of spindle."
+    "description": "The ancients whispered of the spindle of Cosma that could spin the very fibres of air into cloths of heaven, enwrought with golden and silver light; blue and dim and dark cloths of night and light and the half-light. This is not that spindle. But it is really quite a good spindle, and it lasts longer than the other kind of spindle.",
+    "actions": [
+      {
+        "name": "Spin",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "still": {
     "name": "Still",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/still__x1_active_png_1354836755.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/still__x1_empty_png_1354836751.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/still__x1_active_png_1354836755.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/still__x1_empty_png_1354836751.png",
     "spriteUrl": "",
     "stacksTo": 1,
     "price": 2000,
@@ -654,9 +687,9 @@
   "super_scraper": {
     "name": "Super Scraper",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/super_scraper__x1_tool_animation_png_1354836358.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/super_scraper__x1_iconic_png_1354836359.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/super_scraper__x1_1_png_1354836361.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/super_scraper__x1_tool_animation_png_1354836358.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/super_scraper__x1_iconic_png_1354836359.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/super_scraper__x1_1_png_1354836361.png",
     "stacksTo": 1,
     "price": 2000,
     "durability": 250,
@@ -665,43 +698,69 @@
   "test_tube": {
     "name": "Test Tube",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/test_tube__x1_tool_animation_png_1354832128.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/test_tube__x1_iconic_png_1354832129.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/test_tube__x1_1_png_1354832130.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/test_tube__x1_tool_animation_png_1354832128.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/test_tube__x1_iconic_png_1354832129.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/test_tube__x1_1_png_1354832130.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 100,
-    "description": "If you want to turn elements into compounds, you need a handy-dandy test tube. It's totally tubular."
+    "description": "If you want to turn elements into compounds, you need a handy-dandy test tube. It's totally tubular.",
+    "actions": [
+      {
+        "name": "Stir",
+        "description": "Make compounds",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "tincturing_kit": {
     "name": "Tincturing Kit",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/tincturing_kit__x1_tool_animation_png_1354836763.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/tincturing_kit__x1_iconic_png_1354836761.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/tincturing_kit__x1_1_png_1354836765.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/tincturing_kit__x1_tool_animation_png_1354836763.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/tincturing_kit__x1_iconic_png_1354836761.png",
+    "iconNum": 1,
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/tincturing_kit__x1_1_png_1354836765.png",
     "stacksTo": 1,
     "price": 1250,
     "durability": 100,
-    "description": "Anyone who wants to beef up the benefits of herbs or create ingredients for powerful potions would do well to avail themselves of this basic Tincturing Kit and the Tincturing skill. As the name suggests, it is perfect for making tinctures. And no use at all for anything else."
+    "description": "Anyone who wants to beef up the benefits of herbs or create ingredients for powerful potions would do well to avail themselves of this basic Tincturing Kit and the Tincturing skill. As the name suggests, it is perfect for making tinctures. And no use at all for anything else.",
+    "actions": [
+      {
+        "name": "Tincture",
+        "description": "Essencify",
+        "itemRequirements": {},
+        "skillRequirements": {
+          "tincturing": 1
+        }
+      }
+    ]
   },
   "tinkertool": {
     "name": "Tinkertool",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/tinkertool__x1_tool_animation_png_1354832368.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/tinkertool__x1_iconic_png_1354832369.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/tinkertool__x1_1_png_1354832371.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/tinkertool__x1_tool_animation_png_1354832368.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/tinkertool__x1_iconic_png_1354832369.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/tinkertool__x1_1_png_1354832371.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 500,
     "durability": 200,
-    "description": "Are you the DIY type who likes to repair your own tools? The nitpicky type who likes to craft their own gear from scratch? Then a Tinkertool is a very handy thing for you to have."
+    "description": "Are you the DIY type who likes to repair your own tools? The nitpicky type who likes to craft their own gear from scratch? Then a Tinkertool is a very handy thing for you to have.",
+    "actions": [
+      {
+        "name": "Tinker",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "watering_can": {
     "name": "Watering Can",
     "category": "Tools",
-    "toolAnimation": "http://c2.glitch.bz/items/2012-12-06/watering_can__x1_tool_animation_png_1354830088.png",
-    "iconUrl": "http://c2.glitch.bz/items/2012-12-06/watering_can__x1_1_png_1354830090.png",
-    "spriteUrl": "http://c2.glitch.bz/items/2012-12-06/watering_can__x1_1_png_1354830090.png",
+    "toolAnimation": "http://childrenofur.com/assets/entityImages/watering_can__x1_tool_animation_png_1354830088.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/watering_can__x1_1_png_1354830090.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/watering_can__x1_1_png_1354830090.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 75,

@@ -1,0 +1,210 @@
+[
+	{
+		"id": "abbasidose",
+		"tool": "test_tube",
+		"input": {
+			"red_element": 4,
+			"green_element": 2,
+			"blue_element": 6
+		},
+		"output": "abbasidose",
+		"output_amt": 1,
+		"energy": -6,
+		"time": 3
+	},
+	{
+		"id": "alphose",
+		"tool": "test_tube",
+		"input": {
+			"red_element": 3,
+			"green_element": 5,
+			"blue_element": 7
+		},
+		"output": "alphose",
+		"output_amt": 1,
+		"energy": -8,
+		"time": 3
+	},
+	{
+		"id": "cosmox",
+		"tool": "test_tube",
+		"input": {
+			"red_element": 12,
+			"shiny_element": 3,
+			"blue_element": 4
+		},
+		"output": "cosmox",
+		"output_amt": 1,
+		"energy": -8,
+		"time": 3
+	},
+	{
+		"id": "diabolic_acid",
+		"tool": "test_tube",
+		"input": {
+			"red_element": 1,
+			"green_element": 1,
+			"blue_element": 1
+		},
+		"output": "diabolic_acid",
+		"output_amt": 1,
+		"energy": -1,
+		"time": 3
+	},
+	{
+		"id": "friendly_acid",
+		"tool": "test_tube",
+		"input": {
+			"red_element": 10,
+			"blue_element": 5
+		},
+		"output": "friendly_acid",
+		"output_amt": 1,
+		"energy": -5,
+		"time": 2
+	},
+	{
+		"id": "grendalinunin",
+		"tool": "test_tube",
+		"input": {
+			"red_element": 17,
+			"green_element": 7,
+			"blue_element": 4,
+			"shiny_element": 2
+		},
+		"output": "grendalinunin",
+		"output_amt": 1,
+		"energy": -11,
+		"time": 4
+	},
+	{
+		"id": "groddlene",
+		"tool": "test_tube",
+		"input": {
+			"red_element": 6,
+			"green_element": 3
+		},
+		"output": "groddlene",
+		"output_amt": 1,
+		"energy": -2,
+		"time": 2
+	},
+	{
+		"id": "humbabol",
+		"tool": "test_tube",
+		"input": {
+			"blue_element": 1,
+			"shiny_element": 5
+		},
+		"output": "humbabol",
+		"output_amt": 1,
+		"energy": -5,
+		"time": 2
+	},
+	{
+		"id": "ixite",
+		"tool": "test_tube",
+		"input": {
+			"red_element": 2,
+			"green_element": 3,
+			"blue_element": 2,
+			"shiny_element": 1
+		},
+		"output": "ixite",
+		"output_amt": 1,
+		"energy": -4,
+		"time": 4
+	},
+	{
+		"id": "lemene",
+		"tool": "test_tube",
+		"input": {
+			"red_element": 4,
+			"green_element": 3,
+			"blue_element": 2,
+			"shiny_element": 1
+		},
+		"output": "lemene",
+		"output_amt": 1,
+		"energy": -4,
+		"time": 4
+	},
+	{
+		"id": "mabon",
+		"tool": "test_tube",
+		"input": {
+			"green_element": 7,
+			"blue_element": 7,
+			"shiny_element": 7
+		},
+		"output": "mabon",
+		"output_amt": 1,
+		"energy": -15,
+		"time": 3
+	},
+	{
+		"id": "potoxin",
+		"tool": "test_tube",
+		"input": {
+			"red_element": 7,
+			"green_element": 11,
+			"blue_element": 4
+		},
+		"output": "potoxin",
+		"output_amt": 1,
+		"energy": -9,
+		"time": 3
+	},
+	{
+		"id": "rubemycin",
+		"tool": "test_tube",
+		"input": {
+			"red_element": 5,
+			"green_element": 3,
+			"blue_element": 2,
+			"shiny_element": 1
+		},
+		"output": "rubemycin",
+		"output_amt": 1,
+		"energy": -4,
+		"time": 4
+	},
+	{
+		"id": "spriggase",
+		"tool": "test_tube",
+		"input": {
+			"red_element": 11,
+			"green_element": 7,
+			"blue_element": 5
+		},
+		"output": "spriggase",
+		"output_amt": 1,
+		"energy": -9,
+		"time": 3
+	},
+	{
+		"id": "tiite",
+		"tool": "test_tube",
+		"input": {
+			"red_element": 2,
+			"blue_element": 1
+		},
+		"output": "tiite",
+		"output_amt": 1,
+		"energy": -1,
+		"time": 2
+	},
+	{
+		"id": "zillene",
+		"tool": "test_tube",
+		"input": {
+			"green_element": 5,
+			"blue_element": 3,
+			"shiny_element": 1
+		},
+		"output": "zillene",
+		"output_amt": 1,
+		"energy": -5,
+		"time": 3
+	}
+]
