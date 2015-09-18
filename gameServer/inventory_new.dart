@@ -74,7 +74,7 @@ class InventoryV2 {
 			s.add(new Slot());
 		}
 		s.forEach((Slot slot) {
-			if (slot.itemType == null) {
+			if(slot.itemType == null) {
 				slot.itemType = "";
 				slot.count = 0;
 				slot.metadata = {};
@@ -137,8 +137,8 @@ class InventoryV2 {
 	 */
 	Slot changeSlot(int index, int subIndex, Slot newContents) {
 		//we're putting it into a bag
-		if (subIndex > -1) {
-			return _changeBagSlot(index, subIndex, newContents);
+		if(subIndex > -1) {
+			return _changeBagSlot(index,subIndex,newContents);
 		}
 
 		// Get the old slot data
@@ -165,7 +165,7 @@ class InventoryV2 {
 		try {
 			// Make sure the bag accepts this item
 			assert(items[slots[bagIndex].itemType].filterAllows(itemType: newContents.itemType));
-		} catch (e) {
+		} catch(e) {
 			return null;
 		}
 
@@ -378,7 +378,7 @@ class InventoryV2 {
 
 		tmpSlots.insert(slot, toModify);
 
-		if (!simulate) {
+		if(!simulate) {
 			inventory_json = jsonx.encode(tmpSlots);
 			await _updateDatabase(email);
 		}
@@ -404,7 +404,7 @@ class InventoryV2 {
 			}
 
 			Item slotItem = items[slot.itemType];
-			if (slotItem == null) {
+			if(slotItem == null) {
 				continue;
 			}
 			if (slotItem.isContainer && slotItem.filterAllows(itemType: item.itemType)) {
@@ -497,31 +497,23 @@ class InventoryV2 {
 			if (!slot.isEmpty) {
 				item = new Item.clone(slot.itemType);
 				item.metadata = slot.metadata;
-				if (item.isContainer) {
-					if (item.metadata['slots'] != null) {
-						List<Slot> bagSlots = jsonx.decode(item.metadata['slots'], type: listOfSlots);
-						List<Map> bagSlotMaps = [];
-						bagSlots.forEach((Slot bagSlot) {
-							Item bagItem = null;
-							if (!bagSlot.isEmpty) {
-								bagItem = new Item.clone(bagSlot.itemType);
-								bagItem.metadata = bagSlot.metadata;
-							}
-							Map bagSlotMap = {
-								'itemType':bagSlot.itemType,
-								'item':encode(bagItem),
-								'count':bagSlot.count
-							};
-							bagSlotMaps.add(bagSlotMap);
-						});
-						item.metadata['slots'] = bagSlotMaps;
-					} else {
-						List<Map> bagSlotMaps = [];
-						for (int i = 0; i < item.subSlots; i++) {
-							bagSlotMaps.add(encode(new Slot()));
+				if (item.isContainer && item.metadata['slots'] != null) {
+					List<Slot> bagSlots = jsonx.decode(item.metadata['slots'], type: listOfSlots);
+					List<Map> bagSlotMaps = [];
+					bagSlots.forEach((Slot bagSlot) {
+						Item bagItem = null;
+						if (!bagSlot.isEmpty) {
+							bagItem = new Item.clone(bagSlot.itemType);
+							bagItem.metadata = bagSlot.metadata;
 						}
-						item.metadata['slots'] = bagSlotMaps;
-					}
+						Map bagSlotMap = {
+							'itemType':bagSlot.itemType,
+							'item':encode(bagItem),
+							'count':bagSlot.count
+						};
+						bagSlotMaps.add(bagSlotMap);
+					});
+					item.metadata['slots'] = bagSlotMaps;
 				}
 			}
 			Map slotMap = {
@@ -549,7 +541,7 @@ class InventoryV2 {
 
 		//count all the normal slots
 		slots.forEach((Slot s) {
-			if (s.itemType == itemType) {
+			if(s.itemType == itemType) {
 				count += s.count;
 			}
 		});
@@ -626,7 +618,7 @@ class InventoryV2 {
 		}
 	}
 
-/// moveItem is in street_update_handler.dart
+	/// moveItem is in street_update_handler.dart
 }
 
 @app.Route("/getInventory/:email")
