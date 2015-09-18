@@ -89,6 +89,21 @@ class InventoryV2 {
 
 //	 Might need this
 //	void _upgradeItems() {
+//		List<Map> slots = JSON.decode(inventory_json);
+//		List<Map> newSlots = [];
+//		for(Map slot in slots) {
+//			if(slot['itemType'] == null) {
+//				slot['itemType'] = "";
+//			}
+//			if(slot['count'] == null) {
+//				slot['count'] = 0;
+//			}
+//			if(slot['metadata'] == null) {
+//				slot['metadata'] = {};
+//			}
+//			newSlots.add(slot);
+//		}
+//		inventory_json = JSON.encode(newSlots);
 //		if (JSON.decode(inventory_json) is Map) {
 //			Map<String, int> inventoryMap = JSON.decode(inventory_json);
 //			List<Slot> slotsToAdd = [];
@@ -100,7 +115,7 @@ class InventoryV2 {
 //				slotsToAdd.add(slot);
 //			});
 //
-//			//make sure it totals 11 slots
+//			//make sure it totals 10 slots
 //			while (slotsToAdd.length < invSize) {
 //				slotsToAdd.add(new Slot());
 //			}
