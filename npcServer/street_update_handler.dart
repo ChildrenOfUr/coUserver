@@ -282,6 +282,11 @@ class StreetUpdateHandler {
 	                             int toBagIndex: -1,
 	                             int toIndex: -1
 	                             }) async {
+		if(fromIndex == -1 || toIndex == -1) {
+			//something's wrong
+			return false;
+		}
+
 		// Get the user's inventory to work on
 		InventoryV2 inv = await getInventory(email);
 
