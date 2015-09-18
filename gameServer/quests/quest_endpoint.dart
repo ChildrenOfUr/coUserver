@@ -20,9 +20,11 @@ class QuestEndpoint {
 			}
 		});
 
-		questLogCache[leavingUser].stopTracking();
-		questLogCache.remove(leavingUser);
-		userSockets.remove(leavingUser);
+		if(leavingUser != null) {
+			questLogCache[leavingUser].stopTracking();
+			questLogCache.remove(leavingUser);
+			userSockets.remove(leavingUser);
+		}
 	}
 
 	static Future processMessage(WebSocket ws, String message) async {
@@ -31,17 +33,17 @@ class QuestEndpoint {
 			String email = map['email'];
 
 			//setup our associative data structures
-			userSockets[email] = ws;
-			questLogCache[email] = await QuestService.getQuestLog(email);
+//			userSockets[email] = ws;
+//			questLogCache[email] = await QuestService.getQuestLog(email);
 
 			//give this user the tree petter quest (debug purposes)
-			await questLogCache[email].addInProgressQuest('Q2');
+//			await questLogCache[email].addInProgressQuest('Q2');
 
 			//start tracking this user's quest log
-			questLogCache[email].startTracking(email);
+//			questLogCache[email].startTracking(email);
 
 			//pass back a message that says we're good to go (debug)
-			ws.add(JSON.encode({'data':'got it'}));
+//			ws.add(JSON.encode({'data':'got it'}));
 		}
 	}
 }
