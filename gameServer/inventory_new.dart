@@ -340,11 +340,11 @@ class InventoryV2 {
 			Row row = await dbConn.innerConn.query(query, {'email':email}).first;
 			this.user_id = row.id;
 			queryString = "INSERT INTO inventories(inventory_json, user_id) VALUES(@inventory_json,@user_id)";
-			int result = await dbConn.execute(queryString, this);
-			return result;
+			numRowsUpdated = await dbConn.execute(queryString, this);
 		}
 
 		dbManager.closeConnection(dbConn);
+		return numRowsUpdated;
 	}
 
 	Future<Item> _takeItem(int slot, int subSlot, int count, String email, {bool simulate:false}) async {
