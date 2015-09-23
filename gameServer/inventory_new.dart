@@ -172,7 +172,17 @@ class InventoryV2 {
 		// Read down the slot tree
 		List<Slot> invSlots = slots; // Hotbar
 		Slot bagSlot = invSlots[bagIndex]; // Bag in hotbar
-		List<Slot> bagSlots = jsonx.decode(bagSlot.metadata["slots"], type: listOfSlots); // Bag contents
+		List<Slot> bagSlots;
+		if (bagSlot.metadata["slots"] == null) {
+			// If the bag has no slot data (newly created),
+			// fill it with empty slots
+			bagSlots = _generateEmptySlots(items[bagSlot.itemType].subSlots);
+		} else {
+			// If the bag already has slot data,
+			// load it into the list
+			bagSlots = jsonx.decode(bagSlot.metadata["slots"], type: listOfSlots);
+		}
+		// Bag contents
 		Slot origContents = bagSlots[bagSlotIndex]; // Slot inside bag
 		// Change out the bag slot
 		bagSlots[bagSlotIndex] = newContents; // Slot inside bag
@@ -181,6 +191,16 @@ class InventoryV2 {
 		invSlots[bagIndex] = bagSlot; // Bag in hotbar
 		inventory_json = jsonx.encode(invSlots); // Hotbar
 		return origContents;
+	}
+
+	List<Slot> _generateEmptySlots([int amt]) {
+		List<Slot> slots = [];
+
+		for (int i = 1; i <= amt; i++) {
+			slots.add(new Slot());
+		}
+
+		return slots;
 	}
 
 	/**
