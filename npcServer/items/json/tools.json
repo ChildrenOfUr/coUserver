@@ -391,7 +391,7 @@
     "description": "An ergonomically correct gassifier. It can turn general vapour into much more exciting gases.",
     "actions": [
       {
-        "name": "Convert",
+        "name": "Convert Gas",
         "description": "Make all kinds of gas",
         "itemRequirements": {},
         "skillRequirements": {}

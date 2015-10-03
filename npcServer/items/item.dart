@@ -397,8 +397,12 @@ class Item {
 	}
 
 	// Fruit Changing Machine
+	Future convertFruit({String streetName, Map map, WebSocket userSocket, String email}) async {
+		return Recipe.useItem(map, userSocket,email);
+	}
+
 	// Gassifier
-	Future convert({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future convertGas({String streetName, Map map, WebSocket userSocket, String email}) async {
 		return Recipe.useItem(map, userSocket,email);
 	}
 
