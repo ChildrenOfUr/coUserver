@@ -7,8 +7,13 @@ Map getStreetEntities(String tsid) {
 		if(tsid.startsWith("G"))
 			tsid = tsid.replaceFirst("G", "L");
 		File file = new File('./streetEntities/$tsid');
-		if(file.existsSync())
-			entities = JSON.decode(file.readAsStringSync());
+		if(file.existsSync()) {
+			try {
+				entities = JSON.decode(file.readAsStringSync());
+			} catch(e) {
+				print("Error in street entities file $tsid: $e");
+			}
+		}
 	}
 
 	return entities;
