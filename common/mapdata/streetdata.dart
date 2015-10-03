@@ -6250,6 +6250,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GIFEL8CPH08259V",
 		"hub_id": 93
 	},
+	"Vayu Trench": {
+		"tsid": "GUVMF06N99A3U2B",
+		"hub_id": 136
+	},
 	"Vekke Vets": {
 		"vendor": "Alchemical Goods",
 		"shrine": "Tii"
