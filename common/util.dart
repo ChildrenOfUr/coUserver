@@ -181,6 +181,10 @@ void log(String message) {
 @app.Route('/getSpritesheets')
 Future<Map> getSpritesheets(@app.QueryParam('username') String username) async
 {
+	if (username == null) {
+		return {};
+	}
+
 	Map<String, String> spritesheets = {};
 	File cache = new File('./playerSpritesheets/${username.toLowerCase()}.json');
 	if(!(await cache.exists())) {
