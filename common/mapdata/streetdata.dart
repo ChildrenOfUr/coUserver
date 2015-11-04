@@ -6124,7 +6124,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Uncle Friendly's Emporium": {
 		"tsid": "GM4118MEHFDMM",
 		"hub_id": 27,
-		"disallow_bound_expansion": true
+		"disallow_bound_expansion": true,
+		"disable_weather": true
 	},
 	"Undermine Hollows": {
 		"vendor": "Hardware",
