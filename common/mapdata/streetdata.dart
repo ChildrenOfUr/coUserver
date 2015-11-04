@@ -6418,7 +6418,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"vendor": "Drink",
 		"tsid": "GM413RQ6LRG9N",
 		"hub_id": 27,
-		"minimap_objects": true
+		"minimap_objects": 1
 	},
 	"Wettish Walk": {
 		"vendor": "Hardware",
