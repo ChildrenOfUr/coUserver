@@ -131,12 +131,14 @@ final Map<String, Map<String, dynamic>> mapdata_hubs = {
 	"50": {
 		"name": "Ilmenskie Caverns",
 		"hidden": true,
-		"music": "ilmenskie"
+		"music": "ilmenskie",
+		"disable_weather": true
 	},
 	"78": {
 		"name": "Ilmenskie Deeps",
 		"hidden": true,
-		"music": "ilmenskie"
+		"music": "ilmenskie",
+		"disable_weather": true
 	},
 	"27": {
 		"name": "Ix",
