@@ -657,3 +657,33 @@ Future<InventoryV2> getInventory(String email) async {
 	dbManager.closeConnection(dbConn);
 	return inventory;
 }
+
+// Returns whether the user has blank slots, and any item restrictions on the slots
+@app.Route("/checkBlankSlots/:email")
+@Encode()
+Future<String> checkBlankSlots(String email) async {
+	// Get ready to do the thing
+	List<List<String>> blankSlotTypes = [];
+
+	// Do the thing
+	(await getInventory(email)).slots.forEach((Slot slot) {
+		if (slot.isEmpty) {
+			// Check root slots (not in containers)
+			// Add a slot that accepts everything to the list of blank slots
+			blankSlotTypes.add([]);
+		} else if (items[slot.itemType].isContainer) {
+			// Check inside containers
+			List<Slot> bagSlots = jsonx.decode(slot.metadata["slots"], type: listOfSlots);
+			bagSlots.forEach((Slot bagSlot) {
+				if (bagSlot.isEmpty) {
+					// Add a slot that accepts a certain
+					// list of things to the list of blank slots
+					blankSlotTypes.add(items[slot.itemType].subSlotFilter);
+				}
+			});
+		}
+	});
+
+	// Tell the client how the thing went
+	return JSON.encode(blankSlotTypes);
+}
