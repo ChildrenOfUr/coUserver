@@ -669,8 +669,9 @@ Future<String> checkBlankSlots(String email) async {
 	(await getInventory(email)).slots.forEach((Slot slot) {
 		if (slot.isEmpty) {
 			// Check root slots (not in containers)
-			// Add a slot that accepts everything to the list of blank slots
-			blankSlotTypes.add([]);
+			// Add a slot that accepts everything
+			// (including containers, hence the "_root") to the list of blank slots
+			blankSlotTypes.add(["_root"]);
 		} else if (items[slot.itemType].isContainer) {
 			// Check inside containers
 			List<Slot> bagSlots = jsonx.decode(slot.metadata["slots"], type: listOfSlots);
