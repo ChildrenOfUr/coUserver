@@ -148,6 +148,8 @@ part "common/mapdata/mapdata.dart";
 part "common/mapdata/hubdata.dart";
 part "common/mapdata/streetdata.dart";
 
+part "common/visited.dart";
+
 //various http parts (as opposed to the previous websocket parts)
 part "common/util.dart";
 part "gameServer/auctions/auction.dart";
