@@ -414,7 +414,7 @@ Future<Metabolics> getMetabolics({@app.QueryParam() String username, @app.QueryP
 
 	PostgreSql dbConn = await dbManager.getConnection();
 	try {
-		String whereClause = "WHERE users.username = @username";
+		String whereClause = "WHERE lower(users.username) = lower(@username)"; // case-insensitive
 		if (email != null) {
 			whereClause = "WHERE users.email = @email";
 		}
