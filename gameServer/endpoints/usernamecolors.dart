@@ -23,10 +23,10 @@ class UsernameColors {
 
 		try {
 			// Find username_color for username
-			String query = "SELECT username_color FROM users WHERE lower(username) = lower('$username')";
+			String query = "SELECT username_color FROM users WHERE lower(username) = lower(@username)";
 
 			// Results
-			List<String> hexes = await dbConn.query(query, String);
+			List<String> hexes = await dbConn.query(query, String, {"username": username});
 
 			// At least 1 row (should only be 1)
 			if (hexes.length >= 1) {
@@ -45,7 +45,7 @@ class UsernameColors {
 				// Revert to old color generator
 				hex = getByChars(username);
 			}
-		} catch (e) {
+		} catch (e, st) {
 			// Log error message for investigation
 			log("Unable to get username color for $username: $e");
 		} finally {
@@ -90,10 +90,10 @@ class UsernameColors {
 
 		try {
 			// Update username_color for user with email
-			String query = "UPDATE users SET username_color = '#$nekkidHex' WHERE email = '$email'";
+			String query = "UPDATE users SET username_color = @hex WHERE email = @email";
 
 			// Results
-			int result = await dbConn.execute(query);
+			int result = await dbConn.execute(query, {"hex": "#$nekkidHex", "email": email});
 
 			// 1 row changed?
 			success = (result == 1);
