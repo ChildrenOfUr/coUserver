@@ -11,131 +11,136 @@ part of coUserver;
 
 @app.Group("/usernamecolors")
 class UsernameColors {
+  /// Returns the color in form #FFFFFF for a user with the provided username.
+  @app.Route("/get/:username")
+  Future<String> get(String username) async {
+    // Default value
+    String hex = "#";
 
-	/// Returns the color in form #FFFFFF for a user with the provided username.
-	@app.Route("/get/:username")
-	Future<String> get(String username) async {
-		// Default value
-		String hex = "#";
+    // Connect to database
+    PostgreSql dbConn = await dbManager.getConnection();
 
-		// Connect to database
-		PostgreSql dbConn = await dbManager.getConnection();
+    try {
+      // Find username_color for username
+      String query = "SELECT username_color FROM users WHERE lower(username) = lower(@username)";
 
-		try {
-			// Find username_color for username
-			String query = "SELECT username_color FROM users WHERE lower(username) = lower(@username)";
+      // Results
+      List<Map<String, dynamic>> hexes = await dbConn.query(query, String, {
+        "username": username
+      });
 
-			// Results
-			List<String> hexes = await dbConn.query(query, String, {"username": username});
+      // At least 1 row (should only be 1)
+      if (hexes.length >= 1) {
+        String returnedHex = hexes.first["username_color"];
+        // Return result
+        if (returnedHex.trim() != "#") {
+          // Value provided
+          hex = returnedHex;
+        } else {
+          // No value provided (default # present)
+          // Revert to old color generator
+          hex = getByChars(username);
+        }
+      } else {
+        // Nothing returned
+        // Revert to old color generator
+        hex = getByChars(username);
+      }
+    } catch (e) {
+      // Log error message for investigation
+      log("Unable to get username color for $username: $e");
+    } finally {
+      // Close database connection
+      if (dbConn != null) {
+        dbManager.closeConnection(dbConn);
+      }
 
-			// At least 1 row (should only be 1)
-			if (hexes.length >= 1) {
-				String returnedHex = hexes.first["username_color"];
-				// Return result
-				if (returnedHex.trim() != "#") {
-					// Value provided
-					hex = returnedHex;
-				} else {
-					// No value provided (default # present)
-					// Revert to old color generator
-					hex = getByChars(username);
-				}
-			} else {
-				// Nothing returned
-				// Revert to old color generator
-				hex = getByChars(username);
-			}
-		} catch (e, st) {
-			// Log error message for investigation
-			log("Unable to get username color for $username: $e");
-		} finally {
-			// Close database connection
-			if (dbConn != null) {
-				dbManager.closeConnection(dbConn);
-			}
+      // Return result (all uppercase)
+      return hex.trim().toUpperCase();
+    }
+  }
 
-			// Return result
-			return hex;
-		}
-	}
+  /// Updates the color (provided in form 0xFFFFFF) for the user with the provided email.
+  /// Returns whether it was successful (bool)
+  @app.Route("/set/:email/:hex")
+  Future<bool> set(String email, String hex) async {
+    // Validate hex input
+    if (!hex.trim().startsWith("0x") || hex.trim().length != 8) {
+      // Invalid hex (must be in form 0xFFFFFF,
+      // not starting with # because of page ID hashes)
+      return false;
+    }
 
-	/// Updates the color (provided in form 0xFFFFFF) for the user with the provided email.
-	/// Returns whether it was successful (bool)
-	@app.Route("/set/:email/:hex")
-	Future<bool> set(String email, String hex) async {
-		// Validate hex input
-		if (!hex.trim().startsWith("0x") || hex.trim().length != 8) {
-			// Invalid hex (must be in form 0xFFFFFF,
-			// not starting with # because of page ID hashes)
-			return false;
-		}
+    // Only the numbers, all upper case, no prefixes
+    String nekkidHex = hex.replaceFirst("0x", "").toUpperCase();
 
-		String nekkidHex = hex.replaceFirst("0x", "");
+    try {
+      // Try to parse int to prevent injection risks
+      int.parse(nekkidHex, radix: 16);
+    } on FormatException catch (e) {
+      // Invalid hex value (possibly a malicious SQL command?)
+      return false;
+    } catch (e) {
+      // Unknown error
+      return false;
+    }
 
-		try {
-			// Try to parse int to prevent injection risks
-			int.parse(nekkidHex, radix: 16);
-		} on FormatException catch (e) {
-			// Invalid hex value (possibly a malicious SQL command?)
-			return false;
-		} catch(e) {
-			// Unknown error
-			return false;
-		}
+    // Connect to database
+    PostgreSql dbConn = await dbManager.getConnection();
 
-		// Connect to database
-		PostgreSql dbConn = await dbManager.getConnection();
+    bool success = false;
 
-		bool success = false;
+    try {
+      // Update username_color for user with email
+      String query = "UPDATE users SET username_color = @hex WHERE email = @email";
 
-		try {
-			// Update username_color for user with email
-			String query = "UPDATE users SET username_color = @hex WHERE email = @email";
+      // Results
+      int result = await dbConn.execute(query, {
+        "hex": "#$nekkidHex",
+        "email": email
+      });
 
-			// Results
-			int result = await dbConn.execute(query, {"hex": "#$nekkidHex", "email": email});
+      // 1 row changed?
+      success = (result == 1);
+    } catch (e) {
+      // Log error message for investigation
+      log("Unable to set username color for $email to $nekkidHex: $e");
+    } finally {
+      // Close database connection
+      if (dbConn != null) {
+        dbManager.closeConnection(dbConn);
+      }
 
-			// 1 row changed?
-			success = (result == 1);
-		} catch (e) {
-			// Log error message for investigation
-			log("Unable to set username color for $email to $nekkidHex: $e");
-		} finally {
-			// Close database connection
-			if (dbConn != null) {
-				dbManager.closeConnection(dbConn);
-			}
+      // Return result
+      return success;
+    }
+  }
 
-			// Return result
-			return success;
-		}
-	}
+  /// Returns the HTML color name for the provided username.
+  /// Used if their hex color is not set.
+  @app.Route("/getbychars/:username")
+  String getByChars(String username) {
+    final List<String> COLORS = [
+      "blue",
+      "deepskyblue",
+      "fuchsia",
+      "gray",
+      "green",
+      "olivedrab",
+      "maroon",
+      "navy",
+      "olive",
+      "orange",
+      "purple",
+      "red",
+      "teal"
+    ];
 
-	/// Returns the HTML color name for the provided username.
-	/// Used if their hex color is not set.
-	@app.Route("/getbychars/:username")
-	String getByChars(String username) {
-		final List<String> COLORS = [
-			"blue",
-			"deepskyblue",
-			"fuchsia",
-			"gray",
-			"green",
-			"olivedrab",
-			"maroon",
-			"navy",
-			"olive",
-			"orange",
-			"purple",
-			"red",
-			"teal"
-		];
+    int index = 0;
+    for (int i = 0; i < username.length; i++) {
+      index += username.codeUnitAt(i);
+    }
 
-		int index = 0;
-		for (int i = 0; i < username.length; i++) {
-			index += username.codeUnitAt(i);
-		}
-
-		return COLORS[index % (COLORS.length - 1)];
-	}
+    return COLORS[index % (COLORS.length - 1)];
+  }
 }
