@@ -253,8 +253,8 @@ class MetabolicsEndpoint {
 	static Future addQuoin(Quoin q, String username) async {
 		Metabolics m = await getMetabolics(username:username);
 
-		if (m.quoins_collected >= 100) {
-			// Daily quoin limit of 100
+		if (m.quoins_collected >= 10000) {
+			// Daily quoin limit of 100 // TODO: change back to 100 after the holidays
 			denyQuoin(q, username);
 			return;
 		}
