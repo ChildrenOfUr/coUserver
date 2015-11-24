@@ -216,6 +216,14 @@ class InventoryV2 {
 	Future<int> _addItem(Map itemMap, int count, String email) async {
 		//instantiate an item object based on the map
 		Item item = jsonx.decode(JSON.encode(itemMap), type:Item);
+		if(item.isContainer && item.metadata['slots'] == null) {
+			List<Slot> emptySlots = [];
+			for(int i=0; i<item.subSlots; i++) {
+				emptySlots.add(new Slot());
+			}
+			print('size: ${emptySlots.length}');
+			item.metadata['slots'] = jsonx.encode(emptySlots);
+		}
 
 		// Keep a record of how many items we have merged into slots already,
 		// and how many more need to find homes
@@ -354,11 +362,11 @@ class InventoryV2 {
 			Row row = await dbConn.innerConn.query(query, {'email':email}).first;
 			this.user_id = row.id;
 			queryString = "INSERT INTO inventories(inventory_json, user_id) VALUES(@inventory_json,@user_id)";
-			int result = await dbConn.execute(queryString, this);
-			return result;
+			numRowsUpdated = await dbConn.execute(queryString, this);
 		}
 
 		dbManager.closeConnection(dbConn);
+		return numRowsUpdated;
 	}
 
 	Future<Item> _takeItem(int slot, int subSlot, int count, String email, {bool simulate:false}) async {

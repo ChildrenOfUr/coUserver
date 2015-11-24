@@ -89,6 +89,8 @@ class Item {
 			"actions":actionList,
 			"tool_animation": toolAnimation,
 			"durability": durability,
+			"durabilityUsed": durabilityUsed,
+			"subSlots": subSlots,
 			"metadata": metadata,
 			"discount": discount
 		};
