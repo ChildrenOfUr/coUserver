@@ -209,12 +209,8 @@ class InventoryV2 {
 	 */
 	void updateJson() {
 		if (slots is List) {
-			print("old inv json: $inventory_json");
 			inventory_json = jsonx.encode(slots);
-			print(slots);
-			print("new inv json: $inventory_json");
 		}
-		print("\ndone updating json\n\n");
 	}
 
 	Future<int> _addItem(Map itemMap, int count, String email) async {

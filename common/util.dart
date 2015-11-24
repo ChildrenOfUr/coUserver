@@ -11,7 +11,7 @@ Map getStreetEntities(String tsid) {
 			try {
 				entities = JSON.decode(file.readAsStringSync());
 			} catch(e) {
-				print("Error in street entities file $tsid: $e");
+				log("Error in street entities file $tsid: $e");
 			}
 		}
 	}
