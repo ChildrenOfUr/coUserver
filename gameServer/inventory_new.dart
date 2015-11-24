@@ -574,13 +574,15 @@ class InventoryV2 {
 
 		//add the bag contents
 		slots.where((Slot s) => !s.itemType.isEmpty && items[s.itemType].isContainer && items[s.itemType].subSlots != null).forEach((Slot s) {
-			List<Slot> bagSlots = jsonx.decode(s.metadata['slots'], type: listOfSlots);
-			if (bagSlots != null) {
-				bagSlots.forEach((Slot bagSlot) {
-					if (bagSlot.itemType == itemType) {
-						count += bagSlot.count;
-					}
-				});
+			if (s.metadata["slots"] != null && (s.metadata["slots"]).length > 0) {
+				List<Slot> bagSlots = jsonx.decode(s.metadata['slots'], type: listOfSlots);
+				if (bagSlots != null) {
+					bagSlots.forEach((Slot bagSlot) {
+						if (bagSlot.itemType == itemType) {
+							count += bagSlot.count;
+						}
+					});
+				}
 			}
 		});
 
