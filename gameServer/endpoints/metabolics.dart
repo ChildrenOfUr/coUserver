@@ -157,8 +157,7 @@ class MetabolicsEndpoint {
 	}
 
 	static void simulate() {
-		userSockets.forEach((String username, WebSocket ws) async
-		{
+		userSockets.forEach((String username, WebSocket ws) async {
 			try {
 				Metabolics m = await getMetabolics(username:username);
 
@@ -188,8 +187,7 @@ class MetabolicsEndpoint {
 						ws.add(JSON.encode(encode(m)));
 					}
 				}
-			}
-			catch (e, st) {
+			} catch (e, st) {
 				log("(metabolics endpoint - simulate): $e\n$st");
 			}
 		});
