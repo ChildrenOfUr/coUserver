@@ -208,7 +208,13 @@ class InventoryV2 {
 	 * with its current slot contents.
 	 */
 	void updateJson() {
-		inventory_json = jsonx.encode(slots);
+		if (slots is List) {
+			print("old inv json: $inventory_json");
+			inventory_json = jsonx.encode(slots);
+			print(slots);
+			print("new inv json: $inventory_json");
+		}
+		print("\ndone updating json\n\n");
 	}
 
 	Future<int> _addItem(Map itemMap, int count, String email) async {
@@ -561,7 +567,7 @@ class InventoryV2 {
 
 		//count all the normal slots
 		slots.forEach((Slot s) {
-			if(s.itemType == itemType) {
+			if(s.itemType != null && s.itemType == itemType) {
 				count += s.count;
 			}
 		});
