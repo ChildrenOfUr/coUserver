@@ -7,8 +7,13 @@ Map getStreetEntities(String tsid) {
 		if(tsid.startsWith("G"))
 			tsid = tsid.replaceFirst("G", "L");
 		File file = new File('./streetEntities/$tsid');
-		if(file.existsSync())
-			entities = JSON.decode(file.readAsStringSync());
+		if(file.existsSync()) {
+			try {
+				entities = JSON.decode(file.readAsStringSync());
+			} catch(e) {
+				log("Error in street entities file $tsid: $e");
+			}
+		}
 	}
 
 	return entities;
@@ -176,6 +181,10 @@ void log(String message) {
 @app.Route('/getSpritesheets')
 Future<Map> getSpritesheets(@app.QueryParam('username') String username) async
 {
+	if (username == null) {
+		return {};
+	}
+
 	Map<String, String> spritesheets = {};
 	File cache = new File('./playerSpritesheets/${username.toLowerCase()}.json');
 	if(!(await cache.exists())) {

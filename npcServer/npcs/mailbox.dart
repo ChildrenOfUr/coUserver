@@ -63,8 +63,9 @@ class Mailbox extends NPC {
 Future<List<Message>> getMail(@app.Body(app.JSON) Map parameters) async
 {
 	String user = parameters['user'];
+	user = user.toLowerCase(); // case-insensitive search
 
-	String query = "SELECT * FROM messages WHERE to_user = @user";
+	String query = "SELECT * FROM messages WHERE lower(to_user) = @user";
 	List<Message> messages = await dbConn.query(query, Message, {'user':user});
 
 	return messages;

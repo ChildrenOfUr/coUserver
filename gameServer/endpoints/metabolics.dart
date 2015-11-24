@@ -253,8 +253,8 @@ class MetabolicsEndpoint {
 	static Future addQuoin(Quoin q, String username) async {
 		Metabolics m = await getMetabolics(username:username);
 
-		if (m.quoins_collected >= 10000) {
-			// Daily quoin limit of 100 // TODO: change back to 100 after the holidays
+		if (m.quoins_collected >= constants.quoinLimit) {
+			// Daily quoin limit
 			denyQuoin(q, username);
 			return;
 		}
@@ -266,10 +266,15 @@ class MetabolicsEndpoint {
 			// Multiply it by the player's quoin multiplier
 			amt = (amt * m.quoin_multiplier).round();
 		} else {
-			// Chose a number 0.1-0.9
-			amt = (rand.nextInt(9) + 1) / 10;
+			// Chose a number 0.01 i to 0.09 i
+			amt = (rand.nextInt(9) + 1) / 100;
 			// Add it to the player's quoin multiplier
 			m.quoin_multiplier += amt;
+
+			// Limit QM
+			if (m.quoin_multiplier > constants.quoinMultiplierLimit) {
+				m.quoin_multiplier = constants.quoinMultiplierLimit;
+			}
 		}
 
 		if (q.type == "quarazy") {
@@ -414,7 +419,7 @@ Future<Metabolics> getMetabolics({@app.QueryParam() String username, @app.QueryP
 
 	PostgreSql dbConn = await dbManager.getConnection();
 	try {
-		String whereClause = "WHERE users.username = @username";
+		String whereClause = "WHERE lower(users.username) = lower(@username)"; // case-insensitive
 		if (email != null) {
 			whereClause = "WHERE users.email = @email";
 		}

@@ -77,7 +77,8 @@ final Map<String, Map<String, dynamic>> mapdata_hubs = {
 		"name": "Drifa",
 		"x": 390,
 		"y": -2,
-		"music": "nottis"
+		"music": "nottis",
+		"snowy_weather": true
 	},
 	"123": {
 		"name": "Fenneq",
@@ -131,12 +132,14 @@ final Map<String, Map<String, dynamic>> mapdata_hubs = {
 	"50": {
 		"name": "Ilmenskie Caverns",
 		"hidden": true,
-		"music": "ilmenskie"
+		"music": "ilmenskie",
+		"disable_weather": true
 	},
 	"78": {
 		"name": "Ilmenskie Deeps",
 		"hidden": true,
-		"music": "ilmenskie"
+		"music": "ilmenskie",
+		"disable_weather": true
 	},
 	"27": {
 		"name": "Ix",
@@ -213,7 +216,8 @@ final Map<String, Map<String, dynamic>> mapdata_hubs = {
 		"name": "Nottis",
 		"x": 344,
 		"y": 9,
-		"music": "nottis"
+		"music": "nottis",
+		"snowy_weather": true
 	},
 	"102": {
 		"name": "Ormonos",

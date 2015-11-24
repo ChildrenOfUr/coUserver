@@ -30,10 +30,13 @@ part "API_KEYS.dart";
 
 //various service endpoints
 part "gameServer/auctions/auctions_service.dart";
-part "gameServer/metabolics.dart";
-part "gameServer/weather.dart";
-part "gameServer/holidays.dart";
-part "gameServer/letters.dart";
+part "gameServer/endpoints/constants.dart";
+part "gameServer/endpoints/metabolics.dart";
+part "gameServer/endpoints/weather.dart";
+part "gameServer/endpoints/holidays.dart";
+part "gameServer/endpoints/letters.dart";
+part "gameServer/endpoints/usernamecolors.dart";
+part "gameServer/endpoints/visited.dart";
 
 //quests
 part "gameServer/quests/quest.dart";

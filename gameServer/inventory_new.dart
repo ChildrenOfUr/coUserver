@@ -172,7 +172,17 @@ class InventoryV2 {
 		// Read down the slot tree
 		List<Slot> invSlots = slots; // Hotbar
 		Slot bagSlot = invSlots[bagIndex]; // Bag in hotbar
-		List<Slot> bagSlots = jsonx.decode(bagSlot.metadata["slots"], type: listOfSlots); // Bag contents
+		List<Slot> bagSlots;
+		if (bagSlot.metadata["slots"] == null) {
+			// If the bag has no slot data (newly created),
+			// fill it with empty slots
+			bagSlots = _generateEmptySlots(items[bagSlot.itemType].subSlots);
+		} else {
+			// If the bag already has slot data,
+			// load it into the list
+			bagSlots = jsonx.decode(bagSlot.metadata["slots"], type: listOfSlots);
+		}
+		// Bag contents
 		Slot origContents = bagSlots[bagSlotIndex]; // Slot inside bag
 		// Change out the bag slot
 		bagSlots[bagSlotIndex] = newContents; // Slot inside bag
@@ -183,12 +193,24 @@ class InventoryV2 {
 		return origContents;
 	}
 
+	List<Slot> _generateEmptySlots([int amt]) {
+		List<Slot> slots = [];
+
+		for (int i = 1; i <= amt; i++) {
+			slots.add(new Slot());
+		}
+
+		return slots;
+	}
+
 	/**
 	 * Updates the inventory's JSON representation
 	 * with its current slot contents.
 	 */
 	void updateJson() {
-		inventory_json = jsonx.encode(slots);
+		if (slots is List) {
+			inventory_json = jsonx.encode(slots);
+		}
 	}
 
 	Future<int> _addItem(Map itemMap, int count, String email) async {
@@ -549,20 +571,22 @@ class InventoryV2 {
 
 		//count all the normal slots
 		slots.forEach((Slot s) {
-			if(s.itemType == itemType) {
+			if(s.itemType != null && s.itemType == itemType) {
 				count += s.count;
 			}
 		});
 
 		//add the bag contents
 		slots.where((Slot s) => !s.itemType.isEmpty && items[s.itemType].isContainer && items[s.itemType].subSlots != null).forEach((Slot s) {
-			List<Slot> bagSlots = jsonx.decode(s.metadata['slots'], type: listOfSlots);
-			if (bagSlots != null) {
-				bagSlots.forEach((Slot bagSlot) {
-					if (bagSlot.itemType == itemType) {
-						count += bagSlot.count;
-					}
-				});
+			if (s.metadata["slots"] != null && (s.metadata["slots"]).length > 0) {
+				List<Slot> bagSlots = jsonx.decode(s.metadata['slots'], type: listOfSlots);
+				if (bagSlots != null) {
+					bagSlots.forEach((Slot bagSlot) {
+						if (bagSlot.itemType == itemType) {
+							count += bagSlot.count;
+						}
+					});
+				}
 			}
 		});
 
@@ -644,4 +668,35 @@ Future<InventoryV2> getInventory(String email) async {
 
 	dbManager.closeConnection(dbConn);
 	return inventory;
+}
+
+// Returns whether the user has blank slots, and any item restrictions on the slots
+@app.Route("/checkBlankSlots/:email")
+@Encode()
+Future<String> checkBlankSlots(String email) async {
+	// Get ready to do the thing
+	List<List<String>> blankSlotTypes = [];
+
+	// Do the thing
+	(await getInventory(email)).slots.forEach((Slot slot) {
+		if (slot.isEmpty) {
+			// Check root slots (not in containers)
+			// Add a slot that accepts everything
+			// (including containers, hence the "_root") to the list of blank slots
+			blankSlotTypes.add(["_root"]);
+		} else if (items[slot.itemType].isContainer) {
+			// Check inside containers
+			List<Slot> bagSlots = jsonx.decode(slot.metadata["slots"], type: listOfSlots);
+			bagSlots.forEach((Slot bagSlot) {
+				if (bagSlot.isEmpty) {
+					// Add a slot that accepts a certain
+					// list of things to the list of blank slots
+					blankSlotTypes.add(items[slot.itemType].subSlotFilter);
+				}
+			});
+		}
+	});
+
+	// Tell the client how the thing went
+	return JSON.encode(blankSlotTypes);
 }

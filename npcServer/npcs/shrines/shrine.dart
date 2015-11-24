@@ -75,7 +75,7 @@ class Shrine extends NPC {
 			addedFavorMap['maxFavor'] = maxAmt;
 			userSocket.add(JSON.encode(addedFavorMap));
 		} else {
-			print("$email failed to donate $qty $itemType to $type");
+			log("$email failed to donate $qty $itemType to $type");
 		}
 	}
 }

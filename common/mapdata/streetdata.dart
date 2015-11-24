@@ -6124,7 +6124,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Uncle Friendly's Emporium": {
 		"tsid": "GM4118MEHFDMM",
 		"hub_id": 27,
-		"disallow_bound_expansion": true
+		"disallow_bound_expansion": true,
+		"disable_weather": true
 	},
 	"Undermine Hollows": {
 		"vendor": "Hardware",
@@ -6249,6 +6250,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"shrine": "Cosma",
 		"tsid": "GIFEL8CPH08259V",
 		"hub_id": 93
+	},
+	"Vayu Trench": {
+		"tsid": "GUVMF06N99A3U2B",
+		"hub_id": 136
 	},
 	"Vekke Vets": {
 		"vendor": "Alchemical Goods",
@@ -6413,7 +6418,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"vendor": "Drink",
 		"tsid": "GM413RQ6LRG9N",
 		"hub_id": 27,
-		"minimap_objects": true
+		"minimap_objects": 1
 	},
 	"Wettish Walk": {
 		"vendor": "Hardware",
