@@ -14,6 +14,9 @@ class UsernameColors {
   /// Returns the color in form #FFFFFF for a user with the provided username.
   @app.Route("/get/:username")
   Future<String> get(String username) async {
+    // Handle URL encodings (eg. " " is "%20" in the string)
+    username = Uri.decodeComponent(username);
+
     // Default value
     String hex = "#";
 
