@@ -789,7 +789,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Briarset Croft": {
 		"vendor": "Animal Goods",
-		"shrine": "Alph"
+		"shrine": "Alph",
+		"hub_id": 58,
+		"tsid": "LCR11DNA3EL10TD"
 	},
 	"Bright Day": {
 		"vendor": "Alchemical Goods",
@@ -1550,7 +1552,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Eglesgown Wanks": {
 		"vendor": "Produce",
-		"shrine": "Tii"
+		"shrine": "Tii",
+		"hub_id": 58,
+		"tsid": "LCR14062REM1QIR"
 	},
 	"Egret Taun": {
 		"vendor": "Alchemical Goods",
@@ -1710,7 +1714,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Fern End": {
 		"vendor": "Produce",
-		"shrine": "Grendaline"
+		"shrine": "Grendaline",
+		"hub_id": 56,
+		"tsid": "GCRTTKP69DO1MG0"
 	},
 	"Ferncaster End": {
 		"vendor": "Hardware",
@@ -2081,7 +2087,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Grand Mile": {
 		"mailbox": true,
 		"vendor": "Grocery",
-		"shrine": "Lem"
+		"shrine": "Lem",
+		"tsid": "GLI1BQA9PUH16A0",
+		"hub_id": 56
 	},
 	"Greenvern Mend": {
 		"vendor": "Alchemical Goods",
@@ -2171,7 +2179,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Hackfast Quicks": {
 		"vendor": "Animal Goods",
-		"shrine": "Humbaba"
+		"shrine": "Humbaba",
+		"tsid": "GCR13NMUQEM1A2R",
+		"hub_id": 56
 	},
 	"Hakusan Heaps": {
 		"shrine": "Cosma",
@@ -4110,7 +4120,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 98
 	},
 	"Nightshade Woods": {
-		"vendor": "Kitchen Tools"
+		"vendor": "Kitchen Tools",
+		"hub_id": 58,
+		"tsid": "GCR11JA67NJ15N3"
 	},
 	"Niiske Kook": {
 		"vendor": "Produce",
@@ -5622,7 +5634,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Sylvan Grove": {
 		"vendor": "Hardware",
-		"shrine": "Friendly"
+		"shrine": "Friendly",
+		"hub_id": 56,
+		"tsid": "GLCR10NQRPKJ16H6"
 	},
 	"Sysma Link": {
 		"vendor": "Alchemical Goods",
@@ -6441,7 +6455,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Wilhem Borough": {
 		"vendor": "Produce",
-		"shrine": "Mab"
+		"shrine": "Mab",
+		"hub_id": 58,
+		"tsid": "GCR7C1EG6LL1197"
 	},
 	"Willim Broun": {
 		"vendor": "Animal Goods",
