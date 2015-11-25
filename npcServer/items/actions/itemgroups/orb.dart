@@ -16,7 +16,7 @@ abstract class Item_Orb {
 		return await ItemUser.trySetMetabolics(email, mood:10);
 	}
 
-	static Future<bool> radiate(String streetName) async {
+	static Future<bool> radiate(String streetName, String radiator) async {
 		List<String> users = [];
 		List<Identifier> ids = ChatHandler.users.values.where((Identifier id) => id.channelList.contains(streetName)).toList();
 		ids.forEach((Identifier id) => users.add(id.username));
@@ -35,7 +35,7 @@ abstract class Item_Orb {
 
 			amt = (amt / numUsersOnStreet).ceil();
 			users.forEach((String username) => ItemUser.trySetMetabolics(username, mood: amt, energy: amt, img: amt));
-			StreetUpdateHandler.streets[streetName].occupants.forEach((String username, WebSocket ws) => toast("$username is radiating. Everyone here got $amt energy, mood, and iMG", ws));
+			StreetUpdateHandler.streets[streetName].occupants.forEach((String username, WebSocket ws) => toast("$radiator is radiating. Everyone here got $amt energy, mood, and iMG", ws));
 			return true;
 		}
 	}
