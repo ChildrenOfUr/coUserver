@@ -10,7 +10,7 @@ import "package:intl/intl.dart";
 import "package:slack/io/slack.dart" as slack;
 import "package:postgresql/postgresql.dart";
 import "package:redstone/server.dart" as app;
-//import "package:logging/logging.dart";
+import "package:logging/logging.dart";
 import "package:redstone_mapper/mapper.dart";
 import "package:redstone_mapper/plugin.dart";
 import "package:redstone_mapper_pg/manager.dart";

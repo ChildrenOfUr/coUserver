@@ -12,5 +12,5 @@ dependencies:
   shelf: any
   image: any
   crypto: any
-  harvest: "^2.0.0"
+  harvest: "^2.0.9"
   jsonx: "2.0.0"
