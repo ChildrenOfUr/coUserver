@@ -139,7 +139,7 @@ class Item {
 	// Used by multiple items //
 	// ////////////////////// //
 
-	Future<bool> sniff({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future<bool> sniff({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		InventoryV2 inv = await getInventory(email);
 		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
 		if (itemInSlot.itemType == "butterfly_milk") {
@@ -155,7 +155,7 @@ class Item {
 	// Butterfly Milk //
 	// ////////////// //
 
-	Future<bool> shakeBottle({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future<bool> shakeBottle({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return await Item_Milk.shakeBottle(userSocket, email);
 	}
 
@@ -163,7 +163,7 @@ class Item {
 	// Butterfly Butter //
 	// //////////////// //
 
-	Future<bool> compress({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future<bool> compress({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return await Item_Butter.compress(userSocket, email);
 	}
 
@@ -171,15 +171,15 @@ class Item {
 	// Cheese //
 	// ////// //
 
-	Future<bool> age({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future<bool> age({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return await Item_Cheese.age(map, userSocket, email);
 	}
 
-	Future<bool> prod({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future<bool> prod({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return await Item_Cheese.prod(userSocket, email);
 	}
 
-	Future<bool> sniffCheese(String streetName, Map map, WebSocket userSocket, String email) async {
+	Future<bool> sniffCheese(String streetName, Map map, WebSocket userSocket, String email, String username) async {
 		return await Item_Cheese.sniff(userSocket, email);
 	}
 
@@ -187,7 +187,7 @@ class Item {
 	// Butterfly Lotion //
 	// //////////////// //
 
-	Future<bool> taste({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future<bool> taste({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		toast("That didn't taste as good as it smells. -5 mood", userSocket);
 		return await ItemUser.trySetMetabolics(email, mood:-5);
 	}
@@ -196,11 +196,11 @@ class Item {
 	// Cubimal //
 	// /////// //
 
-	Future<bool> race({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future<bool> race({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return await Item_Cubimal.race(streetName, map, userSocket, email);
 	}
 
-	Future<bool> setFree({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future<bool> setFree({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return await Item_Cubimal.setFree(map, userSocket, email);
 	}
 
@@ -208,7 +208,7 @@ class Item {
 	// Cubimal Box //
 	// /////////// //
 
-	Future<bool> takeOutCubimal({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future<bool> takeOutCubimal({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return Item_CubimalBox.takeOutCubimal(map, userSocket, email);
 	}
 
@@ -216,19 +216,19 @@ class Item {
 	// Emblem //
 	// ////// //
 
-	Future<bool> caress({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future<bool> caress({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return await Item_Emblem.caress(userSocket, email);
 	}
 
-	Future<bool> consider({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future<bool> consider({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return await Item_Emblem.consider(userSocket, email);
 	}
 
-	Future<bool> contemplate({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future<bool> contemplate({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return await Item_Emblem.contemplate(userSocket, email);
 	}
 
-	Future<bool> iconize({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future<bool> iconize({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return await Item_Emblem.iconize(map, userSocket, email);
 	}
 
@@ -236,23 +236,23 @@ class Item {
 	// Focusing Orb //
 	// //////////// //
 
-	Future<bool> levitate({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future<bool> levitate({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return await Item_Orb.levitate(userSocket);
 	}
 
-	Future<bool> focusEnergy({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future<bool> focusEnergy({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return await Item_Orb.focusEnergy(userSocket, email);
 	}
 
-	Future<bool> focusMood({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future<bool> focusMood({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return await Item_Orb.focusMood(userSocket, email);
 	}
 
-	Future<bool> radiate({String streetName, Map map, WebSocket userSocket, String email}) async {
-		return await Item_Orb.radiate(streetName);
+	Future<bool> radiate({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
+		return await Item_Orb.radiate(streetName, username);
 	}
 
-	Future<bool> meditate({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future<bool> meditate({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return await Item_Orb.meditate(userSocket, email);
 	}
 
@@ -262,17 +262,17 @@ class Item {
 
 	// takes away item and gives the stats specified in items/actions/consume.json
 
-	Future<bool> consume({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future<bool> consume({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return await Item_Consumable.consume(map, userSocket, email);
 	}
 
 	// these two are just aliases to consume because they do the same thing, but are named differently in the item menu
 
-	Future eat({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future eat({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return await Item_Consumable.consume(map, userSocket, email);
 	}
 
-	Future drink({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future drink({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return await Item_Consumable.consume(map, userSocket, email);
 	}
 
@@ -280,22 +280,22 @@ class Item {
 	// Icon //
 	// //// //
 
-	Future<bool> tithe({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future<bool> tithe({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		StatBuffer.incrementStat("iconsTithed", 11);
 		return await ItemUser.trySetMetabolics(email, currants:-100);
 	}
 
-	Future<bool> ruminate({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future<bool> ruminate({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		StatBuffer.incrementStat("iconsRuminated", 11);
 		return await ItemUser.trySetMetabolics(email, mood:50);
 	}
 
-	Future<bool> revere({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future<bool> revere({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		StatBuffer.incrementStat("iconsRevered", 11);
 		return await ItemUser.trySetMetabolics(email, energy:50);
 	}
 
-	Future<bool> reflect({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future<bool> reflect({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		StatBuffer.incrementStat("iconsTithed", 11);
 		return await ItemUser.trySetMetabolics(email, img:50);
 	}
@@ -306,7 +306,7 @@ class Item {
 
 	// ground -> inventory
 
-	void pickup({WebSocket userSocket, String email}) {
+	void pickup({WebSocket userSocket, String email, String username}) {
 		onGround = false;
 		Item item = new Item.clone(itemType)
 			..onGround = false
@@ -317,7 +317,7 @@ class Item {
 
 	// inventory -> ground
 
-	Future drop({WebSocket userSocket, Map map, String streetName, String email}) async {
+	Future drop({WebSocket userSocket, Map map, String streetName, String email, String username}) async {
 
 		Item droppedItem = await InventoryV2.takeItemFromUser(userSocket, email, map['slot'], map['subSlot'], map['count']);
 		if (droppedItem == null) {
@@ -347,114 +347,114 @@ class Item {
 	// /////// //
 
 	// Alchemical Tongs
-	Future alchemize({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future alchemize({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return Recipe.useItem(map, userSocket,email);
 	}
 
 	// Awesome Pot
-	Future cook({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future cook({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return Recipe.useItem(map, userSocket,email);
 	}
 
 	// Beaker
 	// Test Tube
-	Future stir({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future stir({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return Recipe.useItem(map, userSocket,email);
 	}
 
 	// Bean Seasoner
 	// Egg Seasoner
-	Future season({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future season({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return Recipe.useItem(map, userSocket,email);
 	}
 
 	// Blender
-	Future blend({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future blend({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return Recipe.useItem(map, userSocket,email);
 	}
 
 	// Bubble Tuner
-	Future tuneBubbles({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future tuneBubbles({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return Recipe.useItem(map, userSocket,email);
 	}
 
 	// Cauldron
-	Future brew({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future brew({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return Recipe.useItem(map, userSocket,email);
 	}
 
 	// Cocktail Shaker
-	Future shake({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future shake({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return Recipe.useItem(map, userSocket,email);
 	}
 
 	// Construction Tool
-	Future construct({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future construct({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return Recipe.useItem(map, userSocket,email);
 	}
 
 	// Famous Pugilist Grill
-	Future grill({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future grill({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return Recipe.useItem(map, userSocket,email);
 	}
 
 	// Fruit Changing Machine
-	Future convertFruit({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future convertFruit({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return Recipe.useItem(map, userSocket,email);
 	}
 
 	// Gassifier
-	Future convertGas({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future convertGas({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return Recipe.useItem(map, userSocket,email);
 	}
 
 	// Grinders
-	Future crush({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future crush({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return Recipe.useItem(map, userSocket,email);
 	}
 
 	// Frying Pan
-	Future fry({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future fry({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return Recipe.useItem(map, userSocket,email);
 	}
 
 	// Knife and Board
-	Future chop({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future chop({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return Recipe.useItem(map, userSocket,email);
 	}
 
 	// Loomer
-	Future loom({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future loom({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return Recipe.useItem(map, userSocket,email);
 	}
 
 	// Saucepan
-	Future simmer({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future simmer({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return Recipe.useItem(map, userSocket,email);
 	}
 
 	// Smelter
-	Future smelt({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future smelt({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return Recipe.useItem(map, userSocket,email);
 	}
 
 	// Spice Mill
-	Future mill({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future mill({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return Recipe.useItem(map, userSocket,email);
 	}
 
 	// Spindles
-	Future spin({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future spin({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return Recipe.useItem(map, userSocket,email);
 	}
 
 	// Tincturing Kit
-	Future tincture({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future tincture({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return Recipe.useItem(map, userSocket,email);
 	}
 
 	// Tinkertool
-	Future tinker({String streetName, Map map, WebSocket userSocket, String email}) async {
+	Future tinker({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return Recipe.useItem(map, userSocket,email);
 	}
 }
