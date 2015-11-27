@@ -42,6 +42,11 @@ main() async {
 		sink.writeln(rec);
 	});
 
+	//write our pid to a file for easier monitoring
+	File pidFile = new File('run/cou_server.pid');
+	await pidFile.create(recursive:true);
+	await pidFile.writeAsString('${pid}');
+
 	KeepAlive.start();
 
 	await StreetUpdateHandler.loadItems();
