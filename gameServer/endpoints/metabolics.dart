@@ -414,7 +414,7 @@ class MetabolicsEndpoint {
 
 @app.Route('/getMetabolics')
 @Encode()
-Future<Metabolics> getMetabolics({@app.QueryParam() String username, @app.QueryParam() String email}) async {
+Future<Metabolics> getMetabolics({@app.QueryParam() String username, @app.QueryParam() String email, @app.QueryParam() int userId}) async {
 	Metabolics metabolic = new Metabolics();
 
 	PostgreSql dbConn = await dbManager.getConnection();
@@ -423,8 +423,11 @@ Future<Metabolics> getMetabolics({@app.QueryParam() String username, @app.QueryP
 		if (email != null) {
 			whereClause = "WHERE users.email = @email";
 		}
+		if (userId != null) {
+			whereClause = "WHERE users.id = @userId";
+		}
 		String query = "SELECT * FROM metabolics JOIN users ON users.id = metabolics.user_id " + whereClause;
-		List<Metabolics> metabolics = await dbConn.query(query, Metabolics, {'username':username, 'email':email});
+		List<Metabolics> metabolics = await dbConn.query(query, Metabolics, {'username':username, 'email':email, 'userId': userId});
 
 		if (metabolics.length > 0) {
 			metabolic = metabolics[0];
@@ -452,13 +455,32 @@ Future<Metabolics> getMetabolics({@app.QueryParam() String username, @app.QueryP
 Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 	int result = 0;
 
-	//try to not overset the metabolics that have maxes
+	// Check for level increase
+
+	// Level before update
+	Metabolics oldMetabolics = await getMetabolics(userId: metabolics.user_id);
+	int levelStart = getLevel(oldMetabolics.lifetime_img);
+
+	// Level after update
+	int levelEnd = getLevel(metabolics.lifetime_img);
+
+	// Compare
+	if (levelEnd > levelStart) {
+		// Refill energy if level increased (client handles popup checking)
+		metabolics.energy = metabolics.max_energy;
+	}
+
+	// Do not overset the metabolics that have maxes
+
 	if (metabolics.mood > metabolics.max_mood) {
 		metabolics.mood = metabolics.max_mood;
 	}
+
 	if (metabolics.energy > metabolics.max_energy) {
 		metabolics.energy = metabolics.max_energy;
 	}
+
+	// Write to database
 
 	PostgreSql dbConn = await dbManager.getConnection();
 	try {
