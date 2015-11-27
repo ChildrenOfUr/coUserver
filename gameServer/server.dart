@@ -23,7 +23,7 @@ main() async {
 	dbManager = new PostgreSqlManager(databaseUri, min: 1, max: 9);
 
 	app.addPlugin(getMapperPlugin(dbManager));
-	app.setupConsoleLog();
+//	app.setupConsoleLog();
 	app.start(port:port, autoCompress:true);
 
 	//open a file for writing logs to
