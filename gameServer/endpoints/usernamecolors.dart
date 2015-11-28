@@ -21,8 +21,6 @@ class UsernameColors {
     String hex = "#";
 
     // Connect to database
-    PostgreSql dbConn = await dbManager.getConnection();
-
     try {
       // Find username_color for username
       String query = "SELECT username_color FROM users WHERE lower(username) = lower(@username)";
@@ -53,11 +51,6 @@ class UsernameColors {
       // Log error message for investigation
       log("Unable to get username color for $username: $e");
     } finally {
-      // Close database connection
-      if (dbConn != null) {
-        dbManager.closeConnection(dbConn);
-      }
-
       // Return result (all uppercase)
       return hex.trim().toUpperCase();
     }
@@ -89,10 +82,7 @@ class UsernameColors {
     }
 
     // Connect to database
-    PostgreSql dbConn = await dbManager.getConnection();
-
     bool success = false;
-
     try {
       // Update username_color for user with email
       String query = "UPDATE users SET username_color = @hex WHERE email = @email";
@@ -109,11 +99,6 @@ class UsernameColors {
       // Log error message for investigation
       log("Unable to set username color for $email to $nekkidHex: $e");
     } finally {
-      // Close database connection
-      if (dbConn != null) {
-        dbManager.closeConnection(dbConn);
-      }
-
       // Return result
       return success;
     }
