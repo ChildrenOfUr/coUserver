@@ -21,7 +21,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Abhiman Himan": {
 		"vendor": "Hardware",
-		"shrine": "Friendly"
+		"shrine": "Friendly",
+		"tsid": "GUVBP2STKQJ24PT",
+		"hub_id": 114
 	},
 	"Acta Probat": {
 		"tsid": "LA5GB0PVS313DBO",
@@ -3888,7 +3890,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Mrandeya Minds": {
 		"vendor": "Grocery",
 		"shrine": "Lem",
-		"hub_id": 114
+		"hub_id": 114,
+		"tsid": "GUVTLIP0SIJ2DQG"
 	},
 	"Mrozia": {
 		"shrine": "Alph",
@@ -3936,7 +3939,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Musta Hafsum": {
 		"vendor": "Gardening Goods",
 		"shrine": "Mab",
-		"hub_id": 114
+		"hub_id": 114,
+		"tsid": "GUV1RMOG91L2F6G"
 	},
 	"Mutta Maart": {
 		"vendor": "Grocery",
