@@ -4317,7 +4317,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Paaviri Vent": {
 		"vendor": "Gardening Goods",
-		"shrine": "Spriggan"
+		"shrine": "Spriggan",
+		"hub_id": 113,
+		"tsid": "GHFU61GVLKI2ATQ"
 	},
 	"Pacca Pax": {
 		"vendor": "Alchemical Goods",
@@ -4617,7 +4619,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Polapat Patron": {
 		"vendor": "Kitchen Tools",
-		"shrine": "Lem"
+		"shrine": "Lem",
+		"tsid": "GHFSLPE6A3J2CFJ",
+		"hub_id": 113
 	},
 	"Polenta Qado": {
 		"shrine": "Cosma",
