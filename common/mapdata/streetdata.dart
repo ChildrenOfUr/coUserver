@@ -331,7 +331,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Arju Podi": {
 		"vendor": "Kitchen Tools",
-		"shrine": "Pot"
+		"shrine": "Pot",
+		"hub_id": 99,
+		"tsid": "GA9PIEHVQ8A2H4S"
 	},
 	"Arjun Plunge": {
 		"shrine": "Tii",
@@ -462,7 +464,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Bakti Mahar": {
 		"vendor": "Produce",
-		"shrine": "Grendaline"
+		"shrine": "Grendaline",
+		"tsid": "GA9TEL683JA2JU0",
+		"hub_id": 99
 	},
 	"Balbemo Ghee": {
 		"shrine": "Humbaba",
@@ -963,7 +967,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Chalan Vaara": {
 		"vendor": "Hardware",
-		"shrine": "Cosma"
+		"shrine": "Cosma",
+		"tsid": "GA9TDT2BUIA2GMA",
+		"hub_id": 99
 	},
 	"Chamuc Chance": {
 		"vendor": "Kitchen Tools",
@@ -1145,7 +1151,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Coci Muttah": {
 		"vendor": "Animal Goods",
-		"shrine": "Humbaba"
+		"shrine": "Humbaba",
+		"tsid": "GA9QOQAL96A2L2K",
+		"hub_id": 99
 	},
 	"Coldham Shift": {
 		"mailbox": true,
@@ -1972,7 +1980,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Ghora Chani": {
 		"shrine": "Cosma",
-		"vendor": "Hardware"
+		"vendor": "Hardware",
+		"tsid": "GA9111M11LA2VAT",
+		"hub_id": 99
 	},
 	"Gibba Gant": {
 		"vendor": "Gardening Goods",
@@ -2596,7 +2606,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Jellow Diaspora": {
 		"vendor": "Hardware",
-		"shrine": "Friendly"
+		"shrine": "Friendly",
+		"tsid": "GA9U04T3OAA2R2L",
+		"hub_id": 99
 	},
 	"Jethimadh Herb Gardens": {
 		"tsid": "GA97L62229522GS",
@@ -2691,7 +2703,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Kakkasi Uni": {
 		"vendor": "Gardening Goods",
-		"shrine": "Mab"
+		"shrine": "Mab",
+		"hub_id": 99,
+		"tsid": "GA9V2T5DH8A23JD"
 	},
 	"Kala Close": {
 		"vendor": "Kitchen Tools",
@@ -2812,7 +2826,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Kelba Vallu": {
 		"vendor": "Grocery",
 		"shrine": "Pot",
-		"hub_id": 99
+		"hub_id": 99,
+		"tsid": "GA9M05J386A296V"
 	},
 	"Kenora Gigoki": {
 		"vendor": "Animal Goods",
@@ -4056,7 +4071,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Nandu Pitha": {
 		"shrine": "Pot",
-		"vendor": "Kitchen Tools"
+		"vendor": "Kitchen Tools",
+		"tsid": "GA9DURMSIAA2S1T",
+		"hub_id": 99
 	},
 	"Nanita Peckita": {
 		"tsid": "LIFM36BDKE33VO3",
@@ -4374,7 +4391,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 120
 	},
 	"Pandu Chepa": {
-		"vendor": "Produce"
+		"vendor": "Produce",
+		"tsid": "GA9TIJ7S4JA2CNF",
+		"hub_id": 99
 	},
 	"Panguni Ploy": {
 		"vendor": "Gardening Goods",
@@ -5936,7 +5955,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Tokali Kola": {
 		"vendor": "Grocery",
-		"shrine": "Lem"
+		"shrine": "Lem",
+		"tsid": "GA9P334396A2GHP",
+		"hub_id": 99
 	},
 	"Toma Traverse": {
 		"mailbox": true,
@@ -6219,7 +6240,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Valia Shede": {
 		"shrine": "Spriggan",
-		"vendor": "Gardening Goods"
+		"vendor": "Gardening Goods",
+		"tsid": "GA9CO2B02OA2BG0",
+		"hub_id": 99
 	},
 	"Valmiki Vall": {
 		"vendor": "Animal Goods",
@@ -6347,7 +6370,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Vilong Hari": {
 		"shrine": "Grendaline",
-		"vendor": "Produce"
+		"vendor": "Produce",
+		"hub_id": 99,
+		"tsid": "GA99VU1246A2VND"
 	},
 	"Vina Dosh": {
 		"vendor": "Produce",
