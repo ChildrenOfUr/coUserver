@@ -26,7 +26,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 114
 	},
 	"Acta Probat": {
-		"tsid": "LA5GB0PVS313DBO",
+		"tsid": "GA5GB0PVS313DBO",
 		"hub_id": 128
 	},
 	"Adanac": {
@@ -36,7 +36,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 56
 	},
 	"Andaya Park": {
-		"tsid": "LHVC7554ADT2VA1",
+		"tsid": "GHVC7554ADT2VA1",
 		"hub_id": 97
 	},
 	"Addingfoot Trip": {
@@ -62,7 +62,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 128
 	},
 	"Afar Cleft": {
-		"tsid": "LDOLMQFMNOS24AJ",
+		"tsid": "GDOLMQFMNOS24AJ",
 		"hub_id": 92,
 		"music": "enchanted",
 		"map_hidden": true
@@ -109,7 +109,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 109
 	},
 	"Ajaya Bliss": {
-		"tsid": "LA9154LI9R22R7A",
+		"tsid": "GA9154LI9R22R7A",
 		"hub_id": 78
 	},
 	"Ajiboo Hood": {
@@ -409,7 +409,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 137
 	},
 	"Axis Denyde": {
-		"tsid": "LHFIV4V8J6J2I7U",
+		"tsid": "GHFIV4V8J6J2I7U",
 		"hub_id": 106
 	},
 	"Azifa Ayib": {
@@ -644,7 +644,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 109
 	},
 	"Bhuva Lamella": {
-		"tsid": "LIF72A3F7J33VAI",
+		"tsid": "GIF72A3F7J33VAI",
 		"hub_id": 131
 	},
 	"Bij Arsul": {
@@ -797,7 +797,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"vendor": "Animal Goods",
 		"shrine": "Alph",
 		"hub_id": 58,
-		"tsid": "LCR11DNA3EL10TD"
+		"tsid": "GCR11DNA3EL10TD"
 	},
 	"Bright Day": {
 		"vendor": "Alchemical Goods",
@@ -949,7 +949,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 100
 	},
 	"Castan Nella": {
-		"tsid": "LDO3GP3SUR034JD",
+		"tsid": "GDO3GP3SUR034JD",
 		"hub_id": 126
 	},
 	"Causa  Aurum": {
@@ -1475,7 +1475,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Dosaka Moda": {
 		"vendor": "Hardware",
 		"shrine": "Friendly",
-		"tsid": "LHVT0JVHRIA2IE9",
+		"tsid": "GHVT0JVHRIA2IE9",
 		"hub_id": 101
 	},
 	"Drooping Drift": {
@@ -1566,7 +1566,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"vendor": "Produce",
 		"shrine": "Tii",
 		"hub_id": 58,
-		"tsid": "LCR14062REM1QIR"
+		"tsid": "GCR14062REM1QIR"
 	},
 	"Egret Taun": {
 		"vendor": "Alchemical Goods",
@@ -1575,7 +1575,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 98
 	},
 	"Egret Taun Towers": {
-		"tsid": "LHVUR3UKGRU2SD2",
+		"tsid": "GHVUR3UKGRU2SD2",
 		"hub_id": 98,
 		"map_hidden": true
 	},
@@ -1854,7 +1854,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 58
 	},
 	"Forest Community Machine Room": {
-		"tsid": "LIF16EM56A12FSB",
+		"tsid": "GIF16EM56A12FSB",
 		"hub_id": 56,
 		"map_hidden": true
 	},
@@ -2119,12 +2119,12 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 58
 	},
 	"Gregarious Towers": {
-		"tsid": "LA5134UPLRU29OH",
+		"tsid": "GA5134UPLRU29OH",
 		"hub_id": 58,
 		"map_hidden": true
 	},
 	"Gregarious Towers Basement": {
-		"tsid": "LDONEDVHC4030KF",
+		"tsid": "GDONEDVHC4030KF",
 		"hub_id": 58,
 		"map_hidden": true
 	},
@@ -2136,7 +2136,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 56
 	},
 	"Grimssea Hollow": {
-		"tsid": "LDODG1KQLOS2GNO",
+		"tsid": "GDODG1KQLOS2GNO",
 		"hub_id": 56,
 		"music": "enchanted",
 		"map_hidden": true
@@ -2203,12 +2203,12 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 97
 	},
 	"Hakusan Heaps Towers": {
-		"tsid": "LHVUFJ6HGRU2V0E",
+		"tsid": "GHVUFJ6HGRU2V0E",
 		"hub_id": 97,
 		"map_hidden": true
 	},
 	"Hakusan Heaps Towers Basement": {
-		"tsid": "LHV6HOCAH203RMF",
+		"tsid": "GHV6HOCAH203RMF",
 		"hub_id": 97,
 		"map_hidden": true
 	},
@@ -2277,12 +2277,12 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 75
 	},
 	"Hauki Seeks Manor": {
-		"tsid": "LA9H1V6OGRU2FSB",
+		"tsid": "GA9H1V6OGRU2FSB",
 		"hub_id": 75,
 		"map_hidden": true
 	},
 	"Hauki Seeks Manor Basement": {
-		"tsid": "LA9EBPF8M2031HB",
+		"tsid": "GA9EBPF8M2031HB",
 		"hub_id": 75,
 		"map_hidden": true
 	},
@@ -2776,7 +2776,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 109
 	},
 	"Karpal Tunnel": {
-		"tsid": "LLI14TT8T921J21",
+		"tsid": "GLI14TT8T921J21",
 		"hub_id": 50
 	},
 	"Kartika Crams": {
@@ -3047,7 +3047,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"vendor": "Kitchen Tools"
 	},
 	"Kuben Ruben": {
-		"tsid": "LDO3KC3TUR03MUH",
+		"tsid": "GDO3KC3TUR03MUH",
 		"hub_id": 126
 	},
 	"Kumida Middles": {
@@ -3242,11 +3242,11 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 64
 	},
 	"Level 1 East": {
-		"tsid": "LHH112FHF411BUI",
+		"tsid": "GHH112FHF411BUI",
 		"hub_id": 50,
 	},
 	"Level 1 West": {
-		"tsid": "LHH110KCF411NK6",
+		"tsid": "GHH110KCF411NK6",
 		"hub_id": 50,
 	},
 	"Level 2 East": {
@@ -3260,15 +3260,15 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 50
 	},
 	"Level 3 East": {
-		"tsid": "LLI1D3B2U5715LL",
+		"tsid": "GLI1D3B2U5715LL",
 		"hub_id": 50
 	},
 	"Level 3 West": {
-		"tsid": "LLI107JLRU11EM2",
+		"tsid": "GLI107JLRU11EM2",
 		"hub_id": 50,
 	},
 	"Level 4 East": {
-		"tsid": "LLI1D2QFT571VQT",
+		"tsid": "GLI1D2QFT571VQT",
 		"hub_id": 50
 	},
 	"Levyn Gahne": {
@@ -3361,7 +3361,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"vendor": "Alchemical Goods",
 		"shrine": "Tii",
 		"hub_id": 101,
-		"tsid": "LHV1H71LPKA2P7G"
+		"tsid": "GHV1H71LPKA2P7G"
 	},
 	"Lowland Slough": {
 		"vendor": "Animal Goods",
@@ -3448,7 +3448,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 133
 	},
 	"Magha Pleat": {
-		"tsid": "LUVNMB7AOOS28EK",
+		"tsid": "GUVNMB7AOOS28EK",
 		"hub_id": 109,
 		"music": "enchanted",
 		"map_hidden": true
@@ -3796,7 +3796,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"vendor": "Hardware",
 		"shrine": "Cosma",
 		"hub_id": 101,
-		"tsid": "LHV1HO45PQA2QJS"
+		"tsid": "GHV1HO45PQA2QJS"
 	},
 	"Mincedoathe Formation": {
 		"vendor": "Hardware",
@@ -4080,7 +4080,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 99
 	},
 	"Nanita Peckita": {
-		"tsid": "LIFM36BDKE33VO3",
+		"tsid": "GIFM36BDKE33VO3",
 		"hub_id": 131
 	},
 	"Narasiha Seeha": {
@@ -4407,7 +4407,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Panka Surazu": {
 		"hub_id": 40,
-		"tsid": "LA5RPAFK9OE28GN"
+		"tsid": "GA5RPAFK9OE28GN"
 	},
 	"Panko Press": {
 		"shrine": "Pot",
@@ -4987,7 +4987,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 102
 	},
 	"Rhystosto Motto": {
-		"tsid": "LDOEP1822S03350",
+		"tsid": "GDOEP1822S03350",
 		"hub_id": 126
 	},
 	"Rijul Habitat": {
@@ -5135,7 +5135,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 72
 	},
 	"Sabelli Ochre": {
-		"tsid": "LDOF15642S031VN",
+		"tsid": "GDOF15642S031VN",
 		"hub_id": 126
 	},
 	"Sabudana Drama": {
@@ -5145,7 +5145,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 101
 	},
 	"Sabudana Drama Towers": {
-		"tsid": "LIFI4FP9GRU2CC8",
+		"tsid": "GIFI4FP9GRU2CC8",
 		"hub_id": 101,
 		"map_hidden": true
 	},
@@ -5667,7 +5667,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"vendor": "Hardware",
 		"shrine": "Friendly",
 		"hub_id": 56,
-		"tsid": "GLCR10NQRPKJ16H6"
+		"tsid": "GCR10NQRPKJ16H6"
 	},
 	"Sysma Link": {
 		"vendor": "Alchemical Goods",
@@ -5837,12 +5837,12 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 78
 	},
 	"The Drop": {
-		"tsid": "LHH12E1QP611OPA",
+		"tsid": "GHH12E1QP611OPA",
 		"hub_id": 50,
 		"broken": true
 	},
 	"The Entrance": {
-		"tsid": "LHH101L162117H2",
+		"tsid": "GHH101L162117H2",
 		"hub_id": 50
 	},
 	"The Great Hole to Ix": {
@@ -6397,7 +6397,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 63
 	},
 	"Visvedevas Divergence": {
-		"tsid": "LUV1BKIJU8A3VL1",
+		"tsid": "GUV1BKIJU8A3VL1",
 		"hub_id": 136
 	},
 	"Vivere Aestas": {
