@@ -1474,7 +1474,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Dosaka Moda": {
 		"vendor": "Hardware",
-		"shrine": "Friendly"
+		"shrine": "Friendly",
+		"tsid": "LHVT0JVHRIA2IE9",
+		"hub_id": 101
 	},
 	"Drooping Drift": {
 		"vendor": "Produce",
@@ -3358,7 +3360,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Lowan Len": {
 		"vendor": "Alchemical Goods",
 		"shrine": "Tii",
-		"hub_id": 101
+		"hub_id": 101,
+		"tsid": "LHV1H71LPKA2P7G"
 	},
 	"Lowland Slough": {
 		"vendor": "Animal Goods",
@@ -3792,7 +3795,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Mina Misses": {
 		"vendor": "Hardware",
 		"shrine": "Cosma",
-		"hub_id": 101
+		"hub_id": 101,
+		"tsid": "LHV1HO45PQA2QJS"
 	},
 	"Mincedoathe Formation": {
 		"vendor": "Hardware",
