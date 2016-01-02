@@ -3285,7 +3285,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"vendor": "Kitchen Tools",
 		"shrine": "Pot",
 		"tsid": "GTJ17MOFE6P1NJ3",
-		"hub_id": 63
+		"hub_id": 63,
+		"minimap_expand": true
 	},
 	"Limmu Later": {
 		"vendor": "Mining",
