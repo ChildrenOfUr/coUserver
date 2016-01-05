@@ -93,6 +93,7 @@ class PlayerUpdateHandler
     				{
     					map["changeStreet"] = map["street"];
     					users[username].currentStreet = map["street"];
+							map["letter"] = PLAYER_LETTERS.newPlayerLetter(username);
     				}
     				try
     				{
@@ -111,6 +112,7 @@ class PlayerUpdateHandler
     			else //this user must have just connected
     			{
     				users[username] = new Identifier(username,map["street"],map['tsid'],ws);
+						map["letter"] = PLAYER_LETTERS.newPlayerLetter(username);
     				try
 					{
 						num currentX = num.parse(map['xy'].split(',')[0]);
@@ -137,7 +139,7 @@ class PlayerUpdateHandler
 		String data = JSON.encode(map);
 		users.forEach((String username, Identifier id)
 		{
-			if(username != map["username"] && (map["street"] == id.currentStreet || map['changeStreet'] != null))
+			if((map["street"] == id.currentStreet || map['changeStreet'] != null))
 			{
 				id.webSocket.add(data);
 			}
