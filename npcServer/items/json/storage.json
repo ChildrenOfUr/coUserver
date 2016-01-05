@@ -220,7 +220,12 @@
     "price": 50,
     "description": "An essential elemental pouch. You need it for carrying alchemical elements. What, you thought you could carry them in your HANDS? Requires Element Handling skill.",
     "subSlots": 12,
-    "subSlotFilter": []
+    "subSlotFilter": [
+      "blue_element",
+      "green_element",
+      "red_element",
+      "shiny_element"
+    ]
   },
   "generic_bag": {
     "name": "Generic Bag",
