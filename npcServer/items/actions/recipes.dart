@@ -138,7 +138,7 @@ class RecipeBook {
 		}
 
 		// Take away energy
-		bool takeEnergySuccess = await ItemUser.trySetMetabolics(email, energy: recipe.energy);
+		bool takeEnergySuccess = await ItemUser.trySetMetabolics(username, energy: recipe.energy);
 		if (!takeEnergySuccess) {
 			// If they don't have enough energy, they're not frying an egg
 			return false;
@@ -146,7 +146,7 @@ class RecipeBook {
 
 		// Take all of the items
 		recipe.input.forEach((String itemType, int qty) async {
-			bool takeItemSuccess = (await InventoryV2.takeAnyItemsFromUser(ws, email, itemType, qty) == qty);
+			bool takeItemSuccess = (await InventoryV2.takeAnyItemsFromUser(ws, username, itemType, qty) == qty);
 			if (!takeItemSuccess) {
 				// If they didn't have a required item, they're not making a smoothie
 				return false;
@@ -158,7 +158,7 @@ class RecipeBook {
 			// Add the item after we finish "making" one
 			await InventoryV2.addItemToUser(ws, email, items[recipe.output].getMap(), 1, "_self");
 			// Award iMG
-			await ItemUser.trySetMetabolics(email, img: recipe.img);
+			await ItemUser.trySetMetabolics(username, img: recipe.img);
 		});
 
 		return true;

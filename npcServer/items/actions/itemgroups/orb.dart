@@ -6,14 +6,14 @@ abstract class Item_Orb {
 		return false;
 	}
 
-	static Future<bool> focusEnergy(WebSocket userSocket, String email) async {
+	static Future<bool> focusEnergy(WebSocket userSocket, String username) async {
 		toast("+10 energy focused", userSocket);
-		return await ItemUser.trySetMetabolics(email, energy:10);
+		return await ItemUser.trySetMetabolics(username, energy:10);
 	}
 
-	static Future<bool> focusMood(WebSocket userSocket, String email) async {
+	static Future<bool> focusMood(WebSocket userSocket, String username) async {
 		toast("+10 mood focused", userSocket);
-		return await ItemUser.trySetMetabolics(email, mood:10);
+		return await ItemUser.trySetMetabolics(username, mood:10);
 	}
 
 	static Future<bool> radiate(String streetName, String radiator) async {
@@ -40,8 +40,8 @@ abstract class Item_Orb {
 		}
 	}
 
-	static Future<bool> meditate(WebSocket userSocket, String email) async {
+	static Future<bool> meditate(WebSocket userSocket, String username) async {
 		toast("+5 energy, mood, and iMG", userSocket);
-		return await ItemUser.trySetMetabolics(email, energy:5, mood:5, img: 5);
+		return await ItemUser.trySetMetabolics(username, energy:5, mood:5, img: 5);
 	}
 }

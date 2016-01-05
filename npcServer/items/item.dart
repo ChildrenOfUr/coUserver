@@ -143,9 +143,9 @@ class Item {
 		InventoryV2 inv = await getInventory(email);
 		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
 		if (itemInSlot.itemType == "butterfly_milk") {
-			return await Item_Cheese.sniff(userSocket, email);
+			return await Item_Cheese.sniff(userSocket, username);
 		} else if (itemInSlot.itemType == "very_very_stinky_cheese") {
-			return await Item_Milk.sniff(userSocket, email);
+			return await Item_Milk.sniff(userSocket, username);
 		} else {
 			return false;
 		}
@@ -156,7 +156,7 @@ class Item {
 	// ////////////// //
 
 	Future<bool> shakeBottle({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Milk.shakeBottle(userSocket, email);
+		return await Item_Milk.shakeBottle(userSocket, username);
 	}
 
 	// //////////////// //
@@ -164,7 +164,7 @@ class Item {
 	// //////////////// //
 
 	Future<bool> compress({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Butter.compress(userSocket, email);
+		return await Item_Butter.compress(userSocket, username);
 	}
 
 	// ////// //
@@ -176,11 +176,11 @@ class Item {
 	}
 
 	Future<bool> prod({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Cheese.prod(userSocket, email);
+		return await Item_Cheese.prod(userSocket, username);
 	}
 
 	Future<bool> sniffCheese(String streetName, Map map, WebSocket userSocket, String email, String username) async {
-		return await Item_Cheese.sniff(userSocket, email);
+		return await Item_Cheese.sniff(userSocket, username);
 	}
 
 	// //////////////// //
@@ -189,7 +189,7 @@ class Item {
 
 	Future<bool> taste({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		toast("That didn't taste as good as it smells. -5 mood", userSocket);
-		return await ItemUser.trySetMetabolics(email, mood:-5);
+		return await ItemUser.trySetMetabolics(username, mood:-5);
 	}
 
 	// /////// //
@@ -201,7 +201,7 @@ class Item {
 	}
 
 	Future<bool> setFree({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Cubimal.setFree(map, userSocket, email);
+		return await Item_Cubimal.setFree(map, userSocket, username, email);
 	}
 
 	// /////////// //
@@ -217,19 +217,19 @@ class Item {
 	// ////// //
 
 	Future<bool> caress({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Emblem.caress(userSocket, email);
+		return await Item_Emblem.caress(userSocket, username);
 	}
 
 	Future<bool> consider({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Emblem.consider(userSocket, email);
+		return await Item_Emblem.consider(userSocket, username);
 	}
 
 	Future<bool> contemplate({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Emblem.contemplate(userSocket, email);
+		return await Item_Emblem.contemplate(userSocket, username);
 	}
 
 	Future<bool> iconize({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Emblem.iconize(map, userSocket, email);
+		return await Item_Emblem.iconize(map, userSocket, username, email);
 	}
 
 	// //////////// //
@@ -241,11 +241,11 @@ class Item {
 	}
 
 	Future<bool> focusEnergy({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Orb.focusEnergy(userSocket, email);
+		return await Item_Orb.focusEnergy(userSocket, username);
 	}
 
 	Future<bool> focusMood({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Orb.focusMood(userSocket, email);
+		return await Item_Orb.focusMood(userSocket, username);
 	}
 
 	Future<bool> radiate({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
@@ -253,7 +253,7 @@ class Item {
 	}
 
 	Future<bool> meditate({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Orb.meditate(userSocket, email);
+		return await Item_Orb.meditate(userSocket, username);
 	}
 
 	// //// //
@@ -263,17 +263,17 @@ class Item {
 	// takes away item and gives the stats specified in items/actions/consume.json
 
 	Future<bool> consume({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Consumable.consume(map, userSocket, email);
+		return await Item_Consumable.consume(map, userSocket, username, email);
 	}
 
 	// these two are just aliases to consume because they do the same thing, but are named differently in the item menu
 
 	Future eat({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Consumable.consume(map, userSocket, email);
+		return await Item_Consumable.consume(map, userSocket, username, email);
 	}
 
 	Future drink({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Consumable.consume(map, userSocket, email);
+		return await Item_Consumable.consume(map, userSocket, username, email);
 	}
 
 	// //// //
@@ -282,22 +282,22 @@ class Item {
 
 	Future<bool> tithe({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		StatBuffer.incrementStat("iconsTithed", 11);
-		return await ItemUser.trySetMetabolics(email, currants:-100);
+		return await ItemUser.trySetMetabolics(username, currants:-100);
 	}
 
 	Future<bool> ruminate({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		StatBuffer.incrementStat("iconsRuminated", 11);
-		return await ItemUser.trySetMetabolics(email, mood:50);
+		return await ItemUser.trySetMetabolics(username, mood:50);
 	}
 
 	Future<bool> revere({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		StatBuffer.incrementStat("iconsRevered", 11);
-		return await ItemUser.trySetMetabolics(email, energy:50);
+		return await ItemUser.trySetMetabolics(username, energy:50);
 	}
 
 	Future<bool> reflect({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		StatBuffer.incrementStat("iconsTithed", 11);
-		return await ItemUser.trySetMetabolics(email, img:50);
+		return await ItemUser.trySetMetabolics(username, img:50);
 	}
 
 	// //// //

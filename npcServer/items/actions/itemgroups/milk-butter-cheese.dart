@@ -1,28 +1,28 @@
 part of coUserver;
 
 abstract class Item_Milk {
-	static Future<bool> sniff(WebSocket userSocket, String email) async {
-		int mood = await ItemUser.getMood(email);
+	static Future<bool> sniff(WebSocket userSocket, String username) async {
+		int mood = await ItemUser.getMood(username);
 		if (mood <= 40) {
 			toast("Butterfly milk smells like perfume from France. You experience a momentary surge of elation.", userSocket);
-			return await ItemUser.trySetMetabolics(email, mood: 12);
+			return await ItemUser.trySetMetabolics(username, mood: 12);
 		} else {
 			toast("Sniffing Butterfly Milk only works when you're feeling down.", userSocket);
 			return false;
 		}
 	}
 
-	static Future<bool> shakeBottle(WebSocket userSocket, String email) async {
-		if (await ItemUser.getEnergy(email) <= 2) {
+	static Future<bool> shakeBottle(WebSocket userSocket, String username) async {
+		if (await ItemUser.getEnergy(username) <= 2) {
 			toast("You don't have enough energy to shake that.", userSocket);
 			return false;
 		} else {
-			if (await InventoryV2.takeAnyItemsFromUser(userSocket, email, "butterfly_milk", 1) == 1) {
+			if (await InventoryV2.takeAnyItemsFromUser(userSocket, username, "butterfly_milk", 1) == 1) {
 				toast("Shaking...", userSocket);
 				new Timer(new Duration(seconds: 1), () async {
 					toast("You shake the butterfly milk vigorously. Butterfly butter!", userSocket);
-					bool success1 = (await InventoryV2.addItemToUser(userSocket, email, items["butterfly_butter"].getMap(), 1, "_self") > 0);
-					bool success2 = await ItemUser.trySetMetabolics(email, energy: -2);
+					bool success1 = (await InventoryV2.addItemToUser(userSocket, username, items["butterfly_butter"].getMap(), 1, "_self") > 0);
+					bool success2 = await ItemUser.trySetMetabolics(username, energy: -2);
 					if (success1 && success2) {
 						return true;
 					} else {

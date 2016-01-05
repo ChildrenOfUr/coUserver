@@ -35,7 +35,11 @@ abstract class Entity {
 	Future<bool> trySetMetabolics(String email, {int energy:0, int mood:0, int imgMin:0, int imgRange:0, int currants:0}) async {
 		_resetGains();
 
-		Metabolics m = await getMetabolics(email:email);
+		Metabolics m = await getMetabolics(email: email);
+
+		// Store old img
+		int oldImg = m.lifetime_img;
+
 		if(m.energy != 0 && m.energy < energy.abs()) {
 			return false;
 		} else {
@@ -54,8 +58,19 @@ abstract class Entity {
 			gains['currants'] = currants;
 
 			int result = await setMetabolics(m);
+
 			if(result < 1) {
 				return false;
+			}
+
+			// Compare "after" and "before" img
+			if (getLevel(m.lifetime_img) > getLevel(oldImg)) {
+				// Level up
+				String username = await User.getUsernameFromEmail(email);
+
+				MetabolicsEndpoint.userSockets[username].add(JSON.encode({
+					"levelUp": getLevel(m.lifetime_img)
+				}));
 			}
 		}
 

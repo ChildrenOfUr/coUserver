@@ -251,6 +251,9 @@ class MetabolicsEndpoint {
 	static Future addQuoin(Quoin q, String username) async {
 		Metabolics m = await getMetabolics(username:username);
 
+		// Store "before" img
+		int oldImg = m.lifetime_img;
+
 		if (m.quoins_collected >= constants.quoinLimit) {
 			// Daily quoin limit
 			denyQuoin(q, username);
@@ -357,6 +360,15 @@ class MetabolicsEndpoint {
 
 		if (amt > 0) {
 			m.quoins_collected++;
+		}
+
+		// Compare "after" and "before" img
+		if (getLevel(m.lifetime_img) > getLevel(oldImg)) {
+			// Level up
+			print("sending map from quoin");
+			MetabolicsEndpoint.userSockets[username].add(JSON.encode({
+				"levelUp": getLevel(m.lifetime_img)
+			}));
 		}
 
 		try {
