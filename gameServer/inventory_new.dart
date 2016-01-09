@@ -146,7 +146,23 @@ class InventoryV2 {
 
 		// Merge them
 		Slot origContents = list[index];
-		list[index] = newContents;
+		Item origItem = items[origContents.itemType];
+		if (origContents.itemType == newContents.itemType &&
+		    origContents.count + newContents.count < origItem.stacksTo) {
+
+			int roomRemaining = origItem.stacksTo - origContents.count;
+			int addNum = min(roomRemaining, origContents.count);
+
+			newContents.count += addNum;
+			origContents.count -= addNum;
+			list[index] = newContents;
+
+			if (origContents.count == 0) {
+				origContents = new Slot();
+			}
+		} else {
+			list[index] = newContents;
+		}
 
 		// Save the new inventory slot data
 		inventory_json = jsonx.encode(list);
@@ -162,13 +178,13 @@ class InventoryV2 {
 	 * use Inventory.slots[index].isEmpty first.
 	 */
 	Slot _changeBagSlot(int bagIndex, int bagSlotIndex, Slot newContents) {
-		if(newContents != null) {
+		if (newContents != null) {
 			Item newItem = items[newContents.itemType];
-			if(newContents.itemType != null &&
-			   newItem != null && newItem.isContainer) {
+			if (newContents.itemType != null &&
+			    newItem != null && newItem.isContainer) {
 				return null;
 			}
-			if(!items[slots[bagIndex].itemType].filterAllows(itemType: newContents.itemType)) {
+			if (!items[slots[bagIndex].itemType].filterAllows(itemType: newContents.itemType)) {
 				return null;
 			}
 		}
@@ -186,10 +202,28 @@ class InventoryV2 {
 			// load it into the list
 			bagSlots = jsonx.decode(bagSlot.metadata["slots"], type: listOfSlots);
 		}
+
 		// Bag contents
 		Slot origContents = bagSlots[bagSlotIndex]; // Slot inside bag
-		// Change out the bag slot
-		bagSlots[bagSlotIndex] = newContents; // Slot inside bag
+		Item origItem = items[origContents.itemType];
+		if (origContents.itemType == newContents.itemType &&
+		    origContents.count + newContents.count < origItem.stacksTo) {
+
+			int roomRemaining = origItem.stacksTo - origContents.count;
+			int addNum = min(roomRemaining, origContents.count);
+
+			newContents.count += addNum;
+			origContents.count -= addNum;
+			bagSlots[bagSlotIndex] = newContents;
+
+			if (origContents.count == 0) {
+				origContents = new Slot();
+			}
+		} else {
+			// Change out the bag slot
+			bagSlots[bagSlotIndex] = newContents; // Slot inside bag
+		}
+
 		// Save up the slot tree
 		bagSlot.metadata["slots"] = jsonx.encode(bagSlots); // Bag contents
 		invSlots[bagIndex] = bagSlot; // Bag in hotbar
