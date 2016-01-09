@@ -2,7 +2,7 @@ part of coUserver;
 
 abstract class Item_Cubimal {
 
-	static Future<bool> race(String streetName, Map map, WebSocket userSocket, String email) async {
+	static Future<bool> race(String streetName, Map map, WebSocket userSocket, String email, String username) async {
 		InventoryV2 inv = await getInventory(email);
 		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
 
@@ -27,13 +27,12 @@ abstract class Item_Cubimal {
 		}
 
 		String message;
-		String username = "A "; //TODO: get username from userSocket
 
 		if (itemInSlot.itemType == 'npc_cubimal_factorydefect_chick') {
 			distance = -(distance / 2);
-			message = "$username defective chick cubimal travelled ${distance.toString()} plank$plural, and broke";
+			message = "$username's defective chick cubimal travelled ${distance.toString()} plank$plural, and broke";
 		} else {
-			message = "$username ${itemInSlot.name} travelled ${distance.toString()} plank$plural before stopping";
+			message = "$username's ${itemInSlot.name} travelled ${distance.toString()} plank$plural before stopping";
 		}
 
 		StreetUpdateHandler.streets[streetName].occupants.forEach((String username, WebSocket ws) => toast(message, ws));

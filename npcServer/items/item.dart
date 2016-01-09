@@ -197,7 +197,7 @@ class Item {
 	// /////// //
 
 	Future<bool> race({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Cubimal.race(streetName, map, userSocket, email);
+		return await Item_Cubimal.race(streetName, map, userSocket, email, username);
 	}
 
 	Future<bool> setFree({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
