@@ -129,7 +129,7 @@ class InventoryV2 {
 
 	/**
 	 * Replace a slot in the inventory with the specified
-	 * replaceWithSlot. If replaceWithSlot is not provided,
+	 * newContents. If newContents is not provided,
 	 * the slot will be emptied.
 	 * No checking is done for existing slot data, so if you
 	 * want to make sure the slot is empty before replacing it,
@@ -155,18 +155,22 @@ class InventoryV2 {
 
 	/**
 	 * Replace a slot (bagSlotIndex) of a bag (bagIndex)
-	 * in the inventory with the specified replaceWithSlot.
-	 * If replaceWithSlot is not provided, the slot will be emptied.
+	 * in the inventory with the specified newContents.
+	 * If newContents is not provided, the slot will be emptied.
 	 * No checking is done for existing slot data, so if you
 	 * want to make sure the slot is empty before replacing it,
 	 * use Inventory.slots[index].isEmpty first.
 	 */
 	Slot _changeBagSlot(int bagIndex, int bagSlotIndex, Slot newContents) {
-		try {
-			// Make sure the bag accepts this item
-			assert(items[slots[bagIndex].itemType].filterAllows(itemType: newContents.itemType));
-		} catch (e) {
-			return null;
+		if(newContents != null) {
+			Item newItem = items[newContents.itemType];
+			if(newContents.itemType != null &&
+			   newItem != null && newItem.isContainer) {
+				return null;
+			}
+			if(!items[slots[bagIndex].itemType].filterAllows(itemType: newContents.itemType)) {
+				return null;
+			}
 		}
 
 		// Read down the slot tree
@@ -218,7 +222,7 @@ class InventoryV2 {
 	Future<int> _addItem(Map itemMap, int count, String email) async {
 		//instantiate an item object based on the map
 		Item item = jsonx.decode(JSON.encode(itemMap), type: Item);
-		
+
 		if (item.isContainer && item.metadata['slots'] == null) {
 			List<Slot> emptySlots = [];
 			for (int i = 0; i < item.subSlots; i++) {
@@ -240,9 +244,7 @@ class InventoryV2 {
 		List<Slot> tmpSlots = slots;
 
 		//check for specialized bag first
-		int i=-1;
 		for (Slot slot in tmpSlots) {
-			i++;
 			Item slotItem = items[slot.itemType];
 			if (slotItem == null) {
 				continue;

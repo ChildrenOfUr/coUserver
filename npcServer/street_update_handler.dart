@@ -26,15 +26,17 @@ class StreetUpdateHandler {
 			});
 
 			// load vendor types
-			await JSON.decode(await new File('$directory/npcServer/npcs/vendors/vendors.json').readAsString()).forEach((String street, String type) {
+			await JSON.decode(await new File('$directory/npcServer/npcs/vendors/vendors.json').readAsString()).forEach((
+				                                                                                                           String street,
+				                                                                                                           String type) {
 				vendorTypes[street] = type;
 			});
 
 			// load stats given for eating/drinking
-			await JSON.decode(await new File('$directory/npcServer/items/actions/consume.json').readAsString()).forEach((String item, Map award) {
+			await JSON.decode(await new File('$directory/npcServer/items/actions/consume.json').readAsString())
+				.forEach((String item, Map award) {
 				Item_Consumable.consumeValues[item] = award;
 			});
-
 		}
 		catch (e) {
 			log("Problem loading items: $e");
@@ -49,12 +51,12 @@ class StreetUpdateHandler {
 		ws.listen((message) {
 			processMessage(ws, message);
 		},
-		          onError: (error) {
-			          cleanupList(ws);
-		          },
-		          onDone: () {
-			          cleanupList(ws);
-		          });
+			          onError: (error) {
+				          cleanupList(ws);
+			          },
+			          onDone: () {
+				          cleanupList(ws);
+			          });
 	}
 
 	static void simulateStreets() {
@@ -66,7 +68,14 @@ class StreetUpdateHandler {
 				street.quoins.forEach((String id, Quoin quoin) => quoin.update());
 				street.npcs.forEach((String id, NPC npc) => npc.update());
 
-				Map<String, List> updates = {"label":streetName, "quoins":[], "npcs":[], "plants":[], "doors":[], "groundItems":[]};
+				Map<String, List> updates = {
+					"label":streetName,
+					"quoins":[],
+					"npcs":[],
+					"plants":[],
+					"doors":[],
+					"groundItems":[]
+				};
 				street.quoins.forEach((String id, Quoin quoin) => updates["quoins"].add(quoin.getMap()));
 				street.npcs.forEach((String id, NPC npc) => updates["npcs"].add(npc.getMap()));
 				street.plants.forEach((String id, Plant plant) => updates["plants"].add(plant.getMap()));
@@ -102,11 +111,11 @@ class StreetUpdateHandler {
 		String userToRemove;
 		streets.forEach((String streetName, Street street) {
 			street.occupants.forEach((String username, WebSocket socket) {
-				if(socket == ws) {
+				if (socket == ws) {
 					userToRemove = username;
 				}
 			});
-			if(userToRemove != null) {
+			if (userToRemove != null) {
 				street.occupants.remove(userToRemove);
 			}
 		});
@@ -181,7 +190,8 @@ class StreetUpdateHandler {
 						}
 					}
 					else if (touched == null) {
-						log('(street_update_handler) Could not collect quoin ${map['remove']} for player $username - quoin is null');
+						log(
+							'(street_update_handler) Could not collect quoin ${map['remove']} for player $username - quoin is null');
 					}
 				}
 
@@ -256,7 +266,7 @@ class StreetUpdateHandler {
 	}
 
 	static Future<bool> teleport({WebSocket userSocket, String email, String tsid}) async {
-		Metabolics m = await getMetabolics(email:email);
+		Metabolics m = await getMetabolics(email: email);
 		if (m.user_id == -1 || m.energy < 50) {
 			return false;
 		} else {
@@ -276,43 +286,51 @@ class StreetUpdateHandler {
 	}
 
 	static Future<bool> moveItem({
-	                             WebSocket userSocket,
-	                             String email,
-	                             int fromIndex: -1,
-	                             int fromBagIndex: -1,
-	                             int toBagIndex: -1,
-	                             int toIndex: -1
-	                             }) async {
-		if(fromIndex == -1 || toIndex == -1) {
+	WebSocket userSocket,
+	String email,
+	int fromIndex: -1,
+	int fromBagIndex: -1,
+	int toBagIndex: -1,
+	int toIndex: -1
+	}) async {
+		if (fromIndex == -1 || toIndex == -1) {
 			//something's wrong
 			return false;
 		}
 
 		// Get the user's inventory to work on
 		InventoryV2 inv = await getInventory(email);
+		List<Slot> beforeSlots = inv.slots;
 
+		//this has to be atomic so if it throws return the inventory to the original
 		try {
 			//swap the from and to items
 			Slot newContents = inv.slots[fromIndex];
-			if(fromBagIndex > -1) {
+			if (fromBagIndex > -1) {
 				Slot bagSlot = inv.slots[fromIndex]; // Bag in hotbar
 				List<Slot> bagSlots = jsonx.decode(bagSlot.metadata["slots"], type: listOfSlots); // Bag contents
 				newContents = bagSlots[fromBagIndex]; // Slot inside bag
 			}
 			Slot origContents = inv.changeSlot(toIndex, toBagIndex, newContents);
-			if(origContents == null) {
-				log("Could not move ${newContents.itemType} to $toIndex.$toBagIndex within inventory of $email");
-				return false;
+			if (origContents == null) {
+				throw "Could not move ${newContents
+					.itemType} to $toIndex.$toBagIndex within inventory of $email";
 			}
 			// Move old item into other slot
-			inv.changeSlot(fromIndex, fromBagIndex, origContents);
+			origContents = inv.changeSlot(fromIndex, fromBagIndex, origContents);
+			if (origContents == null) {
+				throw "Could not move ${newContents
+					.itemType} to $toIndex.$toBagIndex within inventory of $email";
+			}
 
 			// Update the inventory
 			inv.updateJson();
 			// Update the database
 			await inv._updateDatabase(email);
-		} catch(e,st) {
-			log("Problem moving item: $e\n$st");
+		} catch (e) {
+			inv.inventory_json = jsonx.encode(beforeSlots);
+			log("Problem moving item: $e");
+			return false;
 		}
 		// Update the client
 		return await InventoryV2.fireInventoryAtUser(userSocket, email, update: true);
