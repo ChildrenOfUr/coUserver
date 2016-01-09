@@ -74,7 +74,7 @@ class InventoryV2 {
 			s.add(new Slot());
 		}
 		s.forEach((Slot slot) {
-			if(slot.itemType == null) {
+			if (slot.itemType == null) {
 				slot.itemType = "";
 				slot.count = 0;
 				slot.metadata = {};
@@ -129,7 +129,7 @@ class InventoryV2 {
 
 	/**
 	 * Replace a slot in the inventory with the specified
-	 * replaceWithSlot. If replaceWithSlot is not provided,
+	 * newContents. If newContents is not provided,
 	 * the slot will be emptied.
 	 * No checking is done for existing slot data, so if you
 	 * want to make sure the slot is empty before replacing it,
@@ -137,8 +137,8 @@ class InventoryV2 {
 	 */
 	Slot changeSlot(int index, int subIndex, Slot newContents) {
 		//we're putting it into a bag
-		if(subIndex > -1) {
-			return _changeBagSlot(index,subIndex,newContents);
+		if (subIndex > -1) {
+			return _changeBagSlot(index, subIndex, newContents);
 		}
 
 		// Get the old slot data
@@ -146,7 +146,23 @@ class InventoryV2 {
 
 		// Merge them
 		Slot origContents = list[index];
-		list[index] = newContents;
+		Item origItem = items[origContents.itemType];
+		if (origContents.itemType == newContents.itemType &&
+		    origContents.count + newContents.count < origItem.stacksTo) {
+
+			int roomRemaining = origItem.stacksTo - origContents.count;
+			int addNum = min(roomRemaining, origContents.count);
+
+			newContents.count += addNum;
+			origContents.count -= addNum;
+			list[index] = newContents;
+
+			if (origContents.count == 0) {
+				origContents = new Slot();
+			}
+		} else {
+			list[index] = newContents;
+		}
 
 		// Save the new inventory slot data
 		inventory_json = jsonx.encode(list);
@@ -155,18 +171,22 @@ class InventoryV2 {
 
 	/**
 	 * Replace a slot (bagSlotIndex) of a bag (bagIndex)
-	 * in the inventory with the specified replaceWithSlot.
-	 * If replaceWithSlot is not provided, the slot will be emptied.
+	 * in the inventory with the specified newContents.
+	 * If newContents is not provided, the slot will be emptied.
 	 * No checking is done for existing slot data, so if you
 	 * want to make sure the slot is empty before replacing it,
 	 * use Inventory.slots[index].isEmpty first.
 	 */
 	Slot _changeBagSlot(int bagIndex, int bagSlotIndex, Slot newContents) {
-		try {
-			// Make sure the bag accepts this item
-			assert(items[slots[bagIndex].itemType].filterAllows(itemType: newContents.itemType));
-		} catch(e) {
-			return null;
+		if (newContents != null) {
+			Item newItem = items[newContents.itemType];
+			if (newContents.itemType != null &&
+			    newItem != null && newItem.isContainer) {
+				return null;
+			}
+			if (!items[slots[bagIndex].itemType].filterAllows(itemType: newContents.itemType)) {
+				return null;
+			}
 		}
 
 		// Read down the slot tree
@@ -182,10 +202,28 @@ class InventoryV2 {
 			// load it into the list
 			bagSlots = jsonx.decode(bagSlot.metadata["slots"], type: listOfSlots);
 		}
+
 		// Bag contents
 		Slot origContents = bagSlots[bagSlotIndex]; // Slot inside bag
-		// Change out the bag slot
-		bagSlots[bagSlotIndex] = newContents; // Slot inside bag
+		Item origItem = items[origContents.itemType];
+		if (origContents.itemType == newContents.itemType &&
+		    origContents.count + newContents.count < origItem.stacksTo) {
+
+			int roomRemaining = origItem.stacksTo - origContents.count;
+			int addNum = min(roomRemaining, origContents.count);
+
+			newContents.count += addNum;
+			origContents.count -= addNum;
+			bagSlots[bagSlotIndex] = newContents;
+
+			if (origContents.count == 0) {
+				origContents = new Slot();
+			}
+		} else {
+			// Change out the bag slot
+			bagSlots[bagSlotIndex] = newContents; // Slot inside bag
+		}
+
 		// Save up the slot tree
 		bagSlot.metadata["slots"] = jsonx.encode(bagSlots); // Bag contents
 		invSlots[bagIndex] = bagSlot; // Bag in hotbar
@@ -213,37 +251,155 @@ class InventoryV2 {
 		}
 	}
 
+	int toMerge, merged;
+
 	Future<int> _addItem(Map itemMap, int count, String email) async {
 		//instantiate an item object based on the map
-		Item item = jsonx.decode(JSON.encode(itemMap), type:Item);
-		if(item.isContainer && item.metadata['slots'] == null) {
+		Item item = jsonx.decode(JSON.encode(itemMap), type: Item);
+
+		if (item.isContainer && item.metadata['slots'] == null) {
 			List<Slot> emptySlots = [];
-			for(int i=0; i<item.subSlots; i++) {
+			for (int i = 0; i < item.subSlots; i++) {
 				emptySlots.add(new Slot());
 			}
-			print('size: ${emptySlots.length}');
 			item.metadata['slots'] = jsonx.encode(emptySlots);
 		}
 
 		// Keep a record of how many items we have merged into slots already,
 		// and how many more need to find homes
-		int toMerge = count, merged = 0;
+		toMerge = count;
+		merged = 0;
 
 		// Go through entire inventory and try to find a slot that either:
-		// a) has the same type of item in it and is not a full stack, or
-		// b) is empty and can accept at least [count] of item
-		// c) is a container and has an available slot
+		// a) is a specialized container that can accept this item
+		// b) has the same type of item in it and is not a full stack, or
+		// c) is empty and can accept at least [count] of item
+		// d) is a generic container and has an available slot
 		List<Slot> tmpSlots = slots;
+
+		//check for specialized bag first
 		for (Slot slot in tmpSlots) {
+			Item slotItem = items[slot.itemType];
+			if (slotItem == null) {
+				continue;
+			}
+			if (toMerge == 0) {
+				break;
+			}
+
+			if (slotItem.isContainer && !item.isContainer &&
+			    slotItem.filterAllows(itemType: item.itemType) &&
+			    slotItem.subSlotFilter.length != 0) {
+				List<Slot> innerSlots = _getModifiedBag(slot, item);
+				slot.metadata['slots'] = jsonx.encode(innerSlots);
+			}
+		}
+
+		//check for same itemType already existing
+		for (Slot slot in tmpSlots) {
+			if (toMerge == 0) {
+				break;
+			}
+
+			// If not, decide if we can merge into the slot
+			if (slot.itemType == item.itemType && slot.count < item.stacksTo &&
+			    slot.metadata.length == 0) {
+				slot = _getModifiedSlot(slot, item);
+			}
+		}
+
+		//check for emtpy slot in one of the 10
+		for (Slot slot in tmpSlots) {
+			if (toMerge == 0) {
+				break;
+			}
+
+			if (slot.itemType.isEmpty || slot.count == 0) {
+				slot = _getModifiedSlot(slot, item);
+			}
+		}
+
+		//check for a generic bag in which we can merge
+		for (Slot slot in tmpSlots) {
+			if (toMerge == 0) {
+				break;
+			}
+
+			Item slotItem = items[slot.itemType];
+			if (slotItem == null) {
+				continue;
+			}
+			if (slotItem.isContainer && !item.isContainer &&
+			    slotItem.subSlotFilter.length == 0) {
+				List<Slot> innerSlots = _getModifiedBag(slot, item);
+				slot.metadata['slots'] = jsonx.encode(innerSlots);
+			}
+		}
+
+		inventory_json = jsonx.encode(tmpSlots);
+
+		if (toMerge > 0) {
+			log("[InventoryV2] Cannot give ${item.itemType} x $count to user with email $email because they ran"
+			    + " out of slots before all items were added. $toMerge items skipped.");
+//			item.putItemOnGround()
+		}
+
+		await _updateDatabase(email);
+
+		return merged;
+	}
+
+	Slot _getModifiedSlot(Slot slot, Item item) {
+		bool emptySlot = false;
+		if (slot.itemType.isEmpty || slot.count == 0) {
+			emptySlot = true;
+		}
+
+		// Figure out how many we can merge
+		int availInStack = item.stacksTo - slot.count;
+
+		if (availInStack >= toMerge) {
+			slot.count += toMerge;
+			merged += toMerge;
+			toMerge = 0;
+		} else {
+			slot.count += availInStack;
+			merged += availInStack;
+			toMerge -= availInStack;
+		}
+
+		// If the slot was empty, give it some data
+		if (emptySlot) {
+			slot.itemType = item.itemType;
+			slot.metadata = item.metadata;
+		}
+
+		return slot;
+	}
+
+	List<Slot> _getModifiedBag(Slot slot, Item item) {
+		List<Slot> innerSlots;
+		Item slotItem = items[slot.itemType];
+
+		if (slot.metadata.containsKey('slots')) {
+			innerSlots = jsonx.decode(slot.metadata['slots'], type: listOfSlots);
+		} else {
+			innerSlots = [];
+			while (innerSlots.length < slotItem.subSlots) {
+				innerSlots.add(new Slot());
+			}
+		}
+		for (Slot slot in innerSlots) {
 			// Check if we are done merging, then stop looping
 			if (toMerge == 0) {
 				break;
 			}
 
 			// If not, decide if we can merge into the slot
-			bool canMerge = false, emptySlot = false;
+			bool canMerge = false,
+				emptySlot = false;
 
-			if (slot.itemType.isEmpty || slot.count == 0) {
+			if (slot.isEmpty) {
 				canMerge = true;
 				emptySlot = true;
 			} else {
@@ -252,66 +408,7 @@ class InventoryV2 {
 				    slot.metadata.length == 0) {
 					canMerge = true;
 				}
-
-				Item slotItem = items[slot.itemType];
-				if (slotItem.isContainer && !item.isContainer && slotItem.filterAllows(itemType: item.itemType)) {
-					List<Slot> innerSlots;
-					if (slot.metadata.containsKey('slots')) {
-						innerSlots = jsonx.decode(slot.metadata['slots'], type: listOfSlots);
-					} else {
-						innerSlots = [];
-						while (innerSlots.length < slotItem.subSlots) {
-							innerSlots.add(new Slot());
-						}
-					}
-					for (Slot slot in innerSlots) {
-						// Check if we are done merging, then stop looping
-						if (toMerge == 0) {
-							break;
-						}
-
-						// If not, decide if we can merge into the slot
-						bool canMerge = false, emptySlot = false;
-
-						if (slot.isEmpty) {
-							canMerge = true;
-							emptySlot = true;
-						} else {
-							if (slot.itemType == item.itemType &&
-							    slot.count < item.stacksTo &&
-							    slot.metadata.length == 0) {
-								canMerge = true;
-							}
-						}
-						// If this slot is suitable...
-						if (canMerge) {
-							// Figure out how many we can merge
-							int availInStack = item.stacksTo - slot.count;
-
-							if (availInStack >= toMerge) {
-								slot.count += toMerge;
-								merged += toMerge;
-								toMerge = 0;
-							} else {
-								slot.count += availInStack;
-								merged += availInStack;
-								toMerge -= availInStack;
-							}
-
-							// If the slot was empty, give it some data
-							if (emptySlot) {
-								slot.itemType = item.itemType;
-								slot.metadata = item.metadata;
-							}
-						} else {
-							// If not, skip it
-							continue;
-						}
-					}
-					slot.metadata['slots'] = jsonx.encode(innerSlots);
-				}
 			}
-
 			// If this slot is suitable...
 			if (canMerge) {
 				// Figure out how many we can merge
@@ -338,17 +435,7 @@ class InventoryV2 {
 			}
 		}
 
-		inventory_json = jsonx.encode(tmpSlots);
-
-		if (toMerge > 0) {
-			log("[InventoryV2] Cannot give ${item.itemType} x $count to user with email $email because they ran"
-			    + " out of slots before all items were added. $toMerge items skipped.");
-//			item.putItemOnGround()
-		}
-
-		await _updateDatabase(email);
-
-		return merged;
+		return innerSlots;
 	}
 
 	Future _updateDatabase(String email) async {
@@ -359,7 +446,9 @@ class InventoryV2 {
 
 		if (numRowsUpdated <= 0) {
 			String query = "SELECT * FROM users WHERE email = @email";
-			Row row = await dbConn.innerConn.query(query, {'email':email}).first;
+			Row row = await dbConn.innerConn
+				.query(query, {'email':email})
+				.first;
 			this.user_id = row.id;
 			queryString = "INSERT INTO inventories(inventory_json, user_id) VALUES(@inventory_json,@user_id)";
 			numRowsUpdated = await dbConn.execute(queryString, this);
@@ -369,14 +458,14 @@ class InventoryV2 {
 		return numRowsUpdated;
 	}
 
-	Future<Item> _takeItem(int slot, int subSlot, int count, String email, {bool simulate:false}) async {
+	Future<Item> _takeItem(int slot, int subSlot, int count, String email, {bool simulate: false}) async {
 		List<Slot> tmpSlots = slots;
 		Slot toModify = tmpSlots.elementAt(slot);
 		Slot dropped;
 
 		//if we're taking from a bag
 		if (subSlot > -1) {
-			List<Slot> bagSlots = jsonx.decode(toModify.metadata['slots'], type:listOfSlots);
+			List<Slot> bagSlots = jsonx.decode(toModify.metadata['slots'], type: listOfSlots);
 			Slot bagSlotToModify = bagSlots.elementAt(subSlot);
 			if (bagSlotToModify.count < count) {
 				return null;
@@ -391,8 +480,7 @@ class InventoryV2 {
 			dropped = bagSlots.removeAt(subSlot);
 			bagSlots.insert(subSlot, bagSlotToModify);
 			toModify.metadata['slots'] = jsonx.encode(bagSlots);
-			tmpSlots.remove(slot);
-
+			tmpSlots.removeAt(slot);
 		} else {
 			if (toModify.count < count) {
 				return null;
@@ -408,7 +496,7 @@ class InventoryV2 {
 
 		tmpSlots.insert(slot, toModify);
 
-		if(!simulate) {
+		if (!simulate) {
 			inventory_json = jsonx.encode(tmpSlots);
 			await _updateDatabase(email);
 		}
@@ -419,10 +507,11 @@ class InventoryV2 {
 	}
 
 	Future<int> _takeAnyItems(Map itemMap, int count, String email) async {
-		Item item = jsonx.decode(JSON.encode(itemMap), type:Item);
+		Item item = jsonx.decode(JSON.encode(itemMap), type: Item);
 		// Keep a record of how many items we have taken from slots already,
 		// and how many more we need to remove
-		int toGrab = count, grabbed = 0;
+		int toGrab = count,
+			grabbed = 0;
 
 		// Go through entire inventory and try to find a slot that has this item,
 		// and continue until all are taken
@@ -434,7 +523,7 @@ class InventoryV2 {
 			}
 
 			Item slotItem = items[slot.itemType];
-			if(slotItem == null) {
+			if (slotItem == null) {
 				continue;
 			}
 			if (slotItem.isContainer && slotItem.filterAllows(itemType: item.itemType)) {
@@ -454,7 +543,8 @@ class InventoryV2 {
 						continue;
 					}
 
-					int have = slot.count, diff;
+					int have = slot.count,
+						diff;
 
 					if (have >= toGrab) {
 						diff = toGrab;
@@ -485,7 +575,8 @@ class InventoryV2 {
 				continue;
 			}
 
-			int have = slot.count, diff;
+			int have = slot.count,
+				diff;
 
 			if (have >= toGrab) {
 				diff = toGrab;
@@ -571,13 +662,14 @@ class InventoryV2 {
 
 		//count all the normal slots
 		slots.forEach((Slot s) {
-			if(s.itemType != null && s.itemType == itemType) {
+			if (s.itemType != null && s.itemType == itemType) {
 				count += s.count;
 			}
 		});
 
 		//add the bag contents
-		slots.where((Slot s) => !s.itemType.isEmpty && items[s.itemType].isContainer && items[s.itemType].subSlots != null).forEach((Slot s) {
+		slots.where((Slot s) => !s.itemType.isEmpty && items[s.itemType].isContainer &&
+		                        items[s.itemType].subSlots != null).forEach((Slot s) {
 			if (s.metadata["slots"] != null && (s.metadata["slots"]).length > 0) {
 				List<Slot> bagSlots = jsonx.decode(s.metadata['slots'], type: listOfSlots);
 				if (bagSlots != null) {
@@ -595,15 +687,16 @@ class InventoryV2 {
 
 	// Static Public Methods //////////////////////////////////////////////////////////////////////
 	Future<Item> getItemInSlot(int slot, int subSlot, String email) async {
-		Item itemTaken = await _takeItem(slot, subSlot, 0, email, simulate:true);
+		Item itemTaken = await _takeItem(slot, subSlot, 0, email, simulate: true);
 		return itemTaken;
 	}
 
-	static Future<int> addItemToUser(WebSocket userSocket, String email, Map item, int count, [String fromObject = "_self"]) async {
+	static Future<int> addItemToUser(WebSocket userSocket, String email, Map item, int count,
+		[String fromObject = "_self"]) async {
 		InventoryV2 inv = await getInventory(email);
 		int added = await inv._addItem(item, count, email);
 		if (added == count) {
-			await fireInventoryAtUser(userSocket, email, update:true);
+			await fireInventoryAtUser(userSocket, email, update: true);
 			return count;
 		} else {
 			return -1;
@@ -614,7 +707,7 @@ class InventoryV2 {
 		InventoryV2 inv = await getInventory(email);
 		Item itemTaken = await inv._takeItem(slot, subSlot, count, email);
 		if (itemTaken != null) {
-			await fireInventoryAtUser(userSocket, email, update:true);
+			await fireInventoryAtUser(userSocket, email, update: true);
 		}
 		return itemTaken;
 	}
@@ -623,7 +716,7 @@ class InventoryV2 {
 		InventoryV2 inv = await getInventory(email);
 		int taken = await inv._takeAnyItems(items[itemType].getMap(), count, email);
 		if (taken == count) {
-			await fireInventoryAtUser(userSocket, email, update:true);
+			await fireInventoryAtUser(userSocket, email, update: true);
 			return count;
 		} else {
 			return -1;
@@ -650,7 +743,7 @@ class InventoryV2 {
 		}
 	}
 
-	/// moveItem is in street_update_handler.dart
+/// moveItem is in street_update_handler.dart
 }
 
 @app.Route("/getInventory/:email")
