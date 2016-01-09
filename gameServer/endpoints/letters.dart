@@ -19,10 +19,7 @@ class Letters {
 	/// Returns the player's assigned letter
 	@app.Route("/getPlayerLetter")
 	String getPlayerLetter(@app.QueryParam("username") String username) {
-		if (letterAssignments[username] == null) {
-			newPlayerLetter(username);
-		}
-		return letterAssignments[username];
+		return letterAssignments[username] ?? newPlayerLetter(username);
 	}
 
 	/// Changes the player's assigned letter to a random letter. Used on street change
@@ -32,3 +29,5 @@ class Letters {
 		return getPlayerLetter(username);
 	}
 }
+
+Letters PLAYER_LETTERS = new Letters();

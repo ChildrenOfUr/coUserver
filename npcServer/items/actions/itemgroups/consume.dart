@@ -3,7 +3,7 @@ part of coUserver;
 class Item_Consumable {
 	static Map<String, Map> consumeValues = {};
 
-	static Future<bool> consume(Map map, WebSocket userSocket, String email) async {
+	static Future<bool> consume(Map map, WebSocket userSocket, String username, String email) async {
 		Item consumed = await InventoryV2.takeItemFromUser(userSocket, email, map['slot'],map['subSlot'], map['count']);
 		if (consumed == null) {
 			return false;
@@ -15,6 +15,6 @@ class Item_Consumable {
 
 		toast("Consuming that ${consumed.name} gave you $energyAward energy, $moodAward mood, and $imgAward iMG", userSocket);
 
-		return await ItemUser.trySetMetabolics(email, energy:energyAward, mood:moodAward, img:imgAward);
+		return await ItemUser.trySetMetabolics(username, energy:energyAward, mood:moodAward, img:imgAward);
 	}
 }

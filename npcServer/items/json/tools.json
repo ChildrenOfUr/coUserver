@@ -124,7 +124,7 @@
     "description": "A Bubble Tuner somehow converts plain bubbles into not-plain bubbles. How? Nobody knows.",
     "actions": [
       {
-        "name": "Convert",
+        "name": "Tune Bubbles",
         "description": "Make all kinds of bubbles",
         "itemRequirements": {},
         "skillRequirements": {

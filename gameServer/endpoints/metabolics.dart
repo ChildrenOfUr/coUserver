@@ -2,34 +2,19 @@ part of coUserver;
 
 class Metabolics {
 	@Field()
-	int id;
-
+	int id,
+		mood = 50,
+		max_mood = 100,
+		energy = 50,
+		max_energy = 100;
 	@Field()
-	int mood = 50;
-
+	int currants = 0,
+		img = 0,
+		lifetime_img = 0,
+		level = 1;
 	@Field()
-	int max_mood = 100;
-
-	@Field()
-	int energy = 50;
-
-	@Field()
-	int max_energy = 100;
-
-	@Field()
-	int currants = 0;
-
-	@Field()
-	int img = 0;
-
-	@Field()
-	int lifetime_img = 0;
-
-	@Field()
-	String current_street = 'LA58KK7B9O522PC';
-
-	@Field()
-	String undead_street = null;
+	String current_street = 'LA58KK7B9O522PC',
+		undead_street = null;
 
 	set dead(bool value) {
 		if (value) {
@@ -46,71 +31,43 @@ class Metabolics {
 	}
 
 	@Field()
-	num current_street_x = 1.0;
+	num current_street_x = 1.0,
+		current_street_y = 0.0,
+		quoin_multiplier = 1;
 
 	@Field()
-	num current_street_y = 0.0;
-
-	@Field()
-	int user_id = -1;
-
-	@Field()
-	int alphfavor = 0;
-	@Field()
-	int alphfavor_max = 1000;
-	@Field()
-	int cosmafavor = 0;
-	@Field()
-	int cosmafavor_max = 1000;
-	@Field()
-	int friendlyfavor = 0;
-	@Field()
-	int friendlyfavor_max = 1000;
-	@Field()
-	int grendalinefavor = 0;
-	@Field()
-	int grendalinefavor_max = 1000;
-	@Field()
-	int humbabafavor = 0;
-	@Field()
-	int humbabafavor_max = 1000;
-	@Field()
-	int lemfavor = 0;
-	@Field()
-	int lemfavor_max = 1000;
-	@Field()
-	int mabfavor = 0;
-	@Field()
-	int mabfavor_max = 1000;
-	@Field()
-	int potfavor = 0;
-	@Field()
-	int potfavor_max = 1000;
-	@Field()
-	int sprigganfavor = 0;
-	@Field()
-	int sprigganfavor_max = 1000;
-	@Field()
-	int tiifavor = 0;
-	@Field()
-	int tiifavor_max = 1000;
-	@Field()
-	int zillefavor = 0;
-	@Field()
-	int zillefavor_max = 1000;
+	int user_id = -1,
+		alphfavor = 0,
+		alphfavor_max = 1000,
+		cosmafavor = 0,
+		cosmafavor_max = 1000,
+		friendlyfavor = 0,
+		friendlyfavor_max = 1000,
+		grendalinefavor = 0,
+		grendalinefavor_max = 1000,
+		humbabafavor = 0,
+		humbabafavor_max = 1000,
+		lemfavor = 0,
+		lemfavor_max = 1000,
+		mabfavor = 0,
+		mabfavor_max = 1000,
+		potfavor = 0,
+		potfavor_max = 1000,
+		sprigganfavor = 0,
+		sprigganfavor_max = 1000,
+		tiifavor = 0,
+		tiifavor_max = 1000,
+		zillefavor = 0,
+		zillefavor_max = 1000,
+		quoins_collected = 0;
 
 	@Field()
 	String location_history = '[]';
-
-	@Field()
-	int quoins_collected = 0;
-
-	@Field()
-	num quoin_multiplier = 1;
 }
 
 class MetabolicsEndpoint {
-	static bool simulateMood = false, simulateEnergy = false;
+	static bool simulateMood = false,
+		simulateEnergy = false;
 	static Timer moodTimer = new Timer.periodic(new Duration(seconds: 60), (Timer timer) => simulateMood = true);
 	static Timer energyTimer = new Timer.periodic(new Duration(seconds: 90), (Timer timer) => simulateEnergy = true);
 	static Timer simulateTimer = new Timer.periodic(new Duration(seconds: 5), (Timer timer) => simulate());
@@ -130,8 +87,7 @@ class MetabolicsEndpoint {
 		simulateTimer.isActive;
 
 		ws.listen((message) => processMessage(ws, message),
-		onError: (error) => cleanupList(ws),
-		onDone: () => cleanupList(ws));
+			          onError: (error) => cleanupList(ws), onDone: () => cleanupList(ws));
 	}
 
 	static void cleanupList(WebSocket ws) {
@@ -159,7 +115,7 @@ class MetabolicsEndpoint {
 	static void simulate() {
 		userSockets.forEach((String username, WebSocket ws) async {
 			try {
-				Metabolics m = await getMetabolics(username:username);
+				Metabolics m = await getMetabolics(username: username);
 
 				if (simulateMood) {
 					_calcAndSetMood(m);
@@ -222,7 +178,7 @@ class MetabolicsEndpoint {
 	}
 
 	static Future<bool> addToLocationHistory(String username, String TSID) async {
-		Metabolics m = await getMetabolics(username:username);
+		Metabolics m = await getMetabolics(username: username);
 		List<String> locations = JSON.decode(m.location_history);
 
 		// If it's not already in the history
@@ -237,19 +193,19 @@ class MetabolicsEndpoint {
 	}
 
 	static denyQuoin(Quoin q, String username) {
-		Map map = {'collectQuoin':'true',
-			'success':'false',
-			'id':q.id};
+		Map map = {'collectQuoin': 'true', 'success': 'false', 'id': q.id};
 		try {
 			userSockets[username].add(JSON.encode(map));
-		}
-		catch (err) {
+		} catch (err) {
 			log('(metabolics_endpoint_deny_quoin) Could not pass map $map to player $username: $err');
 		}
 	}
 
 	static Future addQuoin(Quoin q, String username) async {
-		Metabolics m = await getMetabolics(username:username);
+		Metabolics m = await getMetabolics(username: username);
+
+		// Store "before" img
+		int oldImg = m.lifetime_img;
 
 		if (m.quoins_collected >= constants.quoinLimit) {
 			// Daily quoin limit
@@ -359,21 +315,26 @@ class MetabolicsEndpoint {
 			m.quoins_collected++;
 		}
 
+		// Compare "after" and "before" img
+		if (getLevel(m.lifetime_img) > getLevel(oldImg)) {
+			// Level up
+			print("sending map from quoin");
+			MetabolicsEndpoint.userSockets[username].add(JSON.encode({
+				"levelUp": getLevel(m.lifetime_img)
+			}));
+		}
+
 		try {
 			int result = await setMetabolics(m);
 			if (result > 0) {
-				Map map = {'collectQuoin':'true',
-					'id':q.id,
-					'amt':amt,
-					'quoinType':q.type};
+				Map map = {'collectQuoin': 'true', 'id': q.id, 'amt': amt, 'quoinType': q.type};
 
 				q.setCollected();
 
 				userSockets[username].add(JSON.encode(map));
 				userSockets[username].add(JSON.encode(encode(m)));
 			}
-		}
-		catch (err) {
+		} catch (err) {
 			log('(metabolics_endpoint_add_quoin) Could not set metabolics $m for player $username: $err');
 		}
 	}
@@ -391,8 +352,7 @@ class MetabolicsEndpoint {
 		else
 			m.mood -= (max_mood * .015).ceil();
 
-		if (m.mood < 0)
-			m.mood = 0;
+		if (m.mood < 0) m.mood = 0;
 
 		simulateMood = false;
 	}
@@ -412,7 +372,8 @@ class MetabolicsEndpoint {
 
 @app.Route('/getMetabolics')
 @Encode()
-Future<Metabolics> getMetabolics({@app.QueryParam() String username, @app.QueryParam() String email, @app.QueryParam() int userId}) async {
+Future<Metabolics> getMetabolics(
+	{@app.QueryParam() String username, @app.QueryParam() String email, @app.QueryParam() int userId}) async {
 	Metabolics metabolic = new Metabolics();
 
 	PostgreSql dbConn = await dbManager.getConnection();
@@ -425,13 +386,14 @@ Future<Metabolics> getMetabolics({@app.QueryParam() String username, @app.QueryP
 			whereClause = "WHERE users.id = @userId";
 		}
 		String query = "SELECT * FROM metabolics JOIN users ON users.id = metabolics.user_id " + whereClause;
-		List<Metabolics> metabolics = await dbConn.query(query, Metabolics, {'username':username, 'email':email, 'userId': userId});
+		List<Metabolics> metabolics =
+		await dbConn.query(query, Metabolics, {'username': username, 'email': email, 'userId': userId});
 
 		if (metabolics.length > 0) {
 			metabolic = metabolics[0];
 		} else {
 			query = "SELECT * FROM users " + whereClause;
-			var results = await dbConn.query(query, int, {'username':username, 'email':email});
+			var results = await dbConn.query(query, int, {'username': username, 'email': email});
 
 			if (results.length > 0) {
 				metabolic.user_id = results[0]['id'];
@@ -449,7 +411,7 @@ Future<Metabolics> getMetabolics({@app.QueryParam() String username, @app.QueryP
 	}
 }
 
-@app.Route('/setMetabolics', methods:const[app.POST])
+@app.Route('/setMetabolics', methods: const [app.POST])
 Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 	int result = 0;
 
@@ -488,127 +450,126 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 		//user exists
 		if (results.length > 0) {
 			query = "UPDATE metabolics "
-			"SET img = @img, "
-			"currants = @currants, "
-			"mood = @mood, "
-			"energy = @energy, "
-			"lifetime_img = @lifetime_img, "
-			"current_street = @current_street, "
-			"current_street_x = @current_street_x, "
-			"current_street_y = @current_street_y, "
-			"undead_street = @undead_street, "
-			"max_energy = @max_energy, "
-			"max_mood = @max_mood, "
-			"alphfavor = @alphfavor, "
-			"cosmafavor = @cosmafavor, "
-			"friendlyfavor = @friendlyfavor, "
-			"grendalinefavor = @grendalinefavor, "
-			"humbabafavor = @humbabafavor, "
-			"lemfavor = @lemfavor, "
-			"mabfavor = @mabfavor, "
-			"potfavor = @potfavor, "
-			"sprigganfavor = @sprigganfavor, "
-			"tiifavor = @tiifavor, "
-			"zillefavor = @zillefavor, "
-			"alphfavor_max = @alphfavor_max, "
-			"cosmafavor_max = @cosmafavor_max, "
-			"friendlyfavor_max = @friendlyfavor_max, "
-			"grendalinefavor_max = @grendalinefavor_max, "
-			"humbabafavor_max = @humbabafavor_max, "
-			"lemfavor_max = @lemfavor_max, "
-			"mabfavor_max = @mabfavor_max, "
-			"potfavor_max = @potfavor_max, "
-			"sprigganfavor_max = @sprigganfavor_max, "
-			"tiifavor_max = @tiifavor_max, "
-			"zillefavor_max = @zillefavor_max, "
-			"quoin_multiplier = @quoin_multiplier, "
-			"quoins_collected = @quoins_collected, "
-			"location_history = @location_history "
-			"WHERE user_id = @user_id";
+				"SET img = @img, "
+				"currants = @currants, "
+				"mood = @mood, "
+				"energy = @energy, "
+				"lifetime_img = @lifetime_img, "
+				"current_street = @current_street, "
+				"current_street_x = @current_street_x, "
+				"current_street_y = @current_street_y, "
+				"undead_street = @undead_street, "
+				"max_energy = @max_energy, "
+				"max_mood = @max_mood, "
+				"alphfavor = @alphfavor, "
+				"cosmafavor = @cosmafavor, "
+				"friendlyfavor = @friendlyfavor, "
+				"grendalinefavor = @grendalinefavor, "
+				"humbabafavor = @humbabafavor, "
+				"lemfavor = @lemfavor, "
+				"mabfavor = @mabfavor, "
+				"potfavor = @potfavor, "
+				"sprigganfavor = @sprigganfavor, "
+				"tiifavor = @tiifavor, "
+				"zillefavor = @zillefavor, "
+				"alphfavor_max = @alphfavor_max, "
+				"cosmafavor_max = @cosmafavor_max, "
+				"friendlyfavor_max = @friendlyfavor_max, "
+				"grendalinefavor_max = @grendalinefavor_max, "
+				"humbabafavor_max = @humbabafavor_max, "
+				"lemfavor_max = @lemfavor_max, "
+				"mabfavor_max = @mabfavor_max, "
+				"potfavor_max = @potfavor_max, "
+				"sprigganfavor_max = @sprigganfavor_max, "
+				"tiifavor_max = @tiifavor_max, "
+				"zillefavor_max = @zillefavor_max, "
+				"quoin_multiplier = @quoin_multiplier, "
+				"quoins_collected = @quoins_collected, "
+				"location_history = @location_history "
+				"WHERE user_id = @user_id";
 		} else {
 			query = "INSERT INTO metabolics ("
-			"img, "
-			"currants, "
-			"mood, "
-			"energy, "
-			"lifetime_img, "
-			"user_id, "
-			"current_street, "
-			"current_street_x, "
-			"current_street_y, "
-			"undead_street, "
-			"max_energy, "
-			"max_mood, "
-			"alphfavor, "
-			"cosmafavor, "
-			"friendlyfavor, "
-			"grendalinefavor, "
-			"humbabafavor, "
-			"lemfavor, "
-			"mabfavor, "
-			"potfavor, "
-			"sprigganfavor, "
-			"tiifavor, "
-			"zillefavor, "
-			"alphfavor_max, "
-			"cosmafavor_max, "
-			"friendlyfavor_max, "
-			"grendalinefavor_max, "
-			"humbabafavor_max, "
-			"lemfavor_max, "
-			"mabfavor_max, "
-			"potfavor_max, "
-			"sprigganfavor_max, "
-			"tiifavor_max, "
-			"zillefavor_max, "
-			"location_history, "
-			"quoin_multiplier, "
-			"quoins_collected"
-			") VALUES("
-			"@img, "
-			"@currants, "
-			"@mood, "
-			"@energy, "
-			"@lifetime_img, "
-			"@user_id, "
-			"@current_street, "
-			"@current_street_x, "
-			"@current_street_y, "
-			"@undead_street, "
-			"@max_energy, "
-			"@max_mood, "
-			"@alphfavor, "
-			"@cosmafavor, "
-			"@friendlyfavor, "
-			"@grendalinefavor, "
-			"@humbabafavor, "
-			"@lemfavor, "
-			"@mabfavor, "
-			"@potfavor, "
-			"@sprigganfavor, "
-			"@tiifavor, "
-			"@zillefavor, "
-			"@alphfavor_max, "
-			"@cosmafavor_max, "
-			"@friendlyfavor_max, "
-			"@grendalinefavor_max, "
-			"@humbabafavor_max, "
-			"@lemfavor_max, "
-			"@mabfavor_max, "
-			"@potfavor_max, "
-			"@sprigganfavor_max, "
-			"@tiifavor_max, "
-			"@zillefavor_max, "
-			"@location_history, "
-			"@quoin_multiplier, "
-			"@quoins_collected)";
+				"img, "
+				"currants, "
+				"mood, "
+				"energy, "
+				"lifetime_img, "
+				"user_id, "
+				"current_street, "
+				"current_street_x, "
+				"current_street_y, "
+				"undead_street, "
+				"max_energy, "
+				"max_mood, "
+				"alphfavor, "
+				"cosmafavor, "
+				"friendlyfavor, "
+				"grendalinefavor, "
+				"humbabafavor, "
+				"lemfavor, "
+				"mabfavor, "
+				"potfavor, "
+				"sprigganfavor, "
+				"tiifavor, "
+				"zillefavor, "
+				"alphfavor_max, "
+				"cosmafavor_max, "
+				"friendlyfavor_max, "
+				"grendalinefavor_max, "
+				"humbabafavor_max, "
+				"lemfavor_max, "
+				"mabfavor_max, "
+				"potfavor_max, "
+				"sprigganfavor_max, "
+				"tiifavor_max, "
+				"zillefavor_max, "
+				"location_history, "
+				"quoin_multiplier, "
+				"quoins_collected"
+				") VALUES("
+				"@img, "
+				"@currants, "
+				"@mood, "
+				"@energy, "
+				"@lifetime_img, "
+				"@user_id, "
+				"@current_street, "
+				"@current_street_x, "
+				"@current_street_y, "
+				"@undead_street, "
+				"@max_energy, "
+				"@max_mood, "
+				"@alphfavor, "
+				"@cosmafavor, "
+				"@friendlyfavor, "
+				"@grendalinefavor, "
+				"@humbabafavor, "
+				"@lemfavor, "
+				"@mabfavor, "
+				"@potfavor, "
+				"@sprigganfavor, "
+				"@tiifavor, "
+				"@zillefavor, "
+				"@alphfavor_max, "
+				"@cosmafavor_max, "
+				"@friendlyfavor_max, "
+				"@grendalinefavor_max, "
+				"@humbabafavor_max, "
+				"@lemfavor_max, "
+				"@mabfavor_max, "
+				"@potfavor_max, "
+				"@sprigganfavor_max, "
+				"@tiifavor_max, "
+				"@zillefavor_max, "
+				"@location_history, "
+				"@quoin_multiplier, "
+				"@quoins_collected)";
 		}
 
 		result = await dbConn.execute(query, metabolics);
 
 		dbManager.closeConnection(dbConn);
-	}
-	catch (e, st) {
+	} catch (e, st) {
 		if (dbConn != null) {
 			dbManager.closeConnection(dbConn);
 		}
@@ -632,7 +593,7 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 //	return scale;
 //}
 
-Map <int, int> imgLevels = {
+Map<int, int> imgLevels = {
 	1: 100,
 	2: 137,
 	3: 188,
