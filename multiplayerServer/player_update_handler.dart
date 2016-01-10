@@ -62,9 +62,11 @@ class PlayerUpdateHandler
 			{
 				String username = map["username"];
     			if(users[username] != null) { //we've had an update for this user before
-    				if(users[username].currentStreet != map["street"]) {
+				    String previousStreet = users[username].currentStreet;
+    				if(previousStreet != map["street"]) {
 					    //the user must have switched streets
     					map["changeStreet"] = map["street"];
+					    map['previousStreet'] = previousStreet;
     					users[username].currentStreet = map["street"];
 					    map["letter"] = PLAYER_LETTERS.newPlayerLetter(username);
     				} else {

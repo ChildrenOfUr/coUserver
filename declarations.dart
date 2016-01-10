@@ -44,6 +44,10 @@ part 'gameServer/quests/quest_service.dart';
 part 'gameServer/quests/quest_endpoint.dart';
 part 'gameServer/quests/user.dart';
 
+// upgrades
+part "gameServer/upgrades/upgrade.dart";
+part "gameServer/upgrades/upgrade_manager.dart";
+
 //common to all server parts
 part "common/identifier.dart";
 part "common/stat_buffer.dart";
