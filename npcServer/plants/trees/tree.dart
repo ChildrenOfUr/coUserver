@@ -39,7 +39,8 @@ abstract class Tree extends Plant {
                       "requires":[
                           {
                               'num':2,
-                              'of':['energy']
+                              'of':['energy'],
+                              'error': "You need at least 2 energy to pet."
                           }
                       ]});
     }

@@ -12,12 +12,12 @@ abstract class Item_Milk {
 		}
 	}
 
-	static Future<bool> shakeBottle(WebSocket userSocket, String username) async {
+	static Future<bool> shakeBottle(WebSocket userSocket, String username, String email) async {
 		if (await ItemUser.getEnergy(username) <= 2) {
 			toast("You don't have enough energy to shake that.", userSocket);
 			return false;
 		} else {
-			if (await InventoryV2.takeAnyItemsFromUser(userSocket, username, "butterfly_milk", 1) == 1) {
+			if (await InventoryV2.takeAnyItemsFromUser(userSocket, email, "butterfly_milk", 1) == 1) {
 				toast("Shaking...", userSocket);
 				new Timer(new Duration(seconds: 1), () async {
 					toast("You shake the butterfly milk vigorously. Butterfly butter!", userSocket);

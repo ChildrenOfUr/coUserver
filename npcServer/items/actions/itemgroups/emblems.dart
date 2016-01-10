@@ -27,7 +27,7 @@ abstract class Item_Emblem {
 		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], username);
 		String emblemType = itemInSlot.itemType;
 		String iconType = "icon_of_" + emblemType.substring(10);
-		bool success1 = (await InventoryV2.takeAnyItemsFromUser(userSocket, username, emblemType, 11) == 11);
+		bool success1 = (await InventoryV2.takeAnyItemsFromUser(userSocket, email, emblemType, 11) == 11);
 		if (!success1) {
 			return false;
 		}

@@ -146,7 +146,7 @@ class RecipeBook {
 
 		// Take all of the items
 		recipe.input.forEach((String itemType, int qty) async {
-			bool takeItemSuccess = (await InventoryV2.takeAnyItemsFromUser(ws, username, itemType, qty) == qty);
+			bool takeItemSuccess = (await InventoryV2.takeAnyItemsFromUser(ws, email, itemType, qty)) == qty;
 			if (!takeItemSuccess) {
 				// If they didn't have a required item, they're not making a smoothie
 				return false;

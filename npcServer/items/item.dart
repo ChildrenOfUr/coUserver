@@ -143,7 +143,7 @@ class Item {
 		InventoryV2 inv = await getInventory(email);
 		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
 		if (itemInSlot.itemType == "butterfly_milk") {
-			return await Item_Cheese.sniff(userSocket, username);
+			return await Item_Cheese.sniff(userSocket, email);
 		} else if (itemInSlot.itemType == "very_very_stinky_cheese") {
 			return await Item_Milk.sniff(userSocket, username);
 		} else {
@@ -156,7 +156,7 @@ class Item {
 	// ////////////// //
 
 	Future<bool> shakeBottle({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Milk.shakeBottle(userSocket, username);
+		return await Item_Milk.shakeBottle(userSocket, username, email);
 	}
 
 	// //////////////// //
@@ -164,7 +164,7 @@ class Item {
 	// //////////////// //
 
 	Future<bool> compress({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Butter.compress(userSocket, username);
+		return await Item_Butter.compress(userSocket, email);
 	}
 
 	// ////// //
@@ -176,11 +176,11 @@ class Item {
 	}
 
 	Future<bool> prod({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Cheese.prod(userSocket, username);
+		return await Item_Cheese.prod(userSocket, email);
 	}
 
 	Future<bool> sniffCheese(String streetName, Map map, WebSocket userSocket, String email, String username) async {
-		return await Item_Cheese.sniff(userSocket, username);
+		return await Item_Cheese.sniff(userSocket, email);
 	}
 
 	// //////////////// //
