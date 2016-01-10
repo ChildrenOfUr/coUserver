@@ -11,10 +11,10 @@ class UpgradeManager {
 			// Find the upgrades file
 			String directory = Platform.script.toFilePath();
 			directory = directory.substring(0, directory.lastIndexOf("/"));
-			File questsFile = new File("$directory/gameServer/upgrades/upgrades.json");
+			File upgradesFile = new File("$directory/gameServer/upgrades/upgrades.json");
 
 			// Read the file
-			List<Upgrade> upgrades = decode(JSON.decode(await questsFile.readAsString()), Upgrade);
+			List<Upgrade> upgrades = decode(JSON.decode(await upgradesFile.readAsString()), Upgrade);
 
 			// Clear old upgrades data, then save the new
 			_upgrades = new Map();
