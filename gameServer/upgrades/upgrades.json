@@ -1,0 +1,2144 @@
+[
+	{
+		"id": "beaker_genius",
+		"name": "Beaker Genius",
+		"description": "Tweak that Beaker for a better chance of a bigger Imagination bonus when making powders.",
+		"category": "Alchemy",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/107_1340040612_l.png"
+	},
+	{
+		"id": "compound_interest",
+		"name": "Compound Interest",
+		"description": "Earn bonus Imagination from making compounds. How compounding!",
+		"category": "Alchemy",
+		"cost": 400,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/6_1340040411_l.png"
+	},
+	{
+		"id": "elemental_shake",
+		"name": "Elemental Shake",
+		"description": "Learn the secret Elemental Pouch Shake. This maneuver helps Elements mingle, so they can be fruitful and multiply until they fill the pouch.",
+		"category": "Alchemy",
+		"cost": 2000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/80_1340040560_l.png"
+	},
+	{
+		"id": "tincturing_todd",
+		"name": "Tincturing Todd",
+		"description": "Meddle with your tincturing kit to make tinctures in batches twice as large as standard batch sizes.",
+		"category": "Alchemy",
+		"cost": 2000,
+		"image": "http://c2.glitch.bz/upgrades/2012-09-14/325_1347671581_l.png"
+	},
+	{
+		"id": "potato_hoocher",
+		"name": "Potato Hoocher",
+		"description": "Lost art of Hooch that lets you squeeze 20% more hooch out of every Potato you cram into your Hopper.",
+		"category": "Alchemy",
+		"cost": 500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/77_1340040555_l.png"
+	},
+	{
+		"id": "grain_hoocher",
+		"name": "Grain Hoocher",
+		"description": "Old-time Hooch secret that lets you squeeze 20% more hooch out of every bit of Grain you pop into your Hopper.",
+		"category": "Alchemy",
+		"cost": 500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/79_1340040559_l.png"
+	},
+	{
+		"id": "happy_herd",
+		"name": "Happy Herd",
+		"description": "Improve your Remote Herdkeeping skills, so your herd produces 10% more!",
+		"category": "Animals",
+		"cost": 4000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/148_1340040694_l.png"
+	},
+	{
+		"id": "intellectual_learning_speed_i",
+		"name": "Intellectual Learning Speed I",
+		"description": "Speed up the learning times for Intellectual skills (Bureaucratic Arts, Meditative Arts, Teleportation, Eyeballery, Penpersonship, Piety and similar skills) by 2%.",
+		"category": "Learning",
+		"cost": 400,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/200_1340040788_l.png"
+	},
+	{
+		"id": "beaker_geek",
+		"name": "Beaker Geek",
+		"description": "Tune up your Beaker skills for a chance of an Imagination bonus when making powders.",
+		"category": "Alchemy",
+		"cost": 2500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/106_1340040610_l.png"
+	},
+	{
+		"id": "bristling_bonus",
+		"name": "Bristling Bonus",
+		"description": "Boost your Brushing skills so you can get more Fiber when you use the Fox Brush!",
+		"category": "Animals",
+		"cost": 1500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/220_1340040820_l.png"
+	},
+	{
+		"id": "chicken_control_freak",
+		"name": "Chicken Control Freak",
+		"description": "Control the range a Chicken'll wander around a Chicken Stick!",
+		"category": "Animals",
+		"cost": 2500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/254_1340040874_l.png"
+	},
+	{
+		"id": "potent_potions",
+		"name": "Potent Potions",
+		"description": "Upgrade your potionmaking skills for a chance of bonus imagination when using a Cauldron.",
+		"category": "Alchemy",
+		"cost": 1500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/142_1340040681_l.png"
+	},
+	{
+		"id": "rub_er_up",
+		"name": "Rub 'er Up",
+		"description": "Forbidden, carnal knowledge of Plain Metal that grants you a chance of bonus Imagination when rubbing it with the Alchemical Tongs. Yeah, that's the spot...",
+		"category": "Alchemy",
+		"cost": 600,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/7_1340040413_l.png"
+	},
+	{
+		"id": "super_happy_animals",
+		"name": "Super Happy Animals",
+		"description": "Squeeze 20% more happy animals onto your land. So many happy animals, it's wild!",
+		"category": "Animals",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/105_1340040608_l.png"
+	},
+	{
+		"id": "twinsies_ii",
+		"name": "Twinsies II",
+		"description": "This upgrade will better the Chicken's chances of incubating two animals from one seasoned egg.",
+		"category": "Animals",
+		"cost": 1000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/9_1340040417_l.png"
+	},
+	{
+		"id": "efficient_prunes",
+		"name": "Efficient Prunes",
+		"description": "Feeding Batterflies a meal worth at least 50 currants makes them poop three guano at once, instead of two.",
+		"category": "Animals",
+		"cost": 2000,
+		"image": "http://c2.glitch.bz/upgrades/2012-09-19/326_1348081256_l.png"
+	},
+	{
+		"id": "happy_animals",
+		"name": "Happy Animals",
+		"description": "Improve the happiness of your domestic animals, so you can pack 10% more of them on your land.",
+		"category": "Animals",
+		"cost": 3000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/104_1340040606_l.png"
+	},
+	{
+		"id": "stronger_pot",
+		"name": "Stronger Pot",
+		"description": "Reduce the depletion of your Awesome Pot by 50%.",
+		"category": "Cooking",
+		"cost": 1000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/60_1340040521_l.png"
+	},
+	{
+		"id": "tincture_time",
+		"name": "Tincture Time",
+		"description": "Gives a chance for bonus Imagination when using a Tincturing Kit.",
+		"category": "Alchemy",
+		"cost": 1200,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/161_1340040719_l.png"
+	},
+	{
+		"id": "super_elemental_shake",
+		"name": "Super Elemental Shake",
+		"description": "Even more bonus elements produced by a nice, long shake in the pouch!",
+		"category": "Alchemy",
+		"cost": 4000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/81_1340040562_l.png"
+	},
+	{
+		"id": "sweet_knife_skills",
+		"name": "Sweet Knife Skills",
+		"description": "Improve your chopping skills so you occasionally get extra Imagination when you use the Knife and Board. Tear it UP!",
+		"category": "Cooking",
+		"cost": 200,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/65_1340040531_l.png"
+	},
+	{
+		"id": "gassier_harvest",
+		"name": "Gassier Harvest",
+		"description": "Ethereal inclinations regarding Gas Plants, which gives you the chance of a whopping 4X harvest.",
+		"category": "Gathering",
+		"cost": 1200,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/93_1340040584_l.png"
+	},
+	{
+		"id": "tempered_steel",
+		"name": "Tempered Steel",
+		"description": "Toughen up your Knife & Board, for a 50% longer lifespan.",
+		"category": "Cooking",
+		"cost": 125,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/58_1340040517_l.png"
+	},
+	{
+		"id": "eggier_harvest",
+		"name": "Eggier Harvest",
+		"description": "Inspired understanding of Egg Plants, which gives you the chance of a whopping 4X harvest.",
+		"category": "Gathering",
+		"cost": 1200,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/92_1340040583_l.png"
+	},
+	{
+		"id": "quoin_multiplier",
+		"name": "Increase Your Quoin Multiplier",
+		"description": "Your Quoin Multiplier increases the benefit from each quoin you come across.",
+		"category": "Core-Stats",
+		"cost": -1,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/2_1340040403_l.png"
+	},
+	{
+		"id": "papery_harvest",
+		"name": "Papery Harvest",
+		"description": "Long-lost note on the wonders of Paper Trees, which increases your chance of bonus Paper when you harvest.",
+		"category": "Gathering",
+		"cost": 750,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/96_1340040590_l.png"
+	},
+	{
+		"id": "increase_your_brain_capacity",
+		"name": "Increase your Brain Capacity",
+		"description": "Your brain capacity determines how fast you learn skills: when you're over capacity, learning slows down.",
+		"category": "Core-Stats",
+		"cost": -1,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/3_1340040405_l.png"
+	},
+	{
+		"id": "super_animal_harvest_ii",
+		"name": "Super Animal Harvest II",
+		"description": "This upgrade allows you to earn an occasional 3X Super Harvest.",
+		"category": "Animals",
+		"cost": 400,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/15_1340040431_l.png"
+	},
+	{
+		"id": "corn_hoocher",
+		"name": "Corn Hoocher",
+		"description": "Special Hooch process that lets you squeeze 20% more hooch out of every ear of Corn you stuff into your Hopper.",
+		"category": "Alchemy",
+		"cost": 500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/78_1340040557_l.png"
+	},
+	{
+		"id": "peaty_expectations",
+		"name": "Peaty Expectations",
+		"description": "This upgrade grants you a deeper understanding of digging, which gives you a chance of finding something special when you Dig a Peat Bog!",
+		"category": "Gathering",
+		"cost": 1500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/52_1340040506_l.png"
+	},
+	{
+		"id": "getting_pretty_peaty",
+		"name": "Getting Pretty Peaty",
+		"description": "A strange, transformational flash of inspiration that allows you to dig up 5 blocks of Peat in one digging.",
+		"category": "Gathering",
+		"cost": 2000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/53_1340040508_l.png"
+	},
+	{
+		"id": "tireless_transmogrifier_ii",
+		"name": "Tireless Transmogrifier II",
+		"description": "Tune up your transmogrifying tools (Fruit Changing Machine, Spice Mill, Gassifier and Bubble Tuner) to transmogrify in batches twice as large as factory specs.",
+		"category": "Gathering",
+		"cost": 6000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/265_1340040891_l.png"
+	},
+	{
+		"id": "creative_blending",
+		"name": "Creative Blending",
+		"description": "Imaginatively delicious! Gives you a chance of bonus Imagination when using a Blender.",
+		"category": "Cooking",
+		"cost": 400,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/62_1340040524_l.png"
+	},
+	{
+		"id": "its_teflon_time",
+		"name": "It's Teflon Time",
+		"description": "Time to coat your Frying Pan in a thin layer of mysteriously resilient goo. Sure, it's pretty - but it also extends the pan's lifespan by 50%!",
+		"category": "Cooking",
+		"cost": 250,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/56_1340040513_l.png"
+	},
+	{
+		"id": "captain_cook_ii",
+		"name": "Captain Cook II",
+		"description": "Tamper with your cooking devices to make food in batches which are twice as large as standard batch sizes.",
+		"category": "Cooking",
+		"cost": 10000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/256_1340040877_l.png"
+	},
+	{
+		"id": "boisterous_bartender_i",
+		"name": "Boisterous Bartender I",
+		"description": "Fiddle with your blender and cocktail shaker to make drinks in batches 50% larger than standard batch sizes.",
+		"category": "Cooking",
+		"cost": 4000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/261_1340040885_l.png"
+	},
+	{
+		"id": "spicy_times",
+		"name": "Spicy Times",
+		"description": "This upgrade gives you a chance for bonus Imagination when using the Spice Mill. Grind it out!",
+		"category": "Gathering",
+		"cost": 200,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/169_1340040734_l.png"
+	},
+	{
+		"id": "harvesting_fiend",
+		"name": "Harvesting Fiend",
+		"description": "This upgrade grants a chance of a 4X Super Harvest of crops! FOUR EXXXX!",
+		"category": "Growing",
+		"cost": 800,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/70_1340040541_l.png"
+	},
+	{
+		"id": "bigger_crop_bonus",
+		"name": "Bigger Crop Bonus",
+		"description": "When you Water, Plant, or Clear a plot in a Crop Garden, your chance of finding a bonus item is bigger. Bigger... yeah!",
+		"category": "Growing",
+		"cost": 1200,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/73_1340040547_l.png"
+	},
+	{
+		"id": "seedy_powers",
+		"name": "Seedy Powers",
+		"description": "75% chance of doubled seeds when shucking herbs.",
+		"category": "Growing",
+		"cost": 1000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/102_1340040600_l.png"
+	},
+	{
+		"id": "butterfly_control_freak",
+		"name": "Butterfly Control Freak",
+		"description": "Control the range a Butterfly'll fly around a Butterfly Stick!",
+		"category": "Animals",
+		"cost": 2500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/253_1340040873_l.png"
+	},
+	{
+		"id": "hella_growth_spurt",
+		"name": "Hella Growth Spurt",
+		"description": "It's time for a change! Your voice might crack, but your crops will grow 20% faster!",
+		"category": "Growing",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/76_1340040553_l.png"
+	},
+	{
+		"id": "energy_tank",
+		"name": "Energy Tank Increase",
+		"description": "Life's a lot less fun on an empty tank: make yours bigger!",
+		"category": "Core-Stats",
+		"cost": -1,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/1_1340040401_l.png"
+	},
+	{
+		"id": "bonus_tool_from_spare_parts",
+		"name": "Bonus Tool From Spare Parts",
+		"description": "Take all those spare parts left over from assembling your new tool and occasionally make an extra tool with them.",
+		"category": "Industrial",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/165_1340040726_l.png"
+	},
+	{
+		"id": "twinsies_i",
+		"name": "Twinsies I",
+		"description": "Sometimes the stork knocks twice. This upgrade will give you (or rather, a Chicken) a chance to incubate two animals from one seasoned egg.",
+		"category": "Animals",
+		"cost": 600,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/8_1340040415_l.png"
+	},
+	{
+		"id": "super_animal_harvest_i",
+		"name": "Super Animal Harvest I",
+		"description": "Love to squeeze, milk and nibble? Earn an occasional 2X Super Harvest with this upgrade.",
+		"category": "Animals",
+		"cost": 200,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/14_1340040429_l.png"
+	},
+	{
+		"id": "heavy_petting",
+		"name": "Heavy Petting",
+		"description": "A chance of getting a special item when you pet trees.",
+		"category": "Growing",
+		"cost": 600,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/111_1340040619_l.png"
+	},
+	{
+		"id": "manic_mining_ii",
+		"name": "Manic Mining II",
+		"description": "Toil less, mine more! Speed up your mining time by 25%.",
+		"category": "Industrial",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/133_1340040660_l.png"
+	},
+	{
+		"id": "beenier_harvest",
+		"name": "Beenier Harvest",
+		"description": "Advanced knowledge of Bean Trees, which gives you the chance of a whopping 4X harvest.",
+		"category": "Gathering",
+		"cost": 500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/94_1340040586_l.png"
+	},
+	{
+		"id": "refinery",
+		"name": "Refinery",
+		"description": "Do you love to grind? This upgrade gives you a rare chance for a surprise item when Crushing rocks or barnacles with a Grinder.",
+		"category": "Industrial",
+		"cost": 1000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/145_1340040690_l.png"
+	},
+	{
+		"id": "speedy_assembler",
+		"name": "Speedy Assembler",
+		"description": "Reduce the time it takes you to assemble any machine part.",
+		"category": "Industrial",
+		"cost": 100,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/83_1340040564_l.png"
+	},
+	{
+		"id": "boisterous_bartender_ii",
+		"name": "Boisterous Bartender II",
+		"description": "Fiddle with your blender and cocktail shaker to make drinks in batches twice as large as standard batch sizes.",
+		"category": "Cooking",
+		"cost": 8000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/262_1340040886_l.png"
+	},
+	{
+		"id": "fast_scooper",
+		"name": "Fast Scooper",
+		"description": "Decrease the time it takes you to scoop a jellisac down to a single second!",
+		"category": "Gathering",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/271_1340040901_l.png"
+	},
+	{
+		"id": "clearer_mind",
+		"name": "Clearer Mind",
+		"description": "Bump your meditation duration by 50%. Oooohhhmmmm.",
+		"category": "Intellectual",
+		"cost": 3000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/117_1340040629_l.png"
+	},
+	{
+		"id": "making_metal",
+		"name": "Making Metal",
+		"description": "Plays metal music while you make metal.",
+		"category": "Industrial",
+		"cost": 500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/129_1340040653_l.png"
+	},
+	{
+		"id": "captain_cook_i",
+		"name": "Captain Cook I",
+		"description": "Tamper with your cooking devices to make food in batches which are 50% larger than standard batch sizes.",
+		"category": "Cooking",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/255_1340040876_l.png"
+	},
+	{
+		"id": "super_special_herbs",
+		"name": "Super Special Herbs",
+		"description": "Increase your chances of a 3X Super Harvest to 30%.",
+		"category": "Growing",
+		"cost": 750,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/233_1340040841_l.png"
+	},
+	{
+		"id": "sharper_blades",
+		"name": "Sharper Blades",
+		"description": "Blending lots of drinks? Tired of repairing the damage? Extend your Blender's lifespan by 50%.",
+		"category": "Cooking",
+		"cost": 250,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/55_1340040512_l.png"
+	},
+	{
+		"id": "mad_machinist_ii",
+		"name": "Mad Machinist II",
+		"description": "Overclock your machines to make things in batches twice as large as those specified by factory settings.",
+		"category": "Industrial",
+		"cost": 10000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/259_1340040882_l.png"
+	},
+	{
+		"id": "shake_things_up",
+		"name": "Shake Things Up",
+		"description": "Upgrade your Cocktail Shaker for a chance to earn bonus Imagination when using it. Even more reason to throw a party!",
+		"category": "Cooking",
+		"cost": 800,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/64_1340040528_l.png"
+	},
+	{
+		"id": "spellbound_spindle",
+		"name": "Spellbound Spindle",
+		"description": "A magical incantation that gives you a chance of spinning String instead of Thread with your Spindle.",
+		"category": "Industrial",
+		"cost": 2500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/221_1340040822_l.png"
+	},
+	{
+		"id": "master_assembler",
+		"name": "Master Assembler",
+		"description": "Channel the mysteries of Alph and assemble any machine in one swift action, given that you have the required parts. Hint: Start with the Machine Stand.",
+		"category": "Industrial",
+		"cost": 500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/84_1340040566_l.png"
+	},
+	{
+		"id": "shaken,_not_stirred",
+		"name": "Shaken, not Stirred",
+		"description": "All the party, half the hangover. This upgrade extends your Cocktail Shaker's lifespan by 50%.",
+		"category": "Cooking",
+		"cost": 375,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/57_1340040515_l.png"
+	},
+	{
+		"id": "super_animal_harvest_iii",
+		"name": "Super Animal Harvest III",
+		"description": "This upgrade allows you to earn an occasional 4X Super Harvest, Animal Lober!",
+		"category": "Animals",
+		"cost": 750,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/16_1340040433_l.png"
+	},
+	{
+		"id": "amazing_scooper",
+		"name": "Amazing Scooper",
+		"description": "You're so fast in jellisac scooping, it seems like it doesn't take any time at all!",
+		"category": "Gathering",
+		"cost": 20000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/272_1340040903_l.png"
+	},
+	{
+		"id": "better_pot",
+		"name": "Better Pot",
+		"description": "Truly experience the Awesome Pot, which gives you a chance for bonus Imagination when cooking with it.",
+		"category": "Cooking",
+		"cost": 1200,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/67_1340040535_l.png"
+	},
+	{
+		"id": "super_refinery",
+		"name": "Super Refinery",
+		"description": "Improve your grinding ability further for a better chance of a special surprise when Crushing rocks or barnacles with a Grinder.",
+		"category": "Industrial",
+		"cost": 2500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/147_1340040692_l.png"
+	},
+	{
+		"id": "manic_mining_i",
+		"name": "Manic Mining I",
+		"description": "Toil less, mine more! Speed up your mining time by 10%.",
+		"category": "Industrial",
+		"cost": 2000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/132_1340040659_l.png"
+	},
+	{
+		"id": "heavy_flow",
+		"name": "Heavy Flow",
+		"description": "Reduces the wear and tear on your Watering Can or Irrigator 9000 by 50%.",
+		"category": "Growing",
+		"cost": 200,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/205_1340040796_l.png"
+	},
+	{
+		"id": "stronger,_saucier_pan",
+		"name": "Stronger, Saucier Pan",
+		"description": "Reduce wear and tear on your Saucepan by 50%.",
+		"category": "Cooking",
+		"cost": 330,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/61_1340040522_l.png"
+	},
+	{
+		"id": "bubblier_harvest",
+		"name": "Bubblier Harvest",
+		"description": "Arcane knowledge of Bubble Trees, which gives you the chance of a whopping 4X harvest.",
+		"category": "Gathering",
+		"cost": 800,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/89_1340040576_l.png"
+	},
+	{
+		"id": "enlightenment",
+		"name": "Enlightenment",
+		"description": "Deepen your understanding of the Focusing Orb, so you sometimes earn bonus Imagination when using the Orb.",
+		"category": "Intellectual",
+		"cost": 2000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/118_1340040631_l.png"
+	},
+	{
+		"id": "tree_hugger_iii",
+		"name": "Tree Hugger III",
+		"description": "Not boosted enough? Bump that chance for a 2X Super Tree Harvest just a little more...",
+		"category": "Gathering",
+		"cost": 1000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/88_1340040574_l.png"
+	},
+	{
+		"id": "cooking_learning_speed_v",
+		"name": "Cooking Learning Speed V",
+		"description": "Speed up the learning times for Cooking skills (EZ Cooking, Cheffery, Grilling, Master Chef, Saucery, Blending, Cocktail Crafting) by 20%.",
+		"category": "Learning",
+		"cost": 20000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/184_1340040760_l.png"
+	},
+	{
+		"id": "master_exploder",
+		"name": "Master Exploder",
+		"description": "Disassemble any machine with one swift action.",
+		"category": "Industrial",
+		"cost": 800,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/269_1340040898_l.png"
+	},
+	{
+		"id": "spicier_harvest",
+		"name": "Spicier Harvest",
+		"description": "Scintillating insight into the wonders of Spice Plants, which gives you the chance of a whopping 4X harvest.",
+		"category": "Gathering",
+		"cost": 800,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/90_1340040579_l.png"
+	},
+	{
+		"id": "manic_mining_iii",
+		"name": "Manic Mining III",
+		"description": "Toil less, mine more! Speed up your mining time by 50%.",
+		"category": "Industrial",
+		"cost": 10000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/134_1340040663_l.png"
+	},
+	{
+		"id": "growing_learning_speed_iv",
+		"name": "Growing Learning Speed IV",
+		"description": "Speed up the learning times for Growing skills (Botany, Light Green Thumb, Soil Appreciation, Croppery, Herbalism) by 15%.",
+		"category": "Learning",
+		"cost": 10000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/188_1340040768_l.png"
+	},
+	{
+		"id": "gathering_learning_speed_iv",
+		"name": "Gathering Learning Speed IV",
+		"description": "Speed up the learning times for Gathering skills (Arborology, Bog Specialization, Jellisac Hands, Fruit Changing, Spice Milling, Gasmogrification, Bubble Tuning) by 15%.",
+		"category": "Learning",
+		"cost": 10000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/193_1340040775_l.png"
+	},
+	{
+		"id": "baby_triple_jump",
+		"name": "Baby Triple Jump",
+		"description": "This is the \"starter\" Triple Jump. Try it on for size! Usage instructions: jump right after you land three times in a row and … boing!",
+		"category": "Perks",
+		"cost": 100,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-29/30_1343588626_l.png"
+	},
+	{
+		"id": "industrial_learning_speed_iii",
+		"name": "Industrial Learning Speed III",
+		"description": "Speed up the learning times for Industrial skills (Mining, Refining, Tinkering, Engineering, Blockmaking, Furnituremaking, Fiber Arts, and similar skills) by 10%.",
+		"category": "Learning",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/197_1340040782_l.png"
+	},
+	{
+		"id": "barnacular_drops",
+		"name": "Barnacular Drops",
+		"description": "Hey scrapey! Purchase this upgrade for a chance to score awesome drops when scraping Barnacles.",
+		"category": "Gathering",
+		"cost": 1500,
+		"image": "http://c2.glitch.bz/upgrades/2012-11-08/230_1352419285_l.png"
+	},
+	{
+		"id": "alchemy_learning_speed_iii",
+		"name": "Alchemy Learning Speed III",
+		"description": "Speed up the learning times for Alchemy skills (Alchemy, Element Handling, Intermediate Admixing, Crystallography, Distilling, Tincturing, Potionmaking) by 10%.",
+		"category": "Learning",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/172_1340040739_l.png"
+	},
+	{
+		"id": "watering_whiz",
+		"name": "Watering Whiz",
+		"description": "Your long tenure in gardening grants you the ability to water a garden plot in a single second. Breathtaking.",
+		"category": "Growing",
+		"cost": 15000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/277_1340040915_l.png"
+	},
+	{
+		"id": "growing_learning_speed_v",
+		"name": "Growing Learning Speed V",
+		"description": "Speed up the learning times for Growing skills (Botany, Light Green Thumb, Soil Appreciation, Croppery, Herbalism) by 20%.",
+		"category": "Learning",
+		"cost": 20000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/189_1340040769_l.png"
+	},
+	{
+		"id": "alchemy_learning_speed_ii",
+		"name": "Alchemy Learning Speed II",
+		"description": "Speed up the learning times for Alchemy skills (Alchemy, Element Handling, Intermediate Admixing, Crystallography, Distilling, Tincturing, Potionmaking) by 5%.",
+		"category": "Learning",
+		"cost": 1250,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/171_1340040737_l.png"
+	},
+	{
+		"id": "industrial_learning_speed_i",
+		"name": "Industrial Learning Speed I",
+		"description": "Speed up the learning times for Industrial skills (Mining, Refining, Tinkering, Engineering, Blockmaking, Furnituremaking, Fiber Arts, and similar skills) by 2%.",
+		"category": "Learning",
+		"cost": 400,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/195_1340040779_l.png"
+	},
+	{
+		"id": "industrial_learning_speed_v",
+		"name": "Industrial Learning Speed V",
+		"description": "Speed up the learning times for Industrial skills (Mining, Refining, Tinkering, Engineering, Blockmaking, Furnituremaking, Fiber Arts, and similar skills) by 20%.",
+		"category": "Learning",
+		"cost": 20000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/199_1340040786_l.png"
+	},
+	{
+		"id": "gathering_learning_speed_ii",
+		"name": "Gathering Learning Speed II",
+		"description": "Speed up the learning times for Gathering skills (Arborology, Bog Specialization, Jellisac Hands, Fruit Changing, Spice Milling, Gasmogrification, Bubble Tuning) by 5%.",
+		"category": "Learning",
+		"cost": 1250,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/191_1340040772_l.png"
+	},
+	{
+		"id": "strong_smelter",
+		"name": "Strong Smelter",
+		"description": "Reduce wear and tear on your Smelter by 50%.",
+		"category": "Industrial",
+		"cost": 2000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/152_1340040702_l.png"
+	},
+	{
+		"id": "cooking_learning_speed_i",
+		"name": "Cooking Learning Speed I",
+		"description": "Speed up the learning times for Cooking skills (EZ Cooking, Cheffery, Grilling, Master Chef, Saucery, Blending, Cocktail Crafting) by 2%.",
+		"category": "Learning",
+		"cost": 400,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/180_1340040754_l.png"
+	},
+	{
+		"id": "double_max_relax",
+		"name": "Double Max Relax",
+		"description": "Get double the benefits when you Max Relax!",
+		"category": "Intellectual",
+		"cost": 4000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/122_1340040638_l.png"
+	},
+	{
+		"id": "growing_learning_speed_i",
+		"name": "Growing Learning Speed I",
+		"description": "Speed up the learning times for Growing skills (Botany, Light Green Thumb, Soil Appreciation, Croppery, Herbalism) by 2%.",
+		"category": "Learning",
+		"cost": 400,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/185_1340040762_l.png"
+	},
+	{
+		"id": "bean_growing_expert_ii",
+		"name": "Bean Growing Expert II",
+		"description": "Beans planted and petted mature into trees even more quickly.",
+		"category": "Growing",
+		"cost": 4000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/160_1340040717_l.png"
+	},
+	{
+		"id": "truly_outrageous_ii",
+		"name": "Truly Outrageous II",
+		"description": "Continue your investigation of Gems for a 5% chance of a bonus Gem when you mine.",
+		"category": "Industrial",
+		"cost": 1250,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/225_1340040828_l.png"
+	},
+	{
+		"id": "fast_scraper",
+		"name": "Fast Scraper",
+		"description": "Cut down the time it takes you to scrape Barnacles and Ice in half, to 2 seconds.",
+		"category": "Gathering",
+		"cost": 8000,
+		"image": "http://c2.glitch.bz/upgrades/2012-11-08/273_1352419298_l.png"
+	},
+	{
+		"id": "giants_beloved_ii",
+		"name": "Giants' Beloved II",
+		"description": "Open your heart. Altogether 20% greater chance of receiving Giant Love from an Icon.",
+		"category": "Perks",
+		"cost": 12000,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-16/292_1342470896_l.png"
+	},
+	{
+		"id": "jellisacular_drops",
+		"name": "Jellisacular Drops",
+		"description": "Purchase this upgrade for a chance to score an awesome drop when scooping Jellisacs. Gooey!",
+		"category": "Gathering",
+		"cost": 1500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/231_1340040838_l.png"
+	},
+	{
+		"id": "reshuffle",
+		"name": "Reshuffle",
+		"description": "Reshuffle the Deck, above and beyond your one free daily reshuffle.",
+		"category": "Keepables",
+		"cost": -1,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/212_1340040807_l.png",
+		"requirements": {
+			"level": 5
+		}
+	},
+	{
+		"id": "transcendental_radius_iii",
+		"name": "Transcendental Radius III",
+		"description": "Radiate to everyone in the location during Transcendental Radiation",
+		"category": "Intellectual",
+		"cost": 8000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/125_1340040644_l.png"
+	},
+	{
+		"id": "speedy_herbs",
+		"name": "Speedy Herbs",
+		"description": "Got a strong craving for Herbs? Shorten their growth time by 10%. But remember, faster delivery doesn't mean they'll last longer...",
+		"category": "Growing",
+		"cost": 2000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/100_1340040597_l.png"
+	},
+	{
+		"id": "ticket_to_starlit_night",
+		"name": "Ticket To Starlit Night",
+		"description": "Ever wonder what stars sound like? Collect quoins as you float in the night-time sky.",
+		"category": "Keepables",
+		"cost": 25,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-02/282_1341268776_l.png"
+	},
+	{
+		"id": "ticket_to_bippity_bop",
+		"name": "Ticket to Bippity Bop",
+		"description": "Activate this card to bounce your way through a fluffy sky scape of joy! you'll probably get some quoins out of it too.",
+		"category": "Keepables",
+		"cost": 25,
+		"image": "http://c2.glitch.bz/upgrades/2012-08-08/321_1344469704_l.png"
+	},
+	{
+		"id": "growing_learning_speed_iii",
+		"name": "Growing Learning Speed III",
+		"description": "Speed up the learning times for Growing skills (Botany, Light Green Thumb, Soil Appreciation, Croppery, Herbalism) by 10%.",
+		"category": "Learning",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/187_1340040766_l.png"
+	},
+	{
+		"id": "intellectual_learning_speed_iv",
+		"name": "Intellectual Learning Speed IV",
+		"description": "Speed up the learning times for Intellectual skills (Bureaucratic Arts, Meditative Arts, Teleportation, Eyeballery, Penpersonship, Piety and similar skills) by 15%.",
+		"category": "Learning",
+		"cost": 10000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/203_1340040793_l.png"
+	},
+	{
+		"id": "tireless_transmogrifier_i",
+		"name": "Tireless Transmogrifier I",
+		"description": "Tune up your transmogrifying tools (Fruit Changing Machine, Spice Mill, Gassifier and Bubble Tuner) to transmogrify in batches 50% larger than factory specs.",
+		"category": "Gathering",
+		"cost": 3000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/264_1340040890_l.png"
+	},
+	{
+		"id": "focused_imagination",
+		"name": "Focused Imagination",
+		"description": "Channels your focus for a chance of bonus Imagination when using the Orb for Focused Meditation.",
+		"category": "Intellectual",
+		"cost": 1000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/121_1340040636_l.png"
+	},
+	{
+		"id": "cooking_learning_speed_iii",
+		"name": "Cooking Learning Speed III",
+		"description": "Speed up the learning times for Cooking skills (EZ Cooking, Cheffery, Grilling, Master Chef, Saucery, Blending, Cocktail Crafting) by 10%.",
+		"category": "Learning",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/182_1340040757_l.png"
+	},
+	{
+		"id": "industrial_learning_speed_iv",
+		"name": "Industrial Learning Speed IV",
+		"description": "Speed up the learning times for Industrial skills (Mining, Refining, Tinkering, Engineering, Blockmaking, Furnituremaking, Fiber Arts, and similar skills) by 15%.",
+		"category": "Learning",
+		"cost": 10000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/198_1340040785_l.png"
+	},
+	{
+		"id": "mantra_meditation",
+		"name": "Mantra Meditation",
+		"description": "Outgoing chat messages will no longer distract you while meditating.",
+		"category": "Intellectual",
+		"cost": 1500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/211_1340040806_l.png"
+	},
+	{
+		"id": "pedal_to_the_metal",
+		"name": "Pedal to the Metal",
+		"description": "Expand your expertise of Metal for a chance of bonus Imagination when using a Metal Machine.",
+		"category": "Industrial",
+		"cost": 1250,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/130_1340040655_l.png"
+	},
+	{
+		"id": "mad_machinist_i",
+		"name": "Mad Machinist I",
+		"description": "Overclock your machines to make things in batches 50% larger than specified by factory settings.",
+		"category": "Industrial",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/258_1340040880_l.png"
+	},
+	{
+		"id": "grilliant",
+		"name": "Grilliant",
+		"description": "Advance your skill with the Famous Pugilist Grill for a chance of bonus Imagination when using it.",
+		"category": "Cooking",
+		"cost": 800,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/66_1340040533_l.png"
+	},
+	{
+		"id": "thirst_quencher",
+		"name": "Thirst Quencher",
+		"description": "An even bigger chance of a special item when you water trees.",
+		"category": "Growing",
+		"cost": 2000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/114_1340040624_l.png"
+	},
+	{
+		"id": "animal_learning_speed_ii",
+		"name": "Animal Learning Speed II",
+		"description": "Speed up the learning times for Animal skills (Animal Kinship, Animal Husbandry, Fox Brushing, Herdkeeping, Remote Herdkeeping) by 5%.",
+		"category": "Learning",
+		"cost": 1250,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/176_1340040747_l.png"
+	},
+	{
+		"id": "hoe_down",
+		"name": "Hoe Down",
+		"description": "More aggressive hoeing gives you more Imagination but wears your Hoe (or High Class Hoe) down faster.",
+		"category": "Growing",
+		"cost": 500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/229_1340040834_l.png"
+	},
+	{
+		"id": "dig_a_bog_twice_a_day",
+		"name": "Dig a Bog Twice A Day",
+		"description": "Through a deeper familiarity with bog mechanics, you are now able to dig a single Peat Bog twice in one game day.",
+		"category": "Gathering",
+		"cost": 10000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/267_1340040894_l.png"
+	},
+	{
+		"id": "ticket_to_sky_plunge",
+		"name": "Ticket To Sky Plunge",
+		"description": "Take the plunge! A fast drop through soft, morning clouds. Can you collect every quoin?",
+		"category": "Keepables",
+		"cost": 25,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-02/281_1341268806_l.png"
+	},
+	{
+		"id": "ticket_to_abysmal_thrill",
+		"name": "Ticket to Abysmal Thrill",
+		"description": "Activate this card to dive to the depths of Abysmal Thrill and test your skills at quoin getting.",
+		"category": "Keepables",
+		"cost": 25,
+		"image": "http://c2.glitch.bz/upgrades/2012-08-04/320_1344126504_l.png"
+	},
+	{
+		"id": "transcendental_radius_i",
+		"name": "Transcendental Radius I",
+		"description": "Radiate 50% further during Transcendental Radiation.",
+		"category": "Intellectual",
+		"cost": 2000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/123_1340040640_l.png"
+	},
+	{
+		"id": "alchemy_learning_speed_v",
+		"name": "Alchemy Learning Speed V",
+		"description": "Speed up the learning times for Alchemy skills (Alchemy, Element Handling, Intermediate Admixing, Crystallography, Distilling, Tincturing, Potionmaking) by 20%.",
+		"category": "Learning",
+		"cost": 20000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/174_1340040743_l.png"
+	},
+	{
+		"id": "truly_outrageous_i",
+		"name": "Truly Outrageous I",
+		"description": "Study Gem structure for a 4% chance of a bonus Gem when you mine.",
+		"category": "Industrial",
+		"cost": 1000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/224_1340040826_l.png"
+	},
+	{
+		"id": "cooking_learning_speed_iv",
+		"name": "Cooking Learning Speed IV",
+		"description": "Speed up the learning times for Cooking skills (EZ Cooking, Cheffery, Grilling, Master Chef, Saucery, Blending, Cocktail Crafting) by 15%.",
+		"category": "Learning",
+		"cost": 10000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/183_1340040759_l.png"
+	},
+	{
+		"id": "fruitier_harvest",
+		"name": "Fruitier Harvest",
+		"description": "Flowering realization about the nature of Fruit Trees, which gives you the chance of a whopping 4X harvest.",
+		"category": "Gathering",
+		"cost": 500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/91_1340040581_l.png"
+	},
+	{
+		"id": "animal_learning_speed_iii",
+		"name": "Animal Learning Speed III",
+		"description": "Speed up the learning times for Animal skills (Animal Kinship, Animal Husbandry, Fox Brushing, Herdkeeping, Remote Herdkeeping) by 10%.",
+		"category": "Learning",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/177_1340040749_l.png"
+	},
+	{
+		"id": "animal_learning_speed_v",
+		"name": "Animal Learning Speed V",
+		"description": "Speed up the learning times for Animal skills (Animal Kinship, Animal Husbandry, Fox Brushing, Herdkeeping, Remote Herdkeeping) by 20%.",
+		"category": "Learning",
+		"cost": 20000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/179_1340040753_l.png"
+	},
+	{
+		"id": "dullite_expert",
+		"name": "Dullite Expert",
+		"description": "Check you out, Dullite expert. You can now get 15% more Dullite from mining!",
+		"category": "Industrial",
+		"cost": 2500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/136_1340040667_l.png"
+	},
+	{
+		"id": "dirty",
+		"name": "Dirty",
+		"description": "You can now dig one Dirt Pile 4 times a day! Whew!",
+		"category": "Growing",
+		"cost": 2500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/157_1340040712_l.png"
+	},
+	{
+		"id": "ticket_to_mountain_scaling",
+		"name": "Ticket to Mountain Scaling",
+		"description": "Activate this card to traverse the tippity top of the mountains and try not to fall down into the clouds.",
+		"category": "Keepables",
+		"cost": 25,
+		"image": "http://c2.glitch.bz/upgrades/2012-08-04/318_1344126882_l.png"
+	},
+	{
+		"id": "fit_for_a_king_v",
+		"name": "Fit for a King V",
+		"description": "Improve your quest rewards by 10%.",
+		"category": "Perks",
+		"cost": 1200,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/44_1340040490_l.png"
+	},
+	{
+		"id": "fast_talker",
+		"name": "Fast Talker",
+		"description": "Get more for what you paid for. Vendor buyback prices are 2% higher.",
+		"category": "Perks",
+		"cost": 10000,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-16/306_1342464530_l.png"
+	},
+	{
+		"id": "transcendental_radius_ii",
+		"name": "Transcendental Radius II",
+		"description": "Radiate 100% further during Trancendental Radiation.",
+		"category": "Intellectual",
+		"cost": 4000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/124_1340040642_l.png"
+	},
+	{
+		"id": "speedy_unlearning",
+		"name": "Speedy Unlearning",
+		"description": "Reduce your Unlearning Time by 25%.",
+		"category": "Learning",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/209_1340040803_l.png"
+	},
+	{
+		"id": "heavier_petting",
+		"name": "Heavier Petting",
+		"description": "An even bigger chance of a special item when you pet trees.",
+		"category": "Growing",
+		"cost": 2000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/112_1340040620_l.png"
+	},
+	{
+		"id": "transcendental_highway",
+		"name": "Transcendental Highway",
+		"description": "Further your Transcendental Radiation studies for a chance to earn bonus Imagination when you Radiate.",
+		"category": "Intellectual",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-10-01/217_1349132011_l.png"
+	},
+	{
+		"id": "radiation_prolonger",
+		"name": "Radiation Prolonger",
+		"description": "Increase the duration of your transcendental radiation by 20%.",
+		"category": "Intellectual",
+		"cost": 3000,
+		"image": "http://c2.glitch.bz/upgrades/2012-09-26/126_1348711614_l.png"
+	},
+	{
+		"id": "sassy_gassifier",
+		"name": "Sassy Gassifier",
+		"description": "Get to know the Gassifier better for a chance of bonus Imagination when using it.",
+		"category": "Gathering",
+		"cost": 400,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/168_1340040732_l.png"
+	},
+	{
+		"id": "woodier_harvest",
+		"name": "Woodier Harvest",
+		"description": "Reduces the energy required to harvest wood from 20 to 12, AND Hatchet wear from 5 to 3 per chopping. What a bargain!",
+		"category": "Gathering",
+		"cost": 750,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/95_1340040588_l.png"
+	},
+	{
+		"id": "alchemy_learning_speed_i",
+		"name": "Alchemy Learning Speed I",
+		"description": "Speed up the learning times for Alchemy skills (Alchemy, Element Handling, Intermediate Admixing, Crystallography, Distilling, Tincturing, Potionmaking) by 2%.",
+		"category": "Learning",
+		"cost": 400,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/170_1340040735_l.png"
+	},
+	{
+		"id": "metal_rock_expert",
+		"name": "Metal Rock Expert",
+		"description": "You're so Metal!! You can now get 15% more Metal Rock from mining!",
+		"category": "Industrial",
+		"cost": 3000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/135_1340040665_l.png"
+	},
+	{
+		"id": "big_crop_bonus",
+		"name": "Big Crop Bonus",
+		"description": "When you Water, Plant, or Clear a plot in a Crop Garden, you have a small chance of finding something interesting.",
+		"category": "Growing",
+		"cost": 600,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/72_1340040545_l.png"
+	},
+	{
+		"id": "ticket_to_cloud_rings",
+		"name": "Ticket To Cloud Rings",
+		"description": "Activate this card to blast through all the cloud rings, collecting quoins as you go. Don't forget to enjoy the view a bit.",
+		"category": "Keepables",
+		"cost": 25,
+		"image": "http://c2.glitch.bz/upgrades/2012-08-04/317_1344126825_l.png"
+	},
+	{
+		"id": "growth_spurt",
+		"name": "Growth Spurt",
+		"description": "Why wait for mother nature? This upgrade makes your crops grow 10% faster.",
+		"category": "Growing",
+		"cost": 2000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/75_1340040551_l.png"
+	},
+	{
+		"id": "special_herbs",
+		"name": "Special Herbs",
+		"description": "Increase your chances of a 3X Super Harvest to 20%.",
+		"category": "Growing",
+		"cost": 500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/232_1340040839_l.png"
+	},
+	{
+		"id": "bubble-licioius",
+		"name": "Bubble-licioius",
+		"description": "Some might argue that tuning Bubbles is a frivolous pastime. But what do they know? With this upgrade, you'll occasionally earn extra Imagination when using your Bubble Tuner... and show them who's boss!",
+		"category": "Gathering",
+		"cost": 300,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/166_1340040728_l.png"
+	},
+	{
+		"id": "fruity_goodness",
+		"name": "Fruity Goodness",
+		"description": "Upgrade your knowledge of all things fruity, so that you occasionally get extra Imagination from Changing Fruit. You go, girl!",
+		"category": "Gathering",
+		"cost": 250,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/167_1340040730_l.png"
+	},
+	{
+		"id": "truly_outrageous_iv",
+		"name": "Truly Outrageous IV",
+		"description": "Unlock the deepest secrets of precious jewels for an 8% chance of a bonus Gem when you mine.",
+		"category": "Industrial",
+		"cost": 2500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/227_1340040831_l.png"
+	},
+	{
+		"id": "betterer_blockmaker",
+		"name": "Betterer Blockmaker",
+		"description": "Further illumination of the mysteries of Urth, resulting in 40% fuel savings when using a Blockmaker.",
+		"category": "Industrial",
+		"cost": 2000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/51_1340040504_l.png"
+	},
+	{
+		"id": "gathering_learning_speed_v",
+		"name": "Gathering Learning Speed V",
+		"description": "Speed up the learning times for Gathering skills (Arborology, Bog Specialization, Jellisac Hands, Fruit Changing, Spice Milling, Gasmogrification, Bubble Tuning) by 20%.",
+		"category": "Learning",
+		"cost": 20000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/194_1340040777_l.png"
+	},
+	{
+		"id": "radiation_prolongest",
+		"name": "Radiation Prolongest",
+		"description": "Increase the duration of your transcendental radiation by 30%, to a total of 50%.",
+		"category": "Intellectual",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-09-26/127_1348711597_l.png"
+	},
+	{
+		"id": "well_watered",
+		"name": "Well Watered",
+		"description": "A chance of getting a special item when you water trees.",
+		"category": "Growing",
+		"cost": 600,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/113_1340040622_l.png"
+	},
+	{
+		"id": "industrial_learning_speed_ii",
+		"name": "Industrial Learning Speed II",
+		"description": "Speed up the learning times for Industrial skills (Mining, Refining, Tinkering, Engineering, Blockmaking, Furnituremaking, Fiber Arts, and similar skills) by 5%.",
+		"category": "Learning",
+		"cost": 1250,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/196_1340040780_l.png"
+	},
+	{
+		"id": "intellectual_learning_speed_ii",
+		"name": "Intellectual Learning Speed II",
+		"description": "Speed up the learning times for Intellectual skills (Bureaucratic Arts, Meditative Arts, Teleportation, Eyeballery, Penpersonship, Piety and similar skills) by 5%.",
+		"category": "Learning",
+		"cost": 1250,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/201_1340040790_l.png"
+	},
+	{
+		"id": "appreciation_of_food_variety",
+		"name": "Appreciation of Food Variety",
+		"description": "Each crafted meal which you have not eaten for a full game day (four real hours) grants 25% of its energy value as an iMG bonus. Bonus doubled if you have not eaten it for 30 game days.",
+		"category": "Perks",
+		"cost": 500,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-16/310_1342480954_l.png"
+	},
+	{
+		"id": "fit_for_a_king_iii",
+		"name": "Fit for a King III",
+		"description": "Improve your Quest rewards by 6%.",
+		"category": "Perks",
+		"cost": 600,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/42_1340040486_l.png"
+	},
+	{
+		"id": "happier_herd",
+		"name": "Happier Herd",
+		"description": "Improve your Remote Herdkeeping skills further, so your herd produces 20% more!",
+		"category": "Animals",
+		"cost": 7500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/149_1340040696_l.png"
+	},
+	{
+		"id": "animal_learning_speed_i",
+		"name": "Animal Learning Speed I",
+		"description": "Speed up the learning times for Animal skills (Animal Kinship, Animal Husbandry, Fox Brushing, Herdkeeping, Remote Herdkeeping) by 2%.",
+		"category": "Learning",
+		"cost": 400,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/175_1340040745_l.png"
+	},
+	{
+		"id": "intellectual_learning_speed_v",
+		"name": "Intellectual Learning Speed V",
+		"description": "Speed up the learning times for Intellectual skills (Bureaucratic Arts, Meditative Arts, Teleportation, Eyeballery, Penpersonship, Piety and similar skills) by 20%.",
+		"category": "Learning",
+		"cost": 20000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/204_1340040794_l.png"
+	},
+	{
+		"id": "unlearning_ability",
+		"name": "Unlearning Ability",
+		"description": "Need to free up your brain for better skills? You can now unlearn a skill at the same rate that it took to learn it.",
+		"category": "Learning",
+		"cost": 3000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/208_1340040801_l.png"
+	},
+	{
+		"id": "high_jumper_i",
+		"name": "High Jumper I",
+		"description": "Only a simple boost from the merest beginner jump — however, this upgrade allows you to easily clear those pesky mushroom tops.",
+		"category": "Perks",
+		"cost": 3,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/23_1340040449_l.png"
+	},
+	{
+		"id": "alchemy_learning_speed_iv",
+		"name": "Alchemy Learning Speed IV",
+		"description": "Speed up the learning times for Alchemy skills (Alchemy, Element Handling, Intermediate Admixing, Crystallography, Distilling, Tincturing, Potionmaking) by 15%.",
+		"category": "Learning",
+		"cost": 10000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/173_1340040741_l.png"
+	},
+	{
+		"id": "grain_attraction",
+		"name": "Grain Attraction",
+		"description": "Each normal squeeze of a chicken will net you 10 grain and the grain-doubling applies to super harvests too. Huge!",
+		"category": "Animals",
+		"cost": 15000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/268_1340040896_l.png"
+	},
+	{
+		"id": "bargain_driver",
+		"name": "Bargain Driver",
+		"description": "Drive that bargain! Vendor prices lowered by 5%.",
+		"category": "Perks",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-16/303_1342464745_l.png"
+	},
+	{
+		"id": "cool_as_ice",
+		"name": "Cool As Ice",
+		"description": "Increase your scraping yields from the vanilla 1 to 3 Ice to a much cooler 2 to 5 Ice.",
+		"category": "Gathering",
+		"cost": 4000,
+		"image": "http://c2.glitch.bz/upgrades/2012-11-08/331_1352419250_l.png"
+	},
+	{
+		"id": "high_jumper_iii",
+		"name": "High Jumper III",
+		"description": "This is the jump you've been waiting for: an incredible \"little bit\" higher than the classic Glitchen jump height! BOING!",
+		"category": "Perks",
+		"cost": 15000,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-30/25_1343715099_l.png"
+	},
+	{
+		"id": "lavish_laxative",
+		"name": "Lavish Laxative",
+		"description": "Feeding Batterflies a meal worth at least 80 currants makes them poop five guano at once (instead of three guano for a meal worth 100+ currants).",
+		"category": "Animals",
+		"cost": 8000,
+		"image": "http://c2.glitch.bz/upgrades/2012-09-19/330_1348081274_l.png"
+	},
+	{
+		"id": "wondrous_weave",
+		"name": "Wondrous Weave",
+		"description": "An ancient weaving technique that gives you a rare chance of making thrice the Fabric when using a Loomer.",
+		"category": "Industrial",
+		"cost": 3500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/222_1340040823_l.png"
+	},
+	{
+		"id": "camera_mode",
+		"name": "Camera Mode",
+		"description": "Camera mode gives you the ability to peek around the level a bit without moving. When you're in Camera Mode, arrow keys pan the camera around your location. Easy — and it works great with Zoomability!",
+		"category": "Perks",
+		"cost": 75,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-26/287_1343333175_l.png"
+	},
+	{
+		"id": "fuel_efficiency",
+		"name": "Fuel Efficiency",
+		"description": "Bestow upon yourself a series of deep, keen insights into the nature of Fuel. With this knowledge, you'll occasionally earn more Imagination when using your Fuelmaker.",
+		"category": "Industrial",
+		"cost": 500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/85_1340040569_l.png"
+	},
+	{
+		"id": "ticket_to_beam_me_down",
+		"name": "Ticket To Beam Me Down",
+		"description": "Activate this card to start your descent. Feel the wind in your hair, grab some quoins and maybe get a little help from some unidentifiable friends.",
+		"category": "Keepables",
+		"cost": 25,
+		"image": "http://c2.glitch.bz/upgrades/2012-08-04/315_1344126686_l.png"
+	},
+	{
+		"id": "ticket_to_radial_heights",
+		"name": "Ticket To Radial Heights",
+		"description": "Fly about the evening sky, discovering a spiral of stars. Extra care earns you a special message!",
+		"category": "Keepables",
+		"cost": 25,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-02/280_1341268799_l.png"
+	},
+	{
+		"id": "growing_learning_speed_ii",
+		"name": "Growing Learning Speed II",
+		"description": "Speed up the learning times for Growing skills (Botany, Light Green Thumb, Soil Appreciation, Croppery, Herbalism) by 5%.",
+		"category": "Learning",
+		"cost": 1250,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/186_1340040764_l.png"
+	},
+	{
+		"id": "cooking_learning_speed_ii",
+		"name": "Cooking Learning Speed II",
+		"description": "Speed up the learning times for Cooking skills (EZ Cooking, Cheffery, Grilling, Master Chef, Saucery, Blending, Cocktail Crafting) by 5%.",
+		"category": "Learning",
+		"cost": 1250,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/181_1340040756_l.png"
+	},
+	{
+		"id": "instant-resurrection",
+		"name": "Get Out of Hell Free Card",
+		"description": "Get out of Hell instantly, with full health. Lucky devil!!",
+		"category": "Keepables",
+		"cost": -1,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/213_1340040809_l.png",
+		"requirements": {
+			"level": 5
+		}
+	},
+	{
+		"id": "ticket_to_slip_n_slide",
+		"name": "Ticket to Slip 'N Slide",
+		"description": "Activate this card to jump and slide your way up and down the slippery hills of this quoin filled winter wonderland.",
+		"category": "Keepables",
+		"cost": 25,
+		"image": "http://c2.glitch.bz/upgrades/2012-08-08/319_1344476450_l.png"
+	},
+	{
+		"id": "hipst-o-rama_filter_pack",
+		"name": "Hipst-o-Rama Filter Pack",
+		"description": "Enhance your Snapshottery upgrade with the Holga, Ancient and Vintage filters to hipsterize your Snaps!",
+		"category": "Perks",
+		"cost": 400,
+		"image": "http://c2.glitch.bz/upgrades/2012-09-14/328_1347671667_l.png"
+	},
+	{
+		"id": "harry_the_haggler",
+		"name": "Harry the Haggler",
+		"description": "Value is your new middle name! Vendor prices lowered by 10%.",
+		"category": "Perks",
+		"cost": 15000,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-16/305_1342464775_l.png"
+	},
+	{
+		"id": "gathering_learning_speed_iii",
+		"name": "Gathering Learning Speed III",
+		"description": "Speed up the learning times for Gathering skills (Arborology, Bog Specialization, Jellisac Hands, Fruit Changing, Spice Milling, Gasmogrification, Bubble Tuning) by 10%.",
+		"category": "Learning",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/192_1340040774_l.png"
+	},
+	{
+		"id": "animal_learning_speed_iv",
+		"name": "Animal Learning Speed IV",
+		"description": "Speed up the learning times for Animal skills (Animal Kinship, Animal Husbandry, Fox Brushing, Herdkeeping, Remote Herdkeeping) by 15%.",
+		"category": "Learning",
+		"cost": 10000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/178_1340040751_l.png"
+	},
+	{
+		"id": "iconically_thrifty_iv",
+		"name": "Iconically Thrifty IV",
+		"description": "Membership is its own reward. As a bonus, tithing now costs a whopping 20% less than normal.",
+		"category": "Perks",
+		"cost": 35000,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-16/297_1342470982_l.png"
+	},
+	{
+		"id": "psychedelia_filter_pack",
+		"name": "Psychedelia Filter Pack",
+		"description": "Enhance your Snapshottery upgrade with the Dither, Shift and Outline filters to transfigure your Snaps!",
+		"category": "Perks",
+		"cost": 400,
+		"image": "http://c2.glitch.bz/upgrades/2012-09-14/329_1347671684_l.png"
+	},
+	{
+		"id": "piggy_control_freak",
+		"name": "Piggy Control Freak",
+		"description": "Control the range a Piggy'll roam around a Pig Stick!",
+		"category": "Animals",
+		"cost": 2500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/252_1340040871_l.png"
+	},
+	{
+		"id": "pantastic",
+		"name": "Pantastic",
+		"description": "Beef up your Frying Pan skills for a chance to earn bonus Imagination every time you fry somethin' up. Mmm, it's gonna be tasty!",
+		"category": "Cooking",
+		"cost": 400,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/63_1340040526_l.png"
+	},
+	{
+		"id": "medium_triple_jump",
+		"name": "Medium Triple Jump",
+		"description": "A bigger Triple Jump - adequate, but not necessarily amazing.",
+		"category": "Perks",
+		"cost": 1500,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-30/31_1343715184_l.png"
+	},
+	{
+		"id": "rubes_favorite",
+		"name": "Rube's Favorite",
+		"description": "You're nobody's chump! The Rube will no longer offer you cheap items after this upgrade.",
+		"category": "Perks",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/4_1340040407_l.png"
+	},
+	{
+		"id": "prepared_for_ancestral_nostalgia_ii",
+		"name": "Prepared For Ancestral Nostalgia II",
+		"description": "Gain a second extra minute to spend in the Ancestral lands for a total of twelve glorious minutes.",
+		"category": "Perks",
+		"cost": 25000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/275_1340040912_l.png"
+	},
+	{
+		"id": "speedier_herbs",
+		"name": "Speedier Herbs",
+		"description": "Shorten the growth time for your herbs by 20%.",
+		"category": "Growing",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/101_1340040599_l.png"
+	},
+	{
+		"id": "iconically_thrifty_iii",
+		"name": "Iconically Thrifty III",
+		"description": "Your radiant worship is paying off. Tithing Icons now costs 10% less than normal.",
+		"category": "Perks",
+		"cost": 10000,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-16/296_1342470957_l.png"
+	},
+	{
+		"id": "friend_of_metal",
+		"name": "Friend of Metal",
+		"description": "By purchasing this upgrade, you confirm your allegiance to Metal. In appreciation (or perhaps disgust), Sloths will occasionally spit Snails down at you when you walk past their trees.",
+		"category": "Animals",
+		"cost": 750,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/223_1340040825_l.png"
+	},
+	{
+		"id": "overachiever_i",
+		"name": "Overachiever I",
+		"description": "Get 2% more rewards from each Achievement you earn. One less thing for the bucket list!",
+		"category": "Perks",
+		"cost": 250,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/45_1340040492_l.png"
+	},
+	{
+		"id": "shrine_on_i",
+		"name": "Shrine On I",
+		"description": "When you prime a Shrine in a battle with the Rook, all donations do 25% more damage.",
+		"category": "Intellectual",
+		"cost": 3000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/140_1340040676_l.png"
+	},
+	{
+		"id": "encyclopeddling",
+		"name": "Encyclopeddling",
+		"description": "The universe of Glitch is deep and broad (and a little bit tubby). Getting to know it all can be hard. Encyclopeddling aids the process of discovery by giving you instant info on each new item.",
+		"category": "Perks",
+		"cost": 90,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-26/289_1343366696_l.png"
+	},
+	{
+		"id": "levitate_longer",
+		"name": "Levitate Longer",
+		"description": "Levitate longer pretty much explains it. You'll be able to levitate for a longer period of time. Capiche?",
+		"category": "Perks",
+		"cost": 2000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/109_1340040615_l.png"
+	},
+	{
+		"id": "beginner_haggler",
+		"name": "Beginner Haggler",
+		"description": "Get haggling! Vendor prices are lowered by 2%.",
+		"category": "Perks",
+		"cost": 2000,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-16/302_1342464723_l.png"
+	},
+	{
+		"id": "saucy_pan",
+		"name": "Saucy Pan",
+		"description": "Become a sauce expert, so you sometimes earn bonus Imagination when using the Saucepan. Sweet or sour? You decide!",
+		"category": "Cooking",
+		"cost": 400,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/68_1340040537_l.png"
+	},
+	{
+		"id": "resilient_grill",
+		"name": "Resilient Grill",
+		"description": "Extend your Famous Pugilist Grill's lifespan by 50%. It sure can take a beating now!",
+		"category": "Cooking",
+		"cost": 435,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/59_1340040519_l.png"
+	},
+	{
+		"id": "harvesting_fool",
+		"name": "Harvesting Fool",
+		"description": "This upgrade grants a chance of a 3X Super Harvest of crops!",
+		"category": "Growing",
+		"cost": 400,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/69_1340040539_l.png"
+	},
+	{
+		"id": "bean_growing_expert_i",
+		"name": "Bean Growing Expert I",
+		"description": "Beans planted and petted mature into trees a little faster.",
+		"category": "Growing",
+		"cost": 2000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/159_1340040715_l.png"
+	},
+	{
+		"id": "high_jumper_ii",
+		"name": "High Jumper II",
+		"description": "This is a comfortable jump height. Not too small, certainly: it's just about right!",
+		"category": "Perks",
+		"cost": 6,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-25/24_1343247712_l.png"
+	},
+	{
+		"id": "overachiever_iii",
+		"name": "Overachiever III",
+		"description": "Dang! You're so achieving, your report card is jealous. Earn 6% more rewards from each Achievement.",
+		"category": "Perks",
+		"cost": 750,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/47_1340040496_l.png"
+	},
+	{
+		"id": "zoomability",
+		"name": "Zoomability",
+		"description": "Zooming … how does one live without it?! Zoomability lets you zoom your view of the game in and out to get the whole picture. Works very well with Camera Mode!",
+		"category": "Perks",
+		"cost": 75,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-26/286_1343333176_l.png"
+	},
+	{
+		"id": "giants_beloved_i",
+		"name": "Giants' Beloved I",
+		"description": "Open your mind. 10% greater chance of receiving Giant Love from an Icon.",
+		"category": "Perks",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-16/291_1342470850_l.png"
+	},
+	{
+		"id": "iconically_thrifty_ii",
+		"name": "Iconically Thrifty II",
+		"description": "Continued worship produces results. Tithing Icons now costs 5% less than normal.",
+		"category": "Perks",
+		"cost": 3000,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-16/295_1342470942_l.png"
+	},
+	{
+		"id": "quoiner_the_market_v",
+		"name": "Quoiner the Market V",
+		"description": "Max quoin limit: 150 a day. Quoin-a-riffic!",
+		"category": "Perks",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/38_1340040478_l.png"
+	},
+	{
+		"id": "fit_for_a_king_i",
+		"name": "Fit for a King I",
+		"description": "Improve your Quest rewards by  2%.",
+		"category": "Perks",
+		"cost": 200,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/40_1340040481_l.png"
+	},
+	{
+		"id": "giants_beloved_iii",
+		"name": "Giants' Beloved III",
+		"description": "Open your third eye. A total of 30% greater chance of receiving Giant Love from an Icon.",
+		"category": "Perks",
+		"cost": 25000,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-16/293_1342470909_l.png"
+	},
+	{
+		"id": "iconically_thrifty_i",
+		"name": "Iconically Thrifty I",
+		"description": "Giants recognize your pious efforts. Tithing Icons now costs 3% less than normal.",
+		"category": "Perks",
+		"cost": 1000,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-16/294_1342470923_l.png"
+	},
+	{
+		"id": "tree_hugger_i",
+		"name": "Tree Hugger I",
+		"description": "Gives you a chance of 2X Super Harvest with all trees except Paper and Wood Tree.",
+		"category": "Gathering",
+		"cost": 200,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/86_1340040571_l.png"
+	},
+	{
+		"id": "speedier_unlearning",
+		"name": "Speedier Unlearning",
+		"description": "Reduce your Unlearning Time by 50%.",
+		"category": "Learning",
+		"cost": 7500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/210_1340040804_l.png"
+	},
+	{
+		"id": "fit_for_a_king_ii",
+		"name": "Fit for a King II",
+		"description": "Improve your Quest rewards by 4%.",
+		"category": "Perks",
+		"cost": 400,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/41_1340040484_l.png"
+	},
+	{
+		"id": "mappery",
+		"name": "Mappery",
+		"description": "Mappery is a generous dose of spatial knowhow: a minimap of your current location and a searchable area map which allows you to set destinations and get street-by-street directions.",
+		"category": "Perks",
+		"cost": 20,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-16/285_1342465282_l.png"
+	},
+	{
+		"id": "levitate_with_style",
+		"name": "Levitate with Style",
+		"description": "This upgrade makes your hang time longer when you Levitate.",
+		"category": "Perks",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/110_1340040617_l.png"
+	},
+	{
+		"id": "overachiever_ii",
+		"name": "Overachiever II",
+		"description": "More goodies for you, goodie two-shoes. Earn 4% more rewards from each Achievement.",
+		"category": "Perks",
+		"cost": 500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/46_1340040494_l.png"
+	},
+	{
+		"id": "fit_for_a_king_iv",
+		"name": "Fit for a King IV",
+		"description": "Improve your Quest rewards by 8%.",
+		"category": "Perks",
+		"cost": 800,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/43_1340040488_l.png"
+	},
+	{
+		"id": "stack_up",
+		"name": "Stack Up",
+		"description": "Stack up the items across all bags in your pack, so you don't have a bit of one item here and another bit there, when it is possible to put them together.",
+		"category": "Perks",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-08-27/298_1346113785_l.png"
+	},
+	{
+		"id": "truly_outrageous_iii",
+		"name": "Truly Outrageous III",
+		"description": "Deepen your knowledge of crystalline formations for a 6% chance of a bonus Gem when you mine.",
+		"category": "Industrial",
+		"cost": 1500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/226_1340040829_l.png"
+	},
+	{
+		"id": "internal_sortitude",
+		"name": "Internal Sortitude",
+		"description": "Ability to \"specialize\" your bags, so the right sort of items will automatically go into the right bags, whenever they can. Brilliant!",
+		"category": "Perks",
+		"cost": 30000,
+		"image": "http://c2.glitch.bz/upgrades/2012-08-27/300_1346113709_l.png"
+	},
+	{
+		"id": "overachiever_iv",
+		"name": "Overachiever IV",
+		"description": "It's not the journey, it's the destination! Earn 8% more rewards from each Achievement.",
+		"category": "Perks",
+		"cost": 1000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/48_1340040498_l.png"
+	},
+	{
+		"id": "who_smelt_it?",
+		"name": "Who Smelt It?",
+		"description": "Gives you a chance of a surprise item when smelting Metal Rocks with the Smelter.",
+		"category": "Industrial",
+		"cost": 1500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/151_1340040700_l.png"
+	},
+	{
+		"id": "steady_on,_mood_loser_iii",
+		"name": "Steady On, Mood Loser III",
+		"description": "A reduction in your periodic mood loss: natural mood drops from peak highs are only half as fast as the natural rate.",
+		"category": "Perks",
+		"cost": 35000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/236_1340040847_l.png"
+	},
+	{
+		"id": "do_hue_want_this_filter_pack?",
+		"name": "Do Hue Want This Filter Pack?",
+		"description": "Enhance your Snapshottery upgrade with the Piggy, Firefly and Beryl filters to colorize your Snaps!",
+		"category": "Perks",
+		"cost": 400,
+		"image": "http://c2.glitch.bz/upgrades/2012-09-14/327_1347671654_l.png"
+	},
+	{
+		"id": "walk_speed_ii",
+		"name": "Walk Speed II",
+		"description": "A decently brisk speed, though still slightly slower than the average mature Glitch.",
+		"category": "Perks",
+		"cost": 6,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-25/18_1343247706_l.png"
+	},
+	{
+		"id": "creative_seasoner",
+		"name": "Creative Seasoner",
+		"description": "Gives you a chance of bonus Imagination when you use a Bean Seasoner.",
+		"category": "Growing",
+		"cost": 1000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/54_1340040510_l.png"
+	},
+	{
+		"id": "quoiner_the_market_ii",
+		"name": "Quoiner the Market II",
+		"description": "Expand your daily quoin limit by another 10 coins to 120.",
+		"category": "Perks",
+		"cost": 2000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/35_1340040472_l.png"
+	},
+	{
+		"id": "tree_hugger_ii",
+		"name": "Tree Hugger II",
+		"description": "Further boost your chances of a 2X Super Harvest with all trees except Paper and Wood Tree.",
+		"category": "Gathering",
+		"cost": 400,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/87_1340040573_l.png"
+	},
+	{
+		"id": "tinker_plus",
+		"name": "Tinker Plus",
+		"description": "Gives an even better chance for more bonus Imagination when crafting tools with your Tinkertool.",
+		"category": "Industrial",
+		"cost": 1000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/163_1340040722_l.png"
+	},
+	{
+		"id": "skill_learning_brain",
+		"name": "Skill Learning Brain",
+		"description": "Enables the learning of new skills and bestows a skill learning brain with an initial capacity for 20 skills.",
+		"category": "Perks",
+		"cost": 500,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-25/288_1343272552_l.png"
+	},
+	{
+		"id": "magic_sort",
+		"name": "Magic Sort",
+		"description": "Automatically swaps items around across all your bags so that the distribution of items most closely matches your bags' specializations. (Only works if you have specialized some bags!)",
+		"category": "Perks",
+		"cost": 20000,
+		"image": "http://c2.glitch.bz/upgrades/2012-08-27/299_1346113762_l.png"
+	},
+	{
+		"id": "refined_speed",
+		"name": "Refined Speed",
+		"description": "Reduce your crushing time by 20%.",
+		"category": "Industrial",
+		"cost": 2000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/143_1340040683_l.png"
+	},
+	{
+		"id": "the_real_rube",
+		"name": "The Real Rube",
+		"description": "Practically new, you say? Vendor buyback prices are 7% higher.",
+		"category": "Perks",
+		"cost": 50000,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-16/308_1342464628_l.png"
+	},
+	{
+		"id": "quoiner_the_market_iii",
+		"name": "Quoiner the Market III",
+		"description": "Upgrade your daily quoin limit by another 10 coins to 130. That's alotta quoins!",
+		"category": "Perks",
+		"cost": 2500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/36_1340040474_l.png"
+	},
+	{
+		"id": "walk_speed_iii",
+		"name": "Walk Speed III",
+		"description": "This is the tin standard — the most common walking speed, the one the Giants intended as the speed at which a Glitch walks.",
+		"category": "Perks",
+		"cost": 250,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-10/19_1341911870_l.png"
+	},
+	{
+		"id": "tendy_gonzales",
+		"name": "Tendy Gonzales",
+		"description": "You know the way of the hoe, and you are not afraid to use it: clear a weedy garden plot in just one solitary second. Bang!",
+		"category": "Growing",
+		"cost": 15000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/278_1340040917_l.png"
+	},
+	{
+		"id": "beryl_expert",
+		"name": "Beryl Expert",
+		"description": "Wow! You're such an expert, you can now get 15% more Beryl from mining!",
+		"category": "Industrial",
+		"cost": 4000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/137_1340040670_l.png"
+	},
+	{
+		"id": "big_un_triple_jump",
+		"name": "Big 'Un Triple Jump",
+		"description": "Oh my - what a Triple Jump it is. Boundless and bountiful! Can you handle it?",
+		"category": "Perks",
+		"cost": 15000,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-30/32_1343715141_l.png"
+	},
+	{
+		"id": "super_refined_speed",
+		"name": "Super Refined Speed",
+		"description": "Reduce your crushing time by 40%.",
+		"category": "Industrial",
+		"cost": 4000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/144_1340040687_l.png"
+	},
+	{
+		"id": "rock_whisperer",
+		"name": "Rock Whisperer",
+		"description": "Ore summoner! Rock wizard! Choose this and Dullite, Beryl & Sparkly rocks alike have a 50% better chance of respawning as mega-capacity rocks when you deplete them.",
+		"category": "Industrial",
+		"cost": 4000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/139_1340040674_l.png"
+	},
+	{
+		"id": "extra_dirty",
+		"name": "Extra Dirty",
+		"description": "Increase your ability to dig one Dirt Pile to a whopping 5 times a day!",
+		"category": "Growing",
+		"cost": 4000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/158_1340040714_l.png"
+	},
+	{
+		"id": "basic_filter_pack",
+		"name": "Basic Filter Pack",
+		"description": "Enhance your Snapshottery upgrade with the Boost, B&W, Chilliwack and Historic filters to spiff up your Snaps!",
+		"category": "Perks",
+		"cost": 300,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/276_1340040914_l.png"
+	},
+	{
+		"id": "quoiner_the_market_i",
+		"name": "Quoiner the Market I",
+		"description": "Expand your daily quoin limit from 100 to 110.",
+		"category": "Perks",
+		"cost": 1500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/34_1340040470_l.png"
+	},
+	{
+		"id": "price_dropper",
+		"name": "Price Dropper",
+		"description": "Keep pushing that line! Vendor prices lowered by 7%.",
+		"category": "Perks",
+		"cost": 8000,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-16/304_1342464759_l.png"
+	},
+	{
+		"id": "rube_radar",
+		"name": "Rube Radar",
+		"description": "Double your chances of meeting The Rube.",
+		"category": "Perks",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/5_1340040409_l.png"
+	},
+	{
+		"id": "gathering_learning_speed_i",
+		"name": "Gathering Learning Speed I",
+		"description": "Speed up the learning times for Gathering skills (Arborology, Bog Specialization, Jellisac Hands, Fruit Changing, Spice Milling, Gasmogrification, Bubble Tuning) by 2%.",
+		"category": "Learning",
+		"cost": 400,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/190_1340040771_l.png"
+	},
+	{
+		"id": "ticket_to_cloud_flight",
+		"name": "Ticket To Cloud Flight",
+		"description": "Leap into the sky above the tree-tops, and collect quoins as you fly through the air!",
+		"category": "Keepables",
+		"cost": 25,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-02/283_1341268793_l.png"
+	},
+	{
+		"id": "tink_happy_thoughts",
+		"name": "Tink Happy Thoughts",
+		"description": "Repairing tools improves your mood, bit for bit.",
+		"category": "Industrial",
+		"cost": 2500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/270_1340040899_l.png"
+	},
+	{
+		"id": "luscious_loomer",
+		"name": "Luscious Loomer",
+		"description": "Amplify your Loomer to make String, General Fabric and Rugs in batches that are 2.5 times as large as standard batch sizes.",
+		"category": "Industrial",
+		"cost": 3000,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-18/311_1342654295_l.png"
+	},
+	{
+		"id": "tinker_time",
+		"name": "Tinker Time",
+		"description": "Gives a chance for bonus Imagination when crafting tools with your Tinkertool.",
+		"category": "Industrial",
+		"cost": 500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/162_1340040720_l.png"
+	},
+	{
+		"id": "ticket_to_arbor_hollow",
+		"name": "Ticket To Arbor Hollow",
+		"description": "Follow a trail of quoins to the tops of tall trees. Then collect more as you plunge back down!",
+		"category": "Keepables",
+		"cost": 25,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-02/279_1341268785_l.png"
+	},
+	{
+		"id": "sparkly_expert",
+		"name": "Sparkly Expert",
+		"description": "Shiny happy Sparkly! Your expert status can earn you 15% more Sparkly from mining!",
+		"category": "Industrial",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/138_1340040672_l.png"
+	},
+	{
+		"id": "better_blockmaker",
+		"name": "Better Blockmaker",
+		"description": "Study the intricacies of Urth, resulting in 20% less fuel spent when using a Blockmaker.",
+		"category": "Industrial",
+		"cost": 750,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/50_1340040502_l.png"
+	},
+	{
+		"id": "ultimate_closer",
+		"name": "Ultimate Closer",
+		"description": "Flip it, baby! Vendor buyback prices are 10% higher.",
+		"category": "Perks",
+		"cost": 100000,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-16/309_1342464647_l.png"
+	},
+	{
+		"id": "tune_out_the_chatter_meditation",
+		"name": "Tune Out The Chatter Meditation",
+		"description": "Incoming chat messages will no longer distract you while meditating.",
+		"category": "Intellectual",
+		"cost": 500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/115_1340040626_l.png"
+	},
+	{
+		"id": "super_seedy_powers",
+		"name": "Super Seedy Powers",
+		"description": "Always get double seeds when shucking herbs.",
+		"category": "Growing",
+		"cost": 1600,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/103_1340040603_l.png"
+	},
+	{
+		"id": "intellectual_learning_speed_iii",
+		"name": "Intellectual Learning Speed III",
+		"description": "Speed up the learning times for Intellectual skills (Bureaucratic Arts, Meditative Arts, Teleportation, Eyeballery, Penpersonship, Piety and similar skills) by 10%.",
+		"category": "Learning",
+		"cost": 5000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/202_1340040791_l.png"
+	},
+	{
+		"id": "overachiever_v",
+		"name": "Overachiever V",
+		"description": "Time to find a new obsession, Type A. With this upgrade, you'll earn 10% more rewards from each Achievement.",
+		"category": "Perks",
+		"cost": 1500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/49_1340040500_l.png"
+	},
+	{
+		"id": "steady_on,_mood_loser",
+		"name": "Steady On, Mood Loser",
+		"description": "A reduction in your periodic mood loss: mood drops from peak highs are 1/6th slower than the natural rate.",
+		"category": "Perks",
+		"cost": 7500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/234_1340040844_l.png"
+	},
+	{
+		"id": "shrine_on_ii",
+		"name": "Shrine On II",
+		"description": "When you prime a Shrine in a battle with the Rook, all donations do 50% more damage.",
+		"category": "Intellectual",
+		"cost": 6000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/141_1340040679_l.png"
+	},
+	{
+		"id": "wheeler_dealer",
+		"name": "Wheeler Dealer",
+		"description": "Who said it was used? Vendor buyback prices are 5% higher.",
+		"category": "Perks",
+		"cost": 25000,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-16/307_1342464606_l.png"
+	},
+	{
+		"id": "clear_mind",
+		"name": "Clear Mind",
+		"description": "Upgrade your meditation duration by 20%. Focusssssss.",
+		"category": "Intellectual",
+		"cost": 1000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/116_1340040628_l.png"
+	},
+	{
+		"id": "the_green_smelt",
+		"name": "The Green Smelt",
+		"description": "Smelting costs 3 energy instead of 5 per Plain Metal Ingot.",
+		"category": "Industrial",
+		"cost": 1000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/150_1340040698_l.png"
+	},
+	{
+		"id": "prepared_for_ancestral_nostalgia_i",
+		"name": "Prepared For Ancestral Nostalgia I",
+		"description": "Be prepared for the onset of the Ancestral Nostalgia: gain an extra minute to spend in the Ancestral lands (in the regions of Baqala, Xalanga, Choru or Zhambu).",
+		"category": "Perks",
+		"cost": 12000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/274_1340040910_l.png"
+	},
+	{
+		"id": "steady_on,_mood_loser_ii",
+		"name": "Steady On, Mood Loser II",
+		"description": "A reduction in your periodic mood loss: mood drops from peak highs are 1/3rd slower than the natural rate.",
+		"category": "Perks",
+		"cost": 15000,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/235_1340040845_l.png"
+	},
+	{
+		"id": "trade_channelling",
+		"name": "Trade Channelling",
+		"description": "Gives access to the \"Trade Channel\" a game-wide chat channel for buyers to find those selling the things they want to buy, and also the same thing but the other way around.",
+		"category": "Perks",
+		"cost": 200,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-12/284_1342132389_l.png"
+	},
+	{
+		"id": "quoiner_the_market_iv",
+		"name": "Quoiner the Market IV",
+		"description": "Bump your quoin limit to 140. Almost at the max...",
+		"category": "Perks",
+		"cost": 3500,
+		"image": "http://c2.glitch.bz/upgrades/2012-06-18/37_1340040476_l.png"
+	},
+	{
+		"id": "walk_speed_iv",
+		"name": "Walk Speed IV",
+		"description": "Snappy walk speed that puts you slightly ahead of the pack. Just slightly. But, enough to notice.",
+		"category": "Perks",
+		"cost": 20000,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-30/20_1343715220_l.png"
+	},
+	{
+		"id": "snapshottery",
+		"name": "Snapshottery",
+		"description": "Gives you the ability to take pictures (or Snaps) and share them with the world! Press 'C' for Camera Mode!",
+		"category": "Perks",
+		"cost": 500,
+		"image": "http://c2.glitch.bz/upgrades/2012-09-19/216_1348088560_l.png"
+	},
+	{
+		"id": "walk_speed_i",
+		"name": "Walk Speed I",
+		"description": "Truly the minimum acceptable walk speed. Anything else is maddening. You really MUST get this upgrade.",
+		"category": "Perks",
+		"cost": 2,
+		"image": "http://c2.glitch.bz/upgrades/2012-07-10/17_1341911853_l.png"
+	}
+]
