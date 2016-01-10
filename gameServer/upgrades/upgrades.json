@@ -96,7 +96,7 @@
 		"image": "http://c2.glitch.bz/upgrades/2012-06-18/142_1340040681_l.png"
 	},
 	{
-		"id": "rub_'er_up",
+		"id": "rub_er_up",
 		"name": "Rub 'er Up",
 		"description": "Forbidden, carnal knowledge of Plain Metal that grants you a chance of bonus Imagination when rubbing it with the Alchemical Tongs. Yeah, that's the spot...",
 		"category": "Alchemy",
@@ -264,7 +264,7 @@
 		"image": "http://c2.glitch.bz/upgrades/2012-06-18/62_1340040524_l.png"
 	},
 	{
-		"id": "it's_teflon_time",
+		"id": "its_teflon_time",
 		"name": "It's Teflon Time",
 		"description": "Time to coat your Frying Pan in a thin layer of mysteriously resilient goo. Sure, it's pretty - but it also extends the pan's lifespan by 50%!",
 		"category": "Cooking",
@@ -768,7 +768,7 @@
 		"image": "http://c2.glitch.bz/upgrades/2012-11-08/273_1352419298_l.png"
 	},
 	{
-		"id": "giants'_beloved_ii",
+		"id": "giants_beloved_ii",
 		"name": "Giants' Beloved II",
 		"description": "Open your heart. Altogether 20% greater chance of receiving Giant Love from an Icon.",
 		"category": "Perks",
@@ -1398,7 +1398,7 @@
 		}
 	},
 	{
-		"id": "ticket_to_slip_'n_slide",
+		"id": "ticket_to_slip_n_slide",
 		"name": "Ticket to Slip 'N Slide",
 		"description": "Activate this card to jump and slide your way up and down the slippery hills of this quoin filled winter wonderland.",
 		"category": "Keepables",
@@ -1478,7 +1478,7 @@
 		"image": "http://c2.glitch.bz/upgrades/2012-07-30/31_1343715184_l.png"
 	},
 	{
-		"id": "rube's_favorite",
+		"id": "rubes_favorite",
 		"name": "Rube's Favorite",
 		"description": "You're nobody's chump! The Rube will no longer offer you cheap items after this upgrade.",
 		"category": "Perks",
@@ -1614,7 +1614,7 @@
 		"image": "http://c2.glitch.bz/upgrades/2012-07-26/286_1343333176_l.png"
 	},
 	{
-		"id": "giants'_beloved_i",
+		"id": "giants_beloved_i",
 		"name": "Giants' Beloved I",
 		"description": "Open your mind. 10% greater chance of receiving Giant Love from an Icon.",
 		"category": "Perks",
