@@ -16,6 +16,23 @@
     ]
   },
   {
+    "id":"Q3",
+    "fulfilled": false,
+    "title":"Communing with the Giants",
+    "questText":"Ever heard of the 11 Giants? They love it when you donate stuff to them. Why don't you see if you can get a token of gratitude from one of them?",
+    "completionText":"Wow, they must sure appreciate that stuff you donated.",
+    "requirements": [
+      {
+        "id":"R3",
+        "fulfilled": false,
+        "text": "Gain an emblem from one of the Giants",
+        "type": "counter",
+        "numRequired": 1,
+        "eventType":"emblemGet"
+      }
+    ]
+  },
+  {
     "id":"Q2",
     "fulfilled": false,
     "title":"Tree Petter",
@@ -25,11 +42,92 @@
       {
         "id":"R2",
         "fulfilled": false,
-        "text": "Pet 5 different trees",
+        "text": "Pet 5 trees",
         "type": "counter",
         "numRequired": 5,
         "eventType":"treePet"
       }
-    ]
+    ],
+    "conversation_start": {
+      "id":"Q2-CS",
+      "title":"Tree Petter",
+      "screens": [
+        {
+          "paragraphs": [
+            "Hey, are you a fan of nature?"
+          ],
+          "choices": [
+            {
+              "text": "Sure am",
+              "gotoScreen": 3
+            },
+            {
+              "text": "Not really",
+              "gotoScreen": 2
+            }
+          ]
+        },
+        {
+          "paragraphs": [
+            "Well, why don't you give it a try?"
+          ],
+          "choices": [
+            {
+              "text": "Alright I guess",
+              "gotoScreen": 3
+            }
+          ]
+        },
+        {
+          "paragraphs": [
+            "You should go pet 5 trees, show them some love."
+          ],
+          "choices": [
+            {
+              "text": "I can do that",
+              "gotoScreen": 4,
+              "isQuestAccept": true
+            },
+            {
+              "text": "No thanks",
+              "gotoScreen": 4,
+              "isQuestReject": true
+            }
+          ]
+        }
+      ]
+    },
+    "conversation_end": {
+      "id":"Q2-CE",
+      "title":"Tree Petter",
+      "screens": [
+        {
+          "paragraphs": [
+            "Well, that wasn't too hard, now was it?"
+          ],
+          "choices": [
+            {
+              "text": "Nope",
+              "gotoScreen": 2
+            },
+            {
+              "text": "It was for me",
+              "gotoScreen": 2
+            }
+          ]
+        },
+        {
+          "paragraphs": [
+            "The trees thank you, I can tell."
+          ],
+          "choices": [
+            {
+              "text": "Cool beans! (or bubbles, or cherries)",
+              "gotoScreen": 3
+            }
+          ]
+        }
+      ]
+    }
   }
 ]

@@ -14,6 +14,18 @@ class CompleteQuest extends harvest.Message {
 	CompleteQuest(this.quest, this.email);
 }
 
+class AcceptQuest extends harvest.Message {
+	String email, questId;
+
+	AcceptQuest(this.email, this.questId);
+}
+
+class RejectQuest extends harvest.Message {
+	String email, questId;
+
+	RejectQuest(this.email, this.questId);
+}
+
 class RequirementProgress extends harvest.Message {
 	String eventType, email;
 
@@ -65,7 +77,7 @@ class Requirement extends Trackable {
 	void startTracking(String email) {
 		super.startTracking(email);
 		messageBus.subscribe(RequirementProgress, (RequirementProgress progress) {
-			if (progress.eventType != eventType || progress.email != email|| fulfilled) {
+			if (progress.eventType != eventType || progress.email != email || fulfilled) {
 				print('sorry, no go: $eventType, $email, $fulfilled');
 				return;
 			}
@@ -90,11 +102,28 @@ class Requirement extends Trackable {
 	int get hashCode => id.hashCode;
 }
 
+class Conversation {
+	@Field() String id, title;
+	@Field() List<ConvoScreen> screens;
+}
+
+class ConvoScreen {
+	@Field() List<String> paragraphs;
+	@Field() List<ConvoChoice> choices;
+}
+
+class ConvoChoice {
+	@Field() String text;
+	@Field() int gotoScreen;
+	@Field() bool isQuestAccept = false, isQuestReject = false;
+}
+
 class Quest extends Trackable {
 	@Field() String id, title, questText, completionText;
 	@Field() bool complete = false;
 	@Field() List<Quest> prerequisites = [];
 	@Field() List<Requirement> requirements = [];
+	@Field() Conversation conversation_start, conversation_end;
 
 	@override
 	void startTracking(String email) {
@@ -162,15 +191,13 @@ class UserQuestLog extends Trackable {
 			q.quest.complete = true;
 			q.quest.stopTracking();
 
-			Map map = {'questComplete':encode(q.quest)};
+			Map map = {'questComplete': true, 'quest': encode(q.quest)};
 			if (QuestEndpoint.userSockets[email] != null) {
 				QuestEndpoint.userSockets[email].add(JSON.encode(map));
 			}
 
-			inProgressQuests = inProgressQuests.where((Quest quest) => quest != q.quest).toList();
-			List<Quest> tmp = completedQuests;
-			tmp.add(q.quest);
-			completedQuests = tmp;
+			inProgressQuests = new List.from(inProgressQuests)..removeWhere((Quest quest) => quest == q.quest);
+			completedQuests = new List.from(completedQuests)..add(q.quest);
 
 			QuestService.updateQuestLog(this);
 		});
@@ -203,21 +230,54 @@ class UserQuestLog extends Trackable {
 
 	Future<bool> addInProgressQuest(String questId) async {
 		Quest questToAdd = quests[questId];
-		if (questToAdd == null) {
+		if (_doingOrDone(questToAdd)) {
 			return false;
 		}
 
-		if (completedQuests.contains(questToAdd) ||
-		    inProgressQuests.contains(questToAdd)) {
-			return false;
-		}
-
+		questToAdd.startTracking(email);
 		List<Quest> tmp = inProgressQuests;
 		tmp.add(questToAdd);
 		inProgressQuests = tmp;
 		await QuestService.updateQuestLog(this);
 
 		return true;
+	}
+
+	bool _doingOrDone(Quest quest) {
+		if (quest == null) {
+			return true;
+		}
+
+		if (completedQuests.contains(quest) ||
+		    inProgressQuests.contains(quest)) {
+			return true;
+		}
+
+		return false;
+	}
+
+	void offerQuest(String email, String questId) {
+		Quest questToOffer = quests[questId];
+		if(_doingOrDone(questToOffer)) {
+			return;
+		}
+
+		StreamSubscription<harvest.Message> acceptanceListener, rejectionListener;
+		acceptanceListener = messageBus.subscribe(AcceptQuest, (AcceptQuest acceptance) {
+			QuestEndpoint.questLogCache[acceptance.email].addInProgressQuest(acceptance.questId);
+			acceptanceListener.cancel();
+			rejectionListener.cancel();
+		});
+		rejectionListener = messageBus.subscribe(RejectQuest, (RejectQuest rejection) {
+			acceptanceListener.cancel();
+			rejectionListener.cancel();
+		});
+
+		Map questOffer = {
+			'questOffer': true,
+			'quest': encode(questToOffer)
+		};
+		QuestEndpoint.userSockets[email].add(JSON.encode(questOffer));
 	}
 
 	List<Quest> get completedQuests => decode(JSON.decode(completed_list), Quest);

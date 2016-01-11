@@ -45,7 +45,7 @@ main() async {
 	KeepAlive.start();
 
 	await StreetUpdateHandler.loadItems();
-//	await QuestService.loadQuests();
+	await QuestService.loadQuests();
 
 	//redstone.dart does not support websockets so we have to listen on a
 	//seperate port for those connections :(

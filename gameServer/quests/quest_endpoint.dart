@@ -6,8 +6,8 @@ class QuestEndpoint {
 
 	static void handle(WebSocket ws) {
 		ws.listen((message) => processMessage(ws, message),
-		          onError: (error) => cleanupList(ws),
-		          onDone: () => cleanupList(ws));
+			          onError: (error) => cleanupList(ws),
+			          onDone: () => cleanupList(ws));
 	}
 
 	static void cleanupList(WebSocket ws) {
@@ -20,7 +20,7 @@ class QuestEndpoint {
 			}
 		});
 
-		if(leavingUser != null) {
+		if (leavingUser != null) {
 			questLogCache[leavingUser].stopTracking();
 			questLogCache.remove(leavingUser);
 			userSockets.remove(leavingUser);
@@ -29,21 +29,24 @@ class QuestEndpoint {
 
 	static Future processMessage(WebSocket ws, String message) async {
 		Map map = JSON.decode(message);
-		if(map['connect'] != null) {
+		if (map['connect'] != null) {
 			String email = map['email'];
 
 			//setup our associative data structures
-//			userSockets[email] = ws;
-//			questLogCache[email] = await QuestService.getQuestLog(email);
-
-			//give this user the tree petter quest (debug purposes)
-//			await questLogCache[email].addInProgressQuest('Q2');
+			userSockets[email] = ws;
+			questLogCache[email] = await QuestService.getQuestLog(email);
 
 			//start tracking this user's quest log
-//			questLogCache[email].startTracking(email);
+			questLogCache[email].startTracking(email);
 
-			//pass back a message that says we're good to go (debug)
-//			ws.add(JSON.encode({'data':'got it'}));
+			//offer the tree petter quest
+			questLogCache[email].offerQuest(email,'Q2');
+		}
+		if (map['acceptQuest'] != null) {
+			messageBus.publish(new AcceptQuest(map['email'],map['id']));
+		}
+		if (map['rejectQuest'] != null) {
+			messageBus.publish(new RejectQuest(map['email'],map['id']));
 		}
 	}
 }

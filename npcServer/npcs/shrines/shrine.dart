@@ -63,6 +63,7 @@ class Shrine extends NPC {
 				maxAmt += 100;
 				instanceMirror.setField(new Symbol(giantName.toLowerCase() + 'favor_max'), maxAmt);
 				InventoryV2.addItemToUser(userSocket, email, items['emblem_of_' + giantName.toLowerCase()].getMap(), 1, id);
+				messageBus.publish(new RequirementProgress('emblemGet',email));
 				StatBuffer.incrementStat("emblemsCreated", 1);
 			} else {
 				instanceMirror.setField(new Symbol(giantName.toLowerCase() + 'favor'), giantFavor + favAmt);
