@@ -113,7 +113,7 @@ abstract class Tree extends Plant {
         //say a witty thing
         say(responses['pet'].elementAt(rand.nextInt(responses['pet'].length)));
 
-        messageBus.publish(new RequirementProgress('treePet',email));
+        messageBus.publish(new RequirementProgress('treePet$type',email));
         StatBuffer.incrementStat("treesPetted", 1);
 
         return true;

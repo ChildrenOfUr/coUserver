@@ -53,7 +53,8 @@ class Requirement extends Trackable {
 	bool _fulfilled = false;
 	int _numFulfilled = 0;
 	@Field() int numRequired;
-	@Field() String id, text, type, eventType;
+	@Field() String id, type, eventType;
+	@Field() List<String> typeDone = [];
 
 	@Field() bool get fulfilled => _fulfilled;
 
@@ -77,14 +78,29 @@ class Requirement extends Trackable {
 	void startTracking(String email) {
 		super.startTracking(email);
 		messageBus.subscribe(RequirementProgress, (RequirementProgress progress) {
-			if (progress.eventType != eventType || progress.email != email || fulfilled) {
+			bool goodEvent = false;
+			if (_matchingEvent(progress.eventType)) {
+				if (type == 'counter_unique' && !typeDone.contains(progress.eventType)) {
+					goodEvent = true;
+					typeDone.add(progress.eventType);
+				} else if (type == 'counter') {
+					goodEvent = true;
+				}
+			}
+
+			if (!goodEvent || progress.email != email || fulfilled) {
 				print('sorry, no go: $eventType, $email, $fulfilled');
 				return;
 			}
 			numFulfilled += 1;
 			messageBus.publish(new RequirementUpdated(this, email));
-			print('1 more ${eventType} towards completion of ${text}');
+			print('1 more ${eventType} towards completion of $id');
 		});
+	}
+
+	bool _matchingEvent(String event) {
+		RegExp matcher = new RegExp(eventType);
+		return matcher.hasMatch(event);
 	}
 
 	@override
@@ -115,11 +131,12 @@ class ConvoScreen {
 class ConvoChoice {
 	@Field() String text;
 	@Field() int gotoScreen;
-	@Field() bool isQuestAccept = false, isQuestReject = false;
+	@Field() bool isQuestAccept = false,
+		isQuestReject = false;
 }
 
 class Quest extends Trackable {
-	@Field() String id, title, questText, completionText;
+	@Field() String id, title;
 	@Field() bool complete = false;
 	@Field() List<Quest> prerequisites = [];
 	@Field() List<Requirement> requirements = [];
@@ -196,8 +213,10 @@ class UserQuestLog extends Trackable {
 				QuestEndpoint.userSockets[email].add(JSON.encode(map));
 			}
 
-			inProgressQuests = new List.from(inProgressQuests)..removeWhere((Quest quest) => quest == q.quest);
-			completedQuests = new List.from(completedQuests)..add(q.quest);
+			inProgressQuests = new List.from(inProgressQuests)
+				..removeWhere((Quest quest) => quest == q.quest);
+			completedQuests = new List.from(completedQuests)
+				..add(q.quest);
 
 			QuestService.updateQuestLog(this);
 		});
@@ -258,7 +277,7 @@ class UserQuestLog extends Trackable {
 
 	void offerQuest(String email, String questId) {
 		Quest questToOffer = quests[questId];
-		if(_doingOrDone(questToOffer)) {
+		if (_doingOrDone(questToOffer)) {
 			return;
 		}
 

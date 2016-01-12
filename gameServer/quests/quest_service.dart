@@ -82,11 +82,14 @@ class QuestService {
 		try {
 			String directory = Platform.script.toFilePath();
 			directory = directory.substring(0, directory.lastIndexOf('/'));
-			File questsFile = new File('$directory/gameServer/quests/quests.json');
-
-			// load quests
-			List<Quest> qList = decode(JSON.decode(await questsFile.readAsString()), Quest);
-			qList.forEach((Quest q) => quests[q.id] = q);
+			Directory questsDirectory = new Directory('$directory/gameServer/quests/json');
+			await for(FileSystemEntity entity in questsDirectory.list(recursive: true)) {
+				if (entity is File) {
+					// load quests
+					List<Quest> qList = decode(JSON.decode(await entity.readAsString()), Quest);
+					qList.forEach((Quest q) => quests[q.id] = q);
+				}
+			}
 		}
 		catch (e) {
 			log("Problem loading quests: $e");
