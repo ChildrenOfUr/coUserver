@@ -51,7 +51,7 @@ class MortarBarnacle extends Plant {
 		if(new Random().nextInt(14) == 14) {
 			numToGive = 2;
 		}
-		InventoryV2.addItemToUser(userSocket, email, items['barnacle'].getMap(), numToGive, id);
+		InventoryV2.addItemToUser(email, items['barnacle'].getMap(), numToGive, id);
 
 		return true;
 	}

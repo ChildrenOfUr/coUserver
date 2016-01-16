@@ -44,7 +44,7 @@ abstract class Item_Cubimal {
 		InventoryV2 inv = await getInventory(email);
 		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
 		String cubiType = itemInSlot.itemType;
-		bool success = (await InventoryV2.takeAnyItemsFromUser(userSocket, email, cubiType, 1) == 1);
+		bool success = (await InventoryV2.takeAnyItemsFromUser(email, cubiType, 1) == 1);
 		if (!success) return false;
 		int img = ((freeValues[itemInSlot.itemType.substring(8)] / 2) * (ItemUser.rand.nextDouble() + 0.1)).truncate();
 		ItemUser.trySetMetabolics(username, mood: 10, img: img);
@@ -125,8 +125,8 @@ abstract class Item_CubimalBox {
 				break;
 			}
 		}
-		bool success = (await InventoryV2.takeAnyItemsFromUser(userSocket, email, box, 1) == 1);
-		await InventoryV2.addItemToUser(userSocket, email, items[cubimal].getMap(), 1, box);
+		bool success = (await InventoryV2.takeAnyItemsFromUser(email, box, 1) == 1);
+		await InventoryV2.addItemToUser(email, items[cubimal].getMap(), 1, box);
 		StatBuffer.incrementStat("cubiBoxesOpened", 11);
 		return success;
 	}

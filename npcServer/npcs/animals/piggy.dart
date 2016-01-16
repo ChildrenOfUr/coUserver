@@ -57,7 +57,7 @@ class Piggy extends NPC {
 
 		StatBuffer.incrementStat("piggiesNibbled", 1);
 		//give the player the 'fruits' of their labor
-		InventoryV2.addItemToUser(userSocket, email, items['meat'].getMap(), 1, id);
+		InventoryV2.addItemToUser(email, items['meat'].getMap(), 1, id);
 
 		currentState = states['nibble'];
 		respawn = new DateTime.now().add(new Duration(seconds:2));

@@ -46,7 +46,7 @@ class Jellisac extends Plant {
 		if(new Random().nextInt(14) == 14) {
 			numToGive = 2;
 		}
-		InventoryV2.addItemToUser(userSocket, email, items['jellisac'].getMap(), numToGive, id);
+		InventoryV2.addItemToUser(email, items['jellisac'].getMap(), numToGive, id);
 
 		return true;
 	}

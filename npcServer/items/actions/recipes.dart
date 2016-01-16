@@ -146,7 +146,7 @@ class RecipeBook {
 
 		// Take all of the items
 		recipe.input.forEach((String itemType, int qty) async {
-			bool takeItemSuccess = (await InventoryV2.takeAnyItemsFromUser(ws, email, itemType, qty)) == qty;
+			bool takeItemSuccess = (await InventoryV2.takeAnyItemsFromUser(email, itemType, qty)) == qty;
 			if (!takeItemSuccess) {
 				// If they didn't have a required item, they're not making a smoothie
 				return false;
@@ -156,7 +156,7 @@ class RecipeBook {
 		// Wait for it to make it, then give the item
 		await new Timer(new Duration(seconds: recipe.time), () async {
 			// Add the item after we finish "making" one
-			await InventoryV2.addItemToUser(ws, email, items[recipe.output].getMap(), 1, "_self");
+			await InventoryV2.addItemToUser(email, items[recipe.output].getMap(), 1, "_self");
 			// Award iMG
 			await ItemUser.trySetMetabolics(username, img: recipe.img);
 		});

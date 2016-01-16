@@ -60,7 +60,7 @@ class PeatBog extends Plant {
 		}
 
 		//give the player the 'fruits' of their labor
-		InventoryV2.addItemToUser(userSocket, email, items['peat'].getMap(), 1, id);
+		InventoryV2.addItemToUser(email, items['peat'].getMap(), 1, id);
 
 		return true;
 	}

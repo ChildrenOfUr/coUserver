@@ -691,8 +691,8 @@ class InventoryV2 {
 		return itemTaken;
 	}
 
-	static Future<int> addItemToUser(WebSocket userSocket, String email, Map item, int count,
-		[String fromObject = "_self"]) async {
+	static Future<int> addItemToUser(String email, Map item, int count,	[String fromObject = "_self"]) async {
+		WebSocket userSocket = StreetUpdateHandler.userSockets[email];
 		InventoryV2 inv = await getInventory(email);
 		int added = await inv._addItem(item, count, email);
 		if (added == count) {
@@ -703,7 +703,8 @@ class InventoryV2 {
 		}
 	}
 
-	static Future<Item> takeItemFromUser(WebSocket userSocket, String email, int slot, int subSlot, int count) async {
+	static Future<Item> takeItemFromUser(String email, int slot, int subSlot, int count) async {
+		WebSocket userSocket = StreetUpdateHandler.userSockets[email];
 		InventoryV2 inv = await getInventory(email);
 		Item itemTaken = await inv._takeItem(slot, subSlot, count, email);
 		if (itemTaken != null) {
@@ -712,7 +713,8 @@ class InventoryV2 {
 		return itemTaken;
 	}
 
-	static Future<int> takeAnyItemsFromUser(WebSocket userSocket, String email, String itemType, int count) async {
+	static Future<int> takeAnyItemsFromUser(String email, String itemType, int count) async {
+		WebSocket userSocket = StreetUpdateHandler.userSockets[email];
 		InventoryV2 inv = await getInventory(email);
 		int taken = await inv._takeAnyItems(items[itemType].getMap(), count, email);
 		if (taken == count) {

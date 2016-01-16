@@ -10,6 +10,22 @@
         "eventType":"treePet.*"
       }
     ],
+    "rewards": {
+      "energy": 0,
+      "mood": 0,
+      "img": 0,
+      "currants": 0,
+      "favor": [
+        {
+          "giantName": "humbaba",
+          "favAmt": 10
+        },
+        {
+          "giantName": "alph",
+          "favAmt": 10
+        }
+      ]
+    },
     "conversation_start": {
       "id":"Q2-CS",
       "screens": [

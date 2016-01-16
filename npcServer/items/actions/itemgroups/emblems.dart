@@ -27,11 +27,11 @@ abstract class Item_Emblem {
 		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], username);
 		String emblemType = itemInSlot.itemType;
 		String iconType = "icon_of_" + emblemType.substring(10);
-		bool success1 = (await InventoryV2.takeAnyItemsFromUser(userSocket, email, emblemType, 11) == 11);
+		bool success1 = (await InventoryV2.takeAnyItemsFromUser(email, emblemType, 11) == 11);
 		if (!success1) {
 			return false;
 		}
-		int success2 = await InventoryV2.addItemToUser(userSocket, username, items[iconType].getMap(), 1, "_self");
+		int success2 = await InventoryV2.addItemToUser(email, items[iconType].getMap(), 1, "_self");
 		if (success2 == 0) {
 			return false;
 		} else {

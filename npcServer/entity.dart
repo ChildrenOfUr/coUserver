@@ -1,13 +1,11 @@
 part of coUserver;
 
-abstract class Entity {
+abstract class Entity extends Object with MetabolicsChange {
 	List<Map> actions = [];
 	int actionTime = 2500;
 	String bubbleText;
 	DateTime sayTimeout = null;
 	Map<String, List<String>> responses = {};
-	Map<String, int> gains = {'energy':0, 'mood':0, 'img':0, 'currants':0};
-	Random rand = new Random();
 
 	void setActionEnabled(String action, bool enabled) {
 		try {
@@ -30,55 +28,6 @@ abstract class Entity {
 			map['gains'] = gains;
 		}
 		return map;
-	}
-
-	Future<bool> trySetMetabolics(String email, {int energy:0, int mood:0, int imgMin:0, int imgRange:0, int currants:0}) async {
-		_resetGains();
-
-		Metabolics m = await getMetabolics(email: email);
-
-		// Store old img
-		int oldImg = m.lifetime_img;
-
-		if(m.energy != 0 && m.energy < energy.abs()) {
-			return false;
-		} else {
-			m.energy += energy;
-			m.mood += mood;
-			int baseImg = 0;
-			if (imgRange > 0) {
-				baseImg = rand.nextInt(imgRange) + imgMin;
-			}
-			int resultImg = (baseImg * m.mood / m.max_mood)~/1;
-			m.img += resultImg;
-			m.lifetime_img += resultImg;
-			gains['energy'] = energy;
-			gains['mood'] = mood;
-			gains['img'] = resultImg;
-			gains['currants'] = currants;
-
-			int result = await setMetabolics(m);
-
-			if(result < 1) {
-				return false;
-			}
-
-			// Compare "after" and "before" img
-			if (getLevel(m.lifetime_img) > getLevel(oldImg)) {
-				// Level up
-				String username = await User.getUsernameFromEmail(email);
-
-				MetabolicsEndpoint.userSockets[username].add(JSON.encode({
-					"levelUp": getLevel(m.lifetime_img)
-				}));
-			}
-		}
-
-		return true;
-	}
-
-	void _resetGains() {
-		gains = {'energy':0, 'mood':0, 'img':0, 'currants':0};
 	}
 
 	void say(String message) {

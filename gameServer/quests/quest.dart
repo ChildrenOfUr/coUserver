@@ -41,12 +41,18 @@ class RequirementUpdated extends harvest.Message {
 
 abstract class Trackable {
 	String email;
+	bool beingTracked = false;
+	StreamSubscription<harvest.Message> mbSubscription;
 
 	void startTracking(String email) {
 		this.email = email;
+		beingTracked = true;
 	}
 
-	void stopTracking();
+	void stopTracking() {
+		mbSubscription?.cancel();
+		beingTracked = false;
+	}
 }
 
 class Requirement extends Trackable {
@@ -60,7 +66,7 @@ class Requirement extends Trackable {
 
 	@Field() void set fulfilled(bool value) {
 		_fulfilled = value;
-		if (_fulfilled) {
+		if (_fulfilled && beingTracked) {
 			messageBus.publish(new CompleteRequirement(this, email));
 		}
 	}
@@ -77,7 +83,7 @@ class Requirement extends Trackable {
 	@override
 	void startTracking(String email) {
 		super.startTracking(email);
-		messageBus.subscribe(RequirementProgress, (RequirementProgress progress) {
+		mbSubscription = messageBus.subscribe(RequirementProgress, (RequirementProgress progress) {
 			bool goodEvent = false;
 			if (_matchingEvent(progress.eventType)) {
 				if (type == 'counter_unique' && !typeDone.contains(progress.eventType)) {
@@ -89,23 +95,18 @@ class Requirement extends Trackable {
 			}
 
 			if (!goodEvent || progress.email != email || fulfilled) {
-				print('sorry, no go: $eventType, $email, $fulfilled');
+//				print('sorry, no go: $eventType, $email, $fulfilled');
 				return;
 			}
 			numFulfilled += 1;
 			messageBus.publish(new RequirementUpdated(this, email));
-			print('1 more ${eventType} towards completion of $id');
+//			print('1 more ${eventType} towards completion of $id');
 		});
 	}
 
 	bool _matchingEvent(String event) {
 		RegExp matcher = new RegExp(eventType);
 		return matcher.hasMatch(event);
-	}
-
-	@override
-	void stopTracking() {
-		messageBus.unsubscribe(RequirementProgress);
 	}
 
 	@override
@@ -135,12 +136,23 @@ class ConvoChoice {
 		isQuestReject = false;
 }
 
-class Quest extends Trackable {
+class QuestRewards {
+	@Field() int energy, mood, img, currants;
+	@Field() List<QuestFavor> favor;
+}
+
+class QuestFavor {
+	@Field() String giantName;
+	@Field() int favAmt;
+}
+
+class Quest extends Trackable with MetabolicsChange {
 	@Field() String id, title;
 	@Field() bool complete = false;
 	@Field() List<Quest> prerequisites = [];
 	@Field() List<Requirement> requirements = [];
 	@Field() Conversation conversation_start, conversation_end;
+	@Field() QuestRewards rewards;
 
 	@override
 	void startTracking(String email) {
@@ -148,7 +160,7 @@ class Quest extends Trackable {
 
 		requirements.forEach((Requirement r) => r.startTracking(email));
 
-		messageBus.subscribe(CompleteRequirement, (CompleteRequirement r) {
+		mbSubscription = messageBus.subscribe(CompleteRequirement, (CompleteRequirement r) {
 			if (!requirements.contains(r.requirement) || r.email != email) {
 				return;
 			}
@@ -167,14 +179,19 @@ class Quest extends Trackable {
 			} catch (e) {
 				complete = true;
 				messageBus.publish(new CompleteQuest(this, email));
-				print('quest is complete');
+				print('$email complted the quest "${title}"');
+				_giveRewards();
 			}
 		});
 	}
 
+	Future<bool> _giveRewards() {
+		return trySetMetabolics(email, rewards: rewards);
+	}
+
 	@override
 	void stopTracking() {
-		messageBus.unsubscribe(CompleteRequirement);
+		super.stopTracking();
 		requirements.forEach((Requirement r) => r.stopTracking());
 	}
 
@@ -200,7 +217,7 @@ class UserQuestLog extends Trackable {
 		//listen for quest completion events
 		//if they don't belong to us, let someone else get them
 		//if they do belong to us, send a message to the client to tell them of their success
-		messageBus.subscribe(CompleteQuest, (CompleteQuest q) {
+		mbSubscription = messageBus.subscribe(CompleteQuest, (CompleteQuest q) {
 			if (q.email != email) {
 				return;
 			}
@@ -223,7 +240,7 @@ class UserQuestLog extends Trackable {
 
 		//save our progress to the database so it doesn't get lost
 		messageBus.subscribe(RequirementUpdated, (RequirementUpdated update) {
-			print('got a progress event: ${update.requirement.eventType}, ${update.requirement.email}');
+//			print('got a progress event: ${update.requirement.eventType}, ${update.requirement.email}');
 			if (update.email != email) {
 				return;
 			}
@@ -242,9 +259,8 @@ class UserQuestLog extends Trackable {
 
 	@override
 	void stopTracking() {
+		super.stopTracking();
 		inProgressQuests.forEach((Quest q) => q.stopTracking());
-		messageBus.unsubscribe(CompleteQuest);
-		messageBus.unsubscribe(RequirementUpdated);
 	}
 
 	Future<bool> addInProgressQuest(String questId) async {

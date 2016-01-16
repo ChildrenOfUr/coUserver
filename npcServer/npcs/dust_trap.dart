@@ -75,11 +75,11 @@ class DustTrap extends NPC {
 				break;
 			case 1:
 			case 2:
-				InventoryV2.addItemToUser(userSocket, email, items["paper"].getMap(), 1, id);
+				InventoryV2.addItemToUser(email, items["paper"].getMap(), 1, id);
 				toast("+1 piece of paper", userSocket);
 				break;
 			case 3:
-				InventoryV2.addItemToUser(userSocket, email, items["bun"].getMap(), 1, id);
+				InventoryV2.addItemToUser(email, items["bun"].getMap(), 1, id);
 				toast("+1 bun", userSocket);
 				break;
 		}

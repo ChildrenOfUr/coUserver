@@ -38,9 +38,6 @@ class QuestEndpoint {
 
 			//start tracking this user's quest log
 			questLogCache[email].startTracking(email);
-
-			//offer the tree petter quest
-			questLogCache[email].offerQuest(email,'Q2');
 		}
 		if (map['acceptQuest'] != null) {
 			messageBus.publish(new AcceptQuest(map['email'],map['id']));

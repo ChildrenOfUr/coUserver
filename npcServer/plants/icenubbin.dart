@@ -48,7 +48,7 @@ class IceNubbin extends Plant {
 		// 50% chance to get an ice cube
 		// 50% chance to let it melt before you collect it
 		if(new Random().nextInt(1) == 1) {
-			InventoryV2.addItemToUser(userSocket, email, items['ice'].getMap(), numToGive, id);
+			InventoryV2.addItemToUser(email, items['ice'].getMap(), numToGive, id);
 			StatBuffer.incrementStat("iceNubbinsCollected", 1);
 			state--;
 			if(state < 1) {
@@ -57,7 +57,7 @@ class IceNubbin extends Plant {
 			}
 			return true;
 		} else {
-			InventoryV2.addItemToUser(userSocket, email, items['cup_of_water'].getMap(), 1, id);
+			InventoryV2.addItemToUser(email, items['cup_of_water'].getMap(), 1, id);
 			say("You have to grab it faster next time. It melted!");
 			return false;
 		}

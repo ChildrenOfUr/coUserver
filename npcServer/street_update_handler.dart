@@ -3,6 +3,7 @@ part of coUserver;
 //handle player update events
 class StreetUpdateHandler {
 	static Map<String, Street> streets = new Map();
+	static Map<String, WebSocket> userSockets = new Map();
 	static Timer timer = new Timer.periodic(new Duration(seconds: 1), (Timer timer) => simulateStreets());
 
 	static loadItems() async {
@@ -119,6 +120,12 @@ class StreetUpdateHandler {
 				street.occupants.remove(userToRemove);
 			}
 		});
+		userSockets.forEach((String email, WebSocket socket) {
+			if(socket == ws) {
+				userToRemove = email;
+			}
+		});
+		userSockets.remove(userToRemove);
 	}
 
 	static Future processMessage(WebSocket ws, String message) async {
@@ -147,6 +154,7 @@ class StreetUpdateHandler {
 						loadStreet(streetName, map['tsid']);
 					}
 					//log("${map['username']} joined $streetName");
+					userSockets[email] = ws;
 					streets[streetName].occupants[username] = ws;
 					getMetabolics(username: username, email: email).then((Metabolics m) {
 						MetabolicsEndpoint.addToLocationHistory(username, map["tsid"]);

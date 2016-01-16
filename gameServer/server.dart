@@ -8,6 +8,7 @@ Map<String, String> headsCache = null;
 DateTime startDate;
 Map<String, Item> items = {};
 Map<String, String> vendorTypes = {};
+Random rand = new Random();
 
 harvest.MessageBus messageBus = new harvest.MessageBus.async();
 

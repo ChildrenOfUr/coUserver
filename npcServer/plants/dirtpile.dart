@@ -64,7 +64,7 @@ class DirtPile extends Plant {
         new DateTime.now().add(new Duration(minutes: 2));
 
     //give the player the 'fruits' of their labor
-    InventoryV2.addItemToUser(userSocket, email, items['earth'].getMap(), 1, id);
+    InventoryV2.addItemToUser(email, items['earth'].getMap(), 1, id);
 
     //1 in 10 chance to get a lump of loam as well
     if (new Random().nextInt(10) == 5) InventoryV2.addItemToUser(

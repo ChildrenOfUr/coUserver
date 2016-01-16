@@ -311,7 +311,7 @@ class Item {
 		Item item = new Item.clone(itemType)
 			..onGround = false
 			..metadata = this.metadata;
-		InventoryV2.addItemToUser(userSocket, email, item.getMap(), 1, item_id);
+		InventoryV2.addItemToUser(email, item.getMap(), 1, item_id);
 		StatBuffer.incrementStat("itemsPickedup", 1);
 	}
 
@@ -319,7 +319,7 @@ class Item {
 
 	Future drop({WebSocket userSocket, Map map, String streetName, String email, String username}) async {
 
-		Item droppedItem = await InventoryV2.takeItemFromUser(userSocket, email, map['slot'], map['subSlot'], map['count']);
+		Item droppedItem = await InventoryV2.takeItemFromUser(email, map['slot'], map['subSlot'], map['count']);
 		if (droppedItem == null) {
 			return;
 		}
