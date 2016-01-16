@@ -52,14 +52,14 @@ abstract class Tree extends Plant {
 	}
 
 	Future<bool> harvest({WebSocket userSocket, String email}) async {
+		if (state == 0) {
+			return false;
+		}
+
 		//make sure the player has 5 energy to perform this action
 		//if so, allow the action and subtract 5 from their energy
 		bool success = await trySetMetabolics(email, energy: -5, mood: 1, imgMin: 10, imgRange: 5);
 		if (!success) {
-			return false;
-		}
-
-		if (state == 0) {
 			return false;
 		}
 
@@ -78,12 +78,12 @@ abstract class Tree extends Plant {
 	}
 
 	Future<bool> water({WebSocket userSocket, String email}) async {
-		bool success = await trySetMetabolics(email, energy: -2, mood: 2, imgMin: 3, imgRange: 2);
-		if (!success) {
+		if (state == maxState) {
 			return false;
 		}
 
-		if (state == maxState) {
+		bool success = await trySetMetabolics(email, energy: -2, mood: 2, imgMin: 3, imgRange: 2);
+		if (!success) {
 			return false;
 		}
 
