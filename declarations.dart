@@ -40,6 +40,7 @@ part "gameServer/endpoints/usernamecolors.dart";
 part "gameServer/endpoints/visited.dart";
 
 //quests
+part 'gameServer/quests/messages.dart';
 part "gameServer/quests/quest.dart";
 part 'gameServer/quests/quest_service.dart';
 part 'gameServer/quests/quest_endpoint.dart';

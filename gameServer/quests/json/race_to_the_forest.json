@@ -1,0 +1,116 @@
+[
+  {
+    "id":"Q4",
+    "title":"Race to the Forest",
+    "requirements": [
+      {
+        "id":"Q4R1",
+        "type": "timed",
+        "numRequired": 1,
+        "eventType":"location_Blue Mountain Bore",
+        "timeLimit":75
+      }
+    ],
+    "rewards": {
+      "energy": 0,
+      "mood": 0,
+      "img": 0,
+      "currants": 100
+    },
+    "conversation_start": {
+      "id":"Q4-CS",
+      "screens": [
+        {
+          "paragraphs": [
+            "Are you a fast runner?"
+          ],
+          "choices": [
+            {
+              "text": "Sure am",
+              "gotoScreen": 2
+            },
+            {
+              "text": "Not really",
+              "gotoScreen": 2
+            }
+          ]
+        },
+        {
+          "paragraphs": [
+            "If you can make it from here to Blue Mountain Bore within 75 seconds, I'll give you 100 currants. Sound fair?"
+          ],
+          "choices": [
+            {
+              "text": "I can do that",
+              "gotoScreen": 3,
+              "isQuestAccept": true
+            },
+            {
+              "text": "No thanks",
+              "gotoScreen": 3,
+              "isQuestReject": true
+            }
+          ]
+        }
+      ]
+    },
+    "conversation_end": {
+      "id":"Q4-CE",
+      "screens": [
+        {
+          "paragraphs": [
+            "You seem like you're panting a little hard. Why don't you take a little breather."
+          ],
+          "choices": [
+            {
+              "text": "OK, I'm ready",
+              "gotoScreen": 2
+            }
+          ]
+        },
+        {
+          "paragraphs": [
+            "As I promised, here's your reward."
+          ],
+          "choices": [
+            {
+              "text": "Thanks",
+              "gotoScreen": 3
+            }
+          ]
+        }
+      ]
+    },
+    "conversation_fail": {
+      "id":"Q4-CF",
+      "screens": [
+        {
+          "paragraphs": [
+            "Sorry, looks like you didn't make it in time."
+          ],
+          "choices": [
+            {
+              "text": "Yeah...",
+              "gotoScreen": 2
+            },
+            {
+              "text": "Well...*pant*...let's see you...*pant*...do it",
+              "gotoScreen": 2
+            }
+          ]
+        },
+        {
+          "paragraphs": [
+            "Maybe next time bud."
+          ],
+          "choices": [
+            {
+              "text": "Maybe",
+              "gotoScreen": 3
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

@@ -1,48 +1,10 @@
 part of coUserver;
 
-class CompleteRequirement extends harvest.Message {
-	Requirement requirement;
-	String email;
-
-	CompleteRequirement(this.requirement, this.email);
-}
-
-class CompleteQuest extends harvest.Message {
-	Quest quest;
-	String email;
-
-	CompleteQuest(this.quest, this.email);
-}
-
-class AcceptQuest extends harvest.Message {
-	String email, questId;
-
-	AcceptQuest(this.email, this.questId);
-}
-
-class RejectQuest extends harvest.Message {
-	String email, questId;
-
-	RejectQuest(this.email, this.questId);
-}
-
-class RequirementProgress extends harvest.Message {
-	String eventType, email;
-
-	RequirementProgress(this.eventType, this.email);
-}
-
-class RequirementUpdated extends harvest.Message {
-	Requirement requirement;
-	String email;
-
-	RequirementUpdated(this.requirement, this.email);
-}
-
 abstract class Trackable {
 	String email;
 	bool beingTracked = false;
-	StreamSubscription<harvest.Message> mbSubscription;
+	Timer limitTimer;
+	List<StreamSubscription<harvest.Message>> mbSubscriptions = [];
 
 	void startTracking(String email) {
 		this.email = email;
@@ -50,16 +12,17 @@ abstract class Trackable {
 	}
 
 	void stopTracking() {
-		mbSubscription?.cancel();
-		mbSubscription = null;
+		limitTimer?.cancel();
+		mbSubscriptions.forEach((sub) => sub.cancel());
+		mbSubscriptions.clear();
 		beingTracked = false;
 	}
 }
 
 class Requirement extends Trackable {
-	bool _fulfilled = false;
+	bool _fulfilled = false, failed = false;
 	int _numFulfilled = 0;
-	@Field() int numRequired;
+	@Field() int numRequired, timeLimit;
 	@Field() String id, type, eventType;
 	@Field() List<String> typeDone = [];
 
@@ -84,13 +47,20 @@ class Requirement extends Trackable {
 	@override
 	void startTracking(String email) {
 		super.startTracking(email);
-		mbSubscription = messageBus.subscribe(RequirementProgress, (RequirementProgress progress) {
+
+		if(type == 'timed') {
+			limitTimer = new Timer(new Duration(seconds:timeLimit), () {
+				messageBus.publish(new FailRequirement(this,email));
+			});
+		}
+
+		mbSubscriptions.add(messageBus.subscribe(RequirementProgress, (RequirementProgress progress) {
 			bool goodEvent = false;
 			if (_matchingEvent(progress.eventType)) {
 				if (type == 'counter_unique' && !typeDone.contains(progress.eventType)) {
 					goodEvent = true;
 					typeDone.add(progress.eventType);
-				} else if (type == 'counter') {
+				} else {
 					goodEvent = true;
 				}
 			}
@@ -102,7 +72,7 @@ class Requirement extends Trackable {
 			numFulfilled += 1;
 			messageBus.publish(new RequirementUpdated(this, email));
 //			print('1 more ${eventType} towards completion of $id');
-		});
+		}));
 	}
 
 	bool _matchingEvent(String event) {
@@ -138,8 +108,8 @@ class ConvoChoice {
 }
 
 class QuestRewards {
-	@Field() int energy, mood, img, currants;
-	@Field() List<QuestFavor> favor;
+	@Field() int energy= 0, mood = 0, img = 0, currants = 0;
+	@Field() List<QuestFavor> favor = [];
 }
 
 class QuestFavor {
@@ -152,7 +122,7 @@ class Quest extends Trackable with MetabolicsChange {
 	@Field() bool complete = false;
 	@Field() List<Quest> prerequisites = [];
 	@Field() List<Requirement> requirements = [];
-	@Field() Conversation conversation_start, conversation_end;
+	@Field() Conversation conversation_start, conversation_end, conversation_fail;
 	@Field() QuestRewards rewards;
 
 	@override
@@ -161,29 +131,30 @@ class Quest extends Trackable with MetabolicsChange {
 
 		requirements.forEach((Requirement r) => r.startTracking(email));
 
-		mbSubscription = messageBus.subscribe(CompleteRequirement, (CompleteRequirement r) {
+		mbSubscriptions.add(messageBus.subscribe(CompleteRequirement, (CompleteRequirement r) {
 			if (!requirements.contains(r.requirement) || r.email != email) {
 				return;
 			}
-
-			List<Requirement> tmp = [];
-			requirements.forEach((Requirement req) {
-				if (req.id != r.requirement.id) {
-					tmp.add(req);
-				}
-			});
-			tmp.add(r.requirement);
-			requirements = tmp;
 
 			try {
 				requirements.firstWhere((Requirement r) => !r.fulfilled);
 			} catch (e) {
 				complete = true;
 				messageBus.publish(new CompleteQuest(this, email));
-				print('$email complted the quest "${title}"');
+				print('$email completed the quest "${title}"');
 				_giveRewards();
 			}
-		});
+		}));
+
+		mbSubscriptions.add(messageBus.subscribe(FailRequirement, (FailRequirement r) {
+			if (!requirements.contains(r.requirement) || r.email != email) {
+				return;
+			}
+
+			messageBus.publish(new FailQuest(this,email));
+
+			stopTracking();
+		}));
 	}
 
 	Future<bool> _giveRewards() {
@@ -218,7 +189,7 @@ class UserQuestLog extends Trackable {
 		//listen for quest completion events
 		//if they don't belong to us, let someone else get them
 		//if they do belong to us, send a message to the client to tell them of their success
-		mbSubscription = messageBus.subscribe(CompleteQuest, (CompleteQuest q) {
+		mbSubscriptions.add(messageBus.subscribe(CompleteQuest, (CompleteQuest q) {
 			if (q.email != email) {
 				return;
 			}
@@ -237,10 +208,28 @@ class UserQuestLog extends Trackable {
 				..add(q.quest);
 
 			QuestService.updateQuestLog(this);
-		});
+		}));
+
+		mbSubscriptions.add(messageBus.subscribe(FailQuest, (FailQuest q) {
+			if (q.email != email) {
+				return;
+			}
+
+			q.quest.stopTracking();
+
+			Map map = {'questFail': true, 'quest': encode(q.quest)};
+			if (QuestEndpoint.userSockets[email] != null) {
+				QuestEndpoint.userSockets[email].add(JSON.encode(map));
+			}
+
+			inProgressQuests = new List.from(inProgressQuests)
+				..removeWhere((Quest quest) => quest == q.quest);
+
+			QuestService.updateQuestLog(this);
+		}));
 
 		//save our progress to the database so it doesn't get lost
-		messageBus.subscribe(RequirementUpdated, (RequirementUpdated update) {
+		mbSubscriptions.add(messageBus.subscribe(RequirementUpdated, (RequirementUpdated update) {
 //			print('got a progress event: ${update.requirement.eventType}, ${update.requirement.email}');
 			if (update.email != email) {
 				return;
@@ -255,7 +244,7 @@ class UserQuestLog extends Trackable {
 			inProgressQuests = tmp;
 
 			QuestService.updateQuestLog(this);
-		});
+		}));
 	}
 
 	@override
