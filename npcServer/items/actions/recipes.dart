@@ -28,7 +28,7 @@ class Recipe {
 }
 
 @app.Group("/recipes")
-class RecipeBook {
+class RecipeBook extends Object with MetabolicsChange {
 	static List<Recipe> recipes = [];
 
 	// Client Communication
@@ -125,9 +125,6 @@ class RecipeBook {
 			return false;
 		}
 
-		String street = PlayerUpdateHandler.users[username].currentStreet;
-		WebSocket ws = StreetUpdateHandler.streets[street].occupants[username];
-
 		// Get the recipe info
 		Recipe recipe;
 		List<Recipe> rList = recipes.where((Recipe recipe) => recipe.id == id).toList();
@@ -138,27 +135,28 @@ class RecipeBook {
 		}
 
 		// Take away energy
-		bool takeEnergySuccess = await ItemUser.trySetMetabolics(username, energy: recipe.energy);
+		bool takeEnergySuccess = await trySetMetabolics(email, energy: recipe.energy);
 		if (!takeEnergySuccess) {
 			// If they don't have enough energy, they're not frying an egg
 			return false;
 		}
 
 		// Take all of the items
-		recipe.input.forEach((String itemType, int qty) async {
-			bool takeItemSuccess = (await InventoryV2.takeAnyItemsFromUser(email, itemType, qty)) == qty;
-			if (!takeItemSuccess) {
+		Future.forEach(recipe.input.keys, (String itemType) async {
+			int qty = recipe.input[itemType];
+			int got = (await InventoryV2.takeAnyItemsFromUser(email, itemType, qty));
+			if (got != qty) {
 				// If they didn't have a required item, they're not making a smoothie
-				return false;
+				throw "Not enough itemType. Took $got but wanted $qty";
 			}
 		});
 
 		// Wait for it to make it, then give the item
-		await new Timer(new Duration(seconds: recipe.time), () async {
+		new Timer(new Duration(seconds: recipe.time), () async {
 			// Add the item after we finish "making" one
-			await InventoryV2.addItemToUser(email, items[recipe.output].getMap(), 1, "_self");
+			await InventoryV2.addItemToUser(email, items[recipe.output].getMap(), 1);
 			// Award iMG
-			await ItemUser.trySetMetabolics(username, img: recipe.img);
+			await trySetMetabolics(email, imgMin: recipe.img);
 		});
 
 		return true;

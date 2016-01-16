@@ -1,8 +1,12 @@
 part of coUserver;
 
-abstract class Item_Cubimal {
+// /////// //
+// Cubimal //
+// /////// //
 
-	static Future<bool> race(String streetName, Map map, WebSocket userSocket, String email, String username) async {
+abstract class Cubimal extends Object with MetabolicsChange {
+
+	Future<bool> race({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		InventoryV2 inv = await getInventory(email);
 		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
 
@@ -40,14 +44,14 @@ abstract class Item_Cubimal {
 		return true;
 	}
 
-	static Future<bool> setFree(Map map, WebSocket userSocket, String username, String email) async {
+	Future<bool> setFree({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		InventoryV2 inv = await getInventory(email);
 		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
 		String cubiType = itemInSlot.itemType;
 		bool success = (await InventoryV2.takeAnyItemsFromUser(email, cubiType, 1) == 1);
 		if (!success) return false;
 		int img = ((freeValues[itemInSlot.itemType.substring(8)] / 2) * (ItemUser.rand.nextDouble() + 0.1)).truncate();
-		ItemUser.trySetMetabolics(username, mood: 10, img: img);
+		trySetMetabolics(email, mood: 10, imgMin: img);
 		StatBuffer.incrementStat("cubisSetFree", 1);
 		toast("Your cubimal was released back into the wild. You got $img iMG.", userSocket);
 		return success;
@@ -100,9 +104,13 @@ abstract class Item_Cubimal {
 	};
 }
 
-abstract class Item_CubimalBox {
+// /////////// //
+// Cubimal Box //
+// /////////// //
 
-	static Future<bool> takeOutCubimal(Map map, WebSocket userSocket, String email) async {
+abstract class CubimalBox {
+
+	Future<bool> takeOutCubimal({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		InventoryV2 inv = await getInventory(email);
 		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
 		int series;

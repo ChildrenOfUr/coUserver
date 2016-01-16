@@ -1,5 +1,6 @@
 part of coUserver;
 
+
 abstract class Item_Milk {
 	static Future<bool> sniff(WebSocket userSocket, String username) async {
 		int mood = await ItemUser.getMood(username);

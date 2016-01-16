@@ -36,7 +36,7 @@ class StreetUpdateHandler {
 			// load stats given for eating/drinking
 			await JSON.decode(await new File('$directory/npcServer/items/actions/consume.json').readAsString())
 				.forEach((String item, Map award) {
-				Item_Consumable.consumeValues[item] = award;
+				Consumable.consumeValues[item] = award;
 			});
 		}
 		catch (e) {

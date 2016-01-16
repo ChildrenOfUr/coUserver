@@ -1,6 +1,6 @@
 part of coUserver;
 
-class Item {
+class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox, Emblem {
 	/// Discounts, stored as itemType: part paid out of 1 (eg. 0.8 for 20% off)
 	static Map<String, num> discountedItems = {
 		"generic_bag": 0.8,
@@ -192,46 +192,6 @@ class Item {
 		return await ItemUser.trySetMetabolics(username, mood:-5);
 	}
 
-	// /////// //
-	// Cubimal //
-	// /////// //
-
-	Future<bool> race({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Cubimal.race(streetName, map, userSocket, email, username);
-	}
-
-	Future<bool> setFree({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Cubimal.setFree(map, userSocket, username, email);
-	}
-
-	// /////////// //
-	// Cubimal Box //
-	// /////////// //
-
-	Future<bool> takeOutCubimal({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return Item_CubimalBox.takeOutCubimal(map, userSocket, email);
-	}
-
-	// ////// //
-	// Emblem //
-	// ////// //
-
-	Future<bool> caress({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Emblem.caress(userSocket, username);
-	}
-
-	Future<bool> consider({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Emblem.consider(userSocket, username);
-	}
-
-	Future<bool> contemplate({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Emblem.contemplate(userSocket, username);
-	}
-
-	Future<bool> iconize({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Emblem.iconize(map, userSocket, username, email);
-	}
-
 	// //////////// //
 	// Focusing Orb //
 	// //////////// //
@@ -254,26 +214,6 @@ class Item {
 
 	Future<bool> meditate({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return await Item_Orb.meditate(userSocket, username);
-	}
-
-	// //// //
-	// Food //
-	// //// //
-
-	// takes away item and gives the stats specified in items/actions/consume.json
-
-	Future<bool> consume({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Consumable.consume(map, userSocket, username, email);
-	}
-
-	// these two are just aliases to consume because they do the same thing, but are named differently in the item menu
-
-	Future eat({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Consumable.consume(map, userSocket, username, email);
-	}
-
-	Future drink({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Item_Consumable.consume(map, userSocket, username, email);
 	}
 
 	// //// //

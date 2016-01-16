@@ -1,28 +1,32 @@
 part of coUserver;
 
-abstract class Item_Emblem {
-	static Future<bool> caress(WebSocket userSocket, String username) async {
-		int amt = ItemUser.rand.nextInt(10) + 5;
+// ////// //
+// Emblem //
+// ////// //
+
+abstract class Emblem extends Object with MetabolicsChange {
+	Future<bool> caress({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
+		int amt = rand.nextInt(10) + 5;
 		StatBuffer.incrementStat("emblemsCaressed", 1);
 		toast("+$amt mood for caressing", userSocket);
-		return await ItemUser.trySetMetabolics(username, mood:amt);
+		return await trySetMetabolics(username, mood:amt);
 	}
 
-	static Future<bool> consider(WebSocket userSocket, String username) async {
-		int amt = ItemUser.rand.nextInt(10) + 5;
+	Future<bool> consider({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
+		int amt = rand.nextInt(10) + 5;
 		StatBuffer.incrementStat("emblemsConsidered", 1);
 		toast("+$amt energy for considering", userSocket);
-		return await ItemUser.trySetMetabolics(username, energy:amt);
+		return await trySetMetabolics(username, energy:amt);
 	}
 
-	static Future<bool> contemplate(WebSocket userSocket, String username) async {
-		int amt = ItemUser.rand.nextInt(10) + 5;
+	Future<bool> contemplate({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
+		int amt = rand.nextInt(10) + 5;
 		StatBuffer.incrementStat("emblemsContemplated", 1);
 		toast("+$amt iMG for contemplating", userSocket);
-		return await ItemUser.trySetMetabolics(username, img:amt);
+		return await trySetMetabolics(username, imgMin:amt);
 	}
 
-	static Future<bool> iconize(Map map, WebSocket userSocket, String username, String email) async {
+	Future<bool> iconize({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		InventoryV2 inv = await getInventory(email);
 		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], username);
 		String emblemType = itemInSlot.itemType;
