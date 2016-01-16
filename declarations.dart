@@ -67,6 +67,7 @@ part "npcServer/street.dart";
 part "npcServer/npcs/animals/piggy.dart";
 part "npcServer/entity.dart";
 part "npcServer/npcs/npc.dart";
+part 'npcServer/flag.dart';
 
 // vendors
 part "npcServer/npcs/vendors/streetspiritgroddle.dart";

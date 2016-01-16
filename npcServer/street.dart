@@ -2,23 +2,18 @@ part of coUserver;
 
 class Street {
 	static Random rand = new Random();
-	Map<String, Quoin> quoins;
-	Map<String, Plant> plants;
-	Map<String, NPC> npcs;
-	Map<String, Door> doors;
+	Map<String, Quoin> quoins = {};
+	Map<String, Plant> plants = {};
+	Map<String, NPC> npcs = {};
+	Map<String, Door> doors = {};
 	Map<String, Map> entityMaps;
-	Map<String, Item> groundItems;
-	Map<String, WebSocket> occupants;
+	Map<String, Item> groundItems = {};
+	Map<String, WebSocket> occupants = {};
+	List<Flag> flags = [];
 	String label;
 
 	Street(this.label, String tsid) {
-		quoins = new Map<String, Quoin>();
-		plants = new Map<String, Plant>();
-		npcs = new Map<String, NPC>();
-		doors = new Map<String, Door>();
-		groundItems = new Map<String, Item>();
 		entityMaps = {"quoin":quoins, "plant":plants, "npc":npcs, "door":doors, "groundItem":groundItems};
-		occupants = new Map<String, WebSocket>();
 
 		//attempt to load street occupants from streetEntities folder
 		Map entities = getStreetEntities(tsid);
@@ -38,6 +33,8 @@ class Street {
 				   || type == "Mystery" || type == "Favor" || type == "Time" || type == "Quarazy") {
 					id = "q" + id;
 					quoins[id] = new Quoin(id, x, y, type.toLowerCase());
+				} else if (type == 'Flag') {
+					flags.add(new Flag(id,x,y));
 				} else {
 					try {
 						ClassMirror classMirror = findClassMirror(type.replaceAll(" ", ""));

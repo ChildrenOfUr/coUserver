@@ -51,6 +51,7 @@ abstract class Trackable {
 
 	void stopTracking() {
 		mbSubscription?.cancel();
+		mbSubscription = null;
 		beingTracked = false;
 	}
 }
