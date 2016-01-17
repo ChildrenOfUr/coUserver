@@ -71,6 +71,9 @@ class Shrine extends NPC {
 				.getField(new Symbol(giantName.toLowerCase() + 'favor_max'))
 				.reflectee;
 			userSocket.add(JSON.encode(addedFavorMap));
+
+			//offer 'get an emblem with a giant' quest
+			QuestEndpoint.questLogCache[email].offerQuest(email, 'Q3');
 		} else {
 			log("$email failed to donate $qty $itemType to $type");
 		}
