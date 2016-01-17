@@ -104,7 +104,11 @@ class StreetUpdateHandler {
 
 		//clean up memory of streets where no players currently are
 		//in the future, I imagine this is where the street would be saved to the database
-		toRemove.forEach((String label) => streets.remove(label));
+		//you're right past me, this is where i'm doing it
+		Future.forEach(toRemove, (String label) async {
+			await streets[label].persistState();
+			streets.remove(label);
+		});
 	}
 
 	static void cleanupList(WebSocket ws) {
@@ -261,6 +265,7 @@ class StreetUpdateHandler {
 
 	static void loadStreet(String streetName, String tsid) {
 		streets[streetName] = new Street(streetName, tsid);
+		streets[streetName].loadItems();
 		log("Loaded $streetName ($tsid) into memory.");
 	}
 
