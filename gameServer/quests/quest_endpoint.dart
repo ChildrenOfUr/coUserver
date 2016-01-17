@@ -21,7 +21,7 @@ class QuestEndpoint {
 		});
 
 		if (leavingUser != null) {
-			questLogCache[leavingUser].stopTracking();
+			questLogCache[leavingUser]?.stopTracking();
 			questLogCache.remove(leavingUser);
 			userSockets.remove(leavingUser);
 		}

@@ -2,12 +2,14 @@
   {
     "id":"Q2",
     "title":"Tree Petter",
+    "description":"Go pet 5 different trees throughout the land of Ur",
     "requirements": [
       {
         "id":"R2",
         "type": "counter_unique",
         "numRequired": 5,
-        "eventType":"treePet.*"
+        "eventType":"treePet.*",
+        "text":"trees petted"
       }
     ],
     "rewards": {

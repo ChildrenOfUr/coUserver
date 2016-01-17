@@ -1,14 +1,16 @@
 [
   {
-    "id":"Q4",
-    "title":"Race to the Forest",
+    "id": "Q4",
+    "title": "Race to the Forest",
+    "description": "Run as fast as you can from Louise Pasture to Blue Mountain Bore. Try to reach it within 75 seconds",
     "requirements": [
       {
-        "id":"Q4R1",
+        "id": "Q4R1",
         "type": "timed",
         "numRequired": 1,
-        "eventType":"location_Blue Mountain Bore",
-        "timeLimit":75
+        "eventType": "location_Blue Mountain Bore",
+        "timeLimit": 75,
+        "text": "race complete"
       }
     ],
     "rewards": {
@@ -18,7 +20,7 @@
       "currants": 100
     },
     "conversation_start": {
-      "id":"Q4-CS",
+      "id": "Q4-CS",
       "screens": [
         {
           "paragraphs": [
@@ -55,7 +57,7 @@
       ]
     },
     "conversation_end": {
-      "id":"Q4-CE",
+      "id": "Q4-CE",
       "screens": [
         {
           "paragraphs": [
@@ -82,7 +84,7 @@
       ]
     },
     "conversation_fail": {
-      "id":"Q4-CF",
+      "id": "Q4-CF",
       "screens": [
         {
           "paragraphs": [

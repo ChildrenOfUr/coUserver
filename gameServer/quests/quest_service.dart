@@ -55,7 +55,7 @@ class QuestService {
 		if(users.length > 0) {
 			int userId = users.first.id;
 			query = "INSERT INTO user_quests(user_id) VALUES(@id)";
-			dbConn.execute(query,{'id':userId});
+			await dbConn.execute(query,{'id':userId});
 		}
 		await dbManager.closeConnection(dbConn);
 
