@@ -24,17 +24,17 @@ class ChatHandler {
 			}*/
 			if (map["channel"] == "Global Chat" && !(await UserMutes.INSTANCE.userMuted(map["username"]))) {
 				if (map["statusMessage"] == null && map["username"] != null &&
-				  map["message"] != null)
+				    map["message"] != null)
 					slackSend(map["username"], map["message"]);
 			}
 			processMessage(ws, message);
 		},
-		  onError: (error) {
-			  cleanupLists(ws);
-		  },
-		  onDone: () {
-			  cleanupLists(ws);
-		  });
+			          onError: (error) {
+				          cleanupLists(ws);
+			          },
+			          onDone: () {
+				          cleanupLists(ws);
+			          });
 	}
 
 	static void slackSend(String username, String text) {
@@ -56,9 +56,10 @@ class ChatHandler {
 								List<int> bytes = encodePng(image);
 
 								MultipartRequest request = new MultipartRequest("POST",
-								  Uri.parse("http://childrenofur.com/data/heads/uploadhead.php"));
+									                                                Uri.parse(
+										                                                "http://childrenofur.com/data/heads/uploadhead.php"));
 								request.files.add(new MultipartFile.fromBytes(
-								  'file', bytes, filename: '$username.head.png'));
+									'file', bytes, filename: '$username.head.png'));
 								request.send().then((StreamedResponse response) {
 									icon_url =
 									'http://childrenofur.com/data/heads/$username.head.png';
@@ -118,15 +119,9 @@ class ChatHandler {
 		sendAll(JSON.encode(map));
 	}
 
-	static processMessage(WebSocket ws, String receivedMessage) async
-	{
+	static processMessage(WebSocket ws, String receivedMessage) async {
 		try {
 			Map map = JSON.decode(receivedMessage);
-			if (map["channel"] == "Global Chat" && (await UserMutes.INSTANCE.userMuted(map["username"]))) {
-				// User cannot use global chat
-				ws.add(JSON.encode({"error": "You may not use Global Chat because you are a nuisance to Ur. Please email us at publicrelations@childrenofur.com if you believe this is an error."}));
-				return;
-			}
 
 			if (map['clientVersion'] != null) {
 				if (map['clientVersion'] < minClientVersion)
@@ -134,11 +129,18 @@ class ChatHandler {
 				return;
 			}
 
+			if (map["channel"] == "Global Chat" && (await UserMutes.INSTANCE.userMuted(map["username"]))) {
+				// User cannot use global chat
+				ws.add(JSON.encode({
+					                   "error": "You may not use Global Chat because you are a nuisance to Ur. Please email us at publicrelations@childrenofur.com if you believe this is an error."
+				                   }));
+				return;
+			}
+
 			if (map['statusMessage'] == 'pong') {
 				KeepAlive.notResponded.remove(ws);
 				return;
-			}
-			else if (map["statusMessage"] == 'join') {
+			} else if (map["statusMessage"] == 'join') {
 				//combine the username with the channel name to keep track of the same user in multiple channels
 				String userName = map["username"];
 				map["statusMessage"] = "true";
@@ -146,8 +148,7 @@ class ChatHandler {
 				String street = map["street"];
 				users[userName] = (new Identifier(map["username"], street, map['tsid'], ws));
 				users[userName].channelList..add(map['street'])..add("Global Chat");
-			}
-			else if (map["statusMessage"] == "changeStreet") {
+			} else if (map["statusMessage"] == "changeStreet") {
 				List<String> alreadySent = [];
 				users.forEach((String username, Identifier id) {
 					if (username == map["username"]) {
@@ -155,10 +156,9 @@ class ChatHandler {
 						id.channelList.remove(map['oldStreetLabel']);
 						id.channelList.add(map['newStreetLabel']);
 					}
+					//others who were on the street with you
 					if (!alreadySent.contains(id.username) && id.username != map["username"] &&
-					  id.currentStreet ==
-						map["oldStreetTsid"]) //others who were on the street with you
-					  {
+					    id.currentStreet == map["oldStreetTsid"]) {
 						Map leftForMessage = new Map();
 						leftForMessage["statusMessage"] = "leftStreet";
 						leftForMessage["username"] = map["username"];
@@ -166,25 +166,26 @@ class ChatHandler {
 						leftForMessage["tsid"] = map["newStreetTsid"];
 						leftForMessage["message"] = " has left for ";
 						leftForMessage["channel"] = "Local Chat";
-						if (users[id.username] != null)
+						if (users[id.username] != null) {
 							users[id.username].webSocket.add(JSON.encode(leftForMessage));
+						}
 						alreadySent.add(id.username);
 					}
+					//others who are on the new street
 					if (id.currentStreet == map["newStreet"] &&
-					  id.username != map["username"]) //others who are on the new street
-					  {
+					    id.username != map["username"])	{
 						toast("${map["username"]} is here!", id.webSocket);
 					}
 				});
 				return;
-			}
-			else if (map["statusMessage"] == "list") {
+			} else if (map["statusMessage"] == "list") {
 				List<String> userList = new List();
 				users.forEach((String username, Identifier userId) {
-					if (map["channel"] == "Local Chat" && userId.currentStreet == map["street"])
+					if (map["channel"] == "Local Chat" && userId.currentStreet == map["street"]) {
 						userList.add(userId.username);
-					else if (map["channel"] != "Local Chat")
+					} else if (map["channel"] != "Local Chat") {
 						userList.add(userId.username);
+					}
 				});
 				map["users"] = userList;
 				map["message"] = "Users in this channel: ";
@@ -194,8 +195,8 @@ class ChatHandler {
 
 			sendAll(JSON.encode(map));
 		}
-		catch (err) {
-			log("Error handling chat: $err");
+		catch (err, st) {
+			log("Error handling chat: $err\n$st");
 		}
 	}
 
@@ -211,21 +212,21 @@ class UserMutes {
 	/**
 	 * Check if a user is muted;
 
-	    UserMutes.INSTANCE.usermuted("...username...")
+		UserMutes.INSTANCE.usermuted("...username...")
 
-	    GET => /userMutes/check?username=...username...
+		GET => /userMutes/check?username=...username...
 
 	 * Mute a user:
 
-	    UserMutes.INSTANCE.mute("...username...")
+		UserMutes.INSTANCE.mute("...username...")
 
-	    POST <Content-Type: application/json> {"username": "...username...", "token": "...redstone token..."} => /userMutes/mute/
+		POST <Content-Type: application/json> {"username": "...username...", "token": "...redstone token..."} => /userMutes/mute/
 
 	 * Unmute a user:
 
-	    UserMutes.INSTANCE.unmute("...username...")
+		UserMutes.INSTANCE.unmute("...username...")
 
-	    POST <Content-Type: application/json> {"username": "...username...", "token": "...redstone token..."} => /userMutes/unmute/
+		POST <Content-Type: application/json> {"username": "...username...", "token": "...redstone token..."} => /userMutes/unmute/
 	 */
 
 	static UserMutes INSTANCE = new UserMutes();
@@ -253,8 +254,8 @@ class UserMutes {
 		PostgreSql dbConn = await dbManager.getConnection();
 		try {
 			return (await dbConn.execute(
-			  "UPDATE users SET chat_disabled = true WHERE username = @username",
-			  {"username": username}) == 1);
+				"UPDATE users SET chat_disabled = true WHERE username = @username",
+				{"username": username}) == 1);
 		} catch (e) {
 			log("Error muting chat for user $username: $e");
 			return false;
@@ -275,8 +276,8 @@ class UserMutes {
 		PostgreSql dbConn = await dbManager.getConnection();
 		try {
 			return (await dbConn.execute(
-			  "UPDATE users SET chat_disabled = false WHERE username = @username",
-			  {"username": username}) == 1);
+				"UPDATE users SET chat_disabled = false WHERE username = @username",
+				{"username": username}) == 1);
 		} catch (e) {
 			log("Error unmuting chat for user $username: $e");
 			return false;
@@ -292,9 +293,9 @@ class UserMutes {
 
 		try {
 			result = (
-			  await dbConn.query(
-				"SELECT chat_disabled FROM users WHERE username = @username", User,
-				{"username": username})
+				await dbConn.query(
+					"SELECT chat_disabled FROM users WHERE username = @username", User,
+					{"username": username})
 			).first.chat_disabled;
 
 			_userMutedCache[username] = result;

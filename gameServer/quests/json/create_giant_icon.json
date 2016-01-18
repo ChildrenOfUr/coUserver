@@ -1,0 +1,100 @@
+{
+  "id": "Q5",
+  "title": "Loyalty's Rich Reward",
+  "description": "Collect eleven Emblems of one Giant and iconize them to create a Giant's Icon.",
+  "requirements": [
+    {
+      "id": "Q5R1",
+      "text": "icon gained",
+      "type": "counter",
+      "numRequired": 1,
+      "eventType": "iconGet"
+    }
+  ],
+  "prerequisites": [
+    "Q3"
+  ],
+  "rewards": {
+    "energy": 400,
+    "mood": 400,
+    "img": 5000,
+    "currants": 400
+  },
+  "conversation_start": {
+    "id": "Q5-CS",
+    "screens": [
+      {
+        "paragraphs": [
+          "Emblems, eh? Don't you just love them? Aren't they just the greatest?"
+        ],
+        "choices": [
+          {
+            "text": "They're pretty shiny…",
+            "gotoScreen": 2
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "But are they the greatest? No. They are not. In the eyes of the Giants, they are merely the first step. It is time for you to progress. To the next step. Beyond the Emblem. And what's greater than an Emblem?"
+        ],
+        "choices": [
+          {
+            "text": "Two Emblems?",
+            "gotoScreen": 3
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "Yes! More Emblems! Many Emblems! Choose a Giant, accumulate eleven Emblems for that Giant, and then… well, do what comes naturally."
+        ],
+        "choices": [
+          {
+            "text": "Do what comes na…",
+            "gotoScreen": 4
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "And by that I mean \"iconize the Emblems\", to make an Icon out of them, not anything weird. Get to it, my little Supplicant!"
+        ],
+        "choices": [
+          {
+            "text": "Will do!",
+            "gotoScreen": 5,
+            "isQuestAccept": true
+          }
+        ]
+      }
+    ]
+  },
+  "conversation_end": {
+    "id": "Q5-CE",
+    "screens": [
+      {
+        "paragraphs": [
+          "Oh, it's glorious."
+        ],
+        "choices": [
+          {
+            "text": "Why, thank you…",
+            "gotoScreen": 2
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "The adoration and munificent blessings of your Giant are enough, of course. But just in case, here's a little something from me, too."
+        ],
+        "choices": [
+          {
+            "text": "Alright!",
+            "gotoScreen": 3
+          }
+        ]
+      }
+    ]
+  }
+}

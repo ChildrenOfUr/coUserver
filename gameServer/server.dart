@@ -103,6 +103,9 @@ main() async {
 	Clock clock = new Clock();
 	clock.onNewDay.listen((_) => MetabolicsEndpoint.refillAllEnergy());
 
+	ProcessSignal.SIGINT.watch().listen((ProcessSignal sig) async => await cleanup());
+	ProcessSignal.SIGTERM.watch().listen((ProcessSignal sig) async => await cleanup());
+
 	//This was used to upgrade the inventories in place so that they had the right key/value pairs
 	//Similar code could be needed in the future.
 //	String query = 'SELECT * FROM inventories';
@@ -118,6 +121,18 @@ main() async {
 //	await Future.wait(futures);
 //	print('upgading complete');
 //	dbManager.closeConnection(db);
+}
+
+///anything that should run here as cleanup before exit
+///doesn't seem to work with webstorm's stop process button (must send SIGKILL)
+Future cleanup() async {
+	//persist the state of each loaded street to the db
+	await Future.forEach(StreetUpdateHandler.streets.keys, (String label) async {
+		print('persisting $label before shutdown');
+		await StreetUpdateHandler.streets[label].persistState();
+	});
+
+	exit(0);
 }
 
 @app.Route('/listUsers')

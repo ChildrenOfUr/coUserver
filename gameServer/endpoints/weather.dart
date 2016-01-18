@@ -50,7 +50,7 @@ class WeatherEndpoint
 	static void simulate() {
 		//decide what kind of weather should happen
 		//once we've picked one, we should set a timeout so that we don't change it for a while
-		//maybe 20 in-game minutes to 60 in-game minutes before we decide again
+		//maybe 240 in-game minutes to 600 in-game minutes before we decide again
 		//75% chance of clear skies, 25% chance of rain/snow
 		if(respawn == null || respawn.compareTo(new DateTime.now()) > 0) {
 			return;
@@ -63,7 +63,7 @@ class WeatherEndpoint
 			currentState = WeatherState.CLEAR;
 		}
 
-		int numGameMinutes = rand.nextInt(40)+20;
+		int numGameMinutes = rand.nextInt(360)+240;
 		respawn = new DateTime.now().add(new Duration(seconds:numGameMinutes*10));
 
 		//once we've decided what to do, send the current weather to all the connected users

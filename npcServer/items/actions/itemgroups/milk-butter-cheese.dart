@@ -22,7 +22,7 @@ abstract class Item_Milk {
 				toast("Shaking...", userSocket);
 				new Timer(new Duration(seconds: 1), () async {
 					toast("You shake the butterfly milk vigorously. Butterfly butter!", userSocket);
-					bool success1 = (await InventoryV2.addItemToUser(email, items["butterfly_butter"].getMap(), 1, "_self") > 0);
+					bool success1 = (await InventoryV2.addItemToUser(email, items["butterfly_butter"].getMap(), 1) > 0);
 					bool success2 = await ItemUser.trySetMetabolics(username, energy: -2);
 					if (success1 && success2) {
 						return true;
@@ -49,7 +49,7 @@ abstract class Item_Butter {
 				toast("Compressing...", userSocket);
 				new Timer(new Duration(seconds: 2), () async {
 					toast("You squeeze the butterfly butter with all your might and cheese appears!", userSocket);
-					bool success1 = (await InventoryV2.addItemToUser(email, items["cheese"].getMap(), 1, "_self") > 0);
+					bool success1 = (await InventoryV2.addItemToUser(email, items["cheese"].getMap(), 1) > 0);
 					bool success2 = await ItemUser.trySetMetabolics(email, energy: -3);
 					if (success1 && success2) {
 						return true;
@@ -125,7 +125,7 @@ abstract class Item_Cheese {
 				toast("Aging...", userSocket);
 				new Timer(new Duration(seconds: time), () async {
 					toast(doneMsg, userSocket);
-					bool success1 = (await InventoryV2.addItemToUser(email, items[itemOut].getMap(), 1, "_self") > 0);
+					bool success1 = (await InventoryV2.addItemToUser(email, items[itemOut].getMap(), 1) > 0);
 					bool success2 = await ItemUser.trySetMetabolics(email, energy: -energyReq, mood: -moodReq);
 					if (success1 && success2) {
 						return true;
@@ -149,7 +149,7 @@ abstract class Item_Cheese {
 
 		toast("Not a good idea. It's going to take a while for that finger-stink to wear off.", userSocket);
 
-		return (await InventoryV2.addItemToUser(email, items["small_worthless"].getMap(), 1, "_self") > 0);
+		return (await InventoryV2.addItemToUser(email, items["small_worthless"].getMap(), 1) > 0);
 	}
 
 	static Future<bool> sniff(WebSocket userSocket, String email) async {
