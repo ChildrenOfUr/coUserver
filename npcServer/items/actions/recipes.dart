@@ -157,6 +157,9 @@ class RecipeBook extends Object with MetabolicsChange {
 			await InventoryV2.addItemToUser(email, items[recipe.output].getMap(), 1);
 			// Award iMG
 			await trySetMetabolics(email, imgMin: recipe.img);
+
+			//send possible quest event
+			messageBus.publish(new RequirementProgress('makeRecipe_${recipe.output}',email));
 		});
 
 		return true;

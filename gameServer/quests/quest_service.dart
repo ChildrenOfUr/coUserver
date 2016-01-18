@@ -86,8 +86,8 @@ class QuestService {
 			await for(FileSystemEntity entity in questsDirectory.list(recursive: true)) {
 				if (entity is File) {
 					// load quests
-					List<Quest> qList = decode(JSON.decode(await entity.readAsString()), Quest);
-					qList.forEach((Quest q) => quests[q.id] = q);
+					Quest q = decode(JSON.decode(await entity.readAsString()), Quest);
+					quests[q.id] = q;
 				}
 			}
 		}

@@ -1,273 +1,271 @@
-[
-  {
-    "id":"Q3",
-    "title":"Communing with the Giants",
-    "description":"Why don't you see if you can get a token of gratitude from one of the Giants?",
-    "requirements": [
-      {
-        "id":"Q3R1",
-        "text": "emblem gained",
-        "type": "counter",
-        "numRequired": 1,
-        "eventType":"emblemGet"
-      }
-    ],
-    "rewards": {
-      "energy": 30,
-      "mood": 30,
-      "img":50,
-      "currants":100
-    },
-    "conversation_start": {
-      "id": "Q3-CS",
-      "screens": [
-        {
-          "paragraphs": [
-            "Ever heard of the 11 Giants?"
-          ],
-          "choices": [
-            {
-              "text": "Yep",
-              "gotoScreen": 13
-            },
-            {
-              "text": "Who?",
-              "gotoScreen": 2
-            }
-          ]
-        },
-        {
-          "paragraphs": [
-            "Humbaba(f.)",
-            "Giant of Walking Creatures: Gregarious, Belligerent",
-            "Humbaba is the giant ruling over all creatures that walk, crawl, slither or sashay over Ur. One with the animals, Humbaba walks on all fours to be closer to them, and insists on them calling her by her first name. Which is kind of pointless, since she only has one name.",
-            "Adherents are known as 'Humbabans'."
-          ],
-          "choices": [
-            {
-              "text": "Go on",
-              "gotoScreen": 3
-            },
-            {
-              "text": "I've got it now",
-              "gotoScreen": 13
-            }
-          ]
-        },
-        {
-          "paragraphs": [
-            "Lem(m.)",
-            "Giant of Exploration: Open, Unavailable, Evasive",
-            "Lem, the wanderer giant. Responsible for travel, directions, and knowledge. What Lem doesn’t know is not worth knowing. Also, what Lem doesn’t unknow is not worth unknowing. (That’s Lem’s favourite joke) (Lem doesn’t know many jokes).",
-            "Adherents are known as 'Lemmings'."
-          ],
-          "choices": [
-            {
-              "text": "Go on",
-              "gotoScreen": 4
-            },
-            {
-              "text": "I've got it now",
-              "gotoScreen": 13
-            }
-          ]
-        },
-        {
-          "paragraphs": [
-            "Friendly(m.)",
-            "Giant of Night & Social Life: Empathetic, Meddlesome",
-            "Friendly is the overseer of darkness, nocturnal things, party-planning, of social activities and their most common lubricant, booze. Friendly by name, friendly by nature: unless you neglect to buy a round.",
-            "Adherents are known as 'Friends'."
-          ],
-          "choices": [
-            {
-              "text": "Go on",
-              "gotoScreen": 5
-            },
-            {
-              "text": "I've got it now",
-              "gotoScreen": 13
-            }
-          ]
-        },
-        {
-          "paragraphs": [
-            "Spriggan(m.)",
-            "Giant of Trees: Persistent, Evergreen, Rigid",
-            "Before Spriggan, no giant had ever imagined a tree. After Spriggan, no giant ever needed to, because he had already imagined them all. Steadfast, persistent, and somewhat rigid, Spriggan is the slumbering Giant of all Trees and Plants. Or 'Trants'.",
-            "Adherents are known as 'Spriggots'."
-          ],
-          "choices": [
-            {
-              "text": "Go on",
-              "gotoScreen": 6
-            },
-            {
-              "text": "I've got it now",
-              "gotoScreen": 13
-            }
-          ]
-        },
-        {
-          "paragraphs": [
-            "Cosma(f.)",
-            "Giant of Sky & Meditation: Levitous, Aimless",
-            "As flighty and aimless as anything can be (if that thing is also giant-sized), Cosma is the Giant in charge of imagining up all things airborne. From the heaviest gas to cling to a cavern floor to the tiniest fart to escape from a butterfly, Cosma is the source of it all.",
-            "Adherents are known as 'Cosmapolitans'."
-          ],
-          "choices": [
-            {
-              "text": "Go on",
-              "gotoScreen": 7
-            },
-            {
-              "text": "I've got it now",
-              "gotoScreen": 13
-            }
-          ]
-        },
-        {
-          "paragraphs": [
-            "Mab(f.)",
-            "Giant of Harvesting: Industrious, Greedy",
-            "When the harvest needs bringing in, the crops need counting, and the job needs doing right, Mab, Giant of Soil and Harvests, first to lie down and start imagining Ur into being is the giant to look to.",
-            "Adherents are known as 'Mabbites'."
-          ],
-          "choices": [
-            {
-              "text": "Go on",
-              "gotoScreen": 8
-            },
-            {
-              "text": "I've got it now",
-              "gotoScreen": 13
-            }
-          ]
-        },
-        {
-          "paragraphs": [
-            "Tii(n/a)",
-            "Giant of Odd & Even Numbers: Cold, Reckoning",
-            "The Giant with power over all numbers. Odd or even, prime or not-prime, cubed or rooted, Tii keeps a cold, watchful eye over Ur. Tii sees all, knows all, calculates all. Never underestimate Tii. Tii has already correctly estimated you.",
-            "Adherents are known as 'Ti'ites'."
-          ],
-          "choices": [
-            {
-              "text": "Go on",
-              "gotoScreen": 9
-            },
-            {
-              "text": "I've got it now",
-              "gotoScreen": 13
-            }
-          ]
-        },
-        {
-          "paragraphs": [
-            "Grendaline(f.)",
-            "Giant of Water: Loyal, Fierce",
-            "Grendaline, raised in a swamp, has an imagination as free-flowing as water. This makes sense, as water is what she spends most of her time imagining. If it sprinkles, drips, flows or gushes, Grendaline is your giant.",
-            "Adherents are known as 'Grendalinians'."
-          ],
-          "choices": [
-            {
-              "text": "Go on",
-              "gotoScreen": 10
-            },
-            {
-              "text": "I've got it now",
-              "gotoScreen": 13
-            }
-          ]
-        },
-        {
-          "paragraphs": [
-            "Zille(f.)",
-            "Giant of Mountains: Friendly, Neurotic",
-            "Zille is the giant with dominion over the mountains. All rocks, caverns, hillocks, pingos, buttes and drumlins thank Zille for their existence. Zille, busy imagining up new flavours of gravel, acknowledges their thanks.",
-            "Adherents are known as 'Zillots'."
-          ],
-          "choices": [
-            {
-              "text": "Go on",
-              "gotoScreen": 11
-            },
-            {
-              "text": "I've got it now",
-              "gotoScreen": 13
-            }
-          ]
-        },
-        {
-          "paragraphs": [
-            "Alph(m.)",
-            "Giant of Creation: Playful, Inconsistent, Unreliable",
-            "Alph is the giant responsible for creating 'things'. And also 'stuff'. Approaching everything with the question 'What IF?', Alph is never happier than when the answer results in a complex wadjamacallit or a satisfyingly big boom.",
-            "Adherents are known as 'Alphas'."
-          ],
-          "choices": [
-            {
-              "text": "Go on",
-              "gotoScreen": 12
-            },
-            {
-              "text": "I've got it now",
-              "gotoScreen": 13
-            }
-          ]
-        },
-        {
-          "paragraphs": [
-            "Pot(m.)",
-            "Giant of Prosperity: Generous, Gluttonous, Impatient",
-            "ound of belly and capacious of stomach Pot is the Giant of Prosperity, with dominion over anything edible, cookable, munchable or nibbleworthy. Pot himself is not munchable. Do not attempt to munch any giants.",
-            "Adherents are known as 'Potians'."
-          ],
-          "choices": [
-            {
-              "text": "Go on",
-              "gotoScreen": 13
-            },
-            {
-              "text": "I've got it now",
-              "gotoScreen": 13
-            }
-          ]
-        },
-        {
-          "paragraphs": [
-            "They love it when you donate stuff to them. Why don't you see if you can get a token of gratitude from one of them?"
-          ],
-          "choices": [
-            {
-              "text": "They'll love me",
-              "gotoScreen": 14,
-              "isQuestAccept": true
-            },
-            {
-              "text": "Not right now",
-              "gotoScreen": 14,
-              "isQuestReject": true
-            }
-          ]
-        }
-      ]
-    },
-    "conversation_end": {
-      "id": "Q4-CE",
-      "screens": [
-        {
-          "paragraphs": [
-            "Wow, they must sure appreciate that stuff you donated."
-          ],
-          "choices": [
-            {
-              "text": "It was nice stuff",
-              "gotoScreen": 2
-            }
-          ]
-        }
-      ]
+{
+  "id": "Q3",
+  "title": "Communing with the Giants",
+  "description": "Why don't you see if you can get a token of gratitude from one of the Giants?",
+  "requirements": [
+    {
+      "id": "Q3R1",
+      "text": "emblem gained",
+      "type": "counter",
+      "numRequired": 1,
+      "eventType": "emblemGet"
     }
+  ],
+  "rewards": {
+    "energy": 30,
+    "mood": 30,
+    "img": 50,
+    "currants": 100
+  },
+  "conversation_start": {
+    "id": "Q3-CS",
+    "screens": [
+      {
+        "paragraphs": [
+          "Ever heard of the 11 Giants?"
+        ],
+        "choices": [
+          {
+            "text": "Yep",
+            "gotoScreen": 13
+          },
+          {
+            "text": "Who?",
+            "gotoScreen": 2
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "Humbaba(f.)",
+          "Giant of Walking Creatures: Gregarious, Belligerent",
+          "Humbaba is the giant ruling over all creatures that walk, crawl, slither or sashay over Ur. One with the animals, Humbaba walks on all fours to be closer to them, and insists on them calling her by her first name. Which is kind of pointless, since she only has one name.",
+          "Adherents are known as 'Humbabans'."
+        ],
+        "choices": [
+          {
+            "text": "Go on",
+            "gotoScreen": 3
+          },
+          {
+            "text": "I've got it now",
+            "gotoScreen": 13
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "Lem(m.)",
+          "Giant of Exploration: Open, Unavailable, Evasive",
+          "Lem, the wanderer giant. Responsible for travel, directions, and knowledge. What Lem doesn’t know is not worth knowing. Also, what Lem doesn’t unknow is not worth unknowing. (That’s Lem’s favourite joke) (Lem doesn’t know many jokes).",
+          "Adherents are known as 'Lemmings'."
+        ],
+        "choices": [
+          {
+            "text": "Go on",
+            "gotoScreen": 4
+          },
+          {
+            "text": "I've got it now",
+            "gotoScreen": 13
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "Friendly(m.)",
+          "Giant of Night & Social Life: Empathetic, Meddlesome",
+          "Friendly is the overseer of darkness, nocturnal things, party-planning, of social activities and their most common lubricant, booze. Friendly by name, friendly by nature: unless you neglect to buy a round.",
+          "Adherents are known as 'Friends'."
+        ],
+        "choices": [
+          {
+            "text": "Go on",
+            "gotoScreen": 5
+          },
+          {
+            "text": "I've got it now",
+            "gotoScreen": 13
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "Spriggan(m.)",
+          "Giant of Trees: Persistent, Evergreen, Rigid",
+          "Before Spriggan, no giant had ever imagined a tree. After Spriggan, no giant ever needed to, because he had already imagined them all. Steadfast, persistent, and somewhat rigid, Spriggan is the slumbering Giant of all Trees and Plants. Or 'Trants'.",
+          "Adherents are known as 'Spriggots'."
+        ],
+        "choices": [
+          {
+            "text": "Go on",
+            "gotoScreen": 6
+          },
+          {
+            "text": "I've got it now",
+            "gotoScreen": 13
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "Cosma(f.)",
+          "Giant of Sky & Meditation: Levitous, Aimless",
+          "As flighty and aimless as anything can be (if that thing is also giant-sized), Cosma is the Giant in charge of imagining up all things airborne. From the heaviest gas to cling to a cavern floor to the tiniest fart to escape from a butterfly, Cosma is the source of it all.",
+          "Adherents are known as 'Cosmapolitans'."
+        ],
+        "choices": [
+          {
+            "text": "Go on",
+            "gotoScreen": 7
+          },
+          {
+            "text": "I've got it now",
+            "gotoScreen": 13
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "Mab(f.)",
+          "Giant of Harvesting: Industrious, Greedy",
+          "When the harvest needs bringing in, the crops need counting, and the job needs doing right, Mab, Giant of Soil and Harvests, first to lie down and start imagining Ur into being is the giant to look to.",
+          "Adherents are known as 'Mabbites'."
+        ],
+        "choices": [
+          {
+            "text": "Go on",
+            "gotoScreen": 8
+          },
+          {
+            "text": "I've got it now",
+            "gotoScreen": 13
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "Tii(n/a)",
+          "Giant of Odd & Even Numbers: Cold, Reckoning",
+          "The Giant with power over all numbers. Odd or even, prime or not-prime, cubed or rooted, Tii keeps a cold, watchful eye over Ur. Tii sees all, knows all, calculates all. Never underestimate Tii. Tii has already correctly estimated you.",
+          "Adherents are known as 'Ti'ites'."
+        ],
+        "choices": [
+          {
+            "text": "Go on",
+            "gotoScreen": 9
+          },
+          {
+            "text": "I've got it now",
+            "gotoScreen": 13
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "Grendaline(f.)",
+          "Giant of Water: Loyal, Fierce",
+          "Grendaline, raised in a swamp, has an imagination as free-flowing as water. This makes sense, as water is what she spends most of her time imagining. If it sprinkles, drips, flows or gushes, Grendaline is your giant.",
+          "Adherents are known as 'Grendalinians'."
+        ],
+        "choices": [
+          {
+            "text": "Go on",
+            "gotoScreen": 10
+          },
+          {
+            "text": "I've got it now",
+            "gotoScreen": 13
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "Zille(f.)",
+          "Giant of Mountains: Friendly, Neurotic",
+          "Zille is the giant with dominion over the mountains. All rocks, caverns, hillocks, pingos, buttes and drumlins thank Zille for their existence. Zille, busy imagining up new flavours of gravel, acknowledges their thanks.",
+          "Adherents are known as 'Zillots'."
+        ],
+        "choices": [
+          {
+            "text": "Go on",
+            "gotoScreen": 11
+          },
+          {
+            "text": "I've got it now",
+            "gotoScreen": 13
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "Alph(m.)",
+          "Giant of Creation: Playful, Inconsistent, Unreliable",
+          "Alph is the giant responsible for creating 'things'. And also 'stuff'. Approaching everything with the question 'What IF?', Alph is never happier than when the answer results in a complex wadjamacallit or a satisfyingly big boom.",
+          "Adherents are known as 'Alphas'."
+        ],
+        "choices": [
+          {
+            "text": "Go on",
+            "gotoScreen": 12
+          },
+          {
+            "text": "I've got it now",
+            "gotoScreen": 13
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "Pot(m.)",
+          "Giant of Prosperity: Generous, Gluttonous, Impatient",
+          "ound of belly and capacious of stomach Pot is the Giant of Prosperity, with dominion over anything edible, cookable, munchable or nibbleworthy. Pot himself is not munchable. Do not attempt to munch any giants.",
+          "Adherents are known as 'Potians'."
+        ],
+        "choices": [
+          {
+            "text": "Go on",
+            "gotoScreen": 13
+          },
+          {
+            "text": "I've got it now",
+            "gotoScreen": 13
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "They love it when you donate stuff to them. Why don't you see if you can get a token of gratitude from one of them?"
+        ],
+        "choices": [
+          {
+            "text": "They'll love me",
+            "gotoScreen": 14,
+            "isQuestAccept": true
+          },
+          {
+            "text": "Not right now",
+            "gotoScreen": 14,
+            "isQuestReject": true
+          }
+        ]
+      }
+    ]
+  },
+  "conversation_end": {
+    "id": "Q4-CE",
+    "screens": [
+      {
+        "paragraphs": [
+          "Wow, they must sure appreciate that stuff you donated."
+        ],
+        "choices": [
+          {
+            "text": "It was nice stuff",
+            "gotoScreen": 2
+          }
+        ]
+      }
+    ]
   }
-]
+}

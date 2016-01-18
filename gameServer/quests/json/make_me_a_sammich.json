@@ -1,0 +1,88 @@
+{
+  "id": "Q1",
+  "title": "Make Me a Sammich",
+  "description": "My stomach is grumbling something fierce. Would you mind making me a bite to eat?",
+  "requirements": [
+    {
+      "id": "Q1R1",
+      "text": "Cheezy Sammich made",
+      "type": "counter",
+      "numRequired": 1,
+      "eventType": "makeRecipe_cheezy_sammich"
+    },
+    {
+      "id": "Q1R2",
+      "text": "Deluxe Sammich made",
+      "type": "counter",
+      "numRequired": 1,
+      "eventType": "makeRecipe_deluxe_sammich"
+    },
+    {
+      "id": "Q1R3",
+      "text": "Hearty Groddle Sammich made",
+      "type": "counter",
+      "numRequired": 1,
+      "eventType": "makeRecipe_hearty_groddle_sammich"
+    }
+  ],
+  "rewards": {
+    "energy": 30,
+    "mood": 30,
+    "img": 100,
+    "currants": 200
+  },
+  "conversation_start": {
+    "id": "Q1-CS",
+    "screens": [
+      {
+        "paragraphs": [
+          "I'm starving. Do you think you could rustle me up something to eat?"
+        ],
+        "choices": [
+          {
+            "text": "Best chef, right here.",
+            "gotoScreen": 2
+          },
+          {
+            "text": "Not really my thing, sorry",
+            "gotoScreen": 2,
+            "isQuestReject": true
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "If you could make me a Cheezy Sammich, a Deluxe Sammich and a Hearty Groddle Sammich, I think that would satisfy my hunger."
+        ],
+        "choices": [
+          {
+            "text": "Wow, that's a lot. I'm on it.",
+            "gotoScreen": 3,
+            "isQuestAccept": true
+          },
+          {
+            "text": "On second thought, nevermind.",
+            "gotoScreen": 3,
+            "isQuestReject": true
+          }
+        ]
+      }
+    ]
+  },
+  "conversation_end": {
+    "id": "Q1-CE",
+    "screens": [
+      {
+        "paragraphs": [
+          "Mhm...this is...fantastic. Well done."
+        ],
+        "choices": [
+          {
+            "text": "Thanks",
+            "gotoScreen": 2
+          }
+        ]
+      }
+    ]
+  }
+}

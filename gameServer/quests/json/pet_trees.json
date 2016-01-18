@@ -1,111 +1,109 @@
-[
-  {
-    "id":"Q2",
-    "title":"Tree Petter",
-    "description":"Go pet 5 different trees throughout the land of Ur",
-    "requirements": [
-      {
-        "id":"R2",
-        "type": "counter_unique",
-        "numRequired": 5,
-        "eventType":"treePet.*",
-        "text":"trees petted"
-      }
-    ],
-    "rewards": {
-      "energy": 0,
-      "mood": 0,
-      "img": 0,
-      "currants": 0,
-      "favor": [
-        {
-          "giantName": "humbaba",
-          "favAmt": 10
-        },
-        {
-          "giantName": "alph",
-          "favAmt": 10
-        }
-      ]
-    },
-    "conversation_start": {
-      "id":"Q2-CS",
-      "screens": [
-        {
-          "paragraphs": [
-            "Hey, are you a fan of nature?"
-          ],
-          "choices": [
-            {
-              "text": "Sure am",
-              "gotoScreen": 3
-            },
-            {
-              "text": "Not really",
-              "gotoScreen": 2
-            }
-          ]
-        },
-        {
-          "paragraphs": [
-            "Well, why don't you give it a try?"
-          ],
-          "choices": [
-            {
-              "text": "Alright I guess",
-              "gotoScreen": 3
-            }
-          ]
-        },
-        {
-          "paragraphs": [
-            "You should go pet 5 different types of trees, show them some love."
-          ],
-          "choices": [
-            {
-              "text": "I can do that",
-              "gotoScreen": 4,
-              "isQuestAccept": true
-            },
-            {
-              "text": "No thanks",
-              "gotoScreen": 4,
-              "isQuestReject": true
-            }
-          ]
-        }
-      ]
-    },
-    "conversation_end": {
-      "id":"Q2-CE",
-      "screens": [
-        {
-          "paragraphs": [
-            "Well, that wasn't too hard, now was it?"
-          ],
-          "choices": [
-            {
-              "text": "Nope",
-              "gotoScreen": 2
-            },
-            {
-              "text": "It was for me",
-              "gotoScreen": 2
-            }
-          ]
-        },
-        {
-          "paragraphs": [
-            "The trees thank you, I can tell."
-          ],
-          "choices": [
-            {
-              "text": "Cool beans! Or bubbles! Or cherries!",
-              "gotoScreen": 3
-            }
-          ]
-        }
-      ]
+{
+  "id": "Q2",
+  "title": "Tree Petter",
+  "description": "Go pet 5 different trees throughout the land of Ur",
+  "requirements": [
+    {
+      "id": "R2",
+      "type": "counter_unique",
+      "numRequired": 5,
+      "eventType": "treePet.*",
+      "text": "trees petted"
     }
+  ],
+  "rewards": {
+    "energy": 0,
+    "mood": 0,
+    "img": 0,
+    "currants": 0,
+    "favor": [
+      {
+        "giantName": "humbaba",
+        "favAmt": 10
+      },
+      {
+        "giantName": "alph",
+        "favAmt": 10
+      }
+    ]
+  },
+  "conversation_start": {
+    "id": "Q2-CS",
+    "screens": [
+      {
+        "paragraphs": [
+          "Hey, are you a fan of nature?"
+        ],
+        "choices": [
+          {
+            "text": "Sure am",
+            "gotoScreen": 3
+          },
+          {
+            "text": "Not really",
+            "gotoScreen": 2
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "Well, why don't you give it a try?"
+        ],
+        "choices": [
+          {
+            "text": "Alright I guess",
+            "gotoScreen": 3
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "You should go pet 5 different types of trees, show them some love."
+        ],
+        "choices": [
+          {
+            "text": "I can do that",
+            "gotoScreen": 4,
+            "isQuestAccept": true
+          },
+          {
+            "text": "No thanks",
+            "gotoScreen": 4,
+            "isQuestReject": true
+          }
+        ]
+      }
+    ]
+  },
+  "conversation_end": {
+    "id": "Q2-CE",
+    "screens": [
+      {
+        "paragraphs": [
+          "Well, that wasn't too hard, now was it?"
+        ],
+        "choices": [
+          {
+            "text": "Nope",
+            "gotoScreen": 2
+          },
+          {
+            "text": "It was for me",
+            "gotoScreen": 2
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "The trees thank you, I can tell."
+        ],
+        "choices": [
+          {
+            "text": "Cool beans! Or bubbles! Or cherries!",
+            "gotoScreen": 3
+          }
+        ]
+      }
+    ]
   }
-]
+}
