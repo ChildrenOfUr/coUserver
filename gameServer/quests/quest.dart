@@ -290,8 +290,10 @@ class UserQuestLog extends Trackable {
 
 			List<Quest> tmp = [];
 			inProgressQuests.forEach((Quest q) {
-				q.requirements.removeWhere((Requirement r) => r == update.requirement);
-				q.requirements.add(update.requirement);
+				if(q.requirements.contains(update.requirement)) {
+					q.requirements.remove(update.requirement);
+					q.requirements.add(update.requirement);
+				}
 				tmp.add(q);
 			});
 			inProgressQuests = tmp;
@@ -304,6 +306,7 @@ class UserQuestLog extends Trackable {
 	void stopTracking() {
 		super.stopTracking();
 		inProgressQuests.forEach((Quest q) => q.stopTracking());
+		QuestService.updateQuestLog(this);
 	}
 
 	Future<bool> addInProgressQuest(String questId) async {
