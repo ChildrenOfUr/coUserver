@@ -88,7 +88,7 @@ class SkillManager {
 	// Add progress to a skill for a user
 	Future<bool> progress(String email, Skill skill, num amount) async {
 		String skillName = getSkillName(skill);
-		Map<String, num> data = await getPlayerSkills(email);
+		Map<String, Map<String, num>> data = await getPlayerSkills(email);
 
 		if (data[skillName] == null) {
 			data[skillName] = {"level": 0, "progress": 0};
