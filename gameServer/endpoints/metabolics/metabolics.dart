@@ -95,6 +95,8 @@ class MetabolicsChange {
 			maxAmt += 100;
 			instanceMirror.setField(new Symbol(giantName.toLowerCase() + 'favor_max'), maxAmt);
 			InventoryV2.addItemToUser(email, items['emblem_of_' + giantName.toLowerCase()].getMap(), 1);
+
+			//end emblem quest
 			messageBus.publish(new RequirementProgress('emblemGet', email));
 			StatBuffer.incrementStat("emblemsCreated", 1);
 		} else {

@@ -138,7 +138,7 @@ class QuestFavor {
 class Quest extends Trackable with MetabolicsChange {
 	@Field() String id, title, description;
 	@Field() bool complete = false;
-	@Field() List<Quest> prerequisites = [];
+	@Field() List<String> prerequisites = [];
 	@Field() List<Requirement> requirements = [];
 	@Field() Conversation conversation_start, conversation_end, conversation_fail;
 	@Field() QuestRewards rewards;
@@ -150,9 +150,7 @@ class Quest extends Trackable with MetabolicsChange {
 		id = model.id;
 		title = model.title;
 		description = model.description;
-		List<Quest> prereqs = [];
-		model.prerequisites.forEach((Quest prereq) => prereqs.add(new Quest.clone(prereq.id)));
-		prerequisites = prereqs;
+		prerequisites = model.prerequisites;
 		List<Requirement> requirements = [];
 		model.requirements.forEach((Requirement req) => requirements.add(new Requirement.clone(req)));
 		this.requirements = requirements;
@@ -341,6 +339,14 @@ class UserQuestLog extends Trackable {
 		Quest questToOffer = new Quest.clone(questId);
 		if (_doingOrDone(questToOffer)) {
 			return;
+		}
+
+		//check if prerequisite quests are complete
+		for(String prereq in questToOffer.prerequisites) {
+			Quest previousQ = new Quest.clone(prereq);
+			if(!completedQuests.contains(previousQ)) {
+				return;
+			}
 		}
 
 		mbSubscriptions.add(messageBus.subscribe(AcceptQuest, (AcceptQuest acceptance) {
