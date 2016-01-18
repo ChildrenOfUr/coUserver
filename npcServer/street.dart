@@ -94,7 +94,7 @@ class Street {
 			});
 		} catch (e) {
 			//no street in the database
-			print("didn't load a street with tsid $tsid from the db");
+//			print("didn't load a street with tsid $tsid from the db");
 		}
 
 		dbManager.closeConnection(dbConn);

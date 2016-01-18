@@ -58,6 +58,10 @@ class Requirement extends Trackable {
 
 	@override
 	void startTracking(String email) {
+		if(fulfilled) {
+			return;
+		}
+
 		super.startTracking(email);
 
 		if(type == 'timed') {
@@ -160,6 +164,10 @@ class Quest extends Trackable with MetabolicsChange {
 
 	@override
 	void startTracking(String email) {
+		if(complete) {
+			return;
+		}
+
 		super.startTracking(email);
 
 		requirements.forEach((Requirement r) => r.startTracking(email));

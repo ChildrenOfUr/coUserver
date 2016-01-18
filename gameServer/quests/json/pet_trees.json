@@ -4,7 +4,7 @@
   "description": "Go pet 5 different trees throughout the land of Ur",
   "requirements": [
     {
-      "id": "R2",
+      "id": "Q2R2",
       "type": "counter_unique",
       "numRequired": 5,
       "eventType": "treePet.*",
