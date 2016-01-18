@@ -3,6 +3,7 @@ part of coUserver;
 class User {
 	@Field() int id;
 	@Field() String username, email, bio;
+	@Field() bool chat_disabled;
 
 	static Map<String, String> emailUsernames = {};
 	static Future<String> getUsernameFromEmail(String email) async {
