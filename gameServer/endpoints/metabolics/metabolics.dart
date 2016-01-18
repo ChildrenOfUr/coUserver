@@ -168,6 +168,9 @@ class Metabolics {
 
 	@Field()
 	String location_history = '[]';
+
+	@Field()
+	String skills_json = "{}";
 }
 
 // LEVELS

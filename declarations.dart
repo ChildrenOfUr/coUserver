@@ -46,6 +46,9 @@ part 'gameServer/quests/quest_service.dart';
 part 'gameServer/quests/quest_endpoint.dart';
 part 'gameServer/quests/user.dart';
 
+// skills
+part "gameServer/endpoints/skills.dart";
+
 // upgrades
 part "gameServer/upgrades/upgrade.dart";
 part "gameServer/upgrades/upgrade_manager.dart";
