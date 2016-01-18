@@ -247,11 +247,11 @@ class Butterfly extends NPC {
 
 			if(rand.nextInt(10) == 1) {
 				// bonus milk
-				InventoryV2.addItemToUser(email, items['butterfly_milk'].getMap(), 3, id);
+				await InventoryV2.addItemToUser(email, items['butterfly_milk'].getMap(), 3, id);
 				StatBuffer.incrementStat("butterfliesMilked", 1);
 				say(responses['milkExtra'].elementAt(rand.nextInt(responses['milkExtra'].length)));
 			} else {
-				InventoryV2.addItemToUser(email, items['butterfly_milk'].getMap(), 1, id);
+				await InventoryV2.addItemToUser(email, items['butterfly_milk'].getMap(), 1, id);
 				StatBuffer.incrementStat("butterfliesMilked", 1);
 				say(responses['milk'].elementAt(rand.nextInt(responses['milk'].length)));
 			}

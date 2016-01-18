@@ -41,12 +41,13 @@ abstract class Rock extends Plant {
 	}
 
 	void update() {
-		if (state >= currentState.numFrames) {
+		DateTime now = new DateTime.now();
+		if (state >= currentState.numFrames && now.compareTo(respawn) >= 0) {
 			say(responses['gone'].elementAt(rand.nextInt(responses['gone'].length)));
 			setActionEnabled("mine", false);
 		}
 
-		if (respawn != null && new DateTime.now().compareTo(respawn) >= 0) {
+		if (respawn != null && now.compareTo(respawn) >= 0) {
 			state = 0;
 			setActionEnabled("mine", true);
 			respawn = null;
@@ -85,19 +86,19 @@ abstract class Rock extends Plant {
 		//moonstone = 1 in 15
 		//diamond = 1 in 20
 		if (rand.nextInt(5) == 5) {
-			InventoryV2.addItemToUser(email, items['pleasing_amber'].getMap(), 1, id);
+			await InventoryV2.addItemToUser(email, items['pleasing_amber'].getMap(), 1, id);
 		}
 		if (rand.nextInt(7) == 5) {
-			InventoryV2.addItemToUser(email, items['showy_sapphire'].getMap(), 1, id);
+			await InventoryV2.addItemToUser(email, items['showy_sapphire'].getMap(), 1, id);
 		}
 		if (rand.nextInt(10) == 5) {
-			InventoryV2.addItemToUser(email, items['modestly_sized_ruby'].getMap(), 1, id);
+			await InventoryV2.addItemToUser(email, items['modestly_sized_ruby'].getMap(), 1, id);
 		}
 		if (rand.nextInt(15) == 5) {
-			InventoryV2.addItemToUser(email, items['luminous_moonstone'].getMap(), 1, id);
+			await InventoryV2.addItemToUser(email, items['luminous_moonstone'].getMap(), 1, id);
 		}
 		if (rand.nextInt(20) == 5) {
-			InventoryV2.addItemToUser(email, items['walloping_big_diamond'].getMap(), 1, id);
+			await InventoryV2.addItemToUser(email, items['walloping_big_diamond'].getMap(), 1, id);
 		}
 
 		return true;

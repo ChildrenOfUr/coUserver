@@ -264,11 +264,11 @@ abstract class Vendor extends NPC {
 		if(m.currants >= calcPrice(item) * num) {
 			m.currants -= calcPrice(item) * num;
 			setMetabolics(m);
-			InventoryV2.addItemToUser(email, item.getMap(), num, id);
+			await InventoryV2.addItemToUser(email, item.getMap(), num, id);
 
 			if(item.itemType == 'knife_and_board') {
 				//offer the make me a sammich quest
-				QuestEndpoint.questLogCache[email].offerQuest(email,'Q1');
+				QuestEndpoint.questLogCache[email].offerQuest('Q1');
 			}
 		}
 	}

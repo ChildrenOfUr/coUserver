@@ -23,10 +23,8 @@ abstract class Entity extends Object with MetabolicsChange {
 
 	Map getMap() {
 		Map map = {};
-		if(bubbleText != null) {
-			map['bubbleText'] = bubbleText;
-			map['gains'] = gains;
-		}
+		map['bubbleText'] = bubbleText;
+		map['gains'] = gains;
 		return map;
 	}
 

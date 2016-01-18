@@ -29,7 +29,7 @@ class BerylRock extends Rock {
 
 		if(success) {
 			//give the player the 'fruits' of their labor
-			InventoryV2.addItemToUser(email, items['chunk_beryl'].getMap(), 1, id);
+			await InventoryV2.addItemToUser(email, items['chunk_beryl'].getMap(), 1, id);
 		}
 
 		return success;

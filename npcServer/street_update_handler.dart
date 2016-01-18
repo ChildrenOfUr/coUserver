@@ -87,15 +87,17 @@ class StreetUpdateHandler {
 					updates["groundItems"].add(item.getMap());
 					//check if item was picked up and if so delete it
 					//(after sending it to the client one more time)
-					if (item.onGround == false)
+					if (item.onGround == false) {
 						pickedUpItems.add(id);
+					}
 				});
 
 				pickedUpItems.forEach((String id) => street.groundItems.remove(id));
 
 				street.occupants.forEach((String username, WebSocket socket) {
-					if (socket != null)
+					if (socket != null) {
 						socket.add(JSON.encode(updates));
+					}
 				});
 			}
 			else

@@ -111,7 +111,7 @@ abstract class Tree extends Plant {
 		say(responses['pet'].elementAt(rand.nextInt(responses['pet'].length)));
 
 		//offer the tree petter quest
-		QuestEndpoint.questLogCache[email].offerQuest(email, 'Q2');
+		QuestEndpoint.questLogCache[email].offerQuest('Q2');
 
 		messageBus.publish(new RequirementProgress('treePet$type', email));
 		StatBuffer.incrementStat("treesPetted", 1);

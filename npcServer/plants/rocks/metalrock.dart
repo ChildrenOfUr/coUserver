@@ -42,7 +42,7 @@ class MetalRock extends Rock {
 
 		if(success) {
 			//give the player the 'fruits' of their labor
-			InventoryV2.addItemToUser(email, items['chunk_metal'].getMap(), 1, id);
+			await InventoryV2.addItemToUser(email, items['chunk_metal'].getMap(), 1, id);
 		}
 
 		return success;

@@ -59,7 +59,7 @@ class PaperTree extends Tree {
 
 		if(success) {
 			//give the player the 'fruits' of their labor
-			InventoryV2.addItemToUser(email, items['paper'].getMap(), 1, id);
+			await InventoryV2.addItemToUser(email, items['paper'].getMap(), 1, id);
 		}
 
 		return success;

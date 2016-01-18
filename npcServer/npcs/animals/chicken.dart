@@ -127,10 +127,10 @@ class Chicken extends NPC {
 
 		if(rand.nextInt(5) == 1) {
 			// 1/5 chance of bonus
-			InventoryV2.addItemToUser(email, items['grain'].getMap(), 3, id);
+			await InventoryV2.addItemToUser(email, items['grain'].getMap(), 3, id);
 			say(responses['squeezeExtra'].elementAt(rand.nextInt(responses['squeezeExtra'].length)));
 		} else {
-			InventoryV2.addItemToUser(email, items['grain'].getMap(), 1, id);
+			await InventoryV2.addItemToUser(email, items['grain'].getMap(), 1, id);
 			say(responses['squeeze'].elementAt(rand.nextInt(responses['squeeze'].length)));
 		}
 

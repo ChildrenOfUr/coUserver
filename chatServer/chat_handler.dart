@@ -189,7 +189,7 @@ class ChatHandler {
 				});
 				map["users"] = userList;
 				map["message"] = "Users in this channel: ";
-				users[map["username"]].webSocket.add(JSON.encode(map));
+				users[map["username"]]?.webSocket?.add(JSON.encode(map));
 				return;
 			}
 

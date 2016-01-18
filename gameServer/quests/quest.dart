@@ -335,7 +335,7 @@ class UserQuestLog extends Trackable {
 		return false;
 	}
 
-	void offerQuest(String email, String questId) {
+	void offerQuest(String questId) {
 		Quest questToOffer = new Quest.clone(questId);
 		if (_doingOrDone(questToOffer)) {
 			return;

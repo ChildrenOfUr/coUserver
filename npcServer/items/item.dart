@@ -246,12 +246,12 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 
 	// ground -> inventory
 
-	void pickup({WebSocket userSocket, String email, String username}) {
+	Future pickup({WebSocket userSocket, String email, String username}) async {
 		onGround = false;
 		Item item = new Item.clone(itemType)
 			..onGround = false
 			..metadata = this.metadata;
-		InventoryV2.addItemToUser(email, item.getMap(), 1, item_id);
+		await InventoryV2.addItemToUser(email, item.getMap(), 1, item_id);
 		StatBuffer.incrementStat("itemsPickedup", 1);
 	}
 

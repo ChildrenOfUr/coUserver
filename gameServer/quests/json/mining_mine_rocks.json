@@ -1,0 +1,72 @@
+{
+  "id": "Q6",
+  "title": "Dullite, Beryl and Sparkly",
+  "description": "Mine from Dullite, Beryl and Sparkly rocks until you've mined 17, 13 and 11 ore chunks respectively.",
+  "requirements": [
+    {
+      "id": "Q6R1",
+      "text": "dullite mined",
+      "type": "counter",
+      "numRequired": 17,
+      "eventType": "getItem_chunk_dullite"
+    },
+    {
+      "id": "Q6R2",
+      "text": "beryl mined",
+      "type": "counter",
+      "numRequired": 13,
+      "eventType": "getItem_chunk_beryl"
+    },
+    {
+      "id": "Q6R3",
+      "text": "sparkly mined",
+      "type": "counter",
+      "numRequired": 11,
+      "eventType": "getItem_chunk_sparkly"
+    }
+  ],
+  "rewards": {
+    "energy": 75,
+    "img": 150,
+    "currants": 100,
+    "favor": [
+      {
+        "giantName": "zille",
+        "favAmt": 15
+      }
+    ]
+  },
+  "conversation_start": {
+    "id": "Q6-CS",
+    "screens": [
+      {
+        "paragraphs": [
+          "You little miner, you! Go mine you some ore! Get 17 Dullite, 13 Beryl and 11 Sparkly ore chunks. You'll have an easier time finding rocks to mine in Ilmenskie Caverns, Ilmenskie Deeps, Groddle Heights and Alakol."
+        ],
+        "choices": [
+          {
+            "text": "On it boss",
+            "gotoScreen": 2,
+            "isQuestAccept": true
+          }
+        ]
+      }
+    ]
+  },
+  "conversation_end": {
+    "id": "Q6-CE",
+    "screens": [
+      {
+        "paragraphs": [
+          "Well done! Hope your arms aren't too tired. If you mine enough, you probably want to get a good masseuse. Here's a little something for your trouble."
+        ],
+        "choices": [
+          {
+            "text": "Gonna take a nap now",
+            "gotoScreen": 2
+          }
+        ]
+      }
+    ]
+  }
+}

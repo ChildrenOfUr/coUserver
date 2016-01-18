@@ -80,11 +80,11 @@ class DirtPile extends Plant {
 		}
 
 		//give the player the 'fruits' of their labor
-		InventoryV2.addItemToUser(email, items['earth'].getMap(), 1, id);
+		await InventoryV2.addItemToUser(email, items['earth'].getMap(), 1, id);
 
 		//1 in 10 chance to get a lump of loam as well
 		if (new Random().nextInt(10) == 5) {
-			InventoryV2.addItemToUser(email, items['loam'].getMap(), 1, id);
+			await InventoryV2.addItemToUser(email, items['loam'].getMap(), 1, id);
 		}
 
 		return true;

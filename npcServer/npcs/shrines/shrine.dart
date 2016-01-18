@@ -73,9 +73,9 @@ class Shrine extends NPC {
 			userSocket.add(JSON.encode(addedFavorMap));
 
 			//offer 'get an emblem with a giant' quest
-			QuestEndpoint.questLogCache[email].offerQuest(email, 'Q3');
+			QuestEndpoint.questLogCache[email].offerQuest('Q3');
 			//offer icon quest (only after you complete the emblem quest)
-			QuestEndpoint.questLogCache[email].offerQuest(email,'Q5');
+			QuestEndpoint.questLogCache[email].offerQuest('Q5');
 		} else {
 			log("$email failed to donate $qty $itemType to $type");
 		}

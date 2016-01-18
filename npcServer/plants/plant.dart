@@ -26,8 +26,9 @@ abstract class Plant extends Entity {
 			respawn = new DateTime.now().add(new Duration(seconds:30));
 		}
 
-		if(state > maxState)
+		if(state > maxState) {
 			state = maxState;
+		}
 	}
 
 	Map getMap() {

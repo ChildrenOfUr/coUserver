@@ -66,11 +66,11 @@ class MetabolicsChange {
 		Metabolics metabolics = await getMetabolics(email: email);
 
 		if (favors != null) {
-			favors.forEach((QuestFavor favor) {
-				metabolics = _setFavor(email, metabolics, favor.giantName, favor.favAmt);
+			Future.forEach(favors, (QuestFavor favor) async {
+				metabolics = await _setFavor(email, metabolics, favor.giantName, favor.favAmt);
 			});
 		} else {
-			metabolics = _setFavor(email, metabolics, giantName, favAmt);
+			metabolics = await _setFavor(email, metabolics, giantName, favAmt);
 		}
 
 		await setMetabolics(metabolics);
@@ -81,7 +81,7 @@ class MetabolicsChange {
 		gains = {'energy':0, 'mood':0, 'img':0, 'currants':0};
 	}
 
-	Metabolics _setFavor(String email, Metabolics metabolics, String giantName, int favAmt) {
+	Future<Metabolics> _setFavor(String email, Metabolics metabolics, String giantName, int favAmt) async {
 		InstanceMirror instanceMirror = reflect(metabolics);
 		int giantFavor = instanceMirror
 			.getField(new Symbol(giantName.toLowerCase() + 'favor'))
@@ -94,7 +94,7 @@ class MetabolicsChange {
 			instanceMirror.setField(new Symbol(giantName.toLowerCase() + 'favor'), 0);
 			maxAmt += 100;
 			instanceMirror.setField(new Symbol(giantName.toLowerCase() + 'favor_max'), maxAmt);
-			InventoryV2.addItemToUser(email, items['emblem_of_' + giantName.toLowerCase()].getMap(), 1);
+			await InventoryV2.addItemToUser(email, items['emblem_of_' + giantName.toLowerCase()].getMap(), 1);
 
 			//end emblem quest
 			messageBus.publish(new RequirementProgress('emblemGet', email));
