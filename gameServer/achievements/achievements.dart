@@ -97,10 +97,10 @@ class Achievement {
 					// Send to client
 					StreetUpdateHandler.userSockets[email].add(JSON.encode(
 					  {
-						  "achievement": "true",
-						  "achievement_name": name,
-						  "achievement_description": description,
-						  "achievement_imageUrl": imageUrl
+						  "achv_id": id,
+						  "achv_name": name,
+						  "achv_description": description,
+						  "achv_imageUrl": imageUrl
 					  }
 					));
 
