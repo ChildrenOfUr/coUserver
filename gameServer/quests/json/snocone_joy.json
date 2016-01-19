@@ -1,0 +1,89 @@
+{
+  "id": "Q7",
+  "title": "Snocone Joy",
+  "description": "Go to the Wintry Place and buy any color sno cone.",
+  "requirements": [
+    {
+      "id": "Q7R1",
+      "text": "travel to Wintry Place",
+      "type": "counter",
+      "numRequired": 1,
+      "eventType": "location_Wintry Place"
+    },
+    {
+      "id": "Q7R2",
+      "text": "sno cone purchased",
+      "type": "counter",
+      "numRequired": 1,
+      "eventType": "getItem_snocone_*"
+    }
+  ],
+  "prerequisites": [
+    "Q1"
+  ],
+  "rewards": {
+    "img": 60,
+    "currants": 50
+  },
+  "conversation_start": {
+    "id": "Q7-CS",
+    "screens": [
+      {
+        "paragraphs": [
+          "You make great sammiches."
+        ],
+        "choices": [
+          {
+            "text": "Thanks",
+            "gotoScreen": 2
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "You know what would be real good now?"
+        ],
+        "choices": [
+          {
+            "text": "What?",
+            "gotoScreen": 3
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "A sno cone. I love all the pretty colors.",
+          "Would you mind going over to the Wintry Place to get one for me?"
+        ],
+        "choices": [
+          {
+            "text": "Back in a jif",
+            "gotoScreen": 4,
+            "isQuestAccept": true
+          },
+          {
+            "text": "Maybe later",
+            "gotoScreen": 4,
+            "isQuestReject": true
+          }
+        ]
+      }
+    ]
+  },
+  "conversation_end": {
+    "id": "Q7-CE",
+    "screens": [
+      {
+        "paragraphs": [
+          "Great. If you're still chilly I recommend a nice vacation in Chakra Phool"
+        ],
+        "choices": [
+          {
+            "text": "*shiver*",
+            "gotoScreen": 2
+          }
+        ]
+      }
+    ]
+  }
+}

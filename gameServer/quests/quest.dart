@@ -260,6 +260,13 @@ class UserQuestLog extends Trackable {
 				..add(q.quest);
 
 			QuestService.updateQuestLog(this);
+
+			//if they completed the sammich quest, go get a snocone
+			//wait for a minute before offering
+			if(q.quest.id == 'Q1') {
+				new Timer(new Duration(minutes:1), () =>
+					QuestEndpoint.questLogCache[email].offerQuest('Q7'));
+			}
 		}));
 
 		mbSubscriptions.add(messageBus.subscribe(FailQuest, (FailQuest q) {
