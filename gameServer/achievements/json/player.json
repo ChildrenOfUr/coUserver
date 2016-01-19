@@ -1,0 +1,616 @@
+{
+	"card_carrying_qualification": {
+		"name": "Card-Carrying Qualification",
+		"description": "Got the Card-Carrying Qualification.",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/card_carrying_qualification_1304985086_180.png",
+		"related": [
+			"firefly-whistling",
+			"you-have-papers"
+		]
+	},
+	"firefly_whistling": {
+		"name": "Firefly Whistling",
+		"description": "Swallowed a FireFlex 3000 Firefly Whistle.",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/firefly_whistling_1304985080_180.png",
+		"related": [
+			"card-carrying-qualification",
+			"you-have-papers"
+		]
+	},
+	"you_have_papers": {
+		"name": "You Have Papers!",
+		"description": "Having papers —&nbsp;in order, of course! — is required for various citizenshiply things, including for using public transportation.",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/you_have_papers_1304985095_180.png",
+		"related": [
+			"card-carrying-qualification",
+			"firefly-whistling"
+		]
+	},
+	"eggy_wegger": {
+		"name": "Eggy Wegger",
+		"description": "Noshed on 23 eggs",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/eggy_wegger_1304983527_180.png",
+		"related": [
+			"golden-ovum-award",
+			"local-yolkel",
+			"outstanding-coddler"
+		]
+	},
+	"local_yolkel": {
+		"name": "Local Yolkel",
+		"description": "Polished off 53 eggs",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/local_yolkel_1304983532_180.png",
+		"related": [
+			"eggy-wegger",
+			"golden-ovum-award",
+			"outstanding-coddler"
+		]
+	},
+	"outstanding_coddler": {
+		"name": "Outstanding Coddler",
+		"description": "Gobbled up 251 eggs",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/outstanding_coddler_1304983540_180.png",
+		"related": [
+			"eggy-wegger",
+			"golden-ovum-award",
+			"local-yolkel"
+		]
+	},
+	"golden_ovum_award": {
+		"name": "Golden Ovum Award",
+		"description": "Chowed down 503 eggs",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/golden_ovum_award_1304983550_180.png",
+		"related": [
+			"eggy-wegger",
+			"local-yolkel",
+			"outstanding-coddler"
+		]
+	},
+	"gastro_gnome": {
+		"name": "Gastro-gnome",
+		"description": "Ate 11 meals",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/gastro_gnome_1304983554_180.png",
+		"related": [
+			"bonbon-vivant",
+			"glutton-for-nourishment",
+			"gourmand-supreme",
+			"noted-epicure"
+		]
+	},
+	"glutton_for_nourishment": {
+		"name": "Glutton for Nourishment",
+		"description": "Ate 41 meals",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/glutton_for_nourishment_1304983560_180.png",
+		"related": [
+			"bonbon-vivant",
+			"gastro-gnome",
+			"gourmand-supreme",
+			"noted-epicure"
+		]
+	},
+	"bonbon_vivant": {
+		"name": "Bonbon Vivant",
+		"description": "Ate 101 meals",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/bonbon_vivant_1304983565_180.png",
+		"related": [
+			"gastro-gnome",
+			"glutton-for-nourishment",
+			"gourmand-supreme",
+			"noted-epicure"
+		]
+	},
+	"noted_epicure": {
+		"name": "Noted Epicure",
+		"description": "Ate 503 meals",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/noted_epicure_1304983569_180.png",
+		"related": [
+			"bonbon-vivant",
+			"gastro-gnome",
+			"glutton-for-nourishment",
+			"gourmand-supreme"
+		]
+	},
+	"gourmand_supreme": {
+		"name": "Gourmand Supreme",
+		"description": "Gormandized 1009 meals",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/gourmand_supreme_1304983574_180.png",
+		"related": [
+			"bonbon-vivant",
+			"gastro-gnome",
+			"glutton-for-nourishment",
+			"noted-epicure"
+		]
+	},
+	"protein_time": {
+		"name": "Protein Time!!!",
+		"description": "Chowed down 11 raw meats",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/protein_time_1304983792_180.png",
+		"related": [
+			"dedicated-meataterian",
+			"golden-hock-award",
+			"hardcore-carnivore",
+			"silver-gristle-award"
+		]
+	},
+	"dedicated_meataterian": {
+		"name": "Dedicated Meataterian",
+		"description": "Nibbled 23 meats",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/dedicated_meataterian_1304983497_180.png",
+		"related": [
+			"golden-hock-award",
+			"hardcore-carnivore",
+			"protein-time",
+			"silver-gristle-award"
+		]
+	},
+	"hardcore_carnivore": {
+		"name": "Hardcore Carnivore",
+		"description": "Munched 53 meats",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/hardcore_carnivore_1304983503_180.png",
+		"related": [
+			"dedicated-meataterian",
+			"golden-hock-award",
+			"protein-time",
+			"silver-gristle-award"
+		]
+	},
+	"silver_gristle_award": {
+		"name": "Silver Gristle Award",
+		"description": "Pigged out on 251 meats",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/silver_gristle_award_1304983511_180.png",
+		"related": [
+			"dedicated-meataterian",
+			"golden-hock-award",
+			"hardcore-carnivore",
+			"protein-time"
+		]
+	},
+	"golden_hock_award": {
+		"name": "Golden Hock Award",
+		"description": "Wolfed down 503 meats",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/golden_hock_award_1304983518_180.png",
+		"related": [
+			"dedicated-meataterian",
+			"hardcore-carnivore",
+			"protein-time",
+			"silver-gristle-award"
+		]
+	},
+	"slippery_customer": {
+		"name": "Slippery Customer",
+		"description": "Skillfully eluded 29 pernicious Juju Bandits",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/slippery_customer_1315686134_180.png",
+		"related": [
+			"jammy-dodger",
+			"right-honorable-robber-ducker"
+		]
+	},
+	"jammy_dodger": {
+		"name": "Jammy Dodger",
+		"description": "Artfully dodged 137 malevolent Juju Bandits",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/jammy_dodger_1315686137_180.png",
+		"related": [
+			"right-honorable-robber-ducker",
+			"slippery-customer"
+		]
+	},
+	"right_honorable_robber_ducker": {
+		"name": "Right Honorable Robber-Ducker",
+		"description": "Deftly ducked 509 nefarious Juju Bandits",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/right_honorable_robber_ducker_1315686139_180.png",
+		"related": [
+			"jammy-dodger",
+			"slippery-customer"
+		]
+	},
+	"clumsy": {
+		"name": "Clumsy",
+		"description": "Croaked 3 times. Oops.",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/clumsy1_1304983932_180.png",
+		"related": [
+			"darwin-award-winner",
+			"dracula",
+			"necromonger",
+			"zombie"
+		]
+	},
+	"darwin_award_winner": {
+		"name": "Darwin Award Winner",
+		"description": "Croaked 11 times. Double-oops.",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/darwin_award_winner_1304983938_180.png",
+		"related": [
+			"clumsy",
+			"dracula",
+			"necromonger",
+			"zombie"
+		]
+	},
+	"necromonger": {
+		"name": "Necromonger",
+		"description": "Croaked 53 times. This is habit-forming.",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/necromonger_1304983944_180.png",
+		"related": [
+			"clumsy",
+			"darwin-award-winner",
+			"dracula",
+			"zombie"
+		]
+	},
+	"zombie": {
+		"name": "Zombie",
+		"description": "Croaked 251 times.",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/zombie_1304983950_180.png",
+		"related": [
+			"clumsy",
+			"darwin-award-winner",
+			"dracula",
+			"necromonger"
+		]
+	},
+	"dracula": {
+		"name": "Dracula",
+		"description": "Croaked 1009 times.",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/dracula_1304983956_180.png",
+		"related": [
+			"clumsy",
+			"darwin-award-winner",
+			"necromonger",
+			"zombie"
+		]
+	},
+	"quiet_tragedy": {
+		"name": "Quiet Tragedy",
+		"description": "Croaked in your own home",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/quiet_tragedy_1339717776_180.png",
+		"related": [
+		]
+	},
+	"loneliness_of_the_long_distance_cubimal": {
+		"name": "The Loneliness of the Long Distance Cubimal",
+		"description": "Raced a cubimal to an astounding 8.9 planks",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-20/loneliness_of_the_long_distance_cubimal_1340238848_180.png",
+		"related": [
+		]
+	},
+	"friend_of_cubimals": {
+		"name": "Friend of Cubimals",
+		"description": "Freed 11 Cubimals",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/friend_of_cubimals_1339702831_180.png",
+		"related": [
+			"cubimal-emancipationist",
+			"hero-of-the-cubimals",
+			"the-swarm"
+		]
+	},
+	"the_swarm": {
+		"name": "The Swarm",
+		"description": "Raced a cubimal as part of a 31-cubimal mega-race extravaganza",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-20/the_swarm_1340238852_180.png",
+		"related": [
+			"cubimal-emancipationist",
+			"friend-of-cubimals",
+			"hero-of-the-cubimals"
+		]
+	},
+	"hero_of_the_cubimals": {
+		"name": "Hero of the Cubimals",
+		"description": "Freed 53 Cubimals",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/hero_of_the_cubimals_1339702833_180.png",
+		"related": [
+			"cubimal-emancipationist",
+			"friend-of-cubimals",
+			"the-swarm"
+		]
+	},
+	"cubimal_emancipationist": {
+		"name": "Cubimal Emancipationist",
+		"description": "Freed 251 Cubimals",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-21/cubimal_emancipationist_1340313072_180.png",
+		"related": [
+			"friend-of-cubimals",
+			"hero-of-the-cubimals",
+			"the-swarm"
+		]
+	},
+	"first_series_releaser": {
+		"name": "First Series Releaser",
+		"description": "Set free one each of the releasable Series 1 Cubimals",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/first_series_releaser_1339723073_180.png",
+		"related": [
+		]
+	},
+	"second_series_liberator": {
+		"name": "Second Series Liberator",
+		"description": "Set free one of each of the releasable Series 2 Cubimals",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/second_series_liberator_1339702828_180.png",
+		"related": [
+		]
+	},
+	"pennypincher": {
+		"name": "Pennypincher",
+		"description": "Socked away 2,022 currants",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/pennypincher_1304983962_180.png",
+		"related": [
+			"lovable-skinflint",
+			"moneybags"
+		]
+	},
+	"moneybags": {
+		"name": "Moneybags",
+		"description": "Socked away 5,011 currants",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/moneybags_1304983967_180.png",
+		"related": [
+			"lovable-skinflint",
+			"pennypincher"
+		]
+	},
+	"lovable_skinflint": {
+		"name": "Lovable Skinflint",
+		"description": "Socked away 11,111 currants",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/lovable_skinflint_1304983972_180.png",
+		"related": [
+			"moneybags",
+			"pennypincher"
+		]
+	},
+	"promising_lush": {
+		"name": "Promising Lush",
+		"description": "Wet your whistle 7 times",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/promising_lush_1304983578_180.png",
+		"related": [
+			"certified-boozehound",
+			"hollow-leg-award",
+			"hoochmeister"
+		]
+	},
+	"hollow_leg_award": {
+		"name": "Hollow Leg Award",
+		"description": "Wet your whistle 23 times",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/hollow_leg_award_1304983582_180.png",
+		"related": [
+			"certified-boozehound",
+			"hoochmeister",
+			"promising-lush"
+		]
+	},
+	"certified_boozehound": {
+		"name": "Certified Boozehound",
+		"description": "Wet your whistle 41 times",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/certified_boozehound_1304983586_180.png",
+		"related": [
+			"hollow-leg-award",
+			"hoochmeister",
+			"promising-lush"
+		]
+	},
+	"hoochmeister": {
+		"name": "Hoochmeister",
+		"description": "Wet your whistle 79 times",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/hoochmeister_1304983774_180.png",
+		"related": [
+			"certified-boozehound",
+			"hollow-leg-award",
+			"promising-lush"
+		]
+	},
+	"perseverating_dipsomaniac": {
+		"name": "Perseverating Dipsomaniac",
+		"description": "Maintained a solid buzz for 10 straight minutes, for no discernable reason whatsoever",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/perseverating_dipsomaniac_1315685889_180.png",
+		"related": [
+		]
+	},
+	"aftershock_award": {
+		"name": "Aftershock Award",
+		"description": "Gamely gulped down 11 Earthshakers",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/aftershock_award_1304983778_180.png",
+		"related": [
+			"bubble-tea-aficionado",
+			"firetongue-award",
+			"nervous-belch-award"
+		]
+	},
+	"bubble_tea_aficionado": {
+		"name": "Bubble Tea Aficionado",
+		"description": "Drank 11 Bubble Teas",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/bubble_tea_aficionado_1304984254_180.png",
+		"related": [
+			"aftershock-award",
+			"firetongue-award",
+			"nervous-belch-award"
+		]
+	},
+	"firetongue_award": {
+		"name": "Firetongue Award",
+		"description": "Boldly imbibed 11 Flaming Humbabas",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/firetongue_award_1304983782_180.png",
+		"related": [
+			"aftershock-award",
+			"bubble-tea-aficionado",
+			"nervous-belch-award"
+		]
+	},
+	"nervous_belch_award": {
+		"name": "Nervous Belch Award",
+		"description": "Stoically slurped 11 Savory Smoothies",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/nervous_belch_award_1304983788_180.png",
+		"related": [
+			"aftershock-award",
+			"bubble-tea-aficionado",
+			"firetongue-award"
+		]
+	},
+	"bounder_untenured": {
+		"name": "Bounder, Untenured",
+		"description": "Jumped exactly 1,111 times",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/bounder_untenured_1315685830_180.png",
+		"related": [
+			"bounder-tenured",
+			"leapist"
+		]
+	},
+	"leapist": {
+		"name": "Leapist",
+		"description": "Jumped exactly 11,111 times",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/leapist_1315685833_180.png",
+		"related": [
+			"bounder-tenured",
+			"bounder-untenured"
+		]
+	},
+	"bounder_tenured": {
+		"name": "Bounder, Tenured",
+		"description": "Jumped with nigh-Olympian skill and grace exactly 111,111 times",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/bounder_tenured_1315685841_180.png",
+		"related": [
+			"bounder-untenured",
+			"leapist"
+		]
+	},
+	"ace_of_om": {
+		"name": "Ace of Om",
+		"description": "Practiced meditation for a sum total of 23 minutes",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/ace_of_om_1315686035_180.png",
+		"related": [
+			"full-time-swami",
+			"harmony-hound",
+			"master-of-internal-emptiness"
+		]
+	},
+	"harmony_hound": {
+		"name": "Harmony Hound",
+		"description": "Practiced meditation for a sum total of 101 minutes",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/harmony_hound_1315686037_180.png",
+		"related": [
+			"ace-of-om",
+			"full-time-swami",
+			"master-of-internal-emptiness"
+		]
+	},
+	"full_time_swami": {
+		"name": "Full-Time Swami",
+		"description": "Practiced meditation for a sum total of 251 minutes",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/full_time_swami_1315686040_180.png",
+		"related": [
+			"ace-of-om",
+			"harmony-hound",
+			"master-of-internal-emptiness"
+		]
+	},
+	"master_of_internal_emptiness": {
+		"name": "Master of Internal Emptiness",
+		"description": "Practiced meditation for a sum total of 503 minutes",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/master_of_internal_emptiness_1315686042_180.png",
+		"related": [
+			"ace-of-om",
+			"full-time-swami",
+			"harmony-hound"
+		]
+	},
+	"big_spender": {
+		"name": "Big Spender",
+		"description": "Made a purchase worth 1009 or more currants",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-08-03/big_spender_1344032038_180.png",
+		"related": [
+			"el-big-spenderino",
+			"moneybags-magoo"
+		]
+	},
+	"el_big_spenderino": {
+		"name": "El Big Spenderino",
+		"description": "Made a purchase worth 2003 or more currants",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-08-03/el_big_spenderino_1344032042_180.png",
+		"related": [
+			"big-spender",
+			"moneybags-magoo"
+		]
+	},
+	"moneybags_magoo": {
+		"name": "Moneybags Magoo",
+		"description": "Made a purchase worth 5003 or more currants",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-08-03/moneybags_magoo_1344032047_180.png",
+		"related": [
+			"big-spender",
+			"el-big-spenderino"
+		]
+	},
+	"homesteader": {
+		"name": "Homesteader",
+		"description": "Took the big plunge and purchased first home",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/homesteader_1304984945_180.png",
+		"related": [
+		]
+	},
+	"first_eleven_skills": {
+		"name": "First Eleven",
+		"description": "Learned your first eleven skills. Awww … so cute.",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-08-26/first_eleven_skills_1346014677_180.png",
+		"related": [
+		]
+	},
+	"major_player": {
+		"name": "Major Player",
+		"description": "Played Glitch for a sweetly life-affirming 11 hours",
+		"category": "Player",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/major_player_1304984812_180.png",
+		"related": [
+		]
+	}
+}

@@ -1,0 +1,536 @@
+{
+	"tinker_trainee_kitchen_division": {
+		"name": "Tinker Trainee, Kitchen Division",
+		"description": "Used a Tinkertool to repair 3 cooking tools from their half-life to a fully-repaired state",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/tinker_trainee_kitchen_division_1304984908_180.png",
+		"related": [
+			"assistant-to-the-mending-manager-kitchen-division",
+			"senior-mending-manager-kitchen-division"
+		]
+	},
+	"assistant_to_the_mending_manager_kitchen_division": {
+		"name": "Assistant to the Mending Manager, Kitchen Division",
+		"description": "Used a Tinkertool to repair 23 cooking tools from their half-life to a fully-repaired state",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/assistant_to_the_mending_manager_kitchen_division_1304984912_180.png",
+		"related": [
+			"senior-mending-manager-kitchen-division",
+			"tinker-trainee-kitchen-division"
+		]
+	},
+	"senior_mending_manager_kitchen_division": {
+		"name": "Senior Mending Manager, Kitchen Division",
+		"description": "Used a Tinkertool to repair 127 cooking tools from their half-life to a fully-repaired state",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-20/senior_mending_manager_kitchen_division_1340231139_180.png",
+		"related": [
+			"assistant-to-the-mending-manager-kitchen-division",
+			"tinker-trainee-kitchen-division"
+		]
+	},
+	"seamster": {
+		"name": "Seamster",
+		"description": "Lovingly crafted 17 pieces of general fabric",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/seamster_1339698262_180.png",
+		"related": [
+		]
+	},
+	"spin_doctor": {
+		"name": "Spin Doctor",
+		"description": "Spun 2051 fiber into 293 thread in one super long spin",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-07-03/spin_doctor_1341345443_180.png",
+		"related": [
+		]
+	},
+	"string_practicioner": {
+		"name": "String Practitioner",
+		"description": "Skillfully spun fiber directly into string (requires Spellbound Spindle upgrade)",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/string_practicioner_1339698257_180.png",
+		"related": [
+		]
+	},
+	"friend_of_the_urth": {
+		"name": "Friend of the Urth",
+		"description": "Made 53 wholesome Urth Blocks",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/friend_of_the_urth_1339698045_180.png",
+		"related": [
+		]
+	},
+	"bar_fly": {
+		"name": "Bar Fly",
+		"description": "Turned 57 metal bars",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/bar_fly_1339698244_180.png",
+		"related": [
+		]
+	},
+	"girder_herder": {
+		"name": "Girder Herder",
+		"description": "Goaded 41 Girders into being",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/girder_herder_1339698024_180.png",
+		"related": [
+		]
+	},
+	"hot_rodmaker": {
+		"name": "Hot Rodmaker",
+		"description": "Milled 67 metal rods",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/hot_rodmaker_1339717674_180.png",
+		"related": [
+		]
+	},
+	"hill_of_beams": {
+		"name": "Hill of Beams",
+		"description": "Knocked up 107 Beams",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/hill_of_beams_1339697769_180.png",
+		"related": [
+		]
+	},
+	"chairman_of_the_board": {
+		"name": "Chairman of the Board",
+		"description": "Worked up 101 Boards",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/chairman_of_the_board_1339696917_180.png",
+		"related": [
+		]
+	},
+	"post_master": {
+		"name": "Post Master (General)",
+		"description": "Turned out 103 Wood Posts",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/post_master_1339717553_180.png",
+		"related": [
+		]
+	},
+	"curious_george": {
+		"name": "Curious George",
+		"description": "Assembled and Disassembled each of the 4 machines",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/curious_george_1339717773_180.png",
+		"related": [
+		]
+	},
+	"gas_guzzler": {
+		"name": "Gas Guzzler",
+		"description": "Refueled 23 machines",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/gas_guzzler_1339698250_180.png",
+		"related": [
+		]
+	},
+	"bowser": {
+		"name": "Bowser",
+		"description": "Refueled 5 machines in other players' home streets or yards, or machine rooms",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/bowser_1339713867_180.png",
+		"related": [
+		]
+	},
+	"forgey_laforge": {
+		"name": "Forgey LaForge",
+		"description": "Smelted 41 Metal Ingots from purest Metal Rock",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/forgey_laforge_1315686073_180.png",
+		"related": [
+			"crucible-jockey",
+			"hephaestite",
+			"metal-masseuse",
+			"metalhead"
+		]
+	},
+	"crucible_jockey": {
+		"name": "Crucible Jockey",
+		"description": "Smelted 127 Metal Ingots from purest Metal Rock",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/crucible_jockey_1315686076_180.png",
+		"related": [
+			"forgey-laforge",
+			"hephaestite",
+			"metal-masseuse",
+			"metalhead"
+		]
+	},
+	"metal_masseuse": {
+		"name": "Metal Masseuse",
+		"description": "Smelted 283 Metal Ingots from purest Metal Rock",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/metal_masseuse_1315686078_180.png",
+		"related": [
+			"crucible-jockey",
+			"forgey-laforge",
+			"hephaestite",
+			"metalhead"
+		]
+	},
+	"metalhead": {
+		"name": "Metalhead",
+		"description": "Smelted 503 Metal Ingots from purest Metal Rock",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/metalhead_1315686081_180.png",
+		"related": [
+			"crucible-jockey",
+			"forgey-laforge",
+			"hephaestite",
+			"metal-masseuse"
+		]
+	},
+	"hephaestite": {
+		"name": "Hephaestite",
+		"description": "Smelted 1009 Metal Ingots from purest Metal Rock",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/hephaestite_1315686083_180.png",
+		"related": [
+			"crucible-jockey",
+			"forgey-laforge",
+			"metal-masseuse",
+			"metalhead"
+		]
+	},
+	"ok_hewer": {
+		"name": "OK Hewer",
+		"description": "Mined for ore 11 times",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/ok_hewer_1304983903_180.png",
+		"related": [
+			"creditable-delver",
+			"master-blaster",
+			"serious-scrabbler",
+			"shiny-nugget-award"
+		]
+	},
+	"creditable_delver": {
+		"name": "Creditable Delver",
+		"description": "Mined for ore 53 times",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/creditable_delver_1304983908_180.png",
+		"related": [
+			"master-blaster",
+			"ok-hewer",
+			"serious-scrabbler",
+			"shiny-nugget-award"
+		]
+	},
+	"serious_scrabbler": {
+		"name": "Serious Scrabbler",
+		"description": "Mined for ore 101 times",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/serious_scrabbler_1304983913_180.png",
+		"related": [
+			"creditable-delver",
+			"master-blaster",
+			"ok-hewer",
+			"shiny-nugget-award"
+		]
+	},
+	"master_blaster": {
+		"name": "Master Blaster",
+		"description": "Mined for ore 503 times",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/master_blaster_1304983918_180.png",
+		"related": [
+			"creditable-delver",
+			"ok-hewer",
+			"serious-scrabbler",
+			"shiny-nugget-award"
+		]
+	},
+	"shiny_nugget_award": {
+		"name": "Shiny Nugget Award",
+		"description": "Mined for ore 2003 times",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/shiny_nugget_award_1304983925_180.png",
+		"related": [
+			"creditable-delver",
+			"master-blaster",
+			"ok-hewer",
+			"serious-scrabbler"
+		]
+	},
+	"minor_refiner_blue_class": {
+		"name": "Minor Refiner, Blue Class",
+		"description": "Carefully refined 251 Blue Elements",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/minor_refiner_blue_class_1304984837_180.png",
+		"related": [
+			"exceptionally-fine-refiner-blue-class",
+			"fine-refiner-blue-class",
+			"pretty-fine-refiner-blue-class"
+		]
+	},
+	"fine_refiner_blue_class": {
+		"name": "Fine Refiner, Blue Class",
+		"description": "Carefully refined 1009 Blue Elements",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/fine_refiner_blue_class_1304984841_180.png",
+		"related": [
+			"exceptionally-fine-refiner-blue-class",
+			"minor-refiner-blue-class",
+			"pretty-fine-refiner-blue-class"
+		]
+	},
+	"pretty_fine_refiner_blue_class": {
+		"name": "Pretty Fine Refiner, Blue Class",
+		"description": "Carefully refined 2503 Blue Elements",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/pretty_fine_refiner_blue_class_1304984846_180.png",
+		"related": [
+			"exceptionally-fine-refiner-blue-class",
+			"fine-refiner-blue-class",
+			"minor-refiner-blue-class"
+		]
+	},
+	"exceptionally_fine_refiner_blue_class": {
+		"name": "Exceptionally Fine Refiner, Blue Class",
+		"description": "Carefully refined 10007 Blue Elements",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/exceptionally_fine_refiner_blue_class_1304984850_180.png",
+		"related": [
+			"fine-refiner-blue-class",
+			"minor-refiner-blue-class",
+			"pretty-fine-refiner-blue-class"
+		]
+	},
+	"minor_refiner_green_class": {
+		"name": "Minor Refiner, Green Class",
+		"description": "Thoroughly refined 251 Green Elements",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/minor_refiner_green_class_1304984819_180.png",
+		"related": [
+			"exceptionally-fine-refiner-green-class",
+			"fine-refiner-green-class",
+			"pretty-fine-refiner-green-class"
+		]
+	},
+	"fine_refiner_green_class": {
+		"name": "Fine Refiner, Green Class",
+		"description": "Thoroughly refined 1009 Green Elements",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/fine_refiner_green_class_1304984825_180.png",
+		"related": [
+			"exceptionally-fine-refiner-green-class",
+			"minor-refiner-green-class",
+			"pretty-fine-refiner-green-class"
+		]
+	},
+	"pretty_fine_refiner_green_class": {
+		"name": "Pretty Fine Refiner, Green Class",
+		"description": "Thoroughly refined 2503 Green Elements",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/pretty_fine_refiner_green_class_1304984829_180.png",
+		"related": [
+			"exceptionally-fine-refiner-green-class",
+			"fine-refiner-green-class",
+			"minor-refiner-green-class"
+		]
+	},
+	"exceptionally_fine_refiner_green_class": {
+		"name": "Exceptionally Fine Refiner, Green Class",
+		"description": "Thoroughly refined 10007 Green Elements",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/exceptionally_fine_refiner_green_class_1304984833_180.png",
+		"related": [
+			"fine-refiner-green-class",
+			"minor-refiner-green-class",
+			"pretty-fine-refiner-green-class"
+		]
+	},
+	"minor_refiner_red_class": {
+		"name": "Minor Refiner, Red Class",
+		"description": "Exactingly refined 251 Red Elements",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/minor_refiner_red_class_1304984854_180.png",
+		"related": [
+			"exceptionally-fine-refiner-red-class",
+			"fine-refiner-red-class",
+			"pretty-fine-refiner-red-class"
+		]
+	},
+	"fine_refiner_red_class": {
+		"name": "Fine Refiner, Red Class",
+		"description": "Exactingly refined 1009 Red Elements",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/fine_refiner_red_class_1304984859_180.png",
+		"related": [
+			"exceptionally-fine-refiner-red-class",
+			"minor-refiner-red-class",
+			"pretty-fine-refiner-red-class"
+		]
+	},
+	"pretty_fine_refiner_red_class": {
+		"name": "Pretty Fine Refiner, Red Class",
+		"description": "Exactingly refined 2503 Red Elements",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/pretty_fine_refiner_red_class_1304984864_180.png",
+		"related": [
+			"exceptionally-fine-refiner-red-class",
+			"fine-refiner-red-class",
+			"minor-refiner-red-class"
+		]
+	},
+	"exceptionally_fine_refiner_red_class": {
+		"name": "Exceptionally Fine Refiner, Red Class",
+		"description": "Exactingly refined 10007 Red Elements",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/exceptionally_fine_refiner_red_class_1304984869_180.png",
+		"related": [
+			"fine-refiner-red-class",
+			"minor-refiner-red-class",
+			"pretty-fine-refiner-red-class"
+		]
+	},
+	"minor_refiner_shiny_class": {
+		"name": "Minor Refiner, Shiny Class",
+		"description": "Fastidiously refined 251 Shiny Elements",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/minor_refiner_shiny_class_1304984875_180.png",
+		"related": [
+			"exceptionally-fine-refiner-shiny-class",
+			"fine-refiner-shiny-class",
+			"pretty-fine-refiner-shiny-class"
+		]
+	},
+	"fine_refiner_shiny_class": {
+		"name": "Fine Refiner, Shiny Class",
+		"description": "Fastidiously refined 1009 Shiny Elements",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/fine_refiner_shiny_class_1304984880_180.png",
+		"related": [
+			"exceptionally-fine-refiner-shiny-class",
+			"minor-refiner-shiny-class",
+			"pretty-fine-refiner-shiny-class"
+		]
+	},
+	"pretty_fine_refiner_shiny_class": {
+		"name": "Pretty Fine Refiner, Shiny Class",
+		"description": "Fastidiously refined 2503 Shiny Elements",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/pretty_fine_refiner_shiny_class_1304984887_180.png",
+		"related": [
+			"exceptionally-fine-refiner-shiny-class",
+			"fine-refiner-shiny-class",
+			"minor-refiner-shiny-class"
+		]
+	},
+	"exceptionally_fine_refiner_shiny_class": {
+		"name": "Exceptionally Fine Refiner, Shiny Class",
+		"description": "Fastidiously refined 10007 Shiny Elements",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/exceptionally_fine_refiner_shiny_class_1304984891_180.png",
+		"related": [
+			"fine-refiner-shiny-class",
+			"minor-refiner-shiny-class",
+			"pretty-fine-refiner-shiny-class"
+		]
+	},
+	"toolie_apprentice": {
+		"name": "Toolie Apprentice",
+		"description": "Painstakingly crafted 17 tools with a Tinkertool",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/toolie_apprentice_1315686114_180.png",
+		"related": [
+			"tool-artiste",
+			"toolsmith",
+			"toolwright",
+			"total-tool"
+		]
+	},
+	"toolwright": {
+		"name": "Toolwright",
+		"description": "Painstakingly crafted 41 tools with a Tinkertool",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/toolwright_1315686117_180.png",
+		"related": [
+			"tool-artiste",
+			"toolie-apprentice",
+			"toolsmith",
+			"total-tool"
+		]
+	},
+	"toolsmith": {
+		"name": "Toolsmith",
+		"description": "Painstakingly crafted 127 tools with a Tinkertool",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/toolsmith_1315686119_180.png",
+		"related": [
+			"tool-artiste",
+			"toolie-apprentice",
+			"toolwright",
+			"total-tool"
+		]
+	},
+	"tool_artiste": {
+		"name": "Tool Artiste",
+		"description": "Painstakingly crafted 283 tools with a Tinkertool",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/tool_artiste_1315686122_180.png",
+		"related": [
+			"toolie-apprentice",
+			"toolsmith",
+			"toolwright",
+			"total-tool"
+		]
+	},
+	"total_tool": {
+		"name": "Total Tool",
+		"description": "Painstakingly crafted 503 tools with a Tinkertool",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/total_tool_1315686124_180.png",
+		"related": [
+			"tool-artiste",
+			"toolie-apprentice",
+			"toolsmith",
+			"toolwright"
+		]
+	},
+	"executive_flunky_tinkering_ops": {
+		"name": "Executive Flunky, Tinkering Ops",
+		"description": "Wielded a Tinkertool to repair 1009 units worth of tools",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/executive_flunky_tinkering_ops_1304984922_180.png",
+		"related": [
+			"chief-of-tinkering-operations",
+			"grand-poobah-tinkering-ops",
+			"special-agent-tinkering-ops"
+		]
+	},
+	"chief_of_tinkering_operations": {
+		"name": "Chief of Tinkering Operations",
+		"description": "Wielded a Tinkertool to repair 2503 units worth of tools",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/chief_of_tinkering_operations_1304984928_180.png",
+		"related": [
+			"executive-flunky-tinkering-ops",
+			"grand-poobah-tinkering-ops",
+			"special-agent-tinkering-ops"
+		]
+	},
+	"special_agent_tinkering_ops": {
+		"name": "Special Agent, Tinkering Ops",
+		"description": "Wielded a Tinkertool to repair 10009 units worth of tools",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/special_agent_tinkering_ops_1304984933_180.png",
+		"related": [
+			"chief-of-tinkering-operations",
+			"executive-flunky-tinkering-ops",
+			"grand-poobah-tinkering-ops"
+		]
+	},
+	"grand_poobah_tinkering_ops": {
+		"name": "Grand Poobah, Tinkering Ops",
+		"description": "Wielded a Tinkertool to repair 25013 units worth of tools",
+		"category": "Industrial",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/grand_poobah_tinkering_ops_1304984938_180.png",
+		"related": [
+			"chief-of-tinkering-operations",
+			"executive-flunky-tinkering-ops",
+			"special-agent-tinkering-ops"
+		]
+	}
+}

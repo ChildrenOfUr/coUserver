@@ -1,0 +1,390 @@
+{
+	"amateur_decrustifier": {
+		"name": "Amateur Decrustifier",
+		"description": "Expertly scraped 41 stubborn Barnacles",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/amateur_decrustifier_1315685944_180.png",
+		"related": [
+			"big-league-decrustifier",
+			"bigger-league-decrustifier",
+			"decrustifying-enthusiast",
+			"semi-pro-decrustifier"
+		]
+	},
+	"decrustifying_enthusiast": {
+		"name": "Decrustifying Enthusiast",
+		"description": "Expertly scraped 127 stubborn Barnacles",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/decrustifying_enthusiast_1315685946_180.png",
+		"related": [
+			"amateur-decrustifier",
+			"big-league-decrustifier",
+			"bigger-league-decrustifier",
+			"semi-pro-decrustifier"
+		]
+	},
+	"semi_pro_decrustifier": {
+		"name": "Semi-Pro Decrustifier",
+		"description": "Expertly scraped 283 stubborn Barnacles",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/semi_pro_decrustifier_1315685949_180.png",
+		"related": [
+			"amateur-decrustifier",
+			"big-league-decrustifier",
+			"bigger-league-decrustifier",
+			"decrustifying-enthusiast"
+		]
+	},
+	"big_league_decrustifier": {
+		"name": "Big League Decrustifier",
+		"description": "Expertly scraped 503 stubborn Barnacles",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/big_league_decrustifier_1315685951_180.png",
+		"related": [
+			"amateur-decrustifier",
+			"bigger-league-decrustifier",
+			"decrustifying-enthusiast",
+			"semi-pro-decrustifier"
+		]
+	},
+	"bigger_league_decrustifier": {
+		"name": "Bigger League Decrustifier",
+		"description": "Expertly scraped 1009 stubborn Barnacles",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/bigger_league_decrustifier_1315685954_180.png",
+		"related": [
+			"amateur-decrustifier",
+			"big-league-decrustifier",
+			"decrustifying-enthusiast",
+			"semi-pro-decrustifier"
+		]
+	},
+	"shovel_jockey": {
+		"name": "Shovel Jockey",
+		"description": "Used a Shovel 29 times to dig Patches or Dirt Piles",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/shovel_jockey_1315685957_180.png",
+		"related": [
+			"dirt-diggler",
+			"dirt-monkey",
+			"dirtomancer",
+			"loamist"
+		]
+	},
+	"dirt_monkey": {
+		"name": "Dirt Monkey",
+		"description": "Used a Shovel 61 times to dig Patches or Dirt Piles",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/dirt_monkey_1315685959_180.png",
+		"related": [
+			"dirt-diggler",
+			"dirtomancer",
+			"loamist",
+			"shovel-jockey"
+		]
+	},
+	"loamist": {
+		"name": "Loamist",
+		"description": "Used a Shovel 127 times to dig Patches or Dirt Piles",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/loamist_1315685962_180.png",
+		"related": [
+			"dirt-diggler",
+			"dirt-monkey",
+			"dirtomancer",
+			"shovel-jockey"
+		]
+	},
+	"dirtomancer": {
+		"name": "Dirtomancer",
+		"description": "Used a Shovel 251 times to dig Patches or Dirt Piles",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/dirtomancer_1315685964_180.png",
+		"related": [
+			"dirt-diggler",
+			"dirt-monkey",
+			"loamist",
+			"shovel-jockey"
+		]
+	},
+	"dirt_diggler": {
+		"name": "Dirt Diggler",
+		"description": "Used a Shovel 503 times to dig Patches or Dirt Piles",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/dirt_diggler_1315685966_180.png",
+		"related": [
+			"dirt-monkey",
+			"dirtomancer",
+			"loamist",
+			"shovel-jockey"
+		]
+	},
+	"wannabe_fly_flycatcher": {
+		"name": "Wannabe Fly Flycatcher",
+		"description": "Caught 23 perfectly perfect jars of Fireflies",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/wannabe_fly_flycatcher_1315685972_180.png",
+		"related": [
+			"pretty-fly-flycatcher",
+			"somewhat-fly-flycatcher",
+			"supafly-flycatcher"
+		]
+	},
+	"somewhat_fly_flycatcher": {
+		"name": "Somewhat Fly Flycatcher",
+		"description": "Caught 73 perfectly perfect jars of Fireflies",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/somewhat_fly_flycatcher_1315685976_180.png",
+		"related": [
+			"pretty-fly-flycatcher",
+			"supafly-flycatcher",
+			"wannabe-fly-flycatcher"
+		]
+	},
+	"pretty_fly_flycatcher": {
+		"name": "Pretty Fly Flycatcher",
+		"description": "Caught 147 perfectly perfect jars of Fireflies",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/pretty_fly_flycatcher_1315685969_180.png",
+		"related": [
+			"somewhat-fly-flycatcher",
+			"supafly-flycatcher",
+			"wannabe-fly-flycatcher"
+		]
+	},
+	"supafly_flycatcher": {
+		"name": "Supafly Flycatcher",
+		"description": "Caught 501 perfectly perfect jars of Fireflies",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/supafly_flycatcher_1315685974_180.png",
+		"related": [
+			"pretty-fly-flycatcher",
+			"somewhat-fly-flycatcher",
+			"wannabe-fly-flycatcher"
+		]
+	},
+	"ice_baby": {
+		"name": "Ice Baby",
+		"description": "Cooly scraped 67 Ice from Ice Nubbins",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-30/ice_baby_1351618910_180.png",
+		"related": [
+			"cold-as-ice",
+			"ice-ice-baby",
+			"icebreaker",
+			"on-thin-ice"
+		]
+	},
+	"ice_ice_baby": {
+		"name": "Ice Ice Baby",
+		"description": "Scraped 227 Ice from Ice Nubbins",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-30/ice_ice_baby_1351618914_180.png",
+		"related": [
+			"cold-as-ice",
+			"ice-baby",
+			"icebreaker",
+			"on-thin-ice"
+		]
+	},
+	"on_thin_ice": {
+		"name": "On Thin Ice",
+		"description": "Released 467 Ice from Nubbins",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-30/on_thin_ice_1351618917_180.png",
+		"related": [
+			"cold-as-ice",
+			"ice-baby",
+			"ice-ice-baby",
+			"icebreaker"
+		]
+	},
+	"cold_as_ice": {
+		"name": "Cold as Ice",
+		"description": "Chillily scraped 877 Ice from the Nubbin",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-30/cold_as_ice_1351618922_180.png",
+		"related": [
+			"ice-baby",
+			"ice-ice-baby",
+			"icebreaker",
+			"on-thin-ice"
+		]
+	},
+	"icebreaker": {
+		"name": "Icebreaker",
+		"description": "Scraped free 1777 Ice from Ice Nubbins",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-30/icebreaker_1351618927_180.png",
+		"related": [
+			"cold-as-ice",
+			"ice-baby",
+			"ice-ice-baby",
+			"on-thin-ice"
+		]
+	},
+	"slime_harvester": {
+		"name": "Slime Harvester",
+		"description": "Unsqueamishly scooped 41 quivering Jellisac clumps",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/slime_harvester_1315685979_180.png",
+		"related": [
+			"gloopmeister",
+			"glop-grappler",
+			"goo-getter",
+			"sac-bagger"
+		]
+	},
+	"goo_getter": {
+		"name": "Goo-Getter",
+		"description": "Unsqueamishly scooped 127 quivering Jellisac clumps",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/goo_getter_1315685982_180.png",
+		"related": [
+			"gloopmeister",
+			"glop-grappler",
+			"sac-bagger",
+			"slime-harvester"
+		]
+	},
+	"sac_bagger": {
+		"name": "Sac Bagger",
+		"description": "Unsqueamishly scooped 283 quivering Jellisac clumps",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/sac_bagger_1315685984_180.png",
+		"related": [
+			"gloopmeister",
+			"glop-grappler",
+			"goo-getter",
+			"slime-harvester"
+		]
+	},
+	"glop_grappler": {
+		"name": "Glop Grappler",
+		"description": "Unsqueamishly scooped 503 quivering Jellisac clumps",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/glop_grappler_1315685987_180.png",
+		"related": [
+			"gloopmeister",
+			"goo-getter",
+			"sac-bagger",
+			"slime-harvester"
+		]
+	},
+	"gloopmeister": {
+		"name": "Gloopmeister",
+		"description": "Unsqueamishly scooped 1009 quivering Jellisac clumps",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/gloopmeister_1315685990_180.png",
+		"related": [
+			"glop-grappler",
+			"goo-getter",
+			"sac-bagger",
+			"slime-harvester"
+		]
+	},
+	"paper_plucker": {
+		"name": "Paper Plucker",
+		"description": "Braved papercuts to harvest Paper Trees 73 times",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/paper_plucker_1315685993_180.png",
+		"related": [
+			"pad-pincher",
+			"parchment-purloiner",
+			"sheet-snatcher"
+		]
+	},
+	"sheet_snatcher": {
+		"name": "Sheet Snatcher",
+		"description": "Braved papercuts to harvest Paper Trees 283 times",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/sheet_snatcher_1315685997_180.png",
+		"related": [
+			"pad-pincher",
+			"paper-plucker",
+			"parchment-purloiner"
+		]
+	},
+	"pad_pincher": {
+		"name": "Pad Pincher",
+		"description": "Braved papercuts to harvest Paper Trees 503 times",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/pad_pincher_1315686000_180.png",
+		"related": [
+			"paper-plucker",
+			"parchment-purloiner",
+			"sheet-snatcher"
+		]
+	},
+	"parchment_purloiner": {
+		"name": "Parchment Purloiner",
+		"description": "Braved papercuts to harvest Paper Trees 1009 times",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/parchment_purloiner_1315686002_180.png",
+		"related": [
+			"pad-pincher",
+			"paper-plucker",
+			"sheet-snatcher"
+		]
+	},
+	"re_peater": {
+		"name": "Re-Peater",
+		"description": "Harvested 41 slightly funky Blocks of Peat",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/re_peater_1315686006_180.png",
+		"related": [
+			"compulsive-re-peater",
+			"feat-of-peat-excellence",
+			"obsessive-compulsive-re-peater",
+			"saint-peater"
+		]
+	},
+	"compulsive_re_peater": {
+		"name": "Compulsive Re-Peater",
+		"description": "Harvested 283 slightly funky Blocks of Peat",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/compulsive_re_peater_1315686008_180.png",
+		"related": [
+			"feat-of-peat-excellence",
+			"obsessive-compulsive-re-peater",
+			"re-peater",
+			"saint-peater"
+		]
+	},
+	"obsessive_compulsive_re_peater": {
+		"name": "Obsessive-Compulsive Re-Peater",
+		"description": "Harvested 503 slightly funky Blocks of Peat",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/obsessive_compulsive_re_peater_1315686010_180.png",
+		"related": [
+			"compulsive-re-peater",
+			"feat-of-peat-excellence",
+			"re-peater",
+			"saint-peater"
+		]
+	},
+	"feat_of_peat_excellence": {
+		"name": "Feat of Peat Excellence",
+		"description": "Harvested 1009 slightly funky Blocks of Peat",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/feat_of_peat_excellence_1315686013_180.png",
+		"related": [
+			"compulsive-re-peater",
+			"obsessive-compulsive-re-peater",
+			"re-peater",
+			"saint-peater"
+		]
+	},
+	"saint_peater": {
+		"name": "Saint Peater",
+		"description": "Harvested 5003 slightly funky Blocks of Peat",
+		"category": "Harvesting",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/saint_peater_1315686015_180.png",
+		"related": [
+			"compulsive-re-peater",
+			"feat-of-peat-excellence",
+			"obsessive-compulsive-re-peater",
+			"re-peater"
+		]
+	}
+}

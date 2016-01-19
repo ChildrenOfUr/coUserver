@@ -1,0 +1,188 @@
+{
+	"student_of_artifactology": {
+		"name": "Student of Artifactology",
+		"description": "Reassembled three different artifacts",
+		"category": "Feats",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-26/student_of_artifactology_1351300716_180.png",
+		"related": [
+		]
+	},
+	"qualified_artifactologist": {
+		"name": "Qualified Artifactologist",
+		"description": "Reassembled ten different artifacts",
+		"category": "Feats",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-26/qualified_artifactologist_1351300719_180.png",
+		"related": [
+		]
+	},
+	"epic_hero": {
+		"name": "Epic Hero",
+		"description": "Contributed to each feat in one epic",
+		"category": "Feats",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-26/epic_hero_1351300692_180.png",
+		"related": [
+			"covered-in-epic-win",
+			"epic-poet",
+			"epic-urian"
+		]
+	},
+	"epic_poet": {
+		"name": "Epic Poet",
+		"description": "Added something to each feat in 3 epics",
+		"category": "Feats",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-26/epic_poet_1351300694_180.png",
+		"related": [
+			"covered-in-epic-win",
+			"epic-hero",
+			"epic-urian"
+		]
+	},
+	"epic_urian": {
+		"name": "Epic Urian",
+		"description": "Pitched in to each feat in 7 epics",
+		"category": "Feats",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-26/epic_urian_1351300696_180.png",
+		"related": [
+			"covered-in-epic-win",
+			"epic-hero",
+			"epic-poet"
+		]
+	},
+	"covered_in_epic_win": {
+		"name": "Covered in Epic Win",
+		"description": "Contributed to each feat in 13 epics",
+		"category": "Feats",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-26/covered_in_epic_win_1351300699_180.png",
+		"related": [
+			"epic-hero",
+			"epic-poet",
+			"epic-urian"
+		]
+	},
+	"feat_first": {
+		"name": "Feat First",
+		"description": "Contributed to one fabulous feat",
+		"category": "Feats",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-26/feat_first_1351300676_180.png",
+		"related": [
+			"famous-featologist",
+			"feater-of-glory",
+			"featist-of-renown",
+			"five-feat-under",
+			"super-featy"
+		]
+	},
+	"five_feat_under": {
+		"name": "Five Feat Under",
+		"description": "Contributed to five amazing feats",
+		"category": "Feats",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-26/five_feat_under_1351300678_180.png",
+		"related": [
+			"famous-featologist",
+			"feat-first",
+			"feater-of-glory",
+			"featist-of-renown",
+			"super-featy"
+		]
+	},
+	"feater_of_glory": {
+		"name": "Feater of Glory",
+		"description": "Contributed to 17 fantastic feats",
+		"category": "Feats",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-26/feater_of_glory_1351300681_180.png",
+		"related": [
+			"famous-featologist",
+			"feat-first",
+			"featist-of-renown",
+			"five-feat-under",
+			"super-featy"
+		]
+	},
+	"featist_of_renown": {
+		"name": "Featist of Renown",
+		"description": "Contributed to 53 incredible feats",
+		"category": "Feats",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-26/featist_of_renown_1351300684_180.png",
+		"related": [
+			"famous-featologist",
+			"feat-first",
+			"feater-of-glory",
+			"five-feat-under",
+			"super-featy"
+		]
+	},
+	"super_featy": {
+		"name": "Super-Featy",
+		"description": "Contributed to 137 astounding feats",
+		"category": "Feats",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-26/super_featy_1351300686_180.png",
+		"related": [
+			"famous-featologist",
+			"feat-first",
+			"feater-of-glory",
+			"featist-of-renown",
+			"five-feat-under"
+		]
+	},
+	"famous_featologist": {
+		"name": "Famous Featologist",
+		"description": "Contributed to an outstanding 253 feats",
+		"category": "Feats",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-26/famous_featologist_1351300689_180.png",
+		"related": [
+			"feat-first",
+			"feater-of-glory",
+			"featist-of-renown",
+			"five-feat-under",
+			"super-featy"
+		]
+	},
+	"quick_on_your_feat": {
+		"name": "Quick on Your Feat",
+		"description": "Contributed to a feat in the first 30 minutes",
+		"category": "Feats",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-26/quick_on_your_feat_1351300710_180.png",
+		"related": [
+		]
+	},
+	"down_to_the_wire": {
+		"name": "Down To The Wire",
+		"description": "Be one of the few Glitches to tip the scales. Make a contribution in the last 30 minutes of the feat, and with 5% or less left to contribute towards whichever goal is coming up next.",
+		"category": "Feats",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-26/down_to_the_wire_1351301840_180.png",
+		"related": [
+		]
+	},
+	"bead_threader": {
+		"name": "Bead Threader",
+		"description": "Carefully reconstructed one ancient artifact necklace",
+		"category": "Feats",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-26/bead_threader_1351302325_180.png",
+		"related": [
+		]
+	},
+	"threader_of_renown": {
+		"name": "Threader of Renown",
+		"description": "Artfully reconstructed five necklace artifacts",
+		"category": "Feats",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-26/threader_of_renown_1351302328_180.png",
+		"related": [
+		]
+	},
+	"order_of_the_third_otter": {
+		"name": "Order of the Third Otter",
+		"description": "Ranked among the top contributors for 3 feats",
+		"category": "Feats",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-26/order_of_the_third_otter_1351300701_180.png",
+		"related": [
+		]
+	},
+	"order_of_the_seventh_seal": {
+		"name": "Order of the Seventh Seal",
+		"description": "Ranked among the top contributors for 7 feats",
+		"category": "Feats",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-26/order_of_the_seventh_seal_1351300703_180.png",
+		"related": [
+		]
+	}
+}

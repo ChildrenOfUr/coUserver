@@ -38,6 +38,9 @@ class StreetUpdateHandler {
 				.forEach((String item, Map award) {
 				Consumable.consumeValues[item] = award;
 			});
+
+			// load achievements
+			Achievement.load();
 		}
 		catch (e) {
 			log("Problem loading items: $e");

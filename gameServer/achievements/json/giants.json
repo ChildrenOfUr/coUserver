@@ -1,0 +1,501 @@
+{
+	"giant_lover": {
+		"name": "Giant Lover",
+		"description": "Created an icon for every Giant",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-12-05/giant_lover_1323112383_180.png",
+		"related": []
+	},
+	"fledgling_crest_collector": {
+		"name": "Fledgling Crest Collector",
+		"description": "Earnestly earned 5 Emblems of the Giants",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/fledgling_crest_collector_1304984769_180.png",
+		"related": [
+			"crest-connoisseur",
+			"fancy-medal-fancier",
+			"significant-insignia-collector"
+		]
+	},
+	"significant_insignia_collector": {
+		"name": "Significant Insignia Collector",
+		"description": "Painstakingly earned 17 Emblems of the Giants",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/significant_insignia_collector_1304984773_180.png",
+		"related": [
+			"crest-connoisseur",
+			"fancy-medal-fancier",
+			"fledgling-crest-collector"
+		]
+	},
+	"fancy_medal_fancier": {
+		"name": "Fancy Medal Fancier",
+		"description": "Scrupulously earned 47 Emblems of the Giants",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/fancy_medal_fancier_1304984778_180.png",
+		"related": [
+			"crest-connoisseur",
+			"fledgling-crest-collector",
+			"significant-insignia-collector"
+		]
+	},
+	"crest_connoisseur": {
+		"name": "Crest Connoisseur",
+		"description": "Exhaustively earned 151 Emblems of the Giants",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/crest_connoisseur_1304984782_180.png",
+		"related": [
+			"fancy-medal-fancier",
+			"fledgling-crest-collector",
+			"significant-insignia-collector"
+		]
+	},
+	"first_emblem_of_alph": {
+		"name": "First Emblem of Alph",
+		"description": "Got your first Alph Emblem",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/first_alph_emblem_1304983690_180.png",
+		"related": [
+			"first-emblem-of-cosma",
+			"first-emblem-of-friendly",
+			"first-emblem-of-grendaline",
+			"first-emblem-of-humbaba",
+			"first-emblem-of-lem",
+			"first-emblem-of-mab",
+			"first-emblem-of-pot",
+			"first-emblem-of-spriggan",
+			"first-emblem-of-tii",
+			"first-emblem-of-zille"
+		]
+	},
+	"first_emblem_of_cosma": {
+		"name": "First Emblem of Cosma",
+		"description": "Got your first Cosma Emblem",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/first_cosma_emblem_1304983695_180.png",
+		"related": [
+			"first-emblem-of-alph",
+			"first-emblem-of-friendly",
+			"first-emblem-of-grendaline",
+			"first-emblem-of-humbaba",
+			"first-emblem-of-lem",
+			"first-emblem-of-mab",
+			"first-emblem-of-pot",
+			"first-emblem-of-spriggan",
+			"first-emblem-of-tii",
+			"first-emblem-of-zille"
+		]
+	},
+	"first_emblem_of_friendly": {
+		"name": "First Emblem of Friendly",
+		"description": "Got your first Friendly Emblem",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/first_friendly_emblem_1304983701_180.png",
+		"related": [
+			"first-emblem-of-alph",
+			"first-emblem-of-cosma",
+			"first-emblem-of-grendaline",
+			"first-emblem-of-humbaba",
+			"first-emblem-of-lem",
+			"first-emblem-of-mab",
+			"first-emblem-of-pot",
+			"first-emblem-of-spriggan",
+			"first-emblem-of-tii",
+			"first-emblem-of-zille"
+		]
+	},
+	"first_emblem_of_grendaline": {
+		"name": "First Emblem of Grendaline",
+		"description": "Got your first Grendaline Emblem",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/first_grendaline_emblem_1304983707_180.png",
+		"related": [
+			"first-emblem-of-alph",
+			"first-emblem-of-cosma",
+			"first-emblem-of-friendly",
+			"first-emblem-of-humbaba",
+			"first-emblem-of-lem",
+			"first-emblem-of-mab",
+			"first-emblem-of-pot",
+			"first-emblem-of-spriggan",
+			"first-emblem-of-tii",
+			"first-emblem-of-zille"
+		]
+	},
+	"first_emblem_of_humbaba": {
+		"name": "First Emblem of Humbaba",
+		"description": "Got your first Humbaba Emblem",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/first_humbaba_emblem_1304983711_180.png",
+		"related": [
+			"first-emblem-of-alph",
+			"first-emblem-of-cosma",
+			"first-emblem-of-friendly",
+			"first-emblem-of-grendaline",
+			"first-emblem-of-lem",
+			"first-emblem-of-mab",
+			"first-emblem-of-pot",
+			"first-emblem-of-spriggan",
+			"first-emblem-of-tii",
+			"first-emblem-of-zille"
+		]
+	},
+	"first_emblem_of_lem": {
+		"name": "First Emblem of Lem",
+		"description": "Got your first Lem Emblem",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/first_lem_emblem_1304983716_180.png",
+		"related": [
+			"first-emblem-of-alph",
+			"first-emblem-of-cosma",
+			"first-emblem-of-friendly",
+			"first-emblem-of-grendaline",
+			"first-emblem-of-humbaba",
+			"first-emblem-of-mab",
+			"first-emblem-of-pot",
+			"first-emblem-of-spriggan",
+			"first-emblem-of-tii",
+			"first-emblem-of-zille"
+		]
+	},
+	"first_emblem_of_mab": {
+		"name": "First Emblem of Mab",
+		"description": "Got your first Mab Emblem",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/first_mab_emblem_1304983721_180.png",
+		"related": [
+			"first-emblem-of-alph",
+			"first-emblem-of-cosma",
+			"first-emblem-of-friendly",
+			"first-emblem-of-grendaline",
+			"first-emblem-of-humbaba",
+			"first-emblem-of-lem",
+			"first-emblem-of-pot",
+			"first-emblem-of-spriggan",
+			"first-emblem-of-tii",
+			"first-emblem-of-zille"
+		]
+	},
+	"first_emblem_of_pot": {
+		"name": "First Emblem of Pot",
+		"description": "Got your first Pot Emblem",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/first_pot_emblem_1304983726_180.png",
+		"related": [
+			"first-emblem-of-alph",
+			"first-emblem-of-cosma",
+			"first-emblem-of-friendly",
+			"first-emblem-of-grendaline",
+			"first-emblem-of-humbaba",
+			"first-emblem-of-lem",
+			"first-emblem-of-mab",
+			"first-emblem-of-spriggan",
+			"first-emblem-of-tii",
+			"first-emblem-of-zille"
+		]
+	},
+	"first_emblem_of_spriggan": {
+		"name": "First Emblem of Spriggan",
+		"description": "Got your first Spriggan Emblem",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/first_spriggan_emblem_1304983730_180.png",
+		"related": [
+			"first-emblem-of-alph",
+			"first-emblem-of-cosma",
+			"first-emblem-of-friendly",
+			"first-emblem-of-grendaline",
+			"first-emblem-of-humbaba",
+			"first-emblem-of-lem",
+			"first-emblem-of-mab",
+			"first-emblem-of-pot",
+			"first-emblem-of-tii",
+			"first-emblem-of-zille"
+		]
+	},
+	"first_emblem_of_tii": {
+		"name": "First Emblem of Tii",
+		"description": "Got your first Tii Emblem",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/first_ti_emblem_1304983737_180.png",
+		"related": [
+			"first-emblem-of-alph",
+			"first-emblem-of-cosma",
+			"first-emblem-of-friendly",
+			"first-emblem-of-grendaline",
+			"first-emblem-of-humbaba",
+			"first-emblem-of-lem",
+			"first-emblem-of-mab",
+			"first-emblem-of-pot",
+			"first-emblem-of-spriggan",
+			"first-emblem-of-zille"
+		]
+	},
+	"first_emblem_of_zille": {
+		"name": "First Emblem of Zille",
+		"description": "Got your first Zille Emblem",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/first_zille_emblem_1304983742_180.png",
+		"related": [
+			"first-emblem-of-alph",
+			"first-emblem-of-cosma",
+			"first-emblem-of-friendly",
+			"first-emblem-of-grendaline",
+			"first-emblem-of-humbaba",
+			"first-emblem-of-lem",
+			"first-emblem-of-mab",
+			"first-emblem-of-pot",
+			"first-emblem-of-spriggan",
+			"first-emblem-of-tii"
+		]
+	},
+	"super_sized_sycophant": {
+		"name": "Super-Sized Sycophant",
+		"description": "Collected one of each Giant Emblems",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/all_giant_emblems_1304983749_180.png",
+		"related": [
+		]
+	},
+	"novice_novitiate": {
+		"name": "Novice Novitiate",
+		"description": "Donated to Shrines 11 times",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-11-13/novice_novitiate_1352831954_180.png",
+		"related": [
+			"highranking-supplicant",
+			"shriner-fortyniner",
+			"soso-supplicator"
+		]
+	},
+	"soso_supplicator": {
+		"name": "So-So Supplicator",
+		"description": "Donated to Shrines 53 times",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-19/soso_supplicator_1316419711_180.png",
+		"related": [
+			"highranking-supplicant",
+			"novice-novitiate",
+			"shriner-fortyniner"
+		]
+	},
+	"highranking_supplicant": {
+		"name": "High-Ranking Supplicant",
+		"description": "Donated to Shrines 251 times",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-19/highranking_supplicant_1316456544_180.png",
+		"related": [
+			"novice-novitiate",
+			"shriner-fortyniner",
+			"soso-supplicator"
+		]
+	},
+	"shriner_fortyniner": {
+		"name": "Shriner Forty-Niner",
+		"description": "Dug deep and donated to Shrines 1049 times",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-19/shriner_fortyniner_1316419714_180.png",
+		"related": [
+			"highranking-supplicant",
+			"novice-novitiate",
+			"soso-supplicator"
+		]
+	},
+	"spent_first_emblem_of_alph": {
+		"name": "Spent First Emblem of Alph",
+		"description": "Gained the ability to scale the heights of tinkery with Tinkering IV",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-22/emblem_skill_unlock_alph_1_1316736340_180.png",
+		"related": [
+			"spent-first-emblem-of-cosma",
+			"spent-first-emblem-of-friendly",
+			"spent-first-emblem-of-grendaline",
+			"spent-first-emblem-of-humbaba",
+			"spent-first-emblem-of-lem",
+			"spent-first-emblem-of-mab",
+			"spent-first-emblem-of-pot",
+			"spent-first-emblem-of-spriggan",
+			"spent-first-emblem-of-tii",
+			"spent-first-emblem-of-zille"
+		]
+	},
+	"spent_first_emblem_of_cosma": {
+		"name": "Spent First Emblem of Cosma",
+		"description": "Earned the ability to acquire Meditative Arts III, the serenest of all the Meditative arts",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/emblem_skill_unlock_cosma_1_1304984997_180.png",
+		"related": [
+			"spent-first-emblem-of-alph",
+			"spent-first-emblem-of-friendly",
+			"spent-first-emblem-of-grendaline",
+			"spent-first-emblem-of-humbaba",
+			"spent-first-emblem-of-lem",
+			"spent-first-emblem-of-mab",
+			"spent-first-emblem-of-pot",
+			"spent-first-emblem-of-spriggan",
+			"spent-first-emblem-of-tii",
+			"spent-first-emblem-of-zille"
+		]
+	},
+	"spent_first_emblem_of_friendly": {
+		"name": "Spent First Emblem of Friendly",
+		"description": "Earned the right to learn the hallowed secrets of Cocktail Crafting II",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/emblem_skill_unlock_friendly_1_1304985002_180.png",
+		"related": [
+			"spent-first-emblem-of-alph",
+			"spent-first-emblem-of-cosma",
+			"spent-first-emblem-of-grendaline",
+			"spent-first-emblem-of-humbaba",
+			"spent-first-emblem-of-lem",
+			"spent-first-emblem-of-mab",
+			"spent-first-emblem-of-pot",
+			"spent-first-emblem-of-spriggan",
+			"spent-first-emblem-of-tii",
+			"spent-first-emblem-of-zille"
+		]
+	},
+	"spent_first_emblem_of_grendaline": {
+		"name": "Spent First Emblem of Grendaline",
+		"description": "Earned the privilege of learning Light Green Thumb III",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-11-13/emblem_skill_unlock_grendaline_1_1352832818_180.png",
+		"related": [
+			"spent-first-emblem-of-alph",
+			"spent-first-emblem-of-cosma",
+			"spent-first-emblem-of-friendly",
+			"spent-first-emblem-of-humbaba",
+			"spent-first-emblem-of-lem",
+			"spent-first-emblem-of-mab",
+			"spent-first-emblem-of-pot",
+			"spent-first-emblem-of-spriggan",
+			"spent-first-emblem-of-tii",
+			"spent-first-emblem-of-zille"
+		]
+	},
+	"spent_first_emblem_of_humbaba": {
+		"name": "Spent First Emblem of Humbaba",
+		"description": "Earned the right to learn the slightly whiffy secrets of Animal Kinship VI",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-11-13/emblem_skill_unlock_humbaba_1_1352832980_180.png",
+		"related": [
+			"spent-first-emblem-of-alph",
+			"spent-first-emblem-of-cosma",
+			"spent-first-emblem-of-friendly",
+			"spent-first-emblem-of-grendaline",
+			"spent-first-emblem-of-lem",
+			"spent-first-emblem-of-mab",
+			"spent-first-emblem-of-pot",
+			"spent-first-emblem-of-spriggan",
+			"spent-first-emblem-of-tii",
+			"spent-first-emblem-of-zille"
+		]
+	},
+	"spent_first_emblem_of_lem": {
+		"name": "Spent First Emblem of Lem",
+		"description": "Gained the ability to learn Teleportation III",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-05-08/emblem_skill_unlock_lem_1_1336502853_180.png",
+		"related": [
+			"spent-first-emblem-of-alph",
+			"spent-first-emblem-of-cosma",
+			"spent-first-emblem-of-friendly",
+			"spent-first-emblem-of-grendaline",
+			"spent-first-emblem-of-humbaba",
+			"spent-first-emblem-of-mab",
+			"spent-first-emblem-of-pot",
+			"spent-first-emblem-of-spriggan",
+			"spent-first-emblem-of-tii",
+			"spent-first-emblem-of-zille"
+		]
+	},
+	"spent_first_emblem_of_mab": {
+		"name": "Spent First Emblem of Mab",
+		"description": "Earned the privilege of learning Soil Appreciation IV",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-05-08/emblem_skill_unlock_mab_1_1336503045_180.png",
+		"related": [
+			"spent-first-emblem-of-alph",
+			"spent-first-emblem-of-cosma",
+			"spent-first-emblem-of-friendly",
+			"spent-first-emblem-of-grendaline",
+			"spent-first-emblem-of-humbaba",
+			"spent-first-emblem-of-lem",
+			"spent-first-emblem-of-pot",
+			"spent-first-emblem-of-spriggan",
+			"spent-first-emblem-of-tii",
+			"spent-first-emblem-of-zille"
+		]
+	},
+	"spent_first_emblem_of_pot": {
+		"name": "Spent First Emblem of Pot",
+		"description": "Gained the right to learn the savory secrets of Master Chef II",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/emblem_skill_unlock_pot_1_1304985037_180.png",
+		"related": [
+			"spent-first-emblem-of-alph",
+			"spent-first-emblem-of-cosma",
+			"spent-first-emblem-of-friendly",
+			"spent-first-emblem-of-grendaline",
+			"spent-first-emblem-of-humbaba",
+			"spent-first-emblem-of-lem",
+			"spent-first-emblem-of-mab",
+			"spent-first-emblem-of-spriggan",
+			"spent-first-emblem-of-tii",
+			"spent-first-emblem-of-zille"
+		]
+	},
+	"spent_first_emblem_of_spriggan": {
+		"name": "Spent First Emblem of Spriggan",
+		"description": "Gained the ability to learn the verdant arts of Arborology III",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-05-08/emblem_skill_unlock_spriggan_1_1336503383_180.png",
+		"related": [
+			"spent-first-emblem-of-alph",
+			"spent-first-emblem-of-cosma",
+			"spent-first-emblem-of-friendly",
+			"spent-first-emblem-of-grendaline",
+			"spent-first-emblem-of-humbaba",
+			"spent-first-emblem-of-lem",
+			"spent-first-emblem-of-mab",
+			"spent-first-emblem-of-pot",
+			"spent-first-emblem-of-tii",
+			"spent-first-emblem-of-zille"
+		]
+	},
+	"spent_first_emblem_of_tii": {
+		"name": "Spent First Emblem of Tii",
+		"description": "Earned the right to learn Intermediate Admixing",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-22/emblem_skill_unlock_ti_1_1316736344_180.png",
+		"related": [
+			"spent-first-emblem-of-alph",
+			"spent-first-emblem-of-cosma",
+			"spent-first-emblem-of-friendly",
+			"spent-first-emblem-of-grendaline",
+			"spent-first-emblem-of-humbaba",
+			"spent-first-emblem-of-lem",
+			"spent-first-emblem-of-mab",
+			"spent-first-emblem-of-pot",
+			"spent-first-emblem-of-spriggan",
+			"spent-first-emblem-of-zille"
+		]
+	},
+	"spent_first_emblem_of_zille": {
+		"name": "Spent First Emblem of Zille",
+		"description": "Gained the power to learn Mining III, the penultimate Mining skill",
+		"category": "Giants",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/emblem_skill_unlock_zille_1_1304985053_180.png",
+		"related": [
+			"spent-first-emblem-of-alph",
+			"spent-first-emblem-of-cosma",
+			"spent-first-emblem-of-friendly",
+			"spent-first-emblem-of-grendaline",
+			"spent-first-emblem-of-humbaba",
+			"spent-first-emblem-of-lem",
+			"spent-first-emblem-of-mab",
+			"spent-first-emblem-of-pot",
+			"spent-first-emblem-of-spriggan",
+			"spent-first-emblem-of-tii"
+		]
+	}
+}

@@ -1,0 +1,190 @@
+{
+	"series_1_cubimal_wrangler": {
+		"name": "Series 1 Cubimal Wrangler",
+		"description": "Collected all varieties of Series 1 Cubimals.",
+		"category": "Trophies",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-07/collection_cubimals_1315426168_180.png",
+		"related": [
+		]
+	},
+	"series_2_cubimal_wrangler": {
+		"name": "Series 2 Cubimal Wrangler",
+		"description": "Collected all varieties of Series 2 Cubimals.",
+		"category": "Trophies",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-11/collection_cubimals_2_1339462180_180.png",
+		"related": [
+		]
+	},
+	"egg_hunter_trophy": {
+		"name": "Egg Hunter Trophy",
+		"description": "Collected all 5 Chocolate Eggs",
+		"category": "Trophies",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/collection_egg_hunter_1304985099_180.png",
+		"related": [
+		]
+	},
+	"emblems_trophy": {
+		"name": "Emblems Trophy",
+		"description": "Held the Emblems of all 11 Giants in your inventory at once",
+		"category": "Trophies",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/collection_all_emblems_1304985076_180.png",
+		"related": [
+		]
+	},
+	"gem_collector": {
+		"name": "Gem Collector",
+		"description": "Collected all 5 rare gems",
+		"category": "Trophies",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/collection_gems_1304983624_180.png",
+		"related": [
+		]
+	},
+	"musicblock_bb_collector": {
+		"name": "Musicblock BB Collector",
+		"description": "Collected all 5 BB musicblocks",
+		"category": "Trophies",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-08-10/collection_musicblocks_bb_1313024463_180.png",
+		"related": [
+			"musicblock-db-collector",
+			"musicblock-dg-collector",
+			"musicblock-dr-collector",
+			"musicblock-xs-collector"
+		]
+	},
+	"musicblock_db_collector": {
+		"name": "Musicblock DB Collector",
+		"description": "Collected all 5 DB musicblocks",
+		"category": "Trophies",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/collection_musicblocks_db_1304983634_180.png",
+		"related": [
+			"musicblock-bb-collector",
+			"musicblock-dg-collector",
+			"musicblock-dr-collector",
+			"musicblock-xs-collector"
+		]
+	},
+	"musicblock_dg_collector": {
+		"name": "Musicblock DG Collector",
+		"description": "Collected all 5 DG musicblocks",
+		"category": "Trophies",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/collection_musicblocks_dg_1304983639_180.png",
+		"related": [
+			"musicblock-bb-collector",
+			"musicblock-db-collector",
+			"musicblock-dr-collector",
+			"musicblock-xs-collector"
+		]
+	},
+	"musicblock_dr_collector": {
+		"name": "Musicblock DR Collector",
+		"description": "Collected all 5 DR musicblocks",
+		"category": "Trophies",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/collection_musicblocks_dr_1304983643_180.png",
+		"related": [
+			"musicblock-bb-collector",
+			"musicblock-db-collector",
+			"musicblock-dg-collector",
+			"musicblock-xs-collector"
+		]
+	},
+	"musicblock_xs_collector": {
+		"name": "Musicblock XS Collector",
+		"description": "Collected all 5 XS musicblocks",
+		"category": "Trophies",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/collection_musicblocks_xs_1304983647_180.png",
+		"related": [
+			"musicblock-bb-collector",
+			"musicblock-db-collector",
+			"musicblock-dg-collector",
+			"musicblock-dr-collector"
+		]
+	},
+	"street_creator_dirt_trophy": {
+		"name": "Street Creator Dirt Trophy",
+		"description": "Collected all pieces of the Street Creator Dirt Trophy",
+		"category": "Trophies",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/collection_street_creator_dirt_1304985057_180.png",
+		"related": [
+			"street-creator-earth-trophy",
+			"street-creator-rock-trophy",
+			"street-creator-wood-trophy"
+		]
+	},
+	"street_creator_earth_trophy": {
+		"name": "Street Creator Earth Trophy",
+		"description": "Collected all pieces of the Street Creator Earth Trophy",
+		"category": "Trophies",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/collection_street_creator_earth_1304985072_180.png",
+		"related": [
+			"street-creator-dirt-trophy",
+			"street-creator-rock-trophy",
+			"street-creator-wood-trophy"
+		]
+	},
+	"street_creator_rock_trophy": {
+		"name": "Street Creator Rock Trophy",
+		"description": "Collected all pieces of the Street Creator Rock Trophy",
+		"category": "Trophies",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/collection_street_creator_rock_1304985068_180.png",
+		"related": [
+			"street-creator-dirt-trophy",
+			"street-creator-earth-trophy",
+			"street-creator-wood-trophy"
+		]
+	},
+	"street_creator_wood_trophy": {
+		"name": "Street Creator Wood Trophy",
+		"description": "Collected all pieces of the Street Creator Wood Trophy",
+		"category": "Trophies",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/collection_street_creator_wood_1304985061_180.png",
+		"related": [
+			"street-creator-dirt-trophy",
+			"street-creator-earth-trophy",
+			"street-creator-rock-trophy"
+		]
+	},
+	"bubble_collector": {
+		"name": "Bubble Collector",
+		"description": "Collected all 4 bubbles",
+		"category": "Trophies",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/collection_bubbles_1304983629_180.png",
+		"related": [
+			"fruit-collector",
+			"gas-collector",
+			"spice-collector"
+		]
+	},
+	"fruit_collector": {
+		"name": "Fruit Collector",
+		"description": "Collected all 12 fruit",
+		"category": "Trophies",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/collection_fruits_1304983663_180.png",
+		"related": [
+			"bubble-collector",
+			"gas-collector",
+			"spice-collector"
+		]
+	},
+	"gas_collector": {
+		"name": "Gas Collector",
+		"description": "Collected all 6 gasses",
+		"category": "Trophies",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/collection_gasses_1304983652_180.png",
+		"related": [
+			"bubble-collector",
+			"fruit-collector",
+			"spice-collector"
+		]
+	},
+	"spice_collector": {
+		"name": "Spice Collector",
+		"description": "Collected all 16 spices",
+		"category": "Trophies",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/collection_spices_1304983657_180.png",
+		"related": [
+			"bubble-collector",
+			"fruit-collector",
+			"gas-collector"
+		]
+	}
+}

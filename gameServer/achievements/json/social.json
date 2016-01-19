@@ -1,0 +1,462 @@
+{
+	"gumflapper": {
+		"name": "Gumflapper",
+		"description": "Chatted with 3 different players",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-18/gumflapper_1316406750_180.png",
+		"related": [
+			"chatterbox",
+			"coat-of-open-arms",
+			"competent-windbag",
+			"garrulous-prolixificator"
+		]
+	},
+	"chatterbox": {
+		"name": "Chatterbox",
+		"description": "Chatted with 11 different players",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-18/chatterbox_1316406752_180.png",
+		"related": [
+			"coat-of-open-arms",
+			"competent-windbag",
+			"garrulous-prolixificator",
+			"gumflapper"
+		]
+	},
+	"competent_windbag": {
+		"name": "Competent Windbag",
+		"description": "Chatted with 29 different players",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-18/competent_windbag_1316406755_180.png",
+		"related": [
+			"chatterbox",
+			"coat-of-open-arms",
+			"garrulous-prolixificator",
+			"gumflapper"
+		]
+	},
+	"garrulous_prolixificator": {
+		"name": "Garrulous Prolixificator",
+		"description": "Chatted with 83 different players",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-18/garrulous_prolixificator_1316406758_180.png",
+		"related": [
+			"chatterbox",
+			"coat-of-open-arms",
+			"competent-windbag",
+			"gumflapper"
+		]
+	},
+	"coat_of_open_arms": {
+		"name": "Coat of Open Arms",
+		"description": "Chatted with 251 different players",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-18/coat_of_open_arms_1316406761_180.png",
+		"related": [
+			"chatterbox",
+			"competent-windbag",
+			"garrulous-prolixificator",
+			"gumflapper"
+		]
+	},
+	"make_a_crab_happy": {
+		"name": "Make a Crab Happy",
+		"description": "Played the exact Music Block for the Crab, which he has heard the LEAST recently.",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/make_a_crab_happy_1304983676_180.png",
+		"related": [
+		]
+	},
+	"philanthropic_member_of_the_social_construct": {
+		"name": "Philanthropic Member of the Social Construct",
+		"description": "Contributed more than 50% to the completion of another player's restoration project",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/philanthropic_member_of_the_social_construct_1339707333_180.png",
+		"related": [
+		]
+	},
+	"daily_hi_skipper": {
+		"name": "The Daily Hi-Skipper",
+		"description": "Set one Daily Record for Hi Sign evasion in a location. Daily Records are recognized at the end of each game day",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-11-06/daily_hi_skipper_1352250569_180.png",
+		"related": [
+			"endurance-misanthrope",
+			"long-distance-lone-wolf",
+			"marathon-maverick",
+			"social-antisocialist"
+		]
+	},
+	"social_antisocialist": {
+		"name": "Social Antisocialist",
+		"description": "Set 7 Daily Records for Hi Sign evasion. Daily Records are recognized at the end of each game day",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-11-06/social_hi_skipper_1352250573_180.png",
+		"related": [
+			"daily-hi-skipper",
+			"endurance-misanthrope",
+			"long-distance-lone-wolf",
+			"marathon-maverick"
+		]
+	},
+	"marathon_maverick": {
+		"name": "Marathon Maverick",
+		"description": "Set 37 Daily Records for Hi Sign evasion. Daily Records are recognized at the end of each game day",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-11-06/antisocial_hi_skipper_1352250575_180.png",
+		"related": [
+			"daily-hi-skipper",
+			"endurance-misanthrope",
+			"long-distance-lone-wolf",
+			"social-antisocialist"
+		]
+	},
+	"long_distance_lone_wolf": {
+		"name": "Long-Distance Lone Wolf",
+		"description": "Set 137 Daily Records for Hi Sign evasion. Daily Records are recognized at the end of each game day",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-11-06/long_distance_hi_skipper_1352250825_180.png",
+		"related": [
+			"daily-hi-skipper",
+			"endurance-misanthrope",
+			"marathon-maverick",
+			"social-antisocialist"
+		]
+	},
+	"endurance_misanthrope": {
+		"name": "Endurance Misanthrope",
+		"description": "Set 547 Daily Records for Hi Sign evasion. Daily Records are recognized at the end of each game day",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-11-06/endurance_hi_skipper_1352250829_180.png",
+		"related": [
+			"daily-hi-skipper",
+			"long-distance-lone-wolf",
+			"marathon-maverick",
+			"social-antisocialist"
+		]
+	},
+	"stalker_noncreepy_designation": {
+		"name": "Stalker, Non-Creepy Designation",
+		"description": "Officially followed another player through 3 different streets",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/stalker_noncreepy_designation_1304984896_180.png",
+		"related": [
+		]
+	},
+	"glitch_train": {
+		"name": "Glitch Train",
+		"description": "Participated in a 20-player follow-me parade through 5 locations",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/glitch_train_1304984900_180.png",
+		"related": [
+		]
+	},
+	"fine_friend": {
+		"name": "Fine Friend",
+		"description": "Made 7 friends",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-14/fine_friend_1316061689_180.png",
+		"related": [
+			"a1-comrade",
+			"best-pal",
+			"good-buddy",
+			"jolly-good-chap"
+		]
+	},
+	"good_buddy": {
+		"name": "Good Buddy",
+		"description": "Made 23 friends",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-14/good_buddy_1316061691_180.png",
+		"related": [
+			"a1-comrade",
+			"best-pal",
+			"fine-friend",
+			"jolly-good-chap"
+		]
+	},
+	"jolly_good_chap": {
+		"name": "Jolly Good Chap",
+		"description": "Made 47 friends",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-14/jolly_good_chap_1316061693_180.png",
+		"related": [
+			"a1-comrade",
+			"best-pal",
+			"fine-friend",
+			"good-buddy"
+		]
+	},
+	"a1_comrade": {
+		"name": "A-1 Comrade",
+		"description": "Made 79 friends",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-14/a1_comrade_1316061695_180.png",
+		"related": [
+			"best-pal",
+			"fine-friend",
+			"good-buddy",
+			"jolly-good-chap"
+		]
+	},
+	"best_pal": {
+		"name": "Best Pal",
+		"description": "Made 111 friends",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-14/best_pal_1316061697_180.png",
+		"related": [
+			"a1-comrade",
+			"fine-friend",
+			"good-buddy",
+			"jolly-good-chap"
+		]
+	},
+	"good_neighbour": {
+		"name": "Good Neighbour",
+		"description": "Added 5 friends to your signpost",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/good_neighbour_1339702859_180.png",
+		"related": [
+		]
+	},
+	"social_butterfly": {
+		"name": "Social Butterfly",
+		"description": "Cheerfully said Hi to 53 different players in one game day",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-29/social_butterfly_1351536165_180.png",
+		"related": [
+			"hi-and-mighty",
+			"member-of-hi-society"
+		]
+	},
+	"hi_and_mighty": {
+		"name": "Hi and Mighty",
+		"description": "Got a Mega-Hi 17 times in one game day",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-29/hi_and_mighty_1351536168_180.png",
+		"related": [
+			"member-of-hi-society",
+			"social-butterfly"
+		]
+	},
+	"member_of_hi_society": {
+		"name": "Member of Hi Society",
+		"description": "Greeted players with all 11 Hi Sign variations",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-26/member_of_hi_society_1351296885_180.png",
+		"related": [
+			"hi-and-mighty",
+			"social-butterfly"
+		]
+	},
+	"hi_flyer": {
+		"name": "Hi Flyer",
+		"description": "Evaded a Hi Sign for 11 seconds",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-11-01/hi_flyer_1351810771_180.png",
+		"related": [
+			"hi-speed-chase",
+			"hi-velocity",
+			"the-motorboat"
+		]
+	},
+	"hi_speed_chase": {
+		"name": "Hi Speed Chase",
+		"description": "Avoided a Hi Sign for 61 seconds",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-11-01/hi_speed_chase_1351810774_180.png",
+		"related": [
+			"hi-flyer",
+			"hi-velocity",
+			"the-motorboat"
+		]
+	},
+	"hi_velocity": {
+		"name": "Hi Velocity",
+		"description": "Eluded a Hi Sign for 151 seconds",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-11-01/hi_as_a_kite_1351811570_180.png",
+		"related": [
+			"hi-flyer",
+			"hi-speed-chase",
+			"the-motorboat"
+		]
+	},
+	"the_motorboat": {
+		"name": "The Motorboat",
+		"description": "Outwitted a Hi Sign for 311 seconds",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-11-01/hi_velocity_1351811573_180.png",
+		"related": [
+			"hi-flyer",
+			"hi-speed-chase",
+			"hi-velocity"
+		]
+	},
+	"sociable_susan": {
+		"name": "Sociable Susan",
+		"description": "Visited 23 different home streets",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-28/sociable_susan_1340931474_180.png",
+		"related": [
+			"affable-anthony",
+			"gregarious-gunther"
+		]
+	},
+	"affable_anthony": {
+		"name": "Affable Anthony",
+		"description": "Popped round to 101 different home streets",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-28/affable_anthony_1340931597_180.png",
+		"related": [
+			"gregarious-gunther",
+			"sociable-susan"
+		]
+	},
+	"gregarious_gunther": {
+		"name": "Gregarious Gunther",
+		"description": "Sojourned on 503 separate home streets",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/gregarious_gunther_1339718447_180.png",
+		"related": [
+			"affable-anthony",
+			"sociable-susan"
+		]
+	},
+	"decent_citizen": {
+		"name": "Decent Citizen",
+		"description": "Gave 11 gifts to other players",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/decent_citizen_1304984031_180.png",
+		"related": [
+			"noble-philanthropizer",
+			"pretty-good-samaritan"
+		]
+	},
+	"pretty_good_samaritan": {
+		"name": "Pretty Good Samaritan",
+		"description": "Gave 29 gifts to other players",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/pretty_good_samaritan_1304984036_180.png",
+		"related": [
+			"decent-citizen",
+			"noble-philanthropizer"
+		]
+	},
+	"noble_philanthropizer": {
+		"name": "Noble Philanthropizer",
+		"description": "Gave 79 gifts to other players",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/noble_philanthropizer_1304984041_180.png",
+		"related": [
+			"decent-citizen",
+			"pretty-good-samaritan"
+		]
+	},
+	"hi_baller": {
+		"name": "Hi Baller",
+		"description": "Made friends with a Mega-Hi 13 times over",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-26/hi_baller_1351296891_180.png",
+		"related": [
+			"hi-priest",
+			"master-of-the-hi-coup"
+		]
+	},
+	"hi_priest": {
+		"name": "Hi Priest",
+		"description": "Achieved a Mega-Hi 79 times",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-26/hi_priest_1351296894_180.png",
+		"related": [
+			"hi-baller",
+			"master-of-the-hi-coup"
+		]
+	},
+	"master_of_the_hi_coup": {
+		"name": "Master of the Hi Coup",
+		"description": "Hit the Mega-Hi 311 times",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-26/master_of_the_hi_coup_1351296896_180.png",
+		"related": [
+			"hi-baller",
+			"hi-priest"
+		]
+	},
+	"crowded_house": {
+		"name": "Crowded House",
+		"description": "Graciously hosted three guests at once in your house",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-15/crowded_house_1339782483_180.png",
+		"related": [
+			"epic-blowout",
+			"house-party"
+		]
+	},
+	"house_party": {
+		"name": "House Party",
+		"description": "Generously hosted 17 guests in your house",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-15/house_party_1339782488_180.png",
+		"related": [
+			"crowded-house",
+			"epic-blowout"
+		]
+	},
+	"epic_blowout": {
+		"name": "Epic Blowout",
+		"description": "Attended a house party containing 11 guests under the influence.",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/epic_blowout_1339718078_180.png",
+		"related": [
+			"crowded-house",
+			"house-party"
+		]
+	},
+	"hanky_splanky": {
+		"name": "Hanky Splanky",
+		"description": "Administered fun-but-firm splankings to 23 players",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/hanky_splanky_1304984904_180.png",
+		"related": [
+		]
+	},
+	"trader_joe": {
+		"name": "Trader Joe",
+		"description": "Traded with other players 3 times",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-11-06/trader_joe_1352232450_180.png",
+		"related": [
+			"trader-carl",
+			"trader-vic"
+		]
+	},
+	"trader_vic": {
+		"name": "Trader Vic",
+		"description": "Traded with other players 17 times",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/trader_vic_1304984978_180.png",
+		"related": [
+			"trader-carl",
+			"trader-joe"
+		]
+	},
+	"trader_carl": {
+		"name": "Trader Carl",
+		"description": "Traded with other players 41 times",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/trader_carl_1304984984_180.png",
+		"related": [
+			"trader-joe",
+			"trader-vic"
+		]
+	},
+	"humble_bragger": {
+		"name": "Humble Bragger",
+		"description": "Displayed 11 trophies in your home",
+		"category": "Social",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-11-06/humble_bragger_1352232454_180.png",
+		"related": [
+		]
+	}
+}

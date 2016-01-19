@@ -1,0 +1,109 @@
+{
+	"domestic_completist": {
+		"name": "Domestic Completist",
+		"description": "Crafted each furniture item at least once",
+		"category": "Furniture",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/domestic_completist_1339700608_180.png",
+		"related": []
+	},
+	"better_homes_and_gardens": {
+		"name": "Better Homes and Gardens",
+		"description": "Upgraded each furniture base item at least once",
+		"category": "Furniture",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/better_homes_and_gardens_1339700613_180.png",
+		"related": []
+	},
+	"novice_furniturer": {
+		"name": "Novice Furniturer",
+		"description": "Crafted 37 furniture items",
+		"category": "Furniture",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/novice_furniturer_1339717946_180.png",
+		"related": [
+			"master-furniturererer",
+			"professional-furniturerer"
+		]
+	},
+	"professional_furniturerer": {
+		"name": "Professional Furniturerer",
+		"description": "Crafted 101 furniture items",
+		"category": "Furniture",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/professional_furniturerer_1339718075_180.png",
+		"related": [
+			"master-furniturererer",
+			"novice-furniturer"
+		]
+	},
+	"master_furniturererer": {
+		"name": "Master Furniturererer",
+		"description": "Crafted 251 furniture items",
+		"category": "Furniture",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/master_furniturererer_1339715842_180.png",
+		"related": [
+			"novice-furniturer",
+			"professional-furniturerer"
+		]
+	},
+	"corporate_cabinetmaker": {
+		"name": "Corporate Cabinetmaker",
+		"description": "Carefully crafted 13 cabinets",
+		"category": "Furniture",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/corporate_cabinetmaker_1339700465_180.png",
+		"related": []
+	},
+	"captain_tchotchke": {
+		"name": "Captain Tchotchke",
+		"description": "Blithely crafted 51 decorative base items",
+		"category": "Furniture",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/captain_tchotchke_1339700460_180.png",
+		"related": []
+	},
+	"into_the_light": {
+		"name": "Into the Light",
+		"description": "Brilliantly crafted 11 lamps",
+		"category": "Furniture",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/into_the_light_1339700604_180.png",
+		"related": []
+	},
+	"court_hoarder": {
+		"name": "Court Hoarder",
+		"description": "Crafted 53 Storage Display Boxes",
+		"category": "Furniture",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/court_hoarder_1339722211_180.png",
+		"related": []
+	},
+	"order_of_the_hoarder": {
+		"name": "Order of the Hoarder",
+		"description": "Crafted 211 Storage Display Boxes",
+		"category": "Furniture",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/order_of_the_hoarder_1339718440_180.png",
+		"related": []
+	},
+	"honourable_chairperson": {
+		"name": "Honourable Chairperson",
+		"description": "Crafted one of each type of seating",
+		"category": "Furniture",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/honourable_chairperson_1339715845_180.png",
+		"related": []
+	},
+	"framer_ranger": {
+		"name": "Framer Ranger",
+		"description": "Crafted 23 frames for wall decorations",
+		"category": "Furniture",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/framer_ranger_1339700449_180.png",
+		"related": []
+	},
+	"aspirational_home_improver": {
+		"name": "Aspirational Home Improver",
+		"description": "Chose 11 unique furniture upgrades",
+		"category": "Furniture",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/aspirational_home_improver_1339701324_180.png",
+		"related": []
+	},
+	"inspirational_home_improver": {
+		"name": "Inspirational Home Improver",
+		"description": "Chose 53 unique furniture upgrades",
+		"category": "Furniture",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/inspirational_home_improver_1339700617_180.png",
+		"related": []
+	}
+}

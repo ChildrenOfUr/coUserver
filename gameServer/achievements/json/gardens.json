@@ -1,0 +1,122 @@
+{
+	"soso_sower": {
+		"name": "So-So Sower",
+		"description": "Planted 13 Crops",
+		"category": "Gardens",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/soso_sower_1304983819_180.png",
+		"related": [
+			"ace-propagationist",
+			"amateur-agronomist",
+			"haughty-culturist",
+			"notsogrim-reaper"
+		]
+	},
+	"amateur_agronomist": {
+		"name": "Amateur Agronomist",
+		"description": "Planted 53 Crops",
+		"category": "Gardens",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/amateur_agronomist_1304983824_180.png",
+		"related": [
+			"ace-propagationist",
+			"haughty-culturist",
+			"notsogrim-reaper",
+			"soso-sower"
+		]
+	},
+	"notsogrim_reaper": {
+		"name": "Not-So-Grim Reaper",
+		"description": "Planted 151 Crops",
+		"category": "Gardens",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/notsogrim_reaper_1304983829_180.png",
+		"related": [
+			"ace-propagationist",
+			"amateur-agronomist",
+			"haughty-culturist",
+			"soso-sower"
+		]
+	},
+	"ace_propagationist": {
+		"name": "Ace Propagationist",
+		"description": "Planted 401 Crops",
+		"category": "Gardens",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/ace_propagationist_1304983834_180.png",
+		"related": [
+			"amateur-agronomist",
+			"haughty-culturist",
+			"notsogrim-reaper",
+			"soso-sower"
+		]
+	},
+	"haughty_culturist": {
+		"name": "Haughty Culturist",
+		"description": "Planted 1013 Crops",
+		"category": "Gardens",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/haughty_culturist_1315686141_180.png",
+		"related": [
+			"ace-propagationist",
+			"amateur-agronomist",
+			"notsogrim-reaper",
+			"soso-sower"
+		]
+	},
+	"mixed_herbalist": {
+		"name": "Mixed Herbalist",
+		"description": "Planted 37 Herbs",
+		"category": "Gardens",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/mixed_herbalist_1315686144_180.png",
+		"related": [
+			"aggressive-agrarian",
+			"awesome-apothecary",
+			"multi-cultivator",
+			"uberculturalist"
+		]
+	},
+	"aggressive_agrarian": {
+		"name": "Aggressive Agrarian",
+		"description": "Planted 157 Herbs",
+		"category": "Gardens",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-12/aggressive_agrarian_1315871095_180.png",
+		"related": [
+			"awesome-apothecary",
+			"mixed-herbalist",
+			"multi-cultivator",
+			"uberculturalist"
+		]
+	},
+	"multi_cultivator": {
+		"name": "Multi Cultivator",
+		"description": "Planted 503 Herbs",
+		"category": "Gardens",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/multi_cultivator_1315686146_180.png",
+		"related": [
+			"aggressive-agrarian",
+			"awesome-apothecary",
+			"mixed-herbalist",
+			"uberculturalist"
+		]
+	},
+	"awesome_apothecary": {
+		"name": "Awesome Apothecary",
+		"description": "Planted 1009 Herbs",
+		"category": "Gardens",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/awesome_apothecary_1315686148_180.png",
+		"related": [
+			"aggressive-agrarian",
+			"mixed-herbalist",
+			"multi-cultivator",
+			"uberculturalist"
+		]
+	},
+	"uberculturalist": {
+		"name": "Überculturalist",
+		"description": "Planted 5003 Herbs",
+		"category": "Gardens",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/uberculturalist_1315686150_180.png",
+		"related": [
+			"aggressive-agrarian",
+			"awesome-apothecary",
+			"mixed-herbalist",
+			"multi-cultivator"
+		]
+	}
+}

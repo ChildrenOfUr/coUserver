@@ -1,0 +1,470 @@
+{
+	"unconfounded_compounder": {
+		"name": "Un-Confounded Compounder",
+		"description": "Concocted 41 compounds with a Test Tube",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/unconfounded_compounder_1304984047_180.png",
+		"related": [
+			"loyal-alloyer",
+			"really-unconfounded-compounder"
+		]
+	},
+	"really_unconfounded_compounder": {
+		"name": "Really Un-Confounded Compounder",
+		"description": "Cooked up 503 compounds with a Test Tube",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-19/really_unconfounded_compounder_1316417069_180.png",
+		"related": [
+			"loyal-alloyer",
+			"unconfounded-compounder"
+		]
+	},
+	"loyal_alloyer": {
+		"name": "Loyal Alloyer",
+		"description": "Stewed 5011 compounds with a Test Tube",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-19/loyal_alloyer_1316417071_180.png",
+		"related": [
+			"really-unconfounded-compounder",
+			"unconfounded-compounder"
+		]
+	},
+	"constable_coppersmith": {
+		"name": "Constable Coppersmith",
+		"description": "Vigorously rubbed, tugged and massaged 41 Plain Metal Ingots into Copper",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/constable_coppersmith_1315685805_180.png",
+		"related": [
+			"chief-inspector-coppersmith",
+			"sergeant-coppersmith"
+		]
+	},
+	"sergeant_coppersmith": {
+		"name": "Sergeant Coppersmith",
+		"description": "Vigorously rubbed, tugged and massaged 137 Plain Metal Ingots into Copper",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/sergeant_coppersmith_1315685808_180.png",
+		"related": [
+			"chief-inspector-coppersmith",
+			"constable-coppersmith"
+		]
+	},
+	"chief_inspector_coppersmith": {
+		"name": "Chief Inspector Coppersmith",
+		"description": "Vigorously rubbed, tugged and massaged 501 Plain Metal Ingots into Copper",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/chief_inspector_coppersmith_1315685810_180.png",
+		"related": [
+			"constable-coppersmith",
+			"sergeant-coppersmith"
+		]
+	},
+	"moonshiner": {
+		"name": "Moonshiner",
+		"description": "Delightedly distilled 11 Hooches in your back yard",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-11-17/moonshiner_1321576667_180.png",
+		"related": [
+			"bootleg-facilitator",
+			"captain-of-the-anti-temperance-league",
+			"hoochhawker",
+			"rumrunner"
+		]
+	},
+	"rumrunner": {
+		"name": "Rumrunner",
+		"description": "Dramatically distilled 61 Hooches in your back yard",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-11-17/rumrunner_1321576670_180.png",
+		"related": [
+			"bootleg-facilitator",
+			"captain-of-the-anti-temperance-league",
+			"hoochhawker",
+			"moonshiner"
+		]
+	},
+	"hoochhawker": {
+		"name": "Hoochhawker",
+		"description": "Determinedly distilled 253 Hooches in your back yard",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-11-17/hoochhawker_1321576677_180.png",
+		"related": [
+			"bootleg-facilitator",
+			"captain-of-the-anti-temperance-league",
+			"moonshiner",
+			"rumrunner"
+		]
+	},
+	"bootleg_facilitator": {
+		"name": "Bootleg Facilitator",
+		"description": "Diligently distilled 913 Hooches in your back yard",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-11-17/bootleg_facilitator_1321576680_180.png",
+		"related": [
+			"captain-of-the-anti-temperance-league",
+			"hoochhawker",
+			"moonshiner",
+			"rumrunner"
+		]
+	},
+	"captain_of_the_anti_temperance_league": {
+		"name": "Captain of the Anti-Temperance League",
+		"description": "Dutifully distilled 3331 Hooches in your back yard",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-11-17/captain_of_the_anti_temperance_league_1321576683_180.png",
+		"related": [
+			"bootleg-facilitator",
+			"hoochhawker",
+			"moonshiner",
+			"rumrunner"
+		]
+	},
+	"heavy_metallurgist": {
+		"name": "Heavy Metallurgist",
+		"description": "Professionally rubbed 41 Plain Metal Ingots into Molybdenum",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/heavy_metallurgist_1315685812_180.png",
+		"related": [
+			"death-metallurgist",
+			"thrash-metallurgist"
+		]
+	},
+	"thrash_metallurgist": {
+		"name": "Thrash Metallurgist",
+		"description": "Professionally rubbed 137 Plain Metal Ingots into Molybdenum",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/thrash_metallurgist_1315685815_180.png",
+		"related": [
+			"death-metallurgist",
+			"heavy-metallurgist"
+		]
+	},
+	"death_metallurgist": {
+		"name": "Death Metallurgist",
+		"description": "Professionally rubbed 501 Plain Metal Ingots into Molybdenum",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/death_metallurgist_1315685817_180.png",
+		"related": [
+			"heavy-metallurgist",
+			"thrash-metallurgist"
+		]
+	},
+	"plain_crystallizer": {
+		"name": "Plain Crystallizer",
+		"description": "Made 23 Plain Crystals",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/plain_crystallizer_1315685874_180.png",
+		"related": [
+			"amorphous-crystallizer",
+			"polymorphous-crystallizer"
+		]
+	},
+	"amorphous_crystallizer": {
+		"name": "Amorphous Crystallizer",
+		"description": "Made 79 Plain Crystals",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/amorphous_crystallizer_1315685880_180.png",
+		"related": [
+			"plain-crystallizer",
+			"polymorphous-crystallizer"
+		]
+	},
+	"polymorphous_crystallizer": {
+		"name": "Polymorphous Crystallizer",
+		"description": "Made 251 Plain Crystals",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/polymorphous_crystallizer_1315685882_180.png",
+		"related": [
+			"amorphous-crystallizer",
+			"plain-crystallizer"
+		]
+	},
+	"moste_potente_potioning_medal": {
+		"name": "Moste Potente Potioning Medal",
+		"description": "Bubbled up 11 potions",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-11-23/moste_potente_potioning_medal_1322093710_180.png",
+		"related": [
+			"jiggers-ribbon",
+			"libatious-borage-award",
+			"severus-sash",
+			"slughorn-medallion"
+		]
+	},
+	"slughorn_medallion": {
+		"name": "Slughorn Medallion",
+		"description": "Conjured up 47 Potions",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-11-23/slughorn_medallion_1322093712_180.png",
+		"related": [
+			"jiggers-ribbon",
+			"libatious-borage-award",
+			"moste-potente-potioning-medal",
+			"severus-sash"
+		]
+	},
+	"jiggers_ribbon": {
+		"name": "Jigger's Ribbon",
+		"description": "Toiled over 199 Potions",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-11-23/jiggers_ribbon_1322093715_180.png",
+		"related": [
+			"libatious-borage-award",
+			"moste-potente-potioning-medal",
+			"severus-sash",
+			"slughorn-medallion"
+		]
+	},
+	"severus_sash": {
+		"name": "Severus Sash",
+		"description": "Charmed 457 Potions into being",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-11-23/severus_sash_1322093717_180.png",
+		"related": [
+			"jiggers-ribbon",
+			"libatious-borage-award",
+			"moste-potente-potioning-medal",
+			"slughorn-medallion"
+		]
+	},
+	"libatious_borage_award": {
+		"name": "Libatious Borage Award",
+		"description": "Masterfully Cauldronated 1033 Potions",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-11-23/libatious_borage_award_1322093719_180.png",
+		"related": [
+			"jiggers-ribbon",
+			"moste-potente-potioning-medal",
+			"severus-sash",
+			"slughorn-medallion"
+		]
+	},
+	"potion_patron": {
+		"name": "Potion Patron",
+		"description": "Quaffed or poured 7 Potions",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-11-23/potion_patron_1322093722_180.png",
+		"related": [
+			"elixir-enthusiast",
+			"libation-lover",
+			"philter-fiend",
+			"potionographer"
+		]
+	},
+	"elixir_enthusiast": {
+		"name": "Elixir Enthusiast",
+		"description": "Quaffed or poured 37 Potions",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-11-21/elixir_enthusiast_1321896647_180.png",
+		"related": [
+			"libation-lover",
+			"philter-fiend",
+			"potion-patron",
+			"potionographer"
+		]
+	},
+	"philter_fiend": {
+		"name": "Philter Fiend",
+		"description": "Quaffed or poured 151 Potions",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-11-23/philter_fiend_1322093725_180.png",
+		"related": [
+			"elixir-enthusiast",
+			"libation-lover",
+			"potion-patron",
+			"potionographer"
+		]
+	},
+	"libation_lover": {
+		"name": "Libation Lover",
+		"description": "Quaffed or poured 353 Potions",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-11-23/libation_lover_1322093728_180.png",
+		"related": [
+			"elixir-enthusiast",
+			"philter-fiend",
+			"potion-patron",
+			"potionographer"
+		]
+	},
+	"potionographer": {
+		"name": "Potionographer",
+		"description": "Quaffed or poured 811 Potions",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-11-23/potionographer_1322093730_180.png",
+		"related": [
+			"elixir-enthusiast",
+			"libation-lover",
+			"philter-fiend",
+			"potion-patron"
+		]
+	},
+	"sneezeorama": {
+		"name": "Sneeze-O-Rama",
+		"description": "Made five other players sneeze simultaneously with Sneezing Powder",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/sneezeorama_1304984068_180.png",
+		"related": [
+			"critter-catalyzer",
+			"dragon-chaser",
+			"fertilivert",
+			"hallowed-be-shrine-name",
+			"sparkle-buddy"
+		]
+	},
+	"critter_catalyzer": {
+		"name": "Critter Catalyzer",
+		"description": "Used Powder of Startling Fecundity on 5 critters at once.",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/critter_catalyzer_1304984072_180.png",
+		"related": [
+			"dragon-chaser",
+			"fertilivert",
+			"hallowed-be-shrine-name",
+			"sneezeorama",
+			"sparkle-buddy"
+		]
+	},
+	"dragon_chaser": {
+		"name": "Dragon Chaser",
+		"description": "Kept up No-No Rush for 11 minutes",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-08-10/dragon_chaser_1313024461_180.png",
+		"related": [
+			"critter-catalyzer",
+			"fertilivert",
+			"hallowed-be-shrine-name",
+			"sneezeorama",
+			"sparkle-buddy"
+		]
+	},
+	"fertilivert": {
+		"name": "Fertilivert",
+		"description": "Used Fertilidust on 4 Trees at once",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/fertilivert_1304984063_180.png",
+		"related": [
+			"critter-catalyzer",
+			"dragon-chaser",
+			"hallowed-be-shrine-name",
+			"sneezeorama",
+			"sparkle-buddy"
+		]
+	},
+	"sparkle_buddy": {
+		"name": "Sparkle Buddy",
+		"description": "Made seven players extra-happy at the same time with Sparkle Powder",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/sparkle_buddy_1304984077_180.png",
+		"related": [
+			"critter-catalyzer",
+			"dragon-chaser",
+			"fertilivert",
+			"hallowed-be-shrine-name",
+			"sneezeorama"
+		]
+	},
+	"hallowed_be_shrine_name": {
+		"name": "Hallowed Be Shrine Name",
+		"description": "Donated an expensive item to a Shrine under the effects of Extremely Hallowed Shrine Powder",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/hallowed_be_shrine_name_1304984089_180.png",
+		"related": [
+			"critter-catalyzer",
+			"dragon-chaser",
+			"fertilivert",
+			"sneezeorama",
+			"sparkle-buddy"
+		]
+	},
+	"entrylevel_admixificator": {
+		"name": "Entry-Level Admixificator",
+		"description": "Used a Beaker to stir three powders",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/entrylevel_admixificator_1304984093_180.png",
+		"related": [
+			"midlevel-admixificator",
+			"senior-admixificator"
+		]
+	},
+	"midlevel_admixificator": {
+		"name": "Mid-Level Admixificator",
+		"description": "Used a Beaker to stir 11 powders",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/midlevel_admixificator_1304984100_180.png",
+		"related": [
+			"entrylevel-admixificator",
+			"senior-admixificator"
+		]
+	},
+	"senior_admixificator": {
+		"name": "Senior Admixificator",
+		"description": "Used a Beaker to stir 41 powders",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/senior_admixificator_1304984107_180.png",
+		"related": [
+			"entrylevel-admixificator",
+			"midlevel-admixificator"
+		]
+	},
+	"starter_for_tinsmithery": {
+		"name": "Starter for Tinsmithery",
+		"description": "Lovingly rubbed 41 basic Plain Metal Ingots into superior Tin",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/starter_for_tinsmithery_1315685820_180.png",
+		"related": [
+			"middling-tinsmitherer",
+			"top-tinsmith"
+		]
+	},
+	"middling_tinsmitherer": {
+		"name": "Middling Tinsmitherer",
+		"description": "Lovingly rubbed 137 basic Plain Metal Ingots into superior Tin",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/middling_tinsmitherer_1315685823_180.png",
+		"related": [
+			"starter-for-tinsmithery",
+			"top-tinsmith"
+		]
+	},
+	"top_tinsmith": {
+		"name": "Top Tinsmith",
+		"description": "Lovingly rubbed 501 basic Plain Metal Ingots into superior Tin",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/top_tinsmith_1315685828_180.png",
+		"related": [
+			"middling-tinsmitherer",
+			"starter-for-tinsmithery"
+		]
+	},
+	"dandy_tincturer": {
+		"name": "Dandy Tincturer",
+		"description": "Infused 87 Tinctures",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-11-17/dandy_tincturer_1321576686_180.png",
+		"related": [
+			"crackpot-infuser",
+			"enchanting-extractorator"
+		]
+	},
+	"crackpot_infuser": {
+		"name": "Crackpot Infuser",
+		"description": "Created 253 Tinctures",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-05-23/crackpot_infuser_1337790236_180.png",
+		"related": [
+			"dandy-tincturer",
+			"enchanting-extractorator"
+		]
+	},
+	"enchanting_extractorator": {
+		"name": "Enchanting Extractorator",
+		"description": "Tincted up 1009 powerful concentrates",
+		"category": "Alchemy",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-01-11/enchanting_extractorator_1326336472_180.png",
+		"related": [
+			"crackpot-infuser",
+			"dandy-tincturer"
+		]
+	}
+}

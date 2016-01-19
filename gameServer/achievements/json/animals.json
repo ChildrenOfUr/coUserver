@@ -1,0 +1,454 @@
+{
+	"butterfly_whisperer": {
+		"name": "Butterfly Whisperer",
+		"description": "Administered 3 tickly butterfly massages.",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/butterfly_whisperer_1304983406_180.png",
+		"related": [
+			"apprentice-lepidopteral-manipulator",
+			"master-lepidopteral-manipulator",
+			"nighmystical-lepidopteral-manipulator",
+			"practical-lepidopteral-manipulator"
+		]
+	},
+	"apprentice_lepidopteral_manipulator": {
+		"name": "Apprentice Lepidopteral Manipulator",
+		"description": "Administered 23 adequate Butterfly massages",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/apprentice_lepidopteral_manipulator_1304984111_180.png",
+		"related": [
+			"butterfly-whisperer",
+			"master-lepidopteral-manipulator",
+			"nighmystical-lepidopteral-manipulator",
+			"practical-lepidopteral-manipulator"
+		]
+	},
+	"practical_lepidopteral_manipulator": {
+		"name": "Practical Lepidopteral Manipulator",
+		"description": "Administered 41 reasonably competent Butterfly massages",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/practical_lepidopteral_manipulator_1304984116_180.png",
+		"related": [
+			"apprentice-lepidopteral-manipulator",
+			"butterfly-whisperer",
+			"master-lepidopteral-manipulator",
+			"nighmystical-lepidopteral-manipulator"
+		]
+	},
+	"master_lepidopteral_manipulator": {
+		"name": "Master Lepidopteral Manipulator",
+		"description": "Administered 137 fairly awesome Butterfly massages",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/master_lepidopteral_manipulator_1304984121_180.png",
+		"related": [
+			"apprentice-lepidopteral-manipulator",
+			"butterfly-whisperer",
+			"nighmystical-lepidopteral-manipulator",
+			"practical-lepidopteral-manipulator"
+		]
+	},
+	"nighmystical_lepidopteral_manipulator": {
+		"name": "Nigh-Mystical Lepidopteral Manipulator",
+		"description": "Administered 503 borderline magical Butterfly massages",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/nighmystical_lepidopteral_manipulator_1304984127_180.png",
+		"related": [
+			"apprentice-lepidopteral-manipulator",
+			"butterfly-whisperer",
+			"master-lepidopteral-manipulator",
+			"practical-lepidopteral-manipulator"
+		]
+	},
+	"basic_larva_lover": {
+		"name": "Basic Larva Lover",
+		"description": "Fed three Caterpillars until they metamorphosized into Butterflies",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/basic_larva_lover_1304984131_180.png",
+		"related": [
+			"advanced-larva-lover",
+			"intermediate-larva-lover"
+		]
+	},
+	"intermediate_larva_lover": {
+		"name": "Intermediate Larva Lover",
+		"description": "Fed 23 Caterpillars until they metamorphosized into Butterflies",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/intermediate_larva_lover_1304984136_180.png",
+		"related": [
+			"advanced-larva-lover",
+			"basic-larva-lover"
+		]
+	},
+	"advanced_larva_lover": {
+		"name": "Advanced Larva Lover",
+		"description": "Fed 103 Caterpillars until they metamorphosized into Butterflies",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/advanced_larva_lover_1304984141_180.png",
+		"related": [
+			"basic-larva-lover",
+			"intermediate-larva-lover"
+		]
+	},
+	"all_right_hatcher": {
+		"name": "All Right Hatcher",
+		"description": "Incubated three Eggs, with some help from a Chicken",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/all_right_hatcher_1304984155_180.png",
+		"related": [
+			"best-nester",
+			"incubator-par-eggcellence"
+		]
+	},
+	"best_nester": {
+		"name": "Best Nester",
+		"description": "Incubated 17 Eggs, with some help from a Chicken",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/best_nester_1304984159_180.png",
+		"related": [
+			"all-right-hatcher",
+			"incubator-par-eggcellence"
+		]
+	},
+	"incubator_par_eggcellence": {
+		"name": "Incubator Par Egg-cellence",
+		"description": "Incubated 103 Eggs, with some help from a Chicken",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/incubator_par_eggcellence_1304984165_180.png",
+		"related": [
+			"all-right-hatcher",
+			"best-nester"
+		]
+	},
+	"hen_hugger": {
+		"name": "Hen Hugger",
+		"description": "Squoze 11 Chickens in a friendly sorta way.",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/hen_hugger_1304984169_180.png",
+		"related": [
+			"hen-hugger-deluxe",
+			"hen-hugger-supremalicious",
+			"the-hugginator"
+		]
+	},
+	"hen_hugger_deluxe": {
+		"name": "Hen Hugger Deluxe",
+		"description": "Squoze 41 Chickens in a friendly sorta way",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/hen_hugger_deluxe_1304984174_180.png",
+		"related": [
+			"hen-hugger",
+			"hen-hugger-supremalicious",
+			"the-hugginator"
+		]
+	},
+	"hen_hugger_supremalicious": {
+		"name": "Hen Hugger Supremalicious",
+		"description": "Squoze 137 Chickens in a friendly sorta way",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/hen_hugger_supremalicious_1304984180_180.png",
+		"related": [
+			"hen-hugger",
+			"hen-hugger-deluxe",
+			"the-hugginator"
+		]
+	},
+	"the_hugginator": {
+		"name": "The Hugginator",
+		"description": "Squoze 503 Chickens in a too-friendly sorta way",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/the_hugginator_1304984184_180.png",
+		"related": [
+			"hen-hugger",
+			"hen-hugger-deluxe",
+			"hen-hugger-supremalicious"
+		]
+	},
+	"chicken_tender": {
+		"name": "Chicken Tender",
+		"description": "Raised 3 Chicks to the full bloom of adult chickenhood",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/chicken_tender_1304983754_180.png",
+		"related": [
+			"capon-caterer",
+			"pullet-provenderizer"
+		]
+	},
+	"pullet_provenderizer": {
+		"name": "Pullet Provenderizer",
+		"description": "Nourished 23 Chicks to squawky adulthood",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/pullet_provenderizer_1304984189_180.png",
+		"related": [
+			"capon-caterer",
+			"chicken-tender"
+		]
+	},
+	"capon_caterer": {
+		"name": "Capon Caterer",
+		"description": "Nourished 103 Chicks to squawky adulthood",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/capon_caterer_1304984193_180.png",
+		"related": [
+			"chicken-tender",
+			"pullet-provenderizer"
+		]
+	},
+	"egg_transmutator_apprentice": {
+		"name": "Egg Transmutator Apprentice",
+		"description": "Seasoned 53 Eggs",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/egg_transmutator_apprentice_1304984310_180.png",
+		"related": [
+			"egg-transmutator-maxipro",
+			"egg-transmutator-pro"
+		]
+	},
+	"egg_transmutator_pro": {
+		"name": "Egg Transmutator Pro",
+		"description": "Seasoned a staggering 503 Eggs",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/egg_transmutator_pro_1304984340_180.png",
+		"related": [
+			"egg-transmutator-apprentice",
+			"egg-transmutator-maxipro"
+		]
+	},
+	"egg_transmutator_maxipro": {
+		"name": "Egg Transmutator Maxi-Pro",
+		"description": "Seasoned 2003 Eggs. That's right, 2003.",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/egg_transmutator_maxipro_1304984352_180.png",
+		"related": [
+			"egg-transmutator-apprentice",
+			"egg-transmutator-pro"
+		]
+	},
+	"happy_foxbrusher": {
+		"name": "Happy Foxbrusher",
+		"description": "Brushed 1009 fibers from the tails of foxes",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/happy_foxbrusher_1339701054_180.png",
+		"related": [
+			"delirious-foxbrusher",
+			"maniacal-foxbrusher"
+		]
+	},
+	"delirious_foxbrusher": {
+		"name": "Delirious Foxbrusher",
+		"description": "Brushed 10,009 fibers from the tails of foxes",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/delirious_foxbrusher_1339701057_180.png",
+		"related": [
+			"happy-foxbrusher",
+			"maniacal-foxbrusher"
+		]
+	},
+	"maniacal_foxbrusher": {
+		"name": "Maniacal Foxbrusher",
+		"description": "Brushed 50,003 fibers from the tails of foxes",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/maniacal_foxbrusher_1339701248_180.png",
+		"related": [
+			"delirious-foxbrusher",
+			"happy-foxbrusher"
+		]
+	},
+	"cunning_like_a_foxbrusher": {
+		"name": "Cunning like a Foxbrusher",
+		"description": "Brushed 31 foxes while they were moving",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/cunning_like_a_foxbrusher_1339712004_180.png",
+		"related": [
+		]
+	},
+	"fleet_foxer": {
+		"name": "Fleet Foxer",
+		"description": "Brushed the same fox 3 times in 10 seconds",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/fleet_foxer_1339701256_180.png",
+		"related": [
+		]
+	},
+	"fox_tourist": {
+		"name": "Fox Tourist",
+		"description": "Brushed a fox in preserves in each of the 10 regions",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/fox_tourist_1339701253_180.png",
+		"related": [
+		]
+	},
+	"fox_flurrier": {
+		"name": "Fox Flurrier",
+		"description": "With 9 Glitches, witnessed the simultaneous presence of three foxes in one location",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/fox_flurrier_1339718157_180.png",
+		"related": [
+		]
+	},
+	"piggy_nibbler": {
+		"name": "Piggy Nibbler",
+		"description": "Gently nibbled 17 piggies",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/piggy_nibbler_1304983758_180.png",
+		"related": [
+			"bacon-biter",
+			"ham-hocker",
+			"transrational-meat-aficionado"
+		]
+	},
+	"bacon_biter": {
+		"name": "Bacon Biter",
+		"description": "Nibbled on 41 enthusiastically acquiescent Piggies",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/bacon_biter_1304984218_180.png",
+		"related": [
+			"ham-hocker",
+			"piggy-nibbler",
+			"transrational-meat-aficionado"
+		]
+	},
+	"ham_hocker": {
+		"name": "Ham Hocker",
+		"description": "Nibbled on 137 enthusiastically acquiescent Piggies",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/ham_hocker_1304984225_180.png",
+		"related": [
+			"bacon-biter",
+			"piggy-nibbler",
+			"transrational-meat-aficionado"
+		]
+	},
+	"transrational_meat_aficionado": {
+		"name": "Trans-Rational Meat Aficionado",
+		"description": "Nibbled on an impressive - and impressed - 503 Piggies",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/transrational_meat_aficionado_1304984230_180.png",
+		"related": [
+			"bacon-biter",
+			"ham-hocker",
+			"piggy-nibbler"
+		]
+	},
+	"pork_fondler": {
+		"name": "Pork Fondler",
+		"description": "Firmly patted 11 piggies",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/pork_fondler_1304983765_180.png",
+		"related": [
+			"pork-petter-extraordinaire",
+			"swine-snuggler"
+		]
+	},
+	"swine_snuggler": {
+		"name": "Swine Snuggler",
+		"description": "Gave 41 piggies a thorough patdown",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/swine_snuggler_1304983769_180.png",
+		"related": [
+			"pork-fondler",
+			"pork-petter-extraordinaire"
+		]
+	},
+	"pork_petter_extraordinaire": {
+		"name": "Pork Petter Extraordinaire",
+		"description": "Petted 137 Piggies.",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/pork_petter_extraordinaire_1304984236_180.png",
+		"related": [
+			"pork-fondler",
+			"swine-snuggler"
+		]
+	},
+	"3rd_rate_piggy_hash_slinger": {
+		"name": "3rd Rate Piggy Hash Slinger",
+		"description": "Fed 3 little Piglets until they grew up into Piggies",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/3rd_rate_piggy_hash_slinger_1304984240_180.png",
+		"related": [
+			"2nd-rate-piggy-piggy-hash-slinger",
+			"piggy-hash-slinger-1st-class"
+		]
+	},
+	"2nd_rate_piggy_piggy_hash_slinger": {
+		"name": "2nd Rate Piggy Hash Slinger",
+		"description": "Fed 23 little Piglets until they grew up into Piggies",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/2nd_rate_piggy_piggy_hash_slinger_1304984245_180.png",
+		"related": [
+			"3rd-rate-piggy-hash-slinger",
+			"piggy-hash-slinger-1st-class"
+		]
+	},
+	"piggy_hash_slinger_1st_class": {
+		"name": "Piggy Hash Slinger 1st Class",
+		"description": "Fed 103 little Piglets until they grew up into Piggies",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/piggy_hash_slinger_1st_class_1304984250_180.png",
+		"related": [
+			"2nd-rate-piggy-piggy-hash-slinger",
+			"3rd-rate-piggy-hash-slinger"
+		]
+	},
+	"sloth_stuffer": {
+		"name": "Sloth Stuffer",
+		"description": "Fed a single sloth until it was full",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/sloth_stuffer_1339701261_180.png",
+		"related": [
+		]
+	},
+	"circle_crunch": {
+		"name": "Circle Crunch",
+		"description": "Got three sloths to eat your rods simultaneously",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/circle_crunch_1339708457_180.png",
+		"related": [
+		]
+	},
+	"common_snail_collector": {
+		"name": "Common Snail Collector",
+		"description": "Coaxed 101 snails from a sloth",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/common_snail_collector_1339702813_180.png",
+		"related": [
+			"dedicated-snail-getter",
+			"giant-snail-lander"
+		]
+	},
+	"dedicated_snail_getter": {
+		"name": "Dedicated Snail Getter",
+		"description": "Negotiated 1001 snails from a sloth",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/dedicated_snail_getter_1339706657_180.png",
+		"related": [
+			"common-snail-collector",
+			"giant-snail-lander"
+		]
+	},
+	"giant_snail_lander": {
+		"name": "Giant Snail Lander",
+		"description": "Landed 10009 sloth-produced snails",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/giant_snail_lander_1339702818_180.png",
+		"related": [
+			"common-snail-collector",
+			"dedicated-snail-getter"
+		]
+	},
+	"showered_with_sloth_dribble": {
+		"name": "Showered with Sloth-Dribble",
+		"description": "Spat at by a sloth 11 times",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/showered_with_sloth_dribble_1339708098_180.png",
+		"related": [
+		]
+	},
+	"bathed_in_sloth_slobber": {
+		"name": "Bathed in Sloth-Slobber",
+		"description": "Spat at by a sloth 101 times",
+		"category": "Animals",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/bathed_in_sloth_slobber_1339708101_180.png",
+		"related": [
+		]
+	}
+}

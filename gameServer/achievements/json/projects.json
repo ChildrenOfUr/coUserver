@@ -1,0 +1,130 @@
+{
+	"participant": {
+		"name": "Participant",
+		"description": "Rolled up your sleeves and contributed to all four phases of the same project",
+		"category": "Projects",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/participant_1315686045_180.png",
+		"related": [
+		]
+	},
+	"interested_party": {
+		"name": "Interested Party",
+		"description": "Helped out with 5 phases of a project",
+		"category": "Projects",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/interested_party_1315686048_180.png",
+		"related": [
+			"deeply-concerned-citizen",
+			"project-enthusiast",
+			"team-player",
+			"up-n-comer"
+		]
+	},
+	"team_player": {
+		"name": "Team Player",
+		"description": "Helped out with 17 phases of a project",
+		"category": "Projects",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/team_player_1315686050_180.png",
+		"related": [
+			"deeply-concerned-citizen",
+			"interested-party",
+			"project-enthusiast",
+			"up-n-comer"
+		]
+	},
+	"project_enthusiast": {
+		"name": "Project Enthusiast",
+		"description": "Helped out with 53 phases of a project",
+		"category": "Projects",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/project_enthusiast_1315686053_180.png",
+		"related": [
+			"deeply-concerned-citizen",
+			"interested-party",
+			"team-player",
+			"up-n-comer"
+		]
+	},
+	"up_n_comer": {
+		"name": "Up 'n' Comer",
+		"description": "Helped out with 137 phases of a project",
+		"category": "Projects",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/up_n_comer_1315686055_180.png",
+		"related": [
+			"deeply-concerned-citizen",
+			"interested-party",
+			"project-enthusiast",
+			"team-player"
+		]
+	},
+	"deeply_concerned_citizen": {
+		"name": "Deeply Concerned Citizen",
+		"description": "Helped out with 253 phases of a project",
+		"category": "Projects",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/deeply_concerned_citizen_1315686057_180.png",
+		"related": [
+			"interested-party",
+			"project-enthusiast",
+			"team-player",
+			"up-n-comer"
+		]
+	},
+	"odd_jobber": {
+		"name": "Odd Jobber",
+		"description": "Ranked as top 5 contributors for 11 phases of a project",
+		"category": "Projects",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/odd_jobber_1315686060_180.png",
+		"related": [
+			"chore-buff",
+			"elbow-grease-monkey",
+			"head-honcho",
+			"workaholist"
+		]
+	},
+	"chore_buff": {
+		"name": "Chore Buff",
+		"description": "Ranked as top 5 contributors for 37 phases of a project",
+		"category": "Projects",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/chore_buff_1315686062_180.png",
+		"related": [
+			"elbow-grease-monkey",
+			"head-honcho",
+			"odd-jobber",
+			"workaholist"
+		]
+	},
+	"elbow_grease_monkey": {
+		"name": "Elbow Grease Monkey",
+		"description": "Ranked as top 5 contributors for 79 phases of a project",
+		"category": "Projects",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/elbow_grease_monkey_1315686065_180.png",
+		"related": [
+			"chore-buff",
+			"head-honcho",
+			"odd-jobber",
+			"workaholist"
+		]
+	},
+	"workaholist": {
+		"name": "Workaholist",
+		"description": "Ranked as top 5 contributors for 127 phases of a project",
+		"category": "Projects",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/workaholist_1315686067_180.png",
+		"related": [
+			"chore-buff",
+			"elbow-grease-monkey",
+			"head-honcho",
+			"odd-jobber"
+		]
+	},
+	"head_honcho": {
+		"name": "Head Honcho",
+		"description": "Ranked as top 5 contributors for 503 phases of a project",
+		"category": "Projects",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/head_honcho_1315686071_180.png",
+		"related": [
+			"chore-buff",
+			"elbow-grease-monkey",
+			"odd-jobber",
+			"workaholist"
+		]
+	}
+}

@@ -1,0 +1,496 @@
+{
+	"1star_cuisinartist": {
+		"name": "1-Star Cuisinartist",
+		"description": "Whipped up 11 meals with an Awesome Pot",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/1star_cuisinartist_1304983461_180.png",
+		"related": [
+			"2star-cuisinartist",
+			"3star-cuisinartist",
+			"4star-cuisinartist",
+			"5star-cuisinartist",
+			"golden-ladle-award"
+		]
+	},
+	"2star_cuisinartist": {
+		"name": "2-Star Cuisinartist",
+		"description": "Whipped up 23 meals with an Awesome Pot",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/2star_cuisinartist_1304983466_180.png",
+		"related": [
+			"1star-cuisinartist",
+			"3star-cuisinartist",
+			"4star-cuisinartist",
+			"5star-cuisinartist",
+			"golden-ladle-award"
+		]
+	},
+	"3star_cuisinartist": {
+		"name": "3-Star Cuisinartist",
+		"description": "Whipped up 41 meals with an Awesome Pot",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/3star_cuisinartist_1304983472_180.png",
+		"related": [
+			"1star-cuisinartist",
+			"2star-cuisinartist",
+			"4star-cuisinartist",
+			"5star-cuisinartist",
+			"golden-ladle-award"
+		]
+	},
+	"4star_cuisinartist": {
+		"name": "4-Star Cuisinartist",
+		"description": "Whipped up 79 meals with an Awesome Pot",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/4star_cuisinartist_1304983478_180.png",
+		"related": [
+			"1star-cuisinartist",
+			"2star-cuisinartist",
+			"3star-cuisinartist",
+			"5star-cuisinartist",
+			"golden-ladle-award"
+		]
+	},
+	"5star_cuisinartist": {
+		"name": "5-Star Cuisinartist",
+		"description": "Whipped up 101 meals with an Awesome Pot",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-13/5star_cuisinartist_1315979183_180.png",
+		"related": [
+			"1star-cuisinartist",
+			"2star-cuisinartist",
+			"3star-cuisinartist",
+			"4star-cuisinartist",
+			"golden-ladle-award"
+		]
+	},
+	"golden_ladle_award": {
+		"name": "Golden Ladle Award",
+		"description": "Whipped up 137 meals with an Awesome Pot",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/golden_ladle_award_1304983492_180.png",
+		"related": [
+			"1star-cuisinartist",
+			"2star-cuisinartist",
+			"3star-cuisinartist",
+			"4star-cuisinartist",
+			"5star-cuisinartist"
+		]
+	},
+	"pulse_frappe_mix_blend": {
+		"name": "Pulse, Frappe, Mix &amp; Blend",
+		"description": "Blended 11 drinks or sno cones with a Blender.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/pulse_frappe_mix_blend_1304983617_180.png",
+		"related": [
+			"blendmaster",
+			"high-speed-commingler"
+		]
+	},
+	"high_speed_commingler": {
+		"name": "High Speed Commingler",
+		"description": "Blended 23 drinks or sno cones with a Blender.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/high_speed_commingler_1304983613_180.png",
+		"related": [
+			"blendmaster",
+			"pulse-frappe-mix-blend"
+		]
+	},
+	"blendmaster": {
+		"name": "Blendmaster",
+		"description": "Blended 41 drinks or sno cones with a Blender.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/blendmaster_1304983608_180.png",
+		"related": [
+			"high-speed-commingler",
+			"pulse-frappe-mix-blend"
+		]
+	},
+	"mediocre_mixologist": {
+		"name": "Mediocre Mixologist",
+		"description": "Crafted 11 cocktails with a Cocktail Shaker.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/mediocre_mixologist_1304983603_180.png",
+		"related": [
+			"middling-mixologist",
+			"superior-mixologist"
+		]
+	},
+	"middling_mixologist": {
+		"name": "Middling Mixologist",
+		"description": "Crafted 23 cocktails with a Cocktail Shaker.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/middling_mixologist_1304983597_180.png",
+		"related": [
+			"mediocre-mixologist",
+			"superior-mixologist"
+		]
+	},
+	"superior_mixologist": {
+		"name": "Superior Mixologist",
+		"description": "Crafted 41 cocktails with a Cocktail Shaker.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/superior_mixologist_1304983591_180.png",
+		"related": [
+			"mediocre-mixologist",
+			"middling-mixologist"
+		]
+	},
+	"brazier_apprentice": {
+		"name": "Brazier Apprentice",
+		"description": "Delicately charred 11 dishes with a Famous Pugilist Grill.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/brazier_apprentice_1304983410_180.png",
+		"related": [
+			"broil-king",
+			"grill-jockey",
+			"killer-griller",
+			"master-carbonifier"
+		]
+	},
+	"grill_jockey": {
+		"name": "Grill Jockey",
+		"description": "Delicately charred 23 dishes with a Famous Pugilist Grill.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/grill_jockey_1304983415_180.png",
+		"related": [
+			"brazier-apprentice",
+			"broil-king",
+			"killer-griller",
+			"master-carbonifier"
+		]
+	},
+	"master_carbonifier": {
+		"name": "Master Carbonifier",
+		"description": "Delicately charred 41 dishes with a Famous Pugilist Grill.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/master_carbonifier_1304983421_180.png",
+		"related": [
+			"brazier-apprentice",
+			"broil-king",
+			"grill-jockey",
+			"killer-griller"
+		]
+	},
+	"killer_griller": {
+		"name": "Killer Griller",
+		"description": "Delicately charred 79 dishes with a Famous Pugilist Grill.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/killer_griller_1304983427_180.png",
+		"related": [
+			"brazier-apprentice",
+			"broil-king",
+			"grill-jockey",
+			"master-carbonifier"
+		]
+	},
+	"broil_king": {
+		"name": "Broil King",
+		"description": "Delicately charred 137 dishes with a Famous Pugilist Grill.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/broil_king_1304983431_180.png",
+		"related": [
+			"brazier-apprentice",
+			"grill-jockey",
+			"killer-griller",
+			"master-carbonifier"
+		]
+	},
+	"decent_hash_slinger": {
+		"name": "Decent Hash Slinger",
+		"description": "Fried up 11 meals with a Frying Pan.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-11-06/decent_hash_slinger_1352232446_180.png",
+		"related": [
+			"grease-monkey",
+			"pretty-good-griddler",
+			"saute-savant",
+			"sizzler-supreme"
+		]
+	},
+	"pretty_good_griddler": {
+		"name": "Pretty Good Griddler",
+		"description": "Fried up 23 meals with a Frying Pan.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/pretty_good_griddler_1304983385_180.png",
+		"related": [
+			"decent-hash-slinger",
+			"grease-monkey",
+			"saute-savant",
+			"sizzler-supreme"
+		]
+	},
+	"grease_monkey": {
+		"name": "Grease Monkey",
+		"description": "Fried up 41 meals with a Frying Pan.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/grease_monkey_1304983390_180.png",
+		"related": [
+			"decent-hash-slinger",
+			"pretty-good-griddler",
+			"saute-savant",
+			"sizzler-supreme"
+		]
+	},
+	"saute_savant": {
+		"name": "Saute Savant",
+		"description": "Fried up 79 meals with a Frying Pan.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/saute_savant_1304983394_180.png",
+		"related": [
+			"decent-hash-slinger",
+			"grease-monkey",
+			"pretty-good-griddler",
+			"sizzler-supreme"
+		]
+	},
+	"sizzler_supreme": {
+		"name": "Sizzler Supreme",
+		"description": "Fried up 137 meals with a Frying Pan.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/sizzler_supreme_1304983399_180.png",
+		"related": [
+			"decent-hash-slinger",
+			"grease-monkey",
+			"pretty-good-griddler",
+			"saute-savant"
+		]
+	},
+	"able_chopper": {
+		"name": "Able Chopper",
+		"description": "Minced, chopped and hacked 11 recipes with a Knife &amp; Board.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/able_chopper_1304983354_180.png",
+		"related": [
+			"fine-mincer",
+			"master-whacker",
+			"nice-dicer",
+			"silver-cleaver-award"
+		]
+	},
+	"fine_mincer": {
+		"name": "Fine Mincer",
+		"description": "Minced, chopped and hacked 23 recipes with a Knife &amp; Board.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/fine_mincer_1304983359_180.png",
+		"related": [
+			"able-chopper",
+			"master-whacker",
+			"nice-dicer",
+			"silver-cleaver-award"
+		]
+	},
+	"nice_dicer": {
+		"name": "Nice Dicer",
+		"description": "Minced, chopped and hacked 41 recipes with a Knife &amp; Board.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/nice_dicer_1304983365_180.png",
+		"related": [
+			"able-chopper",
+			"fine-mincer",
+			"master-whacker",
+			"silver-cleaver-award"
+		]
+	},
+	"silver_cleaver_award": {
+		"name": "Silver Cleaver Award",
+		"description": "Minced, chopped and hacked 79 recipes with a Knife &amp; Board.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/silver_cleaver_award_1304983369_180.png",
+		"related": [
+			"able-chopper",
+			"fine-mincer",
+			"master-whacker",
+			"nice-dicer"
+		]
+	},
+	"master_whacker": {
+		"name": "Master Whacker",
+		"description": "Minced, chopped and hacked 137 recipes with a Knife &amp; Board.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/master_whacker_1304983374_180.png",
+		"related": [
+			"able-chopper",
+			"fine-mincer",
+			"nice-dicer",
+			"silver-cleaver-award"
+		]
+	},
+	"rainbo_taster": {
+		"name": "Rainbo Taster",
+		"description": "Blenderized 17 Rainbo Sno Cones",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-30/rainbow_taster_1351618931_180.png",
+		"related": [
+			"rainbo-brite",
+			"rainbo-connection"
+		]
+	},
+	"rainbo_brite": {
+		"name": "Rainbo Brite",
+		"description": "Whipped up 73 Rainbo Sno Cones in an unexcitingly generic red blender",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-30/rainbow_brite_1351618935_180.png",
+		"related": [
+			"rainbo-connection",
+			"rainbo-taster"
+		]
+	},
+	"rainbo_connection": {
+		"name": "The Rainbo Connection",
+		"description": "Magically blended 317 Rainbo Sno Cones (in a distinctly non-magical blender)",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-10-30/rainbow_connection_1351618939_180.png",
+		"related": [
+			"rainbo-brite",
+			"rainbo-taster"
+		]
+	},
+	"beginner_decoctifier": {
+		"name": "Beginner Decoctifier",
+		"description": "Prepared 7 unique recipes.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-13/beginner_decoctifier_1315979173_180.png",
+		"related": [
+			"chowhound",
+			"culinarian-supreme",
+			"junior-dough-puncher",
+			"seasoned-scullery-sleuth",
+			"senior-dough-puncher"
+		]
+	},
+	"chowhound": {
+		"name": "Chowhound",
+		"description": "Prepared 17 unique recipes.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-13/chowhound_1315979176_180.png",
+		"related": [
+			"beginner-decoctifier",
+			"culinarian-supreme",
+			"junior-dough-puncher",
+			"seasoned-scullery-sleuth",
+			"senior-dough-puncher"
+		]
+	},
+	"junior_dough_puncher": {
+		"name": "Junior Dough Puncher",
+		"description": "Prepared 41 unique recipes.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-13/junior_dough_puncher_1315979177_180.png",
+		"related": [
+			"beginner-decoctifier",
+			"chowhound",
+			"culinarian-supreme",
+			"seasoned-scullery-sleuth",
+			"senior-dough-puncher"
+		]
+	},
+	"senior_dough_puncher": {
+		"name": "Senior Dough Puncher",
+		"description": "Prepared 67 unique recipes.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-13/senior_dough_puncher_1315979179_180.png",
+		"related": [
+			"beginner-decoctifier",
+			"chowhound",
+			"culinarian-supreme",
+			"junior-dough-puncher",
+			"seasoned-scullery-sleuth"
+		]
+	},
+	"seasoned_scullery_sleuth": {
+		"name": "Seasoned Scullery Sleuth",
+		"description": "Prepared 101 unique recipes.",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-13/seasoned_scullery_sleuth_1315979181_180.png",
+		"related": [
+			"beginner-decoctifier",
+			"chowhound",
+			"culinarian-supreme",
+			"junior-dough-puncher",
+			"senior-dough-puncher"
+		]
+	},
+	"culinarian_supreme": {
+		"name": "Culinarian Supreme",
+		"description": "Prepared 137 unique food and drink recipes",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-12-03/culinarian_supreme_1354603906_180.png",
+		"related": [
+			"beginner-decoctifier",
+			"chowhound",
+			"junior-dough-puncher",
+			"seasoned-scullery-sleuth",
+			"senior-dough-puncher"
+		]
+	},
+	"rolling_boiler": {
+		"name": "Rolling Boiler",
+		"description": "Simmered 11 concoctions in a Saucepan",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/rolling_boiler_1304983436_180.png",
+		"related": [
+			"a1-saucier",
+			"gravy-maven",
+			"roux-guru",
+			"super-saucier"
+		]
+	},
+	"roux_guru": {
+		"name": "Roux Guru",
+		"description": "Simmered 23 concoctions in a Saucepan",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/roux_guru_1304983440_180.png",
+		"related": [
+			"a1-saucier",
+			"gravy-maven",
+			"rolling-boiler",
+			"super-saucier"
+		]
+	},
+	"gravy_maven": {
+		"name": "Gravy Maven",
+		"description": "Simmered 41 concoctions in a Saucepan",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/gravy_maven_1304983445_180.png",
+		"related": [
+			"a1-saucier",
+			"rolling-boiler",
+			"roux-guru",
+			"super-saucier"
+		]
+	},
+	"super_saucier": {
+		"name": "Super Saucier",
+		"description": "Simmered 79 concoctions in a Saucepan",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/super_saucier_1304983450_180.png",
+		"related": [
+			"a1-saucier",
+			"gravy-maven",
+			"rolling-boiler",
+			"roux-guru"
+		]
+	},
+	"a1_saucier": {
+		"name": "A-1 Saucier",
+		"description": "Simmered 137 concoctions in a Saucepan",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/a1_saucier_1304983456_180.png",
+		"related": [
+			"gravy-maven",
+			"rolling-boiler",
+			"roux-guru",
+			"super-saucier"
+		]
+	},
+	"cheesemongerer": {
+		"name": "Cheesemongerer",
+		"description": "Unlocked the mystery of turning ordinary butterfly milk into cheese",
+		"category": "Cooking",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/cheesemongerer_1304983796_180.png",
+		"related": [
+		]
+	}
+}

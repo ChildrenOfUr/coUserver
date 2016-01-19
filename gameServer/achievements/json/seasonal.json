@@ -1,0 +1,138 @@
+{
+	"candy_muncher": {
+		"name": "Candy Muncher",
+		"description": "Munched 17 Candy during Zilloween",
+		"category": "Seasonal",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-10-26/candy_muncher_1319680221_180.png",
+		"related": [
+			"candy-caner",
+			"candy-nommer",
+			"candy-snaffler",
+			"candy-stripper"
+		]
+	},
+	"candy_snaffler": {
+		"name": "Candy Snaffler",
+		"description": "Snaffled 43 Candy during Zilloween",
+		"category": "Seasonal",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-10-26/candy_snaffler_1319680224_180.png",
+		"related": [
+			"candy-caner",
+			"candy-muncher",
+			"candy-nommer",
+			"candy-stripper"
+		]
+	},
+	"candy_nommer": {
+		"name": "Candy Nommer",
+		"description": "Nommed 79 Candy during Zilloween",
+		"category": "Seasonal",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-10-26/candy_nommer_1319680228_180.png",
+		"related": [
+			"candy-caner",
+			"candy-muncher",
+			"candy-snaffler",
+			"candy-stripper"
+		]
+	},
+	"candy_caner": {
+		"name": "Candy Caner",
+		"description": "Caned 137 Candy during Zilloween",
+		"category": "Seasonal",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-10-26/candy_caner_1319680232_180.png",
+		"related": [
+			"candy-muncher",
+			"candy-nommer",
+			"candy-snaffler",
+			"candy-stripper"
+		]
+	},
+	"candy_stripper": {
+		"name": "Candy Stripper",
+		"description": "Devoured 353 Candy during Zilloween",
+		"category": "Seasonal",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-10-26/candy_stripper_1319680234_180.png",
+		"related": [
+			"candy-caner",
+			"candy-muncher",
+			"candy-nommer",
+			"candy-snaffler"
+		]
+	},
+	"mini_tricksy_treater": {
+		"name": "Mini Tricksy-Treater",
+		"description": "Gave Candy to 5 Lucky Candy-Munchers during Zilloween",
+		"category": "Seasonal",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-10-26/mini_tricksy_treater_1319680238_180.png",
+		"related": [
+			"major-tricksy-treater",
+			"minor-tricksy-treater",
+			"super-tricksy-treater",
+			"the-candyglitch"
+		]
+	},
+	"minor_tricksy_treater": {
+		"name": "Minor Tricksy-Treater",
+		"description": "Gave Candy to 37 Lucky Candy-Eaters during Zilloween",
+		"category": "Seasonal",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-10-26/minor_tricksy_treater_1319680241_180.png",
+		"related": [
+			"major-tricksy-treater",
+			"mini-tricksy-treater",
+			"super-tricksy-treater",
+			"the-candyglitch"
+		]
+	},
+	"major_tricksy_treater": {
+		"name": "Major Tricksy-Treater",
+		"description": "Gave Candy to 103 Lucky Candy-Biters during Zilloween",
+		"category": "Seasonal",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-10-26/major_tricksy_treater_1319680244_180.png",
+		"related": [
+			"mini-tricksy-treater",
+			"minor-tricksy-treater",
+			"super-tricksy-treater",
+			"the-candyglitch"
+		]
+	},
+	"super_tricksy_treater": {
+		"name": "Super Tricksy-Treater",
+		"description": "Gave Candy to 257 Lucky Candy-Lovers during Zilloween",
+		"category": "Seasonal",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-10-26/super_tricksy_treater_1319680247_180.png",
+		"related": [
+			"major-tricksy-treater",
+			"mini-tricksy-treater",
+			"minor-tricksy-treater",
+			"the-candyglitch"
+		]
+	},
+	"the_candyglitch": {
+		"name": "The Candyglitch",
+		"description": "Gave Candy to 499 Lucky Candy-Lickers during Zilloween",
+		"category": "Seasonal",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-10-26/the_candyglitch_1319680251_180.png",
+		"related": [
+			"major-tricksy-treater",
+			"mini-tricksy-treater",
+			"minor-tricksy-treater",
+			"super-tricksy-treater"
+		]
+	},
+	"pumpkin_carver": {
+		"name": "Pumpkin Carver",
+		"description": "Carved the full collection of Pumpkins",
+		"category": "Seasonal",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-10-26/pumpkin_carver_1319680213_180.png",
+		"related": [
+		]
+	},
+	"lanternerer": {
+		"name": "Lanternerer",
+		"description": "Lit and Displayed a Pumpkin Lantern",
+		"category": "Seasonal",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-10-27/lanternerer_1319740040_180.png",
+		"related": [
+		]
+	}
+}

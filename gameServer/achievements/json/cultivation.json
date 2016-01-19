@@ -1,0 +1,94 @@
+{
+	"healthy_img_turnover": {
+		"name": "Healthy iMG turnover",
+		"description": "Got more than 503 iMG per day as a Stipend",
+		"category": "Cultivation",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/healthy_img_turnover_1339702869_180.png",
+		"related": [
+			"raking-in-the-img",
+			"the-kindness-of-strangers"
+		]
+	},
+	"raking_in_the_img": {
+		"name": "Raking in the iMG",
+		"description": "Drew more than 1009 iMG per day in Stipend",
+		"category": "Cultivation",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/raking_in_the_img_1339702872_180.png",
+		"related": [
+			"healthy-img-turnover",
+			"the-kindness-of-strangers"
+		]
+	},
+	"the_kindness_of_strangers": {
+		"name": "The Kindness of Strangers",
+		"description": "Received more than 2503 iMG per day in a Daily Stipend",
+		"category": "Cultivation",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/the_kindness_of_strangers_1339702874_180.png",
+		"related": [
+			"healthy-img-turnover",
+			"raking-in-the-img"
+		]
+	},
+	"landgrabber": {
+		"name": "Landgrabber",
+		"description": "Expanded your home street and yard to their full widths",
+		"category": "Cultivation",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/landgrabber_1339723501_180.png",
+		"related": [
+		]
+	},
+	"self_sufficientiser": {
+		"name": "Self-sufficientiser",
+		"description": "Had 7 cultivated resources on your home street",
+		"category": "Cultivation",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/self_sufficientiser_1339702867_180.png",
+		"related": [
+		]
+	},
+	"cultivation_nurturer": {
+		"name": "Cultivation Nurturer",
+		"description": "Nursed back to health 3 cultivation projects",
+		"category": "Cultivation",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/cultivation_nurturer_1339717571_180.png",
+		"related": [
+			"make-do-and-mender",
+			"restorer-of-stuff"
+		]
+	},
+	"restorer_of_stuff": {
+		"name": "Restorer of Stuff",
+		"description": "Brought 17 cultivation projects back from the brink",
+		"category": "Cultivation",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/restorer_of_stuff_1339702880_180.png",
+		"related": [
+			"cultivation-nurturer",
+			"make-do-and-mender"
+		]
+	},
+	"make_do_and_mender": {
+		"name": "Make Do and Mender",
+		"description": "Restored 53 cultivation projects",
+		"category": "Cultivation",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/make_do_and_mender_1339702882_180.png",
+		"related": [
+			"cultivation-nurturer",
+			"restorer-of-stuff"
+		]
+	},
+	"loyal_tender": {
+		"name": "Loyal Tender",
+		"description": "Wore out and restored the same cultivated thing 5 times",
+		"category": "Cultivation",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/loyal_tender_1339702885_180.png",
+		"related": [
+		]
+	},
+	"dedicated_restorationizer": {
+		"name": "Dedicated Restorationizer",
+		"description": "Wore out and restored the same cultivated item 20 times",
+		"category": "Cultivation",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-06-14/dedicated_restorationizer_1339726916_180.png",
+		"related": [
+		]
+	}
+}

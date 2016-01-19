@@ -49,6 +49,9 @@ part 'gameServer/quests/user.dart';
 // skills
 part "gameServer/endpoints/skills.dart";
 
+// achievements
+part "gameServer/achievements/achievements.dart";
+
 // upgrades
 part "gameServer/upgrades/upgrade.dart";
 part "gameServer/upgrades/upgrade_manager.dart";

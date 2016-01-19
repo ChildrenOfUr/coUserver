@@ -1,0 +1,1202 @@
+{
+	"amateur_bean_tree_fondler": {
+		"name": "Amateur Bean Tree Fondler",
+		"description": "Affectionately petted 11 Bean Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/amateur_bean_tree_fondler_1304984523_180.png",
+		"related": [
+			"notquitepro-bean-tree-fondler",
+			"professional-bean-tree-fondler"
+		]
+	},
+	"notquitepro_bean_tree_fondler": {
+		"name": "Not-Quite-Pro Bean Tree Fondler",
+		"description": "Tenderly petted 41 Bean Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/notquitepro_bean_tree_fondler_1304984560_180.png",
+		"related": [
+			"amateur-bean-tree-fondler",
+			"professional-bean-tree-fondler"
+		]
+	},
+	"professional_bean_tree_fondler": {
+		"name": "Professional Bean Tree Fondler",
+		"description": "Lovingly petted 127 Bean Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/professional_bean_tree_fondler_1304984619_180.png",
+		"related": [
+			"amateur-bean-tree-fondler",
+			"notquitepro-bean-tree-fondler"
+		]
+	},
+	"rainmaking_noob": {
+		"name": "Rainmaking Noob",
+		"description": "Dispensed a good watering to 11 Bean Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/rainmaking_noob_1304984672_180.png",
+		"related": [
+			"betterthanlousy-douser",
+			"the-dampinator"
+		]
+	},
+	"betterthanlousy_douser": {
+		"name": "Better-Than-Lousy Douser",
+		"description": "Dispensed a good watering to 41 Bean Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/betterthanlousy_douser_1304984704_180.png",
+		"related": [
+			"rainmaking-noob",
+			"the-dampinator"
+		]
+	},
+	"the_dampinator": {
+		"name": "The Dampinator",
+		"description": "Dispensed a good watering to 127 Bean Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/the_dampinator_1304984738_180.png",
+		"related": [
+			"betterthanlousy-douser",
+			"rainmaking-noob"
+		]
+	},
+	"participant_award__bean_division": {
+		"name": "Participant Award - Bean Division",
+		"description": "Harvested 101 Beans",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/participant_award__bean_division_1304984383_180.png",
+		"related": [
+			"bean-counter",
+			"bean-counter-pro",
+			"master-bean-counter"
+		]
+	},
+	"bean_counter": {
+		"name": "Bean Counter",
+		"description": "Harvested 503 Beans",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/bean_counter_1304984416_180.png",
+		"related": [
+			"bean-counter-pro",
+			"master-bean-counter",
+			"participant-award--bean-division"
+		]
+	},
+	"bean_counter_pro": {
+		"name": "Bean Counter Pro",
+		"description": "Harvested 1009 Beans",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/bean_counter_pro_1304984447_180.png",
+		"related": [
+			"bean-counter",
+			"master-bean-counter",
+			"participant-award--bean-division"
+		]
+	},
+	"master_bean_counter": {
+		"name": "Master Bean Counter",
+		"description": "Harvested 5003 Beans",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/master_bean_counter_1304984484_180.png",
+		"related": [
+			"bean-counter",
+			"bean-counter-pro",
+			"participant-award--bean-division"
+		]
+	},
+	"beanorator_2nd_class": {
+		"name": "Beanorator 2nd Class",
+		"description": "Seasoned 53 Beans",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/beanorator_2nd_class_1304984305_180.png",
+		"related": [
+			"beanorator-1st-class",
+			"generalissimo-beanorator"
+		]
+	},
+	"beanorator_1st_class": {
+		"name": "Beanorator 1st Class",
+		"description": "Seasoned a whopping 503 Beans",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/beanorator_1st_class_1304984334_180.png",
+		"related": [
+			"beanorator-2nd-class",
+			"generalissimo-beanorator"
+		]
+	},
+	"generalissimo_beanorator": {
+		"name": "Generalissimo Beanorator",
+		"description": "Seasoned a gob-smacking 2003 Beans",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/generalissimo_beanorator_1304984347_180.png",
+		"related": [
+			"beanorator-1st-class",
+			"beanorator-2nd-class"
+		]
+	},
+	"rookie_bubble_tree_cuddler": {
+		"name": "Rookie Bubble Tree Cuddler",
+		"description": "Petted 11 deserving Bubble Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/rookie_bubble_tree_cuddler_1304984535_180.png",
+		"related": [
+			"chief-bubble-tree-cuddler",
+			"midlevel-bubble-tree-cuddler"
+		]
+	},
+	"midlevel_bubble_tree_cuddler": {
+		"name": "Mid-Level Bubble Tree Cuddler",
+		"description": "Petted 41 deserving Bubble Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/midlevel_bubble_tree_cuddler_1304984570_180.png",
+		"related": [
+			"chief-bubble-tree-cuddler",
+			"rookie-bubble-tree-cuddler"
+		]
+	},
+	"chief_bubble_tree_cuddler": {
+		"name": "Chief Bubble Tree Cuddler",
+		"description": "Petted 127 deserving Bubble Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/chief_bubble_tree_cuddler_1304984625_180.png",
+		"related": [
+			"midlevel-bubble-tree-cuddler",
+			"rookie-bubble-tree-cuddler"
+		]
+	},
+	"water_wings": {
+		"name": "Water Wings",
+		"description": "Doled out waterings to 11 thirsty Bubble Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/water_wings_1304984680_180.png",
+		"related": [
+			"senor-sprinkles",
+			"the-saturator"
+		]
+	},
+	"senor_sprinkles": {
+		"name": "Senor Sprinkles",
+		"description": "Doled out waterings to 41 thirsty Bubble Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/senor_sprinkles_1304984716_180.png",
+		"related": [
+			"the-saturator",
+			"water-wings"
+		]
+	},
+	"the_saturator": {
+		"name": "The Saturator",
+		"description": "Doled out waterings to 127 thirsty Bubble Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/the_saturator_1304984749_180.png",
+		"related": [
+			"senor-sprinkles",
+			"water-wings"
+		]
+	},
+	"good_bubble_farmer": {
+		"name": "Good Bubble Farmer",
+		"description": "Ever-so-carefully harvested 101 Bubbles",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/good_bubble_farmer_1304984392_180.png",
+		"related": [
+			"better-bubble-farmer",
+			"firstbest-bubble-farmer",
+			"secondbest-bubble-farmer"
+		]
+	},
+	"better_bubble_farmer": {
+		"name": "Better Bubble Farmer",
+		"description": "Ever-so-carefully harvested 503 Bubbles",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/better_bubble_farmer_1304984426_180.png",
+		"related": [
+			"firstbest-bubble-farmer",
+			"good-bubble-farmer",
+			"secondbest-bubble-farmer"
+		]
+	},
+	"secondbest_bubble_farmer": {
+		"name": "Second-Best Bubble Farmer",
+		"description": "Ever-so-carefully harvested 1009 Bubbles",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/secondbest_bubble_farmer_1304984457_180.png",
+		"related": [
+			"better-bubble-farmer",
+			"firstbest-bubble-farmer",
+			"good-bubble-farmer"
+		]
+	},
+	"firstbest_bubble_farmer": {
+		"name": "First-Best Bubble Farmer",
+		"description": "Ever-so-carefully harvested 5003 Bubbles",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/firstbest_bubble_farmer_1304984496_180.png",
+		"related": [
+			"better-bubble-farmer",
+			"good-bubble-farmer",
+			"secondbest-bubble-farmer"
+		]
+	},
+	"bubble_coaxer": {
+		"name": "Bubble Coaxer",
+		"description": "Transformed 53 Bubbles",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/bubble_coaxer_1304984287_180.png",
+		"related": [
+			"bubble-transubstantiator",
+			"effervescence-consultant"
+		]
+	},
+	"effervescence_consultant": {
+		"name": "Effervescence Consultant",
+		"description": "Converted no fewer than 503 Bubbles",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/effervescence_consultant_1304984314_180.png",
+		"related": [
+			"bubble-coaxer",
+			"bubble-transubstantiator"
+		]
+	},
+	"bubble_transubstantiator": {
+		"name": "Bubble Transubstantiator",
+		"description": "Converted an almost inconceivable 2003 Bubbles",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/bubble_transubstantiator_1304984358_180.png",
+		"related": [
+			"bubble-coaxer",
+			"effervescence-consultant"
+		]
+	},
+	"nouveau_whack_job": {
+		"name": "Nouveau Whack Job",
+		"description": "Used a Hatchet to clear 11 dead Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/nouveau_whack_job_1304984259_180.png",
+		"related": [
+			"paul-bunions",
+			"regular-whack-job",
+			"whack-job-deluxe",
+			"whack-job-extraordinaire"
+		]
+	},
+	"regular_whack_job": {
+		"name": "Regular Whack Job",
+		"description": "Used a Hatchet to clear 53 dead Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/regular_whack_job_1304984265_180.png",
+		"related": [
+			"nouveau-whack-job",
+			"paul-bunions",
+			"whack-job-deluxe",
+			"whack-job-extraordinaire"
+		]
+	},
+	"whack_job_deluxe": {
+		"name": "Whack Job Deluxe",
+		"description": "Used a Hatchet to clear 151 dead Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/whack_job_deluxe_1304984270_180.png",
+		"related": [
+			"nouveau-whack-job",
+			"paul-bunions",
+			"regular-whack-job",
+			"whack-job-extraordinaire"
+		]
+	},
+	"whack_job_extraordinaire": {
+		"name": "Whack Job Extraordinaire",
+		"description": "Used a Hatchet to clear 401 dead Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/whack_job_extraordinaire_1304984276_180.png",
+		"related": [
+			"nouveau-whack-job",
+			"paul-bunions",
+			"regular-whack-job",
+			"whack-job-deluxe"
+		]
+	},
+	"paul_bunions": {
+		"name": "Paul Bunions",
+		"description": "Used a Hatchet to clear 1009 dead Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/paul_bunions_1304984280_180.png",
+		"related": [
+			"nouveau-whack-job",
+			"regular-whack-job",
+			"whack-job-deluxe",
+			"whack-job-extraordinaire"
+		]
+	},
+	"egg_plant_coddler": {
+		"name": "Egg Plant Coddler",
+		"description": "Administered firm pettings to 11 Egg Plants",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/egg_plant_coddler_1304984529_180.png",
+		"related": [
+			"super-supreme-egg-plant-coddler",
+			"supreme-egg-plant-coddler"
+		]
+	},
+	"supreme_egg_plant_coddler": {
+		"name": "Supreme Egg Plant Coddler",
+		"description": "Administered life-sustaining pettings to 41 Egg Plants",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/supreme_egg_plant_coddler_1304984565_180.png",
+		"related": [
+			"egg-plant-coddler",
+			"super-supreme-egg-plant-coddler"
+		]
+	},
+	"super_supreme_egg_plant_coddler": {
+		"name": "Super Supreme Egg Plant Coddler",
+		"description": "Administered firm, life-sustaining pettings to 127 Egg Plants",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/super_supreme_egg_plant_coddler_1304984609_180.png",
+		"related": [
+			"egg-plant-coddler",
+			"supreme-egg-plant-coddler"
+		]
+	},
+	"junior_irrigationist": {
+		"name": "Junior Irrigationist",
+		"description": "Wetly watered 11 Egg Plants",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/junior_irrigationist_1304984676_180.png",
+		"related": [
+			"about-average-irrigationist",
+			"compulsive-moisturizer"
+		]
+	},
+	"about_average_irrigationist": {
+		"name": "About Average Irrigationist",
+		"description": "Wetly watered 41 Egg Plants",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/about_average_irrigationist_1304984711_180.png",
+		"related": [
+			"compulsive-moisturizer",
+			"junior-irrigationist"
+		]
+	},
+	"compulsive_moisturizer": {
+		"name": "Compulsive Moisturizer",
+		"description": "Wetly watered 127 Egg Plants",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/compulsive_moisturizer_1304984743_180.png",
+		"related": [
+			"about-average-irrigationist",
+			"junior-irrigationist"
+		]
+	},
+	"egg_enthusiast": {
+		"name": "Egg Enthusiast",
+		"description": "Gently harvested 101 Eggs",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/egg_enthusiast_1304984387_180.png",
+		"related": [
+			"egg-aficianado",
+			"egg-freak",
+			"egg-poacher"
+		]
+	},
+	"egg_poacher": {
+		"name": "Egg Poacher",
+		"description": "Gently harvested 503 Eggs",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/egg_poacher_1304984422_180.png",
+		"related": [
+			"egg-aficianado",
+			"egg-enthusiast",
+			"egg-freak"
+		]
+	},
+	"egg_aficianado": {
+		"name": "Egg Aficionado",
+		"description": "Gently harvested 1009 Eggs",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/egg_aficianado_1304984452_180.png",
+		"related": [
+			"egg-enthusiast",
+			"egg-freak",
+			"egg-poacher"
+		]
+	},
+	"egg_freak": {
+		"name": "Egg Freak",
+		"description": "Gently harvested 5003 Eggs",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/egg_freak_1304984491_180.png",
+		"related": [
+			"egg-aficianado",
+			"egg-enthusiast",
+			"egg-poacher"
+		]
+	},
+	"novice_fruit_metamorphosizer": {
+		"name": "Novice Fruit Metamorphosizer",
+		"description": "Converted 53 Fruit",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/novice_fruit_metamorphosizer_1304984292_180.png",
+		"related": [
+			"fruit-metamorphosizin-tycoon",
+			"intermediate-fruit-metamorphosizer"
+		]
+	},
+	"intermediate_fruit_metamorphosizer": {
+		"name": "Intermediate Fruit Metamorphosizer",
+		"description": "Converted 503 Fruit",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/intermediate_fruit_metamorphosizer_1304984319_180.png",
+		"related": [
+			"fruit-metamorphosizin-tycoon",
+			"novice-fruit-metamorphosizer"
+		]
+	},
+	"fruit_metamorphosizin_tycoon": {
+		"name": "Fruit Metamorphosizin' Tycoon",
+		"description": "Converted 2003 Fruit",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/fruit_metamorphosizin_tycoon_1304984363_180.png",
+		"related": [
+			"intermediate-fruit-metamorphosizer",
+			"novice-fruit-metamorphosizer"
+		]
+	},
+	"newbie_fruit_tree_pettifier": {
+		"name": "Newbie Fruit Tree Pettifier",
+		"description": "Pettified 11 Fruit Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/newbie_fruit_tree_pettifier_1304984539_180.png",
+		"related": [
+			"betterthanmediocre-fruit-tree-pettifier",
+			"masterful-fruit-tree-pettifier"
+		]
+	},
+	"betterthanmediocre_fruit_tree_pettifier": {
+		"name": "Better-Than-Mediocre Fruit Tree Pettifier",
+		"description": "Satisfactorily pettified 41 Fruit Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/betterthanmediocre_fruit_tree_pettifier_1304984577_180.png",
+		"related": [
+			"masterful-fruit-tree-pettifier",
+			"newbie-fruit-tree-pettifier"
+		]
+	},
+	"masterful_fruit_tree_pettifier": {
+		"name": "Masterful Fruit Tree Pettifier",
+		"description": "Thoroughly pettified 127 Fruit Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/masterful_fruit_tree_pettifier_1304984631_180.png",
+		"related": [
+			"betterthanmediocre-fruit-tree-pettifier",
+			"newbie-fruit-tree-pettifier"
+		]
+	},
+	"ok_soaker": {
+		"name": "OK Soaker",
+		"description": "Watered 11 parched Fruit Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/ok_soaker_1304984686_180.png",
+		"related": [
+			"super-duper-soaker",
+			"super-soaker"
+		]
+	},
+	"super_soaker": {
+		"name": "Super Soaker",
+		"description": "Watered 41 parched Fruit Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/super_soaker_1304984721_180.png",
+		"related": [
+			"ok-soaker",
+			"super-duper-soaker"
+		]
+	},
+	"super_duper_soaker": {
+		"name": "Super Duper Soaker",
+		"description": "Watered 127 parched Fruit Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/super_duper_soaker_1304984753_180.png",
+		"related": [
+			"ok-soaker",
+			"super-soaker"
+		]
+	},
+	"entrylevel_fruit_tree_harvester": {
+		"name": "Entry-Level Fruit Tree Harvester",
+		"description": "Plucked 101 pieces of Fruit",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/entrylevel_fruit_tree_harvester_1304984397_180.png",
+		"related": [
+			"midmanagement-fruit-tree-harvester",
+			"overpaid-executive-fruit-tree-harvester",
+			"president-and-ceo-of-fruit-tree-harvesting-inc"
+		]
+	},
+	"midmanagement_fruit_tree_harvester": {
+		"name": "Mid-Management Fruit Tree Harvester",
+		"description": "Plucked 503 pieces of Fruit",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/midmanagement_fruit_tree_harvester_1304984431_180.png",
+		"related": [
+			"entrylevel-fruit-tree-harvester",
+			"overpaid-executive-fruit-tree-harvester",
+			"president-and-ceo-of-fruit-tree-harvesting-inc"
+		]
+	},
+	"overpaid_executive_fruit_tree_harvester": {
+		"name": "Overpaid Executive Fruit Tree Harvester",
+		"description": "Plucked 1009 pieces of Fruit",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/overpaid_executive_fruit_tree_harvester_1304984465_180.png",
+		"related": [
+			"entrylevel-fruit-tree-harvester",
+			"midmanagement-fruit-tree-harvester",
+			"president-and-ceo-of-fruit-tree-harvesting-inc"
+		]
+	},
+	"president_and_ceo_of_fruit_tree_harvesting_inc": {
+		"name": "President and CEO of Fruit Tree Harvesting Inc.",
+		"description": "Plucked 5003 pieces of Fruit",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/president_and_ceo_of_fruit_tree_harvesting_inc_1304984502_180.png",
+		"related": [
+			"entrylevel-fruit-tree-harvester",
+			"midmanagement-fruit-tree-harvester",
+			"overpaid-executive-fruit-tree-harvester"
+		]
+	},
+	"sprout_stroker": {
+		"name": "Sprout Stroker",
+		"description": "Administered a sound petting to 11 Gas Plants",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/sprout_stroker_1304984549_180.png",
+		"related": [
+			"bush-whacker",
+			"shrub-snuggler"
+		]
+	},
+	"bush_whacker": {
+		"name": "Bush Whacker",
+		"description": "Administered a sound petting to 41 Gas Plants",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/bush_whacker_1304984599_180.png",
+		"related": [
+			"shrub-snuggler",
+			"sprout-stroker"
+		]
+	},
+	"shrub_snuggler": {
+		"name": "Shrub Snuggler",
+		"description": "Administered a sound petting to 127 Gas Plants",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/shrub_snuggler_1304984650_180.png",
+		"related": [
+			"bush-whacker",
+			"sprout-stroker"
+		]
+	},
+	"little_squirt": {
+		"name": "Little Squirt",
+		"description": "Meticulously watered 11 gaspingly hot Gas Plants",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/little_squirt_1304984697_180.png",
+		"related": [
+			"mayor-of-sprayerville",
+			"wet-william"
+		]
+	},
+	"wet_william": {
+		"name": "Wet William",
+		"description": "Meticulously watered 41 gaspingly hot Gas Plants",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/wet_william_1304984732_180.png",
+		"related": [
+			"little-squirt",
+			"mayor-of-sprayerville"
+		]
+	},
+	"mayor_of_sprayerville": {
+		"name": "Mayor of Sprayerville",
+		"description": "Meticulously watered 127 gaspingly hot Gas Plants",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/mayor_of_sprayerville_1304984763_180.png",
+		"related": [
+			"little-squirt",
+			"wet-william"
+		]
+	},
+	"mad_gasser": {
+		"name": "Mad Gasser",
+		"description": "Futzed around with each kind of gas",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/mad_gasser_1304983683_180.png",
+		"related": [
+		]
+	},
+	"occasional_gas_fancier": {
+		"name": "Occasional Gas Fancier",
+		"description": "Harvested 101 gaseous Vapors",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/occasional_gas_fancier_1304984411_180.png",
+		"related": [
+			"dedicated-gas-fancier",
+			"hobbyist-gas-fancier",
+			"obsessive-gas-fancier"
+		]
+	},
+	"hobbyist_gas_fancier": {
+		"name": "Hobbyist Gas Fancier",
+		"description": "Harvested 503 gaseous Vapors",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/hobbyist_gas_fancier_1304984442_180.png",
+		"related": [
+			"dedicated-gas-fancier",
+			"obsessive-gas-fancier",
+			"occasional-gas-fancier"
+		]
+	},
+	"dedicated_gas_fancier": {
+		"name": "Dedicated Gas Fancier",
+		"description": "Harvested 1009 gaseous Vapors",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/dedicated_gas_fancier_1304984477_180.png",
+		"related": [
+			"hobbyist-gas-fancier",
+			"obsessive-gas-fancier",
+			"occasional-gas-fancier"
+		]
+	},
+	"obsessive_gas_fancier": {
+		"name": "Obsessive Gas Fancier",
+		"description": "Harvested 5003 gaseous Vapors",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/obsessive_gas_fancier_1304984512_180.png",
+		"related": [
+			"dedicated-gas-fancier",
+			"hobbyist-gas-fancier",
+			"occasional-gas-fancier"
+		]
+	},
+	"gas_dabbler": {
+		"name": "Gas Dabbler",
+		"description": "Successfully converted 53 Gases",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/gas_dabbler_1304984301_180.png",
+		"related": [
+			"bonafide-gas-wrangler",
+			"gastronaut"
+		]
+	},
+	"bonafide_gas_wrangler": {
+		"name": "Bonafide Gas Wrangler",
+		"description": "Successfully converted 503 Gases",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/bonafide_gas_wrangler_1304984329_180.png",
+		"related": [
+			"gas-dabbler",
+			"gastronaut"
+		]
+	},
+	"gastronaut": {
+		"name": "Gastronaut",
+		"description": "Successfully converted 2003 Gasses",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/gastronaut_1304984375_180.png",
+		"related": [
+			"bonafide-gas-wrangler",
+			"gas-dabbler"
+		]
+	},
+	"mulcher": {
+		"name": "Mulcher",
+		"description": "Tended 7 weedy patches",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/mulcher_1304983839_180.png",
+		"related": [
+			"betterthanaverage-mulcher",
+			"fecundationist",
+			"mighty-fine-mulcher",
+			"pretty-fine-mulcher"
+		]
+	},
+	"betterthanaverage_mulcher": {
+		"name": "Better-Than-Average Mulcher",
+		"description": "Tended 41 weedy patches",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/betterthanaverage_mulcher_1304983843_180.png",
+		"related": [
+			"fecundationist",
+			"mighty-fine-mulcher",
+			"mulcher",
+			"pretty-fine-mulcher"
+		]
+	},
+	"pretty_fine_mulcher": {
+		"name": "Pretty Fine Mulcher",
+		"description": "Tended 79 weedy patches",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/pretty_fine_mulcher_1304983847_180.png",
+		"related": [
+			"betterthanaverage-mulcher",
+			"fecundationist",
+			"mighty-fine-mulcher",
+			"mulcher"
+		]
+	},
+	"mighty_fine_mulcher": {
+		"name": "Mighty Fine Mulcher",
+		"description": "Tended 251 weedy patches",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/mighty_fine_mulcher_1304983852_180.png",
+		"related": [
+			"betterthanaverage-mulcher",
+			"fecundationist",
+			"mulcher",
+			"pretty-fine-mulcher"
+		]
+	},
+	"fecundationist": {
+		"name": "Fecundationist",
+		"description": "Tended 503 weedy patches",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/fecundationist_1304983857_180.png",
+		"related": [
+			"betterthanaverage-mulcher",
+			"mighty-fine-mulcher",
+			"mulcher",
+			"pretty-fine-mulcher"
+		]
+	},
+	"basic_beangrower": {
+		"name": "Basic Bean-Grower",
+		"description": "Planted 5 Seasoned Beans",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/basic_beangrower_1304983801_180.png",
+		"related": [
+			"johnny-anyseed",
+			"whizbang-plantifier"
+		]
+	},
+	"whizbang_plantifier": {
+		"name": "Whiz-Bang Plantifier",
+		"description": "Planted 13 Seasoned Beans",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/whizbang_plantifier_1304983808_180.png",
+		"related": [
+			"basic-beangrower",
+			"johnny-anyseed"
+		]
+	},
+	"johnny_anyseed": {
+		"name": "Johnny Anyseed",
+		"description": "Planted 37 Seasoned Beans",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/johnny_anyseed_1304983813_180.png",
+		"related": [
+			"basic-beangrower",
+			"whizbang-plantifier"
+		]
+	},
+	"tentative_petter": {
+		"name": "Tentative Petter",
+		"description": "Tentatively petted 11 Spice Plants",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/tentative_petter_1304984544_180.png",
+		"related": [
+			"confident-petter",
+			"heavy-petter"
+		]
+	},
+	"confident_petter": {
+		"name": "Confident Petter",
+		"description": "Confidently petted 41 Spice Plants",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/confident_petter_1304984588_180.png",
+		"related": [
+			"heavy-petter",
+			"tentative-petter"
+		]
+	},
+	"heavy_petter": {
+		"name": "Heavy Petter",
+		"description": "Heavily petted 127 Spice Plants",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/heavy_petter_1304984640_180.png",
+		"related": [
+			"confident-petter",
+			"tentative-petter"
+		]
+	},
+	"beginner_drizzler": {
+		"name": "Beginner Drizzler",
+		"description": "Administered a much-needed watering to 11 hot Spice Plants",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/beginner_drizzler_1304984691_180.png",
+		"related": [
+			"big-splasher",
+			"the-hydrophile"
+		]
+	},
+	"big_splasher": {
+		"name": "Big Splasher",
+		"description": "Administered a much-needed watering to 41 hot Spice Plants",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/big_splasher_1304984727_180.png",
+		"related": [
+			"beginner-drizzler",
+			"the-hydrophile"
+		]
+	},
+	"the_hydrophile": {
+		"name": "The Hydrophile",
+		"description": "Administered a much-needed watering to 127 hot Spice Plants",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/the_hydrophile_1304984758_180.png",
+		"related": [
+			"beginner-drizzler",
+			"big-splasher"
+		]
+	},
+	"spice_examiner": {
+		"name": "Spice Examiner",
+		"description": "Carefully scrutinized every spice in existence",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/spice_examiner_1304983669_180.png",
+		"related": [
+		]
+	},
+	"novice_spice_collector": {
+		"name": "Novice Spice Collector",
+		"description": "Harvested 101 nose-tickly Spices",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/novice_spice_collector_1304984405_180.png",
+		"related": [
+			"advanced-spice-collector",
+			"intermediate-spice-collector",
+			"master-overlord-of-the-spice-dominion"
+		]
+	},
+	"intermediate_spice_collector": {
+		"name": "Intermediate Spice Collector",
+		"description": "Harvested 503 nostril-pleasing Spices",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/intermediate_spice_collector_1304984436_180.png",
+		"related": [
+			"advanced-spice-collector",
+			"master-overlord-of-the-spice-dominion",
+			"novice-spice-collector"
+		]
+	},
+	"advanced_spice_collector": {
+		"name": "Advanced Spice Collector",
+		"description": "Harvested 1009 odoriferant Spices",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/advanced_spice_collector_1304984471_180.png",
+		"related": [
+			"intermediate-spice-collector",
+			"master-overlord-of-the-spice-dominion",
+			"novice-spice-collector"
+		]
+	},
+	"master_overlord_of_the_spice_dominion": {
+		"name": "Master Overlord of the Spice Dominion",
+		"description": "Harvested 5003 olfactorily satisfying Spices",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/master_overlord_of_the_spice_dominion_1304984507_180.png",
+		"related": [
+			"advanced-spice-collector",
+			"intermediate-spice-collector",
+			"novice-spice-collector"
+		]
+	},
+	"spice_intern": {
+		"name": "Spice Intern",
+		"description": "Converted 53 Spices",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/spice_intern_1304984296_180.png",
+		"related": [
+			"assistant-spice-manager",
+			"executive-in-charge-of-spice-reformatation"
+		]
+	},
+	"assistant_spice_manager": {
+		"name": "Assistant Spice Manager",
+		"description": "Converted 503 Spices",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/assistant_spice_manager_1304984324_180.png",
+		"related": [
+			"executive-in-charge-of-spice-reformatation",
+			"spice-intern"
+		]
+	},
+	"executive_in_charge_of_spice_reformatation": {
+		"name": "Executive in Charge of Spice Reformatation",
+		"description": "Converted 2003 Spices",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/executive_in_charge_of_spice_reformatation_1304984370_180.png",
+		"related": [
+			"assistant-spice-manager",
+			"spice-intern"
+		]
+	},
+	"trainee_tree_medic": {
+		"name": "Trainee Tree Medic",
+		"description": "Administered antidote to 23 trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-05-08/trainee_tree_medic_1336506057_180.png",
+		"related": [
+			"qualified-botanical-health-professional",
+			"respected-tree-doctor",
+			"world-class-tree-surgeon"
+		]
+	},
+	"qualified_botanical_health_professional": {
+		"name": "Qualified Botanical Health Professional",
+		"description": "Administered antidote to 79 trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-05-08/qualified_botanical_health_professional_1336506011_180.png",
+		"related": [
+			"respected-tree-doctor",
+			"trainee-tree-medic",
+			"world-class-tree-surgeon"
+		]
+	},
+	"respected_tree_doctor": {
+		"name": "Respected Tree Doctor",
+		"description": "Administered antidote to 127 trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-05-08/respected_tree_doctor_1336506015_180.png",
+		"related": [
+			"qualified-botanical-health-professional",
+			"trainee-tree-medic",
+			"world-class-tree-surgeon"
+		]
+	},
+	"world_class_tree_surgeon": {
+		"name": "World-class Tree Surgeon",
+		"description": "Administered antidote to 251 trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2012-05-08/world_class_tree_surgeon_1336506019_180.png",
+		"related": [
+			"qualified-botanical-health-professional",
+			"respected-tree-doctor",
+			"trainee-tree-medic"
+		]
+	},
+	"okbutneedsimprovement_tree_hugger": {
+		"name": "OK-But-Needs-Improvement Tree Hugger",
+		"description": "Braved splinters to pet 7 Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/okbutneedsimprovement_tree_hugger_1304984517_180.png",
+		"related": [
+			"decent-tree-hugger",
+			"definitelymuchbetter-tree-hugger",
+			"extremely-promising-tree-hugger",
+			"finallyprettygood-tree-hugger",
+			"gettingthere-tree-hugger"
+		]
+	},
+	"decent_tree_hugger": {
+		"name": "Decent Tree Hugger",
+		"description": "Braved splinters to pet 41 Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/decent_tree_hugger_1304984555_180.png",
+		"related": [
+			"definitelymuchbetter-tree-hugger",
+			"extremely-promising-tree-hugger",
+			"finallyprettygood-tree-hugger",
+			"gettingthere-tree-hugger",
+			"okbutneedsimprovement-tree-hugger"
+		]
+	},
+	"gettingthere_tree_hugger": {
+		"name": "Getting-There Tree Hugger",
+		"description": "Braved splinters to pet 127 Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/gettingthere_tree_hugger_1304984614_180.png",
+		"related": [
+			"decent-tree-hugger",
+			"definitelymuchbetter-tree-hugger",
+			"extremely-promising-tree-hugger",
+			"finallyprettygood-tree-hugger",
+			"okbutneedsimprovement-tree-hugger"
+		]
+	},
+	"extremely_promising_tree_hugger": {
+		"name": "Extremely Promising Tree Hugger",
+		"description": "Braved splinters to pet 283 Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/extremely_promising_tree_hugger_1304984656_180.png",
+		"related": [
+			"decent-tree-hugger",
+			"definitelymuchbetter-tree-hugger",
+			"finallyprettygood-tree-hugger",
+			"gettingthere-tree-hugger",
+			"okbutneedsimprovement-tree-hugger"
+		]
+	},
+	"definitelymuchbetter_tree_hugger": {
+		"name": "Definitely-Much-Better Tree Hugger",
+		"description": "Braved splinters to pet 503 Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/definitelymuchbetter_tree_hugger_1304984661_180.png",
+		"related": [
+			"decent-tree-hugger",
+			"extremely-promising-tree-hugger",
+			"finallyprettygood-tree-hugger",
+			"gettingthere-tree-hugger",
+			"okbutneedsimprovement-tree-hugger"
+		]
+	},
+	"finallyprettygood_tree_hugger": {
+		"name": "Finally-Pretty-Good Tree Hugger",
+		"description": "Braved splinters to pet 1009 Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/finallyprettygood_tree_hugger_1304984667_180.png",
+		"related": [
+			"decent-tree-hugger",
+			"definitelymuchbetter-tree-hugger",
+			"extremely-promising-tree-hugger",
+			"gettingthere-tree-hugger",
+			"okbutneedsimprovement-tree-hugger"
+		]
+	},
+	"novice_precipitator": {
+		"name": "Novice Precipitator",
+		"description": "Watered 7 Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/novice_precipitator_1304983867_180.png",
+		"related": [
+			"firstrate-rainmaker",
+			"golden-watering-can",
+			"h2oh-award",
+			"secondrate-rainmaker",
+			"superior-irrigationist"
+		]
+	},
+	"secondrate_rainmaker": {
+		"name": "Second-Rate Rainmaker",
+		"description": "Watered 41 Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/secondrate_rainmaker_1304983875_180.png",
+		"related": [
+			"firstrate-rainmaker",
+			"golden-watering-can",
+			"h2oh-award",
+			"novice-precipitator",
+			"superior-irrigationist"
+		]
+	},
+	"firstrate_rainmaker": {
+		"name": "First-Rate Rainmaker",
+		"description": "Watered 127 Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/firstrate_rainmaker_1304983882_180.png",
+		"related": [
+			"golden-watering-can",
+			"h2oh-award",
+			"novice-precipitator",
+			"secondrate-rainmaker",
+			"superior-irrigationist"
+		]
+	},
+	"h2oh_award": {
+		"name": "H2Oh! Award",
+		"description": "Watered 283 Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/h2oh_award_1304983887_180.png",
+		"related": [
+			"firstrate-rainmaker",
+			"golden-watering-can",
+			"novice-precipitator",
+			"secondrate-rainmaker",
+			"superior-irrigationist"
+		]
+	},
+	"superior_irrigationist": {
+		"name": "Superior Irrigationist",
+		"description": "Watered 503 Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/superior_irrigationist_1304983892_180.png",
+		"related": [
+			"firstrate-rainmaker",
+			"golden-watering-can",
+			"h2oh-award",
+			"novice-precipitator",
+			"secondrate-rainmaker"
+		]
+	},
+	"golden_watering_can": {
+		"name": "Golden Watering Can",
+		"description": "Watered 1009 Trees",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-05-09/golden_shower_award_1304983897_180.png",
+		"related": [
+			"firstrate-rainmaker",
+			"h2oh-award",
+			"novice-precipitator",
+			"secondrate-rainmaker",
+			"superior-irrigationist"
+		]
+	},
+	"wood_wacker": {
+		"name": "Wood Wacker",
+		"description": "Used a Hatchet to gently harvest Planks from Wood Trees 17 times",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/wood_wacker_1315686017_180.png",
+		"related": [
+			"loggerator",
+			"timber-jack"
+		]
+	},
+	"timber_jack": {
+		"name": "Timber Jack",
+		"description": "Used a Hatchet to gently harvest Planks from Wood Trees 79 times",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/timber_jack_1315686021_180.png",
+		"related": [
+			"loggerator",
+			"wood-wacker"
+		]
+	},
+	"loggerator": {
+		"name": "Loggerator",
+		"description": "Used a Hatchet to gently harvest Planks from Wood Trees 151 times",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/loggerator_1315686024_180.png",
+		"related": [
+			"timber-jack",
+			"wood-wacker"
+		]
+	},
+	"wood_abettor": {
+		"name": "Wood Abettor",
+		"description": "Petted and watered 7 Wood Trees to the full woody bloom of adulthood",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/wood_abettor_1315686026_180.png",
+		"related": [
+			"lumber-lover",
+			"timber-nut"
+		]
+	},
+	"lumber_lover": {
+		"name": "Lumber Lover",
+		"description": "Petted and watered 41 Wood Trees to the full woody bloom of adulthood",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/lumber_lover_1315686030_180.png",
+		"related": [
+			"timber-nut",
+			"wood-abettor"
+		]
+	},
+	"timber_nut": {
+		"name": "Timber Nut",
+		"description": "Petted and watered 103 Wood Trees to the full woody bloom of adulthood",
+		"category": "Trees",
+		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/timber_nut_1315686033_180.png",
+		"related": [
+			"lumber-lover",
+			"wood-abettor"
+		]
+	}
+}
