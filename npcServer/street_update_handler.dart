@@ -166,7 +166,7 @@ class StreetUpdateHandler {
 					userSockets[email] = ws;
 					streets[streetName].occupants[username] = ws;
 					getMetabolics(username: username, email: email).then((Metabolics m) {
-						MetabolicsEndpoint.addToLocationHistory(username, map["tsid"]);
+						MetabolicsEndpoint.addToLocationHistory(username, email, map["tsid"]);
 					});
 					if (map['firstConnect']) {
 						await InventoryV2.fireInventoryAtUser(ws, email);

@@ -112,18 +112,62 @@ class MetabolicsEndpoint {
 		}
 	}
 
-	static Future<bool> addToLocationHistory(String username, String TSID) async {
+	static Future<bool> addToLocationHistory(String username, String email, String TSID) async {
 		Metabolics m = await getMetabolics(username: username);
 		List<String> locations = JSON.decode(m.location_history);
 
 		// If it's not already in the history
-		if (!locations.contains(TSID)) {
-			locations.add(TSID);
-			m.location_history = JSON.encode(locations);
-			int result = await setMetabolics(m);
-			return (result > 0);
-		} else {
-			return false;
+		try {
+			bool finalResult;
+
+			if (!locations.contains(TSID)) {
+				locations.add(TSID);
+				m.location_history = JSON.encode(locations);
+				int result = await setMetabolics(m);
+				finalResult = (result > 0);
+			} else {
+				finalResult = false;
+			}
+
+			try {
+				if (locations.length >= 5) {
+					Achievement.find("junior_ok_explorer").awardTo(email);
+				}
+
+				if (locations.length >= 23) {
+					Achievement.find("senior_ok_explorer").awardTo(email);
+				}
+
+				if (locations.length >= 61) {
+					Achievement.find("rambler_third_class").awardTo(email);
+				}
+
+				if (locations.length >= 127) {
+					Achievement.find("rambler_second_class").awardTo(email);
+				}
+
+				if (locations.length >= 251) {
+					Achievement.find("rambler_first_class").awardTo(email);
+				}
+
+				if (locations.length >= 503) {
+					Achievement.find("wanderer").awardTo(email);
+				}
+
+				if (locations.length >= 757) {
+					Achievement.find("world_class_traveler").awardTo(email);
+				}
+
+				if (locations.length >= 1259) {
+					Achievement.find("globetrotter_extraordinaire").awardTo(email);
+				}
+			} catch(e) {
+				log("Error awarding location achievement to player $username: $e");
+			}
+
+			return finalResult;
+		} catch(e) {
+			log("Error marking location $TSID as visited for player $username: $e");
 		}
 	}
 

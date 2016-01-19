@@ -2,7 +2,7 @@ part of coUserver;
 
 class User {
 	@Field() int id;
-	@Field() String username, email, bio;
+	@Field() String username, email, bio, achievements;
 	@Field() bool chat_disabled;
 
 	static Map<String, String> emailUsernames = {};
