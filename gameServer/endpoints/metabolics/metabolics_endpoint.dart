@@ -116,18 +116,22 @@ class MetabolicsEndpoint {
 		Metabolics m = await getMetabolics(username: username);
 		List<String> locations = JSON.decode(m.location_history);
 
-		// If it's not already in the history
 		try {
 			bool finalResult;
 
+			// If it's not already in the history
 			if (!locations.contains(TSID)) {
 				locations.add(TSID);
 				m.location_history = JSON.encode(locations);
 				int result = await setMetabolics(m);
 				finalResult = (result > 0);
 			} else {
+				// Already in history
 				finalResult = false;
 			}
+
+			// Award achievment?
+			AchievementCheckers.hubCompletion(locations, email, TSID);
 
 			try {
 				if (locations.length >= 5) {

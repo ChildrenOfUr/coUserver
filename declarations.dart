@@ -51,6 +51,7 @@ part "gameServer/endpoints/skills.dart";
 
 // achievements
 part "gameServer/achievements/achievements.dart";
+part "gameServer/achievements/achievement_checkers.dart";
 
 // upgrades
 part "gameServer/upgrades/upgrade.dart";

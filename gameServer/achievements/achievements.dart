@@ -35,8 +35,7 @@ class Achievement {
 	@Field() String imageUrl;
 
 	String toString() {
-		return "<Achievement id=$id name=$name description=$description category=$category imageUrl=$imageUrl related=${related
-		  .length}>";
+		return "<Achievement id=$id name=$name description=$description category=$category imageUrl=$imageUrl>";
 	}
 
 	Map<String, dynamic> toMap() {
@@ -57,7 +56,17 @@ class Achievement {
 	this.imageUrl
 	});
 
+	bool get isSetUp {
+		return (
+		  id != null && name != null && description != null && category != null && imageUrl != null
+		);
+	}
+
 	Future<bool> awardedTo(String email) async {
+		if (!isSetUp) {
+			return false;
+		}
+
 		PostgreSql dbConn = await dbManager.getConnection();
 		try {
 			return (
@@ -75,7 +84,7 @@ class Achievement {
 	}
 
 	Future<bool> awardTo(String email) async {
-		if (await awardedTo(email)) {
+		if (!isSetUp || await awardedTo(email)) {
 			return false;
 		}
 
@@ -131,7 +140,8 @@ class Achievement {
 }
 
 @app.Route("/listAchievements")
-Future<String> listAchievements(@app.QueryParam("email") String email, @app.QueryParam("excludeNonMatches") bool excludeNonMatches) async {
+Future<String> listAchievements(@app.QueryParam("email") String email,
+  @app.QueryParam("excludeNonMatches") bool excludeNonMatches) async {
 	List<String> ids = [];
 	List<String> awardedIds = [];
 	Map<String, Map<String, dynamic>> maps = {};
