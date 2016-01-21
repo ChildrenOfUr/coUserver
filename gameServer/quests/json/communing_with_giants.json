@@ -6,6 +6,7 @@
     {
       "id": "Q3R1",
       "text": "emblem gained",
+      "iconUrl": "http://childrenofur.com/assets/entityImages/emblem_friendly__x1_1_png_1354832466.png",
       "type": "counter",
       "numRequired": 1,
       "eventType": "emblemGet"

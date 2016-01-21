@@ -8,21 +8,24 @@
       "text": "dullite mined",
       "type": "counter",
       "numRequired": 17,
-      "eventType": "getItem_chunk_dullite"
+      "eventType": "getItem_chunk_dullite",
+      "iconUrl": "http://childrenofur.com/assets/entityImages/dullite__x1_iconic_png_1354831478.png"
     },
     {
       "id": "Q6R2",
       "text": "beryl mined",
       "type": "counter",
       "numRequired": 13,
-      "eventType": "getItem_chunk_beryl"
+      "eventType": "getItem_chunk_beryl",
+      "iconUrl": "http://childrenofur.com/assets/entityImages/beryl__x1_iconic_png_1354831475.png"
     },
     {
       "id": "Q6R3",
       "text": "sparkly mined",
       "type": "counter",
       "numRequired": 11,
-      "eventType": "getItem_chunk_sparkly"
+      "eventType": "getItem_chunk_sparkly",
+      "iconUrl": "http://childrenofur.com/assets/entityImages/sparkly__x1_iconic_png_1354831480.png"
     }
   ],
   "rewards": {

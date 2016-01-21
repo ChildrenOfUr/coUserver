@@ -54,6 +54,7 @@ class Requirement extends Trackable {
 		text = model.text;
 		type = model.type;
 		eventType = model.eventType;
+		iconUrl = model.iconUrl;
 	}
 
 	@override

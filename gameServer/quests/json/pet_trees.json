@@ -8,7 +8,8 @@
       "type": "counter_unique",
       "numRequired": 5,
       "eventType": "treePet.*",
-      "text": "trees petted"
+      "text": "trees petted",
+      "iconUrl": "http://childrenofur.com/assets/staticEntityImages/Fruit%20Tree.png"
     }
   ],
   "rewards": {
