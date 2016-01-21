@@ -87,6 +87,7 @@ class QuestService {
 				if (entity is File) {
 					// load quests
 					Quest q = decode(JSON.decode(await entity.readAsString()), Quest);
+					print('loaded quest ${q.id}');
 					quests[q.id] = q;
 				}
 			}
