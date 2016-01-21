@@ -86,7 +86,7 @@ class QuestService {
 			await dir.list().forEach((File questFile) async {
 				// load quest data
 				Quest q = decode(JSON.decode(await questFile.readAsString()), Quest);
-				print('loaded quest ${q.id}');
+				print('loaded quest ${encode(q)}');
 				quests[q.id] = q;
 			});
 
