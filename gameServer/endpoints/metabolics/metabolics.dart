@@ -96,6 +96,8 @@ class MetabolicsChange {
 			instanceMirror.setField(new Symbol(giantName.toLowerCase() + 'favor_max'), maxAmt);
 			await InventoryV2.addItemToUser(email, items['emblem_of_' + giantName.toLowerCase()].getMap(), 1);
 
+			Achievement.find("first_emblem_of_${giantName.toLowerCase()}").awardTo(email);
+
 			//end emblem quest
 			messageBus.publish(new RequirementProgress('emblemGet', email));
 			StatBuffer.incrementStat("emblemsCreated", 1);
