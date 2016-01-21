@@ -7,7 +7,7 @@ class Constants {
 	 * Daily Quoin Limit *
 	 * * * * * * * * * * */
 
-	int get quoinLimit => 10000; // adjusted for holidays
+	int get quoinLimit => 100;
 
 	@app.Route("/quoinLimit")
 	int getQuoinLimit() {

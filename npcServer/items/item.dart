@@ -3,16 +3,7 @@ part of coUserver;
 class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox, Emblem {
 	/// Discounts, stored as itemType: part paid out of 1 (eg. 0.8 for 20% off)
 	static Map<String, num> discountedItems = {
-		"generic_bag": 0.8,
-		"generic_blue_bag": 0.8,
-		"generic_gray_bag": 0.8,
-		"generic_green_bag": 0.8,
-		"generic_pink_bag": 0.8,
-		"bigger_bag": 0.7,
-		"bigger_blue_bag": 0.7,
-		"bigger_gray_bag": 0.7,
-		"bigger_green_bag": 0.7,
-		"bigger_pink_bag": 0.7
+		"knife_and_board": 0.75
 	};
 
 	@Field() String category, iconUrl, spriteUrl, toolAnimation, name, description, itemType, item_id;
