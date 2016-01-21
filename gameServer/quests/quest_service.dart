@@ -85,8 +85,9 @@ class QuestService {
 			Directory dir = new Directory('$directory/gameServer/quests/json');
 			await dir.list().forEach((File questFile) async {
 				// load quest data
+				print('trying to load quest from ${questFile.path}');
 				Quest q = decode(JSON.decode(await questFile.readAsString()), Quest);
-				print('loaded quest ${encode(q)}');
+				print('loaded quest ${q.id}');
 				quests[q.id] = q;
 			});
 
