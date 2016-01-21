@@ -128,6 +128,7 @@ abstract class Item_Cheese {
 					bool success1 = (await InventoryV2.addItemToUser(email, items[itemOut].getMap(), 1) > 0);
 					bool success2 = await ItemUser.trySetMetabolics(email, energy: -energyReq, mood: -moodReq);
 					if (success1 && success2) {
+						Achievement.find("cheesemongerer").awardTo("email");
 						return true;
 					} else {
 						return false;
