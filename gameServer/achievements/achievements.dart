@@ -15,8 +15,7 @@ class Achievement {
 				  name: data["name"],
 				  description: data["description"],
 				  category: data["category"],
-				  imageUrl: data["imageUrl"],
-				  related: data["related"]
+				  imageUrl: data["imageUrl"]
 				);
 				ACHIEVEMENTS[id] = achievement;
 			});
@@ -34,11 +33,19 @@ class Achievement {
 	@Field() String description;
 	@Field() String category;
 	@Field() String imageUrl;
-	@Field() List<Achievement> related;
 
 	String toString() {
-		return "<Achievement id=$id name=$name description=$description category=$category imageUrl=$imageUrl related=${related
-		  .length}>";
+		return "<Achievement id=$id name=$name description=$description category=$category imageUrl=$imageUrl>";
+	}
+
+	Map<String, dynamic> toMap() {
+		return ({
+			"id": id,
+			"name": name,
+			"description": description,
+			"category": category,
+			"imageUrl": imageUrl
+		});
 	}
 
 	Achievement({
@@ -46,11 +53,20 @@ class Achievement {
 	this.name,
 	this.description,
 	this.category,
-	this.imageUrl,
-	this.related
+	this.imageUrl
 	});
 
+	bool get isSetUp {
+		return (
+		  id != null && name != null && description != null && category != null && imageUrl != null
+		);
+	}
+
 	Future<bool> awardedTo(String email) async {
+		if (!isSetUp) {
+			return false;
+		}
+
 		PostgreSql dbConn = await dbManager.getConnection();
 		try {
 			return (
@@ -68,7 +84,7 @@ class Achievement {
 	}
 
 	Future<bool> awardTo(String email) async {
-		if (await awardedTo(email)) {
+		if (!isSetUp || await awardedTo(email)) {
 			return false;
 		}
 
@@ -121,4 +137,61 @@ class Achievement {
 
 		return result;
 	}
+}
+
+@app.Route("/listAchievements")
+Future<String> listAchievements(@app.QueryParam("email") String email,
+  @app.QueryParam("excludeNonMatches") bool excludeNonMatches) async {
+	List<String> ids = [];
+	List<String> awardedIds = [];
+	Map<String, Map<String, dynamic>> maps = {};
+
+	ids = Achievement.ACHIEVEMENTS.keys.toList();
+
+	if (email != null || !(excludeNonMatches ?? true)) {
+		// Email provided, find their awarded achievements
+		// OR
+		// Including non matches, need something to match against
+		PostgreSql dbConn = await dbManager.getConnection();
+		try {
+			awardedIds = JSON.decode(
+			  (await dbConn.query(
+				"SELECT achievements FROM users WHERE email = @email",
+				User, {"email": email})
+			  ).first.achievements
+			);
+		} catch (e) {
+			log("Error getting achievements for email $email: $e");
+			return "[]";
+		} finally {
+			dbManager.closeConnection(dbConn);
+		}
+	}
+
+	if (email == null) {
+		// List ALL achievements
+		ids.forEach((String id) {
+			Achievement achv = Achievement.find(id);
+			maps.addAll({achv.id: achv.toMap()});
+		});
+	} else {
+		// List AWARDED achievements (or all with marked matches)
+		if (!(excludeNonMatches ?? true)) {
+			// Include all, but mark matches
+			ids.forEach((String id) {
+				Achievement achv = Achievement.find(id);
+				Map achvMap = achv.toMap();
+				achvMap.addAll({"awarded": (awardedIds.contains(id).toString())});
+				maps.addAll({achv.id: achvMap});
+			});
+		} else {
+			// Include only awarded
+			awardedIds.forEach((String id) {
+				Achievement achv = Achievement.find(id);
+				maps.addAll({achv.id: achv.toMap()});
+			});
+		}
+	}
+
+	return JSON.encode(maps);
 }
