@@ -58,7 +58,7 @@ class PeatBog extends Plant {
 			respawn = new DateTime.now().add(new Duration(minutes:2));
 		}
 
-		StatCollection.find(email: email).then((StatCollection stats) {
+		StatCollection.find(email).then((StatCollection stats) {
 			stats.peat_harvested++;
 			stats.write();
 			if (stats.peat_harvested >= 41) {

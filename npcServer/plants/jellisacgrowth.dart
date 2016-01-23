@@ -46,7 +46,7 @@ class Jellisac extends Plant {
 			numToGive = 2;
 		}
 
-		StatCollection.find(email: email).then((StatCollection stats) {
+		StatCollection.find(email).then((StatCollection stats) {
 			stats.jellisac_harvested += numToGive;
 			stats.write();
 			if (stats.jellisac_harvested >= 41) {

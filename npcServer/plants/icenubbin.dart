@@ -51,7 +51,7 @@ class IceNubbin extends Plant {
 			StatBuffer.incrementStat("iceNubbinsCollected", 1);
 			state--;
 
-			StatCollection.find(email: email).then((StatCollection stats) {
+			StatCollection.find(email).then((StatCollection stats) {
 				stats.ice_scraped += numToGive;
 				stats.write();
 				if (stats.ice_scraped >= 67) {

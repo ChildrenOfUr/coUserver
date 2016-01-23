@@ -284,7 +284,7 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 
 	// Awesome Pot
 	Future cook({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		StatCollection.find(email: email).then((StatCollection stats) {
+		StatCollection.find(email).then((StatCollection stats) {
 			stats.awesome_pot_uses++;
 			stats.write();
 			if (stats.awesome_pot_uses >= 11) {
@@ -313,7 +313,7 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 	// Bean Seasoner
 	// Egg Seasoner
 	Future season({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		StatCollection.find(email: email).then((StatCollection stats) {
+		StatCollection.find(email).then((StatCollection stats) {
 			if (map["itemType"] == "bean_seasoner") {
 				stats.beans_seasoned++;
 				if (stats.beans_seasoned >= 53) {
@@ -340,7 +340,7 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 
 	// Blender
 	Future blend({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		StatCollection.find(email: email).then((StatCollection stats) {
+		StatCollection.find(email).then((StatCollection stats) {
 			stats.blender_uses++;
 			stats.write();
 			if (stats.blender_uses >= 11) {
@@ -356,10 +356,10 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 
 	// Bubble Tuner
 	Future tuneBubbles({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		StatCollection.find(email: email).then((StatCollection stats) {
+		StatCollection.find(email).then((StatCollection stats) {
 			stats.bubbles_transformed++;
 			stats.write();
-			StatCollection.find(email: email).then((StatCollection stats) {
+			StatCollection.find(email).then((StatCollection stats) {
 				stats.bubbles_transformed++;
 				stats.write();
 				if (stats.bubbles_transformed >= 53) {
@@ -381,7 +381,7 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 
 	// Cocktail Shaker
 	Future shake({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		StatCollection.find(email: email).then((StatCollection stats) {
+		StatCollection.find(email).then((StatCollection stats) {
 			stats.cocktail_shaker_uses++;
 			stats.write();
 			if (stats.cocktail_shaker_uses >= 11) {
@@ -402,7 +402,7 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 
 	// Famous Pugilist Grill
 	Future grill({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		StatCollection.find(email: email).then((StatCollection stats) {
+		StatCollection.find(email).then((StatCollection stats) {
 			stats.grill_uses++;
 			stats.write();
 			if (stats.grill_uses >= 11) {
@@ -422,7 +422,7 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 
 	// Fruit Changing Machine
 	Future convertFruit({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		StatCollection.find(email: email).then((StatCollection stats) {
+		StatCollection.find(email).then((StatCollection stats) {
 			stats.fruit_converted++;
 			stats.write();
 			if (stats.fruit_converted >= 53) {
@@ -438,7 +438,7 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 
 	// Gassifier
 	Future convertGas({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		StatCollection.find(email: email).then((StatCollection stats) {
+		StatCollection.find(email).then((StatCollection stats) {
 			stats.gas_converted++;
 			stats.write();
 			if (stats.gas_converted >= 53) {
@@ -459,7 +459,7 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 
 	// Frying Pan
 	Future fry({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		StatCollection.find(email: email).then((StatCollection stats) {
+		StatCollection.find(email).then((StatCollection stats) {
 			stats.frying_pan_uses++;
 			stats.write();
 			if (stats.frying_pan_uses >= 11) {
@@ -479,7 +479,7 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 
 	// Knife and Board
 	Future chop({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		StatCollection.find(email: email).then((StatCollection stats) {
+		StatCollection.find(email).then((StatCollection stats) {
 			stats.knife_board_uses++;
 			stats.write();
 			if (stats.knife_board_uses >= 11) {
@@ -504,7 +504,7 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 
 	// Saucepan
 	Future simmer({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		StatCollection.find(email: email).then((StatCollection stats) {
+		StatCollection.find(email).then((StatCollection stats) {
 			stats.sauce_pan_uses++;
 			stats.write();
 			if (stats.sauce_pan_uses >= 11) {
@@ -529,7 +529,7 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 
 	// Spice Mill
 	Future mill({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		StatCollection.find(email: email).then((StatCollection stats) {
+		StatCollection.find(email).then((StatCollection stats) {
 			stats.spice_milled++;
 			stats.write();
 			if (stats.spice_milled >= 53) {

@@ -87,7 +87,7 @@ class DirtPile extends Plant {
 			await InventoryV2.addItemToUser(email, items['loam'].getMap(), 1, id);
 		}
 
-		StatCollection.find(email: email).then((StatCollection stats) {
+		StatCollection.find(email).then((StatCollection stats) {
 			stats.dirt_dug++;
 			stats.write();
 			if (stats.dirt_dug >= 29) {

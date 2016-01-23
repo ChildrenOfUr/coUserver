@@ -51,7 +51,7 @@ class MortarBarnacle extends Plant {
 			numToGive = 2;
 		}
 
-		StatCollection.find(email: email).then((StatCollection stats) {
+		StatCollection.find(email).then((StatCollection stats) {
 			stats.barnacles_scraped += numToGive;
 			stats.write();
 			if (stats.barnacles_scraped >= 41) {

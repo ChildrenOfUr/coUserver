@@ -26,7 +26,7 @@ class Achievement {
 		return ACHIEVEMENTS[id];
 	}
 
-	static int queuedWrites = 0;
+	static Map<String, int> queuedWrites = 0;
 
 	@Field() String id;
 	@Field() String name;
@@ -88,11 +88,11 @@ class Achievement {
 			return false;
 		}
 
-		queuedWrites++;
+		queuedWrites[email] = ((queuedWrites[email] ?? 0) + 1).clamp(0, 60);
 
 		bool result = false;
 
-		await new Timer(new Duration(seconds: queuedWrites), () async {
+		await new Timer(new Duration(seconds: queuedWrites[email].abs()), () async {
 			PostgreSql dbConn = await dbManager.getConnection();
 			try {
 				String oldJson = (await dbConn.query(
@@ -126,7 +126,7 @@ class Achievement {
 					result = false;
 				}
 
-				queuedWrites--;
+				queuedWrites[email] = ((queuedWrites[email] ?? 0) - 1).clamp(0, 60);
 			} catch (e) {
 				log("Error setting achievements for email $email: $e");
 				result = false;

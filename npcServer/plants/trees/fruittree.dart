@@ -54,7 +54,7 @@ class FruitTree extends Tree {
 		bool success = await super.harvest(userSocket:userSocket,email:email);
 
 		if(success) {
-			StatCollection.find(email: email).then((StatCollection stats) {
+			StatCollection.find(email).then((StatCollection stats) {
 				stats.cherries_harvested++;
 				stats.write();
 				if (stats.cherries_harvested >= 101) {

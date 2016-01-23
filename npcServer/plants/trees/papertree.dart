@@ -58,7 +58,7 @@ class PaperTree extends Tree {
 		bool success = await super.harvest(userSocket:userSocket,email:email);
 
 		if(success) {
-			StatCollection.find(email: email).then((StatCollection stats) {
+			StatCollection.find(email).then((StatCollection stats) {
 				stats.paper_harvested++;
 				stats.write();
 				if (stats.paper_harvested >= 73) {

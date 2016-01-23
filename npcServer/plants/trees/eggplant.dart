@@ -52,7 +52,7 @@ class EggPlant extends Tree {
 		bool success = await super.harvest(userSocket:userSocket,email:email);
 
 		if(success) {
-			StatCollection.find(email: email).then((StatCollection stats) {
+			StatCollection.find(email).then((StatCollection stats) {
 				stats.eggs_harveted++;
 				stats.write();
 				if (stats.eggs_harveted >= 101) {

@@ -52,7 +52,7 @@ class BubbleTree extends Tree {
 		bool success = await super.harvest(userSocket:userSocket,email:email);
 
 		if(success) {
-			StatCollection.find(email: email).then((StatCollection stats) {
+			StatCollection.find(email).then((StatCollection stats) {
 				stats.bubbles_harvested++;
 				stats.write();
 				if (stats.bubbles_harvested >= 101) {

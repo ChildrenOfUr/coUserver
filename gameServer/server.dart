@@ -121,13 +121,6 @@ main() async {
 //	await Future.wait(futures);
 //	print('upgading complete');
 //	dbManager.closeConnection(db);
-
-	StatCollection.find(userId: 2).then((StatCollection stats) {
-		print('via userId: ${stats.jumps}');
-	});
-	StatCollection.find(email: 'andyccastille@gmail.com').then((StatCollection stats) {
-		print('via email: ${stats.jumps}');
-	});
 }
 
 ///anything that should run here as cleanup before exit

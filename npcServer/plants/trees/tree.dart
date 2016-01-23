@@ -5,41 +5,41 @@ abstract class Tree extends Plant {
 
 	Tree(String id, int x, int y) : super(id, x, y) {
 		actions..add({"action":"harvest",
-			             "timeRequired":actionTime,
-			             "enabled":true,
-			             "actionWord":"harvesting",
-			             "requires":[
-				             {
-					             'num':5,
-					             'of':['energy'],
-					             "error": "You need at least 5 energy to harvest."
-				             }
-			             ]})..add({"action":"water",
-				                      "timeRequired":actionTime,
-				                      "enabled":true,
-				                      "actionWord":"watering",
-				                      "requires":[
-					                      {
-						                      "num":1,
-						                      "of":["watering_can", "irrigator_9000"],
-						                      "error": "Trees don't like to be peed on. Go find some clean water, please."
-					                      },
-					                      {
-						                      "num": 2,
-						                      "of": ['energy'],
-						                      "error": "You need at least 2 energy to water."
-					                      }
-				                      ]})..add({"action":"pet",
-					                               "timeRequired":actionTime,
-					                               "enabled":true,
-					                               "actionWord":"petting",
-					                               "requires":[
-						                               {
-							                               'num':2,
-							                               'of':['energy'],
-							                               'error': "You need at least 2 energy to pet."
-						                               }
-					                               ]});
+			"timeRequired":actionTime,
+			"enabled":true,
+			"actionWord":"harvesting",
+			"requires":[
+				{
+					'num':5,
+					'of':['energy'],
+					"error": "You need at least 5 energy to harvest."
+				}
+			]})..add({"action":"water",
+			"timeRequired":actionTime,
+			"enabled":true,
+			"actionWord":"watering",
+			"requires":[
+				{
+					"num":1,
+					"of":["watering_can", "irrigator_9000"],
+					"error": "Trees don't like to be peed on. Go find some clean water, please."
+				},
+				{
+					"num": 2,
+					"of": ['energy'],
+					"error": "You need at least 2 energy to water."
+				}
+			]})..add({"action":"pet",
+			"timeRequired":actionTime,
+			"enabled":true,
+			"actionWord":"petting",
+			"requires":[
+				{
+					'num':2,
+					'of':['energy'],
+					'error': "You need at least 2 energy to pet."
+				}
+			]});
 	}
 
 	void update() {
@@ -90,7 +90,33 @@ abstract class Tree extends Plant {
 		//say a witty thing
 		say(responses['water'].elementAt(rand.nextInt(responses['water'].length)));
 
-		StatBuffer.incrementStat("treesWatered", 1);
+		//StatBuffer.incrementStat("treesWatered", 1);
+		StatCollection.find(email).then((StatCollection stats) {
+			switch (type) {
+				case "Bean Tree":
+					stats.bean_trees_watered;
+					break;
+				case "Bubble Tree":
+					stats.bubble_trees_watered++;
+					break;
+				case "Egg Plant":
+					stats.egg_plants_watered++;
+					break;
+				case "Fruit Tree":
+					stats.fruit_trees_watered++;
+					break;
+				case "Gas Plant":
+					stats.gas_plants_watered++;
+					break;
+				case "Spice Plant":
+					stats.spice_plants_watered++;
+					break;
+				case "Wood Tree":
+					stats.wood_trees_watered++;
+			}
+
+			stats.write();
+		});
 		respawn = new DateTime.now().add(new Duration(seconds: 30));
 		state++;
 
@@ -114,7 +140,34 @@ abstract class Tree extends Plant {
 		QuestEndpoint.questLogCache[email].offerQuest('Q2');
 
 		messageBus.publish(new RequirementProgress('treePet$type', email));
-		StatBuffer.incrementStat("treesPetted", 1);
+
+		//StatBuffer.incrementStat("treesPetted", 1);
+		StatCollection.find(email).then((StatCollection stats) {
+			switch (type) {
+				case "Bean Tree":
+					stats.bean_trees_petted++;
+					break;
+				case "Bubble Tree":
+					stats.bubble_trees_petted++;
+					break;
+				case "Egg Plant":
+					stats.egg_plants_petted++;
+					break;
+				case "Fruit Tree":
+					stats.fruit_trees_petted++;
+					break;
+				case "Gas Plant":
+					stats.gas_plants_petted++;
+					break;
+				case "Spice Plant":
+					stats.spice_plants_petted++;
+					break;
+				case "Wood Tree":
+					stats.wood_trees_petted++;
+			}
+
+			stats.write();
+		});
 
 		return true;
 	}

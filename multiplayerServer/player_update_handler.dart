@@ -76,7 +76,22 @@ class PlayerUpdateHandler {
 						num currentY = num.parse(map['xy'].split(',')[1]);
 						num xDiff = (currentX - prevX).abs();
 						num yDiff = (currentY - prevY).abs();
-						StatBuffer.incrementStat("stepsTaken", (xDiff + yDiff) / 22);
+						//StatBuffer.incrementStat("stepsTaken", (xDiff + yDiff) / 22);
+						StatCollection.find(email).then((StatCollection stats) {
+							int newSteps = ((xDiff + yDiff) / 22).ceil().abs();
+							stats.steps_taken += newSteps;
+
+							bool jumpIncrease = false;
+							if (yDiff > 17) {
+								// TODO: do this better
+								stats.jumps++;
+								jumpIncrease = true;
+							}
+
+							if (jumpIncrease || newSteps > 0) {
+								stats.write();
+							}
+						});
 						users[username].currentX = currentX;
 						users[username].currentY = currentY;
 					} catch (e, st) {
