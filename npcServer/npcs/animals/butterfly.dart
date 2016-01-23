@@ -36,30 +36,78 @@ class Butterfly extends NPC {
 			      });
 		speed = 75; //pixels per second
 		states = {
-			"fly-angle1": new Spritesheet("fly-angle1",
-			                              "http://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-angle1_png_1354829526.png",
-			                              840, 195, 70, 65, 34, true),
-			"fly-angle2": new Spritesheet("fly-angle2",
-			                              "http://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-angle2_png_1354829527.png",
-			                              700, 130, 70, 65, 20, true),
-			"fly-rooked": new Spritesheet("fly-rooked",
-			                              "http://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-rooked_png_1354829525.png",
-			                              980, 65, 70, 65, 14, true),
-			"fly-side": new Spritesheet("fly-side",
-			                            "http://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-side_png_1354829525.png",
-			                            980, 390, 70, 65, 84, true),
-			"fly-top": new Spritesheet("fly-top",
-			                           "http://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-top_png_1354829528.png",
-			                           910, 455, 70, 65, 87, true),
-			"rest-angle1": new Spritesheet("rest-angle1",
-			                               "http://childrenofur.com/assets/entityImages/npc_butterfly__x1_rest-angle1_png_1354829530.png",
-			                               420, 65, 70, 65, 6, true),
-			"rest-angle2": new Spritesheet("rest-angle2",
-			                               "http://childrenofur.com/assets/entityImages/npc_butterfly__x1_rest-angle2_png_1354829531.png",
-			                               700, 65, 70, 65, 10, true),
-			"rest-top": new Spritesheet("rest-top",
-			                            "http://childrenofur.com/assets/entityImages/npc_butterfly__x1_rest-top_png_1354829532.png",
-			                            980, 195, 70, 65, 42, true)
+			"fly-angle1": new Spritesheet(
+				"fly-angle1",
+				"http://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-angle1_png_1354829526.png",
+				840,
+				195,
+				70,
+				65,
+				34,
+				true),
+			"fly-angle2": new Spritesheet(
+				"fly-angle2",
+				"http://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-angle2_png_1354829527.png",
+				700,
+				130,
+				70,
+				65,
+				20,
+				true),
+			"fly-rooked": new Spritesheet(
+				"fly-rooked",
+				"http://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-rooked_png_1354829525.png",
+				980,
+				65,
+				70,
+				65,
+				14,
+				true),
+			"fly-side": new Spritesheet(
+				"fly-side",
+				"http://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-side_png_1354829525.png",
+				980,
+				390,
+				70,
+				65,
+				84,
+				true),
+			"fly-top": new Spritesheet(
+				"fly-top",
+				"http://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-top_png_1354829528.png",
+				910,
+				455,
+				70,
+				65,
+				87,
+				true),
+			"rest-angle1": new Spritesheet(
+				"rest-angle1",
+				"http://childrenofur.com/assets/entityImages/npc_butterfly__x1_rest-angle1_png_1354829530.png",
+				420,
+				65,
+				70,
+				65,
+				6,
+				true),
+			"rest-angle2": new Spritesheet(
+				"rest-angle2",
+				"http://childrenofur.com/assets/entityImages/npc_butterfly__x1_rest-angle2_png_1354829531.png",
+				700,
+				65,
+				70,
+				65,
+				10,
+				true),
+			"rest-top": new Spritesheet(
+				"rest-top",
+				"http://childrenofur.com/assets/entityImages/npc_butterfly__x1_rest-top_png_1354829532.png",
+				980,
+				195,
+				70,
+				65,
+				42,
+				true)
 		};
 		currentState = states["fly-side"];
 		responses = {
@@ -218,34 +266,34 @@ class Butterfly extends NPC {
 	}
 
 	Future<bool> massage({WebSocket userSocket, String email}) async {
-		bool success = await super.trySetMetabolics(email, energy:-7, mood:3, imgMin:5, imgRange:3);
-		if(!success) {
+		bool success = await super.trySetMetabolics(email, energy: -7, mood: 3, imgMin: 5, imgRange: 3);
+		if (!success) {
 			return false;
 		}
 		interacting = true;
-		// TODO: if(<user does not have lotion>) {
-		//  say(responses['massageFail'].elementAt(rand.nextInt(responses['massageFail'].length)));
-		//} else {
-		StatBuffer.incrementStat("butterfliesMassaged", 1);
-		say(responses['massage'].elementAt(rand.nextInt(responses['massage'].length)));
-		massaged = true;
-		numMilks = 0;
-		// }
+		if (!(await InventoryV2.hasItem(email, 'butterfly_lotion', 1))) {
+			say(responses['massageFail'].elementAt(rand.nextInt(responses['massageFail'].length)));
+		} else {
+			StatBuffer.incrementStat("butterfliesMassaged", 1);
+			say(responses['massage'].elementAt(rand.nextInt(responses['massage'].length)));
+			massaged = true;
+			numMilks = 0;
+		}
 		interacting = false;
 		massageExpires.start();
 		return true;
 	}
 
 	Future<bool> milk({WebSocket userSocket, String email}) async {
-		if(massaged) {
-			bool success = await super.trySetMetabolics(email, energy:-5, mood:5, imgMin:5, imgRange:6);
-			if(!success) {
+		if (massaged) {
+			bool success = await super.trySetMetabolics(email, energy: -5, mood: 5, imgMin: 5, imgRange: 6);
+			if (!success) {
 				return false;
 			}
 
 			interacting = true;
 
-			if(rand.nextInt(10) == 1) {
+			if (rand.nextInt(10) == 1) {
 				// bonus milk
 				await InventoryV2.addItemToUser(email, items['butterfly_milk'].getMap(), 3, id);
 				StatBuffer.incrementStat("butterfliesMilked", 1);
@@ -255,14 +303,14 @@ class Butterfly extends NPC {
 				StatBuffer.incrementStat("butterfliesMilked", 1);
 				say(responses['milk'].elementAt(rand.nextInt(responses['milk'].length)));
 			}
-
 		} else {
 			// not massaged (milkFail)
-			bool success = await super.trySetMetabolics(email, energy:-5, mood:-2, imgMin:5, imgRange:2);
-			if(!success) {
+			bool success = await super.trySetMetabolics(email, energy: -5, mood: -2, imgMin: 5, imgRange: 2);
+			if (!success) {
 				return false;
 			}
-			say("What? No warmup? No preamble? You just walk up to a butterfly with your clammy hands and try to milk it? You have a lot to learn about charming butterflies.");
+			say(
+				"What? No warmup? No preamble? You just walk up to a butterfly with your clammy hands and try to milk it? You have a lot to learn about charming butterflies.");
 		}
 
 		interacting = false;
@@ -271,8 +319,8 @@ class Butterfly extends NPC {
 	}
 
 	update() {
-		if(currentState.stateName == "fly-side" && !interacting) {
-			if(facingRight) {
+		if (currentState.stateName == "fly-side" && !interacting) {
+			if (facingRight) {
 				x += speed;
 				//75 pixels/sec is the speed set on the client atm
 			} else {
@@ -282,37 +330,37 @@ class Butterfly extends NPC {
 			// bob up and down a bit
 			y += rand.nextInt(50) - 25;
 
-			if(x < 0) {
+			if (x < 0) {
 				x = 0;
 			}
-			if(x > 4000) {
+			if (x > 4000) {
 				x = 4000;
 			}
 		}
 
 		// must massage again after 5 minutes
-		if(massageExpires.elapsed.inMinutes > 5) {
+		if (massageExpires.elapsed.inMinutes > 5) {
 			massaged = false;
 		}
 
 		//if respawn is in the past, it is time to choose a new animation
-		if(respawn != null && new DateTime.now().compareTo(respawn) > 0) {
+		if (respawn != null && new DateTime.now().compareTo(respawn) > 0) {
 			//1 in 4 chance to change direction
-			if(rand.nextInt(4) == 1) {
+			if (rand.nextInt(4) == 1) {
 				facingRight = !facingRight;
 			}
 
 			int num = rand.nextInt(10);
-			if(num == 6 || num == 7) {
+			if (num == 6 || num == 7) {
 				currentState = states['fly-angle1'];
-			} else if(num == 8 || num == 9) {
+			} else if (num == 8 || num == 9) {
 				currentState = states['fly-angle2'];
 			} else {
 				currentState = states['fly-side'];
 			}
 
 			int length = (currentState.numFrames / 30 * 1000).toInt();
-			respawn = new DateTime.now().add(new Duration(milliseconds:length));
+			respawn = new DateTime.now().add(new Duration(milliseconds: length));
 		}
 	}
 }

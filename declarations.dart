@@ -44,7 +44,7 @@ part 'gameServer/quests/messages.dart';
 part "gameServer/quests/quest.dart";
 part 'gameServer/quests/quest_service.dart';
 part 'gameServer/quests/quest_endpoint.dart';
-part 'gameServer/quests/user.dart';
+part 'common/user.dart';
 
 // skills
 part "gameServer/endpoints/skills.dart";

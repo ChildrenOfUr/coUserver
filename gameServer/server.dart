@@ -122,9 +122,11 @@ main() async {
 //	print('upgading complete');
 //	dbManager.closeConnection(db);
 
-	// TODO: allow the email: parameter to work with JOIN
 	StatCollection.find(userId: 2).then((StatCollection stats) {
-		print(stats.jumps);
+		print('via userId: ${stats.jumps}');
+	});
+	StatCollection.find(email: 'andyccastille@gmail.com').then((StatCollection stats) {
+		print('via email: ${stats.jumps}');
 	});
 }
 

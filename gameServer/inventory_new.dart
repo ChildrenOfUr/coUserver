@@ -506,7 +506,13 @@ class InventoryV2 {
 		return droppedItem;
 	}
 
-	Future<int> _takeAnyItems(Map itemMap, int count, String email) async {
+	Future<int> _takeAnyItems(String itemType, int count, String email, {bool simulate: false}) async {
+		Map itemMap = items[itemType]?.getMap();
+		if(itemMap == null) {
+			log('Could not get item from type $itemType');
+			return 0;
+		}
+
 		Item item = jsonx.decode(JSON.encode(itemMap), type: Item);
 		// Keep a record of how many items we have taken from slots already,
 		// and how many more we need to remove
@@ -597,12 +603,16 @@ class InventoryV2 {
 
 		if (toGrab > 0) {
 			//abort - if we can't have it all, we can't have any
-			log("[InventoryV2] Cannot take ${item.itemType} x $count from user with email $email because they ran"
-			    + " out of slots before all items were taken. $toGrab items skipped.");
+			if(!simulate) {
+				log("[InventoryV2] Cannot take ${item.itemType} x $count from user with email $email because they ran"
+				    + " out of slots before all items were taken. $toGrab items skipped.");
+			}
 			return 0;
 		} else {
-			inventory_json = jsonx.encode(tmpSlots);
-			await _updateDatabase(email);
+			if (!simulate) {
+				inventory_json = jsonx.encode(tmpSlots);
+				await _updateDatabase(email);
+			}
 			return grabbed;
 		}
 	}
@@ -718,16 +728,19 @@ class InventoryV2 {
 		return itemTaken;
 	}
 
-	static Future<int> takeAnyItemsFromUser(String email, String itemType, int count) async {
+	static Future<int> takeAnyItemsFromUser(String email, String itemType, int count, {simulate: false}) async {
 		WebSocket userSocket = StreetUpdateHandler.userSockets[email];
 		InventoryV2 inv = await getInventory(email);
-		int taken = await inv._takeAnyItems(items[itemType].getMap(), count, email);
-		if (taken == count) {
+		int taken = await inv._takeAnyItems(itemType, count, email, simulate: simulate);
+		if (taken == count && !simulate) {
 			await fireInventoryAtUser(userSocket, email, update: true);
-			return count;
-		} else {
-			return -1;
 		}
+
+		return taken;
+	}
+
+	static Future<bool> hasItem(String email, String itemType, int count) async {
+		return (await takeAnyItemsFromUser(email, itemType, count, simulate:true)) == count;
 	}
 
 	Slot getSlot(int invIndex, [int bagIndex]) {

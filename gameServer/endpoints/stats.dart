@@ -2,35 +2,58 @@ part of coUserver;
 
 class StatCollection {
 	static Future<StatCollection> find({int userId, String email}) async {
-		PostgreSql dbConn = await dbManager.getConnection();
-
-		Future<List<StatCollection>> _query(int userId) async {
-			List<StatCollection> results = await dbConn.query(
-				"SELECT * FROM stats WHERE user_id = @user_id",
-				StatCollection, {"user_id": userId});
-			return results;
-		}
-
 		try {
-			List<StatCollection> results = (await _query(userId)) ?? [];
+			List<StatCollection> results = (await _query(userId ?? email)) ?? [];
 			if (results.length > 0) {
 				return results.first;
 			} else {
-				if ((await dbConn.execute(
-					"INSERT INTO stats (user_id) VALUES (@user_id)",
-					{"user_id": userId})) == 1) {
-					return (await _query(userId)).first;
-				} else {
-					throw new Exception();
-				}
+				return await _insert(userId ?? email);
 			}
 		} catch (e, st) {
-			log("Error getting stats for user ${userId.toString()}: $e");
-			print(st);
+			log("Error getting stats for user ${userId.toString()}: $e\n$st");
 			return null;
-		} finally {
-			dbManager.closeConnection(dbConn);
 		}
+	}
+
+	static Future<List<StatCollection>> _query(dynamic identifier) async {
+		assert(identifier is int || identifier is String);
+
+		PostgreSql dbConn = await dbManager.getConnection();
+
+		List<StatCollection> results;
+		if(identifier is int) {
+			String query = "SELECT * FROM stats WHERE user_id = @user_id";
+			results = await dbConn.query(query, StatCollection, {"user_id": identifier});
+		} else if (identifier is String) {
+			String query = "SELECT * FROM stats AS s JOIN users AS u ON s.user_id = u.id WHERE u.email = @email";
+			results = await dbConn.query(query,	StatCollection, {"email": identifier});
+		}
+
+		dbManager.closeConnection(dbConn);
+
+		return results;
+	}
+
+	static Future<StatCollection> _insert(dynamic identifier) async {
+		assert(identifier is int || identifier is String);
+
+		PostgreSql dbConn = await dbManager.getConnection();
+
+		int user_id;
+		if (identifier is String) {
+			String query = "SELECT * FROM users WHERE email = @email";
+			User u = (await dbConn.query(query, User, {'email':identifier})).first;
+			user_id = u.id;
+		} else {
+			user_id = identifier;
+		}
+
+		String query = "INSERT INTO stats (user_id) VALUES (@user_id)";
+		await dbConn.execute(query, {"user_id": user_id});
+
+		dbManager.closeConnection(dbConn);
+
+		return (await _query(identifier)).first;
 	}
 
 	Future<bool> write() async {
@@ -88,57 +111,7 @@ class StatCollection {
 						+ "wood_trees_petted = @wood_trees_petted,"
 						+ "wood_trees_watered = @wood_trees_watered"
 						+ " WHERE user_id = @user_id",
-					{
-						"awesome_pot_uses": awesome_pot_uses,
-						"barnacles_scraped": barnacles_scraped,
-						"bean_trees_petted": bean_trees_petted,
-						"bean_trees_watered": bean_trees_watered,
-						"beans_harvested": beans_harvested,
-						"beans_seasoned": beans_seasoned,
-						"blender_uses": blender_uses,
-						"bubble_trees_petted": bubble_trees_petted,
-						"bubble_trees_watered": bubble_trees_watered,
-						"bubbles_harvested": bubbles_harvested,
-						"bubbles_transformed": bubbles_transformed,
-						"butterflies_massaged": butterflies_massaged,
-						"cherries_harvested": cherries_harvested,
-						"chickens_squeezed": chickens_squeezed,
-						"cocktail_shaker_uses": cocktail_shaker_uses,
-						"dirt_dug": dirt_dug,
-						"egg_plants_petted": egg_plants_petted,
-						"egg_plants_watered": egg_plants_watered,
-						"eggs_harveted": eggs_harveted,
-						"eggs_seasoned": eggs_seasoned,
-						"emblems_collected": emblems_collected,
-						"fruit_converted": fruit_converted,
-						"fruit_trees_petted": fruit_trees_petted,
-						"fruit_trees_watered": fruit_trees_watered,
-						"frying_pan_uses": frying_pan_uses,
-						"gas_converted": gas_converted,
-						"gas_harvested": gas_harvested,
-						"gas_plants_petted": gas_plants_petted,
-						"gas_plants_watered": gas_plants_watered,
-						"grill_uses": grill_uses,
-						"ice_scraped": ice_scraped,
-						"jellisac_harvested": jellisac_harvested,
-						"jumps": jumps,
-						"knife_board_uses": knife_board_uses,
-						"paper_harvested": paper_harvested,
-						"peat_harvested": peat_harvested,
-						"piggies_nibbled": piggies_nibbled,
-						"planks_harvested": planks_harvested,
-						"rocks_mined": rocks_mined,
-						"sauce_pan_uses": sauce_pan_uses,
-						"shrine_donations": shrine_donations,
-						"spice_harvested": spice_harvested,
-						"spice_milled": spice_milled,
-						"spice_plants_petted": spice_plants_petted,
-						"spice_plants_watered": spice_plants_watered,
-						"steps_taken": steps_taken,
-						"wood_trees_petted": wood_trees_petted,
-						"wood_trees_watered": wood_trees_watered,
-						"user_id": user_id
-					})
+					this)
 				) == 1
 			);
 		} catch (e) {

@@ -103,14 +103,18 @@ class Street {
 	Future persistState() async {
 		PostgreSql dbConn = await dbManager.getConnection();
 
-		String query = "UPDATE streets SET items = @items WHERE id = @id";
-		DBStreet dbStreet = new DBStreet()
-			..id = tsid
-			..groundItems = groundItems.values.toList() ?? [];
-		int result = await dbConn.execute(query, dbStreet);
-		if(result == 0) {
-			query = "INSERT INTO streets(id,items) VALUEs(@id,@items)";
-			await dbConn.execute(query, dbStreet);
+		try {
+			String query = "UPDATE streets SET items = @items WHERE id = @id";
+			DBStreet dbStreet = new DBStreet()
+				..id = tsid
+				..groundItems = groundItems.values.toList() ?? [];
+			int result = await dbConn.execute(query, dbStreet);
+			if(result == 0) {
+				query = "INSERT INTO streets(id,items) VALUEs(@id,@items)";
+				await dbConn.execute(query, dbStreet);
+			}
+		} catch (e) {
+			print('could not persist $tsid ($label): $e');
 		}
 
 		dbManager.closeConnection(dbConn);
