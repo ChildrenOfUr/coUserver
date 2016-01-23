@@ -52,6 +52,20 @@ class BubbleTree extends Tree {
 		bool success = await super.harvest(userSocket:userSocket,email:email);
 
 		if(success) {
+			StatCollection.find(email: email).then((StatCollection stats) {
+				stats.bubbles_harvested++;
+				stats.write();
+				if (stats.bubbles_harvested >= 101) {
+					Achievement.find("good_bubble_farmer").awardTo(email);
+				} else if (stats.bubbles_harvested >= 503) {
+					Achievement.find("better_bubble_farmer").awardTo(email);
+				} else if (stats.bubbles_harvested >= 1009) {
+					Achievement.find("second_best_bubble_farmer").awardTo(email);
+				} else if (stats.bubbles_harvested >= 5003) {
+					Achievement.find("first_best_bubble_farmer").awardTo(email);
+				}
+			});
+
 			//give the player the 'fruits' of their labor
 			await InventoryV2.addItemToUser(email, items['plain_bubble'].getMap(), 1, id);
 		}

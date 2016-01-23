@@ -52,6 +52,20 @@ class EggPlant extends Tree {
 		bool success = await super.harvest(userSocket:userSocket,email:email);
 
 		if(success) {
+			StatCollection.find(email: email).then((StatCollection stats) {
+				stats.eggs_harveted++;
+				stats.write();
+				if (stats.eggs_harveted >= 101) {
+					Achievement.find("egg_enthusiast").awardTo(email);
+				} else if (stats.eggs_harveted >= 503) {
+					Achievement.find("egg_poacher").awardTo(email);
+				} else if (stats.eggs_harveted >= 1009) {
+					Achievement.find("egg_aficianado").awardTo(email);
+				} else if (stats.eggs_harveted >= 5003) {
+					Achievement.find("egg_freak").awardTo(email);
+				}
+			});
+
 			//give the player the 'fruits' of their labor
 			await InventoryV2.addItemToUser(email, items['egg'].getMap(), 1, id);
 		}

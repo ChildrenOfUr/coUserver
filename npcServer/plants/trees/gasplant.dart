@@ -52,6 +52,20 @@ class GasPlant extends Tree {
 		bool success = await super.harvest(userSocket:userSocket,email:email);
 
 		if(success) {
+			StatCollection.find(email: email).then((StatCollection stats) {
+				stats.gas_harvested++;
+				stats.write();
+				if (stats.gas_harvested >= 101) {
+					Achievement.find("occasional_gas_fancier").awardTo(email);
+				} else if (stats.gas_harvested >= 503) {
+					Achievement.find("hobbyist_gas_fancier").awardTo(email);
+				} else if (stats.gas_harvested >= 1009) {
+					Achievement.find("dedicated_gas_fancier").awardTo(email);
+				} else if (stats.gas_harvested >= 5003) {
+					Achievement.find("obsessive_gas_fancier").awardTo(email);
+				}
+			});
+
 			//give the player the 'fruits' of their labor
 			await InventoryV2.addItemToUser(email, items['general_vapour'].getMap(), 1, id);
 		}

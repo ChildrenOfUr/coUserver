@@ -45,6 +45,23 @@ class Jellisac extends Plant {
 		if(new Random().nextInt(14) == 14) {
 			numToGive = 2;
 		}
+
+		StatCollection.find(email: email).then((StatCollection stats) {
+			stats.jellisac_harvested += numToGive;
+			stats.write();
+			if (stats.jellisac_harvested >= 41) {
+				Achievement.find("slime_harvester").awardTo(email);
+			} else if (stats.jellisac_harvested >= 127) {
+				Achievement.find("goo_getter").awardTo(email);
+			} else if (stats.jellisac_harvested >= 283) {
+				Achievement.find("sac_bagger").awardTo(email);
+			} else if (stats.jellisac_harvested >= 503) {
+				Achievement.find("glop_grappler").awardTo(email);
+			} else if (stats.jellisac_harvested >= 1009) {
+				Achievement.find("gloopmeister").awardTo(email);
+			}
+		});
+
 		await InventoryV2.addItemToUser(email, items['jellisac'].getMap(), numToGive, id);
 
 		return true;

@@ -59,7 +59,7 @@
 			"rainmaking-noob"
 		]
 	},
-	"participant_award__bean_division": {
+	"participant_award_bean_division": {
 		"name": "Participant Award - Bean Division",
 		"description": "Harvested 101 Beans",
 		"category": "Trees",

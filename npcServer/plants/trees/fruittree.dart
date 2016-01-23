@@ -54,6 +54,20 @@ class FruitTree extends Tree {
 		bool success = await super.harvest(userSocket:userSocket,email:email);
 
 		if(success) {
+			StatCollection.find(email: email).then((StatCollection stats) {
+				stats.cherries_harvested++;
+				stats.write();
+				if (stats.cherries_harvested >= 101) {
+					Achievement.find("entry_level_fruit_tree_harvester").awardTo(email);
+				} else if (stats.cherries_harvested >= 503) {
+					Achievement.find("mid_management_fruit_tree_harvester").awardTo(email);
+				} else if (stats.cherries_harvested >= 1009) {
+					Achievement.find("overpaid_executive_fruit_tree_harvester").awardTo(email);
+				} else if (stats.cherries_harvested >= 5003) {
+					Achievement.find("president_and_ceo_of_fruit_tree_harvesting_inc").awardTo(email);
+				}
+			});
+
 			//give the player the 'fruits' of their labor
 			await InventoryV2.addItemToUser(email, items['cherry'].getMap(), 1, id);
 		}

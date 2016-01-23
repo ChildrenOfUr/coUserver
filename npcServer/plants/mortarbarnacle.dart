@@ -50,6 +50,23 @@ class MortarBarnacle extends Plant {
 		if(new Random().nextInt(14) == 14) {
 			numToGive = 2;
 		}
+
+		StatCollection.find(email: email).then((StatCollection stats) {
+			stats.barnacles_scraped += numToGive;
+			stats.write();
+			if (stats.barnacles_scraped >= 41) {
+				Achievement.find("amateur_decrustifier").awardTo(email);
+			} else if (stats.barnacles_scraped >= 127) {
+				Achievement.find("decrustifying_enthusiast").awardTo(email);
+			} else if (stats.barnacles_scraped >= 283) {
+				Achievement.find("semi_pro_decrustifier").awardTo(email);
+			} else if (stats.barnacles_scraped >= 503) {
+				Achievement.find("big_league_decrustifier").awardTo(email);
+			} else if (stats.barnacles_scraped >= 1009) {
+				Achievement.find("bigger_league_decrustifier").awardTo(email);
+			}
+		});
+
 		await InventoryV2.addItemToUser(email, items['barnacle'].getMap(), numToGive, id);
 
 		return true;

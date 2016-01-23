@@ -58,6 +58,22 @@ class PeatBog extends Plant {
 			respawn = new DateTime.now().add(new Duration(minutes:2));
 		}
 
+		StatCollection.find(email: email).then((StatCollection stats) {
+			stats.peat_harvested++;
+			stats.write();
+			if (stats.peat_harvested >= 41) {
+				Achievement.find("re_peater").awardTo(email);
+			} else if (stats.peat_harvested >= 283) {
+				Achievement.find("compulsive_re_peater").awardTo(email);
+			} else if (stats.peat_harvested >= 503) {
+				Achievement.find("obsessive_compulsive_re_peater").awardTo(email);
+			} else if (stats.peat_harvested >= 1009) {
+				Achievement.find("feat_of_peat_excellence").awardTo(email);
+			} else if (stats.peat_harvested >= 5003) {
+				Achievement.find("saint_peater").awardTo(email);
+			}
+		});
+
 		//give the player the 'fruits' of their labor
 		await InventoryV2.addItemToUser(email, items['peat'].getMap(), 1, id);
 

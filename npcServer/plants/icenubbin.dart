@@ -50,6 +50,23 @@ class IceNubbin extends Plant {
 			await InventoryV2.addItemToUser(email, items['ice'].getMap(), numToGive, id);
 			StatBuffer.incrementStat("iceNubbinsCollected", 1);
 			state--;
+
+			StatCollection.find(email: email).then((StatCollection stats) {
+				stats.ice_scraped += numToGive;
+				stats.write();
+				if (stats.ice_scraped >= 67) {
+					Achievement.find("ice_baby").awardTo(email);
+				} else if (stats.ice_scraped >= 227) {
+					Achievement.find("ice_ice_baby").awardTo(email);
+				} else if (stats.ice_scraped >= 467) {
+					Achievement.find("on_thin_ice").awardTo(email);
+				} else if (stats.ice_scraped >= 877) {
+					Achievement.find("cold_as_ice").awardTo(email);
+				} else if (stats.ice_scraped >= 1777) {
+					Achievement.find("icebreaker").awardTo(email);
+				}
+			});
+			
 			if(state < 1) {
 				respawn = new DateTime.now().add(new Duration(minutes:2));
 				return false;

@@ -56,6 +56,18 @@ class WoodTree extends Tree {
 		bool success = await super.harvest(userSocket:userSocket,email:email);
 
 		if(success) {
+			StatCollection.find(email: email).then((StatCollection stats) {
+				stats.planks_harvested++;
+				stats.write();
+				if (stats.planks_harvested >= 17) {
+					Achievement.find("wood_wacker").awardTo(email);
+				} else if (stats.planks_harvested >= 79) {
+					Achievement.find("timber_jack").awardTo(email);
+				} else if (stats.planks_harvested >= 151) {
+					Achievement.find("loggerator").awardTo(email);
+				}
+			});
+
 			//give the player the 'fruits' of their labor
 			await InventoryV2.addItemToUser(email, items['plank'].getMap(), 1, id);
 		}

@@ -121,6 +121,11 @@ main() async {
 //	await Future.wait(futures);
 //	print('upgading complete');
 //	dbManager.closeConnection(db);
+
+	// TODO: allow the email: parameter to work with JOIN
+	StatCollection.find(userId: 2).then((StatCollection stats) {
+		print(stats.jumps);
+	});
 }
 
 ///anything that should run here as cleanup before exit
