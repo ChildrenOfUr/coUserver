@@ -57,7 +57,8 @@
 	},
 	"groddle_heights_completist": {
 		"name": "Groddle Heights Completist",
-		"description": "Visited every location in Groddle Heights. Including a couple of secret ones.",
+		"description": "Visited every location in Groddle Heights.",
+		"description_ts": "Visited every location in Groddle Heights. Including a couple of secret ones.",
 		"category": "Exploring",
 		"imageUrl": "http://c2.glitch.bz/achievements/2011-09-10/groddle_heights_completist_1315685895_180.png",
 		"related": [
