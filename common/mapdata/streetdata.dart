@@ -367,6 +367,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GIFJUKUDO743LES",
 		"hub_id": 133
 	},
+	"Asamkheya": {
+		"tsid": "GUV2M7GCJ8D3878",
+		"hub_id": 140
+	},
 	"Asubo Bolda": {
 		"vendor": "Grocery",
 		"shrine": "Pot",
@@ -378,6 +382,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"shrine": "Friendly",
 		"tsid": "GUVNUGNGN5F2BOT",
 		"hub_id": 109
+	},
+	"Atata": {
+		"tsid": "GUV8TSS9Q5D308S",
+		"hub_id": 140
 	},
 	"Atrove Grove": {
 		"tsid": "GDOESR432S03SK7",
@@ -449,6 +457,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GA9K85JOK1N2PO9",
 		"hub_id": 116
 	},
+	"Bahula": {
+		"hub_id": 140,
+		"tsid": "GUVVV3FU2FC38SK"
+	},
 	"Bailestorth Shin": {
 		"vendor": "Gardening Goods",
 		"shrine": "Spriggan",
@@ -467,6 +479,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"shrine": "Grendaline",
 		"tsid": "GA9TEL683JA2JU0",
 		"hub_id": 99
+	},
+	"Balarama": {
+		"hub_id": 140,
+		"tsid": "GUVGG7RFV2D3L0U"
 	},
 	"Balbemo Ghee": {
 		"shrine": "Humbaba",
@@ -702,6 +718,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"shrine": "Mab",
 		"tsid": "GHVGSE15MQA2OGE",
 		"hub_id": 101
+	},
+	"Bodhisattva": {
+		"hub_id": 140,
+		"tsid": "GUVH137RPTC3IJ6"
 	},
 	"Bokkeum Habitat": {
 		"tsid": "GA556IE55JS245H",
@@ -1279,6 +1299,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"shrine": "Grendaline",
 		"tsid": "GIFIGKANP4I2H84",
 		"hub_id": 112
+	},
+	"Dasavatara": {
+		"hub_id": 140,
+		"tsid": "GUVVL8J088D3QVT"
 	},
 	"Dasha Mula": {
 		"shrine": "Pot",
@@ -1909,6 +1933,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GUV3HOATQOS2HNO",
 		"hub_id": 120
 	},
+	"Gananagati": {
+		"hub_id": 140,
+		"tsid": "GUVEDNPVFJC3UIQ"
+	},
 	"Ganos Lucidum": {
 		"tsid": "GIFBLG555G434J3",
 		"hub_id": 133
@@ -2374,6 +2402,14 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GIFJ8NC9JE33O53",
 		"hub_id": 131
 	},
+	"Hetuhila": {
+		"tsid": "GUVSBGGQCHC386B",
+		"hub_id": 140
+	},
+	"Hetvin Driya": {
+		"tsid": "GUVAPJARHHC3H1I",
+		"hub_id": 140
+	},
 	"Hidro Bluu": {
 		"vendor": "Animal Goods",
 		"shrine": "Alph",
@@ -2678,6 +2714,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GTJ8GSQV1IV1FBE",
 		"hub_id": 72
 	},
+	"Jyotiba": {
+		"hub_id": 140,
+		"tsid": "GUVE3K14D3D314I"
+	},
 	"Kaavi Kannot": {
 		"vendor": "Alchemical Goods",
 		"shrine": "Tii",
@@ -2696,6 +2736,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"shrine": "Humbaba",
 		"tsid": "GHFEKBJFP0J2J9Q",
 		"hub_id": 113
+	},
+	"Kaiki": {
+		"tsid": "GUVCLS8RV5D3VGT",
+		"hub_id": 140
 	},
 	"Kaiya Kit": {
 		"vendor": "Toy",
@@ -3008,6 +3052,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GM113FUK5422FVO",
 		"hub_id": 78
 	},
+	"Koti Pakoti": {
+		"hub_id": 140,
+		"tsid": "GUVVMMKT2FC3V5B"
+	},
 	"Kotteletti Kota": {
 		"vendor": "Mining"
 	},
@@ -3120,6 +3168,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"shrine": "Cosma",
 		"tsid": "GTJ2S0EVDSV1HQ0",
 		"hub_id": 72
+	},
+	"Lalita Vistarautra": {
+		"hub_id": 140,
+		"tsid": "GUV9CALK9MC3MGA"
 	},
 	"Lampaan Avert": {
 		"vendor": "Animal Goods",
@@ -3645,6 +3697,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Matsua Mossy": {
 		"shrine": "Spriggan",
 		"hub_id": 97
+	},
+	"Matsya": {
+		"hub_id": 140,
+		"tsid": "GUV2LJJO5UC30B2"
 	},
 	"Maybe Marsh": {
 		"mailbox": true,
@@ -4183,6 +4239,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GDOSBNUH6S03CBT",
 		"hub_id": 126
 	},
+	"Niyuta": {
+		"tsid": "GUVV0NRR2FC3D3D",
+		"hub_id": 140
+	},
 	"Nohmin Cents": {
 		"vendor": "Kitchen Tools",
 		"shrine": "Lem",
@@ -4373,6 +4433,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GA517JJML262LT0",
 		"hub_id": 89
 	},
+	"Pakoti": {
+		"hub_id": 140,
+		"tsid": "GUVUMTSQ2FC34ES"
+	},
 	"Palguna Muna": {
 		"vendor": "Gardening Goods",
 		"shrine": "Mab",
@@ -4437,6 +4501,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"vendor": "Mining",
 		"tsid": "GDOTQ8JCOCD20TU",
 		"hub_id": 107
+	},
+	"Parashurama": {
+		"tsid": "GUVKHENRO0D3MJ8",
+		"hub_id": 140
 	},
 	"Parinosa Apix": {
 		"vendor": "Kitchen Tools",
@@ -4692,6 +4760,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GIF3I4MK96E26KF",
 		"hub_id": 105
 	},
+	"Prajapati": {
+		"hub_id": 140,
+		"tsid": "GUV13UHOH3D3V3S"
+	},
 	"Prashura Sure": {
 		"vendor": "Hardware",
 		"shrine": "Friendly",
@@ -4818,6 +4890,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"shrine": "Alph",
 		"tsid": "GHFL8M1IIPI2L46",
 		"hub_id": 113
+	},
+	"Rama": {
+		"hub_id": 140,
+		"tsid": "GUVA5LSLC0D3VCR"
 	},
 	"Ramavata Vata": {
 		"vendor": "Alchemical Goods",
@@ -6400,6 +6476,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Visvedevas Divergence": {
 		"tsid": "GUV1BKIJU8A3VL1",
 		"hub_id": 136
+	},
+	"Vivara": {
+		"hub_id": 140,
+		"tsid": "GUVVASOS2FC3J3Q"
 	},
 	"Vivere Aestas": {
 		"tsid": "GA5M93LAV313EBJ",
