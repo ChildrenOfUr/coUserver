@@ -58,7 +58,6 @@ class WoodTree extends Tree {
 		if(success) {
 			StatCollection.find(email).then((StatCollection stats) {
 				stats.planks_harvested++;
-				stats.write();
 				if (stats.planks_harvested >= 17) {
 					Achievement.find("wood_wacker").awardTo(email);
 				} else if (stats.planks_harvested >= 79) {

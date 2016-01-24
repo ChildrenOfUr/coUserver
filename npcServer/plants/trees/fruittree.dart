@@ -56,7 +56,6 @@ class FruitTree extends Tree {
 		if(success) {
 			StatCollection.find(email).then((StatCollection stats) {
 				stats.cherries_harvested++;
-				stats.write();
 				if (stats.cherries_harvested >= 101) {
 					Achievement.find("entry_level_fruit_tree_harvester").awardTo(email);
 				} else if (stats.cherries_harvested >= 503) {

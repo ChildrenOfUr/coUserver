@@ -60,7 +60,6 @@ class PeatBog extends Plant {
 
 		StatCollection.find(email).then((StatCollection stats) {
 			stats.peat_harvested++;
-			stats.write();
 			if (stats.peat_harvested >= 41) {
 				Achievement.find("re_peater").awardTo(email);
 			} else if (stats.peat_harvested >= 283) {

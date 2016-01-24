@@ -54,7 +54,6 @@ class GasPlant extends Tree {
 		if(success) {
 			StatCollection.find(email).then((StatCollection stats) {
 				stats.gas_harvested++;
-				stats.write();
 				if (stats.gas_harvested >= 101) {
 					Achievement.find("occasional_gas_fancier").awardTo(email);
 				} else if (stats.gas_harvested >= 503) {

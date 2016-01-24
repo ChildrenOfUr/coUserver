@@ -53,7 +53,6 @@ class IceNubbin extends Plant {
 
 			StatCollection.find(email).then((StatCollection stats) {
 				stats.ice_scraped += numToGive;
-				stats.write();
 				if (stats.ice_scraped >= 67) {
 					Achievement.find("ice_baby").awardTo(email);
 				} else if (stats.ice_scraped >= 227) {

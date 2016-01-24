@@ -53,7 +53,6 @@ class MortarBarnacle extends Plant {
 
 		StatCollection.find(email).then((StatCollection stats) {
 			stats.barnacles_scraped += numToGive;
-			stats.write();
 			if (stats.barnacles_scraped >= 41) {
 				Achievement.find("amateur_decrustifier").awardTo(email);
 			} else if (stats.barnacles_scraped >= 127) {

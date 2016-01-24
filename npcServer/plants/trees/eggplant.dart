@@ -54,7 +54,6 @@ class EggPlant extends Tree {
 		if(success) {
 			StatCollection.find(email).then((StatCollection stats) {
 				stats.eggs_harveted++;
-				stats.write();
 				if (stats.eggs_harveted >= 101) {
 					Achievement.find("egg_enthusiast").awardTo(email);
 				} else if (stats.eggs_harveted >= 503) {

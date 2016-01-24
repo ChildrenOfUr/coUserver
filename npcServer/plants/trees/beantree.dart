@@ -56,7 +56,6 @@ class BeanTree extends Tree {
 		if(success) {
 			StatCollection.find(email).then((StatCollection stats) {
 				stats.beans_harvested++;
-				stats.write();
 				if (stats.beans_harvested >= 101) {
 					Achievement.find("participant_award_bean_division").awardTo(email);
 				} else if (stats.beans_harvested >= 503) {

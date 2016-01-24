@@ -114,8 +114,6 @@ abstract class Tree extends Plant {
 				case "Wood Tree":
 					stats.wood_trees_watered++;
 			}
-
-			stats.write();
 		});
 		respawn = new DateTime.now().add(new Duration(seconds: 30));
 		state++;
@@ -165,8 +163,6 @@ abstract class Tree extends Plant {
 				case "Wood Tree":
 					stats.wood_trees_petted++;
 			}
-
-			stats.write();
 		});
 
 		return true;

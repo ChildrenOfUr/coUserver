@@ -60,7 +60,6 @@ class PaperTree extends Tree {
 		if(success) {
 			StatCollection.find(email).then((StatCollection stats) {
 				stats.paper_harvested++;
-				stats.write();
 				if (stats.paper_harvested >= 73) {
 					Achievement.find("paper_plucker").awardTo(email);
 				} else if (stats.paper_harvested >= 283) {

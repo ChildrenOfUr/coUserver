@@ -54,7 +54,6 @@ class SpicePlant extends Tree {
 		if(success) {
 			StatCollection.find(email).then((StatCollection stats) {
 				stats.spice_harvested++;
-				stats.write();
 				if (stats.spice_harvested >= 101) {
 					Achievement.find("novice_spice_collector").awardTo(email);
 				} else if (stats.spice_harvested >= 503) {

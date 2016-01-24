@@ -48,7 +48,6 @@ class Jellisac extends Plant {
 
 		StatCollection.find(email).then((StatCollection stats) {
 			stats.jellisac_harvested += numToGive;
-			stats.write();
 			if (stats.jellisac_harvested >= 41) {
 				Achievement.find("slime_harvester").awardTo(email);
 			} else if (stats.jellisac_harvested >= 127) {

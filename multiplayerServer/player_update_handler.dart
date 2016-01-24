@@ -81,15 +81,9 @@ class PlayerUpdateHandler {
 							int newSteps = ((xDiff + yDiff) / 22).ceil().abs();
 							stats.steps_taken += newSteps;
 
-							bool jumpIncrease = false;
 							if (yDiff > 17) {
 								// TODO: do this better
 								stats.jumps++;
-								jumpIncrease = true;
-							}
-
-							if (jumpIncrease || newSteps > 0) {
-								stats.write();
 							}
 						});
 						users[username].currentX = currentX;

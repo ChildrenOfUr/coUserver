@@ -54,7 +54,6 @@ class BubbleTree extends Tree {
 		if(success) {
 			StatCollection.find(email).then((StatCollection stats) {
 				stats.bubbles_harvested++;
-				stats.write();
 				if (stats.bubbles_harvested >= 101) {
 					Achievement.find("good_bubble_farmer").awardTo(email);
 				} else if (stats.bubbles_harvested >= 503) {

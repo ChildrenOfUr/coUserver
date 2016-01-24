@@ -89,7 +89,6 @@ class DirtPile extends Plant {
 
 		StatCollection.find(email).then((StatCollection stats) {
 			stats.dirt_dug++;
-			stats.write();
 			if (stats.dirt_dug >= 29) {
 				Achievement.find("shovel_jockey").awardTo(email);
 			} else if (stats.dirt_dug >= 61) {
