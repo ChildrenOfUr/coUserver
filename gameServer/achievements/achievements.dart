@@ -26,7 +26,7 @@ class Achievement {
 		return ACHIEVEMENTS[id];
 	}
 
-	static Map<String, int> queuedWrites = 0;
+	static Map<String, int> queuedWrites = {};
 
 	@Field() String id;
 	@Field() String name;
