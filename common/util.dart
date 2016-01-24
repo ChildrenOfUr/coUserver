@@ -252,7 +252,7 @@ Future<Map> getStreetFillerStats() {
 			File file = new File('./streetEntities/streets.json');
 			Map streets = JSON.decode(file.readAsStringSync());
 
-			//int trulyFinished = 0;
+//			int trulyFinished = 0;
 			int reportedBroken = 0;
 			int reportedFinished = 0;
 			int reportedVandalized = 0;

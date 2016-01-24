@@ -28,7 +28,7 @@ class Street {
 		//attempt to load street occupants from streetEntities folder
 		Map entities = getStreetEntities(tsid);
 		if (entities['entities'] == null) {
-			generateRandomOccupants();
+//			generateRandomOccupants();
 		}
 		else {
 			for (Map entity in entities['entities']) {

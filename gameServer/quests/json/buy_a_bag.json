@@ -1,0 +1,81 @@
+{
+  "id": "Q8",
+  "title": "Enlarge Yer Slots",
+  "description": "With only 16 places to put things, it is easy to run out of space. Go find any Street Spirit who sells Hardware and buy yourself a Generic Bag or a Bigger Bag.",
+  "requirements": [
+    {
+      "id": "Q8R1",
+      "text": "bag purchased",
+      "iconUrl": "http://childrenofur.com/assets/entityImages/bag_generic__x1_1_png_1354830380.png",
+      "type": "counter",
+      "numRequired": 1,
+      "eventType": "getItem_.*_bag"
+    }
+  ],
+  "rewards": {
+    "energy": 20,
+    "mood": 20,
+    "img": 150,
+    "currants": 500
+  },
+  "conversation_start": {
+    "id": "Q8-CS",
+    "screens": [
+      {
+        "paragraphs": [
+          "With only 16 places to put things, it is easy to run out of space. Go find any Street Spirit who sells Hardware and buy yourself a Generic Bag or a Bigger Bag."
+        ],
+        "choices": [
+          {
+            "text": "Good Idea",
+            "gotoScreen": 2,
+            "isQuestAccept": true
+          },
+          {
+            "text": "I'm good for now",
+            "gotoScreen": 2,
+            "isQuestReject": true
+          }
+        ]
+      }
+    ]
+  },
+  "conversation_end": {
+    "id": "Q8-CE",
+    "screens": [
+      {
+        "paragraphs": [
+          "You got the bag: well done! I'm not even going to explain how you get things in it. I think you are smart enough to figure it out."
+        ],
+        "choices": [
+          {
+            "text": "Yeah, I am",
+            "gotoScreen": 2
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "On second thought ... drag stuff in to it. (I worry about you, kid.)"
+        ],
+        "choices": [
+          {
+            "text": "Grrrr!",
+            "gotoScreen": 3
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "Whatever ... here's some nice prizes for your trouble."
+        ],
+        "choices": [
+          {
+            "text": "At least there's that",
+            "gotoScreen": 4
+          }
+        ]
+      }
+    ]
+  }
+}

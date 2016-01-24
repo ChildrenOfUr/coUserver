@@ -452,6 +452,9 @@ class InventoryV2 {
 			this.user_id = row.id;
 			queryString = "INSERT INTO inventories(inventory_json, user_id) VALUES(@inventory_json,@user_id)";
 			numRowsUpdated = await dbConn.execute(queryString, this);
+
+			//player just got their first item, lets tell them about bags
+			QuestEndpoint.questLogCache[email].offerQuest('Q8');
 		}
 
 		dbManager.closeConnection(dbConn);

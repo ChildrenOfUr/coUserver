@@ -88,6 +88,7 @@ class PlayerUpdateHandler {
 						});
 						users[username].currentX = currentX;
 						users[username].currentY = currentY;
+//						messageBus.publish(new PlayerPosition(email, currentX, currentY));
 					} catch (e, st) {
 						log("(player_update_handler/processMessage): $e\n$st");
 					}

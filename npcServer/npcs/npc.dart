@@ -9,7 +9,7 @@ abstract class NPC extends Entity {
 
 	Random rand;
 	String id, type;
-	int x, y, speed = 0;
+	int x, y, speed = 0, ySpeed = 0;
 	DateTime respawn;
 	bool facingRight = true;
 	Map<String, Spritesheet> states;
@@ -33,6 +33,7 @@ abstract class NPC extends Entity {
 		map["x"] = x;
 		map["y"] = y;
 		map['speed'] = speed;
+		map['ySpeed'] = ySpeed;
 		map['animation_name'] = currentState.stateName;
 		map["width"] = currentState.frameWidth;
 		map["height"] = currentState.frameHeight;

@@ -5,7 +5,21 @@ class DustTrap extends NPC {
 	String streetName, tsid;
 	Rectangle hitBox;
 
+	bool _approx(num compare, num to) {
+		return (compare - to).abs() < 10;
+	}
+
 	DustTrap(String id, this.streetName, this.tsid, int x, int y) : super(id, x, y) {
+		StreetUpdateHandler.streets[streetName];
+//		print("I'm a dust_trap at $x,$y");
+//		messageBus.subscribe(PlayerPosition, (PlayerPosition position) {
+//			if(_approx(x,position.x) && _approx(y,position.y)) {
+//				toast('you stepped on me', StreetUpdateHandler.userSockets[position.email]);
+//			} else {
+//				print('not close enough: ${position.x},${position.y}');
+//			}
+//		});
+
 		actionTime = 0;
 		actions = [];
 		type = "Dust Trap";
