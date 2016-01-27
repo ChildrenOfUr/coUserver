@@ -101,7 +101,7 @@ class MetabolicsEndpoint {
 			};
 			m.dead = true;
 			userIdentifier.webSocket.add(JSON.encode(map));
-		} else if (m.energy >= 10 && m.undead_street != null) {
+		} else if (m.energy >= HellGrapes.ENERGY_REQ && m.undead_street != null) {
 			// Not dead (at least 10 energy), but in Hell
 			Map<String, String> map = {
 				"gotoStreet": "true",
