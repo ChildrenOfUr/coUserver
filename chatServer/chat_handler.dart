@@ -132,8 +132,10 @@ class ChatHandler {
 			if (map["channel"] == "Global Chat" && (await UserMutes.INSTANCE.userMuted(map["username"]))) {
 				// User cannot use global chat
 				ws.add(JSON.encode({
-					                   "error": "You may not use Global Chat because you are a nuisance to Ur. Please email us at publicrelations@childrenofur.com if you believe this is an error."
-				                   }));
+					"muted": "true",
+					"toastText": "You may not use Global Chat because you are a nuisance to Ur. Please click here to email us if you believe this is an error.",
+					"toastClick": "__EMAIL_COU__"
+				}));
 				return;
 			}
 
