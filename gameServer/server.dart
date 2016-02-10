@@ -17,7 +17,7 @@ main() async {
 	try {
 		port = int.parse(Platform.environment['PORT']);
 	}
-	catch(error) {
+	catch (error) {
 		port = 8181;
 	}
 
@@ -25,7 +25,7 @@ main() async {
 
 	app.addPlugin(getMapperPlugin(dbManager));
 	app.setupConsoleLog();
-	app.start(port:port, autoCompress:true);
+	await app.start(port: port, autoCompress: true);
 
 	//open a file for writing logs to
 //	File logFile = new File('redstone_log_file');
@@ -55,26 +55,25 @@ main() async {
 
 		server.listen((HttpRequest request) {
 			WebSocketTransformer.upgrade(request).then((WebSocket websocket) {
-				if(request.uri.path == "/chat")
+				if (request.uri.path == "/chat")
 					ChatHandler.handle(websocket);
-				else if(request.uri.path == "/playerUpdate")
+				else if (request.uri.path == "/playerUpdate")
 					PlayerUpdateHandler.handle(websocket);
-				else if(request.uri.path == "/streetUpdate")
+				else if (request.uri.path == "/streetUpdate")
 					StreetUpdateHandler.handle(websocket);
-				else if(request.uri.path == "/metabolics")
+				else if (request.uri.path == "/metabolics")
 					MetabolicsEndpoint.handle(websocket);
-				else if(request.uri.path == "/weather")
+				else if (request.uri.path == "/weather")
 					WeatherEndpoint.handle(websocket);
-				else if(request.uri.path == '/quest') {
+				else if (request.uri.path == '/quest') {
 					QuestEndpoint.handle(websocket);
 				}
 			})
-			.catchError((error) {
+				.catchError((error) {
 				log("error: $error");
 			},
-			            test: (Exception e) => e is! WebSocketException)
-			.catchError((error) {
-			}, test: (Exception e) => e is WebSocketException);
+					            test: (Exception e) => e is! WebSocketException)
+				.catchError((error) {}, test: (Exception e) => e is WebSocketException);
 		});
 
 		log('Serving Chat on ${'0.0.0.0'}:8282');
@@ -85,13 +84,13 @@ main() async {
 	headsCache = await loadCacheFromDisk('headsCache.json');
 
 	//save some server state to the disk every 30 seconds
-	new Timer.periodic(new Duration(seconds:30), (Timer t) {
+	new Timer.periodic(new Duration(seconds: 30), (Timer t) {
 		try {
 			StatBuffer.writeStatsToFile();
-			saveCacheToDisk('heightsCache.json',heightsCache);
-			saveCacheToDisk('headsCache.json',headsCache);
+			saveCacheToDisk('heightsCache.json', heightsCache);
+			saveCacheToDisk('headsCache.json', headsCache);
 		}
-		catch(e) {
+		catch (e) {
 			log("Problem writing stats to file: $e");
 		}
 	});
@@ -140,7 +139,7 @@ Future<List<String>> listUsers(@app.QueryParam('channel') String channel) async
 {
 	List<String> users = [];
 	List<Identifier> ids = ChatHandler.users.values.where((Identifier id) =>
-	id.channelList.contains(channel)).toList();
+		id.channelList.contains(channel)).toList();
 
 	ids.forEach((Identifier id) => users.add(id.username));
 
@@ -150,34 +149,34 @@ Future<List<String>> listUsers(@app.QueryParam('channel') String channel) async
 @app.Route('/getItems')
 @Encode()
 Future<List<Item>> getItems(@app.QueryParam('category') String category,
-                            @app.QueryParam('name') String name,
-							@app.QueryParam('type') String type,
-                            @app.QueryParam('isRegex') bool isRegex) async {
+	@app.QueryParam('name') String name,
+	@app.QueryParam('type') String type,
+	@app.QueryParam('isRegex') bool isRegex) async {
 	List<Item> itemList = [];
-	if(isRegex == null)
+	if (isRegex == null) {
 		isRegex = false;
-
-	if(category != null) {
-		if(isRegex) {
-			RegExp reg = new RegExp(category.toLowerCase());
-			itemList.addAll(items.values.where((Item i) => reg.hasMatch(i.category.toLowerCase())));
-		}
-		else
-			itemList.addAll(items.values.where((Item i) => i.category.toLowerCase() == category.toLowerCase()));
 	}
 
-	if(name != null) {
-		if(isRegex) {
+	if (category != null) {
+		if (isRegex) {
+			RegExp reg = new RegExp(category.toLowerCase());
+			itemList.addAll(items.values.where((Item i) => reg.hasMatch(i.category.toLowerCase())));
+		} else {
+			itemList.addAll(items.values.where((Item i) => i.category.toLowerCase() == category.toLowerCase()));
+		}
+	}
+
+	if (name != null) {
+		if (isRegex) {
 			RegExp reg = new RegExp(name.toLowerCase());
 			itemList.addAll(items.values.where((Item i) => reg.hasMatch(i.name.toLowerCase())));
-		}
-		else {
+		} else {
 			itemList.addAll(items.values.where((Item i) => i.name.toLowerCase() == name.toLowerCase()));
 		}
 	}
 
 	if (type != null) {
-		if(isRegex) {
+		if (isRegex) {
 			RegExp reg = new RegExp(type.toLowerCase());
 			itemList.addAll(items.values.where((Item i) => reg.hasMatch(i.itemType.toLowerCase())));
 		} else {
@@ -185,8 +184,9 @@ Future<List<Item>> getItems(@app.QueryParam('category') String category,
 		}
 	}
 
-	if(name == null && category == null && type == null)
+	if (name == null && category == null && type == null) {
 		return new List.from(items.values);
+	}
 
 	return itemList;
 }
@@ -197,19 +197,17 @@ Future<PostgreSql> get conn => dbManager.getConnection();
 
 //add a CORS header to every request
 @app.Interceptor(r'/.*')
-crossOriginInterceptor() {
-	if(app.request.method == "OPTIONS") {
-		//overwrite the current response and interrupt the chain.
-		app.response = new shelf.Response.ok(null, headers: _createCorsHeader());
-		app.chain.interrupt();
+Future crossOriginInterceptor() async {
+	if (app.request.method != "OPTIONS") {
+		await app.chain.next();
 	}
-	else {
-		//process the chain and wrap the response
-		app.chain.next(() => app.response.change(headers: _createCorsHeader()));
-	}
+	return app.response.change(headers: _createCorsHeader());
 }
 
-_createCorsHeader() => {"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"};
+_createCorsHeader() => {
+	"Access-Control-Allow-Origin": "*",
+	"Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+};
 
 @app.Route('/serverStatus')
 Future<Map> getServerStatus() async
@@ -218,7 +216,7 @@ Future<Map> getServerStatus() async
 	try {
 		List<String> users = [];
 		ChatHandler.users.forEach((String username, Identifier user) {
-			if(!users.contains(user.username))
+			if (!users.contains(user.username))
 				users.add(user.username);
 		});
 		statusMap['playerList'] = users;
@@ -230,7 +228,7 @@ Future<Map> getServerStatus() async
 		result = await Process.run("/bin/sh", ["getUptime.sh"]);
 		statusMap['uptime'] = result.stdout.trim();
 	}
-	catch(e) {
+	catch (e) {
 		log("Error getting server status: $e");
 	}
 	return statusMap;
@@ -242,11 +240,12 @@ Future<Map> getServerLog() async
 	Map statusMap = {};
 	try {
 		DateFormat format = new DateFormat("MM_dd_yy");
-		ProcessResult result = await Process.run("tail", ['-n', '200', 'serverLogs/${format.format(startDate)}-server.log']);
+		ProcessResult result = await Process.run(
+			"tail", ['-n', '200', 'serverLogs/${format.format(startDate)}-server.log']);
 		statusMap['serverLog'] = result.stdout;
 		return statusMap;
 	}
-	catch(exception) {
+	catch (exception) {
 		statusMap['serverLog'] = exception.toString();
 		return statusMap;
 	}
@@ -255,14 +254,15 @@ Future<Map> getServerLog() async
 @app.Route('/slack', methods: const[app.POST])
 String parseMessageFromSlack(@app.Body(app.FORM) Map form) {
 	String token = form['token'];
-	if(token != couKey && token != glitchForeverKey && token != devKey) {
+	if (token != couKey && token != glitchForeverKey && token != devKey) {
 		return "NOT AUTHORIZED";
 	}
 
-	String username = form['user_name'], text = form['text'];
+	String username = form['user_name'],
+		text = form['text'];
 	Map map = {};
-	if(username != "slackbot" && text != null && text.isNotEmpty) {
-		if(token == couKey) {
+	if (username != "slackbot" && text != null && text.isNotEmpty) {
+		if (token == couKey) {
 			map = {'username':username, 'message': text, 'channel':'Global Chat'};
 		} else {
 			map = {'username':'$username', 'message': text, 'channel':'Global Chat'};
@@ -275,7 +275,7 @@ String parseMessageFromSlack(@app.Body(app.FORM) Map form) {
 
 @app.Route('/entityUpload', methods: const[app.POST])
 String uploadEntities(@app.Body(app.JSON) Map params) {
-	if(params['tsid'] == null)
+	if (params['tsid'] == null)
 		return "FAIL";
 
 	saveStreetData(params);

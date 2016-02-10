@@ -60,7 +60,7 @@ class HellGrapes extends Plant {
 			;
 			return false;
 		} else {
-			int remain = ((ENERGY_REQ - (energy + ENERGY_AWARD)) / ENERGY_AWARD).toInt();
+			int remain = (ENERGY_REQ - (energy + ENERGY_AWARD)) ~/ ENERGY_AWARD;
 			toast(
 				remain == 0 ? "Ur done!" :
 				"${remain.toString()} bunch${remain == 1 ? "" : "es"} of grapes to go!",

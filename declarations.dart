@@ -8,13 +8,11 @@ import "dart:mirrors";
 
 import "package:intl/intl.dart";
 import "package:slack/io/slack.dart" as slack;
-import "package:postgresql/postgresql.dart";
-import "package:redstone/server.dart" as app;
-// import "package:logging/logging.dart";
+import 'package:redstone/redstone.dart' as app;
+import "package:shelf/shelf.dart" as shelf;
 import "package:redstone_mapper/mapper.dart";
 import "package:redstone_mapper/plugin.dart";
 import "package:redstone_mapper_pg/manager.dart";
-import "package:shelf/shelf.dart" as shelf;
 import "package:http/http.dart" as http;
 import "package:http/src/multipart_request.dart";
 import "package:http/src/multipart_file.dart";

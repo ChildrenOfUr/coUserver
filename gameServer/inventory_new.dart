@@ -441,24 +441,27 @@ class InventoryV2 {
 	Future _updateDatabase(String email) async {
 		PostgreSql dbConn = await dbManager.getConnection();
 
-		String queryString = "UPDATE inventories SET inventory_json = @inventory_json WHERE user_id = @user_id";
-		int numRowsUpdated = await dbConn.execute(queryString, this);
+		try {
+			String queryString = "UPDATE inventories SET inventory_json = @inventory_json WHERE user_id = @user_id";
+			int numRowsUpdated = await dbConn.execute(queryString, this);
 
-		if (numRowsUpdated <= 0) {
-			String query = "SELECT * FROM users WHERE email = @email";
-			Row row = await dbConn.innerConn
-				.query(query, {'email':email})
-				.first;
-			this.user_id = row.id;
-			queryString = "INSERT INTO inventories(inventory_json, user_id) VALUES(@inventory_json,@user_id)";
-			numRowsUpdated = await dbConn.execute(queryString, this);
+			if (numRowsUpdated <= 0) {
+				String query = "SELECT * FROM users WHERE email = @email";
+				User user = (await dbConn.query(query, User, {'email': email})).first;
+				this.user_id = user.id;
+				queryString = "INSERT INTO inventories(inventory_json, user_id) VALUES(@inventory_json,@user_id)";
+				numRowsUpdated = await dbConn.execute(queryString, this);
 
-			//player just got their first item, lets tell them about bags
-			QuestEndpoint.questLogCache[email].offerQuest('Q8');
+				//player just got their first item, lets tell them about bags
+				QuestEndpoint.questLogCache[email].offerQuest('Q8');
+			}
+
+			return numRowsUpdated;
+		} catch (e) {
+			log('Could not update inventories for $email: $e');
+		} finally {
+			dbManager.closeConnection(dbConn);
 		}
-
-		dbManager.closeConnection(dbConn);
-		return numRowsUpdated;
 	}
 
 	Future<Item> _takeItem(int slot, int subSlot, int count, String email, {bool simulate: false}) async {
