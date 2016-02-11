@@ -46,13 +46,9 @@ class StatCollection {
 	static Future<StatCollection> _insert(String email) async {
 		PostgreSql dbConn = await dbManager.getConnection();
 
-		print('inserting $email into stats table');
-
 		String emailQuery = "SELECT * FROM users WHERE email = @email";
 		User u = (await dbConn.query(emailQuery, User, {'email':email})).first;
 		int user_id = u.id;
-
-		print('got user $user_id');
 
 		String query = "INSERT INTO stats (user_id) VALUES (@user_id)";
 		await dbConn.execute(query, {"user_id": user_id});
