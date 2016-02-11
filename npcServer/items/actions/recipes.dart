@@ -160,6 +160,9 @@ class RecipeBook extends Object with MetabolicsChange {
 
 			//send possible quest event
 			messageBus.publish(new RequirementProgress('makeRecipe_${recipe.output}',email));
+
+			// Count stat for achievements
+			StatAchvManager.update(email, recipe.tool);
 		});
 
 		return true;
