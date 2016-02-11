@@ -1,29 +1,28 @@
 part of coUserver;
 
 class Achievement {
-	static Map<String, Achievement> ACHIEVEMENTS = {};
+	static Map<String, Achievement> _ACHIEVEMENTS = {};
 
 	static Future load() async {
 		String directory = Platform.script.toFilePath();
 		directory = directory.substring(0, directory.lastIndexOf("/"));
 
-		await new Directory("$directory/gameServer/achievements/json").list().forEach((
-		  File category) async {
+		await new Directory("$directory/gameServer/achievements/json").list().forEach((File category) async {
 			await JSON.decode(await category.readAsString()).forEach((String id, Map data) async {
 				Achievement achievement = new Achievement(
-				  id: id,
-				  name: data["name"],
-				  description: data["description"],
-				  category: data["category"],
-				  imageUrl: data["imageUrl"]
-				);
-				ACHIEVEMENTS[id] = achievement;
+					id: id,
+					name: data["name"],
+					description: data["description"],
+					category: data["category"],
+					imageUrl: data["imageUrl"]
+					);
+				_ACHIEVEMENTS[id] = achievement;
 			});
 		});
 	}
 
 	static Achievement find(String id) {
-		return ACHIEVEMENTS[id];
+		return _ACHIEVEMENTS[id];
 	}
 
 	static Map<String, int> queuedWrites = {};
@@ -58,7 +57,7 @@ class Achievement {
 
 	bool get isSetUp {
 		return (
-		  id != null && name != null && description != null && category != null && imageUrl != null
+			id != null && name != null && description != null && category != null && imageUrl != null
 		);
 	}
 
@@ -70,10 +69,10 @@ class Achievement {
 		PostgreSql dbConn = await dbManager.getConnection();
 		try {
 			return (
-			  (await dbConn.query(
-				"SELECT achievements FROM users WHERE email = @email",
-				User, {"email": email})
-			  ).first.achievements.contains(id)
+				(await dbConn.query(
+					"SELECT achievements FROM users WHERE email = @email",
+					User, {"email": email})
+				).first.achievements.contains(id)
 			);
 		} catch (e) {
 			log("Error getting achievements for email $email: $e");
@@ -96,8 +95,8 @@ class Achievement {
 			PostgreSql dbConn = await dbManager.getConnection();
 			try {
 				String oldJson = (await dbConn.query(
-				  "SELECT achievements FROM users WHERE email = @email",
-				  User, {"email": email})).first.achievements;
+					"SELECT achievements FROM users WHERE email = @email",
+					User, {"email": email})).first.achievements;
 
 				List<String> achievementIds = JSON.decode(oldJson);
 				achievementIds.add(id);
@@ -106,19 +105,19 @@ class Achievement {
 
 				if (
 				(await dbConn.execute(
-				  "UPDATE users SET achievements = @json WHERE email = @email",
-				  {"email": email, "json": newJson})
+					"UPDATE users SET achievements = @json WHERE email = @email",
+					{"email": email, "json": newJson})
 				) == 1
 				) {
 					// Send to client
 					StreetUpdateHandler.userSockets[email].add(JSON.encode(
-					  {
-						  "achv_id": id,
-						  "achv_name": name,
-						  "achv_description": description,
-						  "achv_imageUrl": imageUrl
-					  }
-					));
+						{
+							"achv_id": id,
+							"achv_name": name,
+							"achv_description": description,
+							"achv_imageUrl": imageUrl
+						}
+						));
 
 					result = true;
 				} else {
@@ -140,13 +139,15 @@ class Achievement {
 }
 
 @app.Route("/listAchievements")
-Future<String> listAchievements(@app.QueryParam("email") String email,
-  @app.QueryParam("excludeNonMatches") bool excludeNonMatches) async {
+Future<String> listAchievements(
+	@app.QueryParam("email") String email,
+	@app.QueryParam("category") String category,
+	@app.QueryParam("excludeNonMatches") bool excludeNonMatches) async {
 	List<String> ids = [];
 	List<String> awardedIds = [];
 	Map<String, Map<String, dynamic>> maps = {};
 
-	ids = Achievement.ACHIEVEMENTS.keys.toList();
+	ids = Achievement._ACHIEVEMENTS.keys.toList();
 
 	if (email != null || !(excludeNonMatches ?? true)) {
 		// Email provided, find their awarded achievements
@@ -155,14 +156,14 @@ Future<String> listAchievements(@app.QueryParam("email") String email,
 		PostgreSql dbConn = await dbManager.getConnection();
 		try {
 			awardedIds = JSON.decode(
-			  (await dbConn.query(
-				"SELECT achievements FROM users WHERE email = @email",
-				User, {"email": email})
-			  ).first.achievements
-			);
+				(await dbConn.query(
+					"SELECT achievements FROM users WHERE email = @email",
+					User, {"email": email})
+				).first.achievements
+				);
 		} catch (e) {
 			log("Error getting achievements for email $email: $e");
-			return "[]";
+			return '{}';
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}
@@ -170,26 +171,41 @@ Future<String> listAchievements(@app.QueryParam("email") String email,
 
 	if (email == null) {
 		// List ALL achievements
-		ids.forEach((String id) {
+		for(String id in ids) {
 			Achievement achv = Achievement.find(id);
+			if(category != null) {
+				if(achv.category != category) {
+					continue;
+				}
+			}
 			maps.addAll({achv.id: achv.toMap()});
-		});
+		}
 	} else {
 		// List AWARDED achievements (or all with marked matches)
 		if (!(excludeNonMatches ?? true)) {
 			// Include all, but mark matches
-			ids.forEach((String id) {
+			for(String id in ids) {
 				Achievement achv = Achievement.find(id);
+				if(category != null) {
+					if(achv.category != category) {
+						continue;
+					}
+				}
 				Map achvMap = achv.toMap();
 				achvMap.addAll({"awarded": (awardedIds.contains(id).toString())});
 				maps.addAll({achv.id: achvMap});
-			});
+			}
 		} else {
 			// Include only awarded
-			awardedIds.forEach((String id) {
+			for(String id in awardedIds) {
 				Achievement achv = Achievement.find(id);
-				maps.addAll({achv.id: achv.toMap()});
-			});
+				if(category != null) {
+					if(achv.category != category) {
+						continue;
+					}
+				}
+				maps[id] = {id:achv.toMap()};
+			}
 		}
 	}
 
