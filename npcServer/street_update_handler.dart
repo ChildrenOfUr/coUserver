@@ -11,8 +11,9 @@ class StreetUpdateHandler {
 			String directory = Platform.script.toFilePath();
 			directory = directory.substring(0, directory.lastIndexOf('/'));
 
+			String filePath = '$directory/npcServer/items/json';
 			// load items
-			await new Directory('$directory/npcServer/items/json').list().forEach((File category) async {
+			await new Directory(filePath).list().forEach((File category) async {
 				JSON.decode(await category.readAsString()).forEach((String name, Map itemMap) {
 					itemMap['itemType'] = name;
 					items[name] = decode(itemMap, Item);
@@ -20,23 +21,25 @@ class StreetUpdateHandler {
 			});
 
 			// load recipes
-			await new Directory('$directory/npcServer/items/actions/recipes').list().forEach((File tool) async {
+			filePath = '$directory/npcServer/items/actions/recipes';
+			await new Directory(filePath).list().forEach((File tool) async {
 				JSON.decode(await tool.readAsString()).forEach((Map recipeMap) {
 					RecipeBook.recipes.add(decode(recipeMap, Recipe));
 				});
 			});
 
 			// load vendor types
-			await JSON.decode(await new File('$directory/npcServer/npcs/vendors/vendors.json').readAsString()).forEach((
-				                                                                                                           String street,
-				                                                                                                           String type) {
+			filePath = '$directory/npcServer/npcs/vendors/vendors.json';
+			String fileText = await new File(filePath).readAsString();
+			JSON.decode(fileText).forEach((String street, String type) {
 				vendorTypes[street] = type;
 			});
 
 			// load stats given for eating/drinking
-			await JSON.decode(await new File('$directory/npcServer/items/actions/consume.json').readAsString())
-				.forEach((String item, Map award) {
-				Consumable.consumeValues[item] = award;
+			filePath = '$directory/npcServer/items/actions/consume.json';
+			fileText = await new File(filePath).readAsString();
+			JSON.decode(fileText).forEach((String item, Map award) {
+				items[item].consumeValues = award;
 			});
 
 			// load achievements
@@ -130,7 +133,7 @@ class StreetUpdateHandler {
 			}
 		});
 		userSockets.forEach((String email, WebSocket socket) {
-			if(socket == ws) {
+			if (socket == ws) {
 				userToRemove = email;
 				StatCollection.removeFromCache(email);
 			}

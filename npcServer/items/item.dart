@@ -19,6 +19,7 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 		isContainer = false;
 	@Field() List<String> subSlotFilter;
 	@Field() List<Action> actions = [];
+	@Field() Map<String, int> consumeValues = {};
 	@Field() Map<String, dynamic> metadata = {};
 
 	Action dropAction = new Action.withName('drop')
@@ -55,6 +56,7 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 		subSlotFilter = model.subSlotFilter;
 		metadata = model.metadata;
 		actions = model.actions;
+		consumeValues = model.consumeValues;
 
 		bool found = false;
 		actions.forEach((Action action) {
@@ -90,7 +92,8 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 			"durabilityUsed": durabilityUsed,
 			"subSlots": subSlots,
 			"metadata": metadata,
-			"discount": discount
+			"discount": discount,
+			"consumeValues": consumeValues
 		};
 	}
 
