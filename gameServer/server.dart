@@ -45,6 +45,9 @@ main() async {
 
 	KeepAlive.start();
 
+	//ignore messages about quest requirements being completed when not on the quest
+	messageBus.deadMessageHandler = (Message m){};
+
 	await StreetUpdateHandler.loadItems();
 	await QuestService.loadQuests();
 
@@ -192,8 +195,6 @@ Future<List<Item>> getItems(@app.QueryParam('category') String category,
 }
 
 PostgreSql get dbConn => app.request.attributes.dbConn;
-
-Future<PostgreSql> get conn => dbManager.getConnection();
 
 //add a CORS header to every request
 @app.Interceptor(r'/.*')

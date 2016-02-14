@@ -9,7 +9,6 @@ import "dart:mirrors";
 import "package:intl/intl.dart";
 import "package:slack/io/slack.dart" as slack;
 import 'package:redstone/redstone.dart' as app;
-import "package:shelf/shelf.dart" as shelf;
 import "package:redstone_mapper/mapper.dart";
 import "package:redstone_mapper/plugin.dart";
 import "package:redstone_mapper_pg/manager.dart";

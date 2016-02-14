@@ -162,7 +162,7 @@ class Quest extends Trackable with MetabolicsChange {
 	}
 
 	@override
-	void startTracking(String email) {
+	void startTracking(String email, {bool justStarted: false}) {
 		if(complete) {
 			return;
 		}
@@ -171,7 +171,8 @@ class Quest extends Trackable with MetabolicsChange {
 
 		requirements.forEach((Requirement r) => r.startTracking(email));
 
-		Map questInProgress = {'questInProgress': true, 'quest': encode(this)};
+		String heading = justStarted ? 'questBegin' : 'questInProgress';
+		Map questInProgress = {heading: true, 'quest': encode(this)};
 		QuestEndpoint.userSockets[email].add(JSON.encode(questInProgress));
 
 		mbSubscriptions.add(messageBus.subscribe(CompleteRequirement, (CompleteRequirement r) async {
@@ -321,7 +322,7 @@ class UserQuestLog extends Trackable {
 			return false;
 		}
 
-		questToAdd.startTracking(email);
+		questToAdd.startTracking(email, justStarted: true);
 		List<Quest> tmp = inProgressQuests;
 		tmp.add(questToAdd);
 		inProgressQuests = tmp;
