@@ -142,6 +142,7 @@ class Achievement {
 Future<String> listAchievements(
 	@app.QueryParam("email") String email,
 	@app.QueryParam("category") String category,
+	@app.QueryParam("username") String username,
 	@app.QueryParam("excludeNonMatches") bool excludeNonMatches) async {
 	List<String> ids = [];
 	List<String> awardedIds = [];
@@ -149,27 +150,33 @@ Future<String> listAchievements(
 
 	ids = Achievement._ACHIEVEMENTS.keys.toList();
 
-	if (email != null || !(excludeNonMatches ?? true)) {
-		// Email provided, find their awarded achievements
+	if ((email != null || username != null) || !(excludeNonMatches ?? true)) {
+		// Email or username provided, find their awarded achievements
 		// OR
 		// Including non matches, need something to match against
 		PostgreSql dbConn = await dbManager.getConnection();
 		try {
-			awardedIds = JSON.decode(
-				(await dbConn.query(
-					"SELECT achievements FROM users WHERE email = @email",
-					User, {"email": email})
-				).first.achievements
-				);
+			String query = "SELECT achievements FROM users WHERE ";
+			Map data = new Map();
+			if (email != null) {
+				query += "email = @email";
+				data = {"email": email};
+			} else if (username != null) {
+				query += "username = @username";
+				data = {"username": username};
+			} else {
+				return '{}';
+			}
+			awardedIds = JSON.decode((await dbConn.query(query, User, data)).first.achievements);
 		} catch (e) {
-			log("Error getting achievements for email $email: $e");
+			log("Error getting achievements for email ${email ?? username}: $e");
 			return '{}';
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}
 	}
 
-	if (email == null) {
+	if (email == null && username == null) {
 		// List ALL achievements
 		for(String id in ids) {
 			Achievement achv = Achievement.find(id);
