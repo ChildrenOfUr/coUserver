@@ -418,6 +418,7 @@
     "description": "A practical rack for storing spices.",
     "subSlots": 18,
     "subSlotFilter": [
+      "allspice",
       "black_pepper",
       "camphor",
       "cardamom",
