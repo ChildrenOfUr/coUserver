@@ -44,7 +44,9 @@ part 'gameServer/quests/quest_endpoint.dart';
 part 'common/user.dart';
 
 // skills
-part "gameServer/endpoints/skills.dart";
+part "gameServer/skills/skillsmanager.dart";
+part "gameServer/skills/skill.dart";
+part "gameServer/skills/playerskill.dart";
 
 // achievements
 part "gameServer/achievements/achievements.dart";

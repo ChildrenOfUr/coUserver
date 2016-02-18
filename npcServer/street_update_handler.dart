@@ -42,8 +42,11 @@ class StreetUpdateHandler {
 				items[item].consumeValues = award;
 			});
 
-			// load achievements
+			// Load achievements
 			Achievement.load();
+
+			// Load skills
+			SkillManager.loadSkills();
 		}
 		catch (e) {
 			log("Problem loading items: $e");

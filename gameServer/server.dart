@@ -123,6 +123,8 @@ main() async {
 //	await Future.wait(futures);
 //	print('upgading complete');
 //	dbManager.closeConnection(db);
+
+	print(SkillManager.find("mining").skillRequirements);
 }
 
 ///anything that should run here as cleanup before exit
