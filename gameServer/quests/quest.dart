@@ -344,8 +344,9 @@ class UserQuestLog extends Trackable {
 		return false;
 	}
 
-	void offerQuest(String questId) {
+	void offerQuest(String questId, {bool fromItem: false, int slot: -1, int subSlot: -1}) {
 		Quest questToOffer = new Quest.clone(questId);
+
 		if (_doingOrDone(questToOffer)) {
 			return;
 		}
@@ -358,9 +359,15 @@ class UserQuestLog extends Trackable {
 			}
 		}
 
-		mbSubscriptions.add(messageBus.subscribe(AcceptQuest, (AcceptQuest acceptance) {
+		mbSubscriptions.add(messageBus.subscribe(AcceptQuest, (AcceptQuest acceptance) async {
 			if(acceptance.email != email) {
 				return;
+			}
+			if(fromItem) {
+				Item itemInSlot = await	InventoryV2.takeItemFromUser(email, slot, subSlot, 1);
+				if (itemInSlot == null) {
+					return;
+				}
 			}
 			QuestEndpoint.questLogCache[acceptance.email].addInProgressQuest(acceptance.questId);
 		}));

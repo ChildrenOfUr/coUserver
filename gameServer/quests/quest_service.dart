@@ -3,7 +3,7 @@ part of coUserver;
 Map<String, Quest> quests = {};
 
 @app.Group("/quest")
-class QuestService {
+class QuestService extends Object with MetabolicsChange {
 	@app.Route("/completed/:email")
 	@Encode()
 	static Future<List<Quest>> getCompleted(String email) async {
@@ -45,6 +45,29 @@ class QuestService {
 			return false;
 		} else {
 			return true;
+		}
+	}
+
+	@app.Route('/createQuestItem', methods: const[app.POST])
+	Future createQuestItem(@Decode() Quest quest) async {
+		int imgCost = quest.rewards.img + 300 * quest.requirements.length + 500;
+		int currantCost = quest.rewards.currants;
+
+		//we are setting the id = the creator's email on the client
+		String email = quest.id;
+		String username = await User.getUsernameFromEmail(email);
+		quest.id = username + new DateTime.now().millisecondsSinceEpoch.toString();
+
+		//fix up the conversation ids
+		quest.conversation_start.id = quest.id + '-CS';
+		quest.conversation_end.id = quest.id + '-CE';
+
+		bool success = await trySetMetabolics(email, imgMin: -imgCost, currants: -currantCost);
+		if (success) {
+			//create the item and give it to the user
+			Item questItem = new Item.clone('user_made_quest');
+			questItem.metadata['questData'] = JSON.encode(encode(quest));
+			await InventoryV2.addItemToUser(email, questItem.getMap(), 1);
 		}
 	}
 
