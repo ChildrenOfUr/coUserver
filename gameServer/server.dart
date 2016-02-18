@@ -46,7 +46,7 @@ main() async {
 	KeepAlive.start();
 
 	//ignore messages about quest requirements being completed when not on the quest
-	messageBus.deadMessageHandler = (Message m){};
+	messageBus.deadMessageHandler = (harvest.Message m){};
 
 	await StreetUpdateHandler.loadItems();
 	await QuestService.loadQuests();
