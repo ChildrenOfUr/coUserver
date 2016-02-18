@@ -1312,7 +1312,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Davana Drive": {
 		"vendor": "Hardware",
-		"shrine": "Friendly"
+		"shrine": "Friendly",
+		"tsid": "LIFJP2UC80820D3",
+		"hub_id": 93
 	},
 	"Deadpan Dike 1": {
 		"tsid": "GIFF91EEBO723DF",
@@ -3536,7 +3538,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Malaba Summit": {
 		"vendor": "Gardening Goods",
-		"shrine": "Mab"
+		"shrine": "Mab",
+		"hub_id": 93,
+		"tsid": "LIFNU7T73U722U5"
 	},
 	"Maladii Trik": {
 		"vendor": "Alchemical Goods",
@@ -4298,7 +4302,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Olani Ohm": {
 		"vendor": "Produce",
-		"shrine": "Mab"
+		"shrine": "Mab",
+		"hub_id": 93,
+		"tsid": "LIF4CVKKD082IRH"
 	},
 	"Omnium Prospice": {
 		"tsid": "GA5RFFFCK813Q99",
@@ -4530,7 +4536,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Parvana Pungence": {
 		"vendor": "Kitchen Tools",
-		"shrine": "Lem"
+		"shrine": "Lem",
+		"hub_id": 93,
+		"tsid": "LIFDB8NGF282H0Q"
 	},
 	"Pasha's Place": {
 		"vendor": "Kitchen Tools",
@@ -5352,7 +5360,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Seeyam Far": {
 		"vendor": "Animal Goods",
-		"shrine": "Alph"
+		"shrine": "Alph",
+		"hub_id": 93,
+		"tsid": "LIFJ9M178082JAO"
 	},
 	"Seki Shim": {
 		"shrine": "Humbaba",
@@ -6522,11 +6532,15 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Wali Hoppers": {
 		"vendor": "Alchemical Goods",
-		"shrine": "Tii"
+		"shrine": "Tii",
+		"hub_id": 93,
+		"tsid": "LIF2AUKEAT72DU9"
 	},
 	"Watta Wayward": {
 		"vendor": "Alchemical Goods",
-		"shrine": "Tii"
+		"shrine": "Tii",
+		"hub_id": 93,
+		"tsid": "LIFFIRQ00P729BS"
 	},
 	"Wawa West": {
 		"vendor": "Hardware",
@@ -6637,7 +6651,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Yariam Jam": {
 		"vendor": "Grocery",
-		"shrine": "Pot"
+		"shrine": "Pot",
+		"tsid": "LIFFHFT5UO72FC2",
+		"hub_id": 93
 	},
 	"Yebeg Yobs": {
 		"vendor": "Mining"
