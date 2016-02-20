@@ -811,7 +811,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Botchi Etta": {
 		"shrine": "Grendaline",
-		"vendor": "Produce"
+		"vendor": "Produce",
+		"tsid": "LA91161VALA21D4",
+		"hub_id": 99
 	},
 	"Briarset Croft": {
 		"vendor": "Animal Goods",
