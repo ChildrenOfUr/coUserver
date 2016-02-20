@@ -9,10 +9,10 @@ class SkillManager {
 
 	static void loadSkills() {
 		String directory = Platform.script.toFilePath();
-		directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
+		directory = directory.substring(0, directory.lastIndexOf("/"));
 
 		JSON.decode(
-			new File(path.join(directory, 'gameServer', 'skills', 'skillsdata.json')).readAsStringSync()
+			new File("$directory/gameServer/skills/skillsdata.json").readAsStringSync()
 		).forEach((String id, Map data) {
 			Skill skill = new Skill(
 				id: id,

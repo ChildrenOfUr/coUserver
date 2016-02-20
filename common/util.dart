@@ -99,7 +99,7 @@ void _createFinishedFile() {
 	Directory streetEntities = new Directory('./streetEntities');
 	Map finishedMap = {};
 	for(FileSystemEntity entity in streetEntities.listSync(recursive:true)) {
-		String filename = entity.path.substring(entity.path.lastIndexOf(Platform.pathSeparator) + 1);
+		String filename = entity.path.substring(entity.path.lastIndexOf('/') + 1);
 		if(!filename.contains('.')) {
 			//we'll assume it's incomplete
 			finishedMap[filename] = {"entitiesRequired":0,

@@ -5,9 +5,9 @@ class Achievement {
 
 	static Future load() async {
 		String directory = Platform.script.toFilePath();
-		directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
+		directory = directory.substring(0, directory.lastIndexOf("/"));
 
-		await new Directory(path.join(directory, 'gameServer', 'achievements', 'json')).list().forEach((File category) async {
+		await new Directory("$directory/gameServer/achievements/json").list().forEach((File category) async {
 			await JSON.decode(await category.readAsString()).forEach((String id, Map data) async {
 				Achievement achievement = new Achievement(
 					id: id,

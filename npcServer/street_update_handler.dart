@@ -9,10 +9,9 @@ class StreetUpdateHandler {
 	static loadItems() async {
 		try {
 			String directory = Platform.script.toFilePath();
+			directory = directory.substring(0, directory.lastIndexOf('/'));
 
-			directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
-			String filePath = path.join(directory,'npcServer','items','json');
-
+			String filePath = '$directory/npcServer/items/json';
 			// load items
 			await new Directory(filePath).list().forEach((File category) async {
 				JSON.decode(await category.readAsString()).forEach((String name, Map itemMap) {
@@ -22,7 +21,7 @@ class StreetUpdateHandler {
 			});
 
 			// load recipes
-			filePath = path.join(directory,'npcServer', 'items', 'actions', 'recipes');
+			filePath = '$directory/npcServer/items/actions/recipes';
 			await new Directory(filePath).list().forEach((File tool) async {
 				JSON.decode(await tool.readAsString()).forEach((Map recipeMap) {
 					RecipeBook.recipes.add(decode(recipeMap, Recipe));
@@ -30,14 +29,14 @@ class StreetUpdateHandler {
 			});
 
 			// load vendor types
-			filePath = path.join(directory, 'npcServer', 'npcs', 'vendors', 'vendors.json');
+			filePath = '$directory/npcServer/npcs/vendors/vendors.json';
 			String fileText = await new File(filePath).readAsString();
 			JSON.decode(fileText).forEach((String street, String type) {
 				vendorTypes[street] = type;
 			});
 
 			// load stats given for eating/drinking
-			filePath = path.join(directory, 'npcServer', 'items', 'actions', 'consume.json');
+			filePath = '$directory/npcServer/items/actions/consume.json';
 			fileText = await new File(filePath).readAsString();
 			JSON.decode(fileText).forEach((String item, Map award) {
 				items[item].consumeValues = award;
