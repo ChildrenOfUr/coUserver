@@ -2737,7 +2737,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"vendor": "Animal Goods",
 		"shrine": "Humbaba",
 		"tsid": "GHFEKBJFP0J2J9Q",
-		"hub_id": 113
+		"hub_id": 113,
+		"broken": true
 	},
 	"Kaiki": {
 		"tsid": "GUVCLS8RV5D3VGT",
