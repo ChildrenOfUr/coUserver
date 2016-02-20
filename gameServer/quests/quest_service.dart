@@ -104,8 +104,8 @@ class QuestService extends Object with MetabolicsChange {
 	static loadQuests() async {
 		try {
 			String directory = Platform.script.toFilePath();
-			directory = directory.substring(0, directory.lastIndexOf('/'));
-			Directory questsDirectory = new Directory('$directory/gameServer/quests/json');
+			directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
+			Directory questsDirectory = new Directory(path.join(directory,'gameServer', 'quests', 'json'));
 			await for(FileSystemEntity entity in questsDirectory.list(recursive: true)) {
 				if (entity is File) {
 					// load quests
