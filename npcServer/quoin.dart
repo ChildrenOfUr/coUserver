@@ -21,7 +21,17 @@ class Quoin
 	setCollected() {
 		collected = true;
 		StatBuffer.incrementStat("quoionsCollected", 1);
-		respawn = new DateTime.now().add(new Duration(seconds:30));
+
+		// quarazy quoin does not respawn
+		if(type == 'quarazy'){
+			respawn = null;
+		} else {
+			int duration = 30;
+			if (type == 'mystery')
+				duration = 90;
+
+			respawn = new DateTime.now().add(new Duration(seconds:duration));
+		}
 	}
 
 	Map getMap()
