@@ -48,6 +48,19 @@ class QuestService extends Object with MetabolicsChange {
 		}
 	}
 
+	@app.Route('/pieces')
+	Map<String, String> getQuestPieces() {
+		Map<String, String> pieces = {
+			'getItem_<Item>' : 'Aquire Item',
+			'makeRecipe_<Item>' : 'Make Recipe',
+			'treePet<Tree>' : 'Pet Tree',
+			'location_<Location>' : 'Goto Location',
+			'sendMail_<Player>_containingItems_<List_Item>_currants_<int>' : 'Send Mail',
+		};
+
+		return pieces;
+	}
+
 	@app.Route('/createQuestItem', methods: const[app.POST])
 	Future createQuestItem(@Decode() Quest quest) async {
 		int imgCost = quest.rewards.img + 300 * quest.requirements.length + 500;

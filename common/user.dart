@@ -6,7 +6,14 @@ class User {
 	@Field() bool chat_disabled;
 
 	static Map<String, String> _emailUsernames = {};
+	static Map<String, String> _usernameEmails = {};
 	static Map<int, String> _idUsernames = {};
+
+	static void _updateMaps(User u) {
+		_emailUsernames[u.email] = u.username;
+		_idUsernames[u.id] = u.username;
+		_usernameEmails[u.username] = u.email;
+	}
 
 	static Future<String> getUsernameFromEmail(String email) async {
 		if (_emailUsernames[email] != null) {
@@ -16,8 +23,7 @@ class User {
 			try {
 				String query = "SELECT * FROM users WHERE email = @email";
 				User u = (await dbConn.query(query, User, {"email": email})).first;
-				_emailUsernames[email] = u.username;
-				_idUsernames[u.id] = u.username;
+				_updateMaps(u);
 			} catch(e) {
 				log("Error getting username for email $email: $e");
 			} finally {
@@ -25,6 +31,25 @@ class User {
 			}
 
 			return _emailUsernames[email];
+		}
+	}
+
+	static Future<String> getEmailFromUsername(String username) async {
+		if (_usernameEmails[username] != null) {
+			return _usernameEmails[username];
+		} else {
+			PostgreSql dbConn = await dbManager.getConnection();
+			try {
+				String query = "SELECT * FROM users WHERE username = @username";
+				User u = (await dbConn.query(query, User, {"username": username})).first;
+				_updateMaps(u);
+			} catch(e) {
+				log("Error getting email for username $username: $e");
+			} finally {
+				dbManager.closeConnection(dbConn);
+			}
+
+			return _usernameEmails[username];
 		}
 	}
 
@@ -36,8 +61,7 @@ class User {
 			try {
 				String query = "SELECT * FROM users WHERE id = @id";
 				User u = (await dbConn.query(query, User, {"id": id})).first;
-				_emailUsernames[u.email] = u.username;
-				_idUsernames[id] = u.username;
+				_updateMaps(u);
 			} catch(e) {
 				log("Error getting username for id $id: $e");
 			} finally {
