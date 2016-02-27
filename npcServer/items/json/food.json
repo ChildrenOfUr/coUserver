@@ -10,6 +10,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -27,6 +28,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "How long ago did you see your doctor?",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -44,6 +46,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -61,6 +64,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -78,6 +82,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -95,6 +100,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Slowly. And don't look anyone in the eye.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -112,6 +118,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -129,6 +136,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -146,6 +154,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -163,6 +172,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -180,6 +190,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -197,6 +208,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -214,6 +226,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -231,6 +244,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -248,6 +262,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -265,6 +280,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -283,6 +299,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -306,6 +323,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -323,6 +341,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -340,6 +359,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -363,6 +383,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -380,6 +401,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -397,6 +419,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -415,6 +438,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -432,6 +456,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -449,6 +474,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -466,6 +492,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -483,6 +510,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -500,6 +528,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -517,6 +546,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -534,6 +564,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -551,6 +582,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -568,6 +600,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -585,6 +618,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -602,6 +636,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -619,6 +654,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -636,6 +672,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -653,6 +690,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -670,6 +708,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -687,6 +726,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -704,6 +744,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Wait, raw?",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -721,6 +762,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "You can see it tingling with energy already.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -738,6 +780,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -755,6 +798,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -772,6 +816,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -789,6 +834,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -806,6 +852,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -823,6 +870,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -840,6 +888,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -857,6 +906,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -874,6 +924,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -891,6 +942,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -908,6 +960,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -925,6 +978,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -942,6 +996,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -959,6 +1014,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -976,6 +1032,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -993,6 +1050,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1010,6 +1068,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Careful, it's sticky!",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1027,6 +1086,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1044,6 +1104,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1061,6 +1122,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1078,6 +1140,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1095,6 +1158,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1112,6 +1176,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1129,6 +1194,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1146,6 +1212,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1163,6 +1230,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1180,6 +1248,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1197,6 +1266,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1214,6 +1284,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "But it's so sour!",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1231,6 +1302,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1248,6 +1320,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1265,6 +1338,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1282,6 +1356,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1299,6 +1374,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1316,6 +1392,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1333,6 +1410,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1350,6 +1428,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1367,6 +1446,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1384,6 +1464,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1401,6 +1482,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1418,6 +1500,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1435,6 +1518,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Oaty-dokey then!",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1452,6 +1536,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1469,6 +1554,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1486,6 +1572,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1503,6 +1590,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1520,6 +1608,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1537,6 +1626,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1554,6 +1644,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1571,6 +1662,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1588,6 +1680,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Slowly, and don't look anyone in the eye.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1605,6 +1698,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Neither pine nor apple. What is this world of lies?",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1622,6 +1716,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1639,6 +1734,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1656,6 +1752,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1673,6 +1770,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1690,6 +1788,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1707,6 +1806,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1724,6 +1824,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1741,6 +1842,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1758,6 +1860,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1775,6 +1878,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1792,6 +1896,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1809,6 +1914,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1826,6 +1932,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1843,6 +1950,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1860,6 +1968,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1877,6 +1986,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1894,6 +2004,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1911,6 +2022,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1928,6 +2040,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1945,6 +2058,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1962,6 +2076,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1979,6 +2094,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1996,6 +2112,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2013,6 +2130,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Careful, it's cold!",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2030,6 +2148,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Careful, it's cold!",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2047,6 +2166,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Careful, it's cold!",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2064,6 +2184,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Careful, it's cold!",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2081,6 +2202,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Taste the rainbow!",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2098,6 +2220,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Careful, it's cold!",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2115,6 +2238,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2132,6 +2256,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2150,6 +2275,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Everyone is already plugging their noses, and it's not even unwrapped yet.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2173,6 +2299,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2190,6 +2317,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2207,6 +2335,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2224,6 +2353,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2241,6 +2371,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2258,6 +2389,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2275,6 +2407,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2292,6 +2425,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2309,6 +2443,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2326,6 +2461,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2343,6 +2479,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2360,6 +2497,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2377,6 +2515,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2395,6 +2534,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Everyone is already plugging their noses, and it's not even unwrapped yet.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2419,6 +2559,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Everyone is already plugging their noses, and it's not even unwrapped yet.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2448,6 +2589,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2465,6 +2607,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2482,6 +2625,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2499,6 +2643,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2516,6 +2661,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -2533,6 +2679,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}

@@ -10,6 +10,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -27,6 +28,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -51,6 +53,7 @@
       },
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Think of the butterfly you got this from while you're at it",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -74,6 +77,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -91,6 +95,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -108,6 +113,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -125,6 +131,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Feeling tired?",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -142,6 +149,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -159,6 +167,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -176,6 +185,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -193,6 +203,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "How can a simple cup of water look so boring?",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -210,6 +221,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "It might rock your world.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -227,6 +239,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "The label reads, \"Imported from somewhere\".",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -244,6 +257,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Smelt yo' face off!",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -261,6 +275,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -278,6 +293,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -295,6 +311,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -312,6 +329,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -329,6 +347,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "You're not afraid of sour, are you?",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -346,6 +365,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -363,6 +383,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -380,6 +401,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -397,6 +419,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -414,6 +437,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -431,6 +455,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -448,6 +473,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -465,6 +491,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -482,6 +509,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -499,6 +527,7 @@
     "actions": [
       {
         "name": "Drink",
+        "multiEnabled": true,
         "description": "Just because it has \"dead\" in the name doesn't mean it will kill you.",
         "itemRequirements": {},
         "skillRequirements": {}

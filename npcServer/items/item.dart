@@ -23,9 +23,11 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 	@Field() Map<String, dynamic> metadata = {};
 
 	Action dropAction = new Action.withName('drop')
-		..description = "Drop this item on the ground.";
+		..description = "Drop this item on the ground."
+		..multiEnabled = true;
 	Action pickupAction = new Action.withName('pickup')
-		..description = "Put this item in your bags.";
+		..description = "Put this item in your bags."
+		..multiEnabled = true;
 
 	num get discount {
 		if (discountedItems[itemType] != null) {
@@ -72,21 +74,21 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 
 	Map getMap() {
 		return {
-			"iconUrl":iconUrl,
-			"spriteUrl":spriteUrl,
-			"name":name,
-			"itemType":itemType,
-			"category":category,
-			"isContainer":isContainer,
-			"description":description,
-			"price":price,
-			"stacksTo":stacksTo,
-			"iconNum":iconNum,
-			"id":item_id,
-			"onGround":onGround,
-			"x":x,
-			"y":y,
-			"actions":actionList,
+			"iconUrl": iconUrl,
+			"spriteUrl": spriteUrl,
+			"name": name,
+			"itemType": itemType,
+			"category": category,
+			"isContainer": isContainer,
+			"description": description,
+			"price": price,
+			"stacksTo": stacksTo,
+			"iconNum": iconNum,
+			"id": item_id,
+			"onGround": onGround,
+			"x": x,
+			"y": y,
+			"actions": actionList,
 			"tool_animation": toolAnimation,
 			"durability": durability,
 			"durabilityUsed": durabilityUsed,
@@ -278,12 +280,14 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 			return;
 		}
 
-		droppedItem.putItemOnGround(map['x'], map['y'], streetName);
+		for(int i=0; i<map['count']; i++) {
+			droppedItem.putItemOnGround(map['x'], map['y'], streetName);
+		}
 
 		StatBuffer.incrementStat("itemsDropped", map['count']);
 	}
 
-	putItemOnGround(num x, num y, String streetName) {
+	void putItemOnGround(num x, num y, String streetName) {
 		String randString = new Random().nextInt(1000).toString();
 		String id = "i" + createId(x, y, itemType, streetName + randString);
 		Item item = new Item.clone(itemType)

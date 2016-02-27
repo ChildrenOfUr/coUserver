@@ -19,9 +19,10 @@ class Consumable extends Object with MetabolicsChange {
 			return false;
 		}
 
-		int energyAward = consumed.consumeValues['energy'];
-		int moodAward = consumed.consumeValues['mood'];
-		int imgAward = consumed.consumeValues['img'];
+		int count = map['count'];
+		int energyAward = consumed.consumeValues['energy']*count;
+		int moodAward = consumed.consumeValues['mood']*count;
+		int imgAward = consumed.consumeValues['img']*count;
 
 		toast("Consuming that ${consumed.name} gave you $energyAward energy, $moodAward mood, and $imgAward iMG", userSocket);
 

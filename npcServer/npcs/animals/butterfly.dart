@@ -352,15 +352,12 @@ class Butterfly extends NPC {
 
 			int num = rand.nextInt(10);
 			if (num == 6 || num == 7) {
-				currentState = states['fly-angle1'];
+				setState('fly-angle1');
 			} else if (num == 8 || num == 9) {
-				currentState = states['fly-angle2'];
+				setState('fly-angle2');
 			} else {
-				currentState = states['fly-side'];
+				setState('fly-side');
 			}
-
-			int length = (currentState.numFrames / 30 * 1000).toInt();
-			respawn = new DateTime.now().add(new Duration(milliseconds: length));
 		}
 	}
 }

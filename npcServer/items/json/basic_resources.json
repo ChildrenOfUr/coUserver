@@ -154,6 +154,7 @@
     "actions": [
       {
         "name": "Eat",
+        "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},
         "skillRequirements": {}

@@ -353,9 +353,9 @@ class StreetUpdateHandler {
 			inv.updateJson();
 			// Update the database
 			await inv._updateDatabase(email);
-		} catch (e) {
+		} catch (e, st) {
 			inv.inventory_json = jsonx.encode(beforeSlots);
-			log("Problem moving item: $e");
+			log("Problem moving item: $e\n$st");
 			return false;
 		}
 		// Update the client

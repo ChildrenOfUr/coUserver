@@ -59,7 +59,7 @@ class Slot {
 
 @app.Group("/inventory")
 class InventoryV2 {
-
+	static Map<String,bool> inventoryLocked = {};
 	// Globals ////////////////////////////////////////////////////////////////////////////////////
 
 	// Sets how many slots each player has
@@ -723,6 +723,23 @@ class InventoryV2 {
 		return count;
 	}
 
+	static Future _wait(Duration duration) {
+		Completer c = new Completer();
+		new Timer(duration, () => c.complete());
+		return c.future;
+	}
+
+	static Future _aquireLock(String email) async {
+		while(inventoryLocked[email]) {
+			await _wait(new Duration(milliseconds: 100));
+		}
+		inventoryLocked[email] = true;
+	}
+
+	static _releaseLock(String email) {
+		inventoryLocked[email] = false;
+	}
+
 	// Static Public Methods //////////////////////////////////////////////////////////////////////
 	Future<Item> getItemInSlot(int slot, int subSlot, String email) async {
 		Item itemTaken = await _takeItem(slot, subSlot, 0, email, simulate: true);
@@ -730,6 +747,8 @@ class InventoryV2 {
 	}
 
 	static Future<int> addItemToUser(String email, Map item, int count,	[String fromObject = "_self"]) async {
+		int result = count;
+		await _aquireLock(email);
 		WebSocket userSocket = StreetUpdateHandler.userSockets[email];
 		InventoryV2 inv = await getInventory(email);
 		int added = await inv._addItem(item, count, email);
@@ -740,23 +759,28 @@ class InventoryV2 {
 			if(itemType == 'pick' || itemType == 'fancy_pick') {
 				QuestEndpoint.questLogCache[email].offerQuest('Q6');
 			}
-			return count;
 		} else {
-			return -1;
+			result = -1;
 		}
+
+		_releaseLock(email);
+		return result;
 	}
 
 	static Future<Item> takeItemFromUser(String email, int slot, int subSlot, int count) async {
+		await _aquireLock(email);
 		WebSocket userSocket = StreetUpdateHandler.userSockets[email];
 		InventoryV2 inv = await getInventory(email);
 		Item itemTaken = await inv._takeItem(slot, subSlot, count, email);
 		if (itemTaken != null) {
 			await fireInventoryAtUser(userSocket, email, update: true);
 		}
+		_releaseLock(email);
 		return itemTaken;
 	}
 
 	static Future<int> takeAnyItemsFromUser(String email, String itemType, int count, {simulate: false}) async {
+		await _aquireLock(email);
 		WebSocket userSocket = StreetUpdateHandler.userSockets[email];
 		InventoryV2 inv = await getInventory(email);
 		int taken = await inv._takeAnyItems(itemType, count, email, simulate: simulate);
@@ -764,6 +788,7 @@ class InventoryV2 {
 			await fireInventoryAtUser(userSocket, email, update: true);
 		}
 
+		_releaseLock(email);
 		return taken;
 	}
 

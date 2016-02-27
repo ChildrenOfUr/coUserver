@@ -22,7 +22,19 @@ class Piggy extends NPC {
 						      'num':2,
 						      'of':['energy']
 					      }
-				      ]});
+				      ]})
+			..add({'action':'feed',
+					'timeRequired':0,
+					'enabled':true,
+					'actionWord':'feeding',
+					'requires': [
+						{
+							'num':1,
+							'of':['broccoli','cabbage','carrot','corn','cucumber','onion',
+							'parsnip','potato','pumpkin','rice','spinach','tomato','zucchini'],
+							'error': "You don't have anything that looks good right now."
+						}
+					]});
 		type = "Piggy";
 		speed = 75; //pixels per second
 
@@ -59,8 +71,7 @@ class Piggy extends NPC {
 		//give the player the 'fruits' of their labor
 		await InventoryV2.addItemToUser(email, items['meat'].getMap(), 1, id);
 
-		currentState = states['nibble'];
-		respawn = new DateTime.now().add(new Duration(seconds:2));
+		setState('nibble');
 		say(responses['nibble'].elementAt(rand.nextInt(responses['nibble'].length)));
 
 		return true;
@@ -75,6 +86,20 @@ class Piggy extends NPC {
 		StatBuffer.incrementStat("piggiesPetted", 1);
 		say(responses['pet'].elementAt(rand.nextInt(responses['pet'].length)));
 
+		return true;
+	}
+
+	Future<bool> feed({WebSocket userSocket, String email}) async {
+		Map map = {};
+		map['id'] = id;
+		map['openWindow'] = 'itemChooser';
+		map['windowTitle'] = 'Feed $type';
+		userSocket.add(JSON.encode(map));
+		return true;
+	}
+
+	Future<bool> feedItem({WebSocket userSocket, String itemType, int count, String email}) async {
+		setState('chew', repeat:2);
 		return true;
 	}
 
@@ -115,16 +140,10 @@ class Piggy extends NPC {
 
 			int num = rand.nextInt(10);
 			if(num == 6 || num == 7) {
-				currentState = states['look_screen'];
+				setState('look_screen');
 			} else {
-				currentState = states['walk'];
+				setState('walk');
 			}
-
-			//choose a new animation after this one finishes
-			//we can calculate how long it should last by dividing the number
-			//of frames by 30
-			int length = (currentState.numFrames / 30 * 1000).toInt();
-			respawn = new DateTime.now().add(new Duration(milliseconds:length));
 		}
 	}
 }
