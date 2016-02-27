@@ -549,7 +549,7 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 
 		//send the new metabolics to the user right away
 		WebSocket ws = MetabolicsEndpoint.userSockets[await User.getUsernameFromId(metabolics.user_id)];
-		ws.add(JSON.encode(encode(metabolics)));
+		ws?.add(JSON.encode(encode(metabolics)));
 	} catch (e, st) {
 		log('(setMetabolics): $e\n$st');
 	} finally {

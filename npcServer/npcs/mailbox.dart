@@ -116,22 +116,17 @@ Future<List<Message>> getMail(@app.Body(app.JSON) Map parameters) async
 			..body = row.body
 			..read = row.read
 			..currants = row.currants
-			..currants_taken = row.currants_taken;
-		if(row.item1 != null) {
-			m.item1 = jsonx.decode(row.item1, type: Item);
-		}
-		if(row.item2 != null) {
-			m.item1 = jsonx.decode(row.item2, type: Item);
-		}
-		if(row.item3 != null) {
-			m.item1 = jsonx.decode(row.item3, type: Item);
-		}
-		if(row.item4 != null) {
-			m.item1 = jsonx.decode(row.item4, type: Item);
-		}
-		if(row.item5 != null) {
-			m.item1 = jsonx.decode(row.item5, type: Item);
-		}
+			..currants_taken = row.currants_taken
+			..item1 = row.item1
+			..item1_taken = row.item1_taken
+			..item2 = row.item2
+			..item2_taken = row.item2_taken
+			..item3 = row.item3
+			..item3_taken = row.item3_taken
+			..item4 = row.item4
+			..item4_taken = row.item4_taken
+			..item5 = row.item5
+			..item5_taken = row.item5_taken;
 		messages.add(m);
 	});
 
@@ -154,59 +149,92 @@ Future<String> sendMail(@app.Body(app.JSON) Map parameters) async {
 		}
 	}
 
-	List<Item> items = [message.item1, message.item2, message.item3, message.item4, message.item5];
-	items.removeWhere((Item i) => i == null);
+	List<String> itemSlots = [message.item1_slot, message.item2_slot, message.item3_slot,
+							  message.item4_slot, message.item5_slot];
+	List<Item> items = new List<Item>(5);
 
-	//do we have all the items?
-	Future.forEach(items, (Item item) async {
-		if(!(await InventoryV2.hasItem(email, item.itemType, 1))) {
-			return "Invalid items";
+	int i=0;
+	List<int> toUse = [];
+	for(String s in itemSlots) {
+		if (s != null) {
+			toUse.add(i);
 		}
-	});
+		i++;
+	}
 
 	//take the items
-	Future.forEach(items, (Item item) async {
-		await InventoryV2.takeAnyItemsFromUser(email, item.itemType, 1);
+	await Future.forEach(toUse, (int index) async {
+		String slot = itemSlots[index];
+		int barSlot = int.parse(slot.split('.').elementAt(0));
+		int bagSlot = int.parse(slot.split('.').elementAt(1));
+		items[index] = await InventoryV2.takeItemFromUser(email, barSlot, bagSlot, 1);
 	});
+
+	message.item1 = encode(items[0]);
+	message.item2 = encode(items[1]);
+	message.item3 = encode(items[2]);
+	message.item4 = encode(items[3]);
+	message.item5 = encode(items[4]);
 
 	try {
 		String query = "INSERT INTO messages(to_user, from_user, subject, body, currants, item1, item2, item3, item4, item5) VALUES(@to_user,@from_user,@subject,@body,@currants,@item1,@item2,@item3,@item4,@item5)";
 		int result = await dbConn.execute(query, message);
 
+		List<String> itemNames = [];
+		for (Item item in items) {
+			if(item == null) {
+				continue;
+			}
+			itemNames.add(item.itemType);
+		}
+
 		if (result > 0) {
 			String type = 'sendMail_${message.to_user}';
-			type += '_containingItems_$items';
+			type += '_containingItems_$itemNames';
 			type += '_currants_${message.currants}';
+			print('progress type: $type');
 			messageBus.publish(new RequirementProgress(type, email));
 			return "OK";
 		} else {
 			return "Error";
 		}
 	} catch (err) {
-		return "Error";
+		return "Error: $err";
 	}
 }
 
 @app.Route('/collectItem', methods: const[app.POST])
 Future collectItem(@app.Body(app.JSON) Map parameters) async {
+	print('parameters: $parameters');
 	int index = parameters['index'];
 	int id = parameters['id'];
-	String email = parameters['email'];
+	String email = await User.getEmailFromUsername(parameters['to_user']);
 
 	if (index < 1 || index > 5) {
-		return 'Error';
+		return 'Error, index is invalid';
 	}
 
-	String query = 'SELECT item$index FROM messages where id = @id';
+	String query = 'SELECT item$index, item${index}_taken FROM messages WHERE id = @id';
 	try {
 		Row row = (await dbConn.innerConn.query(query, {'id':id}).toList()).first;
-		Item item = jsonx.decode(row.toMap()['item$index'], type: Item);
-		bool success = (await InventoryV2.addItemToUser(email, encode(item), 1)) == 1;
-		if(!success) {
-			return 'Error';
+		String itemString = row.toMap()['item$index'];
+		if (itemString == null) {
+			return 'Error, item is null';
 		}
-	} catch(e) {
-		return 'Error';
+		if (row.toMap()['item${index}_taken'] == true) {
+			return 'Error, item already taken';
+		}
+		Item item = jsonx.decode(itemString, type: Item);
+		bool success = (await InventoryV2.addItemToUser(email, encode(item), 1)) == 1;
+		if (!success) {
+			return 'Error, could not give ${item.itemType} to $email';
+		} else {
+			//mark the item as taken
+			query = 'UPDATE messages SET item${index}_taken = true WHERE id = @id';
+			await dbConn.execute(query, {'id':id});
+		}
+	} catch (e) {
+		return 'Error, $e';
 	}
 
 	return 'Success';
@@ -250,7 +278,10 @@ readMail(@app.Body(app.JSON) Map parameters) async {
 
 class Message {
 	@Field() int id, currants = 0;
-	@Field() String to_user, from_user, subject = '', body = '';
-	@Field() bool read = false, currants_taken = false;
-	@Field() Item item1, item2, item3, item4, item5;
+	@Field() String to_user, from_user,	subject = '', body = '';
+	@Field() bool read = false,	currants_taken = false,
+		item1_taken = false, item2_taken = false, item3_taken = false,
+		item4_taken = false, item5_taken = false;
+	@Field() String item1, item2, item3, item4, item5;
+	@Field() String item1_slot, item2_slot, item3_slot, item4_slot, item5_slot;
 }

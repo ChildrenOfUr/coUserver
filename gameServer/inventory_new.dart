@@ -587,6 +587,22 @@ class InventoryV2 {
 				continue;
 			}
 
+			//skip containers that are not empty
+			if(item.isContainer) {
+				if (slot.metadata.containsKey('slots')) {
+					List<Slot> innerSlots = jsonx.decode(slot.metadata['slots'], type: listOfSlots);
+					bool isEmpty = true;
+					for (Slot innerSlot in innerSlots) {
+						if(innerSlot.itemType != null || innerSlot.itemType != '') {
+							isEmpty = false;
+						}
+					}
+					if(!isEmpty) {
+						continue;
+					}
+				}
+			}
+
 			int have = slot.count,
 				diff;
 
@@ -650,6 +666,12 @@ class InventoryV2 {
 						};
 						bagSlotMaps.add(bagSlotMap);
 					});
+//					print('num slots (should be): ${item.subSlots}');
+//					print('num slots (is)       : ${bagSlotMaps.length}');
+//					int slotDiff = item.subSlots-bagSlotMaps.length;
+//					for(int i=0; i<slotDiff; i++) {
+//						bagSlotMaps.add({'itemType':'','item':null,'count':0});
+//					}
 					item.metadata['slots'] = bagSlotMaps;
 				}
 			}
