@@ -192,7 +192,6 @@ Future<String> sendMail(@app.Body(app.JSON) Map parameters) async {
 			String type = 'sendMail_${message.to_user}';
 			type += '_containingItems_$itemNames';
 			type += '_currants_${message.currants}';
-			print('progress type: $type');
 			messageBus.publish(new RequirementProgress(type, email));
 			return "OK";
 		} else {
@@ -205,7 +204,6 @@ Future<String> sendMail(@app.Body(app.JSON) Map parameters) async {
 
 @app.Route('/collectItem', methods: const[app.POST])
 Future collectItem(@app.Body(app.JSON) Map parameters) async {
-	print('parameters: $parameters');
 	int index = parameters['index'];
 	int id = parameters['id'];
 	String email = await User.getEmailFromUsername(parameters['to_user']);

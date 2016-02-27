@@ -139,6 +139,18 @@ Future cleanup() async {
 	exit(0);
 }
 
+@app.Route('/searchUsers')
+Future<List<String>> searchUsers(@app.QueryParam('query') String query) async {
+	query = '%${query.toLowerCase()}%';
+	List<User> users = await dbConn.query("SELECT * FROM users WHERE lower(username) LIKE @query", User, {'query':query});
+	List<String> usernames = [];
+	users.forEach((User user) {
+		usernames.add(user.username);
+	});
+
+	return usernames;
+}
+
 @app.Route('/listUsers')
 Future<List<String>> listUsers(@app.QueryParam('channel') String channel) async
 {

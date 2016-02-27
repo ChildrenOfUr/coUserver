@@ -452,7 +452,7 @@ class InventoryV2 {
 				queryString = "INSERT INTO inventories(inventory_json, user_id) VALUES(@inventory_json,@user_id)";
 				numRowsUpdated = await dbConn.execute(queryString, this);
 
-				//player just got their first item, lets tell them about bags
+				//player just got their first item, let's tell them about bags
 				QuestEndpoint.questLogCache[email].offerQuest('Q8');
 			}
 
