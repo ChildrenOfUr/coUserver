@@ -120,7 +120,7 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 	bool filterAllows({Item testItem, String itemType}) {
 		assert(testItem != null || itemType != null);
 
-		if (itemType.isEmpty) {
+		if (itemType != null && itemType.isEmpty) {
 			//bags except empty item types (this is an empty slot)
 			return true;
 		}

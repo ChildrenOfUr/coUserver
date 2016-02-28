@@ -341,7 +341,8 @@ class InventoryV2 {
 		if (toMerge > 0) {
 			log("[InventoryV2] Cannot give ${item.itemType} x $count to user with email $email because they ran"
 			    + " out of slots before all items were added. $toMerge items skipped.");
-//			item.putItemOnGround()
+			Identifier playerId = PlayerUpdateHandler.users[await User.getUsernameFromEmail(email)];
+			item.putItemOnGround(playerId.currentX, playerId.currentY+140, playerId.currentStreet);
 		}
 
 		await _updateDatabase(email);

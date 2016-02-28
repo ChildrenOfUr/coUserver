@@ -1,0 +1,124 @@
+{
+  "id": "Q9",
+  "title": "Doody Inspector",
+  "description": "Find and investigate 5 Piggy Plops. Tip: you can make a Piggy plop by feeding it any Crop products (like potatoes, onions, broccoli, cabbage, corn, etc.)",
+  "requirements": [
+    {
+      "id": "Q9R1",
+      "text": "piggy plop investigated",
+      "type": "counter",
+      "numRequired": 5,
+      "eventType": "examine_piggy_plop",
+      "iconUrl": "http://childrenofur.com/assets/entityImages/plop__x1_1_png_1354831023.png"
+    }
+  ],
+  "rewards": {
+    "img": 1200,
+    "currants": 700,
+    "mood": 100
+  },
+  "conversation_start": {
+    "id": "Q9-CS",
+    "screens": [
+      {
+        "paragraphs": [
+          "Hey, kid! I've got a job for you. But I'll tell you right now: you're going to get your hands dirty."
+        ],
+        "choices": [
+          {
+            "text": "I dunno...",
+            "gotoScreen": 2
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "Let me tell you about the gig first. See, something's up with the Piggies."
+        ],
+        "choices": [
+          {
+            "text": "Oh, yeah?",
+            "gotoScreen": 3
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "Yeah. And there's only one way to get to the bottom of it."
+        ],
+        "choices": [
+          {
+            "text": "Do tell.",
+            "gotoScreen": 4
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "You need to get out there and examine some Piggy Plop. You may have to feed the Piggies to encourage them to do their doody."
+        ],
+        "choices": [
+          {
+            "text": "Ew!",
+            "gotoScreen": 5
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "Don't worry. Not only does Piggy Plop smell like fancy perfume, it also has powerful life-enhancing properties."
+        ],
+        "choices": [
+          {
+            "text": "Really?",
+            "gotoScreen": 6
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "No. But will you do it anyway?"
+        ],
+        "choices": [
+          {
+            "text": "I'll get some gloves",
+            "gotoScreen": 7,
+            "isQuestAccept": true
+          },
+          {
+            "text": "No, I just can't",
+            "gotoScreen": 7,
+            "isQuestReject": true
+          }
+        ]
+      }
+    ]
+  },
+  "conversation_end": {
+    "id": "Q9-CE",
+    "screens": [
+      {
+        "paragraphs": [
+          "That wasn't so bad now, was it, kid? For being a good sport, here's a bunch of currants and stuff."
+        ],
+        "choices": [
+          {
+            "text": "Thanks!",
+            "gotoScreen": 2
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "Don't mention it. Now go wash your hands. No offense, but you stink a little."
+        ],
+        "choices": [
+          {
+            "text": "So would you",
+            "gotoScreen": 3
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -17,6 +17,11 @@ abstract class PiggyPlop extends Object with MetabolicsChange {
 		String quantifier = count == 1 ? 'a pack' : '$count packs';
 
 		Item item = await InventoryV2.takeItemFromUser(email, map['slot'], map['subSlot'], map['count']);
+		if(item == null) {
+			return false;
+		}
+
+		messageBus.publish(new RequirementProgress('examine_piggy_plop', email));
 
 		Map seedMap = items['${item.metadata['seedType']}_seed'].getMap();
 		toast('You found $quantifier of ${seedMap['name']}s in that plop!', userSocket);

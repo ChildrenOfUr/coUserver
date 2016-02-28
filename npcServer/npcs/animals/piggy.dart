@@ -86,6 +86,8 @@ class Piggy extends NPC {
 		StatBuffer.incrementStat("piggiesPetted", 1);
 		say(responses['pet'].elementAt(rand.nextInt(responses['pet'].length)));
 
+		QuestEndpoint.questLogCache[email].offerQuest('Q9');
+
 		return true;
 	}
 
