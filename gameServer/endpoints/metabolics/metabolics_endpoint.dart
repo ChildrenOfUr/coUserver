@@ -55,6 +55,12 @@ class MetabolicsEndpoint {
 				if (simulateMood) {
 					_calcAndSetMood(m);
 				}
+
+				if(m.mood < m.max_mood~/10) {
+					String email = await User.getEmailFromUsername(username);
+					QuestEndpoint.questLogCache[email].offerQuest('Q10');
+				}
+
 				if (simulateEnergy) {
 					_calcAndSetEnergy(m);
 				}

@@ -230,6 +230,7 @@ class Quest extends Trackable with MetabolicsChange {
 
 class UserQuestLog extends Trackable {
 	int questNum = 0;
+	bool offeringQuest = false;
 	@Field() int id, user_id;
 	@Field() String completed_list, in_progress_list;
 
@@ -347,7 +348,7 @@ class UserQuestLog extends Trackable {
 	void offerQuest(String questId, {bool fromItem: false, int slot: -1, int subSlot: -1}) {
 		Quest questToOffer = new Quest.clone(questId);
 
-		if (_doingOrDone(questToOffer)) {
+		if (_doingOrDone(questToOffer) || offeringQuest) {
 			return;
 		}
 
@@ -369,12 +370,14 @@ class UserQuestLog extends Trackable {
 					return;
 				}
 			}
+			offeringQuest = false;
 			QuestEndpoint.questLogCache[acceptance.email].addInProgressQuest(acceptance.questId);
 		}));
 		mbSubscriptions.add(messageBus.subscribe(RejectQuest, (RejectQuest rejection) {
 			if(rejection.email != email) {
 				return;
 			}
+			offeringQuest = false;
 		}));
 
 		Map questOffer = {
@@ -382,6 +385,7 @@ class UserQuestLog extends Trackable {
 			'quest': encode(questToOffer)
 		};
 		QuestEndpoint.userSockets[email].add(JSON.encode(questOffer));
+		offeringQuest = true;
 	}
 
 	List<Quest> get completedQuests => decode(JSON.decode(completed_list), Quest);
