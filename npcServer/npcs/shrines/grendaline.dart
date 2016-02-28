@@ -2,7 +2,7 @@ part of coUserver;
 
 class Grendaline extends Shrine
 {
-	Grendaline(String id, int x, int y) : super(id,x,y)
+	Grendaline(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 			{
@@ -19,7 +19,7 @@ class Grendaline extends Shrine
 
 class GrendalineFirebog extends Shrine
 {
-	GrendalineFirebog(String id, int x, int y) : super(id,x,y)
+	GrendalineFirebog(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{
@@ -36,7 +36,7 @@ class GrendalineFirebog extends Shrine
 
 class GrendalineIx extends Shrine
 {
-	GrendalineIx(String id, int x, int y) : super(id,x,y)
+	GrendalineIx(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{
@@ -53,7 +53,7 @@ class GrendalineIx extends Shrine
 
 class GrendalineUralia extends Shrine
 {
-	GrendalineUralia(String id, int x, int y) : super(id,x,y)
+	GrendalineUralia(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{

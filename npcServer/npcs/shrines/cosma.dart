@@ -2,7 +2,7 @@ part of coUserver;
 
 class Cosma extends Shrine
 {
-	Cosma(String id, int x, int y) : super(id,x,y)
+	Cosma(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 			{
@@ -19,7 +19,7 @@ class Cosma extends Shrine
 
 class CosmaFirebog extends Shrine
 {
-	CosmaFirebog(String id, int x, int y) : super(id,x,y)
+	CosmaFirebog(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{
@@ -36,7 +36,7 @@ class CosmaFirebog extends Shrine
 
 class CosmaIx extends Shrine
 {
-	CosmaIx(String id, int x, int y) : super(id,x,y)
+	CosmaIx(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{
@@ -53,7 +53,7 @@ class CosmaIx extends Shrine
 
 class CosmaUralia extends Shrine
 {
-	CosmaUralia(String id, int x, int y) : super(id,x,y)
+	CosmaUralia(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{

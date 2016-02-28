@@ -1,7 +1,7 @@
 part of coUserver;
 
 class PeatBog extends Plant {
-	PeatBog(String id, int x, int y) : super(id, x, y) {
+	PeatBog(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		actionTime = 5000;
 		type = "Peat Bog";
 

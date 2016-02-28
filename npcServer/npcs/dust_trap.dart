@@ -3,22 +3,21 @@ part of coUserver;
 class DustTrap extends NPC {
 	DateTime now;
 	String streetName, tsid;
-	Rectangle hitBox;
 
 	bool _approx(num compare, num to) {
-		return (compare - to).abs() < 10;
+		return (compare - to).abs() < 30;
 	}
 
-	DustTrap(String id, this.streetName, this.tsid, int x, int y) : super(id, x, y) {
+	DustTrap(String id, String streetName, this.tsid, int x, int y) : super(id, x, y, streetName) {
 		StreetUpdateHandler.streets[streetName];
-//		print("I'm a dust_trap at $x,$y");
-//		messageBus.subscribe(PlayerPosition, (PlayerPosition position) {
-//			if(_approx(x,position.x) && _approx(y,position.y)) {
-//				toast('you stepped on me', StreetUpdateHandler.userSockets[position.email]);
-//			} else {
-//				print('not close enough: ${position.x},${position.y}');
-//			}
-//		});
+		messageBus.subscribe(PlayerPosition, (PlayerPosition position) {
+			if(currentState != states['up']) {
+				return;
+			}
+			if(_approx(x,position.x) && _approx(y,position.y+140)) {
+				stepOn(StreetUpdateHandler.userSockets[position.email], position.email);
+			}
+		});
 
 		actionTime = 0;
 		actions = [];
@@ -31,58 +30,37 @@ class DustTrap extends NPC {
 			"down": new Spritesheet("down", "http://childrenofur.com/assets/entityImages/dust_trap__x1_down_png_1354833768.png", 110, 255, 110, 255, 1, true),
 			"up": new Spritesheet("up", "http://childrenofur.com/assets/entityImages/dust_trap__x1_idle_png_1354833764.png", 110, 255, 110, 255, 1, true)
 		};
-		currentState = states["up"];
-		respawn = new DateTime.now();
-		hitBox = new Rectangle(x - 25, y + 25, 160, 305);
+		setState('up');
 	}
 
 	@override
 	void update() {
-//		// Update clock
-//		now = new DateTime.now();
-//
-//		// Check if flipping down has finished
-//		if (currentState == states["smackDown"] && respawn.compareTo(now) <= 0) {
-//			// Switch to static down image
-//			currentState = states["down"];
-//			// Flip back up in 1 minute
-//			respawn = now.add(new Duration(minutes: 1));
-//		}
-//
-//		// Check if flipping up has finished
-//		if (currentState == states["liftUp"] && respawn.compareTo(now) <= 0) {
-//			// Switch to static up image
-//			currentState = states["up"];
-//		}
-//
-//		// Check if down and need to reset
-//		if (currentState == states["down"] && respawn.compareTo(now) <= 0) {
-//			// Switch to resetting animation
-//			currentState = states["liftUp"];
-//			respawn = now.add(new Duration(milliseconds:(currentState.numFrames / 30 * 1000).toInt()));
-//		}
-//
-//		// If it's not already triggered...
-//		if (currentState == states["up"]) {
-//			// Go through players on the street checking for collisions
-//			PlayerUpdateHandler.users.forEach((String username, Identifier id) {
-//				if (id.currentStreet != streetName) {
-//					// Not on this street
-//					return;
-//				}
-//
-//
-//				if (hitBox.left < id.currentX && hitBox.right > id.currentX) {
-//					// User is in the hitbox, they should step on it
-//					stepOn(userSocket: id.webSocket, email: id.email);
-//				}
-//			});
-//		}
+		// Update clock
+		now = new DateTime.now();
+
+		// Check if flipping down has finished
+		if (currentState == states["smackDown"] && respawn.compareTo(now) <= 0) {
+			// Switch to static down image
+			setState('down');
+			// Flip back up in 1 minute
+			respawn = now.add(new Duration(minutes: 1));
+		}
+
+		// Check if flipping up has finished
+		if (currentState == states["liftUp"] && respawn.compareTo(now) <= 0) {
+			// Switch to static up image
+			setState('up');
+		}
+
+		// Check if down and need to reset
+		if (currentState == states["down"] && respawn.compareTo(now) <= 0) {
+			// Switch to resetting animation
+			setState('liftUp');
+		}
 	}
 
-	Future stepOn({WebSocket userSocket, String email}) async {
-		currentState = states["smackDown"];
-		respawn = now.add(new Duration(milliseconds:(currentState.numFrames / 30 * 1000).toInt()));
+	Future stepOn(WebSocket userSocket, String email) async {
+		setState('smackDown');
 		switch (new Random().nextInt(3)) {
 			case 0:
 				toast("Oh snap!", userSocket);

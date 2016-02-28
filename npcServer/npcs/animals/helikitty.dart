@@ -3,7 +3,7 @@ part of coUserver;
 class HeliKitty extends NPC {
 	int age;
 
-	HeliKitty(String id, int x, int y) : super(id, x, y) {
+	HeliKitty(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		type = "Heli Kitty";
 		actions
 			..add({

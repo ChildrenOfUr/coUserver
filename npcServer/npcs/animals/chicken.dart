@@ -1,7 +1,7 @@
 part of coUserver;
 
 class Chicken extends NPC {
-	Chicken(String id, int x, int y) : super(id, x, y) {
+	Chicken(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		actions.add({"action":"squeeze",
 			            "enabled":true,
 			            "timeRequired":actionTime,

@@ -149,6 +149,8 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 			return await Item_Cheese.sniff(userSocket, email);
 		} else if (itemInSlot.itemType == "very_very_stinky_cheese") {
 			return await Item_Milk.sniff(userSocket, username);
+		} else if (itemInSlot.itemType == 'piggy_plop') {
+			return await PiggyPlop.sniff(userSocket);
 		} else {
 			return false;
 		}
@@ -204,8 +206,16 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 	// //////////////// //
 
 	Future<bool> taste({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		toast("That didn't taste as good as it smells. -5 mood", userSocket);
-		return await ItemUser.trySetMetabolics(username, mood: -5);
+		InventoryV2 inv = await getInventory(email);
+		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
+		if(itemInSlot.itemType == 'butterfly_lotion') {
+			toast("That didn't taste as good as it smells. -5 mood", userSocket);
+			return await ItemUser.trySetMetabolics(username, mood: -5);
+		} else if(itemInSlot.itemType == 'piggy_plop') {
+			return PiggyPlop.taste(userSocket);
+		} else {
+			return false;
+		}
 	}
 
 	// //////////// //
@@ -230,6 +240,10 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 
 	Future<bool> meditate({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		return await Item_Orb.meditate(userSocket, username);
+	}
+
+	Future<bool> examine({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
+		return await PiggyPlop.examine(userSocket, email, map);
 	}
 
 	// //// //

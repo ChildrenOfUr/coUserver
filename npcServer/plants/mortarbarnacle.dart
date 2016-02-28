@@ -1,7 +1,7 @@
 part of coUserver;
 
 class MortarBarnacle extends Plant {
-	MortarBarnacle(String id, int x, int y) : super(id, x, y) {
+	MortarBarnacle(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		actionTime = 2000;
 		type = "Mortar Barnacle";
 

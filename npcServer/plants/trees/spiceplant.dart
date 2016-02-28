@@ -1,7 +1,7 @@
 part of coUserver;
 
 class SpicePlant extends Tree {
-	SpicePlant(String id, int x, int y) : super(id, x, y) {
+	SpicePlant(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		type = "Spice Plant";
 
 		responses =

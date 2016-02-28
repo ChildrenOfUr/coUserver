@@ -1,7 +1,7 @@
 part of coUserver;
 
 class Salmon extends NPC {
-	Salmon(String id, int x, int y) : super(id, x, y) {
+	Salmon(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		actions.add({
 			            "action": "pocket",
 			            "enabled": true,

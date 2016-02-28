@@ -8,14 +8,14 @@ abstract class NPC extends Entity {
 	 * */
 
 	Random rand;
-	String id, type;
+	String id, type, streetName;
 	int x, y, speed = 0, ySpeed = 0;
 	DateTime respawn;
 	bool facingRight = true;
 	Map<String, Spritesheet> states;
 	Spritesheet currentState;
 
-	NPC(this.id, this.x, this.y) {
+	NPC(this.id, this.x, this.y, this.streetName) {
 		respawn = new DateTime.now();
 		rand = new Random();
 	}

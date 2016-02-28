@@ -1,7 +1,7 @@
 part of coUserver;
 
 class BeanTree extends Tree {
-	BeanTree(String id, int x, int y) : super(id, x, y) {
+	BeanTree(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		type = "Bean Tree";
 
 		responses =

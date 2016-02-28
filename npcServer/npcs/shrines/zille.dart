@@ -2,7 +2,7 @@ part of coUserver;
 
 class Zille extends Shrine
 {
-	Zille(String id, int x, int y) : super(id,x,y)
+	Zille(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 			{
@@ -19,7 +19,7 @@ class Zille extends Shrine
 
 class ZilleFirebog extends Shrine
 {
-	ZilleFirebog(String id, int x, int y) : super(id,x,y)
+	ZilleFirebog(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{
@@ -36,7 +36,7 @@ class ZilleFirebog extends Shrine
 
 class ZilleIx extends Shrine
 {
-	ZilleIx(String id, int x, int y) : super(id,x,y)
+	ZilleIx(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{
@@ -53,7 +53,7 @@ class ZilleIx extends Shrine
 
 class ZilleUralia extends Shrine
 {
-	ZilleUralia(String id, int x, int y) : super(id,x,y)
+	ZilleUralia(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{

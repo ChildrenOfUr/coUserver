@@ -123,6 +123,7 @@ part "npcServer/items/actions/recipes.dart";
 part "npcServer/items/actions/itemgroups/cubimals.dart";
 part "npcServer/items/actions/itemgroups/emblems.dart";
 part "npcServer/items/actions/itemgroups/milk-butter-cheese.dart";
+part 'npcServer/items/actions/itemgroups/piggy_plop.dart';
 part "npcServer/items/actions/itemgroups/orb.dart";
 part "npcServer/items/actions/itemgroups/consume.dart";
 

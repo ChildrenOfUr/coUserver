@@ -2,7 +2,7 @@ part of coUserver;
 
 class Alph extends Shrine
 {
-	Alph(String id, int x, int y) : super(id,x,y)
+	Alph(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 			{
@@ -18,7 +18,7 @@ class Alph extends Shrine
 }
 
 class AlphFirebog extends Shrine {
-	AlphFirebog(String id, int x, int y) : super(id,x,y) {
+	AlphFirebog(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		states = {
 			"close" : new Spritesheet("close","http://childrenofur.com/assets/entityImages/npc_shrine_firebog_alph__x1_close_png_1354832766.png",984, 848, 164, 212, 23, false),
 			"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_firebog_alph__x1_open_png_1354832764.png",984, 848, 164, 212, 22, false),
@@ -32,7 +32,7 @@ class AlphFirebog extends Shrine {
 }
 
 class AlphIx extends Shrine {
-	AlphIx(String id, int x, int y) : super(id,x,y) {
+	AlphIx(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		states = {
 			"close" : new Spritesheet("close","http://childrenofur.com/assets/entityImages/npc_shrine_ix_alph__x1_close_png_1354831264.png",840,864,168,216,20, false),
 			"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_ix_alph__x1_open_png_1354831261.png",840,1080,168,216,24, false),
@@ -46,7 +46,7 @@ class AlphIx extends Shrine {
 }
 
 class AlphUralia extends Shrine {
-	AlphUralia(String id, int x, int y) : super(id,x,y) {
+	AlphUralia(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		states = {
 			"close" : new Spritesheet("close","http://childrenofur.com/assets/entityImages/npc_shrine_uralia_alph__x1_close_png_1354831862.png",756, 752, 126, 188, 23, false),
 			"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_uralia_alph__x1_open_png_1354831859.png",756, 752, 128, 188, 22, false),

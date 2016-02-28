@@ -1,7 +1,7 @@
 part of coUserver;
 
 class EggPlant extends Tree {
-	EggPlant(String id, int x, int y) : super(id, x, y) {
+	EggPlant(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		type = "Egg Plant";
 
 		responses =

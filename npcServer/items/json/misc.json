@@ -240,7 +240,27 @@
     "spriteUrl": "http://childrenofur.com/assets/entityImages/plop__x1_1_png_1354831023.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "Piggy plop is the delicately scented excrescence of a healthy piggy. Round, brown, and mysterious, it may contain presents."
+    "description": "Piggy plop is the delicately scented excrescence of a healthy piggy. Round, brown, and mysterious, it may contain presents.",
+    "actions": [
+      {
+        "name": "Taste",
+        "description": "You do you",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      },
+      {
+        "name": "Sniff",
+        "description": "You're an odd one, aren't ya?",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      },
+      {
+        "name": "Examine",
+        "description": "Take a closer look at this plop",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "shiny_hello_pumpkin": {
     "name": "Shiny Hello Pumpkin!",

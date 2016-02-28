@@ -1,7 +1,7 @@
 part of coUserver;
 
 abstract class Rock extends Plant {
-	Rock(String id, int x, int y) : super(id, x, y) {
+	Rock(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		maxState = 0;
 		actionTime = 5000;
 

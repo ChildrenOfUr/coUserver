@@ -1,7 +1,7 @@
 part of coUserver;
 
 class Mailbox extends NPC {
-	Mailbox(String id, int x, int y) : super(id, x, y) {
+	Mailbox(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		actionTime = 0;
 		actions..add({"action":"check mail",
 			             "timeRequired":actionTime,

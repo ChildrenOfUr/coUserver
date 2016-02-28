@@ -6,7 +6,7 @@ class Butterfly extends NPC {
 	int numMilks = 0;
 	Stopwatch massageExpires = new Stopwatch();
 
-	Butterfly(String id, int x, int y) : super(id, x, y) {
+	Butterfly(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		type = "Butterfly";
 		actions
 			..add({

@@ -9,14 +9,14 @@ abstract class Plant extends Entity {
 	 * attempts to perform one of the available actions;
 	 */
 
-	String id, type;
+	String id, type, streetName;
 	int state, maxState, x, y, actionTime = 3000;
 	DateTime respawn;
 	List<Map> actions = [];
 	Map<String, Spritesheet> states;
 	Spritesheet currentState;
 
-	Plant(this.id, this.x, this.y) {
+	Plant(this.id, this.x, this.y, this.streetName) {
 		respawn = new DateTime.now();
 	}
 

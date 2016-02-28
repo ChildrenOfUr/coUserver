@@ -1,7 +1,7 @@
 part of coUserver;
 
 class Piggy extends NPC {
-	Piggy(String id, int x, int y) : super(id, x, y) {
+	Piggy(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		actions
 			..add({"action":"nibble",
 				      "timeRequired":actionTime,
@@ -104,6 +104,10 @@ class Piggy extends NPC {
 		if(!success) {
 			return false;
 		}
+
+		Item item = new Item.clone('piggy_plop');
+		item.metadata['seedType'] = itemType;
+		item.putItemOnGround(x,y,streetName);
 		setState('chew', repeat:2);
 		return true;
 	}
