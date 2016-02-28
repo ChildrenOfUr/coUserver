@@ -42,8 +42,8 @@ abstract class Rock extends Plant {
 
 	void update() {
 		DateTime now = new DateTime.now();
-		if (state >= currentState.numFrames && now.compareTo(respawn) >= 0) {
-			say(responses['gone'].elementAt(rand.nextInt(responses['gone'].length)));
+
+		if ( state >= currentState.numFrames ) {
 			setActionEnabled("mine", false);
 		}
 
@@ -83,9 +83,9 @@ abstract class Rock extends Plant {
 		StatBuffer.incrementStat("rocksMined", 1);
 		state++;
 		if (state >= currentState.numFrames) {
+			say(responses['gone'].elementAt(rand.nextInt(responses['gone'].length)));
 			respawn = new DateTime.now().add(new Duration(minutes: 2));
 		}
-
 		//chances to get gems:
 		//amber = 1 in 5
 		//sapphire = 1 in 7
