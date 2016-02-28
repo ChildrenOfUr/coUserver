@@ -93,12 +93,17 @@ class Piggy extends NPC {
 		Map map = {};
 		map['id'] = id;
 		map['openWindow'] = 'itemChooser';
-		map['windowTitle'] = 'Feed $type';
+		map['filter'] = 'category=Croppery & Gardening Supplies';
+		map['windowTitle'] = 'Feed Piggy What?';
 		userSocket.add(JSON.encode(map));
 		return true;
 	}
 
 	Future<bool> feedItem({WebSocket userSocket, String itemType, int count, String email}) async {
+		bool success = (await InventoryV2.takeAnyItemsFromUser(email,itemType,count)) == count;
+		if(!success) {
+			return false;
+		}
 		setState('chew', repeat:2);
 		return true;
 	}
