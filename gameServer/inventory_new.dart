@@ -724,6 +724,70 @@ class InventoryV2 {
 		return count;
 	}
 
+	Future<bool> _decreaseDurability(List<String> validTypes, int amount, String email) async {
+		bool success = false;
+
+		List<Slot> tmpSlots = slots;
+		for(String itemType in validTypes) {
+			Item sample = items[itemType];
+			//look in the regular slots
+			for (Slot s in tmpSlots) {
+				if (s.itemType != null && s.itemType == itemType) {
+					int used = s.metadata['durabilityUsed'] ?? 0;
+					if(used+amount > sample.durability) {
+						continue;
+					}
+					s.metadata['durabilityUsed'] = used + amount;
+					success = true;
+					break;
+				}
+			}
+
+			if (success) {
+				break;
+			}
+		}
+
+		if(!success) {
+			for (String itemType in validTypes) {
+				Item sample = items[itemType];
+				//add the bag contents
+				for (Slot s in tmpSlots) {
+					if (!s.itemType.isEmpty && items[s.itemType].isContainer &&
+					    items[s.itemType].subSlots != null) {
+						if (s.metadata["slots"] != null && (s.metadata["slots"]).length > 0) {
+							List<Slot> bagSlots = jsonx.decode(s.metadata['slots'], type: listOfSlots);
+							if (bagSlots != null) {
+								for (Slot bagSlot in bagSlots) {
+									if (bagSlot.itemType != null && bagSlot.itemType == itemType) {
+										int used = bagSlot.metadata['durabilityUsed'] ?? 0;
+										if(used+amount > sample.durability) {
+											continue;
+										}
+										bagSlot.metadata['durabilityUsed'] = used + amount;
+										success = true;
+										break;
+									}
+								}
+							}
+							if (success) {
+								s.metadata['slots'] = jsonx.encode(bagSlots);
+								break;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		if(success) {
+			inventory_json = jsonx.encode(tmpSlots);
+			await _updateDatabase(email);
+		}
+
+		return success;
+	}
+
 	static Future _wait(Duration duration) {
 		Completer c = new Completer();
 		new Timer(duration, () => c.complete());
@@ -795,6 +859,35 @@ class InventoryV2 {
 
 	static Future<bool> hasItem(String email, String itemType, int count) async {
 		return (await takeAnyItemsFromUser(email, itemType, count, simulate:true)) == count;
+	}
+
+	/**
+	 * [validTypes] can be either a String or a List<String> which lists the valid
+	 * item type from which to take durability.
+	 * [amount] is the amount to add to the item's durabilityUsed
+	 */
+	static Future<bool> decreaseDurability(String email, dynamic validTypes, {int amount: 1}) async {
+		assert(validTypes is String || validTypes is List<String>);
+
+		List<String> types;
+		if(validTypes is String) {
+			types = [validTypes];
+		} else {
+			types = validTypes;
+		}
+
+		await _aquireLock(email);
+		WebSocket userSocket = StreetUpdateHandler.userSockets[email];
+		InventoryV2 inv = await getInventory(email);
+
+		bool success = await inv._decreaseDurability(types, amount, email);
+
+		if(success) {
+			await fireInventoryAtUser(userSocket, email, update: true);
+		}
+
+		_releaseLock(email);
+		return success;
 	}
 
 	Slot getSlot(int invIndex, [int bagIndex]) {

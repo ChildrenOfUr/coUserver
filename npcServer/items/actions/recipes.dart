@@ -59,45 +59,16 @@ class RecipeBook extends Object with MetabolicsChange {
 				// Provide user-specific data if an email is provided
 				if (email != null && email != "") {
 
-					List<int> itemMax = [];
-
 					// For every item it requires...
 					await Future.forEach(recipe.input.keys, (String itemType) async {
 						int qty = recipe.input[itemType];
 
 						// Get the item data to send
 						Map itemMap = items[itemType].getMap();
-
-						// Compare against the user's inventory
-						InventoryV2 inv = await getInventory(email);
-
-						// Figure out how many they have
-						int userHas = inv.countItem(itemType);
-
-						// Add user inventory data to the item data
-						itemMap.addAll(({
-							"userHas": userHas,
-							"qtyReq": qty
-						}));
+						itemMap['qtyReq'] = qty;
 
 						// Add item data to the recipe input data
 						(toolRecipe["input"] as List<Map>).add(itemMap);
-
-						// Find out how many of the recipe they can make
-
-						if (userHas >= qty) {
-							itemMax.add((userHas / qty).floor());
-						} else {
-							itemMax.add(0);
-						}
-
-						itemMax.sort();
-
-						if (itemMax.length > 0) {
-							toolRecipe["canMake"] = itemMax.first;
-						} else {
-							toolRecipe["canMake"] = 0;
-						}
 
 					});
 					// End input items loop
@@ -132,6 +103,14 @@ class RecipeBook extends Object with MetabolicsChange {
 			return false;
 		} else {
 			recipe = rList.first;
+		}
+
+		if(items[recipe.tool].durability != null) {
+			//take away tool durability
+			bool durabilitySuccess = await InventoryV2.decreaseDurability(email, recipe.tool);
+			if(!durabilitySuccess) {
+				return false;
+			}
 		}
 
 		// Take away energy
