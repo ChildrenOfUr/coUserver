@@ -19,9 +19,23 @@ class Quoin
 	}
 
 	setCollected() {
-		collected = true;
+
 		StatBuffer.incrementStat("quoionsCollected", 1);
-		respawn = new DateTime.now().add(new Duration(seconds:30));
+
+		if (type == "quarazy") {
+			// Quarazy quoin should never be set to 'collected'
+			// to enable all users to collect it
+			// it will not be shown to a player again once collected,
+			// (handled in the client)
+			return;
+		}
+
+		collected = true;
+		int duration = 30;
+		if (type == 'mystery'){
+			duration = 90;
+
+		respawn = new DateTime.now().add(new Duration(seconds:duration));
 	}
 
 	Map getMap()
