@@ -14,8 +14,9 @@ class Quoin
 	 * Will check for quoin collection/spawn and send updates to clients if needed
 	 */
 	update() {
-		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0)
+		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0) {
 			collected = false;
+		}
 	}
 
 	setCollected() {
@@ -32,14 +33,14 @@ class Quoin
 
 		collected = true;
 		int duration = 30;
-		if (type == 'mystery'){
+		if (type == 'mystery') {
 			duration = 90;
+		}
 
 		respawn = new DateTime.now().add(new Duration(seconds:duration));
 	}
 
-	Map getMap()
-	{
+	Map getMap() {
 		Map map = new Map();
 		map["id"] = id;
 		map["url"] = url;
