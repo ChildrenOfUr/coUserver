@@ -119,6 +119,7 @@ part "npcServer/items/actions/action.dart";
 part "npcServer/items/item_user.dart";
 part "npcServer/items/hellgrapes.dart";
 part "npcServer/npcs/dust_trap.dart";
+part "npcServer/npcs/vistingstone.dart";
 part "npcServer/items/actions/recipes.dart";
 part "npcServer/items/actions/itemgroups/cubimals.dart";
 part "npcServer/items/actions/itemgroups/emblems.dart";
@@ -158,6 +159,7 @@ part "npcServer/doors/door.dart";
 part "npcServer/doors/bureaucratic_hall_door.dart";
 part "npcServer/doors/machine_room_door.dart";
 part "npcServer/doors/shoppe_door.dart";
+part "npcServer/doors/hollow_door.dart";
 
 // misc
 part "npcServer/npcs/mailbox.dart";
