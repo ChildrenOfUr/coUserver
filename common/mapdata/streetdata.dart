@@ -166,7 +166,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Alikos Alder": {
 		"mailbox": true,
 		"shrine": "Cosma",
-		"vendor": "Hardware"
+		"vendor": "Hardware",
+		"hub_id": 98,
+		"tsid": "LA912PJ5D492UIL"
 	},
 	"Alpine Vista": {
 		"vendor": "Hardware",
@@ -393,7 +395,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Atsas Gaque": {
 		"shrine": "Tii",
-		"vendor": "Alchemical Goods"
+		"vendor": "Alchemical Goods",
+		"hub_id": 98,
+		"tsid": "LA96CLEAK692K72"
 	},
 	"Aurivella Odora": {
 		"tsid": "GIF9JS2DPJ3327C",
@@ -944,7 +948,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Canary Send": {
 		"machine_room": true,
 		"vendor": "Toy",
-		"shrine": "Lem"
+		"shrine": "Lem",
+		"hub_id": 98,
+		"tsid": "LA9G6MA4P6923PH"
 	},
 	"Cancrin Psam": {
 		"shrine": "Pot",
@@ -1620,7 +1626,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Elia Sec": {
 		"shrine": "Grendaline",
-		"vendor": "Produce"
+		"vendor": "Produce",
+		"hub_id": 98,
+		"tsid": "LA9111H84492V1K"
 	},
 	"Elios Durr": {
 		"shrine": "Mab",
@@ -3097,7 +3105,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Krios Palm": {
 		"shrine": "Lem",
-		"vendor": "Kitchen Tools"
+		"vendor": "Kitchen Tools",
+		"hub_id": 98,
+		"tsid": "LA9117J18492SRS"
 	},
 	"Kuben Ruben": {
 		"tsid": "GDO3KC3TUR03MUH",
@@ -3643,7 +3653,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Maroni Aloe": {
 		"vendor": "Animal Goods",
 		"shrine": "Humbaba",
-		"hub_id": 98
+		"hub_id": 98,
+		"tsid": "LA9S9DGPV692IU2"
 	},
 	"Marrakesh Meadow": {
 		"vendor": "Kitchen Tools",
@@ -4374,7 +4385,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Ovgos Lam": {
 		"shrine": "Humbaba",
-		"vendor": "Animal Goods"
+		"vendor": "Animal Goods",
+		"hub_id": 98,
+		"tsid": "LA912MO0D49290D"
 	},
 	"Oyas Yeh": {
 		"vendor": "Grocery",
@@ -4562,7 +4575,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Patomi Bunya": {
 		"vendor": "Hardware",
-		"shrine": "Friendly"
+		"shrine": "Friendly",
+		"hub_id": 98,
+		"tsid": "LA9JJL6KCE924IK"
 	},
 	"Peatland Moors": {
 		"vendor": "Toy",
@@ -4572,7 +4587,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Pedieos Fig": {
 		"mailbox": true,
 		"shrine": "Zille",
-		"vendor": "Alchemical Goods"
+		"vendor": "Alchemical Goods",
+		"hub_id": 98,
+		"tsid": "LA99NEQK1F92ICE"
 	},
 	"Peero Peers": {
 		"vendor": "Gardening Goods",
@@ -4594,7 +4611,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Pental Leave": {
 		"shrine": "Alph",
-		"vendor": "Animal Goods"
+		"vendor": "Animal Goods",
+		"hub_id": 98,
+		"tsid": "LA9118S28492QCL"
 	},
 	"Perhoni Flim": {
 		"mailbox": true,
@@ -4671,7 +4690,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Pipit Throat": {
 		"shrine": "Tii",
-		"vendor": "Alchemical Goods"
+		"vendor": "Alchemical Goods",
+		"hub_id": 98,
+		"tsid": "LA912UEGE492F2G"
 	},
 	"Pitika Parse": {
 		"vendor": "Hardware",
@@ -5250,7 +5271,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Saker Mank": {
 		"shrine": "Alph",
-		"vendor": "Animal Goods"
+		"vendor": "Animal Goods",
+		"hub_id": 98,
+		"tsid": "LA912LITC492EU2"
 	},
 	"Sakinalu Shreds": {
 		"shrine": "Grendaline",
@@ -5270,7 +5293,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Samak Shun": {
 		"vendor": "Hardware",
-		"shrine": "Cosma"
+		"shrine": "Cosma",
+		"hub_id": 98,
+		"tsid": "LA9GT0J87H92MPR"
 	},
 	"Sambara Stack": {
 		"vendor": "Toy",
@@ -5343,7 +5368,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Scaup Low": {
 		"mailbox": true,
 		"shrine": "Mab",
-		"vendor": "Produce"
+		"vendor": "Produce",
+		"hub_id": 98,
+		"tsid": "LA91PK4T4292B0V"
 	},
 	"Scribe's Weald": {
 		"tsid": "GLICFILAMTI11QV",
@@ -5531,7 +5558,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Smew Yew": {
 		"shrine": "Pot",
-		"vendor": "Grocery"
+		"vendor": "Grocery",
+		"hub_id": 98,
+		"tsid": "LA91O38QQ192K8J"
 	},
 	"Smy Mod": {
 		"vendor": "Kitchen Tools",
@@ -6148,7 +6177,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Tremit Rub": {
 		"mailbox": true,
 		"shrine": "Grendaline",
-		"vendor": "Produce"
+		"vendor": "Produce",
+		"hub_id": 98,
+		"tsid": "LA9143HLH4929K7"
 	},
 	"Trikatu": {
 		"shrine": "Friendly",
