@@ -42,8 +42,8 @@ abstract class Rock extends Plant {
 
 	void update() {
 		DateTime now = new DateTime.now();
-		if (state >= currentState.numFrames && now.compareTo(respawn) >= 0) {
-			say(responses['gone'].elementAt(rand.nextInt(responses['gone'].length)));
+
+		if ( state >= currentState.numFrames ) {
 			setActionEnabled("mine", false);
 		}
 
@@ -59,10 +59,17 @@ abstract class Rock extends Plant {
 	}
 
 	Future<bool> mine({WebSocket userSocket, String email}) async {
+		//make sure the player has a pick that can mine this rock
+		Map mineAction = actions.firstWhere((Map action) => action['action'] == 'mine');
+		List<String> types = mineAction['requires'][0]['of'];
+		bool success = await InventoryV2.decreaseDurability(email, types);
+		if(!success) {
+			return false;
+		}
+
 		//make sure the player has 10 energy to perform this action
 		//if so, allow the action and subtract 10 from their energy
-		bool success = await super.trySetMetabolics(email,
-			                                            energy: -10, imgMin: 10, imgRange: 5);
+		success = await super.trySetMetabolics(email, energy: -10, imgMin: 10, imgRange: 5);
 		if (!success) {
 			return false;
 		}
@@ -76,9 +83,9 @@ abstract class Rock extends Plant {
 		StatBuffer.incrementStat("rocksMined", 1);
 		state++;
 		if (state >= currentState.numFrames) {
+			say(responses['gone'].elementAt(rand.nextInt(responses['gone'].length)));
 			respawn = new DateTime.now().add(new Duration(minutes: 2));
 		}
-
 		//chances to get gems:
 		//amber = 1 in 5
 		//sapphire = 1 in 7

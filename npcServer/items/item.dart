@@ -6,13 +6,12 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 		"knife_and_board": 0.75
 	};
 
-	@Field() String category, iconUrl, spriteUrl, toolAnimation, name, description, itemType,
+	@Field() String category, iconUrl, spriteUrl, brokenUrl, toolAnimation, name, description, itemType,
 		item_id;
 	@Field() int price,
 		stacksTo,
 		iconNum = 4,
 		durability,
-		durabilityUsed = 0,
 		subSlots = 0;
 	@Field() num x, y;
 	@Field() bool onGround = false,
@@ -44,6 +43,7 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 		category = model.category;
 		iconUrl = model.iconUrl;
 		spriteUrl = model.spriteUrl;
+		brokenUrl = model.brokenUrl;
 		toolAnimation = model.toolAnimation;
 		name = model.name;
 		description = model.description;
@@ -76,6 +76,7 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 		return {
 			"iconUrl": iconUrl,
 			"spriteUrl": spriteUrl,
+			"brokenUrl": brokenUrl,
 			"name": name,
 			"itemType": itemType,
 			"category": category,
@@ -91,7 +92,6 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 			"actions": actionList,
 			"tool_animation": toolAnimation,
 			"durability": durability,
-			"durabilityUsed": durabilityUsed,
 			"subSlots": subSlots,
 			"metadata": metadata,
 			"discount": discount,
