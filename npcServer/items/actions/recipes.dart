@@ -126,7 +126,7 @@ class RecipeBook extends Object with MetabolicsChange {
 			int got = (await InventoryV2.takeAnyItemsFromUser(email, itemType, qty));
 			if (got != qty) {
 				// If they didn't have a required item, they're not making a smoothie
-				throw "Not enough itemType. Took $got but wanted $qty";
+				throw "Not enough $itemType. Took $got but wanted $qty";
 			}
 		});
 

@@ -563,7 +563,7 @@ class InventoryV2 {
 						diff = toGrab;
 						slot.count -= toGrab;
 					} else {
-						diff = toGrab - have;
+						diff = have;
 						slot.count = 0;
 					}
 
