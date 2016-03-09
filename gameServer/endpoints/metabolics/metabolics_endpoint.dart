@@ -55,6 +55,12 @@ class MetabolicsEndpoint {
 				if (simulateMood) {
 					_calcAndSetMood(m);
 				}
+
+				if(m.mood < m.max_mood~/10) {
+					String email = await User.getEmailFromUsername(username);
+					QuestEndpoint.questLogCache[email].offerQuest('Q10');
+				}
+
 				if (simulateEnergy) {
 					_calcAndSetEnergy(m);
 				}
@@ -383,14 +389,10 @@ Future<Metabolics> getMetabolics(
 				metabolic.user_id = results[0]['id'];
 			}
 		}
-
-		dbManager.closeConnection(dbConn);
 	} catch (e, st) {
-		if (dbConn != null) {
-			dbManager.closeConnection(dbConn);
-		}
 		log('(getMetabolics): $e\n$st');
 	} finally {
+		dbManager.closeConnection(dbConn);
 		return metabolic;
 	}
 }
@@ -425,7 +427,6 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 	}
 
 	// Write to database
-
 	PostgreSql dbConn = await dbManager.getConnection();
 	try {
 		//if the user already exists, update their data, otherwise insert them
@@ -552,13 +553,13 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 
 		result = await dbConn.execute(query, metabolics);
 
-		dbManager.closeConnection(dbConn);
+		//send the new metabolics to the user right away
+		WebSocket ws = MetabolicsEndpoint.userSockets[await User.getUsernameFromId(metabolics.user_id)];
+		ws?.add(JSON.encode(encode(metabolics)));
 	} catch (e, st) {
-		if (dbConn != null) {
-			dbManager.closeConnection(dbConn);
-		}
 		log('(setMetabolics): $e\n$st');
 	} finally {
+		dbManager.closeConnection(dbConn);
 		return result;
 	}
 }

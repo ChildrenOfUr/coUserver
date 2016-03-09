@@ -2,7 +2,7 @@ part of coUserver;
 
 class Pot extends Shrine
 {
-	Pot(String id, int x, int y) : super(id,x,y)
+	Pot(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 			{
@@ -19,7 +19,7 @@ class Pot extends Shrine
 
 class PotFirebog extends Shrine
 {
-	PotFirebog(String id, int x, int y) : super(id,x,y)
+	PotFirebog(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{
@@ -36,7 +36,7 @@ class PotFirebog extends Shrine
 
 class PotIx extends Shrine
 {
-	PotIx(String id, int x, int y) : super(id,x,y)
+	PotIx(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{
@@ -53,7 +53,7 @@ class PotIx extends Shrine
 
 class PotUralia extends Shrine
 {
-	PotUralia(String id, int x, int y) : super(id,x,y)
+	PotUralia(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{

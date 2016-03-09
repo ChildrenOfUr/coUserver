@@ -1,7 +1,7 @@
 part of coUserver;
 
 class MetalRock extends Rock {
-	MetalRock(String id, int x, int y) : super(id, x, y) {
+	MetalRock(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		type = "Metal Rock";
 
 		actions[0]['requires'] = [

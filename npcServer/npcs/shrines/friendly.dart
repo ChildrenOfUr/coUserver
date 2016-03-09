@@ -2,7 +2,7 @@ part of coUserver;
 
 class Friendly extends Shrine
 {
-	Friendly(String id, int x, int y) : super(id,x,y)
+	Friendly(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 			{
@@ -19,7 +19,7 @@ class Friendly extends Shrine
 
 class FriendlyFirebog extends Shrine
 {
-	FriendlyFirebog(String id, int x, int y) : super(id,x,y)
+	FriendlyFirebog(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{
@@ -36,7 +36,7 @@ class FriendlyFirebog extends Shrine
 
 class FriendlyIx extends Shrine
 {
-	FriendlyIx(String id, int x, int y) : super(id,x,y)
+	FriendlyIx(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{
@@ -53,7 +53,7 @@ class FriendlyIx extends Shrine
 
 class FriendlyUralia extends Shrine
 {
-	FriendlyUralia(String id, int x, int y) : super(id,x,y)
+	FriendlyUralia(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{

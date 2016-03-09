@@ -2,7 +2,7 @@ part of coUserver;
 
 class Spriggan extends Shrine
 {
-	Spriggan(String id, int x, int y) : super(id,x,y)
+	Spriggan(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{
@@ -19,7 +19,7 @@ class Spriggan extends Shrine
 
 class SprigganFirebog extends Shrine
 {
-	SprigganFirebog(String id, int x, int y) : super(id,x,y)
+	SprigganFirebog(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{
@@ -36,7 +36,7 @@ class SprigganFirebog extends Shrine
 
 class SprigganIx extends Shrine
 {
-	SprigganIx(String id, int x, int y) : super(id,x,y)
+	SprigganIx(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{
@@ -53,7 +53,7 @@ class SprigganIx extends Shrine
 
 class SprigganUralia extends Shrine
 {
-	SprigganUralia(String id, int x, int y) : super(id,x,y)
+	SprigganUralia(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{

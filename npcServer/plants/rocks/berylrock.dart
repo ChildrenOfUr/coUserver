@@ -1,7 +1,7 @@
 part of coUserver;
 
 class BerylRock extends Rock {
-	BerylRock(String id, int x, int y) : super(id, x, y) {
+	BerylRock(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		type = "Beryl Rock";
 
 		states =

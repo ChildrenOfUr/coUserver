@@ -1,7 +1,7 @@
 part of coUserver;
 
 class FruitTree extends Tree {
-	FruitTree(String id, int x, int y) : super(id, x, y) {
+	FruitTree(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		type = "Fruit Tree";
 
 		responses =

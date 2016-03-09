@@ -8,14 +8,14 @@ abstract class NPC extends Entity {
 	 * */
 
 	Random rand;
-	String id, type;
+	String id, type, streetName;
 	int x, y, speed = 0, ySpeed = 0;
 	DateTime respawn;
 	bool facingRight = true;
 	Map<String, Spritesheet> states;
 	Spritesheet currentState;
 
-	NPC(this.id, this.x, this.y) {
+	NPC(this.id, this.x, this.y, this.streetName) {
 		respawn = new DateTime.now();
 		rand = new Random();
 	}
@@ -42,5 +42,15 @@ abstract class NPC extends Entity {
 		map["facingRight"] = facingRight;
 		map["actions"] = actions;
 		return map;
+	}
+
+	void setState(String state, {int repeat: 1}) {
+		//set their state and then set the respawn time that it needs
+		currentState = states[state];
+
+		//if we want the animation to play more than once before respawn,
+		//then multiply the length by the repeat
+		int length = (currentState.numFrames / 30 * 1000).toInt() * repeat;
+		respawn = new DateTime.now().add(new Duration(milliseconds: length));
 	}
 }

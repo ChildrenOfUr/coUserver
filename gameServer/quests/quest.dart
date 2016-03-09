@@ -162,7 +162,7 @@ class Quest extends Trackable with MetabolicsChange {
 	}
 
 	@override
-	void startTracking(String email) {
+	void startTracking(String email, {bool justStarted: false}) {
 		if(complete) {
 			return;
 		}
@@ -171,7 +171,8 @@ class Quest extends Trackable with MetabolicsChange {
 
 		requirements.forEach((Requirement r) => r.startTracking(email));
 
-		Map questInProgress = {'questInProgress': true, 'quest': encode(this)};
+		String heading = justStarted ? 'questBegin' : 'questInProgress';
+		Map questInProgress = {heading: true, 'quest': encode(this)};
 		QuestEndpoint.userSockets[email].add(JSON.encode(questInProgress));
 
 		mbSubscriptions.add(messageBus.subscribe(CompleteRequirement, (CompleteRequirement r) async {
@@ -229,6 +230,7 @@ class Quest extends Trackable with MetabolicsChange {
 
 class UserQuestLog extends Trackable {
 	int questNum = 0;
+	bool offeringQuest = false;
 	@Field() int id, user_id;
 	@Field() String completed_list, in_progress_list;
 
@@ -321,7 +323,7 @@ class UserQuestLog extends Trackable {
 			return false;
 		}
 
-		questToAdd.startTracking(email);
+		questToAdd.startTracking(email, justStarted: true);
 		List<Quest> tmp = inProgressQuests;
 		tmp.add(questToAdd);
 		inProgressQuests = tmp;
@@ -343,9 +345,10 @@ class UserQuestLog extends Trackable {
 		return false;
 	}
 
-	void offerQuest(String questId) {
+	void offerQuest(String questId, {bool fromItem: false, int slot: -1, int subSlot: -1}) {
 		Quest questToOffer = new Quest.clone(questId);
-		if (_doingOrDone(questToOffer)) {
+
+		if (_doingOrDone(questToOffer) || offeringQuest) {
 			return;
 		}
 
@@ -357,16 +360,24 @@ class UserQuestLog extends Trackable {
 			}
 		}
 
-		mbSubscriptions.add(messageBus.subscribe(AcceptQuest, (AcceptQuest acceptance) {
+		mbSubscriptions.add(messageBus.subscribe(AcceptQuest, (AcceptQuest acceptance) async {
 			if(acceptance.email != email) {
 				return;
 			}
+			if(fromItem) {
+				Item itemInSlot = await	InventoryV2.takeItemFromUser(email, slot, subSlot, 1);
+				if (itemInSlot == null) {
+					return;
+				}
+			}
+			offeringQuest = false;
 			QuestEndpoint.questLogCache[acceptance.email].addInProgressQuest(acceptance.questId);
 		}));
 		mbSubscriptions.add(messageBus.subscribe(RejectQuest, (RejectQuest rejection) {
 			if(rejection.email != email) {
 				return;
 			}
+			offeringQuest = false;
 		}));
 
 		Map questOffer = {
@@ -374,6 +385,7 @@ class UserQuestLog extends Trackable {
 			'quest': encode(questToOffer)
 		};
 		QuestEndpoint.userSockets[email].add(JSON.encode(questOffer));
+		offeringQuest = true;
 	}
 
 	List<Quest> get completedQuests => decode(JSON.decode(completed_list), Quest);

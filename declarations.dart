@@ -9,7 +9,6 @@ import "dart:mirrors";
 import "package:intl/intl.dart";
 import "package:slack/io/slack.dart" as slack;
 import 'package:redstone/redstone.dart' as app;
-import "package:shelf/shelf.dart" as shelf;
 import "package:redstone_mapper/mapper.dart";
 import "package:redstone_mapper/plugin.dart";
 import "package:redstone_mapper_pg/manager.dart";
@@ -21,6 +20,8 @@ import "package:image/image.dart";
 import "package:crypto/crypto.dart";
 import "package:harvest/harvest.dart" as harvest;
 import 'package:jsonx/jsonx.dart' as jsonx;
+import 'package:path/path.dart' as path;
+import 'package:postgresql/postgresql.dart';
 
 //contains the main() method to start the server
 part "gameServer/server.dart";
@@ -45,7 +46,9 @@ part 'gameServer/quests/quest_endpoint.dart';
 part 'common/user.dart';
 
 // skills
-part "gameServer/endpoints/skills.dart";
+part "gameServer/skills/skillsmanager.dart";
+part "gameServer/skills/skill.dart";
+part "gameServer/skills/playerskill.dart";
 
 // achievements
 part "gameServer/achievements/achievements.dart";
@@ -116,10 +119,12 @@ part "npcServer/items/actions/action.dart";
 part "npcServer/items/item_user.dart";
 part "npcServer/items/hellgrapes.dart";
 part "npcServer/npcs/dust_trap.dart";
+part "npcServer/npcs/vistingstone.dart";
 part "npcServer/items/actions/recipes.dart";
 part "npcServer/items/actions/itemgroups/cubimals.dart";
 part "npcServer/items/actions/itemgroups/emblems.dart";
 part "npcServer/items/actions/itemgroups/milk-butter-cheese.dart";
+part 'npcServer/items/actions/itemgroups/piggy_plop.dart';
 part "npcServer/items/actions/itemgroups/orb.dart";
 part "npcServer/items/actions/itemgroups/consume.dart";
 
@@ -154,6 +159,7 @@ part "npcServer/doors/door.dart";
 part "npcServer/doors/bureaucratic_hall_door.dart";
 part "npcServer/doors/machine_room_door.dart";
 part "npcServer/doors/shoppe_door.dart";
+part "npcServer/doors/hollow_door.dart";
 
 // misc
 part "npcServer/npcs/mailbox.dart";

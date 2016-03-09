@@ -3,7 +3,7 @@ part of coUserver;
 Map<String, Quest> quests = {};
 
 @app.Group("/quest")
-class QuestService {
+class QuestService extends Object with MetabolicsChange {
 	@app.Route("/completed/:email")
 	@Encode()
 	static Future<List<Quest>> getCompleted(String email) async {
@@ -48,6 +48,42 @@ class QuestService {
 		}
 	}
 
+	@app.Route('/pieces')
+	Map<String, String> getQuestPieces() {
+		Map<String, String> pieces = {
+			'getItem_<Item>' : 'Aquire Item',
+			'makeRecipe_<Item>' : 'Make Recipe',
+			'treePet<Tree>' : 'Pet Tree',
+			'location_<Location>' : 'Goto Location',
+			'sendMail_<Player>_containingItems_<List_Item>_currants_<int>' : 'Send Mail',
+		};
+
+		return pieces;
+	}
+
+	@app.Route('/createQuestItem', methods: const[app.POST])
+	Future createQuestItem(@Decode() Quest quest) async {
+		int imgCost = quest.rewards.img + 300 * quest.requirements.length + 500;
+		int currantCost = quest.rewards.currants;
+
+		//we are setting the id = the creator's email on the client
+		String email = quest.id;
+		String username = await User.getUsernameFromEmail(email);
+		quest.id = username + new DateTime.now().millisecondsSinceEpoch.toString();
+
+		//fix up the conversation ids
+		quest.conversation_start.id = quest.id + '-CS';
+		quest.conversation_end.id = quest.id + '-CE';
+
+		bool success = await trySetMetabolics(email, imgMin: -imgCost, currants: -currantCost);
+		if (success) {
+			//create the item and give it to the user
+			Item questItem = new Item.clone('user_made_quest');
+			questItem.metadata['questData'] = JSON.encode(encode(quest));
+			await InventoryV2.addItemToUser(email, questItem.getMap(), 1);
+		}
+	}
+
 	static Future<UserQuestLog> createQuestLog(String email) async {
 		PostgreSql dbConn = await dbManager.getConnection();
 		String query = "SELECT * FROM users where email = @email";
@@ -81,8 +117,8 @@ class QuestService {
 	static loadQuests() async {
 		try {
 			String directory = Platform.script.toFilePath();
-			directory = directory.substring(0, directory.lastIndexOf('/'));
-			Directory questsDirectory = new Directory('$directory/gameServer/quests/json');
+			directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
+			Directory questsDirectory = new Directory(path.join(directory,'gameServer', 'quests', 'json'));
 			await for(FileSystemEntity entity in questsDirectory.list(recursive: true)) {
 				if (entity is File) {
 					// load quests

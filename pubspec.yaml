@@ -9,9 +9,8 @@ dependencies:
     git: https://github.com/redstone-dart/redstone.git
   redstone_mapper_pg:
     git: https://github.com/RobertMcDermot/redstone_mapper_pg.git
-  shelf: "^0.6.5"
   slack: "^1.2.2"
   image: "^1.1.25"
   crypto: "^0.9.1"
-  harvest: "^2.0.9"
+  harvest: "^2.0.11"
   jsonx: "2.0.0"

@@ -4,7 +4,7 @@ class HellGrapes extends Plant {
 	static final int ENERGY_AWARD = 3;
 	static final int ENERGY_REQ = 9;
 
-	HellGrapes(String id, int x, int y) : super(id, x, y) {
+	HellGrapes(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		actionTime = 3000;
 		type = "Hellish Grapes";
 

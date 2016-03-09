@@ -4,6 +4,8 @@ class Action {
 	@Field()
 	String name;
 	@Field()
+	bool multiEnabled = false;
+	@Field()
 	String description = '';
 	@Field()
 	int timeRequired = 0;

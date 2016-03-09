@@ -1,7 +1,7 @@
 part of coUserver;
 
 class GasPlant extends Tree {
-	GasPlant(String id, int x, int y) : super(id, x, y) {
+	GasPlant(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		type = "Gas Plant";
 
 		responses =

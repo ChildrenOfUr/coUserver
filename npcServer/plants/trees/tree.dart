@@ -3,7 +3,7 @@ part of coUserver;
 abstract class Tree extends Plant {
 	int maturity;
 
-	Tree(String id, int x, int y) : super(id, x, y) {
+	Tree(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		actions..add({"action":"harvest",
 			"timeRequired":actionTime,
 			"enabled":true,

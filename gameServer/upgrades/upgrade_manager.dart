@@ -10,8 +10,8 @@ class UpgradeManager {
 		try {
 			// Find the upgrades file
 			String directory = Platform.script.toFilePath();
-			directory = directory.substring(0, directory.lastIndexOf("/"));
-			File upgradesFile = new File("$directory/gameServer/upgrades/upgrades.json");
+			directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
+			File upgradesFile = new File(path.join(directory, 'gameServer', 'upgrades', 'upgrades.json'));
 
 			// Read the file
 			List<Upgrade> upgrades = decode(JSON.decode(await upgradesFile.readAsString()), Upgrade);

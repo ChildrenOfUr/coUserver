@@ -1,0 +1,113 @@
+{
+  "id": "Q10",
+  "title": "The Great Guzzler Challenge",
+  "description": "Drink a dozen Beers. Shotgunning is optional.",
+  "requirements": [
+    {
+      "id": "Q10R1",
+      "text": "beers drank",
+      "type": "counter",
+      "numRequired": 12,
+      "eventType": "drink_beer",
+      "iconUrl": "http://childrenofur.com/assets/entityImages/beer__x1_iconic_png_1354829708.png"
+    }
+  ],
+  "rewards": {
+    "img": 400,
+    "currants": 600,
+    "mood": 100
+  },
+  "conversation_start": {
+    "id": "Q10-CS",
+    "screens": [
+      {
+        "paragraphs": [
+          "Hey, kid. I know this is going to sound like a weird request, but it's really important that you find and drink 12 Beers. Or is it 12 Beer?"
+        ],
+        "choices": [
+          {
+            "text": "Hmm. I think it's always beer. Like moose.",
+            "gotoScreen": 2
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "You don't say? Well. Anyway. Are you up for it?"
+        ],
+        "choices": [
+          {
+            "text": "I think so.",
+            "gotoScreen": 3
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "Then hop to it!"
+        ],
+        "choices": [
+          {
+            "text": "Ummm.",
+            "gotoScreen": 4
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "What? Hop... hops... beer. Get it?"
+        ],
+        "choices": [
+          {
+            "text": "Yeah. I get it. It's pretty bad.",
+            "gotoScreen": 5
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "Give me a break, kid. I'm a rock. Are you going to do this thing or what?"
+        ],
+        "choices": [
+          {
+            "text": "Beer me",
+            "gotoScreen": 6,
+            "isQuestAccept": true
+          },
+          {
+            "text": "No thanks",
+            "gotoScreen": 6,
+            "isQuestReject": true
+          }
+        ]
+      }
+    ]
+  },
+  "conversation_end": {
+    "id": "Q10-CE",
+    "screens": [
+      {
+        "paragraphs": [
+          "Well done, kid. You chugged that like a pro. Here's a little something to make it worth your while."
+        ],
+        "choices": [
+          {
+            "text": "Thanks. *hiccup*",
+            "gotoScreen": 2
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "Maybe you should go lie down or something. You don't look so good."
+        ],
+        "choices": [
+          {
+            "text": "Buuurrp",
+            "gotoScreen": 3
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -44,5 +44,23 @@
     "stacksTo": 1,
     "price": 0,
     "description": "Shiny, but you can barely see the shine so it ends up a little dull. Totally worthless: it has no purpose. Holding on to this little object simply cannot be recommended."
+  },
+  "user_made_quest": {
+    "name": "A quest made by a user",
+    "category": "Quest Items",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/user_made_quest.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/user_made_quest.png",
+    "iconNum": 1,
+    "stacksTo": 1,
+    "price": 0,
+    "description": "Someone needs a job done and you look like just the person to do it. Get it done for them and you'll be rewarded.",
+    "actions": [
+      {
+        "name": "Open Quest",
+        "description": "Let's see what needs done",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   }
 }

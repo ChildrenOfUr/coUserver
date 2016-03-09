@@ -45,6 +45,9 @@ main() async {
 
 	KeepAlive.start();
 
+	//ignore messages about quest requirements being completed when not on the quest
+	messageBus.deadMessageHandler = (harvest.Message m){};
+
 	await StreetUpdateHandler.loadItems();
 	await QuestService.loadQuests();
 
@@ -120,6 +123,8 @@ main() async {
 //	await Future.wait(futures);
 //	print('upgading complete');
 //	dbManager.closeConnection(db);
+
+	//print(SkillManager.find("mining").skillRequirements);
 }
 
 ///anything that should run here as cleanup before exit
@@ -132,6 +137,18 @@ Future cleanup() async {
 	});
 
 	exit(0);
+}
+
+@app.Route('/searchUsers')
+Future<List<String>> searchUsers(@app.QueryParam('query') String query) async {
+	query = '%${query.toLowerCase()}%';
+	List<User> users = await dbConn.query("SELECT * FROM users WHERE lower(username) LIKE @query", User, {'query':query});
+	List<String> usernames = [];
+	users.forEach((User user) {
+		usernames.add(user.username);
+	});
+
+	return usernames;
 }
 
 @app.Route('/listUsers')
@@ -192,8 +209,6 @@ Future<List<Item>> getItems(@app.QueryParam('category') String category,
 }
 
 PostgreSql get dbConn => app.request.attributes.dbConn;
-
-Future<PostgreSql> get conn => dbManager.getConnection();
 
 //add a CORS header to every request
 @app.Interceptor(r'/.*')

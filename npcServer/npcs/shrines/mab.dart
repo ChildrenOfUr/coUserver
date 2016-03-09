@@ -2,7 +2,7 @@ part of coUserver;
 
 class Mab extends Shrine
 {
-	Mab(String id, int x, int y) : super(id,x,y)
+	Mab(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 			{
@@ -19,7 +19,7 @@ class Mab extends Shrine
 
 class MabFirebog extends Shrine
 {
-	MabFirebog(String id, int x, int y) : super(id,x,y)
+	MabFirebog(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{
@@ -36,7 +36,7 @@ class MabFirebog extends Shrine
 
 class MabIx extends Shrine
 {
-	MabIx(String id, int x, int y) : super(id,x,y)
+	MabIx(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{
@@ -53,7 +53,7 @@ class MabIx extends Shrine
 
 class MabUralia extends Shrine
 {
-	MabUralia(String id, int x, int y) : super(id,x,y)
+	MabUralia(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{

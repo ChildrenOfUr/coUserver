@@ -2,7 +2,7 @@ part of coUserver;
 
 class Humbaba extends Shrine
 {
-	Humbaba(String id, int x, int y) : super(id,x,y)
+	Humbaba(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 			{
@@ -19,7 +19,7 @@ class Humbaba extends Shrine
 
 class HumbabaFirebog extends Shrine
 {
-	HumbabaFirebog(String id, int x, int y) : super(id,x,y)
+	HumbabaFirebog(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{
@@ -36,7 +36,7 @@ class HumbabaFirebog extends Shrine
 
 class HumbabaIx extends Shrine
 {
-	HumbabaIx(String id, int x, int y) : super(id,x,y)
+	HumbabaIx(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{
@@ -53,7 +53,7 @@ class HumbabaIx extends Shrine
 
 class HumbabaUralia extends Shrine
 {
-	HumbabaUralia(String id, int x, int y) : super(id,x,y)
+	HumbabaUralia(String id, int x, int y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{

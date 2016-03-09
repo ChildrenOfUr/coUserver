@@ -4,7 +4,7 @@ class Shrine extends NPC {
 	String description;
 	int communeCount = 0;
 
-	Shrine(String id, int x, int y) : super(id, x, y) {
+	Shrine(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		actionTime = 0;
 
 		actions

@@ -1,7 +1,7 @@
 part of coUserver;
 
 class WoodTree extends Tree {
-	WoodTree(String id, int x, int y) : super(id, x, y) {
+	WoodTree(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		type = "Wood Tree";
 
 		responses =

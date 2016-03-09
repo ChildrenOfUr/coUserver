@@ -3,7 +3,7 @@ part of coUserver;
 class Firefly extends NPC {
 	Clock ffClock = new Clock();
 
-	Firefly(String id, int x, int y) : super(id, x, y) {
+	Firefly(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		actionTime = 4000;
 		type = "Firefly";
 		actions

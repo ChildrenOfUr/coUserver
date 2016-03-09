@@ -9,10 +9,12 @@ class StreetUpdateHandler {
 	static loadItems() async {
 		try {
 			String directory = Platform.script.toFilePath();
-			directory = directory.substring(0, directory.lastIndexOf('/'));
+
+			directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
+			String filePath = path.join(directory,'npcServer','items','json');
 
 			// load items
-			await new Directory('$directory/npcServer/items/json').list().forEach((File category) async {
+			await new Directory(filePath).list().forEach((File category) async {
 				JSON.decode(await category.readAsString()).forEach((String name, Map itemMap) {
 					itemMap['itemType'] = name;
 					items[name] = decode(itemMap, Item);
@@ -20,27 +22,32 @@ class StreetUpdateHandler {
 			});
 
 			// load recipes
-			await new Directory('$directory/npcServer/items/actions/recipes').list().forEach((File tool) async {
+			filePath = path.join(directory,'npcServer', 'items', 'actions', 'recipes');
+			await new Directory(filePath).list().forEach((File tool) async {
 				JSON.decode(await tool.readAsString()).forEach((Map recipeMap) {
 					RecipeBook.recipes.add(decode(recipeMap, Recipe));
 				});
 			});
 
 			// load vendor types
-			await JSON.decode(await new File('$directory/npcServer/npcs/vendors/vendors.json').readAsString()).forEach((
-				                                                                                                           String street,
-				                                                                                                           String type) {
+			filePath = path.join(directory, 'npcServer', 'npcs', 'vendors', 'vendors.json');
+			String fileText = await new File(filePath).readAsString();
+			JSON.decode(fileText).forEach((String street, String type) {
 				vendorTypes[street] = type;
 			});
 
 			// load stats given for eating/drinking
-			await JSON.decode(await new File('$directory/npcServer/items/actions/consume.json').readAsString())
-				.forEach((String item, Map award) {
-				Consumable.consumeValues[item] = award;
+			filePath = path.join(directory, 'npcServer', 'items', 'actions', 'consume.json');
+			fileText = await new File(filePath).readAsString();
+			JSON.decode(fileText).forEach((String item, Map award) {
+				items[item].consumeValues = award;
 			});
 
-			// load achievements
+			// Load achievements
 			Achievement.load();
+
+			// Load skills
+			SkillManager.loadSkills();
 		}
 		catch (e) {
 			log("Problem loading items: $e");
@@ -130,7 +137,7 @@ class StreetUpdateHandler {
 			}
 		});
 		userSockets.forEach((String email, WebSocket socket) {
-			if(socket == ws) {
+			if (socket == ws) {
 				userToRemove = email;
 				StatCollection.removeFromCache(email);
 			}
@@ -346,9 +353,9 @@ class StreetUpdateHandler {
 			inv.updateJson();
 			// Update the database
 			await inv._updateDatabase(email);
-		} catch (e) {
+		} catch (e, st) {
 			inv.inventory_json = jsonx.encode(beforeSlots);
-			log("Problem moving item: $e");
+			log("Problem moving item: $e\n$st");
 			return false;
 		}
 		// Update the client

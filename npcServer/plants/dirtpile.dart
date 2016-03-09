@@ -1,7 +1,7 @@
 part of coUserver;
 
 class DirtPile extends Plant {
-	DirtPile(String id, int x, int y) : super(id, x, y) {
+	DirtPile(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		actionTime = 3000;
 		type = "Dirt Pile";
 

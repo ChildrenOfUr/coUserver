@@ -1,7 +1,7 @@
 part of coUserver;
 
 class SparklyRock extends Rock {
-	SparklyRock(String id, int x, int y) : super(id, x, y) {
+	SparklyRock(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		type = "Sparkly Rock";
 
 		states =

@@ -27,10 +27,7 @@ class Street {
 
 		//attempt to load street occupants from streetEntities folder
 		Map entities = getStreetEntities(tsid);
-		if (entities['entities'] == null) {
-//			generateRandomOccupants();
-		}
-		else {
+		if (entities['entities'] != null) {
 			for (Map entity in entities['entities']) {
 				String type = entity['type'];
 				int x = entity['x'];
@@ -58,14 +55,14 @@ class Street {
 									.reflectee;
 							} else {
 								npcs[id] = classMirror
-									.newInstance(new Symbol(""), [id, x, y])
+									.newInstance(new Symbol(""), [id, x, y, label])
 									.reflectee;
 							}
 						}
 						if (classMirror.isSubclassOf(findClassMirror("Plant"))) {
 							id = "p" + id;
 							plants[id] = classMirror
-								.newInstance(new Symbol(""), [id, x, y])
+								.newInstance(new Symbol(""), [id, x, y, label])
 								.reflectee;
 						}
 						if (classMirror.isSubclassOf(findClassMirror("Door"))) {
@@ -118,40 +115,5 @@ class Street {
 		}
 
 		dbManager.closeConnection(dbConn);
-	}
-
-	void generateRandomOccupants() {
-		int num = rand.nextInt(30) + 1;
-		for (int i = 0; i < num; i++) {
-			//1 billion numbers a unique string makes?
-			String id = "q" + rand.nextInt(1000000000).toString();
-			int typeInt = rand.nextInt(4);
-			String type = "";
-			if (typeInt == 0)
-				type = "currant";
-			if (typeInt == 1)
-				type = "energy";
-			if (typeInt == 2)
-				type = "mood";
-			if (typeInt == 3)
-				type = "img";
-			quoins[id] = new Quoin(id, i * 200, rand.nextInt(200) + 200, type);
-		}
-
-		//generate some piggies
-		num = rand.nextInt(3) + 1;
-		for (int i = 1; i <= num; i++) {
-			//1 billion numbers a unique string makes?
-			String id = "n" + rand.nextInt(1000000000).toString();
-			npcs[id] = new Piggy(id, i * 200, 0);
-		}
-
-		//generate some fruit trees
-		num = rand.nextInt(3) + 1;
-		for (int i = 1; i <= num; i++) {
-			//1 billion numbers a unique string makes?
-			String id = "p" + rand.nextInt(1000000000).toString();
-			plants[id] = new FruitTree(id, 400 * i, 100);
-		}
 	}
 }

@@ -134,8 +134,8 @@ class Metabolics {
 		} else {
 			// Revive
 			undead_street = null;
-			energy = max_energy;
-			mood = max_mood;
+			energy = max_energy~/10;
+			mood = max_mood~/10;
 		}
 	}
 

@@ -1,7 +1,7 @@
 part of coUserver;
 
 class Jellisac extends Plant {
-	Jellisac(String id, int x, int y) : super(id, x, y) {
+	Jellisac(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		actionTime = 2000;
 		type = "Jellisac Growth";
 

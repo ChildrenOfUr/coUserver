@@ -59,7 +59,7 @@ class Slot {
 
 @app.Group("/inventory")
 class InventoryV2 {
-
+	static Map<String,bool> inventoryLocked = {};
 	// Globals ////////////////////////////////////////////////////////////////////////////////////
 
 	// Sets how many slots each player has
@@ -341,7 +341,8 @@ class InventoryV2 {
 		if (toMerge > 0) {
 			log("[InventoryV2] Cannot give ${item.itemType} x $count to user with email $email because they ran"
 			    + " out of slots before all items were added. $toMerge items skipped.");
-//			item.putItemOnGround()
+			Identifier playerId = PlayerUpdateHandler.users[await User.getUsernameFromEmail(email)];
+			item.putItemOnGround(playerId.currentX, playerId.currentY+140, playerId.currentStreet);
 		}
 
 		await _updateDatabase(email);
@@ -452,7 +453,7 @@ class InventoryV2 {
 				queryString = "INSERT INTO inventories(inventory_json, user_id) VALUES(@inventory_json,@user_id)";
 				numRowsUpdated = await dbConn.execute(queryString, this);
 
-				//player just got their first item, lets tell them about bags
+				//player just got their first item, let's tell them about bags
 				QuestEndpoint.questLogCache[email].offerQuest('Q8');
 			}
 
@@ -562,7 +563,7 @@ class InventoryV2 {
 						diff = toGrab;
 						slot.count -= toGrab;
 					} else {
-						diff = toGrab - have;
+						diff = have;
 						slot.count = 0;
 					}
 
@@ -585,6 +586,22 @@ class InventoryV2 {
 			// Skip empty slots
 			if (slot.isEmpty) {
 				continue;
+			}
+
+			//skip containers that are not empty
+			if(item.isContainer) {
+				if (slot.metadata.containsKey('slots')) {
+					List<Slot> innerSlots = jsonx.decode(slot.metadata['slots'], type: listOfSlots);
+					bool isEmpty = true;
+					for (Slot innerSlot in innerSlots) {
+						if(innerSlot.itemType != null || innerSlot.itemType != '') {
+							isEmpty = false;
+						}
+					}
+					if(!isEmpty) {
+						continue;
+					}
+				}
 			}
 
 			int have = slot.count,
@@ -650,6 +667,12 @@ class InventoryV2 {
 						};
 						bagSlotMaps.add(bagSlotMap);
 					});
+//					print('num slots (should be): ${item.subSlots}');
+//					print('num slots (is)       : ${bagSlotMaps.length}');
+//					int slotDiff = item.subSlots-bagSlotMaps.length;
+//					for(int i=0; i<slotDiff; i++) {
+//						bagSlotMaps.add({'itemType':'','item':null,'count':0});
+//					}
 					item.metadata['slots'] = bagSlotMaps;
 				}
 			}
@@ -701,6 +724,87 @@ class InventoryV2 {
 		return count;
 	}
 
+	Future<bool> _decreaseDurability(List<String> validTypes, int amount, String email) async {
+		bool success = false;
+
+		List<Slot> tmpSlots = slots;
+		for(String itemType in validTypes) {
+			Item sample = items[itemType];
+			//look in the regular slots
+			for (Slot s in tmpSlots) {
+				if (s.itemType != null && s.itemType == itemType) {
+					int used = s.metadata['durabilityUsed'] ?? 0;
+					if(used+amount > sample.durability) {
+						continue;
+					}
+					s.metadata['durabilityUsed'] = used + amount;
+					success = true;
+					break;
+				}
+			}
+
+			if (success) {
+				break;
+			}
+		}
+
+		if(!success) {
+			for (String itemType in validTypes) {
+				Item sample = items[itemType];
+				//add the bag contents
+				for (Slot s in tmpSlots) {
+					if (!s.itemType.isEmpty && items[s.itemType].isContainer &&
+					    items[s.itemType].subSlots != null) {
+						if (s.metadata["slots"] != null && (s.metadata["slots"]).length > 0) {
+							List<Slot> bagSlots = jsonx.decode(s.metadata['slots'], type: listOfSlots);
+							if (bagSlots != null) {
+								for (Slot bagSlot in bagSlots) {
+									if (bagSlot.itemType != null && bagSlot.itemType == itemType) {
+										int used = bagSlot.metadata['durabilityUsed'] ?? 0;
+										if(used+amount > sample.durability) {
+											continue;
+										}
+										bagSlot.metadata['durabilityUsed'] = used + amount;
+										success = true;
+										break;
+									}
+								}
+							}
+							if (success) {
+								s.metadata['slots'] = jsonx.encode(bagSlots);
+								break;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		if(success) {
+			inventory_json = jsonx.encode(tmpSlots);
+			await _updateDatabase(email);
+		}
+
+		return success;
+	}
+
+	static Future _wait(Duration duration) {
+		Completer c = new Completer();
+		new Timer(duration, () => c.complete());
+		return c.future;
+	}
+
+	static Future _aquireLock(String email) async {
+		while(inventoryLocked[email]) {
+			await _wait(new Duration(milliseconds: 100));
+		}
+		inventoryLocked[email] = true;
+	}
+
+	static _releaseLock(String email) {
+		inventoryLocked[email] = false;
+	}
+
 	// Static Public Methods //////////////////////////////////////////////////////////////////////
 	Future<Item> getItemInSlot(int slot, int subSlot, String email) async {
 		Item itemTaken = await _takeItem(slot, subSlot, 0, email, simulate: true);
@@ -708,6 +812,8 @@ class InventoryV2 {
 	}
 
 	static Future<int> addItemToUser(String email, Map item, int count,	[String fromObject = "_self"]) async {
+		int result = count;
+		await _aquireLock(email);
 		WebSocket userSocket = StreetUpdateHandler.userSockets[email];
 		InventoryV2 inv = await getInventory(email);
 		int added = await inv._addItem(item, count, email);
@@ -718,23 +824,28 @@ class InventoryV2 {
 			if(itemType == 'pick' || itemType == 'fancy_pick') {
 				QuestEndpoint.questLogCache[email].offerQuest('Q6');
 			}
-			return count;
 		} else {
-			return -1;
+			result = -1;
 		}
+
+		_releaseLock(email);
+		return result;
 	}
 
 	static Future<Item> takeItemFromUser(String email, int slot, int subSlot, int count) async {
+		await _aquireLock(email);
 		WebSocket userSocket = StreetUpdateHandler.userSockets[email];
 		InventoryV2 inv = await getInventory(email);
 		Item itemTaken = await inv._takeItem(slot, subSlot, count, email);
 		if (itemTaken != null) {
 			await fireInventoryAtUser(userSocket, email, update: true);
 		}
+		_releaseLock(email);
 		return itemTaken;
 	}
 
 	static Future<int> takeAnyItemsFromUser(String email, String itemType, int count, {simulate: false}) async {
+		await _aquireLock(email);
 		WebSocket userSocket = StreetUpdateHandler.userSockets[email];
 		InventoryV2 inv = await getInventory(email);
 		int taken = await inv._takeAnyItems(itemType, count, email, simulate: simulate);
@@ -742,11 +853,41 @@ class InventoryV2 {
 			await fireInventoryAtUser(userSocket, email, update: true);
 		}
 
+		_releaseLock(email);
 		return taken;
 	}
 
 	static Future<bool> hasItem(String email, String itemType, int count) async {
 		return (await takeAnyItemsFromUser(email, itemType, count, simulate:true)) == count;
+	}
+
+	/**
+	 * [validTypes] can be either a String or a List<String> which lists the valid
+	 * item type from which to take durability.
+	 * [amount] is the amount to add to the item's durabilityUsed
+	 */
+	static Future<bool> decreaseDurability(String email, dynamic validTypes, {int amount: 1}) async {
+		assert(validTypes is String || validTypes is List<String>);
+
+		List<String> types;
+		if(validTypes is String) {
+			types = [validTypes];
+		} else {
+			types = validTypes;
+		}
+
+		await _aquireLock(email);
+		WebSocket userSocket = StreetUpdateHandler.userSockets[email];
+		InventoryV2 inv = await getInventory(email);
+
+		bool success = await inv._decreaseDurability(types, amount, email);
+
+		if(success) {
+			await fireInventoryAtUser(userSocket, email, update: true);
+		}
+
+		_releaseLock(email);
+		return success;
 	}
 
 	Slot getSlot(int invIndex, [int bagIndex]) {
@@ -787,35 +928,4 @@ Future<InventoryV2> getInventory(String email) async {
 
 	dbManager.closeConnection(dbConn);
 	return inventory;
-}
-
-// Returns whether the user has blank slots, and any item restrictions on the slots
-@app.Route("/checkBlankSlots/:email")
-@Encode()
-Future<String> checkBlankSlots(String email) async {
-	// Get ready to do the thing
-	List<List<String>> blankSlotTypes = [];
-
-	// Do the thing
-	(await getInventory(email)).slots.forEach((Slot slot) {
-		if (slot.isEmpty) {
-			// Check root slots (not in containers)
-			// Add a slot that accepts everything
-			// (including containers, hence the "_root") to the list of blank slots
-			blankSlotTypes.add(["_root"]);
-		} else if (items[slot.itemType].isContainer) {
-			// Check inside containers
-			List<Slot> bagSlots = jsonx.decode(slot.metadata["slots"], type: listOfSlots);
-			bagSlots.forEach((Slot bagSlot) {
-				if (bagSlot.isEmpty) {
-					// Add a slot that accepts a certain
-					// list of things to the list of blank slots
-					blankSlotTypes.add(items[slot.itemType].subSlotFilter);
-				}
-			});
-		}
-	});
-
-	// Tell the client how the thing went
-	return JSON.encode(blankSlotTypes);
 }

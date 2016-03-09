@@ -1,7 +1,7 @@
 part of coUserver;
 
 class BubbleTree extends Tree {
-	BubbleTree(String id, int x, int y) : super(id, x, y) {
+	BubbleTree(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		type = "Bubble Tree";
 
 		responses =

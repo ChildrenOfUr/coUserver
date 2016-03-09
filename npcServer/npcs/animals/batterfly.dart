@@ -4,7 +4,7 @@ class Batterfly extends NPC {
 
   Random bfRand = new Random();
 
-  Batterfly(String id, int x, int y) : super(id, x, y) {
+  Batterfly(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
     type = "Batterfly";
     speed = 75; //pixels per second
     actions = [];

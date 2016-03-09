@@ -1,4 +1,13 @@
 {
+  "allspice": {
+    "name": "Allspice",
+    "category": "Spices",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/all_spice__x1_iconic_png_1354829700.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/all_spice__x1_1_x1_2_x1_3_x1_4_png_1354829700.png",
+    "stacksTo": 250,
+    "price": 3,
+    "description": "Some basic spice, freshly harvested from a Spice Plant."
+  },
   "black_pepper": {
     "name": "Black Pepper",
     "category": "Spices",
