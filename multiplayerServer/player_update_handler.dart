@@ -3,6 +3,7 @@ part of coUserver;
 //handle player update events
 class PlayerUpdateHandler {
 	static Map<String, Identifier> users = {};
+	static Map<String, int> messagePostCounter = {};
 
 	static void handle(WebSocket ws) {
 		ws.listen((message) {
@@ -88,7 +89,14 @@ class PlayerUpdateHandler {
 						});
 						users[username].currentX = currentX;
 						users[username].currentY = currentY;
-						messageBus.publish(new PlayerPosition(email, currentX, currentY));
+						//limit the number of position messages that get broadcast
+						//1 message every 5th at 30 messages per second would be 6 per second
+						if(messagePostCounter[email] == null || messagePostCounter[email] > 5) {
+							messageBus.publish(new PlayerPosition(email, currentX, currentY));
+							messagePostCounter[email] = 0;
+						} else {
+							messagePostCounter[email]++;
+						}
 					} catch (e, st) {
 						log("(player_update_handler/processMessage): $e\n$st");
 					}
