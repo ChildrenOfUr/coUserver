@@ -27,28 +27,16 @@ class VisitingStone extends NPC {
 
 	@override
 	update() {
-		// Remain a visiting stone
+		// Remain a visiting stone (the status is set in stone)
 	}
 
-	Future<String> _randomUnvisitedTsid(String email) async {
-		String _randomTsid() {
-			List<Map> streetdata = mapdata_streets.values.toList();
-			return streetdata[rand.nextInt(streetdata.length - 1)]["tsid"] ?? mapdata_streets["Cebarkul"]["tsid"];
-		}
-
-		List<String> streetsVisited = await getLocationHistory(email);
-
-		String tsid;
-		int loopCount = 0;
-		while ((tsid == null || streetsVisited.contains(tsid)) && loopCount <= 5) {
-			tsid = _randomTsid();
-			loopCount++;
-		}
-		return tsid;
+	static Future<String> randomUnvisitedTsid(String email) async {
+		List<String> unvisited = await getLocationHistoryInverse(email);
+		return unvisited[rand.nextInt(unvisited.length - 1)];
 	}
 
 	visitAStreet({String email, WebSocket userSocket}) {
-		_randomUnvisitedTsid(email).then((String tsid) {
+		randomUnvisitedTsid(email).then((String tsid) {
 			userSocket.add(JSON.encode({
 				"gotoStreet": "true",
 				"tsid": tsid
