@@ -35,10 +35,11 @@ class LoginDateTracker {
 			PostgreSql dbConn = await dbManager.getConnection();
 
 			try {
-				return (await dbConn.query(
+				DateTime lastlogin = (await dbConn.query(
 					"SELECT last_login FROM users WHERE username = @username", DateTime,
 					{"username": username}
-				)).first;
+				)).first["last_login"];
+				return lastlogin;
 			} catch(e) {
 				log("Error getting last login date for $username: $e");
 				return null;
@@ -49,5 +50,5 @@ class LoginDateTracker {
 	}
 
 	@app.Route("/get/:username")
-	Future<DateTime> get(String username) async => await getDate(username);
+	Future<String> get(String username) async => (await getDate(username) ?? "never").toString();
 }
