@@ -6,15 +6,9 @@ class PlayerUpdateHandler {
 	static Map<String, int> messagePostCounter = {};
 
 	static void handle(WebSocket ws) {
-		ws.listen((message) {
-			processMessage(ws, message);
-		},
-			          onError: (error) {
-				          cleanupList(ws);
-			          },
-			          onDone: () {
-				          cleanupList(ws);
-			          });
+		ws.listen((message) => processMessage(ws, message),
+			onError: (error) => cleanupList(ws),
+			onDone: () => cleanupList(ws));
 	}
 
 	static void cleanupList(WebSocket ws) {
@@ -101,9 +95,13 @@ class PlayerUpdateHandler {
 						log("(player_update_handler/processMessage): $e\n$st");
 					}
 				} else {
-					//this user must have just connected
+					// This user must have just connected
 					users[username] = new Identifier(username, map["street"], map['tsid'], ws);
 					map["letter"] = PLAYER_LETTERS.newPlayerLetter(username);
+
+					// Update last login date
+					LoginDateTracker.update(username);
+
 					try {
 						num currentX = num.parse(map['xy'].split(',')[0]);
 						num currentY = num.parse(map['xy'].split(',')[1]);

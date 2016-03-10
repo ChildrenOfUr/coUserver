@@ -71,6 +71,7 @@ part "chatServer/chat_handler.dart";
 
 //multiplayer server parts
 part "multiplayerServer/player_update_handler.dart";
+part "multiplayerServer/login_date_tracker.dart";
 
 //npc server (street simulation) parts
 part "npcServer/street_update_handler.dart";
