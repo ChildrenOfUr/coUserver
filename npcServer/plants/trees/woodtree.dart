@@ -6,7 +6,7 @@ class WoodTree extends Tree {
 
 		responses =
 		{
-			"harvest": [
+			"chop": [
 				"Never mind the quality, feel the width.",
 				"HOO-HA!!!",
 				"I've got a huge … wood. I have wood. Here, take some.",
@@ -31,8 +31,11 @@ class WoodTree extends Tree {
 			]
 		};
 
-		actions[0]['requires'] = [
-			{
+		actions[0]
+			..["action"] = "chop"
+			..["actionWord"] = "chopping"
+			..['requires'] = [
+				{
 				"num":1,
 				"of":["hatchet", "class_axe"],
 				"error": "You need something sharp to cut the wood with."
@@ -52,7 +55,7 @@ class WoodTree extends Tree {
 		maxState = currentState.numFrames - 1;
 	}
 
-	Future<bool> harvest({WebSocket userSocket, String email}) async {
+	Future<bool> chop({WebSocket userSocket, String email}) async {
 		bool success = await super.harvest(userSocket:userSocket,email:email);
 
 		if(success) {
