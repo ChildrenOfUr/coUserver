@@ -22,7 +22,7 @@ class StreetUpdateHandler {
 			});
 
 			// load recipes
-			filePath = path.join(directory,'npcServer', 'items', 'actions', 'recipes');
+			filePath = path.join(directory,'npcServer', 'items', 'actions', 'recipes', 'json');
 			await new Directory(filePath).list().forEach((File tool) async {
 				JSON.decode(await tool.readAsString()).forEach((Map recipeMap) {
 					RecipeBook.recipes.add(decode(recipeMap, Recipe));

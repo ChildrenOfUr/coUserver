@@ -4,7 +4,7 @@ part of coUserver;
 
 @app.Group("/logindatetracker")
 class LoginDateTracker {
-	/// username: date
+	/// {username: date}
 	static Map<String, DateTime> _cache = new Map();
 
 	static Future<bool> update(String username) async {

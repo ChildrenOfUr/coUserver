@@ -20,5 +20,5 @@ class Upgrade {
 	String image;
 
 	@override
-	String toString() => "<Upgrade Card> $name";
+	String toString() => "<Upgrade: $name>";
 }

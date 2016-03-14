@@ -1,32 +1,5 @@
 part of coUserver;
 
-class Recipe {
-	@Field() String id;
-	@Field() String tool;
-	@Field() Map<String, int> input;
-	@Field() String output;
-	@Field() int output_amt;
-	@Field() int time;
-	@Field() int energy = 0;
-	@Field() int img = 0;
-
-	// Items are initialized in street_update_handler.dart after all of the items are loaded
-	Recipe();
-
-	toString() {
-		return "Recipe to make ${output_amt} x $output with $tool using ${input.toString()} taking $time seconds";
-	}
-
-	static Future useItem(Map map, WebSocket userSocket, String email) async {
-		InventoryV2 inv = await getInventory(email);
-		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
-		userSocket.add(JSON.encode({
-			"useItem": itemInSlot.itemType,
-			"useItemName": itemInSlot.name
-		}));
-	}
-}
-
 @app.Group("/recipes")
 class RecipeBook extends Object with MetabolicsChange {
 	static List<Recipe> recipes = [];
@@ -88,9 +61,9 @@ class RecipeBook extends Object with MetabolicsChange {
 
 	@app.Route("/make")
 	Future makeRecipe(@app.QueryParam("token") String token,
-	                  @app.QueryParam("id") String id,
-	                  @app.QueryParam("email") String email,
-	                  @app.QueryParam("username") String username) async {
+		@app.QueryParam("id") String id,
+		@app.QueryParam("email") String email,
+		@app.QueryParam("username") String username) async {
 
 		if (token != redstoneToken) {
 			return false;

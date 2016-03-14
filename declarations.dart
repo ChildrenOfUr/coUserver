@@ -121,7 +121,8 @@ part "npcServer/items/item_user.dart";
 part "npcServer/items/hellgrapes.dart";
 part "npcServer/npcs/dust_trap.dart";
 part "npcServer/npcs/vistingstone.dart";
-part "npcServer/items/actions/recipes.dart";
+part "npcServer/items/actions/recipes/recipe.dart";
+part "npcServer/items/actions/recipes/recipebook.dart";
 part "npcServer/items/actions/itemgroups/cubimals.dart";
 part "npcServer/items/actions/itemgroups/emblems.dart";
 part "npcServer/items/actions/itemgroups/milk-butter-cheese.dart";
@@ -181,3 +182,6 @@ part "gameServer/inventory_new.dart";
 
 // bug reporting
 part "common/report.dart";
+
+// dev/guide labels
+part "common/elevation.dart";
