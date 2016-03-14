@@ -6,7 +6,7 @@ class WoodTree extends Tree {
 
 		responses =
 		{
-			"chop": [
+			"harvest": [
 				"Never mind the quality, feel the width.",
 				"HOO-HA!!!",
 				"I've got a huge … wood. I have wood. Here, take some.",
