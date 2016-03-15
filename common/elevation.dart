@@ -59,7 +59,7 @@ class Elevation {
 
 		if (rows == 1) {
 			_cache[username] = elevation;
-			return "$username is now a $elevation";
+			return "$username is now " (elevation != "" ? "a $elevation" : "demoted");
 		} else {
 			return "An unknown error occurred. Try again?";
 		}
