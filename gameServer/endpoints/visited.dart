@@ -9,11 +9,18 @@ Future<List<String>> getLocationHistory(String email) async {
 }
 
 @app.Route("/getLocationHistoryInverse/:email")
-Future<List<String>> getLocationHistoryInverse(String email) async {
+Future<List<String>> getLocationHistoryInverse(
+	String email, [@app.QueryParam("skipHidden") bool skipHidden = false]
+) async {
 	List<String> history = await getLocationHistory(email);
 	List<String> allTsids = new List();
 	mapdata_streets.values.forEach((Map<String, dynamic> streetData) {
-		if (streetData["tsid"] != null) {
+		if (
+			// TSID available
+			(streetData["tsid"] != null) &&
+			// Either returning hidden streets or the street is not hidden
+			(!skipHidden || !(streetData["map_hidden"] != null && streetData["map_hidden"]))
+		) {
 			allTsids.add(streetData["tsid"]);
 		}
 	});

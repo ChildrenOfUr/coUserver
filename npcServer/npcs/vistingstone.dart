@@ -31,7 +31,7 @@ class VisitingStone extends NPC {
 	}
 
 	static Future<String> randomUnvisitedTsid(String email) async {
-		List<String> unvisited = await getLocationHistoryInverse(email);
+		List<String> unvisited = await getLocationHistoryInverse(email, true);
 		return unvisited[rand.nextInt(unvisited.length - 1)];
 	}
 
