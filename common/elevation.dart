@@ -47,7 +47,7 @@ class Elevation {
 		}
 
 		if (channelName != "administration") {
-			return "Run this command from the administration group";
+			return "Run this command from the administration group, not $channelName";
 		}
 
 		String elevation;
