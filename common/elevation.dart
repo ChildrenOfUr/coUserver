@@ -34,8 +34,8 @@ class Elevation {
 			return "Invalid token";
 		}
 
-		if (channelName != "administration") {
-			return app.request.queryParameters.toString();
+		if (channelName != "G0277NLQS") {
+			return "Run this from the administration group";
 		}
 
 		String elevation;
