@@ -27,14 +27,14 @@ class Elevation {
 	@app.Route("/set")
 	Future<String> set(
 		@app.QueryParam("token") String token,
-		@app.QueryParam("channel_name") String channelName,
+		@app.QueryParam("channel_id") String channel,
 		@app.QueryParam("text") String text
 	) async {
 		if (token != slackPromoteToken) {
 			return "Invalid token";
 		}
 
-		if (channelName != "G0277NLQS") {
+		if (channel != "G0277NLQS") {
 			return "Run this from the administration group";
 		}
 
