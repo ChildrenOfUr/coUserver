@@ -2,12 +2,12 @@
 	"mining": {
 		"name": "Mining",
 		"levels": [
-			50,
-			500,
-			5000,
+			0,
+			100,
+			1000,
 			10000
 		],
-		"icons": [
+		"iconUrls": [
 			"http://www.glitchthegame.com/img/skills-460/mining_1.v1429808924.png",
 			"http://www.glitchthegame.com/img/skills-460/mining_2.v1428362783.png",
 			"http://www.glitchthegame.com/img/skills-460/mining_3.v1428362783.png",

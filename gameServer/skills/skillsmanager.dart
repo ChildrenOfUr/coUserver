@@ -12,16 +12,10 @@ class SkillManager {
 		directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
 
 		JSON.decode(
-			new File(path.join(directory, 'gameServer', 'skills', 'skillsdata.json')).readAsStringSync()
+			new File(path.join(directory, 'gameServer', 'skills', 'skillsdata.json'))
+				.readAsStringSync()
 		).forEach((String id, Map data) {
-			Skill skill = new Skill(
-				id: id,
-				name: data["name"],
-				icons: data["icons"],
-				requirements: data["requirements"],
-				giants: data["giants"]
-			);
-			_SKILL_DATA[id] = skill;
+			_SKILL_DATA[id] = new Skill.fromMap(data, id);;
 		});
 
 		_loading.complete();
@@ -31,41 +25,34 @@ class SkillManager {
 
 	static List<Skill> get skills => _SKILL_DATA.values;
 
-	// Convert a skill name to a skill enum reference
-	static Skill find(String skillName) => _SKILL_DATA[skillName];
+	// Convert a skill name to a skill reference
+	static Skill find(String id) => _SKILL_DATA[id].copy;
 
 	// Get all skills data for a user
 	@app.Route("/get/:email")
-	Future<Map<String, Map<String, num>>> getPlayerSkills(@app.QueryParam("email") email) async {
+	Future<List<Map<String, dynamic>>> getPlayerSkills(email) async {
 		PostgreSql dbConn = await dbManager.getConnection();
-
 		try {
-			return JSON.decode(
-			  (await dbConn.query(
-				"SELECT skills_json FROM metabolics JOIN users ON users.id = user_id WHERE users.email = @email", Metabolics,
-				{"email": email})).first.skills_json
+			// Get data from database
+			Map<String, int> playerSkillsData = JSON.decode(
+				(await dbConn.query(
+					"SELECT skills_json FROM metabolics"
+						" JOIN users ON users.id = user_id"
+						" WHERE users.email = @email",
+					Metabolics, {"email": email})
+				).first.skills_json
 			);
-		} catch (e) {
-			log("Error getting skills for email $email: $e");
-			return {};
-		} finally {
-			dbManager.closeConnection(dbConn);
-		}
-	}
 
-	// Set all skills data for a user
-	Future<bool> setPlayerSkills(email, Map data) async {
-		PostgreSql dbConn = await dbManager.getConnection();
+			// Fill in skill information
+			List<Map<String, dynamic>> playerSkillsList = new List();
+			playerSkillsData.forEach((String id, int points) {
+				playerSkillsList.add(new PlayerSkill(find(id), email, points).toMap());
+			});
 
-		try {
-			return (
-			  (await dbConn.execute(
-				"UPDATE metabolics AS m SET skills_json = @json FROM users AS u WHERE u.id = m.user_id AND u.email = @email",
-				{"email": email, "json": JSON.encode(data)})) == 1
-			);
+			return playerSkillsList;
 		} catch (e) {
-			log("Error setting skills for email $email: $e");
-			return false;
+			log("Error getting skill list for email $email: $e");
+			return new List();
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}

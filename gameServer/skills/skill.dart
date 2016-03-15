@@ -6,71 +6,106 @@ part of coUserver;
  */
 
 class Skill {
-	Skill({
-		String id,
-		String name,
-		List<int> levels,
-		List<String> icons,
-		Map<String, dynamic> requirements,
-		List<String> giants
-	}) {
-		this._id = id;
-		this._name = name;
-		this._levels = levels;
-		this._icons = icons;
-		this._requirements = requirements;
-		this._giants = giants;
+	Skill(
+		this.id,
+		this.name,
+		this.levels,
+		this.iconUrls,
+		this.requirements,
+		this.giants
+	);
+
+	Skill.fromMap(Map map, [String id]) {
+		this.id = id ?? map["id"];
+		this.name = map["name"];
+		this.levels = map["levels"];
+		this.iconUrls = map["iconUrls"];
+		this.requirements = map["requirements"];
+		this.giants = map["giants"];
 	}
 
-	String get id => _id;
-	String _id;
+	Map toMap() => {
+		"id": id,
+		"name": name,
+		"levels": levels,
+		"num_levels": numLevels,
+		"iconUrls": iconUrls,
+		"requirements": requirements,
+		"giants": giants,
+		"primary_giant": primaryGiant
+	};
 
-	String get name => _name;
-	String _name;
+	Skill get copy => new Skill.fromMap(toMap());
 
-	List<String> get icons => _icons;
-	List<String> _icons;
+	String toString() => "<Skill $id>";
 
-	String getLevelIcon(int level) => icons[level];
+	String id;
+	String name;
 
-	Map<String, dynamic> get rawRequirements => _requirements;
-	Map<String, dynamic> _requirements;
+	// Levels
+
+	List<int> levels;
+
+	int get numLevels => levels.length;
+
+	int pointsForLevel(int level) {
+		level = level.clamp(1, numLevels);
+		return levels[level - 1];
+	}
+
+	int levelForPoints(int points) {
+		for (int level = 1; level <= numLevels; level++) {
+			if (pointsForLevel(level) < points) {
+				return (level - 1).clamp(1, numLevels);
+			}
+		}
+		return 1;
+	}
+
+	// Icons
+
+	List<String> iconUrls;
+
+	String getLevelIcon(int level) => iconUrls[level];
+
+	// Requirements
+
+	Map<String, dynamic> requirements;
 
 	Map<Skill, int> get skillRequirements {
 		Map reqs = new Map();
-		if (_requirements["skills"] == null) {
+		if (requirements["skills"] == null) {
 			return reqs;
 		} else {
-			rawRequirements["skills"].forEach((String skillName, int level) {
+			requirements["skills"].forEach((String skillName, int level) {
 				reqs.addAll({SkillManager.find(skillName): level});
 			});
 			return reqs;
 		}
 	}
 
-	List<String> get giants => _giants;
-	List<String> _giants;
+	// Giants
+
+	List<String> giants;
 
 	String get primaryGiant => giants.first;
 
-	List<int> get levels => _levels;
-	List<int> _levels;
+	// Database
 
-	int get numLevels => _levels.length;
-
-	int pointsForLevel(int level) {
-		level = level.clamp(1, numLevels);
-		return levels[level];
-	}
-
-	int levelForPoints(int points) {
-		for (int level = 0; level < numLevels; level++) {
-			if (pointsForLevel(level) < points) {
-				return (level - 1).clamp(1, numLevels);
-			}
+	Future<PlayerSkill> getPlayer(String email) async {
+		PostgreSql dbConn = await dbManager.getConnection();
+		try {
+			int points = JSON.decode((await dbConn.query(
+				"SELECT skills_json FROM metabolics AS m"
+					" JOIN users AS u ON m.user_id = u.id"
+					" WHERE u.email = @email",
+				Metabolics, {"email": email}
+			)).first.skills_json)[id];
+			return new PlayerSkill(copy, email, points);
+		} catch (e) {
+			log("Error getting skill $id for $email: $e");
+		} finally {
+			dbManager.closeConnection(dbConn);
 		}
-		return null; // Shut up, WebStorm!
 	}
-
-	String toString() => "<Skill: $id>";
 }
