@@ -13,6 +13,8 @@ class Action {
 	ItemRequirements itemRequirements = new ItemRequirements();
 	@Field()
 	SkillRequirements skillRequirements = new SkillRequirements();
+	@Field()
+	String associatedSkill;
 
 	Action();
 

@@ -21,7 +21,8 @@ abstract class Rock extends Plant {
 					            "of": ['energy'],
 					            "error": "You need at least 10 energy to mine."
 				            }
-			            ]
+			            ],
+						"associatedSkill": "mining"
 		            });
 
 		responses = {
