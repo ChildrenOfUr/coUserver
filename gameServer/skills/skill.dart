@@ -12,6 +12,8 @@ class Skill {
 	Skill(
 		this.id,
 		this.name,
+		this.category,
+		this.descriptions,
 		this.levels,
 		this.iconUrls,
 		this.requirements,
@@ -21,6 +23,8 @@ class Skill {
 	Skill.fromMap(Map map, [String id]) {
 		this.id = id ?? map["id"];
 		this.name = map["name"];
+		this.category = map["category"];
+		this.descriptions = map["descriptions"];
 		this.levels = map["levels"];
 		this.iconUrls = map["iconUrls"];
 		this.requirements = map["requirements"];
@@ -30,6 +34,8 @@ class Skill {
 	Map toMap() => {
 		"id": id,
 		"name": name,
+		"category": category,
+		"descriptions": descriptions,
 		"levels": levels,
 		"num_levels": numLevels,
 		"iconUrls": iconUrls,
@@ -45,6 +51,8 @@ class Skill {
 
 	String id;
 	String name;
+	String category;
+	List<String> descriptions;
 
 	// Levels
 

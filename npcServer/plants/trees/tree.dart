@@ -1,6 +1,8 @@
 part of coUserver;
 
 abstract class Tree extends Plant {
+	static final String SKILL = "arborology";
+
 	int maturity;
 
 	Tree(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
@@ -8,13 +10,13 @@ abstract class Tree extends Plant {
 			"timeRequired":actionTime,
 			"enabled":true,
 			"actionWord":"harvesting",
-			"requires":[
-				{
+			"requires":[{
 					'num':5,
 					'of':['energy'],
 					"error": "You need at least 5 energy to harvest."
-				}
-			]})..add({"action":"water",
+				}],
+				"associatedSkill": SKILL
+			})..add({"action":"water",
 			"timeRequired":actionTime,
 			"enabled":true,
 			"actionWord":"watering",
@@ -73,6 +75,8 @@ abstract class Tree extends Plant {
 		if (state < 0) {
 			state = 0;
 		}
+
+		SkillManager.learn(SKILL, email);
 
 		return true;
 	}

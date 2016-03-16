@@ -23,7 +23,8 @@ class PlayerSkill extends Skill {
 		"player_points": points,
 		"player_nextPoints": pointsForLevel(level + 1),
 		"player_level": level,
-		"player_iconUrl": iconUrl
+		"player_iconUrl": iconUrl,
+		"player_description": description
 	});
 
 	String toString() => "<Skill $id for $email>";
@@ -44,9 +45,10 @@ class PlayerSkill extends Skill {
 
 	int get level => levelForPoints(points);
 
-	// Level-specific icon
+	// Level-specific icon & description
 
 	String get iconUrl => iconUrls[level - 1];
+	String get description => descriptions[level - 1];
 
 	// Database
 
