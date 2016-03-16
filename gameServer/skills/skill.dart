@@ -55,11 +55,13 @@ class Skill {
 
 	int levelForPoints(int points) {
 		for (int level = 1; level <= numLevels; level++) {
-			if (pointsForLevel(level) < points) {
+			if (pointsForLevel(level) > points) {
 				return (level - 1).clamp(1, numLevels);
 			}
 		}
-		return 1;
+
+		// Points maxed out
+		return numLevels;
 	}
 
 	// Icons

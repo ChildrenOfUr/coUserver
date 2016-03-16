@@ -16,6 +16,7 @@ class PlayerSkill extends Skill {
 	Map toMap() => super.toMap()..addAll({
 		"player_email": email,
 		"player_points": points,
+		"player_nextPoints": pointsForLevel(level + 1),
 		"player_level": level,
 		"player_iconUrl": iconUrl
 	});
