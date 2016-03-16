@@ -2,11 +2,20 @@ part of coUserver;
 
 @app.Group("/skills")
 class SkillManager {
-	static Map<String, Skill> _SKILL_DATA = new Map();
+	/// String used for querying for a specific skills_json cell
+	/// Will return a length-1 list of rows from metabolics with only the skills_json column
+	static final String CELL_QUERY = "SELECT skills_json FROM metabolics AS m"
+		" JOIN users AS u ON m.user_id = u.id"
+		" WHERE u.email = @email";
 
+	/// All loaded skills...do not edit after initial load!
+	static Map<String, Skill> SKILL_DATA = new Map();
+
+	/// Load status
 	static bool get loaded => _loading.isCompleted;
 	static final Completer _loading = new Completer();
 
+	/// Read skills from JSON file
 	static void loadSkills() {
 		String directory = Platform.script.toFilePath();
 		directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
@@ -15,38 +24,37 @@ class SkillManager {
 			new File(path.join(directory, 'gameServer', 'skills', 'skillsdata.json'))
 				.readAsStringSync()
 		).forEach((String id, Map data) {
-			_SKILL_DATA[id] = new Skill.fromMap(data, id);;
+			SKILL_DATA[id] = new Skill.fromMap(data, id);;
 		});
 
 		_loading.complete();
 	}
 
-	static SkillManager INSTANCE = new SkillManager();
+	/// Add points to a player's skill
+	static Future<bool> learn(String skillId, String email, [int newPoints = 1]) async {
+		// Get existing skill or add if new
+		PlayerSkill skill = await PlayerSkill.find(skillId, email);
+		if (skill == null) {
+			skill = new PlayerSkill(Skill.find(skillId), email);
+		}
 
-	static List<Skill> get skills => _SKILL_DATA.values;
+		// Save to database
+		return await skill.addPoints(newPoints);
+	}
 
-	// Convert a skill name to a skill reference
-	static Skill find(String id) => _SKILL_DATA[id].copy;
-
-	// Get all skills data for a user
-	@app.Route("/get/:email")
-	Future<List<Map<String, dynamic>>> getPlayerSkills(email) async {
+	/// Get all skills data for a user
+	static Future<List<Map<String, dynamic>>> getPlayerSkills(email) async {
 		PostgreSql dbConn = await dbManager.getConnection();
 		try {
 			// Get data from database
 			Map<String, int> playerSkillsData = JSON.decode(
-				(await dbConn.query(
-					"SELECT skills_json FROM metabolics"
-						" JOIN users ON users.id = user_id"
-						" WHERE users.email = @email",
-					Metabolics, {"email": email})
-				).first.skills_json
+				(await dbConn.query(CELL_QUERY, Metabolics, {"email": email})).first.skills_json
 			);
 
 			// Fill in skill information
 			List<Map<String, dynamic>> playerSkillsList = new List();
 			playerSkillsData.forEach((String id, int points) {
-				playerSkillsList.add(new PlayerSkill(find(id), email, points).toMap());
+				playerSkillsList.add(new PlayerSkill(Skill.find(id), email, points).toMap());
 			});
 
 			return playerSkillsList;
@@ -56,5 +64,11 @@ class SkillManager {
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}
+	}
+
+	/// API access to [getPlayerSkills]
+	@app.Route("/get/:email")
+	Future<List<Map<String, dynamic>>> getPlayerSkillsRoute(email) async {
+		return await getPlayerSkills(email);
 	}
 }

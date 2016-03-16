@@ -6,6 +6,9 @@ part of coUserver;
  */
 
 class Skill {
+	/// Convert a skill name to a skill reference
+	static Skill find(String id) => SkillManager.SKILL_DATA[id].copy;
+
 	Skill(
 		this.id,
 		this.name,
@@ -35,6 +38,7 @@ class Skill {
 		"primary_giant": primaryGiant
 	};
 
+	/// Copy (new object, not reference)
 	Skill get copy => new Skill.fromMap(toMap());
 
 	String toString() => "<Skill $id>";
@@ -48,11 +52,13 @@ class Skill {
 
 	int get numLevels => levels.length;
 
+	/// x points yields y level
 	int pointsForLevel(int level) {
 		level = level.clamp(1, numLevels);
 		return levels[level - 1];
 	}
 
+	/// x level requires y points
 	int levelForPoints(int points) {
 		for (int level = 1; level <= numLevels; level++) {
 			if (pointsForLevel(level) > points) {
@@ -68,8 +74,6 @@ class Skill {
 
 	List<String> iconUrls;
 
-	String getLevelIcon(int level) => iconUrls[level];
-
 	// Requirements
 
 	Map<String, dynamic> requirements;
@@ -80,7 +84,7 @@ class Skill {
 			return reqs;
 		} else {
 			requirements["skills"].forEach((String skillName, int level) {
-				reqs.addAll({SkillManager.find(skillName): level});
+				reqs.addAll({Skill.find(skillName): level});
 			});
 			return reqs;
 		}
@@ -94,15 +98,14 @@ class Skill {
 
 	// Database
 
-	Future<PlayerSkill> getPlayer(String email) async {
+	/// Get a PlayerSkill for this skill
+	Future<PlayerSkill> getForPlayer(String email) async {
 		PostgreSql dbConn = await dbManager.getConnection();
 		try {
-			int points = JSON.decode((await dbConn.query(
-				"SELECT skills_json FROM metabolics AS m"
-					" JOIN users AS u ON m.user_id = u.id"
-					" WHERE u.email = @email",
-				Metabolics, {"email": email}
-			)).first.skills_json)[id];
+			List<Metabolics> rows = await dbConn.query(
+				SkillManager.CELL_QUERY, Metabolics, {"email": email}
+			);
+			int points = JSON.decode(rows.first.skills_json)[id] ?? 0;
 			return new PlayerSkill(copy, email, points);
 		} catch (e) {
 			log("Error getting skill $id for $email: $e");

@@ -1,6 +1,8 @@
 part of coUserver;
 
 abstract class Rock extends Plant {
+	static final String SKILL = "mining";
+
 	Rock(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		maxState = 0;
 		actionTime = 5000;
@@ -22,7 +24,7 @@ abstract class Rock extends Plant {
 					            "error": "You need at least 10 energy to mine."
 				            }
 			            ],
-						"associatedSkill": "mining"
+						"associatedSkill": SKILL
 		            });
 
 		responses = {
@@ -87,6 +89,10 @@ abstract class Rock extends Plant {
 			say(responses['gone'].elementAt(rand.nextInt(responses['gone'].length)));
 			respawn = new DateTime.now().add(new Duration(minutes: 2));
 		}
+
+		// Award skill points
+		SkillManager.learn(SKILL, email);
+
 		//chances to get gems:
 		//amber = 1 in 5
 		//sapphire = 1 in 7
