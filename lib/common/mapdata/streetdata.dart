@@ -655,7 +655,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"map_hidden": true
 	},
 	"Bettano Testament": {
-		"shrine": "Tii"
+		"shrine": "Tii",
+		"hub_id": 97,
+		"tsid": "LA9KL81E1D82ABT"
 	},
 	"Bhadra Pada": {
 		"vendor": "Produce",
@@ -1105,7 +1107,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 141
 	},
 	"Chima Chore": {
-		"shrine": "Pot"
+		"shrine": "Pot",
+		"hub_id": 97,
+		"tsid": "LA9KLCKK1D82V3B"
 	},
 	"Chingam Chai": {
 		"vendor": "Alchemical Goods",
@@ -3714,7 +3718,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Matsua Mossy": {
 		"shrine": "Spriggan",
-		"hub_id": 97
+		"hub_id": 97,
+		"tsid": "LA9T11KPMD82B1S"
 	},
 	"Matsya": {
 		"hub_id": 140,
@@ -3865,7 +3870,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Mimosa Mix": {
 		"shrine": "Friendly",
-		"hub_id": 97
+		"hub_id": 97,
+		"tsid": "LA9KLA8H1D82JM3"
 	},
 	"Mina Misses": {
 		"vendor": "Hardware",
@@ -5482,7 +5488,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 110
 	},
 	"Shoga Links": {
-		"shrine": "Zille"
+		"shrine": "Zille",
+		"hub_id": 97,
+		"tsid": "LA9S90EJ0G8241N"
 	},
 	"Sickle Nappo": {
 		"vendor": "Grocery",
