@@ -14,3 +14,6 @@ dependencies:
   crypto: "^0.9.1"
   harvest: "^2.0.11"
   jsonx: "2.0.0"
+
+dev_dependencies:
+  test: "^0.12.12"
