@@ -72,7 +72,28 @@ abstract class Rock extends Plant {
 
 		//make sure the player has 10 energy to perform this action
 		//if so, allow the action and subtract 10 from their energy
-		success = await super.trySetMetabolics(email, energy: -10, imgMin: 10, imgRange: 5);
+
+		// Get current skill level
+		int miningLevel = await SkillManager.getLevel(SKILL, email);
+
+		int energyUsed = 10;
+		if (miningLevel >= 3) {
+			energyUsed ~/= 4;
+		} else if (miningLevel > 1) {
+			energyUsed -= 2;
+		}
+
+		int imgReward = 5;
+		int imgMin = 10;
+		if (miningLevel == 4) {
+			imgReward *= 2;
+			imgMin *= 2;
+		} else if (miningLevel >= 3) {
+			imgReward += 2;
+			imgMin += 2;
+		}
+
+		success = await super.trySetMetabolics(email, energy: -energyUsed, imgMin: imgMin, imgRange: imgReward);
 		if (!success) {
 			return false;
 		}
@@ -90,30 +111,39 @@ abstract class Rock extends Plant {
 			respawn = new DateTime.now().add(new Duration(minutes: 2));
 		}
 
-		// Award skill points
-		SkillManager.learn(SKILL, email);
-
 		//chances to get gems:
 		//amber = 1 in 5
 		//sapphire = 1 in 7
 		//ruby = 1 in 10
 		//moonstone = 1 in 15
 		//diamond = 1 in 20
-		if (rand.nextInt(5) == 5) {
+
+		int chanceIncreaser = 0;
+
+		if (miningLevel == 4) {
+			chanceIncreaser = 2;
+		} else if (miningLevel >= 2) {
+			chanceIncreaser = 3;
+		}
+
+		if (rand.nextInt(5 - chanceIncreaser) == 5 - chanceIncreaser) {
 			await InventoryV2.addItemToUser(email, items['pleasing_amber'].getMap(), 1, id);
 		}
-		if (rand.nextInt(7) == 5) {
+		if (rand.nextInt(7 - chanceIncreaser) == 5 - chanceIncreaser) {
 			await InventoryV2.addItemToUser(email, items['showy_sapphire'].getMap(), 1, id);
 		}
-		if (rand.nextInt(10) == 5) {
+		if (rand.nextInt(10 - chanceIncreaser) == 5 - chanceIncreaser) {
 			await InventoryV2.addItemToUser(email, items['modestly_sized_ruby'].getMap(), 1, id);
 		}
-		if (rand.nextInt(15) == 5) {
+		if (rand.nextInt(15 - chanceIncreaser) == 5 - chanceIncreaser) {
 			await InventoryV2.addItemToUser(email, items['luminous_moonstone'].getMap(), 1, id);
 		}
-		if (rand.nextInt(20) == 5) {
+		if (rand.nextInt(20 - chanceIncreaser) == 5 - chanceIncreaser) {
 			await InventoryV2.addItemToUser(email, items['walloping_big_diamond'].getMap(), 1, id);
 		}
+
+		// Award skill points
+		SkillManager.learn(SKILL, email);
 
 		return true;
 	}

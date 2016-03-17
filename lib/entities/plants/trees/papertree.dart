@@ -3,6 +3,7 @@ part of entity;
 class PaperTree extends Tree {
 	PaperTree(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		type = "Paper Tree";
+		rewardItemType = "paper";
 
 		responses = {
 			"harvest": [
@@ -70,9 +71,6 @@ class PaperTree extends Tree {
 					Achievement.find("parchment_purloiner").awardTo(email);
 				}
 			});
-
-			//give the player the 'fruits' of their labor
-			await InventoryV2.addItemToUser(email, items['paper'].getMap(), 1, id);
 		}
 
 		return success;

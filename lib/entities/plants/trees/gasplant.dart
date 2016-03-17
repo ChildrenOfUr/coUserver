@@ -3,6 +3,7 @@ part of entity;
 class GasPlant extends Tree {
 	GasPlant(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		type = "Gas Plant";
+		rewardItemType = "general_vapour";
 
 		responses =
 		{
@@ -64,9 +65,6 @@ class GasPlant extends Tree {
 					Achievement.find("obsessive_gas_fancier").awardTo(email);
 				}
 			});
-
-			//give the player the 'fruits' of their labor
-			await InventoryV2.addItemToUser(email, items['general_vapour'].getMap(), 1, id);
 		}
 
 		return success;

@@ -10,9 +10,9 @@
 		],
 		"descriptions": [
 			"Mining is the gateway to some pretty valuable resource extraction procedures: you'll be using a Pick to produce Chunks of Ore from special rocks scattered around the world. Though mining is hard work, the rewards are worth it.",
-			"Mining II reduces the time it takes to mine and reduces the amount of energy you use to extract ore. Sweet.",
-			"Mining III reduces the time and energy it takes to mine, reduces wear on your preferred mining instrument, and rewards more imagination.",
-			"Mining IV further improves your efficiency, reducing the time and energy it takes to mine by even more, and doubling the imagination you get by mining."
+			"Mining II increases the chance of special rewards and reduces the amount of energy you use to extract ore. Sweet.",
+			"Mining III reduces energy it takes to mine, reduces wear on your preferred mining instrument, and rewards more imagination.",
+			"Mining IV further improves your luck and doubles the imagination you get by mining."
 		],
 		"iconUrls": [
 			"http://www.glitchthegame.com/img/skills-460/mining_1.v1429808924.png",
@@ -40,8 +40,8 @@
 			100000
 		],
 		"descriptions": [
-			"The Arborology skill bestows upon you a certain facility with trees such that your deft and graceful harvesting hands return twice more product with each harvest. Your increased skill in stuff-gathering also reduces the time each harvest takes.",
-			"A higher level of Arborology skill means an increased awareness of how the great garden of Ur grows: and how best to exploit it. Hurrah! With Arborology II you can not only harvest more often, but get a little imagination every time you harvest.",
+			"The Arborology skill bestows upon you a certain facility with trees such that your deft and graceful harvesting hands return twice more product with each harvest.",
+			"A higher level of Arborology skill means an increased awareness of how the great garden of Ur grows: and how best to exploit it. Hurrah! With Arborology II you can get a little more imagination every time you harvest.",
 			"Acquire the third level of the Arborology skill, and see your harvests improve dramatically. As the energy it takes to gather tree-based goods decreases, you'll develop the ability to occasionally coax a bonus reward from your harvestings. Life is win/win for the Level III Arborologist.",
 			"Arborology IV is notable for increasing your chance of a bonus gift during harvesting, and increasing the imagination you get every time you do harvest. Which all serves to increase your reason for learning it.",
 			"The ultimate level of Arborology skill offers an altogether better class of bonus reward, and provides the foundation necessary to upgrade to even more productive methods of harvesting."

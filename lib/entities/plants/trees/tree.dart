@@ -2,6 +2,7 @@ part of entity;
 
 abstract class Tree extends Plant {
 	static final String SKILL = "arborology";
+	String rewardItemType;
 
 	int maturity;
 
@@ -58,9 +59,27 @@ abstract class Tree extends Plant {
 			return false;
 		}
 
+		int harvestLevel = await SkillManager.getLevel(SKILL, email);
+		int rewardMultiplier = 1;
+		int energy = 5;
+
+		if (harvestLevel == 5) {
+			rewardMultiplier = 4 + (rand.nextInt(2) == 2 ? 1 : 0);
+		} else if (harvestLevel >= 4) {
+			rewardMultiplier = 4 + (rand.nextInt(3) == 3 ? 1 : 0);
+		} else if (harvestLevel >= 3) {
+			rewardMultiplier = 3 + (rand.nextInt(5) == 5 ? 1 : 0);
+		} else if (harvestLevel > 1) {
+			rewardMultiplier = 2;
+		}
+
+		if (harvestLevel >= 3) {
+			energy -= 2;
+		}
+
 		//make sure the player has 5 energy to perform this action
 		//if so, allow the action and subtract 5 from their energy
-		bool success = await trySetMetabolics(email, energy: -5, mood: 1, imgMin: 10, imgRange: 5);
+		bool success = await trySetMetabolics(email, energy: -energy, mood: 1 + (rewardMultiplier ~/ 2), imgMin: 5 + rewardMultiplier, imgRange: 5);
 		if (!success) {
 			return false;
 		}
@@ -71,6 +90,9 @@ abstract class Tree extends Plant {
 		StatBuffer.incrementStat("treesHarvested", 1);
 		respawn = new DateTime.now().add(new Duration(seconds: 30));
 		state--;
+
+		//give the player the 'fruits' of their labor
+		await InventoryV2.addItemToUser(email, items[rewardItemType].getMap(), rewardMultiplier, id);
 
 		if (state < 0) {
 			state = 0;

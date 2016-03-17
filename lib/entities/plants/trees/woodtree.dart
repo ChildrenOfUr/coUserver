@@ -3,6 +3,7 @@ part of entity;
 class WoodTree extends Tree {
 	WoodTree(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		type = "Wood Tree";
+		rewardItemType = "plank";
 
 		responses =
 		{
@@ -69,9 +70,6 @@ class WoodTree extends Tree {
 					Achievement.find("loggerator").awardTo(email);
 				}
 			});
-
-			//give the player the 'fruits' of their labor
-			await InventoryV2.addItemToUser(email, items['plank'].getMap(), 1, id);
 		}
 
 		return success;

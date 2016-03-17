@@ -3,6 +3,7 @@ part of entity;
 class SpicePlant extends Tree {
 	SpicePlant(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		type = "Spice Plant";
+		rewardItemType = "allspice";
 
 		responses =
 		{
@@ -64,9 +65,6 @@ class SpicePlant extends Tree {
 					Achievement.find("master_overlord_of_the_spice_dominion").awardTo(email);
 				}
 			});
-
-			//give the player the 'fruits' of their labor
-			await InventoryV2.addItemToUser(email, items['allspice'].getMap(), 1, id);
 		}
 
 		return success;

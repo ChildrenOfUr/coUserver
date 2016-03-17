@@ -3,6 +3,7 @@ part of entity;
 class BubbleTree extends Tree {
 	BubbleTree(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		type = "Bubble Tree";
+		rewardItemType = "plain_bubble";
 
 		responses =
 		{
@@ -64,9 +65,6 @@ class BubbleTree extends Tree {
 					Achievement.find("first_best_bubble_farmer").awardTo(email);
 				}
 			});
-
-			//give the player the 'fruits' of their labor
-			await InventoryV2.addItemToUser(email, items['plain_bubble'].getMap(), 1, id);
 		}
 
 		return success;

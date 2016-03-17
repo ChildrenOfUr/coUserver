@@ -3,6 +3,7 @@ part of entity;
 class BeanTree extends Tree {
 	BeanTree(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		type = "Bean Tree";
+		rewardItemType = "bean";
 
 		responses =
 		{
@@ -66,9 +67,6 @@ class BeanTree extends Tree {
 					Achievement.find("master_bean_counter").awardTo(email);
 				}
 			});
-
-			//give the player the 'fruits' of their labor
-			await InventoryV2.addItemToUser(email, items['bean'].getMap(), 1, id);
 		}
 
 		return success;

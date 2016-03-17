@@ -42,6 +42,12 @@ class SkillManager {
 		return await skill.addPoints(newPoints);
 	}
 
+	/// Get a player's level of a certain skil
+	static Future<int> getLevel(String skillId, String email) async {
+		PlayerSkill skill = await PlayerSkill.find(skillId, email);
+		return skill?.level ?? 0;
+	}
+
 	/// Get all skills data for a user
 	static Future<List<Map<String, dynamic>>> getPlayerSkills(email) async {
 		PostgreSql dbConn = await dbManager.getConnection();
