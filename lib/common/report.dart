@@ -142,11 +142,11 @@ class Report {
 		Map assembleData = {
 			"title": data["title"],
 			"body": body,
-			"labels": ["status: pending"]
+			"labels": ["pending"]
 		};
 
 		if (data["category"] != null) {
-			(assembleData["labels"] as List<String>).insert(0, "type: ${data["category"]}");
+			(assembleData["labels"] as List<String>).insert(0, data["category"]);
 		}
 
 		String sendData = JSON.encode(assembleData);
