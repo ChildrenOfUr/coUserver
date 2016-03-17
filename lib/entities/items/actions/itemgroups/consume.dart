@@ -36,7 +36,35 @@ class Consumable extends Object with MetabolicsChange {
 		int moodAward = consumed.consumeValues['mood']*count;
 		int imgAward = consumed.consumeValues['img']*count;
 
-		toast("Consuming that ${consumed.name} gave you $energyAward energy, $moodAward mood, and $imgAward iMG", userSocket);
+		String message = "Consuming that ${consumed.name} gave you ";
+
+		if (energyAward > 0) {
+			message +=  "$energyAward energy";
+		}
+
+		if (moodAward > 0) {
+			if (energyAward > 0 && imgAward == 0) {
+				message += " and ";
+			} else if (energyAward > 0) {
+				message += ", ";
+			}
+
+			message += "$moodAward mood";
+
+			if (imgAward > 0) {
+				message += ", ";
+			} else {
+				message += " ";
+			}
+		}
+
+		if (imgAward > 0) {
+			message += "and $imgAward iMG";
+		}
+
+		message = message.trim() + ".";
+
+		toast(message, userSocket);
 
 		await trySetMetabolics(email, energy:energyAward, mood:moodAward, imgMin:imgAward);
 		return consumed;
