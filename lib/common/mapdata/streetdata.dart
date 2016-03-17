@@ -3144,7 +3144,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"mailbox": true,
 		"vendor": "Kitchen Tools",
 		"shrine": "Zille",
-		"hub_id": 98
+		"hub_id": 98,
+		"tsid": "LA9FD1O7S492CCD"
 	},
 	"Kratoch Emer": {
 		"shrine": "Friendly",
