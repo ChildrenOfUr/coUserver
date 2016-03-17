@@ -57,6 +57,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GIF28P8KH4E2U7M",
 		"hub_id": 105
 	},
+	"Adityas Plain": {
+		"tsid": "LUVG9L7NOLA3CEB",
+		"hub_id": 136
+	},
 	"Adspice Lacrimis": {
 		"tsid": "GA5BLHFU8913RQ7",
 		"hub_id": 128
@@ -89,6 +93,11 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Agarrec Bowetic": {
 		"tsid": "GIFL5KM3KE333GJ",
 		"hub_id": 131
+	},
+	"Agni Abyss": {
+		"hub_id": 136,
+		"tsid": "LUV1RBFLU8A3LR9",
+		"broken": true
 	},
 	"Agraha Yana": {
 		"vendor": "Alchemical Goods",
@@ -369,6 +378,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GIFJUKUDO743LES",
 		"hub_id": 133
 	},
+	"Aryaman Canyon": {
+		"hub_id": 136,
+		"tsid": "LUV1JGGKU8A3NHG"
+	},
 	"Asamkheya": {
 		"tsid": "GUV2M7GCJ8D3878",
 		"hub_id": 140
@@ -378,6 +391,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"shrine": "Pot",
 		"tsid": "GHVT10TNRIA23L2",
 		"hub_id": 101
+	},
+	"Asura Spire": {
+		"hub_id": 136,
+		"tsid": "LUV10AGQOOA3MOE"
 	},
 	"Asvina Vet": {
 		"vendor": "Hardware",
@@ -402,6 +419,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Aurivella Odora": {
 		"tsid": "GIF9JS2DPJ3327C",
 		"hub_id": 131
+	},
+	"Avsins Cut": {
+		"hub_id": 136,
+		"tsid": "LUVTKP64DEA3D31"
 	},
 	"Awagni Walk": {
 		"mailbox": true,
@@ -665,6 +686,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GUVCMP7BM7F2JET",
 		"hub_id": 109
 	},
+	"Bhaga Arch": {
+		"hub_id": 136,
+		"tsid": "LUVNHLCRGEA3VAS"
+	},
 	"Bhuva Lamella": {
 		"tsid": "GIF72A3F7J33VAI",
 		"hub_id": 131
@@ -820,6 +845,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"vendor": "Produce",
 		"tsid": "LA91161VALA21D4",
 		"hub_id": 99
+	},
+	"Brhaspati Bay": {
+		"hub_id": 136,
+		"tsid": "LUVCHLO06EA3VBC"
 	},
 	"Briarset Croft": {
 		"vendor": "Animal Goods",
@@ -1290,6 +1319,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GDOF6PP52S03H66",
 		"hub_id": 126
 	},
+	"Daksina Tom": {
+		"tsid": "LUV270LMU8A3UCB",
+		"hub_id": 136
+	},
 	"Dalsan Detach": {
 		"vendor": "Produce",
 		"shrine": "Friendly",
@@ -1311,6 +1344,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"shrine": "Grendaline",
 		"tsid": "GIFIGKANP4I2H84",
 		"hub_id": 112
+	},
+	"Dasas Terrace": {
+		"hub_id": 136,
+		"tsid": "LUV2ERENU8A30JC"
 	},
 	"Dasavatara": {
 		"hub_id": 140,
@@ -2520,6 +2557,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GIFAGDB0IGU1BCK",
 		"hub_id": 72
 	},
+	"Indri Slope": {
+		"tsid": "LUV2SSTOU8A30RS",
+		"hub_id": 136
+	},
 	"Indulcet Fames": {
 		"tsid": "GA5GNCQ4T3137M7",
 		"hub_id": 128
@@ -2825,6 +2866,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Kanun Phothen": {
 		"tsid": "GIFJPVPCO743LKE",
 		"hub_id": 133
+	},
+	"Kanva Ria": {
+		"tsid": "LUV2M85OU8A39GS",
+		"hub_id": 136
 	},
 	"Kapru Habitat": {
 		"tsid": "GUVEAT1BCOS25QL",
@@ -3682,6 +3727,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GA5KUKA22I42CI9",
 		"hub_id": 86
 	},
+	"Marut Seamount": {
+		"hub_id": 136,
+		"tsid": "LUV2UE4DCMA3RLS"
+	},
 	"Marylpole Mount": {
 		"vendor": "Toy",
 		"shrine": "Spriggan",
@@ -3907,6 +3956,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"vendor": "Mining",
 		"tsid": "GHFNIVJNP4D2IM6",
 		"hub_id": 106
+	},
+	"Mitra Shelf": {
+		"tsid": "LUVLLA752MA3R76",
+		"hub_id": 136
 	},
 	"Mmumawwa Wala": {
 		"vendor": "Gardening Goods",
@@ -4851,6 +4904,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GIF9UI391Q62CIC",
 		"hub_id": 93
 	},
+	"Pusan Fathom": {
+		"hub_id": 136,
+		"tsid": "LUVITGLVQOA3H34"
+	},
 	"Putter Track A": {
 		"tsid": "GIFNL8294G52U4M",
 		"hub_id": 90
@@ -5287,6 +5344,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GA51DOIHSK626VM",
 		"hub_id": 89
 	},
+	"Sakra Praise": {
+		"hub_id": 136,
+		"tsid": "LUVM9R39TBA362T"
+	},
 	"Salatu Start": {
 		"tsid": "GHF358MNE0D27A3",
 		"hub_id": 93,
@@ -5360,6 +5421,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"shrine": "Cosma",
 		"tsid": "GHVVLBM1VL22A6Q",
 		"hub_id": 75
+	},
+	"Savitar Cusps": {
+		"hub_id": 136,
+		"tsid": "LUVST31K7MA369P"
 	},
 	"Savren Sutch": {
 		"vendor": "Alchemical Goods",
@@ -5679,6 +5744,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Stake Claim Rd F": {
 		"tsid": "GA515GCSSC42QGF",
 		"hub_id": 86
+	},
+	"Statkratu Plat": {
+		"hub_id": 136,
+		"tsid": "LUV5I1CTIEA3DT0"
 	},
 	"Steeha Sham": {
 		"vendor": "Kitchen Tools",
@@ -6410,6 +6479,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"shrine": "Alph",
 		"tsid": "GUVP2B2ITBL2DIF",
 		"hub_id": 114
+	},
+	"Varuna Trough": {
+		"hub_id": 136,
+		"tsid": "LUVVSU5NCBA3KOS"
 	},
 	"Vasko Shift": {
 		"vendor": "Grocery",
