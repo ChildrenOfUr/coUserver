@@ -1295,7 +1295,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Cryptocrin": {
 		"vendor": "Alchemical Goods",
-		"shrine": "Tii"
+		"shrine": "Tii",
+		"hub_id": 88,
+		"tsid": "LNV8377MPSH2PCU"
 	},
 	"Curling Lake": {
 		"vendor": "Alchemical Goods",
