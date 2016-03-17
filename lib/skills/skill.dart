@@ -6,6 +6,7 @@ import 'dart:io';
 
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
+import 'package:coUserver/street_update_handler.dart';
 
 import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper_pg/manager.dart';
@@ -15,7 +16,7 @@ part 'playerskill.dart';
 part 'skillsmanager.dart';
 
 /*
- *	Skill class, used for easy math and to prevent crazy map referencing.
+ *  Stores information about a specific skill.
  *	Instances should not be created/modified/destroyed after the server has initially loaded.
  */
 
@@ -32,7 +33,9 @@ class Skill {
 		this.iconUrls,
 		this.requirements,
 		this.giants
-	);
+	) {
+		_verifyZeroState();
+	}
 
 	Skill.fromMap(Map map, [String id]) {
 		this.id = id ?? map["id"];
@@ -43,6 +46,8 @@ class Skill {
 		this.iconUrls = map["iconUrls"];
 		this.requirements = map["requirements"];
 		this.giants = map["giants"];
+
+		_verifyZeroState();
 	}
 
 	Map toMap() => {
@@ -70,21 +75,31 @@ class Skill {
 
 	// Levels
 
+	/// Points required for each level, including the unlearned state
 	List<int> levels;
 
-	int get numLevels => levels.length;
+	/// How many levels the skill has, not including the unlearned state
+	int get numLevels => levels.length - 1;
+
+	/// Make sure the levels list contains an unlearned state
+	void _verifyZeroState() {
+		if (levels[0] != 0) {
+			levels.insert(0, 0);
+		}
+	}
 
 	/// x points yields y level
 	int pointsForLevel(int level) {
-		level = level.clamp(1, numLevels);
-		return levels[level - 1];
+		level = level.clamp(0, numLevels);
+		return levels[level];
 	}
 
 	/// x level requires y points
 	int levelForPoints(int points) {
-		for (int level = 1; level <= numLevels; level++) {
+		for (int level = 0; level <= numLevels; level++) {
 			if (pointsForLevel(level) > points) {
-				return (level - 1).clamp(1, numLevels);
+				// This level requires more points than we have, go back one
+				return (level - 1).clamp(0, numLevels);
 			}
 		}
 
@@ -94,28 +109,20 @@ class Skill {
 
 	// Icons
 
+	/// Image URLs for every level
 	List<String> iconUrls;
 
 	// Requirements
 
+	/// Requirement name/category => specific requirement
 	Map<String, dynamic> requirements;
-
-	Map<Skill, int> get skillRequirements {
-		Map reqs = new Map();
-		if (requirements["skills"] == null) {
-			return reqs;
-		} else {
-			requirements["skills"].forEach((String skillName, int level) {
-				reqs.addAll({Skill.find(skillName): level});
-			});
-			return reqs;
-		}
-	}
 
 	// Giants
 
+	/// All giant affiliatinos
 	List<String> giants;
 
+	/// Primary giant affiliation (first in file)
 	String get primaryGiant => giants.first;
 
 	// Database
@@ -128,6 +135,9 @@ class Skill {
 				SkillManager.CELL_QUERY, Metabolics, {"email": email}
 			);
 			int points = JSON.decode(rows.first.skills_json)[id] ?? 0;
+			if (points == 0) {
+				toast("New skill: $name", StreetUpdateHandler.userSockets[email], onClick: "imgmenu");
+			}
 			return new PlayerSkill(copy, email, points);
 		} catch (e) {
 			log("Error getting skill $id for $email: $e");

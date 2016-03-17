@@ -62,9 +62,11 @@ abstract class Tree extends Plant {
 		int harvestLevel = await SkillManager.getLevel(SKILL, email);
 		int rewardMultiplier = 1;
 		int energy = 5;
+		int imgBoost = harvestLevel;
 
 		if (harvestLevel == 5) {
 			rewardMultiplier = 4 + (rand.nextInt(2) == 2 ? 1 : 0);
+			imgBoost += 1;
 		} else if (harvestLevel >= 4) {
 			rewardMultiplier = 4 + (rand.nextInt(3) == 3 ? 1 : 0);
 		} else if (harvestLevel >= 3) {
@@ -79,7 +81,7 @@ abstract class Tree extends Plant {
 
 		//make sure the player has 5 energy to perform this action
 		//if so, allow the action and subtract 5 from their energy
-		bool success = await trySetMetabolics(email, energy: -energy, mood: 1 + (rewardMultiplier ~/ 2), imgMin: 5 + rewardMultiplier, imgRange: 5);
+		bool success = await trySetMetabolics(email, energy: -energy, mood: 1 + (rewardMultiplier ~/ 2), imgMin: 5 + imgBoost, imgRange: 5);
 		if (!success) {
 			return false;
 		}

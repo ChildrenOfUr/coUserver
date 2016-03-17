@@ -65,6 +65,7 @@ class StatAchvManager {
 	}
 
 	static void tuneBubbles(String email) {
+		SkillManager.learn("bubble_tuning", email);
 		StatCollection.find(email).then((StatCollection stats) {
 			stats.bubbles_transformed++;
 			if (stats.bubbles_transformed >= 53) {
@@ -104,7 +105,6 @@ class StatAchvManager {
 	}
 
 	static void convertFruit(String email) {
-		print("converting fruit");
 		StatCollection.find(email).then((StatCollection stats) {
 			stats.fruit_converted++;
 			if (stats.fruit_converted >= 53) {

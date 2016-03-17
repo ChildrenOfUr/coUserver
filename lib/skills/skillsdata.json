@@ -1,47 +1,11 @@
 {
-	"mining": {
-		"name": "Mining",
-		"category": "Industrial",
-		"levels": [
-			0,
-			100,
-			1000,
-			50000
-		],
-		"descriptions": [
-			"Mining is the gateway to some pretty valuable resource extraction procedures: you'll be using a Pick to produce Chunks of Ore from special rocks scattered around the world. Though mining is hard work, the rewards are worth it.",
-			"Mining II increases the chance of special rewards and reduces the amount of energy you use to extract ore. Sweet.",
-			"Mining III reduces energy it takes to mine, reduces wear on your preferred mining instrument, and rewards more imagination.",
-			"Mining IV further improves your luck and doubles the imagination you get by mining."
-		],
-		"iconUrls": [
-			"http://www.glitchthegame.com/img/skills-460/mining_1.v1429808924.png",
-			"http://www.glitchthegame.com/img/skills-460/mining_2.v1428362783.png",
-			"http://www.glitchthegame.com/img/skills-460/mining_3.v1428362783.png",
-			"http://www.glitchthegame.com/img/skills-460/mining_4.v1428362783.png"
-		],
-		"requirements": {
-			"level": 3
-		},
-		"giants": [
-			"Zille",
-			"Alph",
-			"Cosma"
-		]
-	},
 	"arborology": {
 		"name": "Arborology",
 		"category": "Gathering",
-		"levels": [
-			0,
-			100,
-			1000,
-			50000,
-			100000
-		],
+		"levels": [151, 1532, 61625, 141516, 241516],
 		"descriptions": [
-			"The Arborology skill bestows upon you a certain facility with trees such that your deft and graceful harvesting hands return twice more product with each harvest.",
-			"A higher level of Arborology skill means an increased awareness of how the great garden of Ur grows: and how best to exploit it. Hurrah! With Arborology II you can get a little more imagination every time you harvest.",
+			"The Arborology skill means an increased awareness of how the great garden of Ur grows: and how best to exploit it. Hurrah! You can get a little more imagination every time you harvest.",
+			"A higher level of Arborology skill bestows upon you a certain facility with trees such that your deft and graceful harvesting hands return twice more product with each harvest.",
 			"Acquire the third level of the Arborology skill, and see your harvests improve dramatically. As the energy it takes to gather tree-based goods decreases, you'll develop the ability to occasionally coax a bonus reward from your harvestings. Life is win/win for the Level III Arborologist.",
 			"Arborology IV is notable for increasing your chance of a bonus gift during harvesting, and increasing the imagination you get every time you do harvest. Which all serves to increase your reason for learning it.",
 			"The ultimate level of Arborology skill offers an altogether better class of bonus reward, and provides the foundation necessary to upgrade to even more productive methods of harvesting."
@@ -59,10 +23,42 @@
 				"light_green_thumb": 1
 			}
 		},
-		"giants": [
-			"Spriggan",
-			"Grendaline",
-			"Mab"
-		]
+		"giants": ["Spriggan", "Grendaline", "Mab"]
+	},
+	"bubble_tuning": {
+		"name": "Bubble Tuning",
+		"category": "Gathering",
+		"levels": [153],
+		"descriptions": [
+			"Though one may use a Bubble Tuner without the Bubble Tuning skill, it is slow, taxing to one's energy and STILL has the possibility of failing. Well, learn Bubble Tuning and your bubble transmogrifications will come sweet 'n' easy."
+		],
+		"iconUrls": [
+			"http://www.glitchthegame.com/img/skills-460/bubbletuning_1.v1429808924.png"
+		],
+		"requirements": {
+			"level": 3
+		},
+		"giants": ["Spriggan", "Grendaline", "Tii"]
+	},
+	"mining": {
+		"name": "Mining",
+		"category": "Industrial",
+		"levels": [127, 1362, 75123, 85123],
+		"descriptions": [
+			"Mining is the gateway to some pretty valuable resource extraction procedures: you'll be using a Pick to produce Chunks of Ore from special rocks scattered around the world. Though mining is hard work, the rewards are worth it.",
+			"Mining II increases the chance of special rewards and reduces the amount of energy you use to extract ore. Sweet.",
+			"Mining III reduces energy it takes to mine, reduces wear on your preferred mining instrument, and rewards more imagination.",
+			"Mining IV further improves your luck and doubles the imagination you get by mining."
+		],
+		"iconUrls": [
+			"http://www.glitchthegame.com/img/skills-460/mining_1.v1429808924.png",
+			"http://www.glitchthegame.com/img/skills-460/mining_2.v1428362783.png",
+			"http://www.glitchthegame.com/img/skills-460/mining_3.v1428362783.png",
+			"http://www.glitchthegame.com/img/skills-460/mining_4.v1428362783.png"
+		],
+		"requirements": {
+			"level": 3
+		},
+		"giants": ["Zille", "Alph", "Cosma"]
 	}
 }

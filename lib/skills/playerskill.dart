@@ -29,10 +29,12 @@ class PlayerSkill extends Skill {
 
 	String toString() => "<Skill $id for $email>";
 
+	/// The player's email address
 	String email;
 
 	// Points/Levels
 
+	/// How many points the player has
 	int points;
 
 	/// True if level increased from new points, false if not
@@ -43,12 +45,15 @@ class PlayerSkill extends Skill {
 		return (level > oldLevel);
 	}
 
+	/// Current level, 0..numLevels inclusive
 	int get level => levelForPoints(points);
 
 	// Level-specific icon & description
 
-	String get iconUrl => iconUrls[level - 1];
-	String get description => descriptions[level - 1];
+	/// Get the icon url and description text for the player
+	/// (and maybe it's for the unlearned state)
+	String get iconUrl => (level > 0 ? iconUrls[level - 1] : "http://childrenofur.com/assets/skillNotYetLearned.png");
+	String get description => (level > 0 ? descriptions[level - 1] : "You're still learning the basics of $name!");
 
 	// Database
 
