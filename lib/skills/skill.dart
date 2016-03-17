@@ -136,9 +136,6 @@ class Skill {
 				SkillManager.CELL_QUERY, Metabolics, {"email": email}
 			);
 			int points = JSON.decode(rows.first.skills_json)[id] ?? 0;
-			if (points == 0) {
-				toast("New skill: $name", StreetUpdateHandler.userSockets[email], onClick: "imgmenu");
-			}
 			return new PlayerSkill(copy, email, points);
 		} catch (e) {
 			log("Error getting skill $id for $email: $e");

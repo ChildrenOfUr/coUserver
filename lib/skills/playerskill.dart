@@ -38,11 +38,14 @@ class PlayerSkill extends Skill {
 	int points;
 
 	/// True if level increased from new points, false if not
-	Future<bool> addPoints(int newPoints) async {
+	Future<Map> addPoints(int newPoints) async {
 		int oldLevel = level;
 		points += newPoints;
-		await _write();
-		return (level > oldLevel);
+		bool success = await _write();
+		return {
+			"writing": success,
+			"level_up": (level > oldLevel)
+		};
 	}
 
 	/// Current level, 0..numLevels inclusive

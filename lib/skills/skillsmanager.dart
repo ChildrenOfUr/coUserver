@@ -34,12 +34,26 @@ class SkillManager {
 	static Future<bool> learn(String skillId, String email, [int newPoints = 1]) async {
 		// Get existing skill or add if new
 		PlayerSkill skill = await PlayerSkill.find(skillId, email);
-		if (skill == null) {
-			skill = new PlayerSkill(Skill.find(skillId), email);
+		if (skill.points == 0) {
+			toast(
+				"You've started learning ${skill.name}!",
+				StreetUpdateHandler.userSockets[email],
+				onClick: "imgmenu"
+			);
 		}
 
 		// Save to database
-		return await skill.addPoints(newPoints);
+		Map success = await skill.addPoints(newPoints);
+
+		if (success["level_up"]) {
+			toast(
+				"Your ${skill.name} skill is now at level ${skill.level}!",
+				StreetUpdateHandler.userSockets[email],
+				onClick: "imgmenu"
+			);
+		}
+
+		return success["writing"];
 	}
 
 	/// Get a player's level of a certain skil
