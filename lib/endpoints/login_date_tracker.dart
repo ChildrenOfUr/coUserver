@@ -58,4 +58,7 @@ class LoginDateTracker {
 
 	@app.Route("/get/:username")
 	Future<String> get(String username) async => (await getDate(username) ?? "never").toString();
+
+	@app.Route("/getSlack")
+	Future<String> getSlack(@app.QueryParam("text") String text) async => await get(text.trim());
 }
