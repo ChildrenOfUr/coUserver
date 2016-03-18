@@ -29,12 +29,17 @@ class StreetUpdateHandler {
 
 	static loadItems() async {
 		try {
-			String directory = Platform.script.toFilePath();
-
-			directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
-			String filePath = path.join(directory,'lib','entities','items','json');
+			String directory;
+			//this happens when running unit tests
+			if(Platform.script.data != null) {
+				directory = Directory.current.path;
+			} else {
+				directory = Platform.script.toFilePath();
+				directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
+			}
 
 			// load items
+			String filePath = path.join(directory,'lib','entities','items','json');
 			await new Directory(filePath).list().forEach((File category) async {
 				JSON.decode(await category.readAsString()).forEach((String name, Map itemMap) {
 					itemMap['itemType'] = name;
@@ -342,6 +347,7 @@ class StreetUpdateHandler {
 			return false;
 		}
 
-		return await InventoryV2.moveItem(email);
+		return await InventoryV2.moveItem(email, fromIndex: fromIndex, toIndex: toIndex,
+		                                  fromBagIndex: fromBagIndex, toBagIndex: toBagIndex);
 	}
 }

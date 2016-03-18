@@ -31,8 +31,14 @@ class Achievement {
 	static Map<String, Achievement> _ACHIEVEMENTS = {};
 
 	static Future load() async {
-		String directory = Platform.script.toFilePath();
-		directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
+		String directory;
+		//this happens when running unit tests
+		if(Platform.script.data != null) {
+			directory = Directory.current.path;
+		} else {
+			directory = Platform.script.toFilePath();
+			directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
+		}
 
 		await new Directory(path.join(directory, 'lib', 'achievements', 'json')).list().forEach((File category) async {
 			await JSON.decode(await category.readAsString()).forEach((String id, Map data) async {

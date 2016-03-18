@@ -19,7 +19,7 @@ import 'package:harvest/harvest.dart' as harvest;
 Map<String, int> heightsCache = null;
 Map<String, String> headsCache = null;
 Map<String, Item> items = {};
-PostgreSqlManager dbManager = new PostgreSqlManager(databaseUri, min: 1, max: 9);
+PostgreSqlManager dbManager = new PostgreSqlManager(databaseUri);
 PostgreSql get dbConn => app.request.attributes.dbConn;
 harvest.MessageBus messageBus = new harvest.MessageBus.async();
 double minClientVersion = 0.15;

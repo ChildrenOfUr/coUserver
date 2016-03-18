@@ -17,8 +17,14 @@ class SkillManager {
 
 	/// Read skills from JSON file
 	static void loadSkills() {
-		String directory = Platform.script.toFilePath();
-		directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
+		String directory;
+		//this happens when running unit tests
+		if(Platform.script.data != null) {
+			directory = Directory.current.path;
+		} else {
+			directory = Platform.script.toFilePath();
+			directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
+		}
 
 		JSON.decode(
 			new File(path.join(directory, 'lib', 'skills', 'skillsdata.json'))

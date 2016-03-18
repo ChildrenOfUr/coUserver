@@ -382,7 +382,7 @@ Future<Metabolics> getMetabolics(
 			metabolic = metabolics[0];
 		} else {
 			query = "SELECT * FROM users " + whereClause;
-			var results = await dbConn.query(query, int, {'username': username, 'email': email});
+			var results = await dbConn.query(query, int, {'username': username, 'email': email, 'userId': userId});
 
 			if (results.length > 0) {
 				metabolic.user_id = results[0]['id'];

@@ -703,7 +703,7 @@ class InventoryV2 {
 			slotMaps.add(slotMap);
 		}
 		Map inventoryMap = {'inventory':'true', 'update':update, 'slots':slotMaps};
-		userSocket.add(JSON.encode(inventoryMap));
+		userSocket?.add(JSON.encode(inventoryMap));
 	}
 
 	// Public Methods /////////////////////////////////////////////////////////////////////////////
@@ -814,9 +814,12 @@ class InventoryV2 {
 	}
 
 	static Future _aquireLock(String email) async {
-		while(inventoryLocked[email]) {
-			await _wait(new Duration(milliseconds: 100));
+		if(inventoryLocked[email] != null) {
+			while(inventoryLocked[email]) {
+				await _wait(new Duration(milliseconds: 100));
+			}
 		}
+
 		inventoryLocked[email] = true;
 	}
 
