@@ -106,11 +106,19 @@ abstract class Tree extends Plant {
 	}
 
 	Future<bool> water({WebSocket userSocket, String email}) async {
+		//make sure the player has a watering can that water this tree
+		Map mineAction = actions.firstWhere((Map action) => action['action'] == 'water');
+		List<String> types = mineAction['requires'][0]['of'];
+		bool success = await InventoryV2.decreaseDurability(email, types);
+		if(!success) {
+			return false;
+		}
+
 		if (state == maxState) {
 			return false;
 		}
 
-		bool success = await trySetMetabolics(email, energy: -2, mood: 2, imgMin: 3, imgRange: 2);
+		success = await trySetMetabolics(email, energy: -2, mood: 2, imgMin: 3, imgRange: 2);
 		if (!success) {
 			return false;
 		}

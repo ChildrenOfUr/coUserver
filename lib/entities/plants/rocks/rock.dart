@@ -65,7 +65,8 @@ abstract class Rock extends Plant {
 		//make sure the player has a pick that can mine this rock
 		Map mineAction = actions.firstWhere((Map action) => action['action'] == 'mine');
 		List<String> types = mineAction['requires'][0]['of'];
-		bool success = await InventoryV2.decreaseDurability(email, types);
+		int miningSkillLevel = await SkillManager.getLevel(SKILL, email);
+		bool success = await InventoryV2.decreaseDurability(email, types, amount: (miningSkillLevel >= 3 ? 1 : 2));
 		if(!success) {
 			return false;
 		}

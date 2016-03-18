@@ -12,14 +12,14 @@ class IceNubbin extends Plant {
 			"enabled":true,
 			"requires":[
 				{
-					"num":4,
-					"of":['energy'],
-					"error": "You need at least 4 energy to pull off ice cubes."
-				},
-				{
 					"num":1,
 					"of":["scraper", "super_scraper"],
 					"error": "You need something sharp to cut off ice cubes with."
+				},
+				{
+					"num":4,
+					"of":['energy'],
+					"error": "You need at least 4 energy to pull off ice cubes."
 				}
 			]
 		});
@@ -33,7 +33,15 @@ class IceNubbin extends Plant {
 	}
 
 	Future<bool> collect ({WebSocket userSocket, String email}) async {
-		bool success = await super.trySetMetabolics(email,energy:-4,imgMin:2,imgRange:2);
+		//make sure the player has a shovel that can scrape this ice
+		Map mineAction = actions.firstWhere((Map action) => action['action'] == 'collect');
+		List<String> types = mineAction['requires'][0]['of'];
+		bool success = await InventoryV2.decreaseDurability(email, types);
+		if(!success) {
+			return false;
+		}
+
+		success = await super.trySetMetabolics(email,energy:-4,imgMin:2,imgRange:2);
 		if(!success) {
 			return false;
 		}

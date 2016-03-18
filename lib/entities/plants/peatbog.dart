@@ -47,7 +47,15 @@ class PeatBog extends Plant {
 	}
 
 	Future<bool> dig({WebSocket userSocket, String email}) async {
-		bool success = await super.trySetMetabolics(email,energy:-10,imgMin:10,imgRange:5);
+		//make sure the player has a shovel that can dig this peat
+		Map mineAction = actions.firstWhere((Map action) => action['action'] == 'dig');
+		List<String> types = mineAction['requires'][0]['of'];
+		bool success = await InventoryV2.decreaseDurability(email, types);
+		if(!success) {
+			return false;
+		}
+
+		success = await super.trySetMetabolics(email,energy:-10,imgMin:10,imgRange:5);
 		if(!success) {
 			return false;
 		}

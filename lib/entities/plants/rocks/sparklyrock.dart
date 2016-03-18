@@ -31,8 +31,15 @@ class SparklyRock extends Rock {
 		bool success = await super.mine(userSocket:userSocket, email:email);
 
 		if(success) {
+			int miningLevel = await SkillManager.getLevel(Rock.SKILL, email);
+			int qty = 1;
+			if (miningLevel == 4) {
+				qty = (rand.nextInt(3) == 3 ? 3 : 2);
+			} else if (miningLevel >= 1) {
+				qty = 2;
+			}
 			//give the player the 'fruits' of their labor
-			await InventoryV2.addItemToUser(email, items['chunk_sparkly'].getMap(), 1, id);
+			await InventoryV2.addItemToUser(email, items['chunk_sparkly'].getMap(), qty, id);
 		}
 
 		return success;

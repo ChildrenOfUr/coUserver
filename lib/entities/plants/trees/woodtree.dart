@@ -57,7 +57,15 @@ class WoodTree extends Tree {
 	}
 
 	Future<bool> chop({WebSocket userSocket, String email}) async {
-		bool success = await super.harvest(userSocket:userSocket,email:email);
+		//make sure the player has a hatchet that chop some wood
+		Map mineAction = actions.firstWhere((Map action) => action['action'] == 'chop');
+		List<String> types = mineAction['requires'][0]['of'];
+		bool success = await InventoryV2.decreaseDurability(email, types);
+		if(!success) {
+			return false;
+		}
+
+		success = await super.harvest(userSocket:userSocket,email:email);
 
 		if(success) {
 			StatCollection.find(email).then((StatCollection stats) {

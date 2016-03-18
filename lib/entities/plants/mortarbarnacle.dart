@@ -33,7 +33,15 @@ class MortarBarnacle extends Plant {
 	}
 
 	Future<bool> scrape({WebSocket userSocket, String email}) async {
-		bool success = await super.trySetMetabolics(email,energy:-9,imgMin:10,imgRange:5);
+		//make sure the player has a shovel that can scrape this rock
+		Map mineAction = actions.firstWhere((Map action) => action['action'] == 'scrape');
+		List<String> types = mineAction['requires'][0]['of'];
+		bool success = await InventoryV2.decreaseDurability(email, types);
+		if(!success) {
+			return false;
+		}
+
+		success = await super.trySetMetabolics(email,energy:-9,imgMin:10,imgRange:5);
 		if(!success) {
 			return false;
 		}
