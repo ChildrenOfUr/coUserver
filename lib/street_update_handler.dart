@@ -15,7 +15,7 @@ import 'package:coUserver/street.dart';
 import 'package:coUserver/entities/items/item.dart';
 import 'package:coUserver/endpoints/stats.dart';
 import 'package:coUserver/common/identifier.dart';
-import 'package:coUserver/skills/skill.dart';
+import 'package:coUserver/skills/skillsmanager.dart';
 import 'package:coUserver/entities/items/actions/recipes/recipe.dart';
 
 import 'package:path/path.dart' as path;

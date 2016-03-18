@@ -13,9 +13,9 @@ class PlayerSkill extends Skill {
 
 	PlayerSkill(Skill base, this.email, [this.points]) : super.fromMap(base.toMap());
 
-	PlayerSkill.fromMap(Map map) : super.fromMap(map) {
-		email = map["email"];
-		points = map["points"];
+	PlayerSkill.fromMap(Map map, [String id]) : super.fromMap(map, id) {
+		email = map["player_email"];
+		points = map["player_points"];
 	}
 
 	Map toMap() => super.toMap()..addAll({

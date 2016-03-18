@@ -1,20 +1,4 @@
-library skills;
-
-import 'dart:async';
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:coUserver/common/user.dart';
-import 'package:coUserver/common/util.dart';
-import 'package:coUserver/endpoints/metabolics/metabolics.dart';
-import 'package:coUserver/street_update_handler.dart';
-
-import 'package:redstone/redstone.dart' as app;
-import 'package:redstone_mapper_pg/manager.dart';
-import 'package:path/path.dart' as path;
-
-part 'playerskill.dart';
-part 'skillsmanager.dart';
+part of skills;
 
 /*
  *  Stores information about a specific skill.

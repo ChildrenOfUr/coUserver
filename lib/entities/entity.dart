@@ -15,7 +15,7 @@ import 'package:coUserver/achievements/achievements.dart';
 import 'package:coUserver/inventory_new.dart';
 import 'package:coUserver/common/harvest_messages.dart';
 import 'package:coUserver/street_update_handler.dart';
-import 'package:coUserver/skills/skill.dart';
+import 'package:coUserver/skills/skillsmanager.dart';
 import 'package:coUserver/entities/items/item.dart';
 import 'package:coUserver/common/user.dart';
 import 'package:coUserver/endpoints/visited.dart';
