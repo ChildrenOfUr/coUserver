@@ -40,12 +40,26 @@ class SkillManager {
 	static Future<bool> learn(String skillId, String email, [int newPoints = 1]) async {
 		// Get existing skill or add if new
 		PlayerSkill skill = await PlayerSkill.find(skillId, email);
-		if (skill == null) {
-			skill = new PlayerSkill(Skill.find(skillId), email);
+		if (skill.points == 0) {
+			toast(
+				"You've started learning ${skill.name}!",
+				StreetUpdateHandler.userSockets[email],
+				onClick: "imgmenu"
+			);
 		}
 
 		// Save to database
-		return await skill.addPoints(newPoints);
+		Map success = await skill.addPoints(newPoints);
+
+		if (success["level_up"]) {
+			toast(
+				"Your ${skill.name} skill is now at level ${skill.level}!",
+				StreetUpdateHandler.userSockets[email],
+				onClick: "imgmenu"
+			);
+		}
+
+		return success["writing"];
 	}
 
 	/// Get a player's level of a certain skil
@@ -55,7 +69,13 @@ class SkillManager {
 	}
 
 	/// Get all skills data for a user
-	static Future<List<Map<String, dynamic>>> getPlayerSkills(email) async {
+	static Future<List<Map<String, dynamic>>> getPlayerSkills({String email, String username}) async {
+		if (email == null && username != null) {
+			email = await User.getEmailFromUsername(username);
+		} else if (email == null && username == null) {
+			return null;
+		}
+
 		PostgreSql dbConn = await dbManager.getConnection();
 		try {
 			// Get data from database
@@ -72,15 +92,21 @@ class SkillManager {
 			return playerSkillsList;
 		} catch (e) {
 			log("Error getting skill list for email $email: $e");
-			return new List();
+			return null;
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}
 	}
 
-	/// API access to [getPlayerSkills]
+	/// API access to [getPlayerSkills] by email
 	@app.Route("/get/:email")
-	Future<List<Map<String, dynamic>>> getPlayerSkillsRoute(email) async {
-		return await getPlayerSkills(email);
+	Future<List<Map<String, dynamic>>> getPlayerSkillsRoute(String email) async {
+		return await getPlayerSkills(email: email);
+	}
+
+	/// API access to [getPlayerSkills] by username
+	@app.Route("/getByUsername/:username")
+	Future<List<Map<String, dynamic>>> getPlayerSkillsUsernameRoute(String username) async {
+		return await getPlayerSkills(username: username);
 	}
 }
