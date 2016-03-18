@@ -313,7 +313,6 @@ class MetabolicsEndpoint {
 		// Compare "after" and "before" img
 		if (getLevel(m.lifetime_img) > getLevel(oldImg)) {
 			// Level up
-			print("sending map from quoin");
 			MetabolicsEndpoint.userSockets[username].add(JSON.encode({
 				                                                         "levelUp": getLevel(m.lifetime_img)
 			                                                         }));

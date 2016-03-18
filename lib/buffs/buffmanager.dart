@@ -49,7 +49,6 @@ class BuffManager {
 
 	/// Give a user a buff
 	static void addToUser(String buffId, String email, WebSocket userSocket) {
-		print("adding to user");
 		PlayerBuff newBuff = new PlayerBuff(Buff.find(buffId), email);
 		userSocket.add(JSON.encode({"buff": newBuff.toMap()}));
 		newBuff.startUpdating();
