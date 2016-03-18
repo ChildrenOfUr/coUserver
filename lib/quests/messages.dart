@@ -42,8 +42,9 @@ class RejectQuest extends harvest.Message {
 
 class RequirementProgress extends harvest.Message {
 	String eventType, email;
+	int count;
 
-	RequirementProgress(this.eventType, this.email);
+	RequirementProgress(this.eventType, this.email, {this.count: 1});
 }
 
 class RequirementUpdated extends harvest.Message {

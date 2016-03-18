@@ -842,7 +842,7 @@ class InventoryV2 {
 		if (added == count) {
 			await fireInventoryAtUser(userSocket, email, update: true);
 			String itemType = item['itemType'];
-			messageBus.publish(new RequirementProgress('getItem_$itemType', email));
+			messageBus.publish(new RequirementProgress('getItem_$itemType', email, count: count));
 			if(itemType == 'pick' || itemType == 'fancy_pick') {
 				QuestEndpoint.questLogCache[email].offerQuest('Q6');
 			}

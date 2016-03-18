@@ -98,19 +98,21 @@ class Requirement extends Trackable {
 			}
 
 			bool goodEvent = false;
+			int count = 1;
 			if (_matchingEvent(progress.eventType)) {
 				if (type == 'counter_unique' && !typeDone.contains(progress.eventType)) {
 					goodEvent = true;
 					typeDone.add(progress.eventType);
 				} else if (type == 'counter' || type == 'timed') {
 					goodEvent = true;
+					count = progress.count;
 				}
 			}
 
 			if (!goodEvent || fulfilled) {
 				return;
 			}
-			numFulfilled += 1;
+			numFulfilled += count;
 			messageBus.publish(new RequirementUpdated(this, email));
 		}));
 	}

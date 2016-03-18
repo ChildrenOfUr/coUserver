@@ -9,18 +9,14 @@ class Consumable extends Object with MetabolicsChange {
 	Future<bool> eat({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		Item consumed = await consume(streetName:streetName, map:map, userSocket: userSocket, email: email, username:username);
 		if(consumed != null) {
-			for(int i=0; i<map['count']; i++) {
-				messageBus.publish(new RequirementProgress('eat_${consumed.itemType}', email));
-			}
+			messageBus.publish(new RequirementProgress('eat_${consumed.itemType}', email, count:map['count']));
 		}
 		return consumed != null;
 	}
 	Future<bool> drink({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		Item consumed = await consume(streetName:streetName, map:map, userSocket: userSocket, email: email, username:username);
 		if(consumed != null) {
-			for(int i=0; i<map['count']; i++) {
-				messageBus.publish(new RequirementProgress('drink_${consumed.itemType}', email));
-			}
+			messageBus.publish(new RequirementProgress('drink_${consumed.itemType}', email, count:map['count']));
 		}
 		return consumed != null;
 	}

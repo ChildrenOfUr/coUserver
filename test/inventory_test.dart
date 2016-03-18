@@ -17,8 +17,9 @@ String ut_email = '3fkw19+5xkfumzd5c5e4@sharklasers.com';
 int ut_id = 3633;
 
 Future main() async {
-	app.setupConsoleLog();
 	app.addPlugin(getMapperPlugin(dbManager));
+	//need to call this before loading the items
+	app.redstoneSetUp();
 
 	//ignore messages about quest requirements being completed when not on the quest
 	messageBus.deadMessageHandler = (harvest.Message m){};
@@ -73,7 +74,7 @@ Future main() async {
 
 			//give them 260 beans and then take 30 (beans stack to 250)
 			await InventoryV2.addItemToUser(ut_email, items['bean'].getMap(), 260);
-			expect(countItemInInventory(await getInventory(), 'bean'), equals(1));
+			expect(countItemInInventory(await getInventory(), 'bean'), equals(260));
 
 			await InventoryV2.takeAnyItemsFromUser(ut_email, 'bean', 30);
 			expect(countItemInInventory(await getInventory(), 'bean'), equals(230));
