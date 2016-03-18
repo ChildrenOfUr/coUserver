@@ -69,9 +69,9 @@ class Slot {
 	@override
 	String toString() {
 		if (isEmpty) {
-			return "Empty player inventory slot";
+			return "Empty inventory slot";
 		} else {
-			return "Player inventory slot containing $count x $itemType with metadata: $metadata";
+			return "Inventory slot containing $count x $itemType with metadata: $metadata";
 		}
 	}
 }
@@ -100,6 +100,16 @@ class InventoryV2 {
 			}
 		});
 		return s;
+	}
+
+	@override
+	String toString() {
+		String output = '{\n';
+		for(Slot slot in slots) {
+			output += '  $slot\n';
+		}
+		output += '}';
+		return output;
 	}
 
 	//do not make a setter for slots it is a convenience field only
@@ -527,6 +537,10 @@ class InventoryV2 {
 			await _updateDatabase(email);
 		}
 
+		if(dropped.itemType == null || dropped.itemType == '') {
+			return null;
+		}
+
 		Item droppedItem = new Item.clone(dropped.itemType);
 		droppedItem.metadata = dropped.metadata;
 		return droppedItem;
@@ -914,8 +928,8 @@ class InventoryV2 {
 
 	static Future<bool> moveItem(String email, {int fromIndex: -1,
 								int fromBagIndex: -1,
-								int toBagIndex: -1,
-								int toIndex: -1}) async {
+								int toIndex: -1,
+								int toBagIndex: -1}) async {
 		await _aquireLock(email);
 		// Get the user's inventory to work on
 		InventoryV2 inv = await getInventory(email);
@@ -946,16 +960,18 @@ class InventoryV2 {
 			inv.updateJson();
 			// Update the database
 			await inv._updateDatabase(email);
+
+			// Update the client
+			WebSocket userSocket = StreetUpdateHandler.userSockets[email];
+			await InventoryV2.fireInventoryAtUser(userSocket, email, update: true);
 		} catch (e, st) {
 			inv.inventory_json = jsonx.encode(beforeSlots);
 			log("Problem moving item: $e\n$st");
 			return false;
+		} finally {
+			_releaseLock(email);
 		}
 
-		// Update the client
-		WebSocket userSocket = StreetUpdateHandler.userSockets[email];
-		await InventoryV2.fireInventoryAtUser(userSocket, email, update: true);
-		_releaseLock(email);
 		return true;
 	}
 
