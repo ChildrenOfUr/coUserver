@@ -1,0 +1,17 @@
+{
+	"double_quoins": {
+		"name": "Double Quoins",
+		"description": "Quoin values doubled",
+		"length": 10
+	},
+	"full_of_pie": {
+		"name": "Full of Pie",
+		"description": "Jump height decreased",
+		"length": 120
+	},
+	"spinach": {
+		"name": "Spinach",
+		"description": "Jump height increased",
+		"length": 30
+	}
+}

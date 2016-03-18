@@ -9,11 +9,13 @@ import 'package:coUserver/inventory_new.dart';
 import 'package:coUserver/quests/quest.dart';
 import 'package:coUserver/common/user.dart';
 import 'package:coUserver/achievements/achievements.dart';
+import 'package:coUserver/buffs/buffmanager.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/common/stat_buffer.dart';
 import 'package:coUserver/endpoints/constants.dart';
 import 'package:coUserver/common/identifier.dart';
 import 'package:coUserver/player_update_handler.dart';
+import 'package:coUserver/street_update_handler.dart';
 import 'package:coUserver/entities/entity.dart';
 
 import 'package:redstone_mapper/mapper.dart';
@@ -198,6 +200,9 @@ class Metabolics {
 
 	@Field()
 	String skills_json = "{}";
+
+	@Field()
+	String buffs_json = "{}";
 }
 
 // LEVELS

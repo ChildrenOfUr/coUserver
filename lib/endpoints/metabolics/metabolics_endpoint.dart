@@ -207,6 +207,10 @@ class MetabolicsEndpoint {
 			amt = rand.nextInt(4) + 1;
 			// Multiply it by the player's quoin multiplier
 			amt = (amt * m.quoin_multiplier).round();
+			// Double if buffed
+			if (await BuffManager.playerHasBuff("double_quoins", await User.getEmailFromUsername(username))) {
+				amt *= 2;
+			}
 		} else {
 			// Chose a number 0.01 i to 0.09 i
 			amt = (rand.nextInt(9) + 1) / 100;
@@ -216,6 +220,9 @@ class MetabolicsEndpoint {
 			// Limit QM
 			if (m.quoin_multiplier > constants.quoinMultiplierLimit) {
 				m.quoin_multiplier = constants.quoinMultiplierLimit;
+				String email = await User.getEmailFromUsername(username);
+				// Add double quoins buff instead
+				BuffManager.addToUser("double_quoins", email, StreetUpdateHandler.userSockets[email]);
 			}
 		}
 

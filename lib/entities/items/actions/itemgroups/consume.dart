@@ -21,6 +21,14 @@ class Consumable extends Object with MetabolicsChange {
 		return consumed != null;
 	}
 
+	Future<bool> activate({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
+		Item consumed = await consume(streetName:streetName, map:map, userSocket: userSocket, email: email, username:username);
+		if (consumed != null && consumed.itemType == "spinach") {
+			BuffManager.addToUser("spinach", email, userSocket);
+		}
+		return consumed != null;
+	}
+
 	Future<Item> consume({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		Item consumed = await InventoryV2.takeItemFromUser(email, map['slot'],map['subSlot'], map['count']);
 		if (consumed == null) {
@@ -61,6 +69,10 @@ class Consumable extends Object with MetabolicsChange {
 		message = message.trim() + ".";
 
 		toast(message, userSocket);
+
+		if (consumed.itemType == "pumpkin_pie") {
+			BuffManager.addToUser("full_of_pie", email, userSocket);
+		}
 
 		await trySetMetabolics(email, energy:energyAward, mood:moodAward, imgMin:imgAward);
 		return consumed;

@@ -5,6 +5,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:mirrors';
 
+import 'package:coUserver/common/user.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/achievements/achievements.dart';
 import 'package:coUserver/player_update_handler.dart';
@@ -16,6 +17,7 @@ import 'package:coUserver/entities/items/item.dart';
 import 'package:coUserver/endpoints/stats.dart';
 import 'package:coUserver/common/identifier.dart';
 import 'package:coUserver/skills/skillsmanager.dart';
+import 'package:coUserver/buffs/buffmanager.dart';
 import 'package:coUserver/entities/items/actions/recipes/recipe.dart';
 
 import 'package:path/path.dart' as path;
@@ -74,6 +76,9 @@ class StreetUpdateHandler {
 
 			// Load skills
 			SkillManager.loadSkills();
+
+			// Load buffs
+			BuffManager.loadBuffs();
 		}
 		catch (e) {
 			log("Problem loading items: $e");
@@ -169,6 +174,9 @@ class StreetUpdateHandler {
 			}
 		});
 		userSockets.remove(userToRemove);
+
+		// Stop updating their buffs
+		BuffManager.stopUpdatingUser(userToRemove);
 	}
 
 	static Future processMessage(WebSocket ws, String message) async {
@@ -205,6 +213,7 @@ class StreetUpdateHandler {
 					if (map['firstConnect']) {
 						await InventoryV2.fireInventoryAtUser(ws, email);
 						MetabolicsEndpoint.updateDeath(PlayerUpdateHandler.users[username], null, true);
+						BuffManager.startUpdatingUser(email);
 					}
 					return;
 				}
