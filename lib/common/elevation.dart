@@ -23,6 +23,27 @@ class Elevation {
 		}
 	}
 
+	/// Used to list guides/devs on site
+	@app.Route("/list/:status")
+	Future<List<Map<String, dynamic>>> list(String status) async {
+		List<User> rows = await dbConn.query(
+			"SELECT username, last_login FROM users"
+			" WHERE elevation = @elevation",
+			User, {"elevation": status}
+		);
+
+		List<Map<String, dynamic>> users = new List();
+
+		rows.forEach((User user) {
+			users.add({
+				"username": user.username,
+				"last_login": user.last_login?.toString() ?? "never"
+			});
+		});
+
+		return users;
+	}
+
 	/// Used by Slack
 	@app.Route("/set")
 	Future<String> set(

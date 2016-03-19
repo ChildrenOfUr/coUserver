@@ -11,6 +11,7 @@ class User {
 	@Field() int id;
 	@Field() String username, email, bio, achievements, elevation;
 	@Field() bool chat_disabled;
+	@Field() DateTime last_login;
 
 	static Map<String, String> _emailUsernames = {};
 	static Map<String, String> _usernameEmails = {};
