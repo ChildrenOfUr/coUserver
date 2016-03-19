@@ -2004,7 +2004,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Garillis Fill": {
 		"shrine": "Mab",
-		"vendor": "Gardening Goods"
+		"vendor": "Gardening Goods",
+		"tsid": "LA97Q5LV0F92PU6",
+		"hub_id": 98
 	},
 	"Gashaalo Lora": {
 		"shrine": "Alph",
