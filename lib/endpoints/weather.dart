@@ -1,4 +1,9 @@
-part of coUserver;
+library weather;
+
+import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+import 'dart:math' hide log;
 
 enum WeatherState {
 	CLEAR, RAINING, SNOWING, WINDY

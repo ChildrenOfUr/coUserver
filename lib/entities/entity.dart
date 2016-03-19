@@ -20,6 +20,7 @@ import 'package:coUserver/entities/items/item.dart';
 import 'package:coUserver/common/user.dart';
 import 'package:coUserver/endpoints/visited.dart';
 import 'package:coUserver/endpoints/time.dart';
+import 'package:coUserver/endpoints/weather.dart';
 
 import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper/mapper.dart';

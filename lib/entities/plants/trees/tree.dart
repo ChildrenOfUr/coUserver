@@ -3,6 +3,7 @@ part of entity;
 abstract class Tree extends Plant {
 	static final String SKILL = "arborology";
 	String rewardItemType;
+	DateTime lastWeatherUpdate = new DateTime.now();
 
 	int maturity;
 
@@ -48,10 +49,20 @@ abstract class Tree extends Plant {
 	void update() {
 		super.update();
 
-		if (state > 0)
+		if (state > 0) {
 			setActionEnabled("harvest", true);
-		else
+		} else {
 			setActionEnabled("harvest", false);
+		}
+
+		if (
+			WeatherEndpoint.currentState == WeatherState.RAINING &&
+			new DateTime.now().difference(lastWeatherUpdate).inSeconds > 23
+		) {
+			// Every 23 seconds while raining
+			state = (state + 1).clamp(0, maxState);
+			lastWeatherUpdate = new DateTime.now();
+		}
 	}
 
 	Future<bool> harvest({WebSocket userSocket, String email}) async {

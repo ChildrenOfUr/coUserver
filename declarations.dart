@@ -18,6 +18,7 @@ import 'package:coUserver/street_update_handler.dart';
 import 'package:coUserver/chat_handler.dart';
 import 'package:coUserver/player_update_handler.dart';
 import 'package:coUserver/endpoints/time.dart';
+import 'package:coUserver/endpoints/weather.dart';
 import 'package:coUserver/auctions/auctions_service.dart';
 
 import "package:intl/intl.dart";
@@ -31,7 +32,6 @@ import "package:harvest/harvest.dart" as harvest;
 part "gameServer/server.dart";
 
 //various service endpoints
-part "lib/endpoints/weather.dart";
 part "lib/endpoints/usernamecolors.dart";
 
 // bug reporting
