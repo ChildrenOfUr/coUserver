@@ -22,7 +22,7 @@ Future main() async {
 	app.redstoneSetUp();
 
 	//ignore messages about quest requirements being completed when not on the quest
-	messageBus.deadMessageHandler = (harvest.Message m){};
+	messageBus.deadMessageHandler = (harvest.Message m) {};
 
 	//load game items
 	await StreetUpdateHandler.loadItems();
@@ -74,7 +74,7 @@ Future main() async {
 			expect((await inventory.getItemInSlot(3, -1, ut_email)).itemType, equals('bean'));
 
 			//move it inside the bag
-			expect(await InventoryV2.moveItem(ut_email,fromIndex: 3, fromBagIndex: -1,
+			expect(await InventoryV2.moveItem(ut_email, fromIndex: 3, fromBagIndex: -1,
 				                                  toIndex: 1, toBagIndex: 0), isTrue);
 
 			//verify the item was moved
@@ -83,8 +83,8 @@ Future main() async {
 			expect((await inventory.getItemInSlot(1, 0, ut_email)).itemType, equals('bean'));
 
 			//move it into the other bag
-			expect(await InventoryV2.moveItem(ut_email,fromIndex: 1, fromBagIndex: 0,
-				                                  toIndex: 5, toBagIndex: -1), isTrue);
+			expect(await InventoryV2.moveItem(ut_email, fromIndex: 1, fromBagIndex: 0,
+				                                  toIndex: 2, toBagIndex: 0), isTrue);
 
 			//verify the item was moved
 			inventory = await getInventory();
@@ -92,14 +92,14 @@ Future main() async {
 			expect((await inventory.getItemInSlot(2, 0, ut_email)).itemType, equals('bean'));
 
 			//move it from the bag to the last bar slot
-			expect(await InventoryV2.moveItem(ut_email,fromIndex: 2, fromBagIndex: 0,
+			expect(await InventoryV2.moveItem(ut_email, fromIndex: 2, fromBagIndex: 0,
 				                                  toIndex: 9, toBagIndex: -1), isTrue);
 
 			//verify the item was moved
 			inventory = await getInventory();
 			expect((await inventory.getItemInSlot(2, 0, ut_email)), isNull);
 			expect((await inventory.getItemInSlot(9, -1, ut_email)).itemType, equals('bean'));
-		}, skip: 'Second bag move not currently working');
+		});
 
 		test('Take item from Inventory (any slot)', () async {
 			await InventoryV2.addItemToUser(ut_email, items['cherry'].getMap(), 1);
@@ -137,15 +137,15 @@ Future<InventoryV2> getInventory() async {
 int countItemInInventory(InventoryV2 inventory, String itemType) {
 	int count = 0;
 
-	for(Slot slot in inventory.slots) {
-		if(slot.itemType == itemType) {
+	for (Slot slot in inventory.slots) {
+		if (slot.itemType == itemType) {
 			count += slot.count;
 		}
-		if(items[itemType].isContainer) {
-			if(slot.metadata['slots'] != null) {
+		if (items[itemType].isContainer) {
+			if (slot.metadata['slots'] != null) {
 				List<Slot> bagSlots = decode(slot.metadata['slots'], Slot);
-				for(Slot slot in bagSlots) {
-					if(slot.itemType == itemType) {
+				for (Slot slot in bagSlots) {
+					if (slot.itemType == itemType) {
 						count += slot.count;
 					}
 				}
@@ -161,7 +161,7 @@ InventoryV2 _verifyInventoryIsEmpty(InventoryV2 inventory) {
 	expect(inventory.slots.length, equals(10));
 
 	//verify the inventory is empty
-	for(Slot slot in inventory.slots) {
+	for (Slot slot in inventory.slots) {
 		expect(slot.isEmpty, isTrue);
 	}
 

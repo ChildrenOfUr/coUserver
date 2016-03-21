@@ -64,6 +64,11 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 		}
 	}
 
+	@override
+	String toString() {
+		return 'An item of type $itemType with metadata $metadata';
+	}
+
 	Item();
 
 	Item.clone(this.itemType) {
@@ -146,7 +151,10 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 	}
 
 	bool filterAllows({Item testItem, String itemType}) {
-		assert(testItem != null || itemType != null);
+		//allow an empty slot
+		if(testItem == null && itemType == null) {
+			return true;
+		}
 
 		if (itemType != null && itemType.isEmpty) {
 			//bags except empty item types (this is an empty slot)

@@ -495,55 +495,59 @@ class InventoryV2 {
 	}
 
 	Future<Item> _takeItem(int slot, int subSlot, int count, String email, {bool simulate: false}) async {
-		List<Slot> tmpSlots = slots;
-		Slot toModify = tmpSlots.elementAt(slot);
-		Slot dropped;
+		try {
+			List<Slot> tmpSlots = slots;
+			Slot toModify = tmpSlots.elementAt(slot);
+			Slot dropped;
 
-		//if we're taking from a bag
-		if (subSlot > -1) {
-			List<Slot> bagSlots = jsonx.decode(toModify.metadata['slots'], type: listOfSlots);
-			Slot bagSlotToModify = bagSlots.elementAt(subSlot);
-			if (bagSlotToModify.count < count) {
-				return null;
-			} else {
-				if (bagSlotToModify.count == count) {
-					bagSlotToModify = new Slot();
+			//if we're taking from a bag
+			if (subSlot > -1) {
+				List<Slot> bagSlots = jsonx.decode(toModify.metadata['slots'], type: listOfSlots);
+				Slot bagSlotToModify = bagSlots.elementAt(subSlot);
+				if (bagSlotToModify.count < count) {
+					return null;
 				} else {
-					bagSlotToModify.count -= count;
+					if (bagSlotToModify.count == count) {
+						bagSlotToModify = new Slot();
+					} else {
+						bagSlotToModify.count -= count;
+					}
 				}
+
+				dropped = bagSlots.removeAt(subSlot);
+				bagSlots.insert(subSlot, bagSlotToModify);
+				toModify.metadata['slots'] = jsonx.encode(bagSlots);
+				tmpSlots.removeAt(slot);
+			} else {
+				if (toModify.count < count) {
+					return null;
+				}
+				if (toModify.count == count) {
+					toModify = new Slot();
+				} else {
+					toModify.count -= count;
+				}
+
+				dropped = tmpSlots.removeAt(slot);
 			}
 
-			dropped = bagSlots.removeAt(subSlot);
-			bagSlots.insert(subSlot, bagSlotToModify);
-			toModify.metadata['slots'] = jsonx.encode(bagSlots);
-			tmpSlots.removeAt(slot);
-		} else {
-			if (toModify.count < count) {
+			tmpSlots.insert(slot, toModify);
+
+			if (!simulate) {
+				inventory_json = jsonx.encode(tmpSlots);
+				await _updateDatabase(email);
+			}
+
+			if(dropped.itemType == null || dropped.itemType == '') {
 				return null;
 			}
-			if (toModify.count == count) {
-				toModify = new Slot();
-			} else {
-				toModify.count -= count;
-			}
 
-			dropped = tmpSlots.removeAt(slot);
-		}
-
-		tmpSlots.insert(slot, toModify);
-
-		if (!simulate) {
-			inventory_json = jsonx.encode(tmpSlots);
-			await _updateDatabase(email);
-		}
-
-		if(dropped.itemType == null || dropped.itemType == '') {
+			Item droppedItem = new Item.clone(dropped.itemType);
+			droppedItem.metadata = dropped.metadata;
+			return droppedItem;
+		} catch(e) {
 			return null;
 		}
-
-		Item droppedItem = new Item.clone(dropped.itemType);
-		droppedItem.metadata = dropped.metadata;
-		return droppedItem;
 	}
 
 	Future<int> _takeAnyItems(String itemType, int count, String email, {bool simulate: false}) async {
