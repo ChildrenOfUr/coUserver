@@ -40,6 +40,8 @@ class Achievement {
 			directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
 		}
 
+		directory = directory.replaceAll('coUserver/test','coUserver');
+
 		await new Directory(path.join(directory, 'lib', 'achievements', 'json')).list().forEach((File category) async {
 			await JSON.decode(await category.readAsString()).forEach((String id, Map data) async {
 				Achievement achievement = new Achievement(

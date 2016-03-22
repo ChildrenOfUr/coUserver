@@ -42,6 +42,8 @@ class SkillManager {
 			directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
 		}
 
+		directory = directory.replaceAll('coUserver/test','coUserver');
+
 		JSON.decode(
 			new File(path.join(directory, 'lib', 'skills', 'skillsdata.json'))
 				.readAsStringSync()

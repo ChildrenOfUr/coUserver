@@ -14,3 +14,4 @@ headsCache.json
 .packages
 redstone_log_file
 run/
+coverage*

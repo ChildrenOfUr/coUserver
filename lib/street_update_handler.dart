@@ -39,6 +39,8 @@ class StreetUpdateHandler {
 				directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
 			}
 
+			directory = directory.replaceAll('coUserver/test','coUserver');
+
 			// load items
 			String filePath = path.join(directory,'lib','entities','items','json');
 			await new Directory(filePath).list().forEach((File category) async {
