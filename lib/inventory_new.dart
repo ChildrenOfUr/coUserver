@@ -21,6 +21,24 @@ import 'package:redstone_mapper_pg/manager.dart';
 
 Type listOfSlots = const jsonx.TypeHelper<List<Slot>>().type;
 
+///private class for sorting slots by durability used
+class DurabilitySlot implements Comparable<DurabilitySlot> {
+	num percentRemaining = 100;
+	int slot, subSlot;
+
+	DurabilitySlot(this.percentRemaining, this.slot, {this.subSlot: -1});
+
+	@override
+	int compareTo(DurabilitySlot other) {
+		return percentRemaining.compareTo(other.percentRemaining);
+	}
+
+	@override
+	String toString() {
+		return 'slot $slot,$subSlot: $percentRemaining';
+	}
+}
+
 class Slot {
 	//a new instance of a Slot is empty by default
 	@Field() String itemType = "";
@@ -371,7 +389,9 @@ class InventoryV2 {
 			log("[InventoryV2] Cannot give ${item.itemType} x $count to user with email $email because they ran"
 			    + " out of slots before all items were added. $toMerge items skipped.");
 			Identifier playerId = PlayerUpdateHandler.users[await User.getUsernameFromEmail(email)];
-			item.putItemOnGround(playerId.currentX, playerId.currentY+140, playerId.currentStreet);
+			if(playerId != null) {
+				item.putItemOnGround(playerId.currentX, playerId.currentY+140, playerId.currentStreet);
+			}
 		}
 
 		await _updateDatabase(email);
@@ -762,67 +782,82 @@ class InventoryV2 {
 	}
 
 	Future<bool> _decreaseDurability(List<String> validTypes, int amount, String email) async {
-		bool success = false;
+		List<DurabilitySlot> possibles = [];
 
 		List<Slot> tmpSlots = slots;
 		for(String itemType in validTypes) {
 			Item sample = items[itemType];
 			//look in the regular slots
+			int index = 0;
 			for (Slot s in tmpSlots) {
 				if (s.itemType != null && s.itemType == itemType) {
 					int used = s.metadata['durabilityUsed'] ?? 0;
 					if(used+amount > sample.durability) {
 						continue;
 					}
-					s.metadata['durabilityUsed'] = used + amount;
-					success = true;
-					break;
+					possibles.add(new DurabilitySlot((sample.durability-used)/sample.durability, index));
 				}
-			}
-
-			if (success) {
-				break;
+				index++;
 			}
 		}
 
-		if(!success) {
-			for (String itemType in validTypes) {
-				Item sample = items[itemType];
-				//add the bag contents
-				for (Slot s in tmpSlots) {
-					if (!s.itemType.isEmpty && items[s.itemType].isContainer &&
-					    items[s.itemType].subSlots != null) {
-						if (s.metadata["slots"] != null && (s.metadata["slots"]).length > 0) {
-							List<Slot> bagSlots = jsonx.decode(s.metadata['slots'], type: listOfSlots);
-							if (bagSlots != null) {
-								for (Slot bagSlot in bagSlots) {
-									if (bagSlot.itemType != null && bagSlot.itemType == itemType) {
-										int used = bagSlot.metadata['durabilityUsed'] ?? 0;
-										if(used+amount > sample.durability) {
-											continue;
-										}
-										bagSlot.metadata['durabilityUsed'] = used + amount;
-										success = true;
-										break;
+		for (String itemType in validTypes) {
+			Item sample = items[itemType];
+			//add the bag contents
+			int index = 0;
+			for (Slot s in tmpSlots) {
+				if (!s.itemType.isEmpty && items[s.itemType].isContainer &&
+				    items[s.itemType].subSlots != null) {
+					if (s.metadata["slots"] != null && (s.metadata["slots"]).length > 0) {
+						List<Slot> bagSlots = jsonx.decode(s.metadata['slots'], type: listOfSlots);
+						if (bagSlots != null) {
+							int subIndex = 0;
+							for (Slot bagSlot in bagSlots) {
+								if (bagSlot.itemType != null && bagSlot.itemType == itemType) {
+									int used = bagSlot.metadata['durabilityUsed'] ?? 0;
+									if(used+amount > sample.durability) {
+										continue;
 									}
+									possibles.add(new DurabilitySlot((sample.durability - used)/sample.durability, index, subSlot: subIndex));
 								}
-							}
-							if (success) {
-								s.metadata['slots'] = jsonx.encode(bagSlots);
-								break;
+								subIndex++;
 							}
 						}
 					}
 				}
+				index++;
 			}
 		}
 
-		if(success) {
+		if(possibles.length > 0) {
+			//sort the list and pick the one with the most used already
+			possibles.sort();
+			DurabilitySlot mostUsed = possibles.removeAt(0);
+
+			//write it to the tmpSlots array
+			if(mostUsed.subSlot == -1) {
+				Slot slotToModify = tmpSlots[mostUsed.slot];
+				int used = slotToModify.metadata['durabilityUsed'] ?? 0;
+				slotToModify.metadata['durabilityUsed'] = used + amount;
+				tmpSlots[mostUsed.slot] = slotToModify;
+			} else {
+				//have to modify a bag slot
+				Slot bag = tmpSlots[mostUsed.slot];
+				List<Slot> bagSlots = jsonx.decode(bag.metadata['slots'], type: listOfSlots);
+				Slot bagSlot = bagSlots[mostUsed.subSlot];
+				int used = bagSlot.metadata['durabilityUsed'] ?? 0;
+				bagSlot.metadata['durabilityUsed'] = used + amount;
+				bagSlots[mostUsed.subSlot] = bagSlot;
+				bag.metadata['slots'] = jsonx.encode(bagSlots);
+				tmpSlots[mostUsed.slot] = bag;
+			}
+
+			//finally save the array as the new inventory
 			inventory_json = jsonx.encode(tmpSlots);
 			await _updateDatabase(email);
 		}
 
-		return success;
+		return possibles.length > 0;
 	}
 
 	static Future _wait(Duration duration) {
@@ -834,7 +869,7 @@ class InventoryV2 {
 	static Future _aquireLock(String email) async {
 		if(inventoryLocked[email] != null) {
 			while(inventoryLocked[email]) {
-				await _wait(new Duration(milliseconds: 100));
+				await _wait(new Duration(milliseconds: 50));
 			}
 		}
 
@@ -851,25 +886,23 @@ class InventoryV2 {
 		return itemTaken;
 	}
 
+	///Returns the number of items successfully added to the user's inventory
 	static Future<int> addItemToUser(String email, Map item, int count,	[String fromObject = "_self"]) async {
-		int result = count;
 		await _aquireLock(email);
 		WebSocket userSocket = StreetUpdateHandler.userSockets[email];
 		InventoryV2 inv = await getInventory(email);
 		int added = await inv._addItem(item, count, email);
-		if (added == count) {
-			await fireInventoryAtUser(userSocket, email, update: true);
+		await fireInventoryAtUser(userSocket, email, update: true);
+		if(added > 0) {
 			String itemType = item['itemType'];
 			messageBus.publish(new RequirementProgress('getItem_$itemType', email, count: count));
 			if(itemType == 'pick' || itemType == 'fancy_pick') {
-				QuestEndpoint.questLogCache[email].offerQuest('Q6');
+				QuestEndpoint.questLogCache[email]?.offerQuest('Q6');
 			}
-		} else {
-			result = -1;
 		}
 
 		_releaseLock(email);
-		return result;
+		return added;
 	}
 
 	static Future<Item> takeItemFromUser(String email, int slot, int subSlot, int count) async {

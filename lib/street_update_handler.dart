@@ -5,7 +5,6 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:mirrors';
 
-import 'package:coUserver/common/user.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/achievements/achievements.dart';
 import 'package:coUserver/player_update_handler.dart';
