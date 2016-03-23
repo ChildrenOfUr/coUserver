@@ -12,6 +12,7 @@ class StatCollection {
 	static Map<String, StatCollection> _CACHE = {};
 
 	static void removeFromCache(String email) {
+		_CACHE[email]?.stopTimer();
 		_CACHE.remove(email);
 	}
 
@@ -68,8 +69,12 @@ class StatCollection {
 
 	Timer _writeTimer;
 
-	void resetTimer() {
+	void stopTimer() {
 		_writeTimer?.cancel();
+	}
+
+	void resetTimer() {
+		stopTimer();
 		_writeTimer = new Timer.periodic(new Duration(minutes: 1), (_) {
 			this.copy._write();
 		});
