@@ -53,6 +53,74 @@ Future main() async {
 //			app.redstoneTearDown();
 		});
 
+		test('Verify Slot object', () async {
+			Slot slot = new Slot();
+			expect(slot.toString(), equals('Empty inventory slot'));
+
+			slot = new Slot(itemType: 'bean');
+			expect(slot.toString(), equals('Empty inventory slot'));
+
+			slot = new Slot(itemType: 'bean', count: 1);
+			expect(slot.toString(), equals('Inventory slot containing 1 x bean with metadata: {}'));
+
+			slot = new Slot(itemType: 'bean', count: 1, metadata: {'metaKey':'metaValue'});
+			expect(slot.toString(), equals('Inventory slot containing 1 x bean with metadata: {metaKey: metaValue}'));
+
+			slot.itemType = null;
+			expect(slot.toString(), equals('Empty inventory slot'));
+
+			slot = new Slot(itemType: 'bean', count: 30);
+			expect(slot.toString(), equals('Inventory slot containing 30 x bean with metadata: {}'));
+
+			slot.empty = true;
+			expect(slot.toString(), equals('Empty inventory slot'));
+
+			slot = new Slot.withMap({});
+			expect(slot.toString(), equals('Empty inventory slot'));
+
+			Map slotMap = {
+				'itemType': 'bean',
+				'count': 25,
+				'metadata': {}
+			};
+			slot = new Slot.withMap(slotMap);
+			expect(slot.toString(), equals('Inventory slot containing 25 x bean with metadata: {}'));
+			expect(slot.map, equals(slotMap));
+		});
+
+		test('Merge two inventory slots', () async {
+			//spills into the second slot
+			await InventoryV2.addItemToUser(ut_email, items['cherry'].getMap(), 280);
+			expect(countItemInInventory(await getInventory(), 'cherry'), equals(280));
+
+			//remove 40 which will be taken from the first slot
+			await InventoryV2.takeAnyItemsFromUser(ut_email, 'cherry', 40);
+			expect(countItemInInventory(await getInventory(), 'cherry'), equals(240));
+
+			await InventoryV2.moveItem(ut_email, fromIndex: 1, toIndex: 0);
+			Slot slot = (await getInventory()).getSlot(0);
+			expect(slot, equals(new Slot.withMap({'itemType':'cherry','count':240,'metadata':{}})));
+
+			//with a bag
+			await InventoryV2.addItemToUser(ut_email, items['generic_bag'].getMap(), 1);
+			await InventoryV2.addItemToUser(ut_email, items['cherry'].getMap(), 60);
+			await InventoryV2.takeAnyItemsFromUser(ut_email, 'cherry', 40);
+			await InventoryV2.moveItem(ut_email, fromIndex: 2, toIndex: 1, toBagIndex: 0);
+			expect(countItemInInventory(await getInventory(), 'cherry'), equals(260));
+			await InventoryV2.moveItem(ut_email, fromIndex: 0, toIndex: 1, toBagIndex: 0);
+			slot = (await getInventory()).getSlot(0);
+			expect(slot, equals(new Slot.withMap({'itemType':'cherry','count':10,'metadata':{}})));
+			slot = (await getInventory()).getSlot(1, 0);
+			expect(slot, equals(new Slot.withMap({'itemType':'cherry','count':250,'metadata':{}})));
+
+			//move them the other way (out of the bag, expect merge with first slot)
+			await InventoryV2.moveItem(ut_email, fromIndex: 1, fromBagIndex: 0, toIndex: 0);
+			slot = (await getInventory()).getSlot(0);
+			expect(slot, equals(new Slot.withMap({'itemType':'cherry','count':250,'metadata':{}})));
+			slot = (await getInventory()).getSlot(1, 0);
+			expect(slot, equals(new Slot.withMap({'itemType':'cherry','count':10,'metadata':{}})));
+		});
+
 		test('Add Item to Inventory', () async {
 			await InventoryV2.addItemToUser(ut_email, items['cherry'].getMap(), 1);
 
@@ -222,31 +290,13 @@ Future<int> getRemainingDurability(int slot, int subSlot) async {
 	Item item = await inventory.getItemInSlot(slot, subSlot, ut_email);
 	try {
 		return item.durability - (item.metadata['durabilityUsed'] ?? 0);
-	} catch(e) {
+	} catch (e) {
 		return -1;
 	}
 }
 
 int countItemInInventory(InventoryV2 inventory, String itemType) {
-	int count = 0;
-
-	for (Slot slot in inventory.slots) {
-		if (slot.itemType == itemType) {
-			count += slot.count;
-		}
-		if (items.containsKey(slot.itemType) && items[slot.itemType].isContainer) {
-			if (slot.metadata['slots'] != null) {
-				List<Slot> bagSlots = jsonx.decode(slot.metadata['slots'], type: listOfSlots);
-				for (Slot slot in bagSlots) {
-					if (slot.itemType == itemType) {
-						count += slot.count;
-					}
-				}
-			}
-		}
-	}
-
-	return count;
+	return inventory.countItem(itemType);
 }
 
 InventoryV2 _verifyInventoryIsEmpty(InventoryV2 inventory) {

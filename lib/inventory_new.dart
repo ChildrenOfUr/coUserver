@@ -32,11 +32,6 @@ class DurabilitySlot implements Comparable<DurabilitySlot> {
 	int compareTo(DurabilitySlot other) {
 		return percentRemaining.compareTo(other.percentRemaining);
 	}
-
-	@override
-	String toString() {
-		return 'slot $slot,$subSlot: $percentRemaining';
-	}
 }
 
 class Slot {
@@ -46,7 +41,7 @@ class Slot {
 	@Field() Map metadata = {};
 
 	/// Create a slot from type, count, and metadata
-	Slot([this.itemType, this.count, this.metadata]);
+	Slot({this.itemType: '', this.count: 0, this.metadata: const {}});
 
 	/// Create a slot from a map containg the data
 	Slot.withMap(Map data) {
@@ -75,7 +70,7 @@ class Slot {
 	}
 
 	/// Get a map representing the slot
-	Map get toMap {
+	Map get map {
 		return ({
 			"itemType": itemType,
 			"count": count,
@@ -91,6 +86,14 @@ class Slot {
 		} else {
 			return "Inventory slot containing $count x $itemType with metadata: $metadata";
 		}
+	}
+
+	bool operator ==(Slot other) {
+		return (
+			itemType == other.itemType &&
+			count == other.count &&
+			metadata.toString() == other.metadata.toString()
+		);
 	}
 }
 
@@ -182,10 +185,10 @@ class InventoryV2 {
 	 * want to make sure the slot is empty before replacing it,
 	 * use Inventory.slots[index].isEmpty first.
 	 */
-	Slot changeSlot(int index, int subIndex, Slot newContents) {
+	Slot changeSlot(int index, int subIndex, Slot newContents, {bool merge: true}) {
 		//we're putting it into a bag
 		if (subIndex > -1) {
-			return _changeBagSlot(index, subIndex, newContents);
+			return _changeBagSlot(index, subIndex, newContents, merge: merge);
 		}
 
 		// Get the old slot data
@@ -193,19 +196,19 @@ class InventoryV2 {
 
 		// Merge them
 		Slot origContents = list[index];
+		Slot returnSlot = origContents;
 		Item origItem = items[origContents.itemType];
-		if (origContents.itemType == newContents.itemType &&
-		    origContents.count + newContents.count < origItem.stacksTo) {
-
+		if (merge && origContents.itemType == newContents.itemType) {
 			int roomRemaining = origItem.stacksTo - origContents.count;
-			int addNum = min(roomRemaining, origContents.count);
+			int addNum = min(roomRemaining, newContents.count);
 
-			newContents.count += addNum;
-			origContents.count -= addNum;
-			list[index] = newContents;
+			origContents.count += addNum;
+			newContents.count -= addNum;
+			list[index] = origContents;
 
-			if (origContents.count == 0) {
-				origContents = new Slot();
+			returnSlot = newContents;
+			if(returnSlot.count == 0) {
+				returnSlot.empty = true;
 			}
 		} else {
 			list[index] = newContents;
@@ -213,7 +216,7 @@ class InventoryV2 {
 
 		// Save the new inventory slot data
 		inventory_json = jsonx.encode(list);
-		return origContents;
+		return returnSlot;
 	}
 
 	/**
@@ -224,7 +227,7 @@ class InventoryV2 {
 	 * want to make sure the slot is empty before replacing it,
 	 * use Inventory.slots[index].isEmpty first.
 	 */
-	Slot _changeBagSlot(int bagIndex, int bagSlotIndex, Slot newContents) {
+	Slot _changeBagSlot(int bagIndex, int bagSlotIndex, Slot newContents, {bool merge: true}) {
 		if (newContents != null) {
 			Item newItem = items[newContents.itemType];
 			if (newContents.itemType != null &&
@@ -252,19 +255,19 @@ class InventoryV2 {
 
 		// Bag contents
 		Slot origContents = bagSlots[bagSlotIndex]; // Slot inside bag
+		Slot returnSlot = origContents;
 		Item origItem = items[origContents.itemType];
-		if (origContents.itemType == newContents.itemType &&
-		    origContents.count + newContents.count < origItem.stacksTo) {
-
+		if (merge && origContents.itemType == newContents.itemType) {
 			int roomRemaining = origItem.stacksTo - origContents.count;
-			int addNum = min(roomRemaining, origContents.count);
+			int addNum = min(roomRemaining, newContents.count);
 
-			newContents.count += addNum;
-			origContents.count -= addNum;
-			bagSlots[bagSlotIndex] = newContents;
+			origContents.count += addNum;
+			newContents.count -= addNum;
+			bagSlots[bagSlotIndex] = origContents;
 
-			if (origContents.count == 0) {
-				origContents = new Slot();
+			returnSlot = newContents;
+			if(returnSlot.count == 0) {
+				returnSlot.empty = true;
 			}
 		} else {
 			// Change out the bag slot
@@ -275,7 +278,7 @@ class InventoryV2 {
 		bagSlot.metadata["slots"] = jsonx.encode(bagSlots); // Bag contents
 		invSlots[bagIndex] = bagSlot; // Bag in hotbar
 		inventory_json = jsonx.encode(invSlots); // Hotbar
-		return origContents;
+		return returnSlot;
 	}
 
 	List<Slot> _generateEmptySlots([int amt]) {
@@ -987,7 +990,7 @@ class InventoryV2 {
 					.itemType} to $toIndex.$toBagIndex within inventory of $email";
 			}
 			// Move old item into other slot
-			origContents = inv.changeSlot(fromIndex, fromBagIndex, origContents);
+			origContents = inv.changeSlot(fromIndex, fromBagIndex, origContents, merge: false);
 			if (origContents == null) {
 				throw "Could not move ${newContents
 					.itemType} to $toIndex.$toBagIndex within inventory of $email";
@@ -1024,7 +1027,7 @@ class InventoryV2 {
 			try {
 				String mdsString = slots[invIndex].metadata["slots"];
 				Map<String, dynamic> mdsSlot = jsonx.decode(mdsString)[bagIndex];
-				return new Slot(mdsSlot["itemType"], mdsSlot["count"], mdsSlot["metadata"]);
+				return new Slot.withMap(mdsSlot);
 			} catch (e) {
 				log("Error accessing bag slot $bagIndex of inventory slot $invIndex: $e");
 				return new Slot();
