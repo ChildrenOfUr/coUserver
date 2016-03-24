@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:async';
 
+import 'test_config.dart';
 import 'package:coUserver/inventory_new.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/street_update_handler.dart';
@@ -14,9 +15,6 @@ import 'package:redstone_mapper_pg/manager.dart';
 import 'package:harvest/harvest.dart' as harvest;
 import 'package:jsonx/jsonx.dart' as jsonx;
 
-//some constants
-String ut_email = '3fkw19+5xkfumzd5c5e4@sharklasers.com';
-int ut_id = 3633;
 Type listOfSlots = const jsonx.TypeHelper<List<Slot>>().type;
 
 Future main() async {
@@ -30,6 +28,9 @@ Future main() async {
 	//load game items
 	await StreetUpdateHandler.loadItems();
 
+	//initialize inventory
+	await _setInventoryBlank();
+
 	group('Inventory:', () {
 		InventoryV2 inventory;
 
@@ -42,12 +43,10 @@ Future main() async {
 			//validate inventory
 			await _verifyInventoryIsEmpty(inventory);
 		});
+
 		tearDown(() async {
 			//make sure to reset the unittester's inventory to blank
-			String query = "UPDATE inventories SET inventory_json = '[]' WHERE user_id = $ut_id";
-			PostgreSql dbConn = await dbManager.getConnection();
-			await dbConn.execute(query);
-			dbManager.closeConnection(dbConn);
+			await _setInventoryBlank();
 
 			//this is causing an issue with getInventory on tests after the first
 //			app.redstoneTearDown();
@@ -140,7 +139,7 @@ Future main() async {
 			expect(countItemInInventory(await getInventory(), 'bean'), equals(4001));
 		});
 
-		test('Take item from Inventory (specified slot)', () async {
+		test('Move items in Inventory', () async {
 			//load up an inventory (try adding all items at once to verify locking works)
 			List<Future> addList = [];
 			addList.add(InventoryV2.addItemToUser(ut_email, items['cherry'].getMap(), 1));
@@ -185,6 +184,37 @@ Future main() async {
 			expect((await inventory.getItemInSlot(9, -1, ut_email)).itemType, equals('bean'));
 		});
 
+		test('Take item from specified slot', () async {
+			await InventoryV2.addItemToUser(ut_email, items['cherry'].getMap(), 1);
+			await InventoryV2.addItemToUser(ut_email, items['bean'].getMap(), 300);
+			await InventoryV2.addItemToUser(ut_email, items['generic_bag'].getMap(), 1);
+			await InventoryV2.addItemToUser(ut_email, items['red_toolbox'].getMap(), 1);
+			//the pick should go in the toolbox
+			await InventoryV2.addItemToUser(ut_email, items['pick'].getMap(), 1);
+			inventory = await getInventory();
+			expect((await inventory.getItemInSlot(4,0,ut_email)).itemType, equals('pick'));
+
+			//take 1 bean from slot index 2
+			Item item = await InventoryV2.takeItemFromUser(ut_email, 2, -1, 1);
+			expect(item.itemType, equals('bean'));
+			Slot slot = (await getInventory()).getSlot(1);
+			expect(slot.count, equals(250));
+			slot = (await getInventory()).getSlot(2);
+			expect(slot.count, equals(49));
+
+			//take all beans from slot index 1
+			item = await InventoryV2.takeItemFromUser(ut_email, 1, -1, 250);
+			expect(item.itemType, equals('bean'));
+			slot = (await getInventory()).getSlot(1);
+			expect(slot.isEmpty, isTrue);
+
+			//take the pick from the toolbox
+			item = await InventoryV2.takeItemFromUser(ut_email, 4, 0, 1);
+			expect(item.itemType, equals('pick'));
+			slot = (await getInventory()).getSlot(4, 0);
+			expect(slot.isEmpty, isTrue);
+		});
+
 		test('Take item from Inventory (any slot)', () async {
 			await InventoryV2.addItemToUser(ut_email, items['cherry'].getMap(), 1);
 			await InventoryV2.addItemToUser(ut_email, items['bean'].getMap(), 1);
@@ -213,6 +243,29 @@ Future main() async {
 
 			await InventoryV2.takeAnyItemsFromUser(ut_email, 'pick', 2);
 			expect(countItemInInventory(await getInventory(), 'pick'), equals(0));
+		});
+
+		test('Has item', () async {
+			await InventoryV2.addItemToUser(ut_email, items['cherry'].getMap(), 1);
+			await InventoryV2.addItemToUser(ut_email, items['bean'].getMap(), 300);
+			await InventoryV2.addItemToUser(ut_email, items['generic_bag'].getMap(), 1);
+			await InventoryV2.addItemToUser(ut_email, items['red_toolbox'].getMap(), 1);
+			await InventoryV2.addItemToUser(ut_email, items['pick'].getMap(), 1);
+
+			//does user have 1 cherry?
+			expect(await InventoryV2.hasItem(ut_email, 'cherry', 1), isTrue);
+
+			//does user have 2 cherries?
+			expect(await InventoryV2.hasItem(ut_email, 'cherry', 2), isFalse);
+
+			//does user have 260 beans?
+			expect(await InventoryV2.hasItem(ut_email, 'bean', 260), isTrue);
+
+			//does user have a pick?
+			expect(await InventoryV2.hasItem(ut_email, 'pick', 1), isTrue);
+
+			//does user have a fancy_pick?
+			expect(await InventoryV2.hasItem(ut_email, 'fancy_pick', 1), isFalse);
 		});
 
 		test('Take durability from items', () async {
@@ -297,6 +350,13 @@ Future<int> getRemainingDurability(int slot, int subSlot) async {
 
 int countItemInInventory(InventoryV2 inventory, String itemType) {
 	return inventory.countItem(itemType);
+}
+
+Future _setInventoryBlank() async {
+	String query = "UPDATE inventories SET inventory_json = '[]' WHERE user_id = $ut_id";
+	PostgreSql dbConn = await dbManager.getConnection();
+	await dbConn.execute(query);
+	dbManager.closeConnection(dbConn);
 }
 
 InventoryV2 _verifyInventoryIsEmpty(InventoryV2 inventory) {

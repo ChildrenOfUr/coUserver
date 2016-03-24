@@ -146,7 +146,7 @@ class Achievement {
 				) {
 					// Send to client
 					// Send to client
-					StreetUpdateHandler.userSockets[email].add(JSON.encode(
+					StreetUpdateHandler.userSockets[email]?.add(JSON.encode(
 						{
 							"achv_id": id,
 							"achv_name": name,

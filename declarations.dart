@@ -3,7 +3,6 @@ library coUserver;
 import "dart:io";
 import "dart:async";
 import "dart:convert";
-import "dart:math" hide log;
 
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/common/user.dart';
@@ -19,7 +18,6 @@ import 'package:coUserver/chat_handler.dart';
 import 'package:coUserver/player_update_handler.dart';
 import 'package:coUserver/endpoints/time.dart';
 import 'package:coUserver/endpoints/weather.dart';
-import 'package:coUserver/auctions/auctions_service.dart';
 
 import "package:intl/intl.dart";
 import "package:slack/io/slack.dart" as slack;

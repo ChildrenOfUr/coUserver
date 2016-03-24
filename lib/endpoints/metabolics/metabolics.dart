@@ -41,8 +41,8 @@ class MetabolicsChange {
 		imgMin = rewards?.img ?? imgMin;
 		currants = rewards?.currants ?? currants;
 
-		if(rewards != null) {
-			trySetFavor(email, null, null, favors: rewards.favor);
+		if (rewards != null) {
+			await trySetFavor(email, null, null, favors: rewards.favor);
 		}
 
 		Metabolics m = await getMetabolics(email: email);
@@ -55,13 +55,14 @@ class MetabolicsChange {
 		} else {
 			m.energy += energy;
 			m.mood += mood;
-			int baseImg = 0;
+			int baseImg = imgMin;
 			if (imgRange > 0) {
 				baseImg = rand.nextInt(imgRange) + imgMin;
 			}
 			int resultImg = (baseImg * m.mood / m.max_mood) ~/ 1;
 			m.img += resultImg;
 			m.lifetime_img += resultImg;
+			m.currants += currants;
 			gains['energy'] = energy;
 			gains['mood'] = mood;
 			gains['img'] = resultImg;
@@ -78,9 +79,9 @@ class MetabolicsChange {
 				// Level up
 				String username = await User.getUsernameFromEmail(email);
 
-				MetabolicsEndpoint.userSockets[username].add(JSON.encode({
-					                                                         "levelUp": getLevel(m.lifetime_img)
-				                                                         }));
+				MetabolicsEndpoint.userSockets[username]?.add(JSON.encode({
+					                                                          "levelUp": getLevel(m.lifetime_img)
+				                                                          }));
 			}
 		}
 
@@ -91,7 +92,7 @@ class MetabolicsChange {
 		Metabolics metabolics = await getMetabolics(email: email);
 
 		if (favors != null) {
-			Future.forEach(favors, (QuestFavor favor) async {
+			await Future.forEach(favors, (QuestFavor favor) async {
 				metabolics = await _setFavor(email, metabolics, favor.giantName, favor.favAmt);
 			});
 		} else {
@@ -129,6 +130,7 @@ class MetabolicsChange {
 		} else {
 			instanceMirror.setField(new Symbol(giantName.toLowerCase() + 'favor'), giantFavor + favAmt);
 		}
+
 		StatBuffer.incrementStat("favorGenerated", favAmt);
 		return metabolics;
 	}
@@ -159,8 +161,8 @@ class Metabolics {
 		} else {
 			// Revive
 			undead_street = null;
-			energy = max_energy~/10;
-			mood = max_mood~/10;
+			energy = max_energy ~/ 10;
+			mood = max_mood ~/ 10;
 		}
 	}
 

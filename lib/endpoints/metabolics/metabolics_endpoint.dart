@@ -55,7 +55,7 @@ class MetabolicsEndpoint {
 					_calcAndSetMood(m);
 				}
 
-				if(m.mood < m.max_mood~/10) {
+				if (m.mood < m.max_mood ~/ 10) {
 					String email = await User.getEmailFromUsername(username);
 					QuestEndpoint.questLogCache[email].offerQuest('Q10');
 				}
@@ -170,12 +170,12 @@ class MetabolicsEndpoint {
 				if (locations.length >= 1259) {
 					Achievement.find("globetrotter_extraordinaire").awardTo(email);
 				}
-			} catch(e) {
+			} catch (e) {
 				log("Error awarding location achievement to player $username: $e");
 			}
 
 			return finalResult;
-		} catch(e) {
+		} catch (e) {
 			log("Error marking location $TSID as visited for player $username: $e");
 		}
 	}
@@ -313,9 +313,9 @@ class MetabolicsEndpoint {
 		// Compare "after" and "before" img
 		if (getLevel(m.lifetime_img) > getLevel(oldImg)) {
 			// Level up
-			MetabolicsEndpoint.userSockets[username].add(JSON.encode({
-				                                                         "levelUp": getLevel(m.lifetime_img)
-			                                                         }));
+			MetabolicsEndpoint.userSockets[username]?.add(JSON.encode({
+				                                                          "levelUp": getLevel(m.lifetime_img)
+			                                                          }));
 		}
 
 		try {
