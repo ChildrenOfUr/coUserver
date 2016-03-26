@@ -321,13 +321,43 @@ class InventoryV2 {
 		merged = 0;
 
 		// Go through entire inventory and try to find a slot that either:
-		// a) is a specialized container that can accept this item
-		// b) has the same type of item in it and is not a full stack, or
+		// a) has the same type of item in it and is not a full stack, or
+		// b) is a specialized container that can accept this item
 		// c) is empty and can accept at least [count] of item
 		// d) is a generic container and has an available slot
 		List<Slot> tmpSlots = slots;
 
-		//check for specialized bag first
+		//check for same itemType already existing in a bag
+		for (Slot slot in tmpSlots) {
+			if (toMerge == 0) {
+				break;
+			}
+
+			Item slotItem = items[slot.itemType];
+			if (slotItem == null) {
+				continue;
+			}
+			if (slotItem.isContainer && !item.isContainer &&
+			    _bagContains(slot, item.itemType)) {
+				List<Slot> innerSlots = _getModifiedBag(slot, item);
+				slot.metadata['slots'] = jsonx.encode(innerSlots);
+			}
+		}
+
+		//check for same itemType already existing on the slot bar
+		for (Slot slot in tmpSlots) {
+			if (toMerge == 0) {
+				break;
+			}
+
+			// If not, decide if we can merge into the slot
+			if (slot.itemType == item.itemType && slot.count < item.stacksTo &&
+			    slot.metadata.length == 0) {
+				slot = _getModifiedSlot(slot, item);
+			}
+		}
+
+		//check for specialized bag
 		for (Slot slot in tmpSlots) {
 			Item slotItem = items[slot.itemType];
 			if (slotItem == null) {
@@ -342,19 +372,6 @@ class InventoryV2 {
 			    slotItem.subSlotFilter.length != 0) {
 				List<Slot> innerSlots = _getModifiedBag(slot, item);
 				slot.metadata['slots'] = jsonx.encode(innerSlots);
-			}
-		}
-
-		//check for same itemType already existing
-		for (Slot slot in tmpSlots) {
-			if (toMerge == 0) {
-				break;
-			}
-
-			// If not, decide if we can merge into the slot
-			if (slot.itemType == item.itemType && slot.count < item.stacksTo &&
-			    slot.metadata.length == 0) {
-				slot = _getModifiedSlot(slot, item);
 			}
 		}
 
@@ -400,6 +417,21 @@ class InventoryV2 {
 		await _updateDatabase(email);
 
 		return merged;
+	}
+
+	bool _bagContains(Slot slot, String itemType) {
+		List<Slot> innerSlots;
+		if (slot.metadata.containsKey('slots')) {
+			innerSlots = jsonx.decode(slot.metadata['slots'], type: listOfSlots);
+		}
+
+		for(Slot s in innerSlots) {
+			if(s.itemType == itemType) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	Slot _getModifiedSlot(Slot slot, Item item) {
@@ -897,16 +929,11 @@ class InventoryV2 {
 
 	///Returns the number of items successfully added to the user's inventory
 	static Future<int> addItemToUser(String email, Map item, int count,	[String fromObject = "_self"]) async {
-		print('aquiring lock for $email');
 		await _aquireLock(email);
-		print('aquiredLock for $email');
 		WebSocket userSocket = StreetUpdateHandler.userSockets[email];
 		InventoryV2 inv = await getInventory(email);
-		print('got inventory for $email');
 		int added = await inv._addItem(item, count, email);
-		print('added $added of ${item['itemType']} to $email\'s inventory');
 		await fireInventoryAtUser(userSocket, email, update: true);
-		print('sent updated inventory to $email');
 		if(added > 0) {
 			String itemType = item['itemType'];
 			messageBus.publish(new RequirementProgress('getItem_$itemType', email, count: count));
@@ -916,7 +943,6 @@ class InventoryV2 {
 		}
 
 		_releaseLock(email);
-		print('released lock on $email\'s inventory');
 		return added;
 	}
 

@@ -89,45 +89,45 @@ Future main() async {
 
 		test('Merge two inventory slots', () async {
 			//spills into the second slot
-			await InventoryV2.addItemToUser(ut_email, items['cherry'].getMap(), 280);
+			expect(await InventoryV2.addItemToUser(ut_email, items['cherry'].getMap(), 280), equals(280));
 			expect(countItemInInventory(await getInventory(), 'cherry'), equals(280));
 
 			//remove 40 which will be taken from the first slot
-			await InventoryV2.takeAnyItemsFromUser(ut_email, 'cherry', 40);
+			expect(await InventoryV2.takeAnyItemsFromUser(ut_email, 'cherry', 40), equals(40));
 			expect(countItemInInventory(await getInventory(), 'cherry'), equals(240));
 
-			await InventoryV2.moveItem(ut_email, fromIndex: 1, toIndex: 0);
+			expect(await InventoryV2.moveItem(ut_email, fromIndex: 1, toIndex: 0), isTrue);
 			Slot slot = (await getInventory()).getSlot(0);
-			expect(slot, equals(new Slot.withMap({'itemType':'cherry','count':240,'metadata':{}})));
+			expect(slot, equals(new Slot.withMap({'itemType':'cherry', 'count':240, 'metadata':{}})));
 
 			//with a bag
-			await InventoryV2.addItemToUser(ut_email, items['generic_bag'].getMap(), 1);
-			await InventoryV2.addItemToUser(ut_email, items['cherry'].getMap(), 60);
-			await InventoryV2.takeAnyItemsFromUser(ut_email, 'cherry', 40);
-			await InventoryV2.moveItem(ut_email, fromIndex: 2, toIndex: 1, toBagIndex: 0);
+			expect(await InventoryV2.addItemToUser(ut_email, items['generic_bag'].getMap(), 1), equals(1));
+			expect(await InventoryV2.addItemToUser(ut_email, items['cherry'].getMap(), 60), equals(60));
+			expect(await InventoryV2.takeAnyItemsFromUser(ut_email, 'cherry', 40), equals(40));
+			expect(await InventoryV2.moveItem(ut_email, fromIndex: 2, toIndex: 1, toBagIndex: 0), isTrue);
 			expect(countItemInInventory(await getInventory(), 'cherry'), equals(260));
-			await InventoryV2.moveItem(ut_email, fromIndex: 0, toIndex: 1, toBagIndex: 0);
+			expect(await InventoryV2.moveItem(ut_email, fromIndex: 0, toIndex: 1, toBagIndex: 0), isTrue);
 			slot = (await getInventory()).getSlot(0);
-			expect(slot, equals(new Slot.withMap({'itemType':'cherry','count':10,'metadata':{}})));
+			expect(slot, equals(new Slot.withMap({'itemType':'cherry', 'count':10, 'metadata':{}})));
 			slot = (await getInventory()).getSlot(1, 0);
-			expect(slot, equals(new Slot.withMap({'itemType':'cherry','count':250,'metadata':{}})));
+			expect(slot, equals(new Slot.withMap({'itemType':'cherry', 'count':250, 'metadata':{}})));
 
 			//move them the other way (out of the bag, expect merge with first slot)
-			await InventoryV2.moveItem(ut_email, fromIndex: 1, fromBagIndex: 0, toIndex: 0);
+			expect(await InventoryV2.moveItem(ut_email, fromIndex: 1, fromBagIndex: 0, toIndex: 0), isTrue);
 			slot = (await getInventory()).getSlot(0);
-			expect(slot, equals(new Slot.withMap({'itemType':'cherry','count':250,'metadata':{}})));
+			expect(slot, equals(new Slot.withMap({'itemType':'cherry', 'count':250, 'metadata':{}})));
 			slot = (await getInventory()).getSlot(1, 0);
-			expect(slot, equals(new Slot.withMap({'itemType':'cherry','count':10,'metadata':{}})));
+			expect(slot, equals(new Slot.withMap({'itemType':'cherry', 'count':10, 'metadata':{}})));
 		});
 
 		test('Add Item to Inventory', () async {
-			await InventoryV2.addItemToUser(ut_email, items['cherry'].getMap(), 1);
+			expect(await InventoryV2.addItemToUser(ut_email, items['cherry'].getMap(), 1), equals(1));
 
 			//verify user has 1 cherry in their inventory
 			expect(countItemInInventory(await getInventory(), 'cherry'), equals(1));
 
 			//give user 260 cherries and make sure they get them all (cherries stack to 250)
-			await InventoryV2.addItemToUser(ut_email, items['cherry'].getMap(), 260);
+			expect(await InventoryV2.addItemToUser(ut_email, items['cherry'].getMap(), 260), equals(260));
 			expect(countItemInInventory(await getInventory(), 'cherry'), equals(261));
 
 			//add 9 non-stackable items which should overflow
@@ -135,7 +135,7 @@ Future main() async {
 			expect(countItemInInventory(await getInventory(), 'bigger_bag'), equals(8));
 
 			//add a new item which should go into the bags (split across 2 bags)
-			await InventoryV2.addItemToUser(ut_email, items['bean'].getMap(), 4001);
+			expect(await InventoryV2.addItemToUser(ut_email, items['bean'].getMap(), 4001), equals(4001));
 			expect(countItemInInventory(await getInventory(), 'bean'), equals(4001));
 		});
 
@@ -185,14 +185,14 @@ Future main() async {
 		});
 
 		test('Take item from specified slot', () async {
-			await InventoryV2.addItemToUser(ut_email, items['cherry'].getMap(), 1);
-			await InventoryV2.addItemToUser(ut_email, items['bean'].getMap(), 300);
-			await InventoryV2.addItemToUser(ut_email, items['generic_bag'].getMap(), 1);
-			await InventoryV2.addItemToUser(ut_email, items['red_toolbox'].getMap(), 1);
+			expect(await InventoryV2.addItemToUser(ut_email, items['cherry'].getMap(), 1), equals(1));
+			expect(await InventoryV2.addItemToUser(ut_email, items['bean'].getMap(), 300), equals(300));
+			expect(await InventoryV2.addItemToUser(ut_email, items['generic_bag'].getMap(), 1), equals(1));
+			expect(await InventoryV2.addItemToUser(ut_email, items['red_toolbox'].getMap(), 1), equals(1));
 			//the pick should go in the toolbox
-			await InventoryV2.addItemToUser(ut_email, items['pick'].getMap(), 1);
+			expect(await InventoryV2.addItemToUser(ut_email, items['pick'].getMap(), 1), equals(1));
 			inventory = await getInventory();
-			expect((await inventory.getItemInSlot(4,0,ut_email)).itemType, equals('pick'));
+			expect((await inventory.getItemInSlot(4, 0, ut_email)).itemType, equals('pick'));
 
 			//take 1 bean from slot index 2
 			Item item = await InventoryV2.takeItemFromUser(ut_email, 2, -1, 1);
@@ -216,41 +216,41 @@ Future main() async {
 		});
 
 		test('Take item from Inventory (any slot)', () async {
-			await InventoryV2.addItemToUser(ut_email, items['cherry'].getMap(), 1);
-			await InventoryV2.addItemToUser(ut_email, items['bean'].getMap(), 1);
+			expect(await InventoryV2.addItemToUser(ut_email, items['cherry'].getMap(), 1), equals(1));
+			expect(await InventoryV2.addItemToUser(ut_email, items['bean'].getMap(), 1), equals(1));
 
 			//make sure the inventory has the cherry and the bean
 			expect(countItemInInventory(await getInventory(), 'cherry'), equals(1));
 			expect(countItemInInventory(await getInventory(), 'bean'), equals(1));
 
 			//take the bean from the inventory and make sure they have none left
-			await InventoryV2.takeAnyItemsFromUser(ut_email, 'bean', 1);
+			expect(await InventoryV2.takeAnyItemsFromUser(ut_email, 'bean', 1), equals(1));
 			expect(countItemInInventory(await getInventory(), 'bean'), equals(0));
 
 			//give them 260 beans and then take 30 (beans stack to 250)
-			await InventoryV2.addItemToUser(ut_email, items['bean'].getMap(), 260);
+			expect(await InventoryV2.addItemToUser(ut_email, items['bean'].getMap(), 260), equals(260));
 			expect(countItemInInventory(await getInventory(), 'bean'), equals(260));
 
-			await InventoryV2.takeAnyItemsFromUser(ut_email, 'bean', 30);
+			expect(await InventoryV2.takeAnyItemsFromUser(ut_email, 'bean', 30), equals(30));
 			expect(countItemInInventory(await getInventory(), 'bean'), equals(230));
 
 			//give them a toolbox and 2 picks, one outside (before toolbox) and one in
 			//then verify we can take both
-			await InventoryV2.addItemToUser(ut_email, items['pick'].getMap(), 1);
-			await InventoryV2.addItemToUser(ut_email, items['red_toolbox'].getMap(), 1);
-			await InventoryV2.addItemToUser(ut_email, items['pick'].getMap(), 1);
+			expect(await InventoryV2.addItemToUser(ut_email, items['pick'].getMap(), 1), equals(1));
+			expect(await InventoryV2.addItemToUser(ut_email, items['red_toolbox'].getMap(), 1), equals(1));
+			expect(await InventoryV2.addItemToUser(ut_email, items['pick'].getMap(), 1), equals(1));
 			expect(countItemInInventory(await getInventory(), 'pick'), equals(2));
 
-			await InventoryV2.takeAnyItemsFromUser(ut_email, 'pick', 2);
+			expect(await InventoryV2.takeAnyItemsFromUser(ut_email, 'pick', 2), equals(2));
 			expect(countItemInInventory(await getInventory(), 'pick'), equals(0));
 		});
 
 		test('Has item', () async {
-			await InventoryV2.addItemToUser(ut_email, items['cherry'].getMap(), 1);
-			await InventoryV2.addItemToUser(ut_email, items['bean'].getMap(), 300);
-			await InventoryV2.addItemToUser(ut_email, items['generic_bag'].getMap(), 1);
-			await InventoryV2.addItemToUser(ut_email, items['red_toolbox'].getMap(), 1);
-			await InventoryV2.addItemToUser(ut_email, items['pick'].getMap(), 1);
+			expect(await InventoryV2.addItemToUser(ut_email, items['cherry'].getMap(), 1), equals(1));
+			expect(await InventoryV2.addItemToUser(ut_email, items['bean'].getMap(), 300), equals(300));
+			expect(await InventoryV2.addItemToUser(ut_email, items['generic_bag'].getMap(), 1), equals(1));
+			expect(await InventoryV2.addItemToUser(ut_email, items['red_toolbox'].getMap(), 1), equals(1));
+			expect(await InventoryV2.addItemToUser(ut_email, items['pick'].getMap(), 1), equals(1));
 
 			//does user have 1 cherry?
 			expect(await InventoryV2.hasItem(ut_email, 'cherry', 1), isTrue);
@@ -268,10 +268,19 @@ Future main() async {
 			expect(await InventoryV2.hasItem(ut_email, 'fancy_pick', 1), isFalse);
 		});
 
+		test('Take durability from only one choice (commit d6437e129)', () async {
+			expect(await InventoryV2.addItemToUser(ut_email, items['fancy_pick'].getMap(), 1), equals(1));
+			expect(await getRemainingDurability(0, -1), equals(200));
+
+			//take away 5 durability from the pick
+			expect(await InventoryV2.decreaseDurability(ut_email, 'fancy_pick', amount: 5), isTrue);
+			expect(await getRemainingDurability(0, -1), equals(195));
+		});
+
 		test('Take durability from items', () async {
-			await InventoryV2.addItemToUser(ut_email, items['fancy_pick'].getMap(), 1);
-			await InventoryV2.addItemToUser(ut_email, items['pick'].getMap(), 1);
-			await InventoryV2.addItemToUser(ut_email, items['pick'].getMap(), 1);
+			expect(await InventoryV2.addItemToUser(ut_email, items['fancy_pick'].getMap(), 1), equals(1));
+			expect(await InventoryV2.addItemToUser(ut_email, items['pick'].getMap(), 1), equals(1));
+			expect(await InventoryV2.addItemToUser(ut_email, items['pick'].getMap(), 1), equals(1));
 
 			//verify the pick has 100 durability to start and the fancy has 200
 			expect(await getRemainingDurability(0, -1), equals(200));
@@ -279,7 +288,7 @@ Future main() async {
 			expect(await getRemainingDurability(2, -1), equals(100));
 
 			//take away 5 durability from the pick
-			await InventoryV2.decreaseDurability(ut_email, 'pick', amount: 5);
+			expect(await InventoryV2.decreaseDurability(ut_email, 'pick', amount: 5), isTrue);
 
 			expect(await getRemainingDurability(0, -1), equals(200));
 			expect(await getRemainingDurability(1, -1), equals(95));
@@ -287,7 +296,7 @@ Future main() async {
 
 			//take away 5 durability from either pick or fancy_pick but expect it to come
 			//off of pick since it is already damaged
-			await InventoryV2.decreaseDurability(ut_email, ['pick', 'fancy_pick'], amount: 5);
+			expect(await InventoryV2.decreaseDurability(ut_email, ['pick', 'fancy_pick'], amount: 5), isTrue);
 
 			expect(await getRemainingDurability(0, -1), equals(200));
 			expect(await getRemainingDurability(1, -1), equals(90));
@@ -295,24 +304,24 @@ Future main() async {
 
 			//move the damaged pick after the non-damaged one then take durability
 			//and expect the damaged one to still get chosen
-			await InventoryV2.moveItem(ut_email, fromIndex: 1, toIndex: 3);
-			await InventoryV2.decreaseDurability(ut_email, ['pick'], amount: 5);
+			expect(await InventoryV2.moveItem(ut_email, fromIndex: 1, toIndex: 3), isTrue);
+			expect(await InventoryV2.decreaseDurability(ut_email, ['pick'], amount: 5), isTrue);
 
 			expect(await getRemainingDurability(0, -1), equals(200));
 			expect(await getRemainingDurability(2, -1), equals(100));
 			expect(await getRemainingDurability(3, -1), equals(85));
 
 			//take away 5 durability from a fancy_pick only
-			await InventoryV2.decreaseDurability(ut_email, ['fancy_pick'], amount: 5);
+			expect(await InventoryV2.decreaseDurability(ut_email, ['fancy_pick'], amount: 5), isTrue);
 
 			expect(await getRemainingDurability(0, -1), equals(195));
 			expect(await getRemainingDurability(2, -1), equals(100));
 			expect(await getRemainingDurability(3, -1), equals(85));
 
 			//move the most damaged pick into a bag and try to damage it again
-			await InventoryV2.addItemToUser(ut_email, items['generic_bag'].getMap(), 1);
-			await InventoryV2.moveItem(ut_email, fromIndex: 3, toIndex: 1, toBagIndex: 0);
-			await InventoryV2.decreaseDurability(ut_email, ['pick'], amount: 5);
+			expect(await InventoryV2.addItemToUser(ut_email, items['generic_bag'].getMap(), 1), equals(1));
+			expect(await InventoryV2.moveItem(ut_email, fromIndex: 3, toIndex: 1, toBagIndex: 0), isTrue);
+			expect(await InventoryV2.decreaseDurability(ut_email, ['pick'], amount: 5), isTrue);
 
 			expect(await getRemainingDurability(0, -1), equals(195));
 			expect(await getRemainingDurability(1, 0), equals(80));
