@@ -858,9 +858,10 @@ class InventoryV2 {
 			//finally save the array as the new inventory
 			inventory_json = jsonx.encode(tmpSlots);
 			await _updateDatabase(email);
+			return true;
 		}
 
-		return possibles.length > 0;
+		return false;
 	}
 
 	static Future _wait(Duration duration) {
@@ -870,9 +871,14 @@ class InventoryV2 {
 	}
 
 	static Future _aquireLock(String email) async {
+		int numTriesLeft = 100; //we'll throw an error after 5 seconds of trying
 		if(inventoryLocked[email] != null) {
-			while(inventoryLocked[email]) {
+			while(inventoryLocked[email] && numTriesLeft > 0) {
 				await _wait(new Duration(milliseconds: 50));
+				numTriesLeft--;
+			}
+			if(inventoryLocked[email]) {
+				throw "Could not aquire a lock for $email's inventory";
 			}
 		}
 
@@ -891,11 +897,16 @@ class InventoryV2 {
 
 	///Returns the number of items successfully added to the user's inventory
 	static Future<int> addItemToUser(String email, Map item, int count,	[String fromObject = "_self"]) async {
+		print('aquiring lock for $email');
 		await _aquireLock(email);
+		print('aquiredLock for $email');
 		WebSocket userSocket = StreetUpdateHandler.userSockets[email];
 		InventoryV2 inv = await getInventory(email);
+		print('got inventory for $email');
 		int added = await inv._addItem(item, count, email);
+		print('added $added of ${item['itemType']} to $email\'s inventory');
 		await fireInventoryAtUser(userSocket, email, update: true);
+		print('sent updated inventory to $email');
 		if(added > 0) {
 			String itemType = item['itemType'];
 			messageBus.publish(new RequirementProgress('getItem_$itemType', email, count: count));
@@ -905,6 +916,7 @@ class InventoryV2 {
 		}
 
 		_releaseLock(email);
+		print('released lock on $email\'s inventory');
 		return added;
 	}
 
