@@ -16,11 +16,12 @@ import 'package:coUserver/achievements/achievements.dart';
 import 'package:coUserver/buffs/buffmanager.dart';
 import 'package:coUserver/chat_handler.dart';
 import 'package:coUserver/common/identifier.dart';
-
 import 'package:redstone_mapper/mapper.dart';
+import 'package:redstone/redstone.dart' as app;
 
 part 'item_user.dart';
 part 'actions/action.dart';
+part 'actions/note.dart';
 part 'actions/itemgroups/consume.dart';
 part 'actions/itemgroups/cubimals.dart';
 part 'actions/itemgroups/emblems.dart';

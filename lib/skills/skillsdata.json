@@ -94,5 +94,20 @@
 			"level": 3
 		},
 		"giants": ["Zille", "Alph", "Cosma"]
+	},
+	"penpersonship": {
+		"name": "Penpersonship",
+		"category": "Intellectual",
+		"levels": [30],
+		"descriptions": [
+			"The pen is mightier than the sword. This is good, because we don't have any swords. With Penpersonship, you can use a Quill and Paper to write down all your important thoughts and feelings."
+		],
+		"iconUrls": [
+			"http://www.glitchthegame.com/img/skills-460/penmanship_1.v1429808924.png"
+		],
+		"requirements": {
+			"level": 7
+		},
+		"giants": ["Lem", "Friendly", "Spriggan"]
 	}
 }
