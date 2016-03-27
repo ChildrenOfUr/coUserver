@@ -1018,7 +1018,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Cebarkul": {
 		"vendor": "Tool",
 		"tsid": "GIF12PMQ5121D68",
-		"hub_id": 51
+		"hub_id": 51,
+		"minimap_expand": true
 	},
 	"Chakra Phool Herb Gardens": {
 		"tsid": "GA95U14319524O9",
