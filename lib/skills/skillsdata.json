@@ -1,4 +1,23 @@
 {
+	"alchemy": {
+		"name": "Alchemy",
+		"category": "Alchemy",
+		"levels": [15, 151, 1551],
+		"descriptions": [
+			"Ah, the transformational power of transformation. Alchemy puts that Element Handling to good use and teaches you how to use a Test Tube to craft loose elements into marginally more valuable compounds. Further down this path, compounds can become powders and soon enough you are making potions and recycling even the most complex items down to their components.",
+			"With Alchemy II, you can harness your love of shiny things and use Alchemical Tongs to transform everyday Plain Metal into fancy metals such as Copper, Tin, and Molybdenum."
+		],
+		"iconUrls": [
+			"http://www.glitchthegame.com/img/skills-460/alchemy_1.v1429808924.png",
+			"http://www.glitchthegame.com/img/skills-460/alchemy_2.v1428362783.png"
+		],
+		"requirements": {
+			"skills": {
+				"element_handling": 1
+			}
+		},
+		"giants": ["Tii", "Alph", "Lem"]
+	},
 	"arborology": {
 		"name": "Arborology",
 		"category": "Gathering",
@@ -39,6 +58,21 @@
 			"level": 3
 		},
 		"giants": ["Spriggan", "Grendaline", "Tii"]
+	},
+	"element_handling": {
+		"name": "Element Handling",
+		"category": "Alchemy",
+		"levels": [5],
+		"descriptions": [
+			"The basic elements, Red, Green, Blue and Shiny, are tricky things. Not just anyone can handle them. Learning Element Handling gives you the ability to carry an Elemental Pouch and thereby handle all the elements you want. It is also the prerequisite for learning Alchemy and Refining."
+		],
+		"iconUrls": [
+			"http://www.glitchthegame.com/img/skills-460/elementhandling_1.v1428362783.png"
+		],
+		"requirements": {
+			"level": 3
+		},
+		"giants": ["Tii", "Alph", "Lem"]
 	},
 	"mining": {
 		"name": "Mining",
