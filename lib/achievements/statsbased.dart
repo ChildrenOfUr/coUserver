@@ -1,21 +1,30 @@
 part of achievements;
 
 class StatAchvManager {
+	static final Map<String, Function> updaters = {
+		"awesome_pot": cook,
+		"beaker": stir,
+		"bean_seasoner": seasonBeans,
+		"blender": blend,
+		"bubble_tuner": tuneBubbles,
+		"cocktail_shaker": shake,
+		"egg_seasoner": seasonEggs,
+		"fruit_changing_machine": convertFruit,
+		"frying_pan": fry,
+		"gassifier": gassify,
+		"grill": grill,
+		"knife_and_board": chop,
+		"saucepan": simmer,
+		"spice_mill": mill
+	};
+
 	static void update(String email, String toolType) {
-		switch (toolType) {
-			case "awesome_pot":				cook(email);			break;
-			case "bean_seasoner":			seasonBeans(email);		break;
-			case "blender":					blend(email);			break;
-			case "bubble_tuner":			tuneBubbles(email);		break;
-			case "cocktail_shaker":			shake(email);			break;
-			case "egg_seasoner":			seasonEggs(email);		break;
-			case "fruit_changing_machine":	convertFruit(email);	break;
-			case "frying_pan":				fry(email);				break;
-			case "gassifier":				gassify(email);			break;
-			case "grill":					grill(email);			break;
-			case "knife_and_board":			chop(email);			break;
-			case "saucepan":				simmer(email);			break;
-			case "spice_mill":				mill(email);			break;
+		if (updaters[toolType] != null) {
+			// Call the function (below)
+			updaters[toolType](email);
+		} else {
+			// The item does not have an associated
+			// skill or achievement tracker (yet?).
 		}
 	}
 
@@ -36,6 +45,10 @@ class StatAchvManager {
 				Achievement.find("golden_ladle_award").awardTo(email);
 			}
 		});
+	}
+
+	static void stir(String email) {
+		SkillManager.learn("alchemy", email);
 	}
 
 	static void seasonBeans(String email) {
