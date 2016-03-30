@@ -3,6 +3,7 @@ library visited;
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:coUserver/common/util.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
 import 'package:coUserver/common/mapdata/mapdata.dart';
 
@@ -27,10 +28,21 @@ Future<List<String>> getLocationHistoryInverse(
 			// TSID available
 			(streetData["tsid"] != null) &&
 			// Either returning hidden streets or the street is not hidden
-			(!skipHidden || !(streetData["map_hidden"] != null && streetData["map_hidden"]))
+			(!skipHidden || !streetIsHidden(streetData))
 		) {
 			allTsids.add(streetData["tsid"]);
 		}
 	});
 	return allTsids.where((String tsid) => !history.contains(tsid)).toList();
+}
+
+bool streetIsHidden(Map streetData) {
+	try {
+		bool streetLevel = (streetData["map_hidden"] ?? false);
+		bool hubLevel = (mapdata_hubs[streetData["hub_id"]]["map_hidden"] ?? false);
+		return (streetLevel || hubLevel);
+	} catch(_) {
+		// Missing data
+		return false;
+	}
 }
