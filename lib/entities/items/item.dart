@@ -17,6 +17,7 @@ import 'package:coUserver/buffs/buffmanager.dart';
 import 'package:coUserver/chat_handler.dart';
 import 'package:coUserver/common/identifier.dart';
 import 'package:redstone_mapper/mapper.dart';
+import 'package:redstone_mapper_pg/manager.dart';
 import 'package:redstone/redstone.dart' as app;
 
 part 'item_user.dart';
@@ -349,6 +350,16 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 			..metadata = this.metadata;
 
 		StreetUpdateHandler.streets[streetName].groundItems[id] = item;
+	}
+
+	// ///// //
+	// Quill //
+	// ///// //
+
+	Future writeNote({WebSocket userSocket, Map map, String streetName, String email, String username}) async {
+		userSocket.add(JSON.encode({
+			"note_write": true
+		}));
 	}
 
 	// /////// //

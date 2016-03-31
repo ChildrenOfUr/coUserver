@@ -360,4 +360,13 @@ class StreetUpdateHandler {
 		return await InventoryV2.moveItem(email, fromIndex: fromIndex, toIndex: toIndex,
 		                                  fromBagIndex: fromBagIndex, toBagIndex: toBagIndex);
 	}
+
+	static Future writeNote({WebSocket userSocket, String email, Map noteData}) async {
+		Map newNote = await NoteManager.addFromClient(noteData);
+		userSocket.add(JSON.encode({
+			"note_response": newNote
+		}));
+
+		InventoryV2.decreaseDurability(email, NoteManager.tool_id);
+	}
 }

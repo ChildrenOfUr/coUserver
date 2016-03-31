@@ -31,6 +31,7 @@ class Note {
 @app.Group("/note")
 class NoteManager {
 	static final int title_length_max = 30; // Also set by HTML in client
+	static final String tool_id = "quill";
 
 	static Future<Note> find(int id) async {
 		try {
@@ -40,33 +41,48 @@ class NoteManager {
 			)).single;
 		} catch(e) {
 			log("Could not find note $id: $e");
+			return null;
 		}
 	}
 
 	static Future<Note> add(Note note) async {
-		if (note.id != null && (await find(note.id)) != null) {
-			// Updating an existing note
-			try {
-				return (await dbConn.query(
-					"UPDATE notes SET title = @title, body = @body "
-					"WHERE id = @id RETURNING *",
-					Note, {"id": note.id, "title": note.title.trim(), "body": note.body}
-				)).single;
-			} catch(e) {
-				log("Could not edit note $note: $e");
-			}
-		} else {
+		PostgreSql dbConn = await dbManager.getConnection();
+
+		if (note.id == null || note.id == -1) {
 			// Adding a new note
 			try {
 				return (await dbConn.query(
 					"INSERT INTO notes (username, title, body) "
-					"VALUES (@username, @title, @body) RETURNING *",
+						"VALUES (@username, @title, @body) RETURNING *",
 					Note, {"username": note.username.trim(), "title": note.title.trim(), "body": note.body}
 				)).single;
 			} catch(e) {
 				log("Could not add note $note: $e");
+				return null;
+			} finally {
+				dbManager.closeConnection(dbConn);
+			}
+		} else {
+			// Updating an existing note
+			try {
+				return (await dbConn.query(
+					"UPDATE notes SET title = @title, body = @body "
+						"WHERE id = @id RETURNING *",
+					Note, {"id": note.id, "title": note.title.trim(), "body": note.body}
+				)).single;
+			} catch(e) {
+				log("Could not edit note $note: $e");
+				return null;
+			} finally {
+				dbManager.closeConnection(dbConn);
 			}
 		}
+	}
+
+	static Future<Map> addFromClient(Map noteData) async {
+		Note created = new Note.create(noteData["username"], noteData["title"], noteData["body"], noteData["id"]);
+		Note added = await add(created);
+		return added.toMap();
 	}
 
 	@app.Route("/find/:id")

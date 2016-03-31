@@ -572,7 +572,18 @@
     "stacksTo": 1,
     "price": 400,
     "durability": 100,
-    "description": "This fancy quill (and the skill of Penpersonship) will let you write messages and notes. And maybe give yourself inky fingers."
+    "description": "This fancy quill (and the skill of Penpersonship) will let you write messages and notes. And maybe give yourself inky fingers.",
+    "actions": [
+      {
+        "name": "Write Note",
+        "itemRequirements": {
+          "paper": 1
+        },
+        "skillRequirements": {
+          "penpersonship": 1
+        }
+      }
+    ]
   },
   "saucepan": {
     "name": "Saucepan",
