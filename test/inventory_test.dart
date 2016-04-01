@@ -351,8 +351,9 @@ Future<int> getRemainingDurability(int slot, int subSlot) async {
 
 	Item item = await inventory.getItemInSlot(slot, subSlot, ut_email);
 	try {
-		return item.durability - (item.metadata['durabilityUsed'] ?? 0);
+		return item.durability - (int.parse(item.metadata['durabilityUsed'] ?? '0'));
 	} catch (e) {
+		log('Error getting durability for $slot,$subSlot: $e');
 		return -1;
 	}
 }

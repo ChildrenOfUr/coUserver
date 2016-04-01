@@ -49,7 +49,7 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 	@Field() List<String> subSlotFilter;
 	@Field() List<Action> actions = [];
 	@Field() Map<String, int> consumeValues = {};
-	@Field() Map<String, dynamic> metadata = {};
+	@Field() Map<String, String> metadata = {};
 
 	Action dropAction = new Action.withName('drop')
 		..description = "Drop this item on the ground."
