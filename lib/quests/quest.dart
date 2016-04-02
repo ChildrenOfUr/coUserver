@@ -196,7 +196,7 @@ class Quest extends Trackable with MetabolicsChange {
 
 		String heading = justStarted ? 'questBegin' : 'questInProgress';
 		Map questInProgress = {heading: true, 'quest': encode(this)};
-		QuestEndpoint.userSockets[email].add(JSON.encode(questInProgress));
+		QuestEndpoint.userSockets[email]?.add(JSON.encode(questInProgress));
 
 		mbSubscriptions.add(messageBus.subscribe(CompleteRequirement, (CompleteRequirement r) async {
 			if (!requirements.contains(r.requirement) || r.email != email) {

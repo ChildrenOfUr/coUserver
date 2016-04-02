@@ -24,9 +24,10 @@ import 'package:redstone_mapper/mapper.dart';
 
 //handle player update events
 class StreetUpdateHandler {
+	static Duration simulateDuration = new Duration(seconds: 1);
 	static Map<String, Street> streets = new Map();
 	static Map<String, WebSocket> userSockets = new Map();
-	static Timer timer = new Timer.periodic(new Duration(seconds: 1), (Timer timer) => simulateStreets());
+	static Timer timer = new Timer.periodic(simulateDuration, (Timer timer) => simulateStreets());
 
 	static loadItems() async {
 		try {
@@ -142,8 +143,9 @@ class StreetUpdateHandler {
 					}
 				});
 			}
-			else
+			else {
 				toRemove.add(street.label);
+			}
 		});
 
 		//clean up memory of streets where no players currently are

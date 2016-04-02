@@ -38,7 +38,7 @@ class Slot {
 	//a new instance of a Slot is empty by default
 	@Field() String itemType = "";
 	@Field() int count = 0;
-	@Field() Map metadata = {};
+	@Field() Map<String, String> metadata = {};
 
 	/// Create a slot from type, count, and metadata
 	Slot({this.itemType: '', this.count: 0, this.metadata: const {}});
@@ -750,7 +750,11 @@ class InventoryV2 {
 						Item bagItem = null;
 						if (!bagSlot.isEmpty) {
 							bagItem = new Item.clone(bagSlot.itemType);
-							bagItem.metadata = bagSlot.metadata;
+							Map<String,String> fixedMeta = {};
+							bagSlot.metadata.forEach((String key, dynamic value) {
+								fixedMeta[key] = value.toString();
+							});
+							bagItem.metadata = fixedMeta;
 						}
 						Map bagSlotMap = {
 							'itemType':bagSlot.itemType,
@@ -765,7 +769,7 @@ class InventoryV2 {
 //					for(int i=0; i<slotDiff; i++) {
 //						bagSlotMaps.add({'itemType':'','item':null,'count':0});
 //					}
-					item.metadata['slots'] = bagSlotMaps;
+					item.metadata['slots'] = jsonx.encode(bagSlotMaps);
 				}
 			}
 			Map slotMap = {
@@ -826,7 +830,7 @@ class InventoryV2 {
 			int index = 0;
 			for (Slot s in tmpSlots) {
 				if (s.itemType != null && s.itemType == itemType) {
-					int used = s.metadata['durabilityUsed'] ?? 0;
+					int used = int.parse(s.metadata['durabilityUsed']?.toString() ?? '0');
 					if(used+amount > sample.durability) {
 						continue;
 					}
@@ -849,7 +853,7 @@ class InventoryV2 {
 							int subIndex = 0;
 							for (Slot bagSlot in bagSlots) {
 								if (bagSlot.itemType != null && bagSlot.itemType == itemType) {
-									int used = bagSlot.metadata['durabilityUsed'] ?? 0;
+									int used = int.parse(bagSlot.metadata['durabilityUsed']?.toString() ?? '0');
 									if(used+amount > sample.durability) {
 										continue;
 									}
@@ -872,16 +876,16 @@ class InventoryV2 {
 			//write it to the tmpSlots array
 			if(mostUsed.subSlot == -1) {
 				Slot slotToModify = tmpSlots[mostUsed.slot];
-				int used = slotToModify.metadata['durabilityUsed'] ?? 0;
-				slotToModify.metadata['durabilityUsed'] = used + amount;
+				int used = int.parse(slotToModify.metadata['durabilityUsed']?.toString() ?? '0');
+				slotToModify.metadata['durabilityUsed'] = '${used + amount}';
 				tmpSlots[mostUsed.slot] = slotToModify;
 			} else {
 				//have to modify a bag slot
 				Slot bag = tmpSlots[mostUsed.slot];
 				List<Slot> bagSlots = jsonx.decode(bag.metadata['slots'], type: listOfSlots);
 				Slot bagSlot = bagSlots[mostUsed.subSlot];
-				int used = bagSlot.metadata['durabilityUsed'] ?? 0;
-				bagSlot.metadata['durabilityUsed'] = used + amount;
+				int used = int.parse(bagSlot.metadata['durabilityUsed']?.toString() ?? '0');
+				bagSlot.metadata['durabilityUsed'] = '${used + amount}';
 				bagSlots[mostUsed.subSlot] = bagSlot;
 				bag.metadata['slots'] = jsonx.encode(bagSlots);
 				tmpSlots[mostUsed.slot] = bag;
