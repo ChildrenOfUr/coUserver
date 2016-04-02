@@ -32,6 +32,8 @@ class Note {
 class NoteManager {
 	static final int title_length_max = 30; // Also set by HTML in client
 	static final String tool_id = "quill";
+	static final String paper_id = "paper";
+	static final String note_id = "note";
 
 	static Future<Note> find(int id) async {
 		try {
@@ -80,9 +82,34 @@ class NoteManager {
 	}
 
 	static Future<Map> addFromClient(Map noteData) async {
-		Note created = new Note.create(noteData["username"], noteData["title"], noteData["body"], noteData["id"]);
-		Note added = await add(created);
-		return added.toMap();
+		try {
+			// Add data to database
+			Note created = new Note.create(noteData["username"], noteData["title"], noteData["body"], noteData["id"]);
+			Note added = await add(created);
+
+			// Add item to inventory
+			String email = await User.getEmailFromUsername(noteData["username"]);
+
+			if (await InventoryV2.takeAnyItemsFromUser(email, paper_id, 1) != 1) {
+				// Ran out of paper somehow, stop
+				return ({"error": "You ran out of paper!"});
+			}
+
+			Item newNoteItem = new Item.clone(note_id)
+				..metadata.addAll({"note_id": added.id});
+
+			if (await InventoryV2.addItemToUser(email, newNoteItem.getMap(), 1) != 1) {
+				// No empty slot, refund paper
+				await InventoryV2.addItemToUser(email, items["paper"].getMap(), 1);
+				return ({"error": "There's no room for this note in your inventory!"});
+			}
+
+			// Send OK to client
+			return added.toMap();
+		} catch(e) {
+			log("Couldn't create note with $noteData: $e");
+			return ({"error": "Something went wrong :("});
+		}
 	}
 
 	@app.Route("/find/:id")

@@ -42,7 +42,12 @@
     "spriteUrl": "http://childrenofur.com/assets/entityImages/note__x1_1_png_1354831157.png",
     "stacksTo": 1,
     "price": 4,
-    "description": "A note is the kind of thing you write on."
+    "description": "A note is the kind of thing you write on.",
+    "actions": [
+	    {
+		    "name": "Read Note"
+	    }
+    ]
   },
   "teleportation_script": {
     "name": "Teleportation Script",

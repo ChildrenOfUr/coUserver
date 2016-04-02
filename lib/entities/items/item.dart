@@ -8,6 +8,7 @@ import 'dart:io';
 import 'package:coUserver/inventory_new.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
 import 'package:coUserver/common/util.dart';
+import 'package:coUserver/common/user.dart';
 import 'package:coUserver/quests/quest.dart';
 import 'package:coUserver/common/stat_buffer.dart';
 import 'package:coUserver/street_update_handler.dart';
@@ -359,6 +360,13 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 	Future writeNote({WebSocket userSocket, Map map, String streetName, String email, String username}) async {
 		userSocket.add(JSON.encode({
 			"note_write": true
+		}));
+	}
+
+	Future readNote({WebSocket userSocket, Map map, String streetName, String email, String username}) async {
+		print(map);
+		userSocket.add(JSON.encode({
+			"note_read": 0
 		}));
 	}
 
