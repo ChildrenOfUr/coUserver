@@ -364,9 +364,8 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 	}
 
 	Future readNote({WebSocket userSocket, Map map, String streetName, String email, String username}) async {
-		print(map);
 		userSocket.add(JSON.encode({
-			"note_read": 0
+			"note_read": map["itemdata"]["note_id"]
 		}));
 	}
 
