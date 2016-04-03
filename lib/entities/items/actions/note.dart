@@ -31,9 +31,9 @@ class Note {
 @app.Group("/note")
 class NoteManager {
 	static final int title_length_max = 30; // Also set by HTML in client
-	static final String tool_id = "quill";
-	static final String paper_id = "paper";
-	static final String note_id = "note";
+	static final String tool_item = "quill";
+	static final String paper_item = "paper";
+	static final String note_item = "note";
 
 	static Future<Note> find(int id) async {
 		try {
@@ -87,21 +87,26 @@ class NoteManager {
 			Note created = new Note.create(noteData["username"], noteData["title"], noteData["body"], noteData["id"]);
 			Note added = await add(created);
 
-			// Add item to inventory
-			String email = await User.getEmailFromUsername(noteData["username"]);
+			if (created.id == -1) {
+				// A new note!
 
-			if (await InventoryV2.takeAnyItemsFromUser(email, paper_id, 1) != 1) {
-				// Ran out of paper somehow, stop
-				return ({"error": "You ran out of paper!"});
-			}
+				// Add item to inventory
+				String email = await User.getEmailFromUsername(noteData["username"]);
 
-			Item newNoteItem = new Item.clone(note_id)
-				..metadata.addAll({"note_id": added.id});
+				if (await InventoryV2.takeAnyItemsFromUser(email, paper_item, 1) != 1) {
+					// Missing paper from inventory (dropped between quill action and saving note?)
+					return ({"error": "You ran out of paper!"});
+				}
 
-			if (await InventoryV2.addItemToUser(email, newNoteItem.getMap(), 1) != 1) {
-				// No empty slot, refund paper
-				await InventoryV2.addItemToUser(email, items["paper"].getMap(), 1);
-				return ({"error": "There's no room for this note in your inventory!"});
+				Item newNoteItem = new Item.clone(note_item)
+					..metadata.addAll({"note_id": added.id.toString()})
+					..metadata.addAll({"title": added.title});
+
+				if (await InventoryV2.addItemToUser(email, newNoteItem.getMap(), 1) != 1) {
+					// No empty slot to fit new note, refund paper
+					await InventoryV2.addItemToUser(email, items[paper_item].getMap(), 1);
+					return ({"error": "There's no room for this note in your inventory!"});
+				}
 			}
 
 			// Send OK to client

@@ -369,6 +369,6 @@ class StreetUpdateHandler {
 			"note_response": newNote
 		}));
 
-		InventoryV2.decreaseDurability(email, NoteManager.tool_id);
+		InventoryV2.decreaseDurability(email, NoteManager.tool_item);
 	}
 }
