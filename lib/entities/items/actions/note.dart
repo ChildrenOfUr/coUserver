@@ -34,6 +34,7 @@ class NoteManager {
 	static final String tool_item = "quill";
 	static final String paper_item = "paper";
 	static final String note_item = "note";
+	static final String writing_skill = "penpersonship";
 
 	static Future<Note> find(int id) async {
 		try {
@@ -83,16 +84,21 @@ class NoteManager {
 
 	static Future<Map> addFromClient(Map noteData) async {
 		try {
-			// Add data to database
+			String email = await User.getEmailFromUsername(noteData["username"]);
 			Note created = new Note.create(noteData["username"], noteData["title"], noteData["body"], noteData["id"]);
+
+			if (created.id != -1 && await SkillManager.getLevel(writing_skill, email) == 0) {
+				// Trying to edit a note without the required skill
+				return ({"error": "You don't know enough about Penpersonship to edit notes yet!"});
+			}
+
+			// Add data to database
 			Note added = await add(created);
 
 			if (created.id == -1) {
 				// A new note!
 
 				// Add item to inventory
-				String email = await User.getEmailFromUsername(noteData["username"]);
-
 				if (await InventoryV2.takeAnyItemsFromUser(email, paper_item, 1) != 1) {
 					// Missing paper from inventory (dropped between quill action and saving note?)
 					return ({"error": "You ran out of paper!"});
@@ -107,6 +113,9 @@ class NoteManager {
 					await InventoryV2.addItemToUser(email, items[paper_item].getMap(), 1);
 					return ({"error": "There's no room for this note in your inventory!"});
 				}
+
+				// Increase skill
+				SkillManager.learn(writing_skill, email);
 			}
 
 			// Send OK to client

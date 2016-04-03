@@ -15,6 +15,7 @@ import 'package:coUserver/street_update_handler.dart';
 import 'package:coUserver/entities/items/actions/recipes/recipe.dart';
 import 'package:coUserver/achievements/achievements.dart';
 import 'package:coUserver/buffs/buffmanager.dart';
+import 'package:coUserver/skills/skillsmanager.dart';
 import 'package:coUserver/chat_handler.dart';
 import 'package:coUserver/common/identifier.dart';
 import 'package:redstone_mapper/mapper.dart';
