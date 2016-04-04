@@ -4264,7 +4264,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Neva Neva": {
 		"tsid": "GDOU5PQU0FD21PF",
-		"hub_id": 107
+		"hub_id": 107,
+		"broken": true
 	},
 	"Newcot Close": {
 		"vendor": "Grocery",
