@@ -4,6 +4,16 @@
 		"description": "Quoin values doubled",
 		"length": 10
 	},
+	"shrink": {
+		"name": "De-Embiggened",
+		"description": "How cute!",
+		"length": 60
+	},
+	"grow": {
+		"name": "Embiggenified",
+		"description": "You're feeling large",
+		"length": 60
+	},
 	"full_of_pie": {
 		"name": "Full of Pie",
 		"description": "Jump height decreased",

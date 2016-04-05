@@ -84,6 +84,13 @@ class PlayerBuff extends Buff {
 		_write();
 	}
 
+	void remove() {
+		stopUpdating();
+		remaining = new Duration(milliseconds: 0);
+		_write();
+		cache.remove(this);
+	}
+
 	Future<bool> _write() async {
 		PostgreSql dbConn = await dbManager.getConnection();
 		try {

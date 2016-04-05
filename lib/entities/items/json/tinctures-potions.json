@@ -33,7 +33,12 @@
     "spriteUrl": "http://childrenofur.com/assets/entityImages/potion_avatar_small__x1_tool_animation_png_1354840122.png",
     "stacksTo": 1,
     "price": 1000,
-    "description": "When poured on the floor, it releases a very pleasant scent (a strange mixture of cherry tart, custard, pineapple, roast turkey, toffee, and hot buttered toast) and a cloud causing people to feel most curious, like they're shutting up like a telescope or some such."
+    "description": "When poured on the floor, it releases a very pleasant scent (a strange mixture of cherry tart, custard, pineapple, roast turkey, toffee, and hot buttered toast) and a cloud causing people to feel most curious, like they're shutting up like a telescope or some such.",
+    "actions": [
+      {
+        "name": "Shrink yourself"
+      }
+    ]
   },
   "potion_percival": {
     "name": "Door Drink",
@@ -78,7 +83,12 @@
     "spriteUrl": "http://childrenofur.com/assets/entityImages/potion_avatar_large__x1_tool_animation_png_1354840126.png",
     "stacksTo": 1,
     "price": 1000,
-    "description": "\"A noble potion embiggenifies the smallest glitch\" reads the tiny label on this tinier bottle. Embiggenifies, you ask? \"Yes\" say the voices of the ancients, drifting to you through the sour aftersmell of the potion, \"Embiggenifies. It is a perfectly cromulent word.\" For creating an embiggenifying cloud wherever you choose."
+    "description": "\"A noble potion embiggenifies the smallest glitch\" reads the tiny label on this tinier bottle. Embiggenifies, you ask? \"Yes\" say the voices of the ancients, drifting to you through the sour aftersmell of the potion, \"Embiggenifies. It is a perfectly cromulent word.\" For creating an embiggenifying cloud wherever you choose.",
+    "actions": [
+      {
+        "name": "Grow yourself"
+      }
+    ]
   },
   "essence_of_gandlevery": {
     "name": "Essence of Gandlevery",
