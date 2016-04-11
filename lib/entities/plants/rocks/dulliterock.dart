@@ -8,7 +8,7 @@ class DulliteRock extends Rock {
 		{
 			"5-4-3-2-1" : new Spritesheet("5-4-3-2-1", "http://childrenofur.com/assets/entityImages/rock_dullite_x1_5_x1_4_x1_3_x1_2_x1_1__1_png_1354831459.png", 655, 114, 131, 114, 5, false)
 		};
-		currentState = states['5-4-3-2-1'];
+		setState('5-4-3-2-1');
 		state = new Random().nextInt(currentState.numFrames);
 		responses['mine_$type'] = [
 			"Ooof. I feel lighter already.",

@@ -10,7 +10,7 @@ class Zille extends Shrine
 				"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_zille__x1_open_png_1354831251.png",906,752,151,188,22,false),
 				"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_zille__x1_open_png_1354831251.png",906,752,151,188,1,false)
 			};
-	 	currentState = states['still'];
+	 	setState('still');
 	 	type = 'Zille';
 
 	 	description = 'This is a shrine to Zille, the giant whose domain is the mountains. Hills, too. Also hillocks, pingos, drumlins and buttes. It\'s safe to consider that any bump in the ground is Zille\'s turf. She takes no responsibility, however, for volcanoes.';
@@ -27,7 +27,7 @@ class ZilleFirebog extends Shrine
 			"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_firebog_zille__x1_open_png_1354832855.png",984, 848, 164, 212, 22, false),
 			"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_firebog_zille__x1_open_png_1354832855.png",984, 848, 164, 212, 1, false)
 		};
-		currentState = states['still'];
+		setState('still');
 		type = 'Zille';
 
 		description = 'This is a shrine to Zille, the giant whose domain is the mountains. Hills, too. Also hillocks, pingos, drumlins and buttes. It\'s safe to consider that any bump in the ground is Zille\'s turf. She takes no responsibility, however, for volcanoes.';
@@ -44,7 +44,7 @@ class ZilleIx extends Shrine
 			"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_ix_zille__x1_open_png_1354831308.png",840,864,168,216,24, false),
 			"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_ix_zille__x1_open_png_1354831308.png",840,864,168,216,1, false),
 		};
-		currentState = states['still'];
+		setState('still');
 		type = 'Zille';
 
 		description = 'This is a shrine to Zille, the giant whose domain is the mountains. Hills, too. Also hillocks, pingos, drumlins and buttes. It\'s safe to consider that any bump in the ground is Zille\'s turf. She takes no responsibility, however, for volcanoes.';
@@ -61,7 +61,7 @@ class ZilleUralia extends Shrine
 			"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_uralia_zille__x1_open_png_1354831929.png",756, 752, 126, 188, 22, false),
 			"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_uralia_zille__x1_open_png_1354831929.png",756, 752, 126, 188, 1, false),
 		};
-		currentState = states['still'];
+		setState('still');
 		type = 'Zille';
 
 		description = 'This is a shrine to Zille, the giant whose domain is the mountains. Hills, too. Also hillocks, pingos, drumlins and buttes. It\'s safe to consider that any bump in the ground is Zille\'s turf. She takes no responsibility, however, for volcanoes.';

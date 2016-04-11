@@ -1,8 +1,6 @@
 part of entity;
 
-class StreetSpiritZutto extends Vendor {
-	int openCount = 0;
-
+class StreetSpiritZutto extends StreetSpirit {
 	StreetSpiritZutto(String id, String streetName, String tsid, int x, int y) : super(id, streetName, tsid, x, y) {
 		speed = 0;
 		itemsPredefined = false;
@@ -13,52 +11,45 @@ class StreetSpiritZutto extends Vendor {
 			"lower":new Spritesheet("lower", 'http://childrenofur.com/assets/entityImages/street_spirit_zutto_cap_capAqua_x1_lower_png_1354833718.png', 906, 900, 151, 180, 26, false),
 			"hoverTalk":new Spritesheet("hoverTalk", 'http://childrenofur.com/assets/entityImages/street_spirit_zutto_cap_capAqua_x1_hoverTalk_png_1354833709.png', 906, 1440, 151, 180, 46, true)
 		};
-		currentState = states['groundIdle'];
+		setState('groundIdle');
 	}
 
+	@override
 	void update() {
+		super.update();
+
 		if(respawn != null && respawn.compareTo(new DateTime.now()) <= 0) {
-			currentState = states['groundIdle'];
+			setState('groundIdle');
 			respawn = null;
 			return;
 		}
 		if (respawn == null) {
 			if(rand.nextInt(4) == 4) {
 				// 20% chance to stand up for 5 seconds
-				currentState = states['hoverIdle'];
-				int length = (5000 * (currentState.numFrames / 30 * 1000)).toInt();
-				respawn = new DateTime.now().add(new Duration(milliseconds:length));
+				setState('hoverIdle');
 			}
 		}
 	}
 
 	@override
 	void buy({WebSocket userSocket, String email}) {
-		currentState = states["raise"];
-		//don't go to another state until closed
-		respawn = new DateTime.now().add(new Duration(days:50));
-		openCount++;
-
+		setState("raise");
 		super.buy(userSocket:userSocket, email:email);
 	}
 
+	@override
 	void sell({WebSocket userSocket, String email}) {
-		currentState = states["raise"];
-		//don't go to another state until closed
-		respawn = new DateTime.now().add(new Duration(days:50));
-		openCount++;
-
+		setState("raise");
 		super.sell(userSocket:userSocket, email:email);
 	}
 
+	@override
 	void close({WebSocket userSocket, String email}) {
 		openCount -= 1;
 		//if no one else has them open
 		if(openCount <= 0) {
 			openCount = 0;
-			currentState = states["lower"];
-			int length = (currentState.numFrames / 30 * 1000).toInt();
-			respawn = new DateTime.now().add(new Duration(milliseconds:length));
+			setState("lower");
 		}
 	}
 }

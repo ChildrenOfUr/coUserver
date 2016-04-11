@@ -21,7 +21,7 @@ class MetalRock extends Rock {
 		{
 			"5-4-3-2-1" : new Spritesheet("5-4-3-2-1", "http://childrenofur.com/assets/entityImages/rock_metal_x1_5_x1_4_x1_3_x1_2_x1_1__1_png_1354832615.png", 685, 100, 137, 100, 5, false)
 		};
-		currentState = states['5-4-3-2-1'];
+		setState('5-4-3-2-1');
 		state = new Random().nextInt(currentState.numFrames);
 		responses['mine_$type'] = [
 			"Slave to the GRIND, kid! ROCK ON!",

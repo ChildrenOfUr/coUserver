@@ -28,7 +28,7 @@ class HellGrapes extends Plant {
 				1,
 				true)
 		};
-		currentState = states["grapes"];
+		setState("grapes");
 		state = 0;
 		maxState = 0;
 	}

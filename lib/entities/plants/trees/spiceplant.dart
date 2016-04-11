@@ -44,7 +44,7 @@ class SpicePlant extends Tree {
 			"maturity_10" : new Spritesheet("maturity_10", "http://childrenofur.com/assets/entityImages/trant_spice__f_cap_10_f_num_10_h_10_m_10_seed_0_191119119_png_1354830969.png", 3498, 1500, 318, 250, 66, false)
 		};
 		maturity = new Random().nextInt(states.length) + 1;
-		currentState = states['maturity_$maturity'];
+		setState('maturity_$maturity');
 		state = new Random().nextInt(currentState.numFrames);
 		maxState = currentState.numFrames - 1;
 	}

@@ -27,7 +27,7 @@ class IceNubbin extends Plant {
 		states = {
 			"1-2-3-4-5" : new Spritesheet("1-2-3-4-5", "http://childrenofur.com/assets/entityImages/ice_knob.png", 290, 84, 58, 84, 5, false),
 		};
-		currentState = states['1-2-3-4-5'];
+		setState('1-2-3-4-5');
 		state = new Random().nextInt(currentState.numFrames);
 		maxState = 5;
 	}

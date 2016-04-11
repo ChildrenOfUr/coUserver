@@ -4,6 +4,8 @@ class Butterfly extends NPC {
 	bool massaged = false;
 	bool interacting = false;
 	int numMilks = 0;
+	int currentBob = 0, minBob = -50, maxBob = 50;
+	bool bobbingUp = true;
 	Stopwatch massageExpires = new Stopwatch();
 
 	Butterfly(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
@@ -109,7 +111,7 @@ class Butterfly extends NPC {
 				42,
 				true)
 		};
-		currentState = states["fly-side"];
+		setState("fly-side");
 		responses = {
 			"massage": [
 				"Mmmf. Not bad.",
@@ -319,23 +321,25 @@ class Butterfly extends NPC {
 	}
 
 	update() {
+		super.update();
+
 		if (currentState.stateName == "fly-side" && !interacting) {
-			if (facingRight) {
-				x += speed;
-				//75 pixels/sec is the speed set on the client atm
-			} else {
-				x -= speed;
-			}
-
-			// bob up and down a bit
-			y += rand.nextInt(50) - 25;
-
-			if (x < 0) {
-				x = 0;
-			}
-			if (x > 4000) {
-				x = 4000;
-			}
+			moveXY(yAction: (){
+				// bob up and down a bit
+				if (bobbingUp) {
+					y--;
+					currentBob--;
+					if (currentBob < minBob) {
+						bobbingUp = false;
+					}
+				} else {
+					y++;
+					currentBob++;
+					if (currentBob > maxBob) {
+						bobbingUp = true;
+					}
+				}
+			},ledgeAction: (){});
 		}
 
 		// must massage again after 5 minutes
@@ -350,14 +354,7 @@ class Butterfly extends NPC {
 				facingRight = !facingRight;
 			}
 
-			int num = rand.nextInt(10);
-			if (num == 6 || num == 7) {
-				setState('fly-angle1');
-			} else if (num == 8 || num == 9) {
-				setState('fly-angle2');
-			} else {
-				setState('fly-side');
-			}
+			setState('fly-side', repeat: rand.nextInt(5));
 		}
 	}
 }

@@ -44,7 +44,7 @@ class BubbleTree extends Tree {
 			"maturity_10" : new Spritesheet("maturity_10", "http://childrenofur.com/assets/entityImages/trant_bubble__f_cap_10_f_num_10_h_10_m_10_seed_0_119919911_png_1354830301.png", 3173, 1108, 167, 277, 76, false)
 		};
 		maturity = new Random().nextInt(states.length) + 1;
-		currentState = states['maturity_$maturity'];
+		setState('maturity_$maturity');
 		state = new Random().nextInt(currentState.numFrames);
 		maxState = currentState.numFrames - 1;
 	}

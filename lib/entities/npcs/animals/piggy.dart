@@ -48,7 +48,7 @@ class Piggy extends NPC {
 			"too_much_nibble" : new Spritesheet("too_much_nibble", "http://childrenofur.com/assets/entityImages/npc_piggy__x1_too_much_nibble_png_1354829441.png", 968, 372, 88, 62, 65, false),
 			"walk" : new Spritesheet("walk", "http://childrenofur.com/assets/entityImages/npc_piggy__x1_walk_png_1354829432.png", 704, 186, 88, 62, 24, true)
 		};
-		currentState = states['walk'];
+		setState('walk');
 
 		responses =
 		{
@@ -95,7 +95,7 @@ class Piggy extends NPC {
 		Map map = {};
 		map['id'] = id;
 		map['openWindow'] = 'itemChooser';
-		map['filter'] = 'category=Croppery & Gardening Supplies';
+		map['filter'] = 'category=Croppery & Gardening Supplies|||itemType=^(?!.+(?:_seed|_bean)).+\$';
 		map['windowTitle'] = 'Feed Piggy What?';
 		userSocket.add(JSON.encode(map));
 		return true;
@@ -118,39 +118,22 @@ class Piggy extends NPC {
 	 * Will simulate piggy movement and send updates to clients if needed
 	 */
 	update() {
-		//we need to update x to hopefully stay in sync with clients
+		super.update();
+
+		//update x and y
 		if(currentState.stateName == "walk") {
-			if(facingRight) {
-				//75 pixels/sec is the speed set on the client atm
-				x += speed;
-			} else {
-				x -= speed;
-			}
-
-			if(x < 0) {
-				x = 0;
-			}
-			//TODO temporary
-			if(x > 4000) {
-				x = 4000;
-			}
-
-			//hard to check right bounds without actually loading the street
-			//which we aren't doing right now.  we're just making everything up in the constructor
-			//but at some point, we should get real street info
-			//if(x > street.width-width)
-			//x = street.width-width;
+			moveXY();
 		}
 
 		//if respawn is in the past, it is time to choose a new animation
 		if(respawn != null && new DateTime.now().compareTo(respawn) > 0) {
-			//1 in 4 chance to change direction
-			if(rand.nextInt(4) == 1) {
+			//1 in 8 chance to change direction
+			if(rand.nextInt(8) == 1) {
 				facingRight = !facingRight;
 			}
 
-			int num = rand.nextInt(10);
-			if(num == 6 || num == 7) {
+			int num = rand.nextInt(20);
+			if(num == 6) {
 				setState('look_screen');
 			} else {
 				setState('walk');

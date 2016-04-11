@@ -37,6 +37,8 @@ class Chicken extends NPC {
 			"walk" : new Spritesheet("walk", "http://childrenofur.com/assets/entityImages/npc_chicken__x1_walk_png_1354830385.png", 888, 440, 148, 110, 24, true)
 		};
 
+		setState('walk');
+
 		responses = {
 			"squeeze": [
 				"Yeeeeeeeeeeeeeks!",
@@ -139,64 +141,45 @@ class Chicken extends NPC {
 	}
 
 	void update() {
-		//we need to update x to hopefully stay in sync with clients
-		if(currentState != null &&
-		   (currentState.stateName == "walk" || currentState.stateName == "flying")) {
-			if(facingRight)
-				x += speed;
-			else
-				x -= speed;
+		super.update();
 
-			if(x < 0)
-				x = 0;
-			if(x > 4000) //TODO temporary
-				x = 4000;
-
-			//hard to check right bounds without actually loading the street
-			//which we aren't doing right now.  we're just making everything up in the constructor
-			//but at some point, we should get real street info
-			//if(x > street.width-width)
-			//x = street.width-width;
+		//update x and y
+		if(currentState.stateName == "walk" || currentState.stateName == "flying") {
+			moveXY();
 		}
 
 		//if respawn is in the past, it is time to choose a new animation
 		if(respawn != null && new DateTime.now().compareTo(respawn) > 0) {
-			//1 in 4 chance to change direction
-			if(rand.nextInt(4) == 1)
+			//1 in 8 chance to change direction
+			if(rand.nextInt(8) == 1)
 				facingRight = !facingRight;
 
 			int num = rand.nextInt(20);
 			switch(num) {
 				case 1:
-					currentState = states['idle1'];
+					setState('idle1');
 					break;
 				case 2:
-					currentState = states['idle2'];
+					setState('idle2');
 					break;
 				case 3:
-					currentState = states['idle3'];
+					setState('idle3');
 					break;
 				case 4:
-					currentState = states['pause'];
+					setState('pause');
 					break;
 				case 5:
-					currentState = states['pecking_once'];
+					setState('pecking_once');
 					break;
 				case 6:
-					currentState = states['pecking_twice'];
+					setState('pecking_twice');
 					break;
 				case 7:
-					currentState = states['flying'];
+					setState('flying');
 					break;
 				default:
-					currentState = states['walk'];
+					setState('walk');
 			}
-
-			//choose a new animation after this one finishes
-			//we can calculate how long it should last by dividing the number
-			//of frames by 30
-			int length = (currentState.numFrames / 30 * 1000).toInt();
-			respawn = new DateTime.now().add(new Duration(milliseconds:length));
 		}
 	}
 }

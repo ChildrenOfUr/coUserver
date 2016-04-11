@@ -45,7 +45,7 @@ class DirtPile extends Plant {
 				false)
 		};
 		int maturity = new Random().nextInt(states.length) + 1;
-		currentState = states['maturity_$maturity'];
+		setState('maturity_$maturity');
 		state = new Random().nextInt(currentState.numFrames);
 		maxState = 0;
 	}

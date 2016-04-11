@@ -26,15 +26,16 @@ class PeatBog extends Plant {
 		states = {
 			"5-4-3-2-1" : new Spritesheet("5-4-3-2-1", "http://childrenofur.com/assets/entityImages/peat_x1_5_x1_4_x1_3_x1_2_x1_1__1_png_1354832710.png", 633, 104, 211, 52, 5, false),
 		};
-		currentState = states['5-4-3-2-1'];
+		setState('5-4-3-2-1');
 		state = new Random().nextInt(currentState.numFrames);
 		maxState = 0;
 	}
 
 	@override
 	void update() {
-		if(state >= currentState.numFrames)
+		if(state >= currentState.numFrames) {
 			setActionEnabled("dig", false);
+		}
 
 		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0) {
 			state = 0;
@@ -42,8 +43,9 @@ class PeatBog extends Plant {
 			respawn = null;
 		}
 
-		if(state < maxState)
+		if(state < maxState) {
 			state = maxState;
+		}
 	}
 
 	Future<bool> dig({WebSocket userSocket, String email}) async {

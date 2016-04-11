@@ -44,49 +44,37 @@ class UncleFriendly extends Vendor {
 			"walk": new Spritesheet("walk", "http://childrenofur.com/assets/entityImages/npc_jabba1__x1_walk_png_1354831096.png", 878, 1407, 439, 201, 14, true),
 			"walk_reverse": new Spritesheet("walk_reverse","http://childrenofur.com/assets/entityImages/npc_jabba1__x1_walk_reverse_png_1354831129.png",878,1608,439,201,15,true)
 		};
-		currentState = states['idle_stand'];
+		setState('idle_stand');
 	}
 
 	void update() {
+		super.update();
+
+		//update x and y
+		if(currentState.stateName == "walk") {
+			moveXY(wallAction: (Wall wall) {
+				facingRight = !facingRight;
+				setState('turn');
+			});
+		}
+
 		if(respawn != null && respawn.compareTo(new DateTime.now()) <= 0) {
 			// if we just turned, we should say we're facing the other way, then we should start moving (that's why we turned around after all)
 			if(currentState.stateName == 'turn') {
-				// if we turned left, we are no longer facing right
-				facingRight = false;
-				// reverse direction
-				speed = -speed;
-				// start walking left
-				currentState = states['walk'];
-				// respawn when we finish walking
-				respawn = new DateTime.now().add(new Duration(milliseconds:(currentState.numFrames / 30 * 1000 * 5000).toInt()));
+				setState('walk', repeat: 3);
 				return;
 			} else {
 				// if we haven't just turned
 				if(rand.nextInt(2) == 1) {
-					// 50% chance of trying to attract buyers
-					currentState = states['impatient'];
-					// respawn when done
-					respawn = new DateTime.now().add(new Duration(milliseconds:(currentState.numFrames / 30 * 1000).toInt()));
+					// 50% chance of walking around
+					setState('walk', repeat: 8);
+				} else if(rand.nextInt(2) == 1) {
+					// attract customers?
+					setState('impatient');
 				} else {
-					// wait
-					currentState = states['idle_stand'];
-					respawn = null;
+					setState('idle_stand');
 				}
 				return;
-			}
-		}
-		if(respawn == null) {
-			//sometimes move around
-			int roll = rand.nextInt(20);
-			if(roll > 10 && roll <= 15) {
-				// 25% chance to turn left
-				currentState = states['turn'];
-				// no longer facing right
-				facingRight = false;
-				// respawn after walking left three times
-				respawn = new DateTime.now().add(new Duration(milliseconds:(currentState.numFrames / 30 * 1000).toInt() * 3));
-			} else {
-				// 50% chance of nothing happening
 			}
 		}
 	}
@@ -96,9 +84,7 @@ class UncleFriendly extends Vendor {
 		//if no one else has them open
 		if(openCount <= 0) {
 			openCount = 0;
-			currentState = states['idle_stand'];
-			int length = (currentState.numFrames / 30 * 1000).toInt();
-			respawn = new DateTime.now().add(new Duration(milliseconds:length));
+			setState('idle_stand');
 		}
 	}
 }

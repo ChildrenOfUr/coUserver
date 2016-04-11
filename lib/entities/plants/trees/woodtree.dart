@@ -51,7 +51,7 @@ class WoodTree extends Tree {
 			"maturity_4" : new Spritesheet("maturity_1", "http://childrenofur.com/assets/entityImages/wood_tree_maturity_6_variant_2_x6_1_png_1354833445.png", 558, 138, 93, 138, 6, false)
 		};
 		maturity = new Random().nextInt(states.length) + 1;
-		currentState = states['maturity_$maturity'];
+		setState('maturity_$maturity');
 		state = new Random().nextInt(currentState.numFrames);
 		maxState = currentState.numFrames - 1;
 	}

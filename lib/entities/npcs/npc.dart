@@ -7,18 +7,153 @@ abstract class NPC extends Entity {
 	 * attempts to perform one of the available actions;
 	 * */
 
+	static int updateFps = 20;
+
 	String id, type, streetName;
-	int x, y, speed = 0, ySpeed = 0;
-	DateTime respawn;
+	int x,
+		y,
+		speed = 0,
+		ySpeed = 0,
+		previousX,
+		previousY;
 	bool facingRight = true;
-	Map<String, Spritesheet> states;
-	Spritesheet currentState;
+	MutableRectangle _collisionsRect;
 
 	NPC(this.id, this.x, this.y, this.streetName) {
 		respawn = new DateTime.now();
 	}
 
-	void update();
+	int get width => currentState.frameWidth;
+
+	int get height => currentState.frameHeight;
+
+	Street get street => StreetUpdateHandler.streets[streetName];
+
+	Rectangle get collisionsRect {
+		if (_collisionsRect == null) {
+			_collisionsRect = new MutableRectangle(x, y, width, height);
+		} else {
+			_collisionsRect.left = x;
+			_collisionsRect.top = y;
+			_collisionsRect.width = width;
+			_collisionsRect.height = height;
+		}
+
+		return _collisionsRect;
+	}
+
+	int getYFromGround() {
+		int returnY = y;
+		if (street == null) {
+			return returnY;
+		}
+
+		CollisionPlatform platform = street.getBestPlatform(x, y, width, height);
+		if (platform != null) {
+			num goingTo = y - street.groundY;
+			num slope = (platform.end.y - platform.start.y) / (platform.end.x - platform.start.x);
+			num yInt = platform.start.y - slope * platform.start.x;
+			num lineY = slope * x + yInt;
+
+			if (goingTo >= lineY) {
+				returnY = lineY - street.groundY;
+			}
+		}
+
+		return returnY ~/ 1;
+	}
+
+	void update() {
+		previousX = x;
+		previousY = y;
+	}
+
+	void defaultWallAction(Wall wall) {
+		facingRight = !facingRight;
+
+		if(wall == null) {
+			return;
+		}
+
+		if (facingRight) {
+			if (collisionsRect.right >= wall.bounds.left) {
+				x = wall.bounds.left - width - 1;
+			}
+		} else {
+			if (collisionsRect.left < wall.bounds.left) {
+				x = wall.bounds.right + 1;
+			}
+		}
+	}
+
+	void defaultLedgeAction() {
+		y = previousY;
+		x = previousX;
+		facingRight = !facingRight;
+	}
+
+	void defaultXAction() {
+		if (facingRight) {
+			x += speed ~/ NPC.updateFps;
+		} else {
+			x -= speed ~/ NPC.updateFps;
+		}
+	}
+
+	void defaultYAction() {
+		y = getYFromGround();
+	}
+
+	///Move the entity 'forward' according to which direction they are facing
+	///and based on the platform lines available on the street
+	///
+	///If the entity should perform actions other than the defaults at certain
+	///conditions (such as walls and ledges etc.) then pass those as function  pointers
+	///else the default action will be taken
+	void moveXY({Function xAction, Function yAction, Function wallAction, Function ledgeAction}) {
+		if (wallAction == null) {
+			wallAction = defaultWallAction;
+		}
+		if (ledgeAction == null) {
+			ledgeAction = defaultLedgeAction;
+		}
+		if (xAction == null) {
+			xAction = defaultXAction;
+		}
+		if (yAction == null) {
+			yAction = defaultYAction;
+		}
+
+		xAction();
+		yAction();
+
+		//if our new y value is more than 30 pixels away from the old one
+		//we probably changed platforms (dropped down) so decide what to do about that
+		if(previousY == null) {
+			throw "Did you forget to call super.update()?";
+		}
+
+		if ((y - previousY).abs() > 30) {
+			ledgeAction();
+		}
+
+		//stop walking into walls, take an action if we're colliding with one
+		for (Wall wall in street.walls) {
+			if (collisionsRect.intersects(wall.bounds)) {
+				wallAction(wall);
+			}
+		}
+
+		//treat the sides of the street as walls too
+		if (x < 0) {
+			wallAction(null);
+			x = 0;
+		}
+		if (x > street.bounds.width - width) {
+			wallAction(null);
+			x = street.bounds.width - width;
+		}
+	}
 
 	Map getMap() {
 		Map map = super.getMap();
@@ -33,22 +168,12 @@ abstract class NPC extends Entity {
 		map['speed'] = speed;
 		map['ySpeed'] = ySpeed;
 		map['animation_name'] = currentState.stateName;
-		map["width"] = currentState.frameWidth;
-		map["height"] = currentState.frameHeight;
+		map["width"] = width;
+		map["height"] = height;
 		map['loops'] = currentState.loops;
 		map['loopDelay'] = currentState.loopDelay;
 		map["facingRight"] = facingRight;
 		map["actions"] = actions;
 		return map;
-	}
-
-	void setState(String state, {int repeat: 1}) {
-		//set their state and then set the respawn time that it needs
-		currentState = states[state];
-
-		//if we want the animation to play more than once before respawn,
-		//then multiply the length by the repeat
-		int length = (currentState.numFrames / 30 * 1000).toInt() * repeat;
-		respawn = new DateTime.now().add(new Duration(milliseconds: length));
 	}
 }

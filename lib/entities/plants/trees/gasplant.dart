@@ -44,7 +44,7 @@ class GasPlant extends Tree {
 			"maturity_10" : new Spritesheet("maturity_10", "http://childrenofur.com/assets/entityImages/trant_gas__f_cap_10_f_num_10_h_10_m_10_seed_0_19191191_png_1354830919.png", 3864, 1032, 276, 258, 53, false)
 		};
 		maturity = new Random().nextInt(states.length) + 1;
-		currentState = states['maturity_$maturity'];
+		setState('maturity_$maturity');
 		state = new Random().nextInt(currentState.numFrames);
 		maxState = currentState.numFrames - 1;
 	}

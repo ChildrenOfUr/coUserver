@@ -61,7 +61,7 @@ class Mailbox extends NPC {
 				1,
 				false)
 		};
-		currentState = states['idle'];
+		setState('idle');
 		respawn = new DateTime.now();
 	}
 

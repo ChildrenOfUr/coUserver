@@ -18,7 +18,7 @@ class HeliKitty extends NPC {
 					      }
 				      ]
 			      });
-		speed = 10; //pixels per second
+		speed = 75; //pixels per second
 		age = 3; //TODO: make them get older
 		states = {
 			// newborn (variation 1)
@@ -103,7 +103,7 @@ class HeliKitty extends NPC {
 			                          "http://childrenofur.com/assets/entityImages/npc_kitty_chicken__x1_3sleep_png_1354840561.png",
 			                          952, 1035, 136, 115, 57, true)
 		};
-		currentState = states[sheetName("fly")];
+		setState(sheetName("fly"));
 		responses = {
 			"pet": ["...purring noises..."]
 		};
@@ -114,33 +114,22 @@ class HeliKitty extends NPC {
 		if(!success) {
 			return false;
 		}
-		currentState = states[sheetName("hitBall")];
-		respawn = new DateTime.now().add(new Duration(milliseconds: (currentState.numFrames / 30 * 1000).toInt()));
+		setState(sheetName("hitBall"));
 		StatBuffer.incrementStat("helikittiesPetted", 1);
 		say(responses['pet'].elementAt(rand.nextInt(responses['pet'].length)));
 		return true;
 	}
 
 	update() {
-		if(currentState.stateName == sheetName("fly")) {
-			//we need to update x to hopefully stay in sync with clients
-			if(facingRight) {
-				x += speed;
-			} else {
-				x -= speed;
-			}
+		super.update();
 
-			if(x < 0) {
-				x = 0;
-			} else if(x > 4000) {
-				//TODO temporary
-				x = 4000;
-			}
+		if (currentState.stateName.contains("fly")) {
+			moveXY(yAction: () {}, ledgeAction: () {});
 		}
 
 		// If respawn is in the past, it is time to choose a new animation
 		if(respawn != null && new DateTime.now().compareTo(respawn) > 0) {
-			currentState = states[sheetName("fly")];
+			setState(sheetName("fly"));
 			respawn = null;
 			// 50% chance to change direction
 			if(rand.nextInt(2) == 1) {

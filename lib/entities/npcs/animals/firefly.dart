@@ -31,14 +31,12 @@ class Firefly extends NPC {
 			"halfPath": new Spritesheet("halfPath", "http://childrenofur.com/assets/entityImages/npc_firefly__x1_halfPath_png_1354833044.png", 870, 160, 87, 40, 40, true),
 			"smallPath": new Spritesheet("smallPath", "http://childrenofur.com/assets/entityImages/npc_firefly__x1_smallPath_png_1354833044.png", 870, 80, 87, 40, 20, true)
 		};
-		currentState = states["fullPath"];
+		setState("fullPath");
 	}
 
 	Future<bool> collect({WebSocket userSocket, String email}) async {
 		// small flight path for 10 seconds
-		currentState = states["smallPath"];
-		int length = (10000 * (currentState.numFrames / 30 * 1000)).toInt();
-		respawn = new DateTime.now().add(new Duration(milliseconds:length));
+		setState("smallPath");
 
 		// no such action yet
 		return false;
@@ -61,14 +59,14 @@ class Firefly extends NPC {
 				switch (rand.nextInt(4)) {
 					case 0:
 					case 1:
-						currentState = states["fullPath"];
+						setState("fullPath");
 						break;
 					case 2:
 					case 3:
-						currentState = states["halfPath"];
+						setState("halfPath");
 						break;
 					case 4:
-						currentState = states["smallPath"];
+						setState("smallPath");
 				}
 
 				// stay for 10 seconds

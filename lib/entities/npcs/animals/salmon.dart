@@ -78,14 +78,17 @@ class Salmon extends NPC {
 				1,
 				false)
 		};
-		currentState = states["swim"];
+		setState("swim");
 		//50/50 chance to face left or right to start
 		facingRight = rand.nextInt(2) == 1;
 	}
 
 	void update() {
-		x += speed;
-		y += ySpeed;
+		super.update();
+
+		moveXY(yAction: () {
+			y += ySpeed~/NPC.updateFps;
+		}, ledgeAction: () {});
 
 		if (respawn != null && respawn.compareTo(new DateTime.now()) <= 0) {
 			// if we just turned, we should say we're facing the other way, then we should start moving (that's why we turned around after all)
@@ -93,10 +96,7 @@ class Salmon extends NPC {
 				// if we turned left, we are no longer facing right, etc.
 				facingRight = !facingRight;
 				// start swimming left
-				currentState = states['swim'];
-				// respawn when we finish walking
-				respawn = new DateTime.now();
-				return;
+				setState('swim');
 			} else {
 				//sometimes move around
 				int roll = rand.nextInt(10);
@@ -104,93 +104,36 @@ class Salmon extends NPC {
 					case 0:
 					case 1:
 					// turn around
-						currentState = states['turn'];
-						respawn = new DateTime.now().add(
-							new Duration(milliseconds: ((currentState.numFrames / 30 * 1000)).toInt()));
+						setState('turn');
 						ySpeed = 0;
 						break;
 
 					case 2:
 					// swim up (steeply)
-						currentState = states['swimUp30'];
-						respawn = new DateTime.now().add(
-							new Duration(milliseconds: ((currentState.numFrames / 30 * 1000)).toInt()));
-						ySpeed = -30;
+						setState('swimUp30');
+						ySpeed = -75;
 						break;
 
 					case 3:
 					// swim up (unholy)
-						currentState = states['swimUp15'];
-						respawn = new DateTime.now().add(
-							new Duration(milliseconds: ((currentState.numFrames / 30 * 1000)).toInt()));
-						ySpeed = -15;
+						setState('swimUp15');
+						ySpeed = -40;
 						break;
 
 					case 4:
 					// swim down (steeply)
-						currentState = states['swimDown30'];
-						respawn = new DateTime.now().add(
-							new Duration(milliseconds: ((currentState.numFrames / 30 * 1000)).toInt()));
-						ySpeed = 30;
+						setState('swimDown30');
+						ySpeed = 75;
 						break;
 
 					case 5:
 					// swim down (unholy)
-						currentState = states['swimDown15'];
-						respawn = new DateTime.now().add(
-							new Duration(milliseconds: ((currentState.numFrames / 30 * 1000)).toInt()));
-						ySpeed = 15;
+						setState('swimDown15');
+						ySpeed = 40;
 						break;
 				}
 			}
 		}
-
-//		if (respawn != null && new DateTime.now().compareTo(respawn) > 0) {
-//			//sometimes move around
-//			int roll = rand.nextInt(10);
-//			switch (roll) {
-//				case 0:
-//				case 1:
-//				// turn around
-//					currentState = states['turn'];
-//					respawn = new DateTime.now().add(
-//						new Duration(milliseconds: ((currentState.numFrames / 30 * 1000)).toInt()));
-//					ySpeed = 0;
-//					break;
-//
-//				case 2:
-//				// swim up (steeply)
-//					currentState = states['swimUp30'];
-//					respawn = new DateTime.now().add(
-//						new Duration(milliseconds: ((currentState.numFrames / 30 * 1000) * 1500).toInt()));
-//					ySpeed = -30;
-//					break;
-//
-//				case 3:
-//				// swim up (unholy)
-//					currentState = states['swimUp15'];
-//					respawn = new DateTime.now().add(
-//						new Duration(milliseconds: ((currentState.numFrames / 30 * 1000) * 3000).toInt()));
-//					ySpeed = -15;
-//					break;
-//
-//				case 4:
-//				// swim down (steeply)
-//					currentState = states['swimDown30'];
-//					respawn = new DateTime.now().add(
-//						new Duration(milliseconds: ((currentState.numFrames / 30 * 1000) * 1500).toInt()));
-//					ySpeed = 30;
-//					break;
-//
-//				case 5:
-//				// swim down (unholy)
-//					currentState = states['swimDown15'];
-//					respawn = new DateTime.now().add(
-//						new Duration(milliseconds: ((currentState.numFrames / 30 * 1000) * 3000).toInt()));
-//					ySpeed = 15;
-//					break;
-//			}
-//		}
 	}
 
 	Future<bool> pocket({WebSocket userSocket, String email}) async {
@@ -203,7 +146,7 @@ class Salmon extends NPC {
 		if (new Random().nextInt(1) == 1) {
 			await InventoryV2.addItemToUser(email, items['pocket_salmon'].getMap(), 1, id);
 			StatBuffer.incrementStat("salmonPocketed", 1);
-			currentState = states["gone"];
+			setState("gone");
 			respawn = new DateTime.now().add(new Duration(minutes: 2));
 			return true;
 		} else {

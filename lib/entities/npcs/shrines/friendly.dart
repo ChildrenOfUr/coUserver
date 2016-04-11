@@ -10,7 +10,7 @@ class Friendly extends Shrine
 				"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_friendly__x1_open_png_1354831217.png",906,752,151,188,22,false),
 				"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_friendly__x1_open_png_1354831217.png",906,752,151,188,1,false)
 			};
-	 	currentState = states['still'];
+	 	setState('still');
 	 	type = 'Friendly';
 
 	 	description = 'This is a shrine to Friendly, the giant who oversees all things celestial, nocturnal, lunar, stygian and murky. Despite this, he is, as his name implies, considered by many to be the nicest of the giants and the one most likely to loan you twenty currants till payday.';
@@ -27,7 +27,7 @@ class FriendlyFirebog extends Shrine
 			"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_firebog_friendly__x1_open_png_1354832798.png",984,848,164,212,22,false),
 			"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_firebog_friendly__x1_open_png_1354832798.png",984,848,164,212,1,false)
 		};
-		currentState = states['still'];
+		setState('still');
 		type = 'Friendly';
 
 		description = 'This is a shrine to Friendly, the giant who oversees all things celestial, nocturnal, lunar, stygian and murky. Despite this, he is, as his name implies, considered by many to be the nicest of the giants and the one most likely to loan you twenty currants till payday.';
@@ -44,7 +44,7 @@ class FriendlyIx extends Shrine
 			"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_ix_friendly__x1_open_png_1354831272.png",840,1080,168,216,24,false),
 			"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_ix_friendly__x1_open_png_1354831272.png",840,1080,168,216,1,false)
 		};
-		currentState = states['still'];
+		setState('still');
 		type = 'Friendly';
 
 		description = 'This is a shrine to Friendly, the giant who oversees all things celestial, nocturnal, lunar, stygian and murky. Despite this, he is, as his name implies, considered by many to be the nicest of the giants and the one most likely to loan you twenty currants till payday.';
@@ -61,7 +61,7 @@ class FriendlyUralia extends Shrine
 			"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_uralia_friendly__x1_open_png_1354831874.png",756,752,126,188,22,false),
 			"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_uralia_friendly__x1_open_png_1354831874.png",756,752,126,188,1,false)
 		};
-		currentState = states['still'];
+		setState('still');
 		type = 'Friendly';
 
 		description = 'This is a shrine to Friendly, the giant who oversees all things celestial, nocturnal, lunar, stygian and murky. Despite this, he is, as his name implies, considered by many to be the nicest of the giants and the one most likely to loan you twenty currants till payday.';

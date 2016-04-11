@@ -18,6 +18,8 @@ import 'package:coUserver/buffs/buffmanager.dart';
 import 'package:coUserver/skills/skillsmanager.dart';
 import 'package:coUserver/chat_handler.dart';
 import 'package:coUserver/common/identifier.dart';
+import 'package:coUserver/street.dart';
+
 import 'package:redstone_mapper/mapper.dart';
 import 'package:redstone_mapper_pg/manager.dart';
 import 'package:redstone/redstone.dart' as app;
@@ -341,6 +343,28 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 		StatBuffer.incrementStat("itemsDropped", map['count']);
 	}
 
+	int getYFromGround(String streetName) {
+		int returnY = y;
+		Street street = StreetUpdateHandler.streets[streetName];
+		if (street == null) {
+			return returnY;
+		}
+
+		CollisionPlatform platform = street.getBestPlatform(x, y, 1, 1);
+		if (platform != null) {
+			num goingTo = y - street.groundY;
+			num slope = (platform.end.y - platform.start.y) / (platform.end.x - platform.start.x);
+			num yInt = platform.start.y - slope * platform.start.x;
+			num lineY = slope * x + yInt;
+
+			if (goingTo >= lineY) {
+				returnY = lineY - street.groundY;
+			}
+		}
+
+		return returnY ~/ 1;
+	}
+
 	void putItemOnGround(num x, num y, String streetName) {
 		String randString = new Random().nextInt(1000).toString();
 		String id = "i" + createId(x, y, itemType, streetName + randString);
@@ -350,6 +374,7 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 			..item_id = id
 			..onGround = true
 			..metadata = this.metadata;
+		item.y = item.getYFromGround(streetName);
 
 		StreetUpdateHandler.streets[streetName].groundItems[id] = item;
 	}

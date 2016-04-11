@@ -21,6 +21,7 @@ import 'package:coUserver/common/user.dart';
 import 'package:coUserver/endpoints/visited.dart';
 import 'package:coUserver/endpoints/time.dart';
 import 'package:coUserver/endpoints/weather.dart';
+import 'package:coUserver/street.dart';
 
 import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper/mapper.dart';
@@ -89,6 +90,7 @@ part 'npcs/vendors/jabba_helga.dart';
 part 'npcs/vendors/jabba_unclefriendly.dart';
 part 'npcs/vendors/mealvendor.dart';
 part 'npcs/vendors/snoconevendingmachine.dart';
+part 'npcs/vendors/street_spirit.dart';
 part 'npcs/vendors/streetspiritfirebog.dart';
 part 'npcs/vendors/streetspiritgroddle.dart';
 part 'npcs/vendors/streetspiritzutto.dart';
@@ -100,6 +102,9 @@ abstract class Entity extends Object with MetabolicsChange {
 	String bubbleText;
 	DateTime sayTimeout = null;
 	Map<String, List<String>> responses = {};
+	Map<String, Spritesheet> states;
+	Spritesheet currentState;
+	DateTime respawn;
 
 	void setActionEnabled(String action, bool enabled) {
 		try {
@@ -141,5 +146,19 @@ abstract class Entity extends Object with MetabolicsChange {
 				resetGains();
 			});
 		}
+	}
+
+	void setState(String state, {int repeat: 1}) {
+		if (!states.containsKey(state)) {
+			throw "You made a typo. $state does not exist in the states array for ${this.runtimeType}";
+		}
+
+		//set their state and then set the respawn time that it needs
+		currentState = states[state];
+
+		//if we want the animation to play more than once before respawn,
+		//then multiply the length by the repeat
+		int length = (currentState.numFrames / 30 * 1000).toInt() * repeat;
+		respawn = new DateTime.now().add(new Duration(milliseconds: length));
 	}
 }

@@ -10,7 +10,7 @@ class Cosma extends Shrine
 				"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_cosma__x1_open_png_1354831212.png",906,752,151,188,22,false),
 				"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_cosma__x1_open_png_1354831212.png",906,752,151,188,1,false)
 			};
-	 	currentState = states['still'];
+	 	setState('still');
 	 	type = 'Cosma';
 
 	 	description = 'This is a shrine to Cosma. As the giant who governs the sky, Cosma is also the giant of levity and meditation. She is, also, the only giant capable of herding butterflies.';
@@ -27,7 +27,7 @@ class CosmaFirebog extends Shrine
 			"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_firebog_cosma__x1_open_png_1354832771.png",984,848,164,212,22,false),
 			"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_firebog_cosma__x1_open_png_1354832771.png",984,848,164,212,1,false)
 		};
-		currentState = states['still'];
+		setState('still');
 		type = 'Cosma';
 
 		description = 'This is a shrine to Cosma. As the giant who governs the sky, Cosma is also the giant of levity and meditation. She is, also, the only giant capable of herding butterflies.';
@@ -44,7 +44,7 @@ class CosmaIx extends Shrine
 			"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_ix_cosma__x1_open_png_1354831267.png",840,1080,168,216,24,false),
 			"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_ix_cosma__x1_open_png_1354831267.png",840,1080,168,216,1,false)
 		};
-		currentState = states['still'];
+		setState('still');
 		type = 'Cosma';
 
 		description = 'This is a shrine to Cosma. As the giant who governs the sky, Cosma is also the giant of levity and meditation. She is, also, the only giant capable of herding butterflies.';
@@ -61,7 +61,7 @@ class CosmaUralia extends Shrine
 			"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_uralia_cosma__x1_open_png_1354831867.png",756,752,126,188,22,false),
 			"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_uralia_cosma__x1_open_png_1354831867.png",756,752,126,188,1,false)
 		};
-		currentState = states['still'];
+		setState('still');
 		type = 'Cosma';
 
 		description = 'This is a shrine to Cosma. As the giant who governs the sky, Cosma is also the giant of levity and meditation. She is, also, the only giant capable of herding butterflies.';

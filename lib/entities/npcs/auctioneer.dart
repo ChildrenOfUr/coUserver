@@ -16,7 +16,7 @@ class Auctioneer extends NPC {
 			"talk":new Spritesheet("talk", 'http://childrenofur.com/assets/entityImages/npc_rare_item_vendor__x1_talk_png_1354840071.png', 935, 1365, 187, 91, 72, false),
 			"walk":new Spritesheet("walk", 'http://childrenofur.com/assets/entityImages/npc_rare_item_vendor__x1_walk_png_1354840072.png', 748, 364, 187, 91, 16, true)
 		};
-		currentState = states['idle'];
+		setState('idle');
 	}
 
 	void update() {

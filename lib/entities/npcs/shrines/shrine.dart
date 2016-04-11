@@ -23,7 +23,7 @@ class Shrine extends NPC {
 		//if no one else has them open
 		if (communeCount <= 0) {
 			communeCount = 0;
-			currentState = states['close'];
+			setState('close');
 			int length = (currentState.numFrames / 30 * 1000).toInt();
 			new Timer(new Duration(milliseconds: length), () => currentState = states['still']);
 		}
@@ -49,7 +49,7 @@ class Shrine extends NPC {
 		userSocket.add(JSON.encode(map));
 
 		communeCount++;
-		currentState = states['open'];
+		setState('open');
 	}
 
 	donate({WebSocket userSocket, String itemType, int qty, String email}) async {

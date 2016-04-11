@@ -78,72 +78,62 @@ class ToolVendor extends Vendor {
 			                        "http://childrenofur.com/assets/entityImages/npc_tool_vendor__x1_walk_png_1354831412.png",
 			                        925, 1250, 185, 250, 24, true)
 		};
-		currentState = states['idle_stand'];
+		setState('idle_stand');
 	}
 
 	void update() {
+		super.update();
+
+		//update x and y
+		if (currentState.stateName == "walk") {
+			moveXY(wallAction: (Wall wall) {
+				if(facingRight) {
+					setState('turn_left');
+				} else {
+					setState('turn_right');
+				}
+				facingRight = !facingRight;
+			});
+		}
+
 		if(respawn != null && respawn.compareTo(new DateTime.now()) <= 0) {
 			// if we just turned, we should say we're facing the other way, then we should start moving (that's why we turned around after all)
 			if(currentState.stateName == 'turn_left') {
 				// if we turned left, we are no longer facing right
 				facingRight = false;
-				// reverse direction
-				speed = -speed;
 				// start walking left
-				currentState = states['walk'];
-				// respawn when we finish walking
-				respawn = new DateTime.now().add(new Duration(milliseconds:(currentState.numFrames / 30 * 1000).toInt()));
-				return;
+				setState('walk');
 			} else if(currentState.stateName == 'turn_right') {
 				// if we turned right, we are now facing right
 				facingRight = true;
-				// reverse direction
-				speed = -speed;
 				// start walking right
-				currentState = states['walk'];
-				// respawn when we finish walking
-				respawn = new DateTime.now().add(new Duration(milliseconds:(currentState.numFrames / 30 * 1000).toInt()));
-				return;
+				setState('walk');
 			} else {
 				// if we haven't just turned
-				if(rand.nextInt(2) == 1) {
-					// 50% chance of trying to attract buyers
-					currentState = states['attract'];
-					// respawn when done
-					respawn = new DateTime.now().add(new Duration(milliseconds:(currentState.numFrames / 30 * 1000).toInt()));
+				//1 in 10 that we turn around and start walking
+				if(rand.nextInt(10) == 8) {
+					if(facingRight) {
+						setState('turn_left');
+					} else {
+						setState('turn_right');
+					}
+				} else if(rand.nextInt(2) == 1) {
+					setState('walk', repeat: 5);
 				} else {
-					// wait
-					currentState = states['idle_stand'];
-					respawn = null;
+					if (rand.nextInt(4) > 2) {
+						// 50% chance of trying to attract buyers
+						setState('attract');
+					} else if (rand.nextInt(2) == 1){
+						// wait
+						setState('idle_stand');
+					}
 				}
-				return;
-			}
-		}
-		if(respawn == null) {
-			//sometimes move around
-			int roll = rand.nextInt(20);
-			if(roll > 10 && roll <= 15) {
-				// 25% chance to turn left
-				currentState = states['turn_left'];
-				// no longer facing right
-				facingRight = false;
-				// respawn after walking left three times
-				respawn = new DateTime.now().add(new Duration(milliseconds:(currentState.numFrames / 30 * 1000).toInt() * 3));
-			} else if(roll > 15 && roll <= 20) {
-				// 25% chance to turn right
-				currentState = states['turn_right'];
-				// now facing right
-				facingRight = true;
-				// respawn after walking right three times
-				respawn = new DateTime.now().add(new Duration(milliseconds:(currentState.numFrames / 30 * 1000).toInt() * 3));
-			} else {
-				// 50% chance of nothing happening
 			}
 		}
 	}
 
 	void buy({WebSocket userSocket, String email}) {
-		currentState = states['idle_stand'];
+		setState('idle_stand');
 		//don't go to another state until closed
 		respawn = new DateTime.now().add(new Duration(days:50));
 		openCount++;
@@ -152,7 +142,7 @@ class ToolVendor extends Vendor {
 	}
 
 	void sell({WebSocket userSocket, String email}) {
-		currentState = states['talk'];
+		setState('talk');
 		//don't go to another state until closed
 		respawn = new DateTime.now().add(new Duration(days:50));
 		openCount++;
@@ -165,9 +155,7 @@ class ToolVendor extends Vendor {
 		//if no one else has them open
 		if(openCount <= 0) {
 			openCount = 0;
-			currentState = states['idle_stand'];
-			int length = (currentState.numFrames / 30 * 1000).toInt();
-			respawn = new DateTime.now().add(new Duration(milliseconds:length));
+			setState('idle_stand');
 		}
 	}
 }

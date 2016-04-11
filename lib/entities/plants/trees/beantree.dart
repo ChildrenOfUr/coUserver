@@ -46,7 +46,7 @@ class BeanTree extends Tree {
 			"maturity_10" : new Spritesheet("maturity_10", "http://childrenofur.com/assets/entityImages/trant_bean__f_cap_10_f_num_10_h_10_m_10_seed_0_191991191_png_1354829669.png", 990, 3780, 198, 270, 68, false)
 		};
 		maturity = new Random().nextInt(states.length) + 1;
-		currentState = states['maturity_$maturity'];
+		setState('maturity_$maturity');
 		state = new Random().nextInt(currentState.numFrames);
 		maxState = currentState.numFrames - 1;
 	}

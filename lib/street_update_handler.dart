@@ -25,25 +25,27 @@ import 'package:redstone_mapper/mapper.dart';
 //handle player update events
 class StreetUpdateHandler {
 	static Duration simulateDuration = new Duration(seconds: 1);
+	static Duration npcUpdateDuration = new Duration(milliseconds: 1000~/NPC.updateFps);
 	static Map<String, Street> streets = new Map();
 	static Map<String, WebSocket> userSockets = new Map();
-	static Timer timer = new Timer.periodic(simulateDuration, (Timer timer) => simulateStreets());
+	static Timer simulateTimer = new Timer.periodic(simulateDuration, (Timer timer) => simulateStreets());
+	static Timer updateTimer = new Timer.periodic(npcUpdateDuration, (Timer timer) => updateNpcs());
 
 	static loadItems() async {
 		try {
 			String directory;
 			//this happens when running unit tests
-			if(Platform.script.data != null) {
+			if (Platform.script.data != null) {
 				directory = Directory.current.path;
 			} else {
 				directory = Platform.script.toFilePath();
 				directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
 			}
 
-			directory = directory.replaceAll('coUserver/test','coUserver');
+			directory = directory.replaceAll('coUserver/test', 'coUserver');
 
 			// load items
-			String filePath = path.join(directory,'lib','entities','items','json');
+			String filePath = path.join(directory, 'lib', 'entities', 'items', 'json');
 			await new Directory(filePath).list().forEach((File category) async {
 				JSON.decode(await category.readAsString()).forEach((String name, Map itemMap) {
 					itemMap['itemType'] = name;
@@ -52,7 +54,14 @@ class StreetUpdateHandler {
 			});
 
 			// load recipes
-			filePath = path.join(directory,'lib', 'entities', 'items', 'actions', 'recipes', 'json');
+			filePath = path.join(
+				directory,
+				'lib',
+				'entities',
+				'items',
+				'actions',
+				'recipes',
+				'json');
 			await new Directory(filePath).list().forEach((File tool) async {
 				JSON.decode(await tool.readAsString()).forEach((Map recipeMap) {
 					RecipeBook.recipes.add(decode(recipeMap, Recipe));
@@ -90,7 +99,8 @@ class StreetUpdateHandler {
 	static void handle(WebSocket ws) {
 		//querying the isActive seems to spark the timer to start
 		//otherwise it does not start from the static declaration above
-		timer.isActive;
+		simulateTimer.isActive;
+		updateTimer.isActive;
 
 		ws.listen((message) {
 			processMessage(ws, message);
@@ -101,6 +111,29 @@ class StreetUpdateHandler {
 			          onDone: () {
 				          cleanupList(ws);
 			          });
+	}
+
+	static void updateNpcs() {
+		streets.forEach((String streetName, Street street) {
+			if (street.occupants.length > 0) {
+				Map moveMap = {};
+				moveMap['npcMove'] = 'true';
+				moveMap['npcs'] = [];
+				street.npcs.forEach((String id, NPC npc) {
+					npc.update();
+					if(npc.previousX != npc.x ||
+					   npc.previousY != npc.y) {
+						moveMap['npcs'].add(npc.getMap());
+					}
+				});
+
+				street.occupants.forEach((String username, WebSocket socket) {
+					if (socket != null) {
+						socket.add(JSON.encode(moveMap));
+					}
+				});
+			}
+		});
 	}
 
 	static void simulateStreets() {
@@ -205,7 +238,7 @@ class StreetUpdateHandler {
 				}
 				else {
 					if (!streets.containsKey(streetName)) {
-						loadStreet(streetName, map['tsid']);
+						await loadStreet(streetName, map['tsid']);
 					}
 					//log("${map['username']} joined $streetName");
 					userSockets[email] = ws;
@@ -228,7 +261,7 @@ class StreetUpdateHandler {
 
 			//if the street doesn't yet exist, create it (maybe it got stored back to the datastore)
 			if (!streets.containsKey(streetName)) {
-				loadStreet(streetName, map['tsid']);
+				await loadStreet(streetName, map['tsid']);
 			}
 
 			//the said that they collided with a quion, let's check and credit if true
@@ -314,10 +347,12 @@ class StreetUpdateHandler {
 		return newName;
 	}
 
-	static void loadStreet(String streetName, String tsid) {
-		streets[streetName] = new Street(streetName, tsid);
-		streets[streetName].loadItems();
-		log("Loaded $streetName ($tsid) into memory.");
+	static Future loadStreet(String streetName, String tsid) async {
+		Street street = new Street(streetName, tsid);
+		await street.loadItems();
+		await street.loadJson();
+		streets[streetName] = street;
+		("Loaded $streetName ($tsid) into memory.");
 	}
 
 	static void _callGlobalMethod(Map map, WebSocket userSocket, String email) {
@@ -350,24 +385,24 @@ class StreetUpdateHandler {
 	}
 
 	static Future<bool> moveItem({WebSocket userSocket, String email,
-									int fromIndex: -1,
-									int fromBagIndex: -1,
-									int toBagIndex: -1,
-									int toIndex: -1}) async {
+	int fromIndex: -1,
+	int fromBagIndex: -1,
+	int toBagIndex: -1,
+	int toIndex: -1}) async {
 		if (fromIndex == -1 || toIndex == -1) {
 			//something's wrong
 			return false;
 		}
 
 		return await InventoryV2.moveItem(email, fromIndex: fromIndex, toIndex: toIndex,
-		                                  fromBagIndex: fromBagIndex, toBagIndex: toBagIndex);
+			                                  fromBagIndex: fromBagIndex, toBagIndex: toBagIndex);
 	}
 
 	static Future writeNote({WebSocket userSocket, String email, Map noteData}) async {
 		Map newNote = await NoteManager.addFromClient(noteData);
 		userSocket.add(JSON.encode({
-			"note_response": newNote
-		}));
+			                           "note_response": newNote
+		                           }));
 
 		InventoryV2.decreaseDurability(email, NoteManager.tool_item);
 	}

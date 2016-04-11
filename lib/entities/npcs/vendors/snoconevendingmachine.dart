@@ -71,43 +71,41 @@ class SnoConeVendingMachine extends Vendor {
 				true)
 		};
 		facingRight = true;
-		currentState = states['idle_stand'];
-		respawn = new DateTime.now().add(new Duration(seconds: 5));
+		setState('idle_stand');
 	}
 
 	void update() {
+		super.update();
+
+		//update x and y
+		if (currentState.stateName == "walk_left" || currentState.stateName == "walk_right") {
+			moveXY(wallAction: (Wall wall) {
+				setState('walk_end');
+				facingRight = !facingRight;
+			});
+		}
+
 		if (respawn != null && respawn.compareTo(new DateTime.now()) <= 0) {
 			int roll = rand.nextInt(5);
 			switch (roll) {
 				case 0:
 				// try to attract buyers
-					currentState = states['attract'];
-					respawn = new DateTime.now().add(
-						new Duration(milliseconds: (currentState.numFrames / 30 * 1000).toInt()));
+					setState('attract');
 					break;
 
 				case 1:
-				// walk for 3 seconds
-					if (x >= 3800) {
-						speed = -40;
-						facingRight = false;
-						currentState = states['walk_left'];
-						respawn = new DateTime.now().add(new Duration(seconds: 3));
+					if(!facingRight) {
+						setState('walk_left', repeat: rand.nextInt(5));
 					} else {
-						speed = 40;
-						facingRight = true;
-						currentState = states['walk_right'];
-						respawn = new DateTime.now().add(new Duration(seconds: 3));
+						setState('walk_right', repeat: rand.nextInt(5));
 					}
-					x += speed;
 					break;
 
 				case 2:
 				case 3:
 				case 4:
 				// do nothing
-					currentState = states['idle_stand'];
-					respawn = new DateTime.now().add(new Duration(seconds: 10));
+					setState('idle_stand');
 					break;
 			}
 			return;
@@ -115,7 +113,7 @@ class SnoConeVendingMachine extends Vendor {
 	}
 
 	void buy({WebSocket userSocket, String email}) {
-		currentState = states['talk'];
+		setState('talk');
 		//don't go to another state until closed
 		respawn = new DateTime.now().add(new Duration(days: 50));
 		openCount++;
@@ -124,7 +122,7 @@ class SnoConeVendingMachine extends Vendor {
 	}
 
 	void sell({WebSocket userSocket, String email}) {
-		currentState = states['talk'];
+		setState('talk');
 		//don't go to another state until closed
 		respawn = new DateTime.now().add(new Duration(days: 50));
 		openCount++;
@@ -137,8 +135,7 @@ class SnoConeVendingMachine extends Vendor {
 		//if no one else has them open
 		if (openCount <= 0) {
 			openCount = 0;
-			currentState = states['idle_stand'];
-			respawn = new DateTime.now().add(new Duration(seconds: 3));
+			setState('idle_stand');
 		}
 	}
 }
