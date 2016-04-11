@@ -230,10 +230,10 @@ class Street {
 	///returns the platform line that the entity is currently standing
 	///[posX] is the current x position of the entity
 	///[width] and [height] are the width and height of their current animation
-	CollisionPlatform getBestPlatform(num posX, num posY, num width, num height) {
+	CollisionPlatform getBestPlatform(num cameFrom, num posX, num width, num height) {
 		CollisionPlatform bestPlatform;
 		num x = posX;
-		num feetY = posY + groundY;
+		num feetY = cameFrom + groundY;
 		num bestDiffY = double.INFINITY;
 
 		for (CollisionPlatform platform in platforms) {
@@ -250,8 +250,7 @@ class Street {
 				if (bestPlatform == null) {
 					bestPlatform = platform;
 					bestDiffY = diffY;
-				}
-				else {
+				} else {
 					if ((lineY >= feetY || (feetY > lineY && feetY - (height / 2) < lineY)) && diffY < bestDiffY) {
 						bestPlatform = platform;
 						bestDiffY = diffY;

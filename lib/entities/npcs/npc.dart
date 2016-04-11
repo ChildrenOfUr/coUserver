@@ -14,6 +14,7 @@ abstract class NPC extends Entity {
 		y,
 		speed = 0,
 		ySpeed = 0,
+		yAccel = -2400,
 		previousX,
 		previousY;
 	bool facingRight = true;
@@ -42,21 +43,22 @@ abstract class NPC extends Entity {
 		return _collisionsRect;
 	}
 
-	int getYFromGround() {
+	int getYFromGround(num cameFrom) {
 		int returnY = y;
 		if (street == null) {
 			return returnY;
 		}
 
-		CollisionPlatform platform = street.getBestPlatform(x, y, width, height);
+		CollisionPlatform platform = street.getBestPlatform(cameFrom, x, width, height);
 		if (platform != null) {
-			num goingTo = y - street.groundY;
+			num goingTo = y + street.groundY;
 			num slope = (platform.end.y - platform.start.y) / (platform.end.x - platform.start.x);
 			num yInt = platform.start.y - slope * platform.start.x;
 			num lineY = slope * x + yInt;
 
 			if (goingTo >= lineY) {
 				returnY = lineY - street.groundY;
+				ySpeed = 0;
 			}
 		}
 
@@ -101,7 +103,9 @@ abstract class NPC extends Entity {
 	}
 
 	void defaultYAction() {
-		y = getYFromGround();
+		ySpeed -= yAccel ~/ NPC.updateFps;
+		y += ySpeed ~/ NPC.updateFps;
+		y = getYFromGround(previousY);
 	}
 
 	///Move the entity 'forward' according to which direction they are facing
