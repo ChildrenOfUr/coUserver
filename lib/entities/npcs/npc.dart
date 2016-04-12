@@ -115,6 +115,10 @@ abstract class NPC extends Entity {
 	///conditions (such as walls and ledges etc.) then pass those as function  pointers
 	///else the default action will be taken
 	void moveXY({Function xAction, Function yAction, Function wallAction, Function ledgeAction}) {
+		if(previousY == null) {
+			throw "Did you forget to call super.update()?";
+		}
+
 		if (wallAction == null) {
 			wallAction = defaultWallAction;
 		}
@@ -131,13 +135,9 @@ abstract class NPC extends Entity {
 		xAction();
 		yAction();
 
-		//if our new y value is more than 30 pixels away from the old one
+		//if our new y value is more than 10 pixels away from the old one
 		//we probably changed platforms (dropped down) so decide what to do about that
-		if(previousY == null) {
-			throw "Did you forget to call super.update()?";
-		}
-
-		if ((y - previousY).abs() > 30) {
+		if ((y - previousY).abs() > 10) {
 			ledgeAction();
 		}
 

@@ -20,6 +20,7 @@ Map<String, int> heightsCache = null;
 Map<String, String> headsCache = null;
 Map<String, Item> items = {};
 PostgreSqlManager dbManager = new PostgreSqlManager(databaseUri);
+
 PostgreSql get dbConn => app.request.attributes.dbConn;
 harvest.MessageBus messageBus = new harvest.MessageBus.async();
 double minClientVersion = 0.15;
@@ -343,8 +344,7 @@ Future<Map> getStreetFillerStats() {
 @app.Route('/getActualImageHeight')
 Future<int> getActualImageHeight(@app.QueryParam('url') String imageUrl,
 	@app.QueryParam('numRows') int numRows,
-	@app.QueryParam('numColumns') int numColumns) async
-{
+	@app.QueryParam('numColumns') int numColumns) async {
 	if (heightsCache[imageUrl] != null) {
 		return heightsCache[imageUrl];
 	}
@@ -352,9 +352,8 @@ Future<int> getActualImageHeight(@app.QueryParam('url') String imageUrl,
 		http.Response response = await http.get(imageUrl);
 
 		Image image = decodeImage(response.bodyBytes);
-		int actualHeight = image.height ~/ numRows -
-		                   image.getBytes().indexOf(image.getBytes().firstWhere((int byte) => byte != 0)) ~/
-		                   image.width ~/ numColumns;
+		Image singleFrame = copyCrop(image, 0, 0, image.width ~/ numColumns, image.height ~/ numRows);
+		int actualHeight = findTrim(singleFrame, mode: TRIM_TRANSPARENT)[3];
 		heightsCache[imageUrl] = actualHeight;
 		return actualHeight;
 	}
@@ -409,9 +408,9 @@ saveCacheToDisk(String filename, Map cache) async {
 
 toast(String message, WebSocket userSocket, {bool skipChat, String onClick}) {
 	userSocket.add(JSON.encode({
-		"toast": true,
-		"message": message,
-		"skipChat": skipChat,
-		"onClick": onClick
-	}));
+		                           "toast": true,
+		                           "message": message,
+		                           "skipChat": skipChat,
+		                           "onClick": onClick
+	                           }));
 }
