@@ -332,6 +332,7 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 	Future drop({WebSocket userSocket, Map map, String streetName, String email, String username}) async {
 		Item droppedItem = await InventoryV2.takeItemFromUser(
 			email, map['slot'], map['subSlot'], map['count']);
+		print('$username is trying to drop ${droppedItem.itemType} x ${map['count']}');
 		if (droppedItem == null) {
 			return;
 		}
@@ -362,6 +363,8 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 			}
 		}
 
+		print('y for ${this.itemType} on $streetName is $returnY');
+
 		return returnY ~/ 1;
 	}
 
@@ -375,6 +378,8 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 			..onGround = true
 			..metadata = this.metadata;
 		item.y = item.getYFromGround(streetName);
+
+		print('putting an ${item.itemType} at ${item.x},${item.y} on $streetName');
 
 		StreetUpdateHandler.streets[streetName].groundItems[id] = item;
 	}
