@@ -50,6 +50,7 @@ class MetabolicsChange {
 		// Store old img
 		int oldImg = m.lifetime_img;
 
+		//if we're taking away energy, make sure we have enough
 		if (m.energy != 0 && m.energy < energy.abs()) {
 			return false;
 		} else {
