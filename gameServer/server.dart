@@ -1,16 +1,6 @@
 part of coUserver;
 
-IRCRelay relay;
-double minClientVersion = 0.15;
-PostgreSqlManager dbManager;
-Map<String, int> heightsCache = null;
-Map<String, String> headsCache = null;
-DateTime startDate;
-Map<String, Item> items = {};
-Map<String, String> vendorTypes = {};
-Random rand = new Random();
-
-harvest.MessageBus messageBus = new harvest.MessageBus.async();
+//IRCRelay relay;
 
 main() async {
 	int port = 8181;
@@ -20,8 +10,6 @@ main() async {
 	catch (error) {
 		port = 8181;
 	}
-
-	dbManager = new PostgreSqlManager(databaseUri, min: 1, max: 9);
 
 	app.addPlugin(getMapperPlugin(dbManager));
 	app.setupConsoleLog();
@@ -207,8 +195,6 @@ Future<List<Item>> getItems(@app.QueryParam('category') String category,
 
 	return itemList;
 }
-
-PostgreSql get dbConn => app.request.attributes.dbConn;
 
 //add a CORS header to every request
 @app.Interceptor(r'/.*')

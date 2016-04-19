@@ -1,3 +1,5 @@
+[ ![Codeship Status for ChildrenOfUr/coUserver](https://www.codeship.io/projects/161f1540-0eea-0132-5580-469557c864a2/status)](https://www.codeship.io/projects/32531) [![codecov.io](https://codecov.io/github/ChildrenOfUr/coUserver/coverage.svg?branch=dev)](https://codecov.io/github/ChildrenOfUr/coUserver?branch=dev)
+
 #Children of Ur Web Server#
 
 ##What is this?##
@@ -21,5 +23,3 @@ folder. Directions can be found in the developer docs
 local machine.
 3. Go to http://localhost:8181/serverStatus to test that your server is returning data. See `server.dart`
 for other routes.
-
-[ ![Codeship Status for ChildrenOfUr/coUserver](https://www.codeship.io/projects/161f1540-0eea-0132-5580-469557c864a2/status)](https://www.codeship.io/projects/32531)

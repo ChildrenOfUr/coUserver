@@ -1,0 +1,421 @@
+{
+  "bean_tree_bean": {
+    "name": "Bean Tree Bean",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/bean_bean__x1_iconic_png_1354829672.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/bean_bean__x1_1_x1_2_x1_3_x1_4_png_1354829673.png",
+    "stacksTo": 100,
+    "price": 150,
+    "description": "A plain, non-magical bean tree bean. It can grow even more beans!"
+  },
+  "broccoli": {
+    "name": "Broccoli",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/broccoli__x1_iconic_png_1354829724.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/broccoli__x1_1_x1_2_x1_3_x1_4_png_1354829725.png",
+    "stacksTo": 80,
+    "price": 5,
+    "description": "One floret of unabashedly healthy broccoli.",
+    "actions": [
+      {
+        "name": "Eat",
+        "multiEnabled": true,
+        "description": "Eat it raw? If you really want to...",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
+  },
+  "broccoli_seed": {
+    "name": "Broccoli Seed",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_broccoli__x1_iconic_png_1354830767.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_broccoli__x1_1_x1_2_x1_3_x1_4_png_1354830768.png",
+    "stacksTo": 50,
+    "price": 24,
+    "description": "A packet of broccoli seeds. This can be planted to grow Broccoli in a Crop Garden."
+  },
+  "bubble_tree_bean": {
+    "name": "Bubble Tree Bean",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/bean_bubble__x1_iconic_png_1354830305.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/bean_bubble__x1_1_x1_2_x1_3_x1_4_png_1354830305.png",
+    "stacksTo": 100,
+    "price": 150,
+    "description": "A fizzy bubble tree bean. It can be planted to grow a bubble tree."
+  },
+  "cabbage": {
+    "name": "Cabbage",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/cabbage__x1_iconic_png_1354829732.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/cabbage__x1_1_x1_2_x1_3_x1_4_png_1354829732.png",
+    "stacksTo": 80,
+    "price": 7,
+    "description": "A head of tender, delicately pungent cabbage.",
+    "actions": [
+      {
+        "name": "Eat",
+        "multiEnabled": true,
+        "description": "Eat it raw? If you really want to...",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
+  },
+  "cabbage_seed": {
+    "name": "Cabbage Seed",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_cabbage__x1_iconic_png_1354830770.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_cabbage__x1_1_x1_2_x1_3_x1_4_png_1354830771.png",
+    "stacksTo": 50,
+    "price": 26,
+    "description": "A packet of cabbage seeds. This can be planted to grow Cabbages in a Crop Garden."
+  },
+  "carrot": {
+    "name": "Carrot",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/carrot__x1_iconic_png_1354829739.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/carrot__x1_1_x1_2_x1_3_x1_4_png_1354829740.png",
+    "stacksTo": 80,
+    "price": 6,
+    "description": "A fresh, firm carrot.",
+    "actions": [
+      {
+        "name": "Eat",
+        "multiEnabled": true,
+        "description": "Eat it raw? If you really want to...",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
+  },
+  "carrot_seed": {
+    "name": "Carrot Seed",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_carrot__x1_iconic_png_1354830773.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_carrot__x1_1_x1_2_x1_3_x1_4_png_1354830773.png",
+    "stacksTo": 50,
+    "price": 28,
+    "description": "A packet of carrot seeds. This can be planted to grow Carrot in a Crop Garden."
+  },
+  "corn": {
+    "name": "Corn",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/corn__x1_iconic_png_1354829785.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/corn__x1_1_x1_2_x1_3_x1_4_png_1354829786.png",
+    "stacksTo": 80,
+    "price": 6,
+    "description": "Many kernels of sweet corn, conveniently located on a sturdy cob.",
+    "actions": [
+      {
+        "name": "Eat",
+        "multiEnabled": true,
+        "description": "Eat it raw? If you really want to...",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
+  },
+  "corn_seed": {
+    "name": "Corn Seed",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_corn__x1_iconic_png_1354830775.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_corn__x1_1_x1_2_x1_3_x1_4_png_1354830776.png",
+    "stacksTo": 50,
+    "price": 25,
+    "description": "A packet of corn seeds. This can be planted to grow Corn in a Crop Garden."
+  },
+  "cucumber": {
+    "name": "Cucumber",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/cucumber__x1_iconic_png_1354829795.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/cucumber__x1_1_x1_2_x1_3_x1_4_png_1354829796.png",
+    "stacksTo": 80,
+    "price": 4,
+    "description": "An innocuous cucumber.",
+    "actions": [
+      {
+        "name": "Eat",
+        "multiEnabled": true,
+        "description": "Eat it raw? If you really want to...",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
+  },
+  "cucumber_seed": {
+    "name": "Cucumber Seed",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_cucumber__x1_iconic_png_1354830778.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_cucumber__x1_1_x1_2_x1_3_x1_4_png_1354830778.png",
+    "stacksTo": 50,
+    "price": 25,
+    "description": "A packet of cucumber seeds. This can be planted to grow Cucumbers in a Crop Garden."
+  },
+  "egg_plant_bean": {
+    "name": "Egg Plant Bean",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/bean_egg__x1_iconic_png_1354829675.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/bean_egg__x1_1_x1_2_x1_3_x1_4_png_1354829676.png",
+    "stacksTo": 100,
+    "price": 150,
+    "description": "A smooth, round egg plant bean. It can grow egg plants. Then the fun really starts!"
+  },
+  "fruit_tree_bean": {
+    "name": "Fruit Tree Bean",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/bean_fruit__x1_iconic_png_1354830688.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/bean_fruit__x1_1_x1_2_x1_3_x1_4_png_1354830688.png",
+    "stacksTo": 100,
+    "price": 150,
+    "description": "An ordinary fruit tree bean. It can be used to grow a fruit tree."
+  },
+  "gas_plant_bean": {
+    "name": "Gas Plant Bean",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/bean_gas__x1_iconic_png_1354830708.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/bean_gas__x1_1_x1_2_x1_3_x1_4_png_1354830708.png",
+    "stacksTo": 100,
+    "price": 150,
+    "description": "A vapourous gas plant bean. It can be used to grow a gas plant."
+  },
+  "onion": {
+    "name": "Onion",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/onion__x1_iconic_png_1354829938.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/onion__x1_1_x1_2_x1_3_x1_4_png_1354829939.png",
+    "stacksTo": 80,
+    "price": 4,
+    "description": "A patented no-tears onion.",
+    "actions": [
+      {
+        "name": "Eat",
+        "multiEnabled": true,
+        "description": "Eat it raw? If you really want to...",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
+  },
+  "onion_seed": {
+    "name": "Onion Seed",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_onion__x1_iconic_png_1354830424.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_onion__x1_1_x1_2_x1_3_x1_4_png_1354830425.png",
+    "stacksTo": 50,
+    "price": 15,
+    "description": "A packet of black onion seeds. This can be planted to grow Onions in a Crop Garden."
+  },
+  "parsnip": {
+    "name": "Parsnip",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/parsnip__x1_iconic_png_1354829949.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/parsnip__x1_1_x1_2_x1_3_x1_4_png_1354829950.png",
+    "stacksTo": 80,
+    "price": 6,
+    "description": "A pungent parsnip.",
+    "actions": [
+      {
+        "name": "Eat",
+        "multiEnabled": true,
+        "description": "Eat it raw? If you really want to...",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
+  },
+  "parsnip_seed": {
+    "name": "Parsnip Seed",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_parsnip__x1_iconic_png_1354834551.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_parsnip__x1_1_x1_2_x1_3_x1_4_png_1354834552.png",
+    "stacksTo": 50,
+    "price": 24,
+    "description": "A packet of parsnip seeds. This can be planted to grow Parsnips in a Crop Garden."
+  },
+  "potato": {
+    "name": "Potato",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/potato__x1_iconic_png_1354829975.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/potato__x1_1_x1_2_x1_3_x1_4_png_1354829976.png",
+    "stacksTo": 80,
+    "price": 7,
+    "description": "A humble potato.",
+    "actions": [
+      {
+        "name": "Eat",
+        "multiEnabled": true,
+        "description": "Eat it raw? If you really want to...",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
+  },
+  "potato_seed": {
+    "name": "Potato Seed",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_potato__x1_iconic_png_1354830785.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_potato__x1_1_x1_2_x1_3_x1_4_png_1354830785.png",
+    "stacksTo": 50,
+    "price": 40,
+    "description": "A packet of tiny potatoes. This can be planted to grow Potatoes in a Crop Garden."
+  },
+  "pumpkin": {
+    "name": "Pumpkin",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/pumpkin__x1_iconic_png_1354836498.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin__x1_1_x1_2_x1_3_x1_4_png_1354836498.png",
+    "stacksTo": 11,
+    "price": 41,
+    "description": "One plump and thick-skinned pumpkin. Perfect for carving, mulching, munching, and, in times of need, for using as a carriage drawn by tamed gerbils.",
+    "actions": [
+      {
+        "name": "Eat",
+        "multiEnabled": true,
+        "description": "Eat it raw? If you really want to...",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
+  },
+  "pumpkin_seed": {
+    "name": "Pumpkin Seed",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_pumpkin__x1_iconic_png_1354836494.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_pumpkin__x1_1_x1_2_x1_3_x1_4_png_1354836496.png",
+    "stacksTo": 50,
+    "price": 17,
+    "description": "A packet of Pumpkin seeds. This can be planted to grow one mighty Pumpkin at a time in either a Crop Garden or a Herb garden."
+  },
+  "rice": {
+    "name": "Rice",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/rice__x1_iconic_png_1354829982.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/rice__x1_1_x1_2_x1_3_x1_4_png_1354829983.png",
+    "stacksTo": 80,
+    "price": 4,
+    "description": "A pot of freshly made rice.",
+    "actions": [
+      {
+        "name": "Eat",
+        "multiEnabled": true,
+        "description": "Eat it raw? If you really want to...",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
+  },
+  "rice_seed": {
+    "name": "Rice Seed",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_rice__x1_iconic_png_1354830789.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_rice__x1_1_x1_2_x1_3_x1_4_png_1354830790.png",
+    "stacksTo": 50,
+    "price": 19,
+    "description": "A packet of rice seeds. This can be planted to grow Rice in a Crop Garden."
+  },
+  "spice_plant_bean": {
+    "name": "Spice Plant Bean",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/bean_spice__x1_iconic_png_1354830710.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/bean_spice__x1_1_x1_2_x1_3_x1_4_png_1354830711.png",
+    "stacksTo": 100,
+    "price": 150,
+    "description": "A small spicy bean. It can be used to plant a spice plant."
+  },
+  "spinach": {
+    "name": "Spinach",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/spinach__x1_iconic_png_1354830024.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/spinach__x1_1_x1_2_x1_3_x1_4_png_1354830024.png",
+    "stacksTo": 80,
+    "price": 3,
+    "description": "Hearty green spinach. It's strong to the finich.",
+    "actions": [
+      {
+        "name": "Eat",
+        "multiEnabled": true,
+        "description": "Eat it raw? If you really want to...",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      },
+      {
+        "name": "Activate",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
+  },
+  "spinach_seed": {
+    "name": "Spinach Seed",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_spinach__x1_iconic_png_1354830793.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_spinach__x1_1_x1_2_x1_3_x1_4_png_1354830793.png",
+    "stacksTo": 50,
+    "price": 12,
+    "description": "A packet of spinach seeds. This can be planted to grow Spinach in a Crop Garden."
+  },
+  "tomato": {
+    "name": "Tomato",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/tomato__x1_iconic_png_1354830044.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/tomato__x1_1_x1_2_x1_3_x1_4_png_1354830045.png",
+    "stacksTo": 80,
+    "price": 5,
+    "description": "A ripe, heirloom-quality tomato.",
+    "actions": [
+      {
+        "name": "Eat",
+        "multiEnabled": true,
+        "description": "Eat a deliciously ripe tomato.",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
+  },
+  "tomato_seed": {
+    "name": "Tomato Seed",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_tomato__x1_iconic_png_1354830420.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_tomato__x1_1_x1_2_x1_3_x1_4_png_1354830421.png",
+    "stacksTo": 50,
+    "price": 20,
+    "description": "A packet of heirloom-quality tomato seeds. This can be planted to grow Tomatoes in a Crop Garden."
+  },
+  "wood_tree_bean": {
+    "name": "Wood Tree Bean",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/bean_wood__x1_iconic_png_1354833452.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/bean_wood__x1_1_x1_2_x1_3_x1_4_png_1354833453.png",
+    "stacksTo": 100,
+    "price": 200,
+    "description": "A satisfyingly woody wood tree bean. You can use this to grow a wood tree. Guaranteed 100% splinter-free!"
+  },
+  "zucchini": {
+    "name": "Zucchini",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/zucchini__x1_iconic_png_1354830071.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/zucchini__x1_1_x1_2_x1_3_x1_4_png_1354830071.png",
+    "stacksTo": 80,
+    "price": 5,
+    "description": "A teeny-weeny green zucchini.",
+    "actions": [
+      {
+        "name": "Eat",
+        "multiEnabled": true,
+        "description": "Eat it raw? If you really want to...",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
+  },
+  "zucchini_seed": {
+    "name": "Zucchini Seed",
+    "category": "Croppery & Gardening Supplies",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/seed_zucchini__x1_iconic_png_1354830787.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/seed_zucchini__x1_1_x1_2_x1_3_x1_4_png_1354830788.png",
+    "stacksTo": 50,
+    "price": 34,
+    "description": "A packet of zucchini seeds. This can be planted to grow Zucchinis in a Crop Garden."
+  }
+}
