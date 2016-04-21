@@ -3926,7 +3926,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Mimosa Mix": {
 		"shrine": "Friendly",
 		"hub_id": 97,
-		"tsid": "LA9KLA8H1D82JM3"
+		"tsid": "LA9KLA8H1D82JM3",
+		"vendor": "Hardware"
 	},
 	"Mina Misses": {
 		"vendor": "Hardware",
@@ -5363,7 +5364,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Salix Seach": {
 		"shrine": "Mab",
 		"tsid": "GA9KL68C1D825IA",
-		"hub_id": 97
+		"hub_id": 97,
+		"vendor": "Produce"
 	},
 	"Samak Shun": {
 		"vendor": "Hardware",
