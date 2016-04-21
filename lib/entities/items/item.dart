@@ -36,20 +36,25 @@ part 'actions/itemgroups/piggy_plop.dart';
 
 class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox, Emblem {
 	/// Discounts, stored as itemType: part paid out of 1 (eg. 0.8 for 20% off)
-	static Map<String, num> discountedItems = {
-		"knife_and_board": 0.75
-	};
+	static Map<String, num> discountedItems = {};
 
-	@Field() String category, iconUrl, spriteUrl, brokenUrl, toolAnimation, name, description, itemType,
-		item_id;
-	@Field() int price,
-		stacksTo,
-		iconNum = 4,
-		durability,
-		subSlots = 0;
+	@Field() String category;
+	@Field() String iconUrl;
+	@Field() String spriteUrl;
+	@Field() String brokenUrl;
+	@Field() String toolAnimation;
+	@Field() String name;
+	@Field() String description;
+	@Field() String itemType;
+	@Field() String item_id;
+	@Field() int price;
+	@Field() int stacksTo;
+	@Field() int iconNum = 4;
+	@Field() int durability;
+	@Field() int subSlots = 0;
 	@Field() num x, y;
-	@Field() bool onGround = false,
-		isContainer = false;
+	@Field() bool onGround = false;
+	@Field() bool isContainer = false;
 	@Field() List<String> subSlotFilter;
 	@Field() List<Action> actions = [];
 	@Field() Map<String, int> consumeValues = {};
@@ -62,18 +67,10 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 		..description = "Put this item in your bags."
 		..multiEnabled = true;
 
-	num get discount {
-		if (discountedItems[itemType] != null) {
-			return discountedItems[itemType];
-		} else {
-			return 1;
-		}
-	}
+	num get discount => discountedItems[itemType] ?? 1;
 
 	@override
-	String toString() {
-		return 'An item of type $itemType with metadata $metadata';
-	}
+	String toString() => "An item of type $itemType with metadata $metadata";
 
 	Item();
 
@@ -111,32 +108,30 @@ class Item extends Object with MetabolicsChange, Consumable, Cubimal, CubimalBox
 		}
 	}
 
-	Map getMap() {
-		return {
-			"iconUrl": iconUrl,
-			"spriteUrl": spriteUrl,
-			"brokenUrl": brokenUrl,
-			"name": name,
-			"itemType": itemType,
-			"category": category,
-			"isContainer": isContainer,
-			"description": description,
-			"price": price,
-			"stacksTo": stacksTo,
-			"iconNum": iconNum,
-			"id": item_id,
-			"onGround": onGround,
-			"x": x,
-			"y": y,
-			"actions": actionList,
-			"tool_animation": toolAnimation,
-			"durability": durability,
-			"subSlots": subSlots,
-			"metadata": metadata,
-			"discount": discount,
-			"consumeValues": consumeValues
-		};
-	}
+	Map getMap() => {
+		"iconUrl": iconUrl,
+		"spriteUrl": spriteUrl,
+		"brokenUrl": brokenUrl,
+		"name": name,
+		"itemType": itemType,
+		"category": category,
+		"isContainer": isContainer,
+		"description": description,
+		"price": price,
+		"stacksTo": stacksTo,
+		"iconNum": iconNum,
+		"id": item_id,
+		"onGround": onGround,
+		"x": x,
+		"y": y,
+		"actions": actionList,
+		"tool_animation": toolAnimation,
+		"durability": durability,
+		"subSlots": subSlots,
+		"metadata": metadata,
+		"discount": discount,
+		"consumeValues": consumeValues
+	};
 
 	List<Map> get actionList {
 		if (onGround) {
