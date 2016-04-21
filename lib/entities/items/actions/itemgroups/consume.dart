@@ -40,6 +40,11 @@ class Consumable extends Object with MetabolicsChange {
 		int moodAward = consumed.consumeValues['mood']*count;
 		int imgAward = consumed.consumeValues['img']*count;
 
+		//cap the energy and mood as appropriate
+		Metabolics m = await getMetabolics(email: email);
+		energyAward = min(energyAward, m.max_energy - m.energy);
+		moodAward = min(moodAward, m.max_mood - m.mood);
+
 		String message = "Consuming that ${consumed.name} gave you ";
 
 		if (energyAward > 0) {
@@ -63,7 +68,10 @@ class Consumable extends Object with MetabolicsChange {
 		}
 
 		if (imgAward > 0) {
-			message += "and $imgAward iMG";
+			if (energyAward > 0 || moodAward > 0) {
+				message += " and ";
+			}
+			message += " $imgAward iMG";
 		}
 
 		message = message.trim() + ".";

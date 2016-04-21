@@ -44,8 +44,6 @@ abstract class Tree extends Plant {
 					'error': "You need at least 2 energy to pet."
 				}
 			]});
-
-		maturity = (maturity * 2).clamp(0, states.length);
 	}
 
 	void update() {

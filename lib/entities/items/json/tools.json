@@ -718,7 +718,8 @@
     "category": "Tools",
     "toolAnimation": "http://childrenofur.com/assets/entityImages/still__x1_active_png_1354836755.png",
     "iconUrl": "http://childrenofur.com/assets/entityImages/still__x1_empty_png_1354836751.png",
-    "spriteUrl": "",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/still__x1_empty_png_1354836751.png",
+    "iconNum": 1,
     "stacksTo": 1,
     "price": 2000,
     "description": "A basic Still for converting Grain, Corn, or the humble Potato into versatile, potent (if not smooth) Hooch."
