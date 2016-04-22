@@ -30,7 +30,6 @@ import 'package:redstone_mapper_pg/manager.dart';
 import 'package:postgresql/postgresql.dart';
 import 'package:jsonx/jsonx.dart' as jsonx;
 
-
 part 'spritesheet.dart';
 part 'quoin.dart';
 part 'plants/plant.dart';
@@ -62,6 +61,7 @@ part 'doors/locked_door.dart';
 part 'doors/machine_room_door.dart';
 part 'doors/shoppe_door.dart';
 part 'npcs/npc.dart';
+part 'npcs/crab.dart';
 part 'npcs/auctioneer.dart';
 part 'npcs/dust_trap.dart';
 part 'npcs/mailbox.dart';

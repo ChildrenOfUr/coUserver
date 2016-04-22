@@ -93,6 +93,7 @@ class Piggy extends NPC {
 
 	Future<bool> feed({WebSocket userSocket, String email}) async {
 		Map map = {};
+		map["action"] = "feedItem";
 		map['id'] = id;
 		map['openWindow'] = 'itemChooser';
 		map['filter'] = 'category=Croppery & Gardening Supplies|||itemType=^(?!.+(?:_seed|_bean)).+\$';
