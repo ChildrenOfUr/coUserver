@@ -884,7 +884,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"vendor": "Toy",
 		"shrine": "Cosma",
 		"tsid": "GCRMCBQCRN12OFL",
-		"hub_id": 76
+		"hub_id": 76,
+		"broken": true
 	},
 	"Buckward Vale": {
 		"vendor": "Alchemical Goods",
@@ -2548,7 +2549,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Ilmenskie": {
 		"tsid": "GIF102FDNU11314",
-		"hub_id": 51
+		"hub_id": 51,
+		"minimap_expand": true
 	},
 	"Ilmoilan Sequence": {
 		"vendor": "Kitchen Tools",
@@ -2658,7 +2660,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"shrine": "Alph",
 		"vendor": "Mining",
 		"tsid": "GA911QQIDI32J6R",
-		"hub_id": 78
+		"hub_id": 78,
+		"broken": true
 	},
 	"Jansib Preserve": {
 		"tsid": "GDORJMMHCDT2J08",
@@ -4130,7 +4133,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Myndun Snun": {
 		"vendor": "Gardening Goods",
 		"shrine": "Mab",
-		"hub_id": 137
+		"hub_id": 137,
+		"tsid": "LHV7RGKN4MA33RT"
 	},
 	"Naama Habitat": {
 		"tsid": "GHV73IC58DT2RO7",
@@ -4534,7 +4538,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Pallur Runnar": {
 		"vendor": "Gardening Goods",
-		"shrine": "Spriggan"
+		"shrine": "Spriggan",
+		"hub_id": 137,
+		"tsid": "LHVNJNP4MAB3JI5"
 	},
 	"Palsa Mosch": {
 		"vendor": "Grocery",
@@ -5782,7 +5788,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Stornur Sezzez": {
 		"vendor": "Animal Goods",
-		"shrine": "Humbaba"
+		"shrine": "Humbaba",
+		"hub_id": 137,
+		"tsid": "LHVFCFD8FRA37T6",
+		"minimap_expand": true
 	},
 	"Strucote Stacks": {
 		"vendor": "Animal Goods",

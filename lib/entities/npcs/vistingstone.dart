@@ -30,11 +30,6 @@ class VisitingStone extends NPC {
 		// Remain a visiting stone (the status is set in stone)
 	}
 
-	static Future<String> randomUnvisitedTsid(String email) async {
-		List<String> unvisited = await getLocationHistoryInverse(email, true);
-		return unvisited[rand.nextInt(unvisited.length - 1)];
-	}
-
 	visitAStreet({String email, WebSocket userSocket}) {
 		randomUnvisitedTsid(email).then((String tsid) {
 			userSocket.add(JSON.encode({
