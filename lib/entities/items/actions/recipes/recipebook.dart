@@ -117,7 +117,7 @@ class RecipeBook extends Object with MetabolicsChange {
 		// Wait for it to make it, then give the item
 		new Timer(new Duration(seconds: recipe.time), () async {
 			// Add the item after we finish "making" one
-			await InventoryV2.addItemToUser(email, items[recipe.output].getMap(), 1);
+			await InventoryV2.addItemToUser(email, items[recipe.output].getMap(), recipe.output_amt);
 			// Award iMG
 			await trySetMetabolics(email, imgMin: recipe.img);
 
