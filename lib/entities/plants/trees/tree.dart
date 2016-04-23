@@ -113,6 +113,16 @@ abstract class Tree extends Plant {
 
 		SkillManager.learn(SKILL, email);
 
+		// Chance for musicblock
+		if (rand.nextInt(15) == 7) {
+			Item musicblock = items[Crab.randomMusicblock()];
+			await InventoryV2.addItemToUser(email, musicblock.getMap(), 1, id);
+			toast(
+				"You got a ${musicblock.name}!", userSocket,
+				onClick: "iteminfo|${musicblock.name}"
+			);
+		}
+
 		return true;
 	}
 

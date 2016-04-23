@@ -20,6 +20,10 @@ class Crab extends NPC {
 		"musicblock_gng", "musicblock_stoot", "musicblock_trumpets"
 	];
 
+	static String randomMusicblock() {
+		return MUSICBLOCK_TYPES[rand.nextInt(MUSICBLOCK_TYPES.length)];
+	}
+
 	final int IDLE_TYPE = rand.nextInt(3);
 
 	String busyWithEmail = "";
@@ -85,10 +89,11 @@ class Crab extends NPC {
 
 	/// Walk around the street
 	void update() {
-		super.update();
-
 		if (!busy) {
-			if (currentState.stateName.startsWith("idle")) {
+			super.update();
+			bool walking = (currentState.stateName == "walk");
+
+			if (walking) {
 				moveXY();
 			}
 
@@ -98,11 +103,11 @@ class Crab extends NPC {
 					facingRight = !facingRight;
 				}
 
-				int num = rand.nextInt(20);
-				if (num == 6) {
-					goIdle();
-				} else {
+				int chance = rand.nextInt(5);
+				if (chance > 3 || (chance > 2 && walking)) {
 					setState("walk");
+				} else {
+					goIdle();
 				}
 			}
 		}
@@ -131,7 +136,7 @@ class Crab extends NPC {
 	/// If it is already in the list, it is moved to the end.
 	void addToHistory(String music) {
 		listenHistory
-			..remove(music) // Remove from where it was before
+			..remove(music) // Remove from where it was before (if it was at all)
 			..add(music); // Add to end of list
 	}
 
@@ -148,7 +153,7 @@ class Crab extends NPC {
 	Future playMusic({WebSocket userSocket, String email, String itemType, int count}) async {
 		assert (userSocket != null);
 		assert (email != null);
-		assert (music != null && MUSICBLOCK_TYPES.contains(itemType));
+		assert (itemType != null && MUSICBLOCK_TYPES.contains(itemType));
 
 		Future _takeMusicblock() => InventoryV2.takeAnyItemsFromUser(email, itemType, 1);
 		Future _giveMusicblock() => InventoryV2.addItemToUser(email, items[itemType].getMap(), 1);
