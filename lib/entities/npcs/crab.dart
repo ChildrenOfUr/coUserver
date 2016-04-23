@@ -123,7 +123,7 @@ class Crab extends NPC {
 				"action": "playMusic",
 				"id": id,
 				"openWindow": "itemChooser",
-				"filter": "itemType=musicblock*",
+				"filter": "itemType=musicblock_.*",
 				"windowTitle": "Play what for Crab?"
 			}));
 		} else {
@@ -150,19 +150,19 @@ class Crab extends NPC {
 	Duration randReactLength() => randSongLength() ~/ 2;
 
 	/// Make the crab hear this noise
-	Future playMusic({WebSocket userSocket, String email, String itemType, int count}) async {
+	Future playMusic({WebSocket userSocket, String email, String itemType, int count, int slot, int subSlot}) async {
 		assert (userSocket != null);
 		assert (email != null);
 		assert (itemType != null && MUSICBLOCK_TYPES.contains(itemType));
 
-		Future _takeMusicblock() => InventoryV2.takeAnyItemsFromUser(email, itemType, 1);
+		Future _takeMusicblock() => InventoryV2.takeItemFromUser(email, slot, subSlot, 1);
 		Future _giveMusicblock() => InventoryV2.addItemToUser(email, items[itemType].getMap(), 1);
 		Future _giveHeadphones() => InventoryV2.addItemToUser(email, HEADPHONES, 1, id);
 		Future _takeHeadphones() => InventoryV2.takeAnyItemsFromUser(email, HEADPHONES["itemType"], 1);
 
 		bool isRare = MUSICBLOCK_RARES.contains(itemType);
 
-		if (await _takeMusicblock() < 1) {
+		if ((await _takeMusicblock()) == null) {
 			// Could not take musicblock from player
 			say(ERROR_NO_MUSIC);
 			return;

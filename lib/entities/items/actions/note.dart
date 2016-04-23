@@ -34,9 +34,14 @@ class NoteManager {
 	static final String tool_item = "quill";
 	static final String paper_item = "paper";
 	static final String note_item = "note";
+	static final String fortune_cookie_item = "fortune_cookie";
+	static final String fortune_cookie_withfortune_item = "fortune_cookie_withfortune";
+	static final String fortune_item = "fortune";
 	static final String writing_skill = "penpersonship";
 
 	static Future<Note> find(int id) async {
+		PostgreSql dbConn = await dbManager.getConnection();
+
 		try {
 			return (await dbConn.query(
 				"SELECT * FROM notes WHERE id = @id",
@@ -45,6 +50,8 @@ class NoteManager {
 		} catch(e) {
 			log("Could not find note $id: $e");
 			return null;
+		} finally {
+			dbManager.closeConnection(dbConn);
 		}
 	}
 
@@ -104,9 +111,7 @@ class NoteManager {
 					return ({"error": "You ran out of paper!"});
 				}
 
-				Item newNoteItem = new Item.clone(note_item)
-					..metadata.addAll({"note_id": added.id.toString()})
-					..metadata.addAll({"title": added.title});
+				Item newNoteItem = getItem(added);
 
 				if (await InventoryV2.addItemToUser(email, newNoteItem.getMap(), 1) != 1) {
 					// No empty slot to fit new note, refund paper
@@ -124,6 +129,12 @@ class NoteManager {
 			log("Couldn't create note with $noteData: $e");
 			return ({"error": "Something went wrong :("});
 		}
+	}
+
+	static Item getItem(Note note) {
+		return new Item.clone(note_item)
+			..metadata.addAll({"note_id": note.id.toString()})
+			..metadata.addAll({"title": note.title});
 	}
 
 	@app.Route("/find/:id")

@@ -98,16 +98,47 @@
     "spriteUrl": "http://childrenofur.com/assets/entityImages/fortune__x1_1_png_1354836235.png",
     "stacksTo": 1,
     "price": 0,
-    "description": "For those who believe their fate is predetermined, this fortune holds your destiny. Plus, your lucky lottery numbers!"
+    "description": "For those who believe their fate is predetermined, this fortune holds your destiny. Plus, your lucky lottery numbers!",
+    "actions": [
+      {
+        "name": "Read Fortune"
+      }
+    ]
   },
   "fortune_cookie": {
     "name": "Fortune Cookie",
     "category": "Toys",
     "iconUrl": "http://childrenofur.com/assets/entityImages/fortune_cookie__x1_1_png_1354836221.png",
+    "iconNum": 1,
     "spriteUrl": "http://childrenofur.com/assets/entityImages/fortune_cookie__x1_1_png_1354836221.png",
     "stacksTo": 1,
     "price": 200,
-    "description": "Comes with or without a note inside. Add your own and give it to a friend!"
+    "description": "Comes without a note inside. Add your own and give it to a friend!",
+    "actions": [
+      {
+        "name": "Insert Note",
+        "itemRequirements": {
+          "all": {
+            "note": 1
+          }
+        }
+      }
+    ]
+  },
+  "fortune_cookie_withfortune": {
+    "name": "Fortuned Cookie",
+    "category": "Toys",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/fortune_cookie__x1_withnote_iconic_png_1354836220.png",
+    "iconNum": 1,
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/fortune_cookie__x1_withnote_png_1354836220.png",
+    "stacksTo": 1,
+    "price": 0,
+    "description": "Comes with a note inside.",
+    "actions": [
+      {
+        "name": "Break Cookie"
+      }
+    ]
   },
   "friedrich_nietzsche_doll": {
     "name": "Friedrich Nietzsche Doll",

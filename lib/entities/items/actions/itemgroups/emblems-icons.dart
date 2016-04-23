@@ -1,9 +1,5 @@
 part of item;
 
-// ////// //
-// Emblem //
-// ////// //
-
 abstract class Emblem extends Object with MetabolicsChange {
 	Future<bool> caress({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		int amt = rand.nextInt(10) + 5;
@@ -44,5 +40,27 @@ abstract class Emblem extends Object with MetabolicsChange {
 			StatBuffer.incrementStat("iconsCreated", 1);
 			return true;
 		}
+	}
+}
+
+abstract class Icon extends Object with MetabolicsChange {
+	Future<bool> tithe({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
+		StatBuffer.incrementStat("iconsTithed", 11);
+		return await ItemUser.trySetMetabolics(username, currants: -100);
+	}
+
+	Future<bool> ruminate({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
+		StatBuffer.incrementStat("iconsRuminated", 11);
+		return await ItemUser.trySetMetabolics(username, mood: 50);
+	}
+
+	Future<bool> revere({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
+		StatBuffer.incrementStat("iconsRevered", 11);
+		return await ItemUser.trySetMetabolics(username, energy: 50);
+	}
+
+	Future<bool> reflect({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
+		StatBuffer.incrementStat("iconsTithed", 11);
+		return await ItemUser.trySetMetabolics(username, img: 50);
 	}
 }

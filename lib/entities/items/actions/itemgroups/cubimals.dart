@@ -5,7 +5,6 @@ part of item;
 // /////// //
 
 abstract class Cubimal extends Object with MetabolicsChange {
-
 	Future<bool> race({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		InventoryV2 inv = await getInventory(email);
 		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
@@ -109,7 +108,6 @@ abstract class Cubimal extends Object with MetabolicsChange {
 // /////////// //
 
 abstract class CubimalBox {
-
 	Future<bool> takeOutCubimal({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		InventoryV2 inv = await getInventory(email);
 		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
