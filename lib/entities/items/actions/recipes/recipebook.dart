@@ -4,6 +4,12 @@ part of recipes;
 class RecipeBook extends Object with MetabolicsChange {
 	static List<Recipe> recipes = [];
 
+	static Recipe findRecipe(String id) {
+		return recipes.singleWhere((Recipe recipe) {
+			recipe.id == id;
+		});
+	}
+
 	// Client Communication
 
 	@app.Route("/list")
@@ -66,6 +72,11 @@ class RecipeBook extends Object with MetabolicsChange {
 		@app.QueryParam("username") String username) async {
 
 		if (token != redstoneToken) {
+			return false;
+		}
+
+		// Stop if the tool breaks
+		if (!(await InventoryV2.hasItem(email, findRecipe(id).tool, 1))) {
 			return false;
 		}
 
