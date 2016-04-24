@@ -285,13 +285,4 @@ class Item extends Object
 
 		return returnY ~/ 1;
 	}
-
-	@override
-	noSuchMethod(Invocation invocation) {
-		if (RecipeTool.CALLS.contains(invocation.toString())) {
-			new RecipeTool().noSuchMethod(invocation);
-		} else {
-			super.noSuchMethod(invocation);
-		}
-	}
 }
