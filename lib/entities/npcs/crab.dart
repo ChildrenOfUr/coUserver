@@ -13,22 +13,30 @@ class Crab extends NPC {
 		"musicblock_db_1",  "musicblock_db_2",  "musicblock_db_3",  "musicblock_db_4",  "musicblock_db_5",
 		"musicblock_dg_1",  "musicblock_dg2",   "musicblock_dg3",   "musicblock_dg4",   "musicblock_dg5",
 		"musicblock_dr_1",  "musicblock_dr_2",  "musicblock_dr_3",  "musicblock_dr_4",  "musicblock_dr_5",
-		"musicblock_xs_1",  "musicblock_xs_2",  "musicblock_xs_3",  "musicblock_xs_4",  "musicblock_xs_5",
-		"musicblock_gng",   "musicblock_stoot", "musicblock_trumpets"
+		"musicblock_xs_1",  "musicblock_xs_2",  "musicblock_xs_3",  "musicblock_xs_4",  "musicblock_xs_5"
 	];
+
 	static final List<String> MUSICBLOCK_RARES = [
 		"musicblock_gng", "musicblock_stoot", "musicblock_trumpets"
 	];
 
+	static List<String> get ALL_MUSICBLOCK_TYPES => new List()
+		..addAll(MUSICBLOCK_TYPES)
+		..addAll(MUSICBLOCK_RARES);
+
+	/// Get a random music block itemType. Will not include rare types.
 	static String randomMusicblock() {
 		return MUSICBLOCK_TYPES[rand.nextInt(MUSICBLOCK_TYPES.length)];
 	}
 
+	/// Choose a random type of crab (there are different styles)
 	final int IDLE_TYPE = rand.nextInt(3);
 
+	/// Track user interaction
 	String busyWithEmail = "";
 	bool get busy => (busyWithEmail.length > 0);
 
+	/// Most recently heard songs, with more recent items at higher indices
 	List<String> listenHistory = new List();
 
 	Crab(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
@@ -43,7 +51,7 @@ class Crab extends NPC {
 			"actionWord": "crabbing",
 			"requires": [{
 				"num": 1,
-				"of": MUSICBLOCK_TYPES,
+				"of": ALL_MUSICBLOCK_TYPES,
 				"error": ERROR_NO_MUSIC
 			}]
 		});
