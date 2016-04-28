@@ -2130,7 +2130,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 119
 	},
 	"Gomen Grap": {
-		"vendor": "Mining"
+		"vendor": "Mining",
+		"hub_id": 107,
+		"tsid": "LNVCJKCAHCD2660"
 	},
 	"Gomphus Comatus": {
 		"tsid": "GIFNGN0F5I438EQ",
@@ -3024,7 +3026,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Kinche Klap": {
 		"vendor": "Mining",
-		"hub_id": 107
+		"hub_id": 107,
+		"tsid": "LDONE5453DD2DHS"
 	},
 	"Kipacre Greens": {
 		"vendor": "Gardening Goods",
@@ -3541,7 +3544,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Luump Yasa": {
 		"vendor": "Gardening Goods",
-		"shrine": "Spriggan"
+		"shrine": "Spriggan",
+		"tsid": "LNV9O6NVFCD2SFS",
+		"hub_id": 107
 	},
 	"Maaku Mills": {
 		"vendor": "Produce",
@@ -3793,7 +3798,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Mayspeek Moar": {
 		"vendor": "Gardening Goods",
 		"shrine": "Mab",
-		"hub_id": 107
+		"hub_id": 107,
+		"tsid": "LDOFAE74UCD29PD"
 	},
 	"Meade Weeds": {
 		"vendor": "Animal Goods",
@@ -6036,7 +6042,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Tepen Heel": {
 		"vendor": "Kitchen Tools",
-		"shrine": "Lem"
+		"shrine": "Lem",
+		"hub_id": 107,
+		"tsid": "LDOOF07GRCD2MAP"
 	},
 	"Tephr Scoria": {
 		"vendor": "Grocery",
@@ -6278,7 +6286,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Trikatu": {
 		"shrine": "Friendly",
-		"vendor": "Hardware"
+		"vendor": "Hardware",
+		"tsid": "LA9AD3L90KN2KA3",
+		"hub_id": 116
 	},
 	"Tripping Ledges": {
 		"vendor": "Gardening Goods",
@@ -6526,7 +6536,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Vekke Vets": {
 		"vendor": "Alchemical Goods",
-		"shrine": "Tii"
+		"shrine": "Tii",
+		"tsid": "LDO8HM0S8DD240C",
+		"hub_id": 107
 	},
 	"Velata Lang": {
 		"vendor": "Produce",
@@ -6789,7 +6801,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 93
 	},
 	"Yebeg Yobs": {
-		"vendor": "Mining"
+		"vendor": "Mining",
+		"hub_id": 107,
+		"tsid": "LDOVRMU9SCD2ASN"
 	},
 	"Yeoman's Bluff": {
 		"vendor": "Produce",
