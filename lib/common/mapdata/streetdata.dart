@@ -446,7 +446,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 106
 	},
 	"Azifa Ayib": {
-		"vendor": "Mining"
+		"vendor": "Mining",
+		"tsid": "LA5GTNUABUG2BP7",
+		"hub_id": 110
 	},
 	"Baavai Buraq": {
 		"vendor": "Kitchen Tools",
@@ -511,7 +513,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Balbemo Ghee": {
 		"shrine": "Humbaba",
-		"vendor": "Animal Goods"
+		"vendor": "Animal Goods",
+		"hub_id": 110,
+		"tsid": "LA510OD56BH2CBJ"
 	},
 	"Balcam Stacks": {
 		"vendor": "Gardening Goods",
@@ -957,7 +961,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 56
 	},
 	"Buticha Quach": {
-		"vendor": "Mining"
+		"vendor": "Mining",
+		"hub_id": 110,
+		"tsid": "LA5FR0B3BUG27S7"
 	},
 	"Byssus Park": {
 		"tsid": "GUVO1ABIQQS2QIF",
@@ -998,7 +1004,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Canjeero Cambe": {
 		"shrine": "Zille",
-		"vendor": "Alchemical Goods"
+		"vendor": "Alchemical Goods",
+		"tsid": "LA57S02C1BH2TP4",
+		"hub_id": 110
 	},
 	"Canjeero Crams": {
 		"shrine": "Alph"
@@ -1052,7 +1060,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Chapati Rooti": {
 		"shrine": "Spriggan",
-		"vendor": "Gardening Goods"
+		"vendor": "Gardening Goods",
+		"hub_id": 110,
+		"tsid": "LA5JN50RNAH27R9"
 	},
 	"Chari Chalks": {
 		"vendor": "Grocery",
@@ -1271,7 +1281,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 91
 	},
 	"Corniss Sember": {
-		"vendor": "Mining"
+		"vendor": "Mining",
+		"hub_id": 110,
+		"tsid": "LA5GBQ27BUG2FF9"
 	},
 	"Cotton Cross": {
 		"vendor": "Animal Goods",
@@ -1444,7 +1456,7 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Difo Dabo": {
 		"vendor": "Mining",
-		"tsid": "GA58P18ELAH2ERI",
+		"tsid": "LA58P18ELAH2ERI",
 		"hub_id": 110
 	},
 	"Ding a Lingers": {
@@ -1521,7 +1533,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Doolshe Teff": {
 		"shrine": "Friendly",
-		"vendor": "Hardware"
+		"vendor": "Hardware",
+		"hub_id": 110,
+		"tsid": "LA5NACEOCUG283E"
 	},
 	"Doon Way": {
 		"vendor": "Gardening Goods",
@@ -2591,7 +2605,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Injera Nitre": {
 		"shrine": "Mab",
 		"vendor": "Gardening Goods",
-		"hub_id": 110
+		"hub_id": 110,
+		"tsid": "LA52VVB0LDH23N7"
 	},
 	"Inkeis Shag": {
 		"vendor": "Kitchen Tools",
@@ -2912,7 +2927,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Kategna Kibe": {
 		"vendor": "Mining",
-		"hub_id": 110
+		"hub_id": 110,
+		"tsid": "LA5H8G00NUG2CRH"
 	},
 	"Katela Ameth": {
 		"vendor": "Grocery",
@@ -3039,7 +3055,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Kitfo Lega": {
 		"shrine": "Grendaline",
-		"vendor": "Produce"
+		"vendor": "Produce",
+		"hub_id": 110,
+		"tsid": "LA5G15O4BUG2CVB"
 	},
 	"Kitkaa Carom": {
 		"vendor": "Gardening Goods",
@@ -3571,7 +3589,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 100
 	},
 	"Macsaaro Fimto": {
-		"vendor": "Mining"
+		"vendor": "Mining",
+		"hub_id": 110,
+		"tsid": "LA5ICL7V9BH2LCA"
 	},
 	"Mada Tamaha": {
 		"tsid": "GA524M0OMOE2OGT",
