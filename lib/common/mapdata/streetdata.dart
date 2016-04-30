@@ -6510,7 +6510,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Varuna Trough": {
 		"hub_id": 136,
-		"tsid": "LUVVSU5NCBA3KOS"
+		"tsid": "LUVVSU5NCBA3KOS",
+		"broken": true
 	},
 	"Vasko Shift": {
 		"vendor": "Grocery",
