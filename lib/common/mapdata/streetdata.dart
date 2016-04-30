@@ -2047,7 +2047,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Gemyan Guome": {
 		"shrine": "Tii",
-		"vendor": "Alchemical Goods"
+		"vendor": "Alchemical Goods",
+		"tsid": "LA5HQ0QUL5T2KGP",
+		"hub_id": 123
 	},
 	"Gersal Gemony": {
 		"vendor": "Produce",
