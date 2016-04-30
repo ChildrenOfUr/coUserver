@@ -101,8 +101,8 @@ abstract class Cheese {
 		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
 		int energyReq, moodReq;
 		String doneMsg;
-		String energyFailMsg = "You are way too tired to age that much cheese. Maybe you should eat something first.";
-		String moodFailMsg = "You are way too depressed to feel like aging that much cheese. Maybe you should drink a tasty drink instead.";
+		final String energyFailMsg = "You are way too tired to age that much cheese. Maybe you should eat something first.";
+		final String moodFailMsg = "You are way too depressed to feel like aging that much cheese. Maybe you should drink a tasty drink instead.";
 		String itemIn, itemOut;
 		int time;
 
@@ -137,12 +137,12 @@ abstract class Cheese {
 
 		bool fail = false;
 
-		if (await ItemUser.getEnergy(email) <= 4) {
+		if (await ItemUser.getEnergy(email) <= energyReq) {
 			toast(energyFailMsg, userSocket);
 			fail = true;
 		}
 
-		if (await ItemUser.getMood(email) <= 2) {
+		if (await ItemUser.getMood(email) <= moodReq) {
 			toast(moodFailMsg, userSocket);
 			fail = true;
 		}
