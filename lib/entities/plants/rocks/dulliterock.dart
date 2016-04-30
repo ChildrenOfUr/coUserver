@@ -18,7 +18,7 @@ class DulliteRock extends Rock {
 			"You're really picking this up.",
 			"Nothing wrong with a sedimentary lifestyle, chum.",
 			"I should have been a wrestler. I'm rock-hard! Hee!",
-			"Ah. You've taken a lode of my mind.",
+			"Ah. You've taken a lode off my mind.",
 			"You sure have an apatite for this.",
 			"Woah. I'm tuff. But you're tuffer."
 		];
