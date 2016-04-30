@@ -3132,7 +3132,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GUVVMMKT2FC3V5B"
 	},
 	"Kotteletti Kota": {
-		"vendor": "Mining"
+		"vendor": "Mining",
+		"tsid": "LHFNBKJMP4D2S9M",
+		"hub_id": 106
 	},
 	"Kottima Cast": {
 		"vendor": "Gardening Goods",
