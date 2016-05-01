@@ -52,9 +52,9 @@ class IceNubbin extends Plant {
 			numToGive = 2;
 		}
 
-		// 50% chance to get an ice cube
-		// 50% chance to let it melt before you collect it
-		if(new Random().nextInt(1) == 1) {
+		// Chance to get an ice cube
+		// Chance to let it melt before you collect it
+		if(new Random().nextInt(2) == 1) {
 			await InventoryV2.addItemToUser(email, items['ice'].getMap(), numToGive, id);
 			StatBuffer.incrementStat("iceNubbinsCollected", 1);
 			state--;
