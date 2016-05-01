@@ -1347,7 +1347,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Dark Cavern": {
 		"vendor": "Animal Goods",
-		"shrine": "Alph"
+		"shrine": "Alph",
+		"tsid": "LHFA15VS0UC3ITS",
+		"hub_id": 141
 	},
 	"Darnefree Air": {
 		"vendor": "Hardware",
