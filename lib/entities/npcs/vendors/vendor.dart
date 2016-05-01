@@ -32,7 +32,14 @@ abstract class Vendor extends NPC {
 
 		if(!itemsPredefined) {
 			itemsForSale.clear();
-			switch(vendorTypes[streetName]) {
+
+			String vendorType = vendorTypes[streetName];
+			if (vendorType == null) {
+				vendorType = getRandomVendorType();
+				SlackReporter.sendMessage(text: "Missing vendor type on `$streetName`, randomly selected `$vendorType`.");
+			}
+
+			switch(vendorType) {
 				case 'alchemical':
 					type = "Street Spirit: Alchemical Goods";
 					itemsForSale = [
@@ -233,6 +240,22 @@ abstract class Vendor extends NPC {
 					break;
 			}
 		}
+	}
+
+	String getRandomVendorType() {
+		final List<String> types = [
+			"alchemical",
+			"animal",
+			"gardening",
+			"groceries",
+			"hardware",
+			"kitchen",
+			"mining",
+			"produce",
+			"toy"
+		];
+
+		return types[rand.nextInt(types.length)];
 	}
 
 	buy({WebSocket userSocket, String email}) {

@@ -4164,7 +4164,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"vendor": "Gardening Goods",
 		"shrine": "Mab",
 		"hub_id": 137,
-		"tsid": "LHV7RGKN4MA33RT"
+		"tsid": "LHV7RGKN4MA33RT",
+		"broken": true
 	},
 	"Naama Habitat": {
 		"tsid": "GHV73IC58DT2RO7",

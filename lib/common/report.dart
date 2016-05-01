@@ -168,18 +168,13 @@ class Report {
 
 		// Notify in Slack
 
-		slack.Attachment slackAttachment = new slack.Attachment(
-			"New ${data["category"]}: https://github.com/$issuesUrl/${newIssueId.toString()}",
+		SlackReporter.sendBugReport(
+			fallback: "New ${data["category"]}: https://github.com/$issuesUrl/${newIssueId.toString()}",
 			title: data["title"],
-			title_link: "https://github.com/$issuesUrl/${newIssueId.toString()}",
-			color: "#${ghReturnData["labels"][0]["color"]}"
+			titleLink: "https://github.com/$issuesUrl/${newIssueId.toString()}",
+			color: "#${ghReturnData["labels"][0]["color"]}",
+			iconUrl: "data:image/png;base64,${await trimImage(data["username"])}",
+			username: data["username"]
 		);
-
-		slack.Message slackMessage = new slack.Message("")
-			..icon_url = "data:image/png;base64,${await trimImage(data["username"])}"
-			..username = data["username"]
-			..attachments = [slackAttachment];
-
-		new slack.Slack(slackReportWebhook).send(slackMessage);
 	}
 }
