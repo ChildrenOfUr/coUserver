@@ -6884,7 +6884,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Zalaib Labra": {
 		"vendor": "Kitchen Tools",
-		"shrine": "Lem"
+		"shrine": "Lem",
+		"hub_id": 100,
+		"tsuid": "LIFK06CR2JC2K51"
 	},
 	"Zaruu Zilch": {
 		"shrine": "Lem",
