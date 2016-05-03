@@ -433,7 +433,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Awasa Wash": {
 		"vendor": "Animal Goods",
-		"shrine": "Humbaba"
+		"shrine": "Humbaba",
+		"tsid": "LHFET4I773D2OUU",
+		"hub_id": 106
 	},
 	"Awn Terio": {
 		"vendor": "Produce",
@@ -1411,7 +1413,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Derjo Jo": {
 		"vendor": "Kitchen Tools",
-		"shrine": "Lem"
+		"shrine": "Lem",
+		"hub_id": 106,
+		"tsid": "LHFSH881K2D2GP9"
 	},
 	"Desmona Dr": {
 		"shrine": "Mab",
@@ -1437,7 +1441,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 93
 	},
 	"Dhalakk Dalliance": {
-		"vendor": "Mining"
+		"vendor": "Mining",
+		"hub_id": 106,
+		"tsid": "LHFER9HGE3D2UPP"
 	},
 	"Dhanu Dhani": {
 		"vendor": "Alchemical Goods",
@@ -2321,7 +2327,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Hamli Egza": {
 		"vendor": "Gardening Goods",
-		"shrine": "Spriggan"
+		"shrine": "Spriggan",
+		"tsid": "LHFD24US63D2QO6",
+		"hub_id": 106
 	},
 	"Hammar Steadies": {
 		"vendor": "Grocery",
@@ -2626,7 +2634,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Intate Treats": {
 		"vendor": "Grocery",
-		"shrine": "Pot"
+		"shrine": "Pot",
+		"hub_id": 106,
+		"tsid": "LHFR6PV2Q2D24KJ"
 	},
 	"Irron Lavi": {
 		"vendor": "Gardening Goods",
@@ -3032,7 +3042,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 72
 	},
 	"Kikal Kalzo": {
-		"vendor": "Mining"
+		"vendor": "Mining",
+		"hub_id": 106,
+		"tsid": "LHFTQ7GLV2D2GG1"
 	},
 	"Kilamu Lamme": {
 		"vendor": "Animal Goods",
@@ -3785,7 +3797,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Masod Match": {
 		"vendor": "Mining",
-		"hub_id": 106
+		"hub_id": 106,
+		"tsid": "LHF2KOKDR2D2EIU"
 	},
 	"Masquff Greets": {
 		"vendor": "Grocery",
@@ -3979,7 +3992,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Minichii Chia": {
 		"vendor": "Produce",
 		"shrine": "Mab",
-		"hub_id": 106
+		"hub_id": 106,
+		"tsid": "LHF893IMS2D2AKU"
 	},
 	"Mino Kree": {
 		"vendor": "Animal Goods",
@@ -5420,7 +5434,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Sambossa Bossa": {
 		"vendor": "Alchemical Goods",
-		"shrine": "Tii"
+		"shrine": "Tii",
+		"tsid": "LHFFH3GKN2D2BTS",
+		"hub_id": 106
 	},
 	"Samdol Habitat": {
 		"tsid": "GA582EG1QLS20BF",
@@ -5526,7 +5542,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Selsi Loss": {
 		"vendor": "Alchemical Goods",
-		"shrine": "Zille"
+		"shrine": "Zille",
+		"hub_id": 106,
+		"tsid": "LHFL7HBQO2D2B4H"
 	},
 	"Semper Valere": {
 		"tsid": "GA5EK4L9B613VB1",
@@ -5635,7 +5653,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Sinig Safes": {
 		"vendor": "Produce",
-		"shrine": "Grendaline"
+		"shrine": "Grendaline",
+		"hub_id": 106,
+		"tsid": "LHFL23QTC2D21SF"
 	},
 	"Sinseollo Park": {
 		"tsid": "GA5LBN35B8T288J",
@@ -6155,7 +6175,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 109
 	},
 	"Tibsii Wibbs": {
-		"vendor": "Mining"
+		"vendor": "Mining",
+		"hub_id": 106,
+		"tsid": "LHFRC7NQL4D2C59"
 	},
 	"Tigrinni Grins": {
 		"vendor": "Hardware",
@@ -6181,7 +6203,9 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	},
 	"Tilssii Sill": {
 		"vendor": "Hardware",
-		"shrine": "Friendly"
+		"shrine": "Friendly",
+		"hub_id": 106,
+		"tsid": "LHF8B3B0S4D2L5U"
 	},
 	"Timtim Timm": {
 		"vendor": "Mining",
@@ -6934,11 +6958,15 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 131
 	},
 	"Zigni Zags": {
-		"vendor": "Mining"
+		"vendor": "Mining",
+		"hub_id": 106,
+		"tsid": "LHFTJK6IQ4D2R6M"
 	},
 	"ZilZiil Zeal": {
 		"vendor": "Animal Goods",
-		"shrine": "Alph"
+		"shrine": "Alph",
+		"hub_id": 106,
+		"tsid": "LHFHR6S923D2RL9"
 	},
 	"Zug Zug": {
 		"vendor": "Kitchen Tools",
