@@ -10,6 +10,7 @@ import 'package:coUserver/endpoints/metabolics/metabolics.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/common/stat_buffer.dart';
 import "package:coUserver/common/slack.dart";
+import 'package:coUserver/API_KEYS.dart';
 import 'package:coUserver/quests/quest.dart';
 import 'package:coUserver/endpoints/stats.dart';
 import 'package:coUserver/achievements/achievements.dart';
@@ -31,6 +32,7 @@ import 'package:redstone_mapper_pg/manager.dart';
 import 'package:postgresql/postgresql.dart';
 import 'package:jsonx/jsonx.dart' as jsonx;
 
+part 'entity_endpoint.dart';
 part 'spritesheet.dart';
 part 'quoin.dart';
 part 'plants/plant.dart';

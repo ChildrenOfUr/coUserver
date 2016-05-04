@@ -19,4 +19,18 @@ class Spritesheet
 	{
 		return "$stateName: width: $sheetWidth, height: $sheetHeight, numFrames: $numFrames, rows: $numRows, columns: $numColumns, frameWidth: $frameWidth, frameHeight: $frameHeight, src: $url";
 	}
+
+	Map toMap() => {
+		"stateName": stateName,
+		"url": url,
+		"sheetWidth": sheetWidth,
+		"sheetHeight": sheetHeight,
+		"frameWidth": frameWidth,
+		"frameHeight": frameHeight,
+		"numFrames": numFrames,
+		"numRows": numRows,
+		"numColumns": numColumns,
+		"loops": loops,
+		"loopDelay": loopDelay
+	};
 }

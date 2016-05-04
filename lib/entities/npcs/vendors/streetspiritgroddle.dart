@@ -232,8 +232,7 @@ class StreetSpiritGroddle extends StreetSpirit {
 
 		String giantName;
 
-		List<Map> entities = getStreetEntities(tsid)['entities'];
-		List<String> giants = [
+		final List<String> giants = [
 			"alph",
 			"cosma",
 			"friendly",
@@ -246,12 +245,17 @@ class StreetSpiritGroddle extends StreetSpirit {
 			"tii",
 			"zille"
 		];
-		entities.forEach((Map entity) {
-			String type = entity['type'].toLowerCase();
+
+		try {
+			List<Map> entities = getStreetEntities(tsid)['entities'];
+			entities.forEach((Map entity) {
+				String type = entity['type'].toLowerCase();
 				if (giants.contains(type)) {
-				giantName = type;
-			}
-		});
+					giantName = type;
+				}
+			});
+		} catch(_) {}
+
 		if (giantName == null) {
 			giantName = giants[rand.nextInt(giants.length - 1)];
 		}

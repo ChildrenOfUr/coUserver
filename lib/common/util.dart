@@ -414,3 +414,18 @@ toast(String message, WebSocket userSocket, {bool skipChat, String onClick}) {
 		                           "onClick": onClick
 	                           }));
 }
+
+/// "ClassName" -> "Class Name"
+String splitCamelCase(String camelCase) {
+	String spaceCase = "";
+	for (int c = 0; c < camelCase.length; c++) {
+		spaceCase += camelCase[c];
+		if (
+			c < camelCase.length - 1 &&
+			camelCase[c + 1].toUpperCase() == camelCase[c + 1]
+		) {
+			spaceCase += " ";
+		}
+	}
+	return spaceCase;
+}
