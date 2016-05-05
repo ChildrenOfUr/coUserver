@@ -52,6 +52,14 @@ class EntityEndpoint {
 			map["category"] = "Shrine";
 		}
 
+		if (mirror.isSubclassOf(findClassMirror("Tree"))) {
+			map["category"] = "Tree";
+		} else if (mirror.isSubclassOf(findClassMirror("Rock"))) {
+			map["category"] = "Rock";
+		} else if (mirror.isSubclassOf(findClassMirror("Plant"))) {
+			map["category"] = "Plant";
+		}
+
 		if (entity.states != null) {
 			map
 				..["currentState"] = entity.currentState.stateName
@@ -97,13 +105,12 @@ class EntityEndpoint {
 		Lem, LemFirebog, LemIx, LemUralia,
 		Mab, MabFirebog, MabIx, MabUralia,
 		Pot, PotFirebog, PotIx, PotUralia,
-		Shrine,
 		Spriggan, SprigganFirebog, SprigganIx, SprigganUralia,
 		Tii, TiiFirebog, TiiIx, TiiUralia,
 		Zille, ZilleFirebog, ZilleIx, ZilleUralia,
 		// NPCs -> Vendors
 		Helga, UncleFriendly, MealVendor, SnoConeVendingMachine,
-		StreetSpirit, StreetSpiritFirebog, StreetSpiritGroddle, StreetSpiritZutto,
+		StreetSpiritFirebog, StreetSpiritGroddle, StreetSpiritZutto,
 		ToolVendor,
 		// Plants
 		DirtPile, HellGrapes, IceNubbin, Jellisac, MortarBarnacle, PeatBog,

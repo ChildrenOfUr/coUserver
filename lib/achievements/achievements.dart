@@ -172,6 +172,8 @@ class Achievement {
 
 		return result;
 	}
+
+	static String cachedAchvListJson;
 }
 
 @app.Route("/listAchievements")
@@ -180,6 +182,16 @@ Future<String> listAchievements(
 	@app.QueryParam("category") String category,
 	@app.QueryParam("username") String username,
 	@app.QueryParam("excludeNonMatches") bool excludeNonMatches) async {
+	bool generic = false;
+
+	if (email == null && category == null && username == null && excludeNonMatches == null) {
+		generic = true;
+		// Generic request
+		if (Achievement.cachedAchvListJson != null) {
+			return Achievement.cachedAchvListJson;
+		}
+	}
+
 	List<String> ids = [];
 	List<String> awardedIds = [];
 	Map<String, Map<String, dynamic>> maps = {};
@@ -252,5 +264,11 @@ Future<String> listAchievements(
 		}
 	}
 
-	return JSON.encode(maps);
+	String result = JSON.encode(maps);
+
+	if (generic && Achievement.cachedAchvListJson == null) {
+		Achievement.cachedAchvListJson = result;
+	}
+
+	return result;
 }

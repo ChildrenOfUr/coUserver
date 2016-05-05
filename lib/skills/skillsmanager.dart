@@ -4,6 +4,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:coUserver/API_KEYS.dart';
 import 'package:coUserver/common/user.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
@@ -17,7 +18,7 @@ part 'skill.dart';
 part 'playerskill.dart';
 
 @app.Group("/skills")
-class SkillManager {
+class SkillManager extends Object {
 	/// String used for querying for a specific skills_json cell
 	/// Will return a length-1 list of rows from metabolics with only the skills_json column
 	static final String CELL_QUERY = "SELECT skills_json FROM metabolics AS m"
@@ -126,5 +127,24 @@ class SkillManager {
 	@app.Route("/getByUsername/:username")
 	Future<List<Map<String, dynamic>>> getPlayerSkillsUsernameRoute(String username) async {
 		return await getPlayerSkills(username: username);
+	}
+
+	List<Map<String, dynamic>> cachedData;
+	@app.Route("/list")
+	List<Map<String, dynamic>> allSkills(@app.QueryParam("token") String token) {
+		if (token != redstoneToken) {
+			return [{"error": "true"}, {"token": "invalid"}];
+		}
+
+		if (cachedData != null) {
+			return cachedData;
+		} else {
+			List<Map<String, dynamic>> result = new List();
+			SkillManager.SKILL_DATA.values.forEach((Skill skill) {
+				result.add(skill.toMap());
+			});
+			cachedData = result;
+			return result;
+		}
 	}
 }
