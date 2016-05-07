@@ -20,34 +20,28 @@ class Quoin
 	}
 
 	setCollected() {
-
-		StatBuffer.incrementStat("quoionsCollected", 1);
+		StatBuffer.incrementStat("quoionsCollected");
 
 		if (type == "quarazy") {
-			// Quarazy quoin should never be set to 'collected'
-			// to enable all users to collect it
-			// it will not be shown to a player again once collected,
-			// (handled in the client)
+			print("skipping setting collected state of quarazy quoin");
+			/*  Quarazy quoin should never be set to 'collected'
+				to enable all users to collect it
+				it will not be shown to a player again once collected,
+				(handled in the client)                                 */
 			return;
 		}
 
 		collected = true;
-		int duration = 30;
-		if (type == 'mystery') {
-			duration = 90;
-		}
-
-		respawn = new DateTime.now().add(new Duration(seconds:duration));
+		int duration = (type == "mystery" ? 90 : 30);
+		respawn = new DateTime.now().add(new Duration(seconds: duration));
 	}
 
-	Map getMap() {
-		Map map = new Map();
-		map["id"] = id;
-		map["url"] = url;
-		map["type"] = type;
-		map["remove"] = collected.toString();
-		map["x"] = x;
-		map["y"] = y;
-		return map;
-	}
+	Map getMap() => {
+		"id": id,
+		"url": url,
+		"type": type,
+		"remove": collected.toString(),
+		"x": x,
+		"y": y
+	};
 }

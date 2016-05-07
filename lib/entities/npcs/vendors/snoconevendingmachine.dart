@@ -10,7 +10,7 @@ class SnoConeVendingMachine extends Vendor {
 			items["snocone_green"].getMap(),
 			items["snocone_orange"].getMap(),
 			items["snocone_red"].getMap(),
-			items["snocone_purple"].getMap(),
+			items["snocone_purple"].getMap()
 		];
 		itemsPredefined = true;
 		speed = 40;

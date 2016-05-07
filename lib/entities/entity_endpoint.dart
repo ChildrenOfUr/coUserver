@@ -41,11 +41,13 @@ class EntityEndpoint {
 			map["name"] = entity.type;
 		}
 
-		if (mirror.isSubclassOf(findClassMirror("Vendor")) && entity.itemsPredefined) {
+		if (mirror.isSubclassOf(findClassMirror("Vendor"))) {
 			map
 				..["category"] = "Vendor"
 				..["sellItems"] = new List();
-			entity.itemsForSale.forEach((Map item) => map["sellItems"].add(item["itemType"]));
+			if (entity.itemsPredefined) {
+				entity.itemsForSale.forEach((Map item) => map["sellItems"].add(item["itemType"]));
+			}
 		}
 
 		if (mirror.isSubclassOf(findClassMirror("Shrine"))) {
@@ -83,11 +85,16 @@ class EntityEndpoint {
 		}
 
 		try {
-			// Most entity constructors have 4 arguments
-			return _construct(4);
+			// Fake vendor constructors have 0 arguments
+			return _construct(0);
 		} catch(_) {
-			// Some entity constructors have 5 arguments
-			return _construct(5);
+			try {
+				// Most entity constructors have 4 arguments
+				return _construct(4);
+			} catch(_) {
+				// Some entity constructors have 5 arguments
+				return _construct(5);
+			}
 		}
 	}
 
@@ -112,6 +119,8 @@ class EntityEndpoint {
 		Helga, UncleFriendly, MealVendor, SnoConeVendingMachine,
 		StreetSpiritFirebog, StreetSpiritGroddle, StreetSpiritZutto,
 		ToolVendor,
+		AlchemicalVendor, AnimalVendor, GardeningVendor, GroceriesVendor,
+		HardwareVendor, KitchenVendor, MiningVendor, ProduceVendor, ToyVendor,
 		// Plants
 		DirtPile, HellGrapes, IceNubbin, Jellisac, MortarBarnacle, PeatBog,
 		// Plants -> Rocks

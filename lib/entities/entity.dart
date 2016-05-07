@@ -98,6 +98,7 @@ part 'npcs/vendors/streetspiritfirebog.dart';
 part 'npcs/vendors/streetspiritgroddle.dart';
 part 'npcs/vendors/streetspiritzutto.dart';
 part 'npcs/vendors/toolvendor.dart';
+part 'npcs/vendors/fakevendors.dart';
 
 abstract class Entity extends Object with MetabolicsChange {
 	List<Map> actions = [];

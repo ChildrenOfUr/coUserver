@@ -4,6 +4,7 @@ class UncleFriendly extends Vendor {
 	int openCount = 0;
 	UncleFriendly(String id, String streetName, String tsid, int x, int y) : super(id, streetName, tsid, x, y) {
 		type = "Uncle Friendly";
+		itemsPredefined = true;
 		itemsForSale = [
 			items["honey"].getMap(),
 			items["mushroom"].getMap(),

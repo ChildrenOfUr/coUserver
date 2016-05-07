@@ -17,7 +17,7 @@ class StatBuffer
 		statMap = {};
 	}
 
-	static void incrementStat(String name, num amount)
+	static void incrementStat(String name, [num amount = 1])
 	{
 		if(statMap.containsKey(name))
 			statMap[name] += amount;

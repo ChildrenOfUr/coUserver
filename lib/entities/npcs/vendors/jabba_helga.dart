@@ -5,6 +5,7 @@ class Helga extends Vendor {
 
 	Helga(String id, String streetName, String tsid, int x, int y) : super(id, streetName, tsid, x, y) {
 		type = "Helga";
+		itemsPredefined = true;
 		itemsForSale = [
 			items["still"].getMap(),
 			items["beer"].getMap(),
