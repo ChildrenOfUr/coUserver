@@ -36,9 +36,6 @@ abstract class Vendor extends NPC {
 			String vendorType = vendorTypes[streetName];
 			if (vendorType == null) {
 				vendorType = getRandomVendorType();
-				if (streetName != null) {
-					SlackReporter.sendMessage(text: "Missing vendor type on `$streetName`, randomly selected `$vendorType`.");
-				}
 			}
 
 			switch(vendorType) {

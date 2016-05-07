@@ -5,7 +5,6 @@ class MealVendor extends Vendor {
 
 	MealVendor(String id, String streetName, String tsid, int x, int y) : super(id, streetName, tsid, x, y) {
 		type = 'Meal Vendor';
-		itemsPredefined = true;
 		itemsForSale = [
 			items["earthshaker"].getMap(),
 			items["face_smelter"].getMap(),
