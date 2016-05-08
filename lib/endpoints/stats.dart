@@ -13,6 +13,7 @@ class StatCollection {
 
 	static void removeFromCache(String email) {
 		_CACHE[email]?.stopTimer();
+		_CACHE[email]?.write();
 		_CACHE.remove(email);
 	}
 
@@ -76,8 +77,12 @@ class StatCollection {
 	void resetTimer() {
 		stopTimer();
 		_writeTimer = new Timer.periodic(new Duration(minutes: 1), (_) {
-			this.copy._write();
+			write();
 		});
+	}
+
+	Future<bool> write() async {
+		return this.copy._write();
 	}
 
 	Future<bool> _write() async {
@@ -135,7 +140,7 @@ class StatCollection {
 						+ "wood_trees_petted = @wood_trees_petted,"
 						+ "wood_trees_watered = @wood_trees_watered"
 						+ " WHERE user_id = @user_id",
-					this)
+					encoded)
 				) == 1
 			);
 		} catch (e) {
@@ -143,6 +148,7 @@ class StatCollection {
 			return false;
 		} finally {
 			dbManager.closeConnection(dbConn);
+			print("write completed!\n");
 		}
 	}
 

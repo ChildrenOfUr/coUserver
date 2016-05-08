@@ -28,7 +28,7 @@ class AchievementAward extends harvest.Message {
 }
 
 class Achievement {
-	static Map<String, Achievement> _ACHIEVEMENTS = {};
+	static Map<String, Achievement> _ACHIEVEMENTS = new Map();
 
 	static Future load() async {
 		String directory;
@@ -50,17 +50,13 @@ class Achievement {
 					description: data["description"],
 					category: data["category"],
 					imageUrl: data["imageUrl"]
-					);
+				);
 				_ACHIEVEMENTS[id] = achievement;
 			});
 		});
 	}
 
-	static Achievement find(String id) {
-		return _ACHIEVEMENTS[id];
-	}
-
-	static Map<String, int> queuedWrites = {};
+	static Achievement find(String id) =>  _ACHIEVEMENTS[id];
 
 	@Field() String id;
 	@Field() String name;
@@ -72,22 +68,20 @@ class Achievement {
 		return "<Achievement id=$id name=$name description=$description category=$category imageUrl=$imageUrl>";
 	}
 
-	Map<String, dynamic> toMap() {
-		return ({
-			"id": id,
-			"name": name,
-			"description": description,
-			"category": category,
-			"imageUrl": imageUrl
-		});
-	}
+	Map<String, dynamic> toMap() => {
+		"id": id,
+		"name": name,
+		"description": description,
+		"category": category,
+		"imageUrl": imageUrl
+	};
 
 	Achievement({
-	this.id,
-	this.name,
-	this.description,
-	this.category,
-	this.imageUrl
+		this.id,
+		this.name,
+		this.description,
+		this.category,
+		this.imageUrl
 	});
 
 	bool get isSetUp {
@@ -122,53 +116,44 @@ class Achievement {
 			return false;
 		}
 
-		queuedWrites[email] = ((queuedWrites[email] ?? 0) + 1).clamp(0, 60);
-
 		bool result = false;
 
-		await new Timer(new Duration(seconds: queuedWrites[email].abs()), () async {
-			PostgreSql dbConn = await dbManager.getConnection();
-			try {
-				String oldJson = (await dbConn.query(
-					"SELECT achievements FROM users WHERE email = @email",
-					User, {"email": email})).first.achievements;
+		PostgreSql dbConn = await dbManager.getConnection();
+		try {
+			String oldJson = (await dbConn.query(
+				"SELECT achievements FROM users WHERE email = @email",
+				User, {"email": email})).first.achievements;
 
-				List<String> achievementIds = JSON.decode(oldJson);
-				achievementIds.add(id);
+			List<String> achievementIds = JSON.decode(oldJson);
+			achievementIds.add(id);
 
-				String newJson = JSON.encode(achievementIds);
+			String newJson = JSON.encode(achievementIds);
 
-				if (
-				(await dbConn.execute(
-					"UPDATE users SET achievements = @json WHERE email = @email",
-					{"email": email, "json": newJson})
-				) == 1
-				) {
-					// Send to client
-					// Send to client
-					StreetUpdateHandler.userSockets[email]?.add(JSON.encode(
-						{
-							"achv_id": id,
-							"achv_name": name,
-							"achv_description": description,
-							"achv_imageUrl": imageUrl
-						}
-						));
+			if (
+			(await dbConn.execute(
+				"UPDATE users SET achievements = @json WHERE email = @email",
+				{"email": email, "json": newJson})
+			) == 1
+			) {
+				// Send to client
+				StreetUpdateHandler.userSockets[email]?.add(JSON.encode({
+					"achv_id": id,
+					"achv_name": name,
+					"achv_description": description,
+					"achv_imageUrl": imageUrl
+				}));
 
-					result = true;
-				} else {
-					log("Database did not correctly save new achievements for $email");
-					result = false;
-				}
-
-				queuedWrites[email] = ((queuedWrites[email] ?? 0) - 1).clamp(0, 60);
-			} catch (e) {
-				log("Error setting achievements for email $email: $e");
+				result = true;
+			} else {
+				log("Database did not correctly save new achievements for $email");
 				result = false;
-			} finally {
-				dbManager.closeConnection(dbConn);
 			}
-		});
+		} catch (e) {
+			log("Error setting achievements for email $email: $e");
+			result = false;
+		} finally {
+			dbManager.closeConnection(dbConn);
+		}
 
 		return result;
 	}
