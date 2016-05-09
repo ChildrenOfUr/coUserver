@@ -59,18 +59,17 @@ class IceNubbin extends Plant {
 			StatBuffer.incrementStat("iceNubbinsCollected", 1);
 			state--;
 
-			StatCollection.find(email).then((StatCollection stats) {
-				stats.ice_scraped += numToGive;
-				if (stats.ice_scraped >= 67) {
-					Achievement.find("ice_baby").awardTo(email);
-				} else if (stats.ice_scraped >= 227) {
-					Achievement.find("ice_ice_baby").awardTo(email);
-				} else if (stats.ice_scraped >= 467) {
-					Achievement.find("on_thin_ice").awardTo(email);
-				} else if (stats.ice_scraped >= 877) {
-					Achievement.find("cold_as_ice").awardTo(email);
-				} else if (stats.ice_scraped >= 1777) {
+			StatManager.add(email, Stat.ice_scraped).then((int scraped) {
+				if (scraped >= 1777) {
 					Achievement.find("icebreaker").awardTo(email);
+				} else if (scraped >= 877) {
+					Achievement.find("cold_as_ice").awardTo(email);
+				} else if (scraped >= 467) {
+					Achievement.find("on_thin_ice").awardTo(email);
+				} else if (scraped >= 227) {
+					Achievement.find("ice_ice_baby").awardTo(email);
+				} else if (scraped >= 67) {
+					Achievement.find("ice_baby").awardTo(email);
 				}
 			});
 			

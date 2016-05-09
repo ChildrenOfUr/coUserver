@@ -53,16 +53,15 @@ class SpicePlant extends Tree {
 		bool success = await super.harvest(userSocket:userSocket,email:email);
 
 		if(success) {
-			StatCollection.find(email).then((StatCollection stats) {
-				stats.spice_harvested++;
-				if (stats.spice_harvested >= 101) {
-					Achievement.find("novice_spice_collector").awardTo(email);
-				} else if (stats.spice_harvested >= 503) {
-					Achievement.find("intermediate_spice_collector").awardTo(email);
-				} else if (stats.spice_harvested >= 1009) {
-					Achievement.find("advanced_spice_collector").awardTo(email);
-				} else if (stats.spice_harvested >= 5003) {
+			StatManager.add(email, Stat.spice_harvested).then((int harvested) {
+				if (harvested >= 5003) {
 					Achievement.find("master_overlord_of_the_spice_dominion").awardTo(email);
+				} else if (harvested >= 1009) {
+					Achievement.find("advanced_spice_collector").awardTo(email);
+				} else if (harvested >= 503) {
+					Achievement.find("intermediate_spice_collector").awardTo(email);
+				} else if (harvested >= 101) {
+					Achievement.find("novice_spice_collector").awardTo(email);
 				}
 			});
 		}

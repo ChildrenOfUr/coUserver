@@ -46,18 +46,17 @@ class Jellisac extends Plant {
 			numToGive = 2;
 		}
 
-		StatCollection.find(email).then((StatCollection stats) {
-			stats.jellisac_harvested += numToGive;
-			if (stats.jellisac_harvested >= 41) {
-				Achievement.find("slime_harvester").awardTo(email);
-			} else if (stats.jellisac_harvested >= 127) {
-				Achievement.find("goo_getter").awardTo(email);
-			} else if (stats.jellisac_harvested >= 283) {
-				Achievement.find("sac_bagger").awardTo(email);
-			} else if (stats.jellisac_harvested >= 503) {
-				Achievement.find("glop_grappler").awardTo(email);
-			} else if (stats.jellisac_harvested >= 1009) {
+		StatManager.add(email, Stat.jellisac_harvested).then((int harvested) {
+			if (harvested >= 1009) {
 				Achievement.find("gloopmeister").awardTo(email);
+			} else if (harvested >= 503) {
+				Achievement.find("glop_grappler").awardTo(email);
+			} else if (harvested >= 283) {
+				Achievement.find("sac_bagger").awardTo(email);
+			} else if (harvested >= 127) {
+				Achievement.find("goo_getter").awardTo(email);
+			} else if (harvested >= 41) {
+				Achievement.find("slime_harvester").awardTo(email);
 			}
 		});
 

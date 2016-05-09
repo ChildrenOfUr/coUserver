@@ -55,16 +55,15 @@ class FruitTree extends Tree {
 		bool success = await super.harvest(userSocket:userSocket,email:email);
 
 		if(success) {
-			StatCollection.find(email).then((StatCollection stats) {
-				stats.cherries_harvested++;
-				if (stats.cherries_harvested >= 101) {
-					Achievement.find("entry_level_fruit_tree_harvester").awardTo(email);
-				} else if (stats.cherries_harvested >= 503) {
-					Achievement.find("mid_management_fruit_tree_harvester").awardTo(email);
-				} else if (stats.cherries_harvested >= 1009) {
-					Achievement.find("overpaid_executive_fruit_tree_harvester").awardTo(email);
-				} else if (stats.cherries_harvested >= 5003) {
+			StatManager.add(email, Stat.cherries_harvested).then((int harvested) {
+				if (harvested >= 5003) {
 					Achievement.find("president_and_ceo_of_fruit_tree_harvesting_inc").awardTo(email);
+				} else if (harvested >= 1009) {
+					Achievement.find("overpaid_executive_fruit_tree_harvester").awardTo(email);
+				} else if (harvested >= 503) {
+					Achievement.find("mid_management_fruit_tree_harvester").awardTo(email);
+				} else if (harvested >= 101) {
+					Achievement.find("entry_level_fruit_tree_harvester").awardTo(email);
 				}
 			});
 		}

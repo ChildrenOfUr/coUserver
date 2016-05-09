@@ -55,16 +55,15 @@ class BeanTree extends Tree {
 		bool success = await super.harvest(userSocket:userSocket,email:email);
 
 		if(success) {
-			StatCollection.find(email).then((StatCollection stats) {
-				stats.beans_harvested++;
-				if (stats.beans_harvested >= 101) {
-					Achievement.find("participant_award_bean_division").awardTo(email);
-				} else if (stats.beans_harvested >= 503) {
-					Achievement.find("bean_counter").awardTo(email);
-				} else if (stats.beans_harvested >= 1009) {
-					Achievement.find("bean_counter_pro").awardTo(email);
-				} else if (stats.beans_harvested >= 5003) {
+			StatManager.add(email, Stat.beans_harvested).then((int harvested) {
+				if (harvested >= 5003) {
 					Achievement.find("master_bean_counter").awardTo(email);
+				} else if (harvested >= 1009) {
+					Achievement.find("bean_counter_pro").awardTo(email);
+				} else if (harvested >= 503) {
+					Achievement.find("bean_counter").awardTo(email);
+				} else if (harvested >= 101) {
+					Achievement.find("participant_award_bean_division").awardTo(email);
 				}
 			});
 		}

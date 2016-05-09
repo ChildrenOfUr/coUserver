@@ -68,14 +68,13 @@ class WoodTree extends Tree {
 		success = await super.harvest(userSocket:userSocket,email:email);
 
 		if(success) {
-			StatCollection.find(email).then((StatCollection stats) {
-				stats.planks_harvested++;
-				if (stats.planks_harvested >= 17) {
-					Achievement.find("wood_wacker").awardTo(email);
-				} else if (stats.planks_harvested >= 79) {
-					Achievement.find("timber_jack").awardTo(email);
-				} else if (stats.planks_harvested >= 151) {
+			StatManager.add(email, Stat.planks_harvested).then((int harvested) {
+				if (harvested >= 151) {
 					Achievement.find("loggerator").awardTo(email);
+				} else if (harvested >= 79) {
+					Achievement.find("timber_jack").awardTo(email);
+				} else if (harvested >= 17) {
+					Achievement.find("wood_wacker").awardTo(email);
 				}
 			});
 		}

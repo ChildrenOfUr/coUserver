@@ -85,15 +85,15 @@ class PlayerUpdateHandler {
 						num xDiff = (currentX - prevX).abs();
 						num yDiff = (currentY - prevY).abs();
 						//StatBuffer.incrementStat("stepsTaken", (xDiff + yDiff) / 22);
-						StatCollection.find(email).then((StatCollection stats) {
-							int newSteps = ((xDiff + yDiff) / 22).ceil().abs();
-							stats.steps_taken += newSteps;
 
-							if (yDiff > 17) {
-								// TODO: do this better
-								stats.jumps++;
-							}
-						});
+						int newSteps = ((xDiff + yDiff) / 22).ceil().abs();
+						StatManager.add(email, Stat.steps_taken, newSteps);
+
+						if (yDiff > 17) {
+							// TODO: do this better
+							StatManager.add(email, Stat.jumps);
+						}
+
 						users[username].currentX = currentX;
 						users[username].currentY = currentY;
 						//limit the number of position messages that get broadcast

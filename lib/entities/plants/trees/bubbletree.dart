@@ -53,16 +53,15 @@ class BubbleTree extends Tree {
 		bool success = await super.harvest(userSocket:userSocket,email:email);
 
 		if(success) {
-			StatCollection.find(email).then((StatCollection stats) {
-				stats.bubbles_harvested++;
-				if (stats.bubbles_harvested >= 101) {
-					Achievement.find("good_bubble_farmer").awardTo(email);
-				} else if (stats.bubbles_harvested >= 503) {
-					Achievement.find("better_bubble_farmer").awardTo(email);
-				} else if (stats.bubbles_harvested >= 1009) {
-					Achievement.find("second_best_bubble_farmer").awardTo(email);
-				} else if (stats.bubbles_harvested >= 5003) {
+			StatManager.add(email, Stat.bubbles_harvested).then((int harvested) {
+				if (harvested >= 5003) {
 					Achievement.find("first_best_bubble_farmer").awardTo(email);
+				} else if (harvested >= 1009) {
+					Achievement.find("second_best_bubble_farmer").awardTo(email);
+				} else if (harvested >= 503) {
+					Achievement.find("better_bubble_farmer").awardTo(email);
+				} else if (harvested >= 101) {
+					Achievement.find("good_bubble_farmer").awardTo(email);
 				}
 			});
 		}

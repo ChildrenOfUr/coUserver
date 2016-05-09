@@ -53,16 +53,15 @@ class EggPlant extends Tree {
 		bool success = await super.harvest(userSocket:userSocket,email:email);
 
 		if(success) {
-			StatCollection.find(email).then((StatCollection stats) {
-				stats.eggs_harveted++;
-				if (stats.eggs_harveted >= 101) {
-					Achievement.find("egg_enthusiast").awardTo(email);
-				} else if (stats.eggs_harveted >= 503) {
-					Achievement.find("egg_poacher").awardTo(email);
-				} else if (stats.eggs_harveted >= 1009) {
-					Achievement.find("egg_aficianado").awardTo(email);
-				} else if (stats.eggs_harveted >= 5003) {
+			StatManager.add(email, Stat.eggs_harveted).then((int harvested) {
+				if (harvested >= 5003) {
 					Achievement.find("egg_freak").awardTo(email);
+				} else if (harvested >= 1009) {
+					Achievement.find("egg_aficianado").awardTo(email);
+				} else if (harvested >= 503) {
+					Achievement.find("egg_poacher").awardTo(email);
+				} else if (harvested >= 101) {
+					Achievement.find("egg_enthusiast").awardTo(email);
 				}
 			});
 		}

@@ -16,11 +16,13 @@ class User {
 	static Map<String, String> _emailUsernames = {};
 	static Map<String, String> _usernameEmails = {};
 	static Map<int, String> _idUsernames = {};
+	static Map<String, int> _usernameIds = {};
 
 	static void _updateMaps(User u) {
 		_emailUsernames[u.email] = u.username;
 		_idUsernames[u.id] = u.username;
 		_usernameEmails[u.username] = u.email;
+		_usernameIds[u.email] = u.id;
 	}
 
 	static Future<String> getUsernameFromEmail(String email) async {
@@ -77,6 +79,25 @@ class User {
 			}
 
 			return _idUsernames[id];
+		}
+	}
+
+	static Future<int> getIdFromEmail(String email) async {
+		if (_usernameIds[email] != null) {
+			return _usernameIds[email];
+		} else {
+			PostgreSql dbConn = await dbManager.getConnection();
+			try {
+				String query = "SELECT * FROM users WHERE email = @email";
+				User u = (await dbConn.query(query, User, {"email": email})).first;
+				_updateMaps(u);
+			} catch(e) {
+				log("Error getting username for email $email: $e");
+			} finally {
+				dbManager.closeConnection(dbConn);
+			}
+
+			return _usernameIds[email];
 		}
 	}
 }

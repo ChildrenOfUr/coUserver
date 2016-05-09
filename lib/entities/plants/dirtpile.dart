@@ -95,18 +95,17 @@ class DirtPile extends Plant {
 			await InventoryV2.addItemToUser(email, items['loam'].getMap(), 1, id);
 		}
 
-		StatCollection.find(email).then((StatCollection stats) {
-			stats.dirt_dug++;
-			if (stats.dirt_dug >= 29) {
-				Achievement.find("shovel_jockey").awardTo(email);
-			} else if (stats.dirt_dug >= 61) {
-				Achievement.find("dirt_monkey").awardTo(email);
-			} else if (stats.dirt_dug >= 127) {
-				Achievement.find("loamist").awardTo(email);
-			} else if (stats.dirt_dug >= 251) {
-				Achievement.find("dirtomancer").awardTo(email);
-			} else if (stats.dirt_dug >= 503) {
+		StatManager.add(email, Stat.dirt_dug).then((int dug) {
+			if (dug >= 503) {
 				Achievement.find("dirt_diggler").awardTo(email);
+			} else if (dug >= 251) {
+				Achievement.find("dirtomancer").awardTo(email);
+			} else if (dug >= 127) {
+				Achievement.find("loamist").awardTo(email);
+			} else if (dug >= 61) {
+				Achievement.find("dirt_monkey").awardTo(email);
+			} else if (dug >= 29) {
+				Achievement.find("shovel_jockey").awardTo(email);
 			}
 		});
 

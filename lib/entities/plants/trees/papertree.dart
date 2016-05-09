@@ -59,16 +59,15 @@ class PaperTree extends Tree {
 		bool success = await super.harvest(userSocket:userSocket,email:email);
 
 		if(success) {
-			StatCollection.find(email).then((StatCollection stats) {
-				stats.paper_harvested++;
-				if (stats.paper_harvested >= 73) {
-					Achievement.find("paper_plucker").awardTo(email);
-				} else if (stats.paper_harvested >= 283) {
-					Achievement.find("sheet_snatcher").awardTo(email);
-				} else if (stats.paper_harvested >= 503) {
-					Achievement.find("pad_pincher").awardTo(email);
-				} else if (stats.paper_harvested >= 1009) {
+			StatManager.add(email, Stat.paper_harvested).then((int harvested) {
+				if (harvested >= 1009) {
 					Achievement.find("parchment_purloiner").awardTo(email);
+				} else if (harvested >= 503) {
+					Achievement.find("pad_pincher").awardTo(email);
+				} else if (harvested >= 283) {
+					Achievement.find("sheet_snatcher").awardTo(email);
+				} else if (harvested >= 73) {
+					Achievement.find("paper_plucker").awardTo(email);
 				}
 			});
 		}

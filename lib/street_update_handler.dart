@@ -206,7 +206,6 @@ class StreetUpdateHandler {
 		userSockets.forEach((String email, WebSocket socket) {
 			if (socket == ws) {
 				userToRemove = email;
-				StatCollection.removeFromCache(email);
 			}
 		});
 		userSockets.remove(userToRemove);

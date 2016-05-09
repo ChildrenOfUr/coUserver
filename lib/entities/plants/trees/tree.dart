@@ -148,30 +148,34 @@ abstract class Tree extends Plant {
 		say(responses['water'].elementAt(rand.nextInt(responses['water'].length)));
 
 		//StatBuffer.incrementStat("treesWatered", 1);
-		StatCollection.find(email).then((StatCollection stats) {
-			switch (type) {
-				case "Bean Tree":
-					stats.bean_trees_watered;
-					break;
-				case "Bubble Tree":
-					stats.bubble_trees_watered++;
-					break;
-				case "Egg Plant":
-					stats.egg_plants_watered++;
-					break;
-				case "Fruit Tree":
-					stats.fruit_trees_watered++;
-					break;
-				case "Gas Plant":
-					stats.gas_plants_watered++;
-					break;
-				case "Spice Plant":
-					stats.spice_plants_watered++;
-					break;
-				case "Wood Tree":
-					stats.wood_trees_watered++;
-			}
-		});
+		Stat stat;
+		switch (type) {
+			case "Bean Tree":
+				stat = Stat.bean_trees_watered;
+				break;
+			case "Bubble Tree":
+				stat = Stat.bubble_trees_watered;
+				break;
+			case "Egg Plant":
+				stat = Stat.egg_plants_watered;
+				break;
+			case "Fruit Tree":
+				stat = Stat.fruit_trees_watered;
+				break;
+			case "Gas Plant":
+				stat = Stat.gas_plants_watered;
+				break;
+			case "Spice Plant":
+				stat = Stat.spice_plants_watered;
+				break;
+			case "Wood Tree":
+				stat = Stat.wood_trees_watered;
+				break;
+		}
+		if (stat != null) {
+			StatManager.add(email, stat);
+		}
+
 		respawn = new DateTime.now().add(new Duration(seconds: 30));
 		state++;
 
@@ -197,30 +201,33 @@ abstract class Tree extends Plant {
 		messageBus.publish(new RequirementProgress('treePet$type', email));
 
 		//StatBuffer.incrementStat("treesPetted", 1);
-		StatCollection.find(email).then((StatCollection stats) {
-			switch (type) {
-				case "Bean Tree":
-					stats.bean_trees_petted++;
-					break;
-				case "Bubble Tree":
-					stats.bubble_trees_petted++;
-					break;
-				case "Egg Plant":
-					stats.egg_plants_petted++;
-					break;
-				case "Fruit Tree":
-					stats.fruit_trees_petted++;
-					break;
-				case "Gas Plant":
-					stats.gas_plants_petted++;
-					break;
-				case "Spice Plant":
-					stats.spice_plants_petted++;
-					break;
-				case "Wood Tree":
-					stats.wood_trees_petted++;
-			}
-		});
+		Stat stat;
+		switch (type) {
+			case "Bean Tree":
+				stat = Stat.bean_trees_petted;
+				break;
+			case "Bubble Tree":
+				stat = Stat.bubble_trees_petted;
+				break;
+			case "Egg Plant":
+				stat = Stat.egg_plants_petted;
+				break;
+			case "Fruit Tree":
+				stat = Stat.fruit_trees_petted;
+				break;
+			case "Gas Plant":
+				stat = Stat.gas_plants_petted;
+				break;
+			case "Spice Plant":
+				stat = Stat.spice_plants_petted;
+				break;
+			case "Wood Tree":
+				stat = Stat.wood_trees_petted;
+				break;
+		}
+		if (stat != null) {
+			StatManager.add(email, stat);
+		}
 
 		return true;
 	}
