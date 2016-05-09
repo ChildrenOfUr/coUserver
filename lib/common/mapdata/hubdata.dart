@@ -152,7 +152,7 @@ final Map<String, Map<String, dynamic>> mapdata_hubs = {
 		"x": 332,
 		"y": 151,
 		"music": "jal",
-		"triple_jumping": false
+		"physics": "water"
 	},
 	"71": {
 		"name": "Jethimadh",
@@ -254,7 +254,7 @@ final Map<String, Map<String, dynamic>> mapdata_hubs = {
 		"x": 285,
 		"y": 147,
 		"music": "jal",
-		"triple_jumping": false
+		"physics": "water"
 	},
 	"63": {
 		"name": "Shimla Mirch",

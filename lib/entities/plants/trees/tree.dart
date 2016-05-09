@@ -33,7 +33,9 @@ abstract class Tree extends Plant {
 					"of": ['energy'],
 					"error": "You need at least 2 energy to water."
 				}
-			]})..add({"action":"pet",
+			],
+			"associatedSkill": SKILL
+		})..add({"action":"pet",
 			"timeRequired":actionTime,
 			"enabled":true,
 			"actionWord":"petting",
@@ -43,7 +45,9 @@ abstract class Tree extends Plant {
 					'of':['energy'],
 					'error': "You need at least 2 energy to pet."
 				}
-			]});
+			],
+			"associatedSkill": SKILL
+		});
 	}
 
 	void update() {
@@ -131,7 +135,7 @@ abstract class Tree extends Plant {
 		Map mineAction = actions.firstWhere((Map action) => action['action'] == 'water');
 		List<String> types = mineAction['requires'][0]['of'];
 		bool success = await InventoryV2.decreaseDurability(email, types);
-		if(!success) {
+		if (!success) {
 			return false;
 		}
 
@@ -179,6 +183,8 @@ abstract class Tree extends Plant {
 		respawn = new DateTime.now().add(new Duration(seconds: 30));
 		state++;
 
+		SkillManager.learn(SKILL, email);
+
 		if (state > maxState) {
 			state = maxState;
 		}
@@ -199,6 +205,8 @@ abstract class Tree extends Plant {
 		QuestEndpoint.questLogCache[email].offerQuest('Q2');
 
 		messageBus.publish(new RequirementProgress('treePet$type', email));
+
+		SkillManager.learn(SKILL, email);
 
 		//StatBuffer.incrementStat("treesPetted", 1);
 		Stat stat;
