@@ -123,21 +123,13 @@ class Crab extends NPC {
 
 	/// Called from the client menu
 	void talkTo({WebSocket userSocket, String email}) {
-		if (!busy) {
-			// Allow interaction
-			busyWithEmail = email;
-
-			userSocket.add(JSON.encode({
-				"action": "playMusic",
-				"id": id,
-				"openWindow": "itemChooser",
-				"filter": "itemType=musicblock_.*",
-				"windowTitle": "Play what for Crab?"
-			}));
-		} else {
-			// Only 1 player at a time
-			say(ERROR_BUSY);
-		}
+		userSocket.add(JSON.encode({
+			"action": "playMusic",
+			"id": id,
+			"openWindow": "itemChooser",
+			"filter": "itemType=musicblock_.*",
+			"windowTitle": "Play what for Crab?"
+		}));
 	}
 
 	/// Adds a song to the history of the crab.
@@ -157,8 +149,18 @@ class Crab extends NPC {
 	/// How long the crab animates
 	Duration randReactLength() => randSongLength() ~/ 2;
 
+	Duration untilRespawn() => respawn.difference(new DateTime.now());
+
 	/// Make the crab hear this noise
 	Future playMusic({WebSocket userSocket, String email, String itemType, int count, int slot, int subSlot}) async {
+		if (!busy) {
+			// Allow interaction
+			busyWithEmail = email;
+		} else {
+			// Only 1 player at a time
+			say(ERROR_BUSY);
+		}
+
 		assert (userSocket != null);
 		assert (email != null);
 		assert (itemType != null && MUSICBLOCK_TYPES.contains(itemType));
@@ -178,15 +180,19 @@ class Crab extends NPC {
 
 		await _giveHeadphones();
 
+print("listening...");
 		setState("listen");
-		await new Future.delayed(randSongLength());
+		await new Future.delayed(randSongLength() + untilRespawn());
+print("done listening");
 
 		// Reward player
 		if (likesSong(itemType)) {
 			// Dance for a bit
 
+print("dancing...");
 			setState("like_on");
-			await new Future.delayed(randReactLength());
+			await new Future.delayed(randReactLength() + untilRespawn());
+print("removing headphones");
 
 			setState("like_off");
 			await _giveMusicblock();
@@ -201,9 +207,11 @@ class Crab extends NPC {
 		} else {
 			// Be crabby
 
+print("not dancing...");
 			setState("dislike_on");
-			await new Future.delayed(randReactLength());
+			await new Future.delayed(randReactLength() + untilRespawn());
 
+print("removing headphones");
 			setState("like_off");
 			await _giveMusicblock();
 
