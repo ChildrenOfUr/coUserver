@@ -6,7 +6,7 @@ class RecipeBook extends Object with MetabolicsChange {
 
 	static Recipe findRecipe(String id) {
 		return recipes.singleWhere((Recipe recipe) {
-			recipe.id == id;
+			return recipe.id == id;
 		});
 	}
 

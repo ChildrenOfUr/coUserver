@@ -64,6 +64,19 @@
         "time": 1
     },
     {
+        "id": "spice_plant_bean",
+        "tool": "bean_seasoner",
+        "input": {
+            "bean": 1,
+            "carrot": 4,
+            "bubble_tiny": 3,
+            "gas_crying": 1
+        },
+        "output": "spice_plant_bean",
+        "output_amt": 1,
+        "time": 1
+    },
+    {
         "id": "wood_tree_bean",
         "tool": "bean_seasoner",
         "input": {
