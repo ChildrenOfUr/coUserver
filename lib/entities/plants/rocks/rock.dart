@@ -62,6 +62,11 @@ abstract class Rock extends Plant {
 	}
 
 	Future<bool> mine({WebSocket userSocket, String email}) async {
+		if (state >= currentState.numFrames) {
+			toast("There's not much left to mine", userSocket);
+			return false;
+		}
+
 		//make sure the player has a pick that can mine this rock
 		Map mineAction = actions.firstWhere((Map action) => action['action'] == 'mine');
 		List<String> types = mineAction['requires'][0]['of'];
