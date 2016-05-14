@@ -6637,7 +6637,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"vendor": "Hardware",
 		"shrine": "Zille",
 		"tsid": "GUVUKCOSE793PHI",
-		"hub_id": 76
+		"hub_id": 76,
+		"broken": true
 	},
 	"Via Velaya": {
 		"vendor": "Produce",
