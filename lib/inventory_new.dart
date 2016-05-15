@@ -792,12 +792,26 @@ class InventoryV2 {
 	}
 
 	// Returns the number of a certain item a user has
-	int countItem(String itemType) {
+	int countItem(String itemType, {bool includeBroken: true}) {
+		bool _durabilityOk(Slot slot) {
+			bool hasDurability = slot.metadata["durabilityUsed"] != null;
+			if (!hasDurability) {
+				return true;
+			} else {
+				int used = int.parse(slot.metadata["durabilityUsed"]);
+				int max = items[slot.itemType].durability;
+				return (used < max);
+			}
+		}
+
 		int count = 0;
 
 		//count all the normal slots
 		slots.forEach((Slot s) {
-			if (s.itemType != null && s.itemType == itemType) {
+			if (
+				(s.itemType != null && s.itemType == itemType)
+				&& (includeBroken || _durabilityOk(s))
+			) {
 				count += s.count;
 			}
 		});
@@ -809,7 +823,10 @@ class InventoryV2 {
 				List<Slot> bagSlots = jsonx.decode(s.metadata['slots'], type: listOfSlots);
 				if (bagSlots != null) {
 					bagSlots.forEach((Slot bagSlot) {
-						if (bagSlot.itemType == itemType) {
+						if (
+							(bagSlot.itemType != null && bagSlot.itemType == itemType)
+							&& (includeBroken || _durabilityOk(bagSlot))
+						) {
 							count += bagSlot.count;
 						}
 					});
@@ -977,6 +994,11 @@ class InventoryV2 {
 
 	static Future<bool> hasItem(String email, String itemType, int count) async {
 		return (await takeAnyItemsFromUser(email, itemType, count, simulate:true)) == count;
+	}
+
+	static Future<bool> hasUnbrokenItem(String email, String itemType, int count) async {
+		InventoryV2 inv = await getInventory(email);
+		return (await inv.countItem(itemType, includeBroken: false)) == count;
 	}
 
 	/**

@@ -65,6 +65,7 @@ class RecipeBook extends Object with MetabolicsChange {
 		return JSON.encode(toolRecipes);
 	}
 
+	// Returned string is displayed as "You had to stop using your {tool} because {reason}
 	@app.Route("/make")
 	Future makeRecipe(@app.QueryParam("token") String token,
 		@app.QueryParam("id") String id,
@@ -72,12 +73,12 @@ class RecipeBook extends Object with MetabolicsChange {
 		@app.QueryParam("username") String username) async {
 
 		if (token != redstoneToken) {
-			return false;
+			return "the client is unauthorized";
 		}
 
 		// Stop if the tool breaks
-		if (!(await InventoryV2.hasItem(email, findRecipe(id).tool, 1))) {
-			return false;
+		if (!(await InventoryV2.hasUnbrokenItem(email, findRecipe(id).tool, 1))) {
+			return "it broke";
 		}
 
 		// Get the recipe info
@@ -93,7 +94,7 @@ class RecipeBook extends Object with MetabolicsChange {
 			//take away tool durability
 			bool durabilitySuccess = await InventoryV2.decreaseDurability(email, recipe.tool);
 			if(!durabilitySuccess) {
-				return false;
+				return "it's missing";
 			}
 		}
 
@@ -101,7 +102,7 @@ class RecipeBook extends Object with MetabolicsChange {
 		bool takeEnergySuccess = await trySetMetabolics(email, energy: recipe.energy);
 		if (!takeEnergySuccess) {
 			// If they don't have enough energy, they're not frying an egg
-			return false;
+			return "you are out of energy";
 		}
 
 		// Take all of the items
@@ -128,6 +129,6 @@ class RecipeBook extends Object with MetabolicsChange {
 			StatAchvManager.update(email, recipe.tool);
 		});
 
-		return true;
+		return "OK";
 	}
 }
