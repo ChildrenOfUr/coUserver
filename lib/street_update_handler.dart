@@ -432,6 +432,10 @@ Future teleportUser(@app.Body(app.FORM) Map data) async {
 		return 'Run this from the administration group';
 	}
 
+	if(text.split(', ').length != 2) {
+		return "U dun mesed ↑ (formatting was probably wrong)";
+	}
+
 	String streetName = text.substring(text.lastIndexOf(', ') + 2);
 	String username = text.replaceAll(', $streetName', '');
 
@@ -440,13 +444,13 @@ Future teleportUser(@app.Body(app.FORM) Map data) async {
 	String tsid = mapdata_streets['Cebarkul']['tsid'];
 	if(streetMap != null) {
 		tsid = streetMap['tsid'];
+		streetName = "Cebarkul, not $streetName because I can't find it in the map data @klikini";
 	}
 	if(tsid.startsWith('L')) {
 		tsid.replaceFirst('L','G');
 	}
 
 	String email = await User.getEmailFromUsername(username);
-	print("username: '$username'\nstreet: '$streetName'\nemail: '$email'");
 	WebSocket userSocket = StreetUpdateHandler.userSockets[email];
 
 	//user probably isn't online so edit the database directly
