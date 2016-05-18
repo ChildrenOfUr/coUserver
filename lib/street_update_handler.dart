@@ -419,11 +419,11 @@ class StreetUpdateHandler {
 }
 
 @app.Route('/teleport', methods: const[app.POST])
-Future teleportUser(@app.Body(app.JSON) Map data) async {
+Future teleportUser(@app.Body(app.FORM) Map data) async {
 	String token = data['token'];
 	String channel = data['channel_id'];
 	String text = data['text'];
-	
+
 	if(token != slackTeleportToken) {
 		return 'YOU SHALL NOT PASS';
 	}
