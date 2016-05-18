@@ -419,10 +419,11 @@ class StreetUpdateHandler {
 }
 
 @app.Route('/teleport', methods: const[app.POST])
-Future teleportUser(@app.QueryParam("token") String token,
-					@app.QueryParam("channel_id") String channel,
-					@app.QueryParam("username") String username,
-					@app.QueryParam("street_name") String streetName) async {
+Future teleportUser(@app.Body(app.JSON) Map data) async {
+	String token = data['token'];
+	String channel = data['channel_id'];
+	String text = data['text'];
+	
 	if(token != slackTeleportToken) {
 		return 'YOU SHALL NOT PASS';
 	}
@@ -430,6 +431,9 @@ Future teleportUser(@app.QueryParam("token") String token,
 	if (channel != "G0277NLQS") {
 		return "Run this from the administration group";
 	}
+
+	String username = text.split(' ')[0];
+	String streetName = text.split(' ')[1];
 
 	Map streetMap = mapdata_streets[streetName];
 	//Go to Cebarkul if no other street name was passed to the command
@@ -450,10 +454,10 @@ Future teleportUser(@app.QueryParam("token") String token,
 		String query = "UPDATE metabolics SET current_street = @tsid"
 						"WHERE user_id = (SELECT id FROM users WHERE username = @username)";
 		await dbConn.execute(query, {'username': username, 'tsid': tsid});
-		return 'User will be in $streetName when they next log on';
+		return '$username will be in $streetName when they next log on';
 	} else {
 		await StreetUpdateHandler.teleport(userSocket: userSocket, email: email,
 											   tsid: tsid, energyFree: true);
-		return 'User has been teleported to $streetName';
+		return '$username has been teleported to $streetName';
 	}
 }
