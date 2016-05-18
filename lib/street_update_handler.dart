@@ -446,13 +446,14 @@ Future teleportUser(@app.Body(app.FORM) Map data) async {
 	}
 
 	String email = await User.getEmailFromUsername(username);
+	print("username: '$username'\nstreet: '$streetName'\nemail: '$email'");
 	WebSocket userSocket = StreetUpdateHandler.userSockets[email];
 
 	//user probably isn't online so edit the database directly
 	if(userSocket == null) {
 		PostgreSql dbConn = await dbManager.getConnection();
 		String query = "UPDATE metabolics SET current_street = @tsid"
-						"WHERE user_id = (SELECT id FROM users WHERE username = @username)";
+						" WHERE user_id = (SELECT id FROM users WHERE username = @username)";
 		await dbConn.execute(query, {'username': username, 'tsid': tsid});
 		return '$username will be in $streetName when they next log on';
 	} else {
