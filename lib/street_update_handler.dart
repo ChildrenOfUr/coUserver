@@ -440,10 +440,12 @@ Future teleportUser(@app.Body(app.FORM) Map data) async {
 	String username = text.replaceAll(', $streetName', '');
 
 	Map streetMap = mapdata_streets[streetName];
-	//Go to Cebarkul if no other street name was passed to the command
-	String tsid = mapdata_streets['Cebarkul']['tsid'];
+	String tsid;
 	if(streetMap != null) {
 		tsid = streetMap['tsid'];
+	} else {
+		//Go to Cebarkul if no other street name was passed to the command
+		tsid = mapdata_streets['Cebarkul']['tsid'];
 		streetName = "Cebarkul, not $streetName because I can't find it in the map data @klikini";
 	}
 	if(tsid.startsWith('L')) {
