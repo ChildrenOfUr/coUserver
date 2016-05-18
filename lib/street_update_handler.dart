@@ -13,14 +13,18 @@ import 'package:coUserver/inventory_new.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
 import 'package:coUserver/street.dart';
 import 'package:coUserver/entities/items/item.dart';
-import 'package:coUserver/endpoints/stats.dart';
 import 'package:coUserver/common/identifier.dart';
 import 'package:coUserver/skills/skillsmanager.dart';
 import 'package:coUserver/buffs/buffmanager.dart';
 import 'package:coUserver/entities/items/actions/recipes/recipe.dart';
+import 'package:coUserver/API_KEYS.dart';
+import 'package:coUserver/common/user.dart';
+import 'package:coUserver/common/mapdata/mapdata.dart';
 
 import 'package:path/path.dart' as path;
 import 'package:redstone_mapper/mapper.dart';
+import 'package:redstone/redstone.dart' as app;
+import 'package:redstone_mapper_pg/manager.dart';
 
 //handle player update events
 class StreetUpdateHandler {
@@ -351,7 +355,7 @@ class StreetUpdateHandler {
 		await street.loadItems();
 		await street.loadJson();
 		streets[streetName] = street;
-		("Loaded $streetName ($tsid) into memory.");
+		log("Loaded $streetName ($tsid) into memory.");
 	}
 
 	static void _callGlobalMethod(Map map, WebSocket userSocket, String email) {
@@ -363,15 +367,17 @@ class StreetUpdateHandler {
 		classMirror.invoke(new Symbol(map['callMethod']), [], arguments);
 	}
 
-	static Future<bool> teleport({WebSocket userSocket, String email, String tsid}) async {
-		Metabolics m = await getMetabolics(email: email);
-		if (m.user_id == -1 || m.energy < 50) {
-			return false;
-		} else {
-			m.energy -= 50;
-			int result = await setMetabolics(m);
-			if (result < 1) {
+	static Future<bool> teleport({WebSocket userSocket, String email, String tsid, bool energyFree: false}) async {
+		if(!energyFree) {
+			Metabolics m = await getMetabolics(email: email);
+			if (m.user_id == -1 || m.energy < 50) {
 				return false;
+			} else {
+				m.energy -= 50;
+				int result = await setMetabolics(m);
+				if (result < 1) {
+					return false;
+				}
 			}
 		}
 
@@ -404,5 +410,45 @@ class StreetUpdateHandler {
 		                           }));
 
 		InventoryV2.decreaseDurability(email, NoteManager.tool_item);
+	}
+}
+
+@app.Route('/teleport', methods: const[app.POST])
+Future teleportUser(@app.QueryParam("token") String token,
+					@app.QueryParam("channel_id") String channel,
+					@app.QueryParam("username") String username,
+					@app.QueryParam("street_name") String streetName) async {
+	if(token != slackTeleportToken) {
+		return 'YOU SHALL NOT PASS';
+	}
+
+	if (channel != "G0277NLQS") {
+		return "Run this from the administration group";
+	}
+
+	Map streetMap = mapdata_streets[streetName];
+	//Go to Cebarkul if no other street name was passed to the command
+	String tsid = mapdata_streets['Cebarkul']['tsid'];
+	if(streetMap != null) {
+		tsid = streetMap['tsid'];
+	}
+	if(tsid.startsWith('L')) {
+		tsid.replaceFirst('L','G');
+	}
+
+	String email = await User.getEmailFromUsername(username);
+	WebSocket userSocket = StreetUpdateHandler.userSockets[email];
+
+	//user probably isn't online so edit the database directly
+	if(userSocket == null) {
+		PostgreSql dbConn = await dbManager.getConnection();
+		String query = "UPDATE metabolics SET current_street = @tsid"
+						"WHERE user_id = (SELECT id FROM users WHERE username = @username)";
+		await dbConn.execute(query, {'username': username, 'tsid': tsid});
+		return 'User will be in $streetName when they next log on';
+	} else {
+		await StreetUpdateHandler.teleport(userSocket: userSocket, email: email,
+											   tsid: tsid, energyFree: true);
+		return 'User has been teleported to $streetName';
 	}
 }

@@ -180,19 +180,15 @@ class Crab extends NPC {
 
 		await _giveHeadphones();
 
-print("listening...");
 		setState("listen");
 		await new Future.delayed(randSongLength() + untilRespawn());
-print("done listening");
 
 		// Reward player
 		if (likesSong(itemType)) {
 			// Dance for a bit
 
-print("dancing...");
 			setState("like_on");
 			await new Future.delayed(randReactLength() + untilRespawn());
-print("removing headphones");
 
 			setState("like_off");
 			await _giveMusicblock();
@@ -207,14 +203,11 @@ print("removing headphones");
 		} else {
 			// Be crabby
 
-print("not dancing...");
 			setState("dislike_on");
 			await new Future.delayed(randReactLength() + untilRespawn());
 
-print("removing headphones");
 			setState("like_off");
 			await _giveMusicblock();
-
 			await _takeHeadphones();
 		}
 

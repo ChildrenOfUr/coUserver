@@ -21,7 +21,6 @@ import 'package:coUserver/endpoints/time.dart';
 import 'package:coUserver/endpoints/weather.dart';
 
 import "package:intl/intl.dart";
-import "package:slack/io/slack.dart" as slack;
 import 'package:redstone/redstone.dart' as app;
 import "package:redstone_mapper/plugin.dart";
 import "package:http/http.dart" as http;
