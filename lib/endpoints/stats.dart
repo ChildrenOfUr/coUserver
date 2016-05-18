@@ -10,6 +10,7 @@ class StatManager {
 
 	/// Returns the value of stat `stat` for user with email `email`
 	static Future<int> get(String email, Stat stat) async {
+		return 0; // TODO: fix
 		String statName = _statToString(stat);
 		PostgreSql dbConn = await dbManager.getConnection();
 		try {
@@ -39,6 +40,7 @@ class StatManager {
 	/// Increments stat `stat` for user with email `email` by `increment` (defaults to 1)
 	/// Returns the new value of `stat` for the user
 	static Future<int> add(String email, Stat stat, [int increment = 1]) async {
+		return 0; // TODO: fix
 		int userId = await User.getIdFromEmail(email);
 		String statName = _statToString(stat);
 		PostgreSql dbConn = await dbManager.getConnection();
