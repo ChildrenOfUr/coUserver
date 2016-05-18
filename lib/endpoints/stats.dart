@@ -24,7 +24,7 @@ class StatManager {
 			};
 			List rows = await dbConn.innerConn.query(query, values).toList();
 			if (rows.length == 0) {
-				return 0;
+				return null;
 			} else {
 				return rows.single.toMap()[statName];
 			}
