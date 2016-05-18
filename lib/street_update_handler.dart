@@ -351,11 +351,16 @@ class StreetUpdateHandler {
 	}
 
 	static Future loadStreet(String streetName, String tsid) async {
-		Street street = new Street(streetName, tsid);
-		await street.loadItems();
-		await street.loadJson();
-		streets[streetName] = street;
-		log("Loaded $streetName ($tsid) into memory.");
+		try {
+			Street street = new Street(streetName, tsid);
+			await street.loadItems();
+			await street.loadJson();
+			streets[streetName] = street;
+			log("Loaded $streetName ($tsid) into memory.");
+		} catch(e) {
+			log("Could not load street $tsid: $e");
+			throw e;
+		}
 	}
 
 	static void _callGlobalMethod(Map map, WebSocket userSocket, String email) {

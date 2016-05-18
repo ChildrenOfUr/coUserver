@@ -4105,7 +4105,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Mrozia": {
 		"shrine": "Alph",
 		"vendor": "Animal Goods",
-		"hub_id": 116
+		"hub_id": 116,
+		"tsid": "LA99N0I68NM2O7F"
 	},
 	"Mucid Memes": {
 		"vendor": "Animal Goods",
@@ -6636,7 +6637,8 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"vendor": "Hardware",
 		"shrine": "Zille",
 		"tsid": "GUVUKCOSE793PHI",
-		"hub_id": 76
+		"hub_id": 76,
+		"broken": true
 	},
 	"Via Velaya": {
 		"vendor": "Produce",
