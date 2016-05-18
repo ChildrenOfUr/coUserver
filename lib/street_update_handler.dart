@@ -428,12 +428,12 @@ Future teleportUser(@app.Body(app.FORM) Map data) async {
 		return 'YOU SHALL NOT PASS';
 	}
 
-	if (channel != "G0277NLQS") {
-		return "Run this from the administration group";
+	if (channel != 'G0277NLQS') {
+		return 'Run this from the administration group';
 	}
 
-	String username = text.split(' ')[0];
-	String streetName = text.split(' ')[1];
+	String streetName = text.substring(text.lastIndexOf(', ') + 2);
+	String username = text.replaceAll(', $streetName', '');
 
 	Map streetMap = mapdata_streets[streetName];
 	//Go to Cebarkul if no other street name was passed to the command
