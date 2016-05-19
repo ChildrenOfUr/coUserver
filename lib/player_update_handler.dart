@@ -87,11 +87,11 @@ class PlayerUpdateHandler {
 						//StatBuffer.incrementStat("stepsTaken", (xDiff + yDiff) / 22);
 
 						int newSteps = ((xDiff + yDiff) / 22).ceil().abs();
-						StatManager.add(email, Stat.steps_taken, newSteps);
+						StatManager.add(email, Stat.steps_taken, increment: newSteps, buffer: true);
 
 						if (yDiff > 17) {
 							// TODO: do this better
-							StatManager.add(email, Stat.jumps);
+							StatManager.add(email, Stat.jumps, buffer: true);
 						}
 
 						users[username].currentX = currentX;

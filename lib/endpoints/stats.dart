@@ -5,8 +5,19 @@ import 'package:coUserver/common/user.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:redstone_mapper_pg/manager.dart';
 
+class BufferedStat {
+	Stat stat;
+	int bufferedValue;
+	DateTime bufferExpirey;
+
+	BufferedStat(this.stat, this.bufferedValue, [this.bufferExpirey]) {
+		bufferExpirey = new DateTime.now().add(new Duration(seconds: 10));
+	}
+}
+
 class StatManager {
 	static String _statToString(Stat stat) => stat.toString().split('.')[1];
+	static Map<String, BufferedStat> statBuffer = {};
 
 	/// Returns the value of stat `stat` for user with email `email`
 	static Future<int> get(String email, Stat stat) async {
@@ -38,7 +49,26 @@ class StatManager {
 
 	/// Increments stat `stat` for user with email `email` by `increment` (defaults to 1)
 	/// Returns the new value of `stat` for the user
-	static Future<int> add(String email, Stat stat, [int increment = 1]) async {
+	static Future<int> add(String email, Stat stat, {int increment: 1, bool buffer: false}) async {
+		if(buffer) {
+			BufferedStat bufferedStat = statBuffer[email] ?? new BufferedStat(stat, increment);
+			if(bufferedStat.bufferExpirey.compareTo(new DateTime.now()) <= 0) {
+				int ret = await _flushStatToDb(bufferedStat.stat, bufferedStat.bufferedValue, email);
+				if(ret != null) {
+					statBuffer.remove(email);
+				}
+				return ret;
+			} else {
+				bufferedStat.bufferedValue += increment;
+				statBuffer[email] = bufferedStat;
+				return bufferedStat.bufferedValue;
+			}
+		}
+
+		return await _flushStatToDb(stat, increment, email);
+	}
+
+	static Future<int> _flushStatToDb(Stat stat, int increment, String email) async {
 		int userId = await User.getIdFromEmail(email);
 		String statName = _statToString(stat);
 		PostgreSql dbConn = await dbManager.getConnection();

@@ -29,7 +29,7 @@ Future main() async {
 			// Add to values
 
 			int setCooking1 = await StatManager.add(ut_email, COOKING);
-			int setPetting1 = await StatManager.add(ut_email, PETTING, 2);
+			int setPetting1 = await StatManager.add(ut_email, PETTING, increment: 2);
 
 			expect(setCooking1, getCooking1 + 1, reason: '1 awesome pot use was added');
 			expect(setPetting1, getPetting1 + 2, reason: '2 spice plants were petted');
@@ -44,7 +44,7 @@ Future main() async {
 
 			// Add to values again
 
-			int setCooking2 = await StatManager.add(ut_email, COOKING, 2);
+			int setCooking2 = await StatManager.add(ut_email, COOKING, increment: 2);
 			int setPetting2 = await StatManager.add(ut_email, PETTING);
 
 			expect(setCooking2, getCooking2 + 2, reason: '2 awesome pot uses were added');
