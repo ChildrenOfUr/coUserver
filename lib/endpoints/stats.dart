@@ -10,7 +10,6 @@ class StatManager {
 
 	/// Returns the value of stat `stat` for user with email `email`
 	static Future<int> get(String email, Stat stat) async {
-		return 0; // TODO: fix
 		String statName = _statToString(stat);
 		PostgreSql dbConn = await dbManager.getConnection();
 		try {
@@ -25,7 +24,7 @@ class StatManager {
 			};
 			List rows = await dbConn.innerConn.query(query, values).toList();
 			if (rows.length == 0) {
-				return null;
+				return 0;
 			} else {
 				return rows.single.toMap()[statName];
 			}
@@ -40,28 +39,12 @@ class StatManager {
 	/// Increments stat `stat` for user with email `email` by `increment` (defaults to 1)
 	/// Returns the new value of `stat` for the user
 	static Future<int> add(String email, Stat stat, [int increment = 1]) async {
-		return 0; // TODO: fix
 		int userId = await User.getIdFromEmail(email);
 		String statName = _statToString(stat);
 		PostgreSql dbConn = await dbManager.getConnection();
 		try {
-			String query;
-			if (get(email, stat) == null) {
-				// User's first stat
-				query =
-					'INSERT INTO stats (user_id, $statName) '
-					'VALUES (@userId, @increment) '
-					'RETURNING *'
-				;
-			} else {
-				// User has an existing row
-				query =
-					'UPDATE stats '
-					'SET $statName = $statName + @increment '
-					'WHERE user_id = @userId '
-					'RETURNING *'
-				;
-			}
+			String query = "INSERT INTO stats AS s (user_id, $statName) VALUES (@userId, @increment)"
+				" ON CONFLICT (user_id) DO UPDATE SET $statName = s.$statName + @increment RETURNING *";
 			Map<String, dynamic> values = {
 				'increment': increment,
 				'userId': userId
