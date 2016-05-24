@@ -107,12 +107,12 @@ class Street {
 		entityMaps = {"quoin":quoins, "plant":plants, "npc":npcs, "door":doors, "groundItem":groundItems};
 
 		//attempt to load street occupants from database
-		StreetEntities.getEntities(tsid).then((Map<String, dynamic> entities) {
-			if (entities['entities'] != null) {
-				for (Map entity in entities['entities']) {
-					String type = entity['type'];
-					int x = entity['x'];
-					int y = entity['y'];
+		StreetEntities.getEntities(tsid).then((List<StreetEntity> entities) {
+			if (entities.length > 0) {
+				for (StreetEntity entity in entities) {
+					String type = entity.type;
+					int x = entity.x;
+					int y = entity.y;
 
 					//generate a hopefully unique code that stays the same everytime for this object
 					String id = createId(x, y, type, tsid);

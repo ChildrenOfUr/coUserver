@@ -22,6 +22,7 @@ import 'package:coUserver/endpoints/weather.dart';
 
 import "package:intl/intl.dart";
 import 'package:redstone/redstone.dart' as app;
+import 'package:redstone_mapper/mapper.dart';
 import "package:redstone_mapper/plugin.dart";
 import "package:http/http.dart" as http;
 import "package:harvest/harvest.dart" as harvest;

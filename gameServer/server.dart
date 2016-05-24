@@ -112,7 +112,7 @@ main() async {
 //	print('upgading complete');
 //	dbManager.closeConnection(db);
 
-	// migrateEntities(); // TODO: do this on the live server
+//	migrateEntities(); // TODO: do this on the live server
 }
 
 ///anything that should run here as cleanup before exit
@@ -286,7 +286,7 @@ String uploadEntities(@app.Body(app.JSON) Map params) {
 
 @app.Route('/getEntities')
 Future<Map<String, dynamic>> getEntities(@app.QueryParam('tsid') String tsid) async {
-	return await StreetEntities.getEntities(tsid);
+	return {"entities": encode(await StreetEntities.getEntities(tsid))};
 }
 
 @app.Route('/getRandomStreet')

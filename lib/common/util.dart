@@ -35,12 +35,28 @@ Future migrateEntities() async {
 	Directory streetEntities = new Directory("./streetEntities");
 	List<FileSystemEntity> files = streetEntities.listSync();
 
+	int count = 0;
+
 	Future.forEach(files, (FileSystemEntity file) async {
 		if (file is File) {
 			String tsid = file.uri.pathSegments.last;
 			String json = await file.readAsString();
-			print("Migrating $tsid...");
-			await StreetEntities.setEntities(tsid, json);
+			try {
+				log("Migrating $tsid...");
+				Map<String, dynamic> map = JSON.decode(json);
+				Future.forEach(map["entities"], (Map<String, dynamic> entity) async {
+					await StreetEntities.setEntity(new StreetEntity(
+						id: "migrate$count",
+						type: entity["type"],
+						tsid: tsid,
+						x: entity["x"],
+						y: entity["y"]
+					));
+					count++;
+				});
+			} catch(e) {
+				log("    Error migrating $tsid: $e");
+			}
 		}
 	});
 }
