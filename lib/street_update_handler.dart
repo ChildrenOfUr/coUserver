@@ -448,9 +448,7 @@ Future teleportUser(@app.Body(app.FORM) Map data) async {
 		tsid = mapdata_streets['Cebarkul']['tsid'];
 		streetName = "Cebarkul, not $streetName because I can't find it in the map data @klikini";
 	}
-	if(tsid.startsWith('L')) {
-		tsid.replaceFirst('L','G');
-	}
+	tsid = tsidG(tsid);
 
 	String email = await User.getEmailFromUsername(username);
 	if(email == null) {

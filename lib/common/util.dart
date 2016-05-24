@@ -32,8 +32,7 @@ Map getStreetEntities(String tsid) {
 	Map entities = {};
 	if (tsid != null) {
 		//TODO remove the need for the G/L replace logic
-		if (tsid.startsWith("G"))
-			tsid = tsid.replaceFirst("G", "L");
+		tsid = tsidL(tsid);
 		File file = new File('./streetEntities/$tsid');
 		if (file.existsSync()) {
 			try {
@@ -47,10 +46,13 @@ Map getStreetEntities(String tsid) {
 	return entities;
 }
 
+String tsidG(String tsid) => tsid.startsWith("L") ? tsid.replaceFirst("L", "G") : tsid;
+
+String tsidL(String tsid) => tsidG(tsid).replaceFirst("G", "L");
+
 saveStreetData(Map params) {
 	String tsid = params['tsid'];
-	if (tsid.startsWith("G"))
-		tsid = tsid.replaceFirst("G", "L");
+	tsid = tsidL(tsid);
 
 	List entities = JSON.decode(params['entities']);
 	File file = new File('./streetEntities/$tsid');
@@ -92,8 +94,7 @@ void reportBrokenStreet(String tsid, String reason) {
 	if (tsid == null)
 		return;
 
-	if (tsid.startsWith("G"))
-		tsid = tsid.replaceFirst("G", "L");
+	tsid = tsidL(tsid);
 
 	File finished = _getFinishedFile();
 	Map finishedMap = JSON.decode(finished.readAsStringSync());

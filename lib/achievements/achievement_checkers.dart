@@ -75,10 +75,8 @@ class AchievementCheckers {
 
 			for (Map<String, dynamic> data in streetsInHub) {
 				String tsid = data["tsid"] ?? "";
-				String tsidG = (tsid.startsWith("L") ? tsid.replaceFirst("L", "G") : tsid);
-				String tsidL = (tsid.startsWith("G") ? tsid.replaceFirst("G", "L") : tsid);
 
-				if (!(locationHistory.contains(tsidG) || locationHistory.contains(tsidL))) {
+				if (!(locationHistory.contains(tsidG(tsid)) || locationHistory.contains(tsidL(tsid)))) {
 					// Neither TSID version visited
 					return false;
 				}
