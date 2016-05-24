@@ -96,8 +96,8 @@ main() async {
 	ProcessSignal.SIGINT.watch().listen((ProcessSignal sig) async => await cleanup());
 	ProcessSignal.SIGTERM.watch().listen((ProcessSignal sig) async => await cleanup());
 
-	//This was used to upgrade the inventories in place so that they had the right key/value pairs
-	//Similar code could be needed in the future.
+	/** This was used to upgrade the inventories in place so that they had the right key/value pairs.
+		Similar code could be needed in the future. **/
 //	String query = 'SELECT * FROM inventories';
 //	PostgreSql db = await dbManager.getConnection();
 //	List<InventoryV2> inventories = await db.query(query, InventoryV2);
@@ -112,7 +112,7 @@ main() async {
 //	print('upgading complete');
 //	dbManager.closeConnection(db);
 
-	//print(SkillManager.find("mining").skillRequirements);
+	// migrateEntities(); // TODO: do this on the live server
 }
 
 ///anything that should run here as cleanup before exit
@@ -285,8 +285,8 @@ String uploadEntities(@app.Body(app.JSON) Map params) {
 }
 
 @app.Route('/getEntities')
-Map getEntities(@app.QueryParam('tsid') String tsid) {
-	return getStreetEntities(tsid);
+Future<Map<String, dynamic>> getEntities(@app.QueryParam('tsid') String tsid) async {
+	return await StreetEntities.getEntities(tsid);
 }
 
 @app.Route('/getRandomStreet')

@@ -106,56 +106,57 @@ class Street {
 	Street(this.label, this.tsid) {
 		entityMaps = {"quoin":quoins, "plant":plants, "npc":npcs, "door":doors, "groundItem":groundItems};
 
-		//attempt to load street occupants from streetEntities folder
-		Map entities = getStreetEntities(tsid);
-		if (entities['entities'] != null) {
-			for (Map entity in entities['entities']) {
-				String type = entity['type'];
-				int x = entity['x'];
-				int y = entity['y'];
+		//attempt to load street occupants from database
+		StreetEntities.getEntities(tsid).then((Map<String, dynamic> entities) {
+			if (entities['entities'] != null) {
+				for (Map entity in entities['entities']) {
+					String type = entity['type'];
+					int x = entity['x'];
+					int y = entity['y'];
 
-				//generate a hopefully unique code that stays the same everytime for this object
-				String id = createId(x, y, type, tsid);
+					//generate a hopefully unique code that stays the same everytime for this object
+					String id = createId(x, y, type, tsid);
 
-				if (type == "Img" || type == "Mood" || type == "Energy" || type == "Currant"
-				    || type == "Mystery" || type == "Favor" || type == "Time" || type == "Quarazy") {
-					id = "q" + id;
-					quoins[id] = new Quoin(id, x, y, type.toLowerCase());
-				} else {
-					try {
-						ClassMirror classMirror = findClassMirror(type.replaceAll(" ", ""));
-						if (classMirror.isSubclassOf(findClassMirror("NPC"))) {
-							id = "n" + id;
-							if (classMirror.isSubclassOf(findClassMirror("Vendor")) ||
-							    classMirror == findClassMirror("DustTrap")) {
-								// Vendors and dust traps get a street name/TSID to check for collisions
-								npcs[id] = classMirror
-									.newInstance(new Symbol(""), [id, label, tsid, x, y])
-									.reflectee;
-							} else {
-								npcs[id] = classMirror
+					if (type == "Img" || type == "Mood" || type == "Energy" || type == "Currant"
+						|| type == "Mystery" || type == "Favor" || type == "Time" || type == "Quarazy") {
+						id = "q" + id;
+						quoins[id] = new Quoin(id, x, y, type.toLowerCase());
+					} else {
+						try {
+							ClassMirror classMirror = findClassMirror(type.replaceAll(" ", ""));
+							if (classMirror.isSubclassOf(findClassMirror("NPC"))) {
+								id = "n" + id;
+								if (classMirror.isSubclassOf(findClassMirror("Vendor")) ||
+									classMirror == findClassMirror("DustTrap")) {
+									// Vendors and dust traps get a street name/TSID to check for collisions
+									npcs[id] = classMirror
+										.newInstance(new Symbol(""), [id, label, tsid, x, y])
+										.reflectee;
+								} else {
+									npcs[id] = classMirror
+										.newInstance(new Symbol(""), [id, x, y, label])
+										.reflectee;
+								}
+							}
+							if (classMirror.isSubclassOf(findClassMirror("Plant"))) {
+								id = "p" + id;
+								plants[id] = classMirror
 									.newInstance(new Symbol(""), [id, x, y, label])
 									.reflectee;
 							}
+							if (classMirror.isSubclassOf(findClassMirror("Door"))) {
+								id = "d" + id;
+								doors[id] = classMirror
+									.newInstance(new Symbol(""), [id, label, x, y])
+									.reflectee;
+							}
+						} catch (e) {
+							log("Unable to instantiate a class for $type: $e");
 						}
-						if (classMirror.isSubclassOf(findClassMirror("Plant"))) {
-							id = "p" + id;
-							plants[id] = classMirror
-								.newInstance(new Symbol(""), [id, x, y, label])
-								.reflectee;
-						}
-						if (classMirror.isSubclassOf(findClassMirror("Door"))) {
-							id = "d" + id;
-							doors[id] = classMirror
-								.newInstance(new Symbol(""), [id, label, x, y])
-								.reflectee;
-						}
-					} catch (e) {
-						log("Unable to instantiate a class for $type: $e");
 					}
 				}
 			}
-		}
+		});
 	}
 
 	Future loadItems() async {

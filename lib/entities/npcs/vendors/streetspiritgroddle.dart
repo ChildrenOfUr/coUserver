@@ -247,12 +247,13 @@ class StreetSpiritGroddle extends StreetSpirit {
 		];
 
 		try {
-			List<Map> entities = getStreetEntities(tsid)['entities'];
-			entities.forEach((Map entity) {
-				String type = entity['type'].toLowerCase();
-				if (giants.contains(type)) {
-					giantName = type;
-				}
+			StreetEntities.getEntities(tsid).then((Map<String, dynamic> entities) {
+				entities["entities"].forEach((Map entity) {
+					String type = entity['type'].toLowerCase();
+					if (giants.contains(type)) {
+						giantName = type;
+					}
+				});
 			});
 		} catch(_) {}
 

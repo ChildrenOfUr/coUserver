@@ -14,7 +14,10 @@ import 'package:image/image.dart';
 import 'package:http/http.dart' as http;
 import 'package:crypto/crypto.dart';
 import 'package:redstone_mapper_pg/manager.dart';
+import 'package:redstone_mapper/mapper.dart';
 import 'package:harvest/harvest.dart' as harvest;
+
+part 'package:coUserver/common/streetEntities.dart';
 
 Map<String, int> heightsCache = null;
 Map<String, String> headsCache = null;
@@ -28,22 +31,18 @@ DateTime startDate;
 Map<String, String> vendorTypes = {};
 Random rand = new Random();
 
-Map getStreetEntities(String tsid) {
-	Map entities = {};
-	if (tsid != null) {
-		//TODO remove the need for the G/L replace logic
-		tsid = tsidL(tsid);
-		File file = new File('./streetEntities/$tsid');
-		if (file.existsSync()) {
-			try {
-				entities = JSON.decode(file.readAsStringSync());
-			} catch (e) {
-				log("Error in street entities file $tsid: $e");
-			}
-		}
-	}
+Future migrateEntities() async {
+	Directory streetEntities = new Directory("./streetEntities");
+	List<FileSystemEntity> files = streetEntities.listSync();
 
-	return entities;
+	Future.forEach(files, (FileSystemEntity file) async {
+		if (file is File) {
+			String tsid = file.uri.pathSegments.last;
+			String json = await file.readAsString();
+			print("Migrating $tsid...");
+			await StreetEntities.setEntities(tsid, json);
+		}
+	});
 }
 
 String tsidG(String tsid) => tsid.startsWith("L") ? tsid.replaceFirst("L", "G") : tsid;
