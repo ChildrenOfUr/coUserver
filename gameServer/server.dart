@@ -112,7 +112,7 @@ main() async {
 //	print('upgading complete');
 //	dbManager.closeConnection(db);
 
-//	migrateEntities(); // TODO: do this on the live server
+//	StreetEntities.migrateEntities(); // TODO: do this on the live server
 }
 
 ///anything that should run here as cleanup before exit
