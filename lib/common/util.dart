@@ -14,10 +14,9 @@ import 'package:image/image.dart';
 import 'package:http/http.dart' as http;
 import 'package:crypto/crypto.dart';
 import 'package:redstone_mapper_pg/manager.dart';
-import 'package:redstone_mapper/mapper.dart';
 import 'package:harvest/harvest.dart' as harvest;
 
-part 'package:coUserver/common/streetEntities.dart';
+export 'package:coUserver/entities/street_entities/street_entities.dart';
 
 Map<String, int> heightsCache = null;
 Map<String, String> headsCache = null;
