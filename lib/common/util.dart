@@ -34,6 +34,8 @@ String tsidG(String tsid) => tsid.startsWith("L") ? tsid.replaceFirst("L", "G") 
 
 String tsidL(String tsid) => tsidG(tsid).replaceFirst("G", "L");
 
+String ucfirst(String str) => str.substring(0, 1).toUpperCase() + str.substring(1);
+
 saveStreetData(Map params) {
 	String tsid = params['tsid'];
 	tsid = tsidL(tsid);

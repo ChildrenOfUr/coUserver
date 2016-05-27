@@ -9,6 +9,7 @@ import 'dart:mirrors';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/common/stat_buffer.dart';
+import 'package:coUserver/common/mapdata/mapdata.dart';
 import 'package:coUserver/API_KEYS.dart';
 import 'package:coUserver/quests/quest.dart';
 import 'package:coUserver/endpoints/stats.dart';

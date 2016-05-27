@@ -57,7 +57,7 @@ abstract class NPC extends Entity {
 			num lineY = slope * x + yInt;
 
 			if (goingTo >= lineY) {
-				returnY = lineY - street.groundY;
+				returnY = lineY.toInt() - street.groundY;
 				ySpeed = 0;
 			}
 		}

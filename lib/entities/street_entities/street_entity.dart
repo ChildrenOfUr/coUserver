@@ -1,7 +1,9 @@
 part of street_entities;
 
 class StreetEntity {
-	StreetEntity({this.id, this.type, this.tsid, this.x: 0, this.y: 0}) {
+	StreetEntity();
+
+	StreetEntity.create({this.id, this.type, this.tsid, this.x: 0, this.y: 0}) {
 		assert(id != null);
 		assert(type != null);
 		assert(tsid != null);

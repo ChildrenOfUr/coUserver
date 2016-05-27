@@ -27,6 +27,7 @@ import 'package:redstone/redstone.dart' as app;
 part 'item_user.dart';
 part 'actions/action.dart';
 part 'actions/note.dart';
+part 'actions/itemgroups/baby_animals.dart';
 part 'actions/itemgroups/consume.dart';
 part 'actions/itemgroups/cubimals.dart';
 part 'actions/itemgroups/emblems-icons.dart';

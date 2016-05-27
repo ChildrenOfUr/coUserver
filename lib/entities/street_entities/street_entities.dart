@@ -3,7 +3,6 @@ library street_entities;
 import "dart:async";
 import "dart:convert";
 import "dart:io";
-import "package:coUserver/common/mapdata/mapdata.dart";
 import "package:coUserver/common/util.dart";
 import "package:redstone_mapper/mapper.dart";
 import "package:redstone_mapper_pg/manager.dart";
@@ -90,7 +89,7 @@ class StreetEntities {
 					log("Migrating $tsid...");
 					Map<String, dynamic> map = JSON.decode(json);
 					Future.forEach(map["entities"], (Map<String, dynamic> entity) async {
-						await StreetEntities.setEntity(new StreetEntity(
+						await StreetEntities.setEntity(new StreetEntity.create(
 							id: "migrate$count",
 							type: entity["type"],
 							tsid: tsid,

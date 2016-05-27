@@ -1,6 +1,14 @@
 part of entity;
 
 class Chicken extends NPC {
+	static final Map<String, String> EGG_ANIMALS = {
+		"butterfly_egg": "caterpillar",
+		"chicken_egg": "chick",
+		"piggy_egg": "piglet"
+	};
+
+	bool incubating = false;
+
 	Chicken(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		actions.add({"action":"squeeze",
 			            "enabled":true,
@@ -12,6 +20,18 @@ class Chicken extends NPC {
 					            'of':['energy']
 				            }
 			            ]});
+		actions.add({
+			"action": "incubate",
+			"enabled": mapdata_streets[streetName] != null &&
+				mapdata_streets[streetName]["tsid"] != null,
+			"actionWord": "incubating",
+			"requires": [
+				{
+					"num": 1,
+					"of": EGG_ANIMALS.keys
+				}
+			]
+		});
 
 		type = "Chicken";
 		speed = 75; //pixels per second
@@ -140,6 +160,66 @@ class Chicken extends NPC {
 		return true;
 	}
 
+	Future<bool> incubate({WebSocket userSocket, String email}) async {
+		if (!incubating) {
+			// Not busy
+			userSocket.add(JSON.encode({
+				"action": "incubate2",
+				"id": id,
+				"openWindow": "itemChooser",
+				"filter": "itemType=${EGG_ANIMALS.keys.join("|")}",
+				"windowTitle": "Incubate what?"
+			}));
+			return true;
+		} else {
+			// Busy
+			say("Can't you see I'm busy right now?");
+			return false;
+		}
+	}
+
+	Future<bool> incubate2(
+		{WebSocket userSocket, String email, String itemType, int count, int slot, int subSlot}
+	) async {
+		incubating = true;
+
+		// Take egg from player
+	 	if ((await InventoryV2.takeItemFromUser(email, slot, subSlot, 1)) == null) {
+			// Taking item failed
+			incubating = false;
+			return false;
+		}
+
+		// Say a random starting message
+		say(responses["incubateStart"][rand.nextInt(responses["incubateStart"].length)]);
+
+		// Sit down on the egg
+		setState("incubate");
+
+		// Wait 1 minute
+		await new Future.delayed(new Duration(minutes: 1));
+
+		// Sit down without the egg
+		setState("sit");
+
+		// Say a random ending message
+		say(responses["incubateEnd"][rand.nextInt(responses["incubateEnd"].length)]);
+
+		// Give the baby animal to the player
+		Item animal = new Item.clone(EGG_ANIMALS[itemType]);
+		bool invSuccess = (await InventoryV2.addItemToUser(email, animal.getMap(), 1)) == 1;
+
+		if (!invSuccess) {
+			// Giving animal to player failed
+			incubating = false;
+			return false;
+		} else {
+			// Giving animal to player succeeded
+			incubating = false;
+			return true;
+		}
+	}
+
 	void update() {
 		super.update();
 
@@ -154,31 +234,33 @@ class Chicken extends NPC {
 			if(rand.nextInt(8) == 1)
 				facingRight = !facingRight;
 
-			int num = rand.nextInt(20);
-			switch(num) {
-				case 1:
-					setState('idle1');
-					break;
-				case 2:
-					setState('idle2');
-					break;
-				case 3:
-					setState('idle3');
-					break;
-				case 4:
-					setState('pause');
-					break;
-				case 5:
-					setState('pecking_once');
-					break;
-				case 6:
-					setState('pecking_twice');
-					break;
-				case 7:
-					setState('flying');
-					break;
-				default:
-					setState('walk');
+			if (!incubating) {
+				int num = rand.nextInt(20);
+				switch(num) {
+					case 1:
+						setState('idle1');
+						break;
+					case 2:
+						setState('idle2');
+						break;
+					case 3:
+						setState('idle3');
+						break;
+					case 4:
+						setState('pause');
+						break;
+					case 5:
+						setState('pecking_once');
+						break;
+					case 6:
+						setState('pecking_twice');
+						break;
+					case 7:
+						setState('flying');
+						break;
+					default:
+						setState('walk');
+				}
 			}
 		}
 	}
