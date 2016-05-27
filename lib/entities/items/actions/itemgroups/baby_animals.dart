@@ -1,17 +1,34 @@
 part of item;
 
 abstract class BabyAnimals {
+	static final Map<String, String> ANIMAL_TYPES = {
+		"caterpillar": "Butterfly",
+		"chick": "Chicken",
+		"piglet": "Piggy"
+	};
+
+	/// Keep track of who is feeding/spawning which entities between feed1() and feed2()
+	static Map<String, Map<String, dynamic>> userActionCache = new Map();
+
 	static Future<bool> spawn(String type, String tsid, int pX, int pY) async {
 		// Check for overcrowding
 		if (await StreetEntityBalancer.streetIsFull(type, tsid)) {
 			return false;
 		}
 
+		// As much randomness as possible to avoid collisions
+		String randId = 'fed'
+			'${tsid.substring(tsid.length ~/ 3)}'
+			'${pX ~/ 1}'
+			'${pY ~/ 1}'
+			'${rand.nextInt(9999)}';
+		randId = randId.substring(0, 30);
+
 		// Instantiate a new entity
 		StreetEntity newEntity = new StreetEntity.create(
-			id: "fed_${rand.nextInt(9999)}",
+			id: randId,
 			type: type,
-			tsid: tsid,
+			tsid: tsidL(tsid),
 			x: pX,
 			y: pY
 		);
@@ -26,7 +43,69 @@ abstract class BabyAnimals {
 		return true;
 	}
 
-	static Future<bool> feed(int slot, int subSlot) async {
-		return false;
+	Future feed({Map map, WebSocket userSocket, String email, String streetName, String username}) async {
+		InventoryV2 inv = await getInventory(email);
+		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
+		userSocket.add(JSON.encode({
+			'id': 'global_action_monster',
+			'openWindow': 'itemChooser',
+			'action': 'feed2',
+			'windowTitle': 'Feed ${itemInSlot.name} what?',
+			'filter': 'category=Food'
+		}));
+
+		userActionCache[email] = {
+			'type': itemInSlot.itemType,
+			'slot': map['slot'],
+			'subSlot': map['subSlot']
+		};
+	}
+
+	static Future<bool> feed2(
+		{WebSocket userSocket, String email, String itemType, int count, int slot, int subSlot})
+	async {
+		Map<String, dynamic> _uncache() => userActionCache.remove(email);
+
+		if ((await InventoryV2.takeAnyItemsFromUser(email, itemType, count)) == null) {
+			// Could not take item
+			_uncache();
+			return false;
+		}
+
+		/* Min chance of spawn is 1 in 10 for 1 item,
+			and max is 1 in 2 for 10 items */
+		//if (rand.nextInt((11 - count).clamp(2, 10)) == 0) {
+		if(true) {
+			// Spawn entity
+			try {
+				Identifier player = PlayerUpdateHandler.users[await User.getUsernameFromEmail(email)];
+
+				Map<String, dynamic> feedCache = userActionCache[email];
+				String itemType = feedCache['type'];
+				String entityType = ANIMAL_TYPES[itemType];
+
+				if ((await InventoryV2.takeItemFromUser(email, feedCache['slot'], feedCache['subSlot'], 1)) == null) {
+					// Could not take baby animal
+					_uncache();
+					return false;
+				}
+
+				if (!(await spawn(entityType, player.tsid, player.currentX, player.currentY))) {
+					// Spawn failed
+					_uncache();
+					return false;
+				}
+
+				_uncache();
+				return true;
+			} catch (e) {
+				log('Error spawning entity: $e');
+				_uncache();
+				return false;
+			}
+		} else {
+			_uncache();
+			return false;
+		}
 	}
 }

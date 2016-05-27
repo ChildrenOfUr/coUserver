@@ -25,10 +25,11 @@ class Chicken extends NPC {
 			"enabled": mapdata_streets[streetName] != null &&
 				mapdata_streets[streetName]["tsid"] != null,
 			"actionWord": "incubating",
+			"timeRequired": 0,
 			"requires": [
 				{
 					"num": 1,
-					"of": EGG_ANIMALS.keys
+					"of": EGG_ANIMALS.keys.toList()
 				}
 			]
 		});

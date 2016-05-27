@@ -85,7 +85,7 @@ class RecipeBook extends Object with MetabolicsChange {
 		Recipe recipe;
 		List<Recipe> rList = recipes.where((Recipe recipe) => recipe.id == id).toList();
 		if (rList.length != 1) {
-			return false;
+			return "the recipe is missing";
 		} else {
 			recipe = rList.first;
 		}

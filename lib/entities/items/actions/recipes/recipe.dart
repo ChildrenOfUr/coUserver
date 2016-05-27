@@ -30,7 +30,8 @@ class Recipe {
 	// Items are initialized in street_update_handler.dart after all of the items are loaded
 	Recipe();
 
-	toString() {
+	@override
+	String toString() {
 		return "Recipe to make ${output_amt} x $output with $tool using ${input.toString()} taking $time seconds";
 	}
 

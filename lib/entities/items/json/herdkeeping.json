@@ -48,19 +48,41 @@
 	"name": "Caterpillar",
 	"category": "Herdkeeping Supplies",
 	"iconUrl": "http://childrenofur.com/assets/entityImages/Caterpillar.png",
-	"spriteUrl": "http://c2.glitch.bz/items/2012-12-06/caterpillar__x1_sit_png_1354831021.png",
+	"iconNum": 1,
+	"spriteUrl": "http://childrenofur.com/assets/entityImages/Caterpillar.png",
+	"animSpriteUrl": "http://c2.glitch.bz/items/2012-12-06/caterpillar__x1_sit_png_1354831021.png",
 	"stacksTo": 1,
 	"price": 500,
-	"description": "A proto-Butterfly."
+	"description": "A proto-Butterfly.",
+	"actions": [
+      {
+        "name": "Feed",
+        "multiEnabled": true,
+        "description": "Help this little one grow up",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "chick": {
  	"name": "Chick",
  	"category": "Herdkeeping Supplies",
 	"iconUrl": "http://childrenofur.com/assets/entityImages/Chick.png",
-	"spriteUrl": "http://c2.glitch.bz/items/2012-12-06/chick__x1_sit_png_1354830412.png",
+	"iconNum": 1,
+	"spriteUrl": "http://childrenofur.com/assets/entityImages/Chick.png",
+	"animSpriteUrl": "http://c2.glitch.bz/items/2012-12-06/chick__x1_sit_png_1354830412.png",
 	"stacksTo": 1,
 	"price": 300,
-	"description": "A wide-eyed chick, fresh from the egg. It needs grain in order to reach full chickenhood."
+	"description": "A wide-eyed chick, fresh from the egg. It needs grain in order to reach full chickenhood.",
+	"actions": [
+      {
+        "name": "Feed",
+        "multiEnabled": true,
+        "description": "Help this little one grow up",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   },
   "chicken_egg": {
     "name": "Chicken Egg",
@@ -148,9 +170,20 @@
 	"name": "Piglet",
 	"category": "Herdkeeping Supplies",
 	"iconUrl": "http://childrenofur.com/assets/entityImages/Piglet.png",
-	"spriteUrl": "http://c2.glitch.bz/items/2012-12-06/piglet__x1_sit_png_1354830978.png",
+	"iconNum": 1,
+	"spriteUrl": "http://childrenofur.com/assets/entityImages/Piglet.png",
+	"animSpriteUrl": "http://c2.glitch.bz/items/2012-12-06/piglet__x1_sit_png_1354830978.png",
 	"stacksTo": 1,
 	"price": 400,
-	"description": "One wiggly little piggly. He wants to turn into a big pig. Feed him nourishing plant-y food to help him grow."
+	"description": "One wiggly little piggly. He wants to turn into a big pig. Feed him nourishing plant-y food to help him grow.",
+	"actions": [
+      {
+        "name": "Feed",
+        "multiEnabled": true,
+        "description": "Help this little one grow up",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
   }
 }

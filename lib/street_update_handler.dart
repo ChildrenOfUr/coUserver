@@ -120,7 +120,7 @@ class StreetUpdateHandler {
 	static void updateNpcs() {
 		streets.forEach((String streetName, Street street) {
 			if (street.occupants.length > 0) {
-				Map moveMap = {};
+				Map<String, dynamic> moveMap = {};
 				moveMap['npcMove'] = 'true';
 				moveMap['npcs'] = [];
 				street.npcs.forEach((String id, NPC npc) {
@@ -133,7 +133,11 @@ class StreetUpdateHandler {
 
 				street.occupants.forEach((String username, WebSocket socket) {
 					if (socket != null) {
-						socket.add(JSON.encode(moveMap));
+						try {
+							socket.add(JSON.encode(moveMap));
+						} catch (e) {
+							log("Error sending moveMap $moveMap to $username: $e");
+						}
 					}
 				});
 			}
@@ -149,7 +153,7 @@ class StreetUpdateHandler {
 				street.quoins.forEach((String id, Quoin quoin) => quoin.update());
 				street.npcs.forEach((String id, NPC npc) => npc.update());
 
-				Map<String, List> updates = {
+				Map<String, dynamic> updates = {
 					"label":streetName,
 					"quoins":[],
 					"npcs":[],
@@ -415,6 +419,14 @@ class StreetUpdateHandler {
 		                           }));
 
 		InventoryV2.decreaseDurability(email, NoteManager.tool_item);
+	}
+
+	static Future feed2(
+		{WebSocket userSocket, String email, String itemType, int count, int slot, int subSlot}
+	) async {
+		return BabyAnimals.feed2(
+			userSocket: userSocket, email: email,
+			itemType: itemType, count: count, slot: slot, subSlot: subSlot);
 	}
 }
 

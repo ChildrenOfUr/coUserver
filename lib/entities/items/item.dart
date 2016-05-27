@@ -12,6 +12,7 @@ import 'package:coUserver/common/user.dart';
 import 'package:coUserver/quests/quest.dart';
 import 'package:coUserver/common/stat_buffer.dart';
 import 'package:coUserver/street_update_handler.dart';
+import 'package:coUserver/player_update_handler.dart';
 import 'package:coUserver/entities/items/actions/recipes/recipe.dart';
 import 'package:coUserver/achievements/achievements.dart';
 import 'package:coUserver/buffs/buffmanager.dart';
@@ -40,6 +41,7 @@ part 'actions/itemgroups/recipe-tool.dart';
 
 class Item extends Object
 	with MetabolicsChange,
+	BabyAnimals,
 	Consumable,
 	Cubimal,
 	CubimalBox,
@@ -264,7 +266,7 @@ class Item extends Object
 
 	// Find the y of the nearest platform
 	int getYFromGround(String streetName) {
-		int returnY = y;
+		num returnY = y;
 		Street street = StreetUpdateHandler.streets[streetName];
 
 		if (street == null) {
