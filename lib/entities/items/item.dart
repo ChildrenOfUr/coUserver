@@ -8,6 +8,7 @@ import 'dart:io';
 import 'package:coUserver/inventory_new.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
 import 'package:coUserver/common/util.dart';
+import 'package:coUserver/common/mapdata/mapdata.dart';
 import 'package:coUserver/common/user.dart';
 import 'package:coUserver/quests/quest.dart';
 import 'package:coUserver/common/stat_buffer.dart';

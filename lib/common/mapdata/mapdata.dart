@@ -30,16 +30,16 @@ String getMapData(@app.QueryParam("token") String token) {
 }
 
 Map<String, dynamic> getStreetByTsid(String tsid) {
-	for (Map<String, dynamic> testStreet in mapdata_streets.values) {
-		if (testStreet["tsid"] != null) {
-			String testTsid = tsidL(testStreet["tsid"]);
-			if (testTsid == tsid) {
-				return testStreet;
-			}
-		}
-	}
+	Map<String, dynamic> street = null;
 
-	return null;
+	mapdata_streets.forEach((String label, Map<String, dynamic> data) {
+		if (data["tsid"] != null && tsidL(data["tsid"]) == tsidL(tsid)) {
+			street = data..addAll({"label": label});
+			return;
+		}
+	});
+
+	return street;
 }
 
 Map<String, dynamic> getStreetByName(String name) {

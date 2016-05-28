@@ -22,7 +22,9 @@ abstract class BabyAnimals {
 			'${pX ~/ 1}'
 			'${pY ~/ 1}'
 			'${rand.nextInt(9999)}';
-		randId = randId.substring(0, 30);
+		if (randId.length > 30) {
+			randId = randId.substring(0, 30);
+		}
 
 		// Instantiate a new entity
 		StreetEntity newEntity = new StreetEntity.create(
@@ -72,17 +74,16 @@ abstract class BabyAnimals {
 			return false;
 		}
 
+		Map<String, dynamic> feedCache = userActionCache[email];
+		String animalItemType = feedCache['type'];
+		String entityType = ANIMAL_TYPES[animalItemType];
+
 		/* Min chance of spawn is 1 in 10 for 1 item,
 			and max is 1 in 2 for 10 items */
-		//if (rand.nextInt((11 - count).clamp(2, 10)) == 0) {
-		if(true) {
+		if (rand.nextInt((11 - count).clamp(2, 10)) == 0) {
 			// Spawn entity
 			try {
 				Identifier player = PlayerUpdateHandler.users[await User.getUsernameFromEmail(email)];
-
-				Map<String, dynamic> feedCache = userActionCache[email];
-				String itemType = feedCache['type'];
-				String entityType = ANIMAL_TYPES[itemType];
 
 				if ((await InventoryV2.takeItemFromUser(email, feedCache['slot'], feedCache['subSlot'], 1)) == null) {
 					// Could not take baby animal
@@ -96,6 +97,7 @@ abstract class BabyAnimals {
 					return false;
 				}
 
+				toast('A $entityType appeared!', userSocket);
 				_uncache();
 				return true;
 			} catch (e) {
@@ -104,6 +106,8 @@ abstract class BabyAnimals {
 				return false;
 			}
 		} else {
+			toast('The ${items[animalItemType].name} thanks you for'
+				' that ${items[itemType].name}', userSocket);
 			_uncache();
 			return false;
 		}
