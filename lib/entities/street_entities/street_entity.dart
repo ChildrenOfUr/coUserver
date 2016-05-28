@@ -19,5 +19,5 @@ class StreetEntity {
 
 	@Field() int x, y;
 
-	@override String toString() => "<Entity $id ($type) on $tsid at ($x, $y)>";
+	@override String toString() => "<StreetEntity $id ($type) on $tsid at ($x, $y)>";
 }

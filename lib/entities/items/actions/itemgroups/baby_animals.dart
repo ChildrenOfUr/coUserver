@@ -41,13 +41,20 @@ abstract class BabyAnimals {
 		}
 
 		// Spawn succeeded
-		// TODO: load onto street
 		return true;
 	}
 
-	Future feed({Map map, WebSocket userSocket, String email, String streetName, String username}) async {
+	Future<bool> feed({Map map, WebSocket userSocket, String email, String streetName, String username}) async {
 		InventoryV2 inv = await getInventory(email);
 		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
+
+		String tsid = mapdata_streets[streetName]["tsid"];
+		String entityType = ANIMAL_TYPES[itemInSlot.itemType];
+		if (tsid == null || (await StreetEntityBalancer.streetIsFull(entityType, tsid))) {
+			toast("Isn't this street a little crowded?", userSocket);
+			return false;
+		}
+
 		userSocket.add(JSON.encode({
 			'id': 'global_action_monster',
 			'openWindow': 'itemChooser',
@@ -61,6 +68,8 @@ abstract class BabyAnimals {
 			'slot': map['slot'],
 			'subSlot': map['subSlot']
 		};
+
+		return true;
 	}
 
 	static Future<bool> feed2(
