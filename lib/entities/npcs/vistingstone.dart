@@ -31,7 +31,7 @@ class VisitingStone extends NPC {
 	}
 
 	visitAStreet({String email, WebSocket userSocket}) {
-		randomUnvisitedTsid(email).then((String tsid) {
+		randomUnvisitedTsid(email, inclHidden: false).then((String tsid) {
 			userSocket.add(JSON.encode({
 				"gotoStreet": "true",
 				"tsid": tsid

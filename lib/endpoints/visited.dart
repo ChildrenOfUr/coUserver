@@ -36,13 +36,25 @@ Future<List<String>> getLocationHistoryInverse(
 	return allTsids.where((String tsid) => !history.contains(tsid)).toList();
 }
 
-Future<String> randomUnvisitedTsid(String email) async {
+Future<String> randomUnvisitedTsid(String email, {bool inclHidden: true}) async {
 	List<String> unvisited = await getLocationHistoryInverse(email, true);
 	if (unvisited.length > 0) {
 		return unvisited[rand.nextInt(unvisited.length)];
 	} else {
 		List<Map> allWithData = mapdata_streets.values.where((Map data) {
-			return data["tsid"] != null;
+			if (data["tsid"] == null) {
+				// Don't include streets without TSIDs
+				return false;
+			}
+
+			if (inclHidden) {
+				// Include hidden streets
+				return true;
+			} else {
+				// Don't include hidden streets
+				// Streets with a null value are not hidden (false)
+				return ((data["map_hidden"] ?? false) != true);
+			}
 		}).toList();
 		return allWithData[rand.nextInt(allWithData.length)]["tsid"];
 	}
