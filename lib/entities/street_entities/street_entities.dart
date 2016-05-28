@@ -103,8 +103,10 @@ class StreetEntities {
 
 		if (!(await _setInDb(entity))) {
 			return false;
-		} else {
+		} else if (loadNow) {
 			return _setInMemory(entity);
+		} else {
+			return true;
 		}
 	}
 
