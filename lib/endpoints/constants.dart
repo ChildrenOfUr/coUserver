@@ -11,11 +11,14 @@ class Constants {
 
 	num get quoinMultiplierLimit => 73; // prime
 
+	int get changeUsernameCost => 1000;
+
 	@app.Route("/json")
 	String getAll() {
 		return JSON.encode({
 			"quoinLimit": quoinLimit,
-			"quoinMultiplierLimit": quoinMultiplierLimit
+			"quoinMultiplierLimit": quoinMultiplierLimit,
+			"changeUsernameCost": changeUsernameCost
 		});
 	}
 

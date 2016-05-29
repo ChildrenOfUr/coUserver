@@ -14,6 +14,7 @@ import 'package:coUserver/endpoints/metabolics/metabolics.dart';
 import 'package:coUserver/street.dart';
 import 'package:coUserver/entities/items/item.dart';
 import 'package:coUserver/common/identifier.dart';
+import 'package:coUserver/endpoints/changeusername.dart';
 import 'package:coUserver/skills/skillsmanager.dart';
 import 'package:coUserver/buffs/buffmanager.dart';
 import 'package:coUserver/entities/items/actions/recipes/recipe.dart';
@@ -421,13 +422,15 @@ class StreetUpdateHandler {
 		InventoryV2.decreaseDurability(email, NoteManager.tool_item);
 	}
 
-	static Future feed2(
-		{WebSocket userSocket, String email, String itemType, int count, int slot, int subSlot}
-	) async {
-		return BabyAnimals.feed2(
+	static Future feed2({
+		WebSocket userSocket, String email, String itemType, int count, int slot, int subSlot}) async =>
+		BabyAnimals.feed2(
 			userSocket: userSocket, email: email,
 			itemType: itemType, count: count, slot: slot, subSlot: subSlot);
-	}
+
+	static Future changeClientUsername({
+		WebSocket userSocket, String email, String oldUsername, String newUsername}) async =>
+		changeUsername(oldUsername: oldUsername, newUsername: newUsername, userSocket: userSocket);
 }
 
 @app.Route('/teleport', methods: const[app.POST])
