@@ -30,7 +30,7 @@ async {
 
 	final String takenQuery = 'SELECT id'
 		' FROM users'
-		' WHERE username = @new';
+		' WHERE LOWER(username) = LOWER(@new)';
 
 	final String usernameQuery = 'UPDATE users'
 		' SET username = @new'
