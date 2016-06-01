@@ -225,7 +225,7 @@ Future collectItem(@app.Body(app.JSON) Map parameters) async {
 		Item item = jsonx.decode(itemString, type: Item);
 		bool success = (await InventoryV2.addItemToUser(email, encode(item), 1)) == 1;
 		if (!success) {
-			return 'Error, could not give ${item.itemType} to $email';
+			return 'Error, could not give ${item.itemType} to <email=$email>';
 		} else {
 			//mark the item as taken
 			query = 'UPDATE messages SET item${index}_taken = true WHERE id = @id';

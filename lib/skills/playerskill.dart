@@ -27,7 +27,7 @@ class PlayerSkill extends Skill {
 		"player_description": description
 	});
 
-	String toString() => "<Skill $id for $email>";
+	String toString() => "<Skill $id for <email=$email>>";
 
 	/// The player's email address
 	String email;
@@ -82,7 +82,7 @@ class PlayerSkill extends Skill {
 				{"newJson": newJson, "email": email}
 			)) == 1);
 		} catch (e) {
-			log("Error setting skill $id for $email: $e");
+			log("Error setting skill $id for <email=$email>: $e");
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}

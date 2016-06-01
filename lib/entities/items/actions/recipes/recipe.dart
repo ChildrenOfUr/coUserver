@@ -5,7 +5,7 @@ import 'dart:io';
 import 'dart:convert';
 
 import 'package:coUserver/entities/items/item.dart';
-import 'package:coUserver/inventory_new.dart';
+import 'package:coUserver/endpoints/inventory_new.dart';
 import 'package:coUserver/API_KEYS.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
 import 'package:coUserver/common/util.dart';

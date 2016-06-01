@@ -7,7 +7,7 @@ import 'dart:io';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/common/user.dart';
 import 'package:coUserver/entities/items/item.dart';
-import 'package:coUserver/inventory_new.dart';
+import 'package:coUserver/endpoints/inventory_new.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
 
 import 'package:harvest/harvest.dart' as harvest;
@@ -208,7 +208,6 @@ class Quest extends Trackable with MetabolicsChange {
 			} catch (e) {
 				complete = true;
 				messageBus.publish(new CompleteQuest(this, email));
-				print('$email completed the quest "${title}"');
 				await _giveRewards();
 			}
 		}));

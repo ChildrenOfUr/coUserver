@@ -49,7 +49,7 @@ class PlayerBuff extends Buff {
 		});
 
 	@override
-	String toString() => "<Buff $id for $email>";
+	String toString() => "<Buff $id>";
 
 	String email;
 	Duration remaining;
@@ -115,7 +115,7 @@ class PlayerBuff extends Buff {
 				{"newJson": newJson, "email": email}
 			)) == 1);
 		} catch (e) {
-			log("Error setting buff $id for $email: $e");
+			log("Error setting buff $id for <email=$email>: $e");
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}

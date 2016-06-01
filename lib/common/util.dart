@@ -185,12 +185,12 @@ String createId(num x, num y, String type, String tsid) {
 }
 
 /**
- *
  * Log a message out to the console (and possibly a log file through redirection)
- *
+ * Returns the printed message (including prefixes)
  **/
-void log(String message) {
-	print("(${new DateTime.now().toString()}) $message");
+void log(dynamic object) {
+	String time = new DateTime.now().toString();
+	print('$time: $object');
 }
 
 @app.Route('/getSpritesheets')

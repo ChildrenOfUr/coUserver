@@ -406,7 +406,7 @@ class InventoryV2 {
 		inventory_json = jsonx.encode(tmpSlots);
 
 		if (toMerge > 0) {
-			log("[InventoryV2] Cannot give ${item.itemType} x $count to user with email $email because they ran"
+			log("[InventoryV2] Cannot give ${item.itemType} x $count because user ran"
 			    + " out of slots before all items were added. $toMerge items skipped.");
 			Identifier playerId = PlayerUpdateHandler.users[await User.getUsernameFromEmail(email)];
 			if(playerId != null) {
@@ -543,7 +543,7 @@ class InventoryV2 {
 
 			return numRowsUpdated;
 		} catch (e) {
-			log('Could not update inventories for $email: $e');
+			log('Could not update inventory: $e');
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}
@@ -719,7 +719,7 @@ class InventoryV2 {
 		if (toGrab > 0) {
 			//abort - if we can't have it all, we can't have any
 			if(!simulate) {
-				log("[InventoryV2] Cannot take ${item.itemType} x $count from user with email $email because they ran"
+				log("[InventoryV2] Cannot take ${item.itemType} x $count because the user ran"
 				    + " out of slots before all items were taken. $toGrab items skipped.");
 			}
 			return 0;
@@ -931,7 +931,7 @@ class InventoryV2 {
 				numTriesLeft--;
 			}
 			if(inventoryLocked[email]) {
-				throw "Could not aquire a lock for $email's inventory";
+				throw "Could not acquire a lock for inventory";
 			}
 		}
 
@@ -1051,13 +1051,13 @@ class InventoryV2 {
 			Slot origContents = inv.changeSlot(toIndex, toBagIndex, newContents);
 			if (origContents == null) {
 				throw "Could not move ${newContents
-					.itemType} to $toIndex.$toBagIndex within inventory of $email";
+					.itemType} to $toIndex.$toBagIndex within inventory";
 			}
 			// Move old item into other slot
 			origContents = inv.changeSlot(fromIndex, fromBagIndex, origContents, merge: false);
 			if (origContents == null) {
 				throw "Could not move ${newContents
-					.itemType} to $toIndex.$toBagIndex within inventory of $email";
+					.itemType} to $toIndex.$toBagIndex within inventory";
 			}
 
 			// Update the inventory

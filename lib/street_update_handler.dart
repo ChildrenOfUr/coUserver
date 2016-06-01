@@ -9,7 +9,7 @@ import 'package:coUserver/common/util.dart';
 import 'package:coUserver/achievements/achievements.dart';
 import 'package:coUserver/player_update_handler.dart';
 import 'package:coUserver/entities/entity.dart';
-import 'package:coUserver/inventory_new.dart';
+import 'package:coUserver/endpoints/inventory_new.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
 import 'package:coUserver/street.dart';
 import 'package:coUserver/entities/items/item.dart';
@@ -467,7 +467,7 @@ Future teleportUser(@app.Body(app.FORM) Map data) async {
 
 	String email = await User.getEmailFromUsername(username);
 	if(email == null) {
-		return 'I could not get a username from $email';
+		return 'I could not get a username from <email=$email>';
 	}
 	WebSocket userSocket = StreetUpdateHandler.userSockets[email];
 

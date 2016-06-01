@@ -40,7 +40,7 @@ class StatManager {
 				return rows.single.toMap()[statName];
 			}
 		} catch (e) {
-			log('Error reading stat $statName for user $email: $e');
+			log('Error reading stat $statName for <email=$email>: $e');
 			return null;
 		} finally {
 			dbManager.closeConnection(dbConn);
@@ -81,7 +81,7 @@ class StatManager {
 			};
 			return (await dbConn.innerConn.query(query, values).single).toMap()[statName];
 		} catch (e) {
-			log('Error writing stat $statName for user $email: $e');
+			log('Error writing stat $statName: $e');
 			return null;
 		} finally {
 			dbManager.closeConnection(dbConn);

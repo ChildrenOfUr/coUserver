@@ -14,7 +14,7 @@ import 'package:coUserver/API_KEYS.dart';
 import 'package:coUserver/quests/quest.dart';
 import 'package:coUserver/endpoints/stats.dart';
 import 'package:coUserver/achievements/achievements.dart';
-import 'package:coUserver/inventory_new.dart';
+import 'package:coUserver/endpoints/inventory_new.dart';
 import 'package:coUserver/common/harvest_messages.dart';
 import 'package:coUserver/street_update_handler.dart';
 import 'package:coUserver/skills/skillsmanager.dart';

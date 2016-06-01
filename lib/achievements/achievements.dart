@@ -104,7 +104,7 @@ class Achievement {
 				).first.achievements.contains(id)
 			);
 		} catch (e) {
-			log("Error getting achievements for email $email: $e");
+			log("Error getting achievements for <email=$email>: $e");
 			return false;
 		} finally {
 			dbManager.closeConnection(dbConn);
@@ -145,11 +145,10 @@ class Achievement {
 
 				result = true;
 			} else {
-				log("Database did not correctly save new achievements for $email");
 				result = false;
 			}
 		} catch (e) {
-			log("Error setting achievements for email $email: $e");
+			log("Error setting achievements for <email=$email>: $e");
 			result = false;
 		} finally {
 			dbManager.closeConnection(dbConn);

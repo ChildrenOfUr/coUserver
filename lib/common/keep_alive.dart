@@ -4,7 +4,7 @@ import 'dart:io';
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:coUserver/chat_handler.dart';
+import 'package:coUserver/endpoints/chat_handler.dart';
 
 class KeepAlive {
 	static List<WebSocket> pingList = [];

@@ -35,7 +35,7 @@ class User {
 				User u = (await dbConn.query(query, User, {"email": email})).first;
 				_updateMaps(u);
 			} catch(e) {
-				log("Error getting username for email $email: $e");
+				log("Error getting username for <email=$email>: $e");
 			} finally {
 				dbManager.closeConnection(dbConn);
 			}
@@ -92,7 +92,7 @@ class User {
 				User u = (await dbConn.query(query, User, {"email": email})).first;
 				_updateMaps(u);
 			} catch(e) {
-				log("Error getting username for email $email: $e");
+				log("Error getting id for <email=$email>: $e");
 			} finally {
 				dbManager.closeConnection(dbConn);
 			}

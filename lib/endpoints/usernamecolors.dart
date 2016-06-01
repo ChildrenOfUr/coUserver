@@ -74,7 +74,7 @@ class UsernameColors {
       // Try to parse int to prevent injection risks
       int.parse(nekkidHex, radix: 16);
     } on FormatException catch (e) {
-      log("Cannot use invalid hex $nekkidHex as username color for $email: $e");
+      log("Cannot use invalid hex $nekkidHex as username color for <email=$email>: $e");
       // Invalid hex value (possibly a malicious SQL command?)
       return false;
     } catch (e) {
@@ -98,7 +98,7 @@ class UsernameColors {
       success = (result == 1);
     } catch (e) {
       // Log error message for investigation
-      log("Unable to set username color for $email to $nekkidHex: $e");
+      log("Unable to set username color to $nekkidHex for <email=$email>: $e");
     } finally {
       // Return result
       return success;
