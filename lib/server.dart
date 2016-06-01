@@ -93,7 +93,7 @@ Future cleanup([int exitCode = 0]) async {
 	// Persist the state of each loaded street to the database
 	await Future.forEach(StreetUpdateHandler.streets.keys, (String label) async {
 		log('[Cleanup] Persisting $label before shutdown');
-		await StreetUpdateHandler.streets[label].persistState();
+		await StreetUpdateHandler.streets[label]?.persistState();
 	});
 
 	exit(exitCode);
