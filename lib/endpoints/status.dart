@@ -27,7 +27,7 @@ class ServerStatus {
 				..writeln('Memory: ${await ServerStatus.bytesUsed} B')
 				..writeln('CPU: ${await ServerStatus.cpuUsed}%')
 				..writeln('Uptime: ${ServerStatus.uptime}');
-			print(status.toString().trim());
+			log(status.toString().trim());
 		});
 
 		_serverStart = new DateTime.now();

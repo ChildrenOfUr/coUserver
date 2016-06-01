@@ -52,11 +52,15 @@ Future main() async {
 	// Save some server state to the disk every 30 seconds
 	new Timer.periodic(new Duration(seconds: 30), (Timer t) {
 		try {
-			StatBuffer.writeStatsToFile();
-			saveCacheToDisk('heightsCache.json', heightsCache);
 			saveCacheToDisk('headsCache.json', headsCache);
 		} catch (e) {
-			log('Problem writing stats to file: $e');
+			log('Problem writing headsCache.json: $e');
+		}
+
+		try {
+			saveCacheToDisk('heightsCache.json', heightsCache);
+		} catch (e) {
+			log('Problem writing heightsCache.json: $e');
 		}
 	});
 

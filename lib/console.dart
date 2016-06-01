@@ -3,6 +3,8 @@ library console;
 import 'dart:async';
 import 'dart:io';
 
+import 'package:coUserver/common/util.dart';
+
 class Console {
 	static Map<String, Command> _commands = new Map();
 
@@ -17,20 +19,21 @@ class Console {
 		_handler?.cancel();
 		_handler = stdin.listen((List<int> chars) async {
 			String input = new String.fromCharCodes(chars).trim();
+			log('> $input');
 			try {
-				print('');
 				await _runCommand(input);
-				print('');
 			} catch (e) {
-				print('Error running command: $e');
+				log('Error running command: $e');
 			}
 		});
 
 		new Command.register('help', () {
-			print('List of commands & arguments:');
+			StringBuffer help = new StringBuffer()
+				..writeln('List of commands & arguments:');
 			for (Command command in _commands.values) {
-				print('* $command');
+				help.writeln('* $command');
 			}
+			log(help.toString().trim());
 		});
 	}
 
