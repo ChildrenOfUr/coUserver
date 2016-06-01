@@ -276,7 +276,7 @@ class Butterfly extends NPC {
 		if (!(await InventoryV2.hasItem(email, 'butterfly_lotion', 1))) {
 			say(responses['massageFail'].elementAt(rand.nextInt(responses['massageFail'].length)));
 		} else {
-			StatBuffer.incrementStat("butterfliesMassaged", 1);
+			StatManager.add(email, Stat.butterflies_massaged);
 			say(responses['massage'].elementAt(rand.nextInt(responses['massage'].length)));
 			massaged = true;
 			numMilks = 0;
@@ -295,16 +295,18 @@ class Butterfly extends NPC {
 
 			interacting = true;
 
+			int qty;
 			if (rand.nextInt(10) == 1) {
 				// bonus milk
-				await InventoryV2.addItemToUser(email, items['butterfly_milk'].getMap(), 3, id);
-				StatBuffer.incrementStat("butterfliesMilked", 1);
+				qty = 3;
 				say(responses['milkExtra'].elementAt(rand.nextInt(responses['milkExtra'].length)));
 			} else {
-				await InventoryV2.addItemToUser(email, items['butterfly_milk'].getMap(), 1, id);
-				StatBuffer.incrementStat("butterfliesMilked", 1);
+				qty = 1;
 				say(responses['milk'].elementAt(rand.nextInt(responses['milk'].length)));
 			}
+			await InventoryV2.addItemToUser(email, items['butterfly_milk'].getMap(), qty, id);
+
+			StatManager.add(email, Stat.butterflies_milked);
 		} else {
 			// not massaged (milkFail)
 			bool success = await super.trySetMetabolics(email, energy: -5, mood: -2, imgMin: 5, imgRange: 2);

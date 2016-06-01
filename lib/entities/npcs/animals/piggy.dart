@@ -67,7 +67,7 @@ class Piggy extends NPC {
 			return false;
 		}
 
-		StatBuffer.incrementStat("piggiesNibbled", 1);
+		StatManager.add(email, Stat.piggies_nibbled);
 		//give the player the 'fruits' of their labor
 		await InventoryV2.addItemToUser(email, items['meat'].getMap(), 1, id);
 
@@ -83,7 +83,7 @@ class Piggy extends NPC {
 			return false;
 		}
 
-		StatBuffer.incrementStat("piggiesPetted", 1);
+		StatManager.add(email, Stat.piggies_petted);
 		say(responses['pet'].elementAt(rand.nextInt(responses['pet'].length)));
 
 		QuestEndpoint.questLogCache[email].offerQuest('Q9');

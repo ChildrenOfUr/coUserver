@@ -157,7 +157,7 @@ class Chicken extends NPC {
 			say(responses['squeeze'].elementAt(rand.nextInt(responses['squeeze'].length)));
 		}
 
-		StatBuffer.incrementStat("chickensSqueezed", 1);
+		StatManager.add(email, Stat.chickens_squeezed);
 		return true;
 	}
 

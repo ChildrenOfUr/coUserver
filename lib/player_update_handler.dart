@@ -83,13 +83,12 @@ class PlayerUpdateHandler {
 						num currentY = num.parse(map['xy'].split(',')[1]);
 						num xDiff = (currentX - prevX).abs();
 						num yDiff = (currentY - prevY).abs();
-						//StatBuffer.incrementStat("stepsTaken", (xDiff + yDiff) / 22);
 
 						int newSteps = ((xDiff + yDiff) / 22).ceil().abs();
 						StatManager.add(email, Stat.steps_taken, increment: newSteps, buffer: true);
 
 						if (yDiff > 17) {
-							// TODO: do this better
+							// TODO: detect this better
 							StatManager.add(email, Stat.jumps, buffer: true);
 						}
 

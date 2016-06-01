@@ -19,8 +19,12 @@ class Quoin
 		}
 	}
 
-	setCollected() {
-		StatBuffer.incrementStat("quoionsCollected");
+	setCollected(String username) {
+		User.getEmailFromUsername(username).then((String email) {
+			if (email != null) {
+				StatManager.add(email, Stat.quoins_collected);
+			}
+		});
 
 		if (type == "quarazy") {
 			print("skipping setting collected state of quarazy quoin");

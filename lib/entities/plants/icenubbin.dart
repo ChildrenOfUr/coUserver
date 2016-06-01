@@ -56,7 +56,6 @@ class IceNubbin extends Plant {
 		// Chance to let it melt before you collect it
 		if(new Random().nextInt(2) == 1) {
 			await InventoryV2.addItemToUser(email, items['ice'].getMap(), numToGive, id);
-			StatBuffer.incrementStat("iceNubbinsCollected", 1);
 			state--;
 
 			StatManager.add(email, Stat.ice_scraped).then((int scraped) {
@@ -72,7 +71,7 @@ class IceNubbin extends Plant {
 					Achievement.find("ice_baby").awardTo(email);
 				}
 			});
-			
+
 			if(state < 1) {
 				respawn = new DateTime.now().add(new Duration(minutes:2));
 				return false;

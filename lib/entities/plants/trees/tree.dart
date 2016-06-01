@@ -104,7 +104,6 @@ abstract class Tree extends Plant {
 		//say a witty thing
 		say(responses['harvest'].elementAt(rand.nextInt(responses['harvest'].length)));
 
-		StatBuffer.incrementStat("treesHarvested", 1);
 		respawn = new DateTime.now().add(new Duration(seconds: 30));
 		state--;
 
@@ -151,31 +150,15 @@ abstract class Tree extends Plant {
 		//say a witty thing
 		say(responses['water'].elementAt(rand.nextInt(responses['water'].length)));
 
-		//StatBuffer.incrementStat("treesWatered", 1);
-		Stat stat;
-		switch (type) {
-			case "Bean Tree":
-				stat = Stat.bean_trees_watered;
-				break;
-			case "Bubble Tree":
-				stat = Stat.bubble_trees_watered;
-				break;
-			case "Egg Plant":
-				stat = Stat.egg_plants_watered;
-				break;
-			case "Fruit Tree":
-				stat = Stat.fruit_trees_watered;
-				break;
-			case "Gas Plant":
-				stat = Stat.gas_plants_watered;
-				break;
-			case "Spice Plant":
-				stat = Stat.spice_plants_watered;
-				break;
-			case "Wood Tree":
-				stat = Stat.wood_trees_watered;
-				break;
-		}
+		Stat stat = ({
+			'Bean Tree': Stat.bean_trees_watered,
+			'Bubble Tree': Stat.bubble_trees_watered,
+			'Egg Plant': Stat.egg_plants_watered,
+			'Fruit Tree': Stat.fruit_trees_watered,
+			'Gas Plant': Stat.gas_plants_watered,
+			'Spice Plant': Stat.spice_plants_watered,
+			'Wood Tree': Stat.wood_trees_watered
+		})[type];
 		if (stat != null) {
 			StatManager.add(email, stat);
 		}
@@ -208,31 +191,15 @@ abstract class Tree extends Plant {
 
 		SkillManager.learn(SKILL, email);
 
-		//StatBuffer.incrementStat("treesPetted", 1);
-		Stat stat;
-		switch (type) {
-			case "Bean Tree":
-				stat = Stat.bean_trees_petted;
-				break;
-			case "Bubble Tree":
-				stat = Stat.bubble_trees_petted;
-				break;
-			case "Egg Plant":
-				stat = Stat.egg_plants_petted;
-				break;
-			case "Fruit Tree":
-				stat = Stat.fruit_trees_petted;
-				break;
-			case "Gas Plant":
-				stat = Stat.gas_plants_petted;
-				break;
-			case "Spice Plant":
-				stat = Stat.spice_plants_petted;
-				break;
-			case "Wood Tree":
-				stat = Stat.wood_trees_petted;
-				break;
-		}
+		Stat stat = ({
+			'Bean Tree': Stat.bean_trees_petted,
+			'Bubble Tree': Stat.bubble_trees_petted,
+			'Egg Plant': Stat.egg_plants_petted,
+			'Fruit Tree': Stat.fruit_trees_petted,
+			'Gas Plant': Stat.gas_plants_petted,
+			'Spice Plant': Stat.spice_plants_petted,
+			'Wood Tree': Stat.wood_trees_petted
+		})[type];
 		if (stat != null) {
 			StatManager.add(email, stat);
 		}

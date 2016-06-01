@@ -280,7 +280,6 @@ abstract class Vendor extends NPC {
 			return;
 		}
 
-		StatBuffer.incrementStat("itemsBoughtFromVendors", num);
 		Item item = new Item.clone(itemType);
 		Metabolics m = await getMetabolics(email: email);
 		if(m.currants >= calcPrice(item) * num) {
@@ -293,6 +292,8 @@ abstract class Vendor extends NPC {
 				QuestEndpoint.questLogCache[email].offerQuest('Q1');
 			}
 		}
+
+		StatManager.add(email, Stat.items_from_vendors, increment: num);
 	}
 
 	sellItem({WebSocket userSocket, String itemType, int num, String email}) async {

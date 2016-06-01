@@ -323,7 +323,7 @@ class MetabolicsEndpoint {
 			if (result > 0) {
 				Map map = {'collectQuoin': 'true', 'id': q.id, 'amt': amt, 'quoinType': q.type};
 
-				q.setCollected();
+				q.setCollected(username);
 
 				userSockets[username].add(JSON.encode(map));
 				userSockets[username].add(JSON.encode(encode(m)));

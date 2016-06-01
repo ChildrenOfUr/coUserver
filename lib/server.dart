@@ -80,10 +80,6 @@ Future main() async {
 	// Enable interactive console
 	Console.init();
 
-	// Set up status access & start counting uptime
-	ServerStatus.init();
-
-	// Start counting uptime
 	log('Server started successfully');
 
 	new Command.register('cleanup', (String exitCode) async {

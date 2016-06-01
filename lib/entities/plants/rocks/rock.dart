@@ -110,7 +110,7 @@ abstract class Rock extends Plant {
 		say(responses['mine_$type']
 			    .elementAt(rand.nextInt(responses['mine_$type'].length)));
 
-		StatBuffer.incrementStat("rocksMined", 1);
+		StatManager.add(email, Stat.rocks_mined);
 		state++;
 		if (state >= currentState.numFrames) {
 			say(responses['gone'].elementAt(rand.nextInt(responses['gone'].length)));

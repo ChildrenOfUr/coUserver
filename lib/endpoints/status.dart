@@ -7,7 +7,6 @@ import 'package:intl/intl.dart';
 import 'package:redstone/redstone.dart' as app;
 
 import 'package:coUserver/API_KEYS.dart';
-import 'package:coUserver/console.dart';
 import 'package:coUserver/street.dart';
 import 'package:coUserver/street_update_handler.dart';
 import 'package:coUserver/common/util.dart';
@@ -15,26 +14,8 @@ import 'package:coUserver/endpoints/chat_handler.dart';
 
 @app.Group('/status')
 class ServerStatus {
-	static void init() {
-		new Command.register('status', () async {
-			StringBuffer status = new StringBuffer()
-				..writeln(
-					'${ServerStatus.numOnlinePlayers} Players:'
-					' ${ServerStatus.onlinePlayers.join(', ')}')
-				..writeln(
-					'${ServerStatus.numStreetsLoaded} Streets:'
-					' ${ServerStatus.streetsLoaded.join(', ')}')
-				..writeln('Memory: ${await ServerStatus.bytesUsed} B')
-				..writeln('CPU: ${await ServerStatus.cpuUsed}%')
-				..writeln('Uptime: ${ServerStatus.uptime}');
-			log(status.toString().trim());
-		});
-
-		_serverStart = new DateTime.now();
-	}
-
 	/// Count uptime
-	static DateTime _serverStart;
+	static DateTime _serverStart = new DateTime.now();
 
 	/// List online players
 	static List<String> get onlinePlayers {

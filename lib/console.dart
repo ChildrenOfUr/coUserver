@@ -4,13 +4,13 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:coUserver/common/util.dart';
+import 'package:coUserver/endpoints/stats.dart';
+import 'package:coUserver/endpoints/status.dart';
 
 class Console {
 	static Map<String, Command> _commands = new Map();
 
 	static StreamSubscription _handler;
-
-	static String lastEntry = '';
 
 	static void init() {
 		stdin.echoMode = true;
@@ -19,11 +19,13 @@ class Console {
 		_handler?.cancel();
 		_handler = stdin.listen((List<int> chars) async {
 			String input = new String.fromCharCodes(chars).trim();
-			log('> $input');
-			try {
-				await _runCommand(input);
-			} catch (e) {
-				log('Error running command: $e');
+			if (input.length > 0) {
+				log('> $input');
+				try {
+					await _runCommand(input);
+				} catch (e) {
+					log('Error running command: $e');
+				}
 			}
 		});
 
@@ -35,6 +37,30 @@ class Console {
 			}
 			log(help.toString().trim());
 		});
+
+		new Command.register('stats', () async {
+			log(Console.formatMap(await StatManager.getAllSums()));
+		});
+
+		new Command.register('status', () async {
+			log(Console.formatMap(await getServerStatus()));
+		});
+	}
+
+	static String formatMap(Map input) {
+		StringBuffer output = new StringBuffer();
+		input.forEach((key, value) {
+			output.writeln('$key: $value');
+		});
+		return output.toString().trim();
+	}
+
+	static void registerCommand(Command command) {
+		if (_commands.containsKey(command.name)) {
+			throw 'Command ${command.name} already registered';
+		} else {
+			_commands[command.name] = command;
+		}
 	}
 
 	static Future<dynamic> _runCommand(String input) async {
@@ -46,14 +72,6 @@ class Console {
 			throw 'Command $name not found';
 		} else {
 			return await _commands[name].call(args);
-		}
-	}
-
-	static void registerCommand(Command command) {
-		if (_commands.containsKey(command.name)) {
-			throw 'Command ${command.name} already registered';
-		} else {
-			_commands[command.name] = command;
 		}
 	}
 }

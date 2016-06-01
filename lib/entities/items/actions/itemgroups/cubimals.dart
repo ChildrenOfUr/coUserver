@@ -51,7 +51,7 @@ abstract class Cubimal extends Object with MetabolicsChange {
 		if (!success) return false;
 		int img = ((freeValues[itemInSlot.itemType.substring(8)] / 2) * (ItemUser.rand.nextDouble() + 0.1)).truncate();
 		trySetMetabolics(email, mood: 10, imgMin: img);
-		StatBuffer.incrementStat("cubisSetFree", 1);
+		StatManager.add(email, Stat.cubimals_set_free);
 		toast("Your cubimal was released back into the wild. You got $img iMG.", userSocket);
 		return success;
 	}
@@ -133,7 +133,7 @@ abstract class CubimalBox {
 		}
 		bool success = (await InventoryV2.takeAnyItemsFromUser(email, box, 1) == 1);
 		await InventoryV2.addItemToUser(email, items[cubimal].getMap(), 1, box);
-		StatBuffer.incrementStat("cubiBoxesOpened", 11);
+		StatManager.add(email, Stat.cubimal_boxes_opened);
 		return success;
 	}
 

@@ -145,7 +145,7 @@ class Salmon extends NPC {
 		// 50% chance to let it slip out of your hands, you only catch a bubble
 		if (new Random().nextInt(1) == 1) {
 			await InventoryV2.addItemToUser(email, items['pocket_salmon'].getMap(), 1, id);
-			StatBuffer.incrementStat("salmonPocketed", 1);
+			StatManager.add(email, Stat.salmon_pocketed);
 			setState("gone");
 			respawn = new DateTime.now().add(new Duration(minutes: 2));
 			return true;

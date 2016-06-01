@@ -33,7 +33,6 @@ class Jellisac extends Plant {
 			return false;
 		}
 
-		StatBuffer.incrementStat("jellisacGrabbed", 1);
 		state--;
 		if(state < 1) {
 			respawn = new DateTime.now().add(new Duration(minutes:2));

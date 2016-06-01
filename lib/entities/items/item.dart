@@ -7,11 +7,11 @@ import 'dart:io';
 
 import 'package:coUserver/endpoints/inventory_new.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
+import 'package:coUserver/endpoints/stats.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/common/mapdata/mapdata.dart';
 import 'package:coUserver/common/user.dart';
 import 'package:coUserver/quests/quest.dart';
-import 'package:coUserver/common/stat_buffer.dart';
 import 'package:coUserver/street_update_handler.dart';
 import 'package:coUserver/player_update_handler.dart';
 import 'package:coUserver/entities/items/actions/recipes/recipe.dart';
@@ -229,7 +229,7 @@ class Item extends Object
 			..metadata = this.metadata;
 
 		await InventoryV2.addItemToUser(email, item.getMap(), 1, item_id);
-		StatBuffer.incrementStat("itemsPickedup", 1);
+		StatManager.add(email, Stat.items_picked_up);
 	}
 
 	// Client: inventory -> ground
@@ -246,7 +246,7 @@ class Item extends Object
 			droppedItem.putItemOnGround(map['x'], map['y'], streetName);
 		}
 
-		StatBuffer.incrementStat("itemsDropped", map['count']);
+		StatManager.add(email, Stat.items_dropped, increment: map['count']);
 	}
 
 	// Place the item in the street

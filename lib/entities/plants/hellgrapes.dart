@@ -69,7 +69,7 @@ class HellGrapes extends Plant {
 		}
 
 		// Update global stat
-		StatBuffer.incrementStat("grapesSquished", 1);
+		StatManager.add(email, Stat.grapes_squished);
 		// Hide
 		setActionEnabled("squish", false);
 		state = 5;

@@ -62,7 +62,6 @@ class PeatBog extends Plant {
 			return false;
 		}
 
-		StatBuffer.incrementStat("peatDug", 1);
 		state++;
 		if(state >= currentState.numFrames) {
 			respawn = new DateTime.now().add(new Duration(minutes:2));

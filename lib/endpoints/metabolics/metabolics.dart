@@ -6,12 +6,12 @@ import 'dart:mirrors';
 import 'dart:io';
 
 import 'package:coUserver/endpoints/inventory_new.dart';
+import 'package:coUserver/endpoints/stats.dart';
 import 'package:coUserver/quests/quest.dart';
 import 'package:coUserver/common/user.dart';
 import 'package:coUserver/achievements/achievements.dart';
 import 'package:coUserver/buffs/buffmanager.dart';
 import 'package:coUserver/common/util.dart';
-import 'package:coUserver/common/stat_buffer.dart';
 import 'package:coUserver/common/constants.dart';
 import 'package:coUserver/common/identifier.dart';
 import 'package:coUserver/player_update_handler.dart';
@@ -127,12 +127,12 @@ class MetabolicsChange {
 
 			//end emblem quest
 			messageBus.publish(new RequirementProgress('emblemGet', email));
-			StatBuffer.incrementStat("emblemsCreated", 1);
+			StatManager.add(email, Stat.emblems_collected);
 		} else {
 			instanceMirror.setField(new Symbol(giantName.toLowerCase() + 'favor'), giantFavor + favAmt);
 		}
 
-		StatBuffer.incrementStat("favorGenerated", favAmt);
+		StatManager.add(email, Stat.favor_earned, increment: favAmt);
 		return metabolics;
 	}
 }

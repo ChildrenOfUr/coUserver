@@ -81,7 +81,6 @@ class DirtPile extends Plant {
 			return false;
 		}
 
-		StatBuffer.incrementStat("dirtDug", 1);
 		state++;
 		if (state >= currentState.numFrames) {
 			respawn = new DateTime.now().add(new Duration(minutes: 2));
