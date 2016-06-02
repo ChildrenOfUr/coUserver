@@ -80,10 +80,17 @@ class CollisionPlatform implements Comparable {
 class DBStreet {
 	@Field() String id, items;
 
-	List<Item> get groundItems => jsonx.decode(items, type: const jsonx.TypeHelper<List<Item>>().type);
+	List<Item> get groundItems {
+		return jsonx.decode(items, type: const jsonx.TypeHelper<List<Item>>().type);
+	}
 
 	void set groundItems(List<Item> value) {
 		items = jsonx.encode(value);
+	}
+
+	@override
+	String toString() {
+		return "This is a DBStreet with an id of $id which has ${groundItems.length} items on it";
 	}
 }
 
@@ -163,18 +170,17 @@ class Street {
 		PostgreSql dbConn = await dbManager.getConnection();
 
 		String query = "SELECT * FROM streets WHERE id = @tsid";
-		DBStreet dbStreet;
 		try {
-			dbStreet = (await dbConn.query(query, DBStreet, {'tsid':tsid})).first;
+			DBStreet dbStreet = (await dbConn.query(query, DBStreet, {'tsid':tsid})).first;
 			dbStreet.groundItems.forEach((Item item) {
-				item.putItemOnGround(item.x, item.y, label);
+				item.putItemOnGround(item.x, item.y, label, id: item.item_id);
 			});
 		} catch (e) {
 			//no street in the database
-//			print("didn't load a street with tsid $tsid from the db");
+//			print("didn't load a street with tsid $tsid from the db: $e");
+		} finally {
+			dbManager.closeConnection(dbConn);
 		}
-
-		dbManager.closeConnection(dbConn);
 	}
 
 	Future loadJson({bool refreshCache: false}) async {
@@ -189,9 +195,9 @@ class Street {
 
 		groundY = -(streetData['dynamic']['ground_y'] as num).abs();
 		bounds = new Rectangle(streetData['dynamic']['l'],
-			                       streetData['dynamic']['t'],
-			                       streetData['dynamic']['l'].abs() + streetData['dynamic']['r'].abs(),
-			                       (streetData['dynamic']['t'] - streetData['dynamic']['b']).abs());
+								   streetData['dynamic']['t'],
+								   streetData['dynamic']['l'].abs() + streetData['dynamic']['r'].abs(),
+								   (streetData['dynamic']['t'] - streetData['dynamic']['b']).abs());
 
 		//For each layer on the street . . .
 		for (Map layer in new Map.from(streetData['dynamic']['layers']).values) {
@@ -220,10 +226,10 @@ class Street {
 			String query = "INSERT INTO streets(id,items) VALUES(@id,@items) ON CONFLICT (id) DO UPDATE SET items = @items";
 			await dbConn.execute(query, dbStreet);
 		} catch (e) {
-			print('could not persist $tsid ($label): $e');
+			log('could not persist $tsid ($label): $e');
+		} finally {
+			dbManager.closeConnection(dbConn);
 		}
-
-		dbManager.closeConnection(dbConn);
 	}
 
 	//ONLY WORKS IF PLATFORMS ARE SORTED WITH

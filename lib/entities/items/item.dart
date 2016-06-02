@@ -253,9 +253,11 @@ class Item extends Object
 	}
 
 	// Place the item in the street
-	void putItemOnGround(num x, num y, String streetName) {
-		String randString = new Random().nextInt(1000).toString();
-		String id = "i" + createId(x, y, itemType, streetName + randString);
+	void putItemOnGround(num x, num y, String streetName, {String id}) {
+		if(id == null) {
+			String randString = new Random().nextInt(1000).toString();
+			id = "i" + createId(x, y, itemType, streetName + randString);
+		}
 
 		Item item = new Item.clone(itemType)
 			..x = x

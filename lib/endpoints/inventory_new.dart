@@ -406,7 +406,7 @@ class InventoryV2 {
 		inventory_json = jsonx.encode(tmpSlots);
 
 		if (toMerge > 0) {
-			log("[InventoryV2] Cannot give ${item.itemType} x $count because user ran"
+			log("[InventoryV2] Cannot give ${item.itemType} x $count because <email=$email> ran"
 			    + " out of slots before all items were added. $toMerge items skipped.");
 			Identifier playerId = PlayerUpdateHandler.users[await User.getUsernameFromEmail(email)];
 			if(playerId != null) {

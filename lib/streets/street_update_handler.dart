@@ -234,6 +234,11 @@ class StreetUpdateHandler {
 			String username = map["username"];
 			String email = map['email'];
 
+			//if the street doesn't yet exist, create it (maybe it got stored back to the datastore)
+			if (!streets.containsKey(streetName)) {
+				await loadStreet(streetName, map['tsid']);
+			}
+
 			//a player has joined or left the street
 			if (map["message"] == "joined") {
 				//set this player as being on this street
@@ -246,9 +251,6 @@ class StreetUpdateHandler {
 					return;
 				}
 				else {
-					if (!streets.containsKey(streetName)) {
-						await loadStreet(streetName, map['tsid']);
-					}
 					//log("${map['username']} joined $streetName");
 					userSockets[email] = ws;
 					streets[streetName].occupants[username] = ws;
@@ -266,11 +268,6 @@ class StreetUpdateHandler {
 			else if (map["message"] == "left") {
 				cleanupList(ws);
 				return;
-			}
-
-			//if the street doesn't yet exist, create it (maybe it got stored back to the datastore)
-			if (!streets.containsKey(streetName)) {
-				await loadStreet(streetName, map['tsid']);
 			}
 
 			//the said that they collided with a quion, let's check and credit if true
@@ -359,12 +356,13 @@ class StreetUpdateHandler {
 	static Future loadStreet(String streetName, String tsid) async {
 		try {
 			Street street = new Street(streetName, tsid);
+			streets[streetName] = street;
 			await street.loadItems();
 			await street.loadJson();
-			streets[streetName] = street;
 			log("Loaded street $streetName ($tsid) into memory");
 		} catch(e) {
 			log("Could not load street $tsid: $e");
+			streets.remove(streetName);
 			throw e;
 		}
 	}
