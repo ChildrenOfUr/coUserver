@@ -4,15 +4,14 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:logging/logging.dart';
-import 'package:harvest/harvest.dart' as harvest;
 import 'package:http/http.dart' as http;
+import 'package:logging/logging.dart';
 import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper/mapper.dart';
 import 'package:redstone_mapper/plugin.dart';
 
 import 'package:coUserver/API_KEYS.dart';
-import 'package:coUserver/console.dart';
+import 'package:coUserver/common/console.dart';
 import 'package:coUserver/common/identifier.dart';
 import 'package:coUserver/common/keep_alive.dart';
 import 'package:coUserver/common/slack.dart';
@@ -20,14 +19,13 @@ import 'package:coUserver/common/user.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/endpoints/chat_handler.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
-import 'package:coUserver/endpoints/time.dart';
+import 'package:coUserver/endpoints/status.dart';
 import 'package:coUserver/endpoints/weather.dart';
 import 'package:coUserver/entities/items/item.dart';
-import 'package:coUserver/player_update_handler.dart';
 import 'package:coUserver/quests/quest.dart';
-import 'package:coUserver/street_update_handler.dart';
+import 'package:coUserver/streets/player_update_handler.dart';
+import 'package:coUserver/streets/street_update_handler.dart';
 
-// Various service endpoints
 part 'package:coUserver/endpoints/elevation.dart';
 part 'package:coUserver/endpoints/getentities.dart';
 part 'package:coUserver/endpoints/getitems.dart';
@@ -36,21 +34,100 @@ part 'package:coUserver/endpoints/slack.dart';
 part 'package:coUserver/endpoints/usernamecolors.dart';
 part 'package:coUserver/endpoints/users.dart';
 
-// Contains the main() method to start the server
-part 'package:coUserver/server.dart';
-
-// Handle incoming websocket messages
-final Map<String, Function> HANDLERS = {
-	'chat': ChatHandler.handle,
-	'metabolics': MetabolicsEndpoint.handle,
-	'playerUpdate': PlayerUpdateHandler.handle,
-	'quest': QuestEndpoint.handle,
-	'streetUpdate': StreetUpdateHandler.handle,
-	'weather': WeatherEndpoint.handle
-};
-
 // Port for app (redstone routing)
 final int REDSTONE_PORT = 8181;
 
 // Port for websocket listeners/handlers
 final int WEBSOCKET_PORT = 8282;
+
+// Start the server
+Future main() async {
+	// Keep track of when the server was started
+	ServerStatus.serverStart = new DateTime.now();
+
+	// Start listening on REDSTONE_PORT
+	await _initRedstone();
+
+	// Start listening on WEBSOCKET_PORT
+	_initWebSockets();
+
+	// Refill energy on new day
+	MetabolicsEndpoint.trackNewDays();
+
+	// Load image caches
+	FileCache.loadCaches();
+
+	// Load items from JSON
+	await StreetUpdateHandler.loadItems();
+
+	// Load quests from JSON
+	await QuestService.loadQuests();
+
+	// Enable interactive console
+	Console.init();
+
+	log('Server started successfully, took ${ServerStatus.uptime}');
+
+//	StreetEntities.migrateEntities(); // TODO: do this on the live server
+}
+
+// Add a CORS header to every request
+@app.Interceptor(r'/.*')
+Future crossOriginInterceptor() async {
+	Map<String, String> _createCorsHeader() => {
+		'Access-Control-Allow-Origin': '*',
+		'Access-Control-Allow-Headers':
+			'Origin, X-Requested-With, Content-Type, Accept'
+	};
+
+	if (app.request.method != 'OPTIONS') {
+		await app.chain.next();
+	}
+	return app.response.change(headers: _createCorsHeader());
+}
+
+Future _initRedstone() async {
+	// Find port to bind
+	int port;
+	try {
+		port = int.parse(Platform.environment['PORT']);
+	} catch (error) {
+		port = REDSTONE_PORT;
+	}
+
+	// Initialize redstone
+	try {
+		app.addPlugin(getMapperPlugin(dbManager));
+		app.setupConsoleLog(Level.WARNING);
+		await app.start(port: port, autoCompress: true);
+	} catch (e) {
+		log('Could not start server: $e');
+		await cleanup(1);
+	}
+}
+
+/// redstone.dart does not support websockets so we have to listen on a separate port for those connections :(
+void _initWebSockets() {
+	final Map<String, Function> _HANDLERS = {
+		'chat': ChatHandler.handle,
+		'metabolics': MetabolicsEndpoint.handle,
+		'playerUpdate': PlayerUpdateHandler.handle,
+		'quest': QuestEndpoint.handle,
+		'streetUpdate': StreetUpdateHandler.handle,
+		'weather': WeatherEndpoint.handle
+	};
+
+	HttpServer.bind('0.0.0.0', WEBSOCKET_PORT).then((HttpServer server) {
+		server.listen((HttpRequest request) {
+			WebSocketTransformer.upgrade(request).then((WebSocket websocket) {
+				String handlerName = request.uri.path.replaceFirst('/', '');
+				_HANDLERS[handlerName](websocket);
+			}).catchError((error) {
+				log('Socket error: $error');
+			}, test: (Exception e) => e is! WebSocketException)
+				.catchError((error) {}, test: (Exception e) => e is WebSocketException);
+		});
+	});
+
+	KeepAlive.start();
+}

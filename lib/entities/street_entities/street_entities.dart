@@ -7,7 +7,7 @@ import 'dart:mirrors';
 import 'package:coUserver/entities/entity.dart';
 import 'package:coUserver/common/mapdata/mapdata.dart';
 import 'package:coUserver/common/util.dart';
-import 'package:coUserver/street_update_handler.dart';
+import 'package:coUserver/streets/street_update_handler.dart';
 import 'package:redstone_mapper/mapper.dart';
 import 'package:redstone_mapper_pg/manager.dart';
 

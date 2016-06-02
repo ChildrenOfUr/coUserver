@@ -15,14 +15,14 @@ import 'package:coUserver/endpoints/stats.dart';
 import 'package:coUserver/achievements/achievements.dart';
 import 'package:coUserver/endpoints/inventory_new.dart';
 import 'package:coUserver/common/harvest_messages.dart';
-import 'package:coUserver/street_update_handler.dart';
+import 'package:coUserver/streets/street_update_handler.dart';
 import 'package:coUserver/skills/skillsmanager.dart';
 import 'package:coUserver/entities/items/item.dart';
 import 'package:coUserver/common/user.dart';
 import 'package:coUserver/endpoints/visited.dart';
 import 'package:coUserver/endpoints/time.dart';
 import 'package:coUserver/endpoints/weather.dart';
-import 'package:coUserver/street.dart';
+import 'package:coUserver/streets/street.dart';
 
 import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper/mapper.dart';
@@ -98,6 +98,11 @@ part 'npcs/vendors/streetspiritgroddle.dart';
 part 'npcs/vendors/streetspiritzutto.dart';
 part 'npcs/vendors/toolvendor.dart';
 part 'npcs/vendors/fakevendors.dart';
+
+/// Create an entity ID
+String createId(num x, num y, String type, String tsid) {
+	return (type + x.toString() + y.toString() + tsid).hashCode.toString();
+}
 
 abstract class Entity extends Object with MetabolicsChange {
 	List<Map> actions = [];

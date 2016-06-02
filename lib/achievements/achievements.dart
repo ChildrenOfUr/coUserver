@@ -8,7 +8,7 @@ import 'package:coUserver/common/util.dart';
 import 'package:coUserver/common/user.dart';
 import 'package:coUserver/endpoints/stats.dart';
 import 'package:coUserver/common/mapdata/mapdata.dart';
-import 'package:coUserver/street_update_handler.dart';
+import 'package:coUserver/streets/street_update_handler.dart';
 import 'package:coUserver/skills/skillsmanager.dart';
 
 import 'package:path/path.dart' as path;

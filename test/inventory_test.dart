@@ -4,7 +4,7 @@ import 'dart:async';
 import 'test_config.dart';
 import 'package:coUserver/endpoints/inventory_new.dart';
 import 'package:coUserver/common/util.dart';
-import 'package:coUserver/street_update_handler.dart';
+import 'package:coUserver/streets/street_update_handler.dart';
 import 'package:coUserver/entities/items/item.dart';
 
 import 'package:test/test.dart';

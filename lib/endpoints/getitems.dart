@@ -44,3 +44,13 @@ Future<List<Item>> getItems(@app.QueryParam('category') String category,
 
 	return itemList;
 }
+
+@app.Route('/getItemByName')
+Map getItemByName(@app.QueryParam('name') String name) {
+	try {
+		return items.values.singleWhere((Item i) => i.name == name).getMap();
+	}
+	catch (err) {
+		return {'status':'FAIL', 'reason':'Could not find item: $name'};
+	}
+}

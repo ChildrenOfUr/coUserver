@@ -143,7 +143,7 @@ class ChatHandler {
 			Map map = JSON.decode(receivedMessage);
 
 			if (map['clientVersion'] != null) {
-				if (map['clientVersion'] < minClientVersion)
+				if (map['clientVersion'] < MIN_CLIENT_VER)
 					ws.add(JSON.encode({'error':'Your client is outdated. Please reload the page.'}));
 				return;
 			}

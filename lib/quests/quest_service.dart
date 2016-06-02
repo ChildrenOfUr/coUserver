@@ -115,6 +115,9 @@ class QuestService extends Object with MetabolicsChange {
 	}
 
 	static loadQuests() async {
+		// Ignore messages about quest requirements being completed when not on the quest
+		messageBus.deadMessageHandler = (harvest.Message m) {};
+
 		try {
 			String directory = Platform.script.toFilePath();
 			directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));

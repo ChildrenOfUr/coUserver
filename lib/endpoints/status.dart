@@ -7,15 +7,15 @@ import 'package:intl/intl.dart';
 import 'package:redstone/redstone.dart' as app;
 
 import 'package:coUserver/API_KEYS.dart';
-import 'package:coUserver/street.dart';
-import 'package:coUserver/street_update_handler.dart';
+import 'package:coUserver/streets/street.dart';
+import 'package:coUserver/streets/street_update_handler.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/endpoints/chat_handler.dart';
 
 @app.Group('/status')
 class ServerStatus {
 	/// Count uptime
-	static DateTime _serverStart = new DateTime.now();
+	static DateTime serverStart;
 
 	/// List online players
 	static List<String> get onlinePlayers {
@@ -36,13 +36,16 @@ class ServerStatus {
 	static int get numOnlinePlayers => onlinePlayers.length;
 
 	/// List streets in memory
-	static List<String> get streetsLoaded {
+	static List<Map<String, String>> get streetsLoaded {
 		try {
-			List<String> streets = new List();
+			List<Map<String, String>> streets = new List();
 			StreetUpdateHandler.streets.values.forEach((Street street) {
-				streets.add('${street.label} (${street.tsid}');
+				streets.add({
+					'label': street.label,
+					'tsid': street.tsid
+				});
 			});
-			return streets..sort();
+			return streets;
 		} catch (e) {
 			log('Error getting streets loaded: $e');
 			return new List();
@@ -75,7 +78,7 @@ class ServerStatus {
 	/// Get time since server start (end of main method)
 	static Duration get uptime {
 		try {
-			return new DateTime.now().difference(_serverStart);
+			return new DateTime.now().difference(serverStart);
 		} catch (e) {
 			log('Error getting uptime: $e');
 			return new Duration();
@@ -83,10 +86,11 @@ class ServerStatus {
 	}
 
 	/// Get server log
+	/// Returns either a String or a List<String> depending on the value of the list parameter
 	static Future<dynamic> getServerLog({bool removeEmails: false, bool list: false}) async {
 		try {
 			DateFormat format = new DateFormat('MM_dd_yy');
-			String filename = 'serverLogs/${format.format(startDate)}-server.log';
+			String filename = 'serverLogs/${format.format(serverStart)}-server.log';
 			ProcessResult result = await Process.run('tail',
 				['-n', '200', filename]);
 			String log = result.stdout.toString().trim();

@@ -8,6 +8,12 @@ class MetabolicsEndpoint {
 	static Timer simulateTimer = new Timer.periodic(new Duration(seconds: 5), (Timer timer) => simulate());
 	static Map<String, WebSocket> userSockets = {};
 
+	static void trackNewDays() {
+		// Refill everyone's energy on the start of a new day
+		Clock clock = new Clock();
+		clock.onNewDay.listen((_) => MetabolicsEndpoint.refillAllEnergy());
+	}
+
 	static Future refillAllEnergy() async {
 		PostgreSql dbConn = await dbManager.getConnection();
 		String query = "UPDATE metabolics SET energy = max_energy, quoins_collected = 0";

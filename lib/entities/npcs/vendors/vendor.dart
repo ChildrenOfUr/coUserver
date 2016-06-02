@@ -1,5 +1,7 @@
 part of entity;
 
+Map<String, String> vendorTypes = {};
+
 abstract class Vendor extends NPC {
 	List<Map> itemsForSale = new List();
 	String vendorType;

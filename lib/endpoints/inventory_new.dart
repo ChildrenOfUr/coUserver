@@ -10,8 +10,8 @@ import 'package:coUserver/common/user.dart';
 import 'package:coUserver/common/identifier.dart';
 import 'package:coUserver/entities/items/item.dart';
 import 'package:coUserver/quests/quest.dart';
-import 'package:coUserver/player_update_handler.dart';
-import 'package:coUserver/street_update_handler.dart';
+import 'package:coUserver/streets/player_update_handler.dart';
+import 'package:coUserver/streets/street_update_handler.dart';
 
 import 'package:jsonx/jsonx.dart' as jsonx;
 import 'package:redstone_mapper/mapper.dart';

@@ -4,7 +4,7 @@ import 'test_config.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
 import 'package:coUserver/quests/quest.dart';
-import 'package:coUserver/street_update_handler.dart';
+import 'package:coUserver/streets/street_update_handler.dart';
 
 import 'package:test/test.dart';
 import 'package:redstone/redstone.dart' as app;

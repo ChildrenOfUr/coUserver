@@ -8,7 +8,7 @@ import 'package:coUserver/API_KEYS.dart';
 import 'package:coUserver/common/user.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
-import 'package:coUserver/street_update_handler.dart';
+import 'package:coUserver/streets/street_update_handler.dart';
 
 import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper_pg/manager.dart';
