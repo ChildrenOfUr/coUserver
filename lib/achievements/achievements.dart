@@ -30,7 +30,7 @@ class AchievementAward extends harvest.Message {
 class Achievement {
 	static Map<String, Achievement> _ACHIEVEMENTS = new Map();
 
-	static Future load() async {
+	static Future<int> load() async {
 		String directory;
 		//this happens when running unit tests
 		if(Platform.script.data != null) {
@@ -42,7 +42,10 @@ class Achievement {
 
 		directory = directory.replaceAll('coUserver/test','coUserver');
 
-		await new Directory(path.join(directory, 'lib', 'achievements', 'json')).list().forEach((File category) async {
+		Directory json = new Directory(path.join(directory, 'lib', 'achievements', 'json'));
+		List<File> categories = json.listSync();
+
+		await Future.forEach(categories, (File category) async {
 			await JSON.decode(await category.readAsString()).forEach((String id, Map data) async {
 				Achievement achievement = new Achievement(
 					id: id,
@@ -54,6 +57,8 @@ class Achievement {
 				_ACHIEVEMENTS[id] = achievement;
 			});
 		});
+
+		return _ACHIEVEMENTS.length;
 	}
 
 	static Achievement find(String id) =>  _ACHIEVEMENTS[id];

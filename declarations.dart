@@ -4,6 +4,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:logging/logging.dart';
 import 'package:harvest/harvest.dart' as harvest;
 import 'package:http/http.dart' as http;
 import 'package:redstone/redstone.dart' as app;

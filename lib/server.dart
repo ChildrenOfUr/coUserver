@@ -13,7 +13,7 @@ Future main() async {
 	// Initialize redstone
 	try {
 		app.addPlugin(getMapperPlugin(dbManager));
-		app.setupConsoleLog();
+		app.setupConsoleLog(Level.WARNING);
 		await app.start(port: port, autoCompress: true);
 	} catch (e) {
 		log('Could not start server: $e');
@@ -37,12 +37,10 @@ Future main() async {
 				String handlerName = request.uri.path.replaceFirst('/', '');
 				HANDLERS[handlerName].handle(websocket);
 			}).catchError((error) {
-				log('error: $error');
+				log('Socket error: $error');
 			}, test: (Exception e) => e is! WebSocketException)
 				.catchError((error) {}, test: (Exception e) => e is WebSocketException);
 		});
-
-		log('Bound websockets to port $WEBSOCKET_PORT');
 	});
 
 	// Make trees speech bubbles appear where they should
@@ -80,11 +78,11 @@ Future main() async {
 	// Enable interactive console
 	Console.init();
 
-	log('Server started successfully');
-
 	new Command.register('cleanup', (String exitCode) async {
 		await cleanup(int.parse(exitCode));
 	}, ['exit code']);
+
+	log('Server started successfully');
 }
 
 /// Anything that should run here as cleanup before exit
