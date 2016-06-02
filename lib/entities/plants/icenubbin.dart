@@ -84,3 +84,7 @@ class IceNubbin extends Plant {
 		}
 	}
 }
+
+class IceKnob extends IceNubbin {
+	IceKnob(String id, int x, int y, String streetName) : super(id, x, y, streetName);
+}

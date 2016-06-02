@@ -40,13 +40,13 @@ part 'package:coUserver/endpoints/users.dart';
 part 'package:coUserver/server.dart';
 
 // Handle incoming websocket messages
-final Map<String, dynamic> HANDLERS = {
-	'chat': ChatHandler,
-	'metabolics': MetabolicsEndpoint,
-	'playerUpdate': PlayerUpdateHandler,
-	'quest': QuestEndpoint,
-	'streetUpdate': StreetUpdateHandler,
-	'weather': WeatherEndpoint
+final Map<String, Function> HANDLERS = {
+	'chat': ChatHandler.handle,
+	'metabolics': MetabolicsEndpoint.handle,
+	'playerUpdate': PlayerUpdateHandler.handle,
+	'quest': QuestEndpoint.handle,
+	'streetUpdate': StreetUpdateHandler.handle,
+	'weather': WeatherEndpoint.handle
 };
 
 // Port for app (redstone routing)

@@ -35,7 +35,7 @@ Future main() async {
 		server.listen((HttpRequest request) {
 			WebSocketTransformer.upgrade(request).then((WebSocket websocket) {
 				String handlerName = request.uri.path.replaceFirst('/', '');
-				HANDLERS[handlerName].handle(websocket);
+				HANDLERS[handlerName](websocket);
 			}).catchError((error) {
 				log('Socket error: $error');
 			}, test: (Exception e) => e is! WebSocketException)
