@@ -410,7 +410,7 @@ class InventoryV2 {
 			    + " out of slots before all items were added. $toMerge items skipped.");
 			Identifier playerId = PlayerUpdateHandler.users[await User.getUsernameFromEmail(email)];
 			if(playerId != null) {
-				item.putItemOnGround(playerId.currentX, playerId.currentY+140, playerId.currentStreet);
+				item.putItemOnGround(playerId.currentX+40, playerId.currentY+40, playerId.currentStreet);
 			}
 		}
 
