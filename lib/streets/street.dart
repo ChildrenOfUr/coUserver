@@ -100,6 +100,7 @@ class Street {
 	List<Wall> walls = [];
 	int groundY = 0;
 	Rectangle bounds;
+	DateTime expires;
 
 	Map<String, Quoin> quoins = {};
 	Map<String, Plant> plants = {};

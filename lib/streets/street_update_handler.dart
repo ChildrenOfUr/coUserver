@@ -194,9 +194,16 @@ class StreetUpdateHandler {
 		//in the future, I imagine this is where the street would be saved to the database
 		//you're right past me, this is where i'm doing it
 		Future.forEach(toRemove, (String label) async {
-			await streets[label]?.persistState();
-			streets.remove(label);
-			log('Unloaded street $label from memory');
+			Street street = streets[label];
+			DateTime now = new DateTime.now();
+			if (street.expires?.isBefore(now) ?? false) {
+				await street.persistState();
+				street.expires = null;
+				streets.remove(label);
+				log('Unloaded street $label from memory');
+			} else if (street.expires == null) {
+				street.expires = now.add(new Duration(seconds:5));
+			}
 		});
 	}
 
@@ -362,7 +369,6 @@ class StreetUpdateHandler {
 			log("Loaded street $streetName ($tsid) into memory");
 		} catch(e) {
 			log("Could not load street $tsid: $e");
-			streets.remove(streetName);
 			throw e;
 		}
 	}
