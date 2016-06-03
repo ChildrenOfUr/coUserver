@@ -47,7 +47,10 @@ class Console {
 		});
 
 		new Command.register('status', () async {
-			log(Console.formatMap(await getServerStatus()));
+			log(Console.formatMap(
+				await getServerStatus()
+					..addAll({'pid': pid})
+			));
 		});
 
 		new Command.register('stop', (String exitCode) async {

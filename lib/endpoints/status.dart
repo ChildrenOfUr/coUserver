@@ -110,7 +110,8 @@ class ServerStatus {
 
 	/// Run a bash script
 	static Future<String> _getScript(String filename) async {
-		ProcessResult proc = await Process.run("/bin/sh", ["$filename.sh"]);
+		ProcessResult proc = await Process.run(
+			"/bin/sh", ["$filename.sh", pid.toString()]);
 		return proc.stdout.toString().trim();
 	}
 }
