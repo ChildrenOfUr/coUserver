@@ -53,6 +53,20 @@ class Console {
 		new Command.register('stop', (String exitCode) async {
 			await cleanup(int.parse(exitCode));
 		}, ['exit code']);
+
+		new Command.register('migrate', (String object) async {
+			final Map<String, Function> _MIGRATES = {
+				'entities': () async => await StreetEntities.migrateEntities()
+			};
+
+			if (_MIGRATES.keys.contains(object)) {
+				log('Migrating $object...');
+				int migrated = await _MIGRATES[object]();
+				log('Migration of $migrated $object completed!');
+			} else {
+				log('No migrateable object "$object"');
+			}
+		}, ['object to migrate']);
 	}
 
 	static String formatMap(Map input) {
@@ -111,6 +125,7 @@ class Command {
 
 	@override
 	String toString() {
-		return '$_name $_arguments';
+		String argFmt = (_arguments.length == 0 ? '' : '<${_arguments.join(', ')}>');
+		return '$_name $argFmt';
 	}
 }

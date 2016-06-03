@@ -67,8 +67,6 @@ Future main() async {
 	Console.init();
 
 	log('Server started successfully, took ${ServerStatus.uptime}');
-
-//	StreetEntities.migrateEntities(); // TODO: do this on the live server
 }
 
 // Add a CORS header to every request
