@@ -130,7 +130,7 @@ class StreetEntities {
 							tsid: tsid,
 							x: entity['x'],
 							y: entity['y']
-						));
+						), loadNow: false);
 						count++;
 					});
 				} catch (e) {
