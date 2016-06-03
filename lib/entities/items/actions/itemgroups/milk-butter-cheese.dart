@@ -1,16 +1,17 @@
 part of item;
 
+/// Used to disambiguate & dispatch calls
 abstract class MilkButterCheese {
-	// Butterfly Milk
-	// Very Very Stinky Cheese
+	// Milk
+	// Cheese
 	// Piggy Plop
 	Future<bool> sniff({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		InventoryV2 inv = await getInventory(email);
 		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
 		if (itemInSlot.itemType == "butterfly_milk") {
-			return await Cheese.sniff(userSocket: userSocket, email: email);
+			return await Milk.sniff(streetName: streetName, map: map, userSocket: userSocket, email: email, username: username);
 		} else if (itemInSlot.itemType == "very_very_stinky_cheese") {
-			return await Milk.sniff(userSocket: userSocket, username: username);
+			return await Cheese.sniff(streetName: streetName, map: map, userSocket: userSocket, email: email, username: username);
 		} else if (itemInSlot.itemType == 'piggy_plop') {
 			return await PiggyPlop.sniff(userSocket: userSocket);
 		} else {
@@ -18,14 +19,24 @@ abstract class MilkButterCheese {
 		}
 	}
 
-	// Butterfly Milk
+	// Milk
 	Future<bool> shakeBottle({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Milk.shakeBottle(userSocket: userSocket, username: username, email: email);
+		return await Milk.shakeBottle(streetName: streetName, map: map, userSocket: userSocket, email: email, username: username);
 	}
 
-	// Butterfly Butter
+	// Butter
 	Future<bool> compress({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await Butter.compress(userSocket: userSocket, username: username, email: email);
+		return await Butter.compress(streetName: streetName, map: map, userSocket: userSocket, email: email, username: username);
+	}
+
+	// Cheese
+	Future<bool> age({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
+		return await Cheese.age(streetName: streetName, map: map, userSocket: userSocket, email: email, username: username);
+	}
+
+	// Cheese
+	Future<bool> prod({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
+		return await Cheese.prod(streetName: streetName, map: map, userSocket: userSocket, email: email, username: username);
 	}
 }
 
