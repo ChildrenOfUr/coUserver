@@ -61,9 +61,9 @@ class FruitTree extends Tree {
 				} else if (harvested >= 1009) {
 					Achievement.find("overpaid_executive_fruit_tree_harvester").awardTo(email);
 				} else if (harvested >= 503) {
-					Achievement.find("mid_management_fruit_tree_harvester").awardTo(email);
+					Achievement.find("midmanagement_fruit_tree_harvester").awardTo(email);
 				} else if (harvested >= 101) {
-					Achievement.find("entry_level_fruit_tree_harvester").awardTo(email);
+					Achievement.find("entrylevel_fruit_tree_harvester").awardTo(email);
 				}
 			});
 		}
