@@ -150,6 +150,9 @@ class StreetUpdateHandler {
 		streets.forEach((String streetName, Street street) {
 			//only simulate street with someone on it
 			if (street.occupants.length > 0) {
+				//reset the street's expiry if it has one
+				street.expires = null;
+				
 				street.plants.forEach((String id, Plant plant) => plant.update());
 				street.quoins.forEach((String id, Quoin quoin) => quoin.update());
 				street.npcs.forEach((String id, NPC npc) => npc.update());
