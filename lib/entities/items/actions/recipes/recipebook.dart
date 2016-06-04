@@ -90,10 +90,10 @@ class RecipeBook extends Object with MetabolicsChange {
 			recipe = rList.first;
 		}
 
-		if(items[recipe.tool].durability != null) {
+		if (items[recipe.tool].durability != null) {
 			//take away tool durability
 			bool durabilitySuccess = await InventoryV2.decreaseDurability(email, recipe.tool);
-			if(!durabilitySuccess) {
+			if (!durabilitySuccess) {
 				return "it's missing";
 			}
 		}
@@ -106,8 +106,25 @@ class RecipeBook extends Object with MetabolicsChange {
 		}
 
 		// Take all of the items
-		Future.forEach(recipe.input.keys, (String itemType) async {
+		String missingItem = null;
+		await Future.forEach(recipe.input.keys, (String itemType) async {
+			if (missingItem != null) {
+				// Can't escape the async forEach,
+				// but we can save inventory calls
+				return;
+			}
+
 			int qty = recipe.input[itemType];
+
+			// Test for the item
+			int gotSim = (await InventoryV2.takeAnyItemsFromUser(
+				email, itemType, qty, simulate: true));
+			if (gotSim < qty) {
+				missingItem = items[itemType].name;
+				return;
+			}
+
+			// Remove the item
 			int got = (await InventoryV2.takeAnyItemsFromUser(email, itemType, qty));
 			if (got != qty) {
 				// If they didn't have a required item, they're not making a smoothie
@@ -115,14 +132,20 @@ class RecipeBook extends Object with MetabolicsChange {
 			}
 		});
 
+		if (missingItem != null) {
+			return "you ran out of ${missingItem}s";
+		}
+
 		// Wait for it to make it, then give the item
 		new Timer(new Duration(seconds: recipe.time), () async {
 			// Add the item after we finish "making" one
-			await InventoryV2.addItemToUser(email, items[recipe.output].getMap(), recipe.output_amt);
+			await InventoryV2.addItemToUser(
+				email, items[recipe.output].getMap(), recipe.output_amt);
+
 			// Award iMG
 			await trySetMetabolics(email, imgMin: recipe.img);
 
-			//send possible quest event
+			// Send possible quest event
 			messageBus.publish(new RequirementProgress('makeRecipe_${recipe.output}',email));
 
 			// Count stat for achievements
