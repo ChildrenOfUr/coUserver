@@ -4,10 +4,13 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:coUserver/common/util.dart';
+import 'package:coUserver/endpoints/chat_handler.dart';
 import 'package:coUserver/endpoints/stats.dart';
 import 'package:coUserver/endpoints/status.dart';
 
 class Console {
+	static final String ARG_GROUP = '"';
+
 	static Map<String, Command> _commands = new Map();
 
 	static StreamSubscription _handler;
@@ -70,6 +73,10 @@ class Console {
 				log('No migrateable object "$object"');
 			}
 		}, ['object to migrate']);
+
+		new Command.register('global', (String message) async {
+			ChatHandler.superMessage(message);
+		}, ['message to post in global chat']);
 	}
 
 	static String formatMap(Map input) {
@@ -90,9 +97,32 @@ class Console {
 
 	static Future<dynamic> _runCommand(String input) async {
 		List<String> parts = input.split(' ');
-		String name = parts.first;
 		List<String> args = parts.sublist(1);
+		List<String> grouped = new List();
 
+		// Merge arguments between ARG_GROUP into one argument
+		bool inGroup = false;
+		for (int i = 0; i < args.length; i++) {
+			if (args[i].startsWith(ARG_GROUP)) {
+				// Beginning of a group
+				grouped.add(args[i].substring(ARG_GROUP.length));
+				inGroup = true;
+			} else if (args[i].endsWith(ARG_GROUP)) {
+				// End of a group
+				grouped[grouped.length - 1] += ' ' + args[i].substring(
+					0, args[i].length - ARG_GROUP.length);
+				inGroup = false;
+			} else if (inGroup) {
+				// Inside of a group, add to previous part
+				grouped[grouped.length - 1] += ' ' + args[i];
+			} else {
+				// Not inside a group, new argument
+				grouped.add(args[i]);
+			}
+		}
+		args = grouped;
+
+		String name = parts.first;
 		if (!_commands.containsKey(name)) {
 			throw 'Command $name not found';
 		} else {
