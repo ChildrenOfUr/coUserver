@@ -77,13 +77,20 @@ abstract class BabyAnimals {
 	async {
 		Map<String, dynamic> _uncache() => userActionCache.remove(email);
 
+		Map<String, dynamic> feedCache = userActionCache[email];
+
+		if (feedCache == null) {
+			// Something went wrong on the client
+			_uncache();
+			return false;
+		}
+
 		if ((await InventoryV2.takeAnyItemsFromUser(email, itemType, count)) == null) {
 			// Could not take item
 			_uncache();
 			return false;
 		}
 
-		Map<String, dynamic> feedCache = userActionCache[email];
 		String animalItemType = feedCache['type'];
 		String entityType = ANIMAL_TYPES[animalItemType];
 
