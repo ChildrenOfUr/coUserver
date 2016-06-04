@@ -199,6 +199,7 @@ enum Stat {
 	spice_plants_petted,
 	spice_plants_watered,
 	steps_taken,
+	tinkertool_uses,
 	wood_trees_petted,
 	wood_trees_watered
 }

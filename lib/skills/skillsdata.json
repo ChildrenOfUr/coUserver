@@ -109,5 +109,28 @@
 			"level": 7
 		},
 		"giants": ["Lem", "Friendly", "Spriggan"]
+	},
+	"tinkering": {
+		"name": "Tinkering",
+		"category": "Industrial",
+		"levels": [3, 20, 80, 140, 300],
+		"descriptions": [
+			"The first level of Tinkering allows the repair of any broken or worn down tool, but, you know, you're not going to be especially fast at it right off the bat! Note: requires a Tinkertool.",
+			"Upgrade to Tinkering II and double the speed at which you repair tools and simultaneously reduce the amount of energy required to operate the Tinkertool!",
+			"With Tinkering III, the speed of tool repair doubles yet again. Getting speedy! But also, you can use a Tinkertool to repair itself. Talk about snakes swallowing tails ...",
+			"Just when you thought Tinkering couldn't get much better, along comes Tinkering IV. In addition to doubling your repair speed, a slew of new tools are yours to craft. And when combined with skill of Engineering, that slew expands to a truckload. Powerful stuff.",
+			"Learn Tinkering V, and consider yourself a mastertink. Repair speed is nigh instantaneous and Tinkertool operation barely taxes your energy, but that's just the beginning. With this AND Engineering, you can practically create any tool imaginable. As long as your imagination is restricted to tools that already exist, of course."
+		],
+		"iconUrls": [
+			"http://www.glitchthegame.com/img/skills-460/tinkering_1.v1428362783.png",
+			"http://www.glitchthegame.com/img/skills-460/tinkering_2.v1429808924.png",
+			"http://www.glitchthegame.com/img/skills-460/tinkering_3.v1429808924.png",
+			"http://www.glitchthegame.com/img/skills-460/tinkering_4.v1429808924.png",
+			"http://www.glitchthegame.com/img/skills-460/tinkering_5.v1428362783.png"
+		],
+		"requirements": {
+			"level": 3
+		},
+		"giants": ["Alph", "Friendly", "Tii"]
 	}
 }

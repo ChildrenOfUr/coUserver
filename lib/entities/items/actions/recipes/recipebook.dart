@@ -20,6 +20,7 @@ class RecipeBook extends Object with MetabolicsChange {
 
 		List<Map> toolRecipes = [];
 		await Future.forEach(recipes, (Recipe recipe) async {
+			bool skillTooLow = false;
 
 			// If the recipe is made with the requested tool (if requested)
 			if ((tool == "" || tool == null) || tool == items[recipe.tool].itemType) {
@@ -52,10 +53,30 @@ class RecipeBook extends Object with MetabolicsChange {
 					});
 					// End input items loop
 
+					// For every skill it requires...
+					if (recipe.skills != null) {
+						await Future.forEach(recipe.skills.keys, (String skillId) async {
+							if (skillTooLow) {
+								return;
+							}
+
+							int level = recipe.skills[skillId];
+							if (
+								Skill.find(skillId) != null &&
+								await SkillManager.getLevel(skillId, email) < level
+							) {
+								// Player's skill level is too low
+								skillTooLow = true;
+							}
+						});
+					}
+
 				}
 				// End user-specific data
 
-				toolRecipes.add(toolRecipe);
+				if (!skillTooLow) {
+					toolRecipes.add(toolRecipe);
+				}
 
 			}
 			// End tool recipe filter
@@ -66,6 +87,7 @@ class RecipeBook extends Object with MetabolicsChange {
 	}
 
 	// Returned string is displayed as "You had to stop using your {tool} because {reason}
+	// in the client. Returning "OK" will not display a message.
 	@app.Route("/make")
 	Future makeRecipe(@app.QueryParam("token") String token,
 		@app.QueryParam("id") String id,

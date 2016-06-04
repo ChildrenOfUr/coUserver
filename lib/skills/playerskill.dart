@@ -8,7 +8,7 @@ part of skills;
 class PlayerSkill extends Skill {
 	/// Get a PlayerSkill for any player, any skill
 	static Future<PlayerSkill> find(String skillId, String email) async {
-		return Skill.find(skillId).getForPlayer(email);
+		return Skill.find(skillId)?.getForPlayer(email);
 	}
 
 	PlayerSkill(Skill base, this.email, [this.points]) : super.fromMap(base.toMap());

@@ -7,7 +7,7 @@ part of skills;
 
 class Skill {
 	/// Convert a skill name to a skill reference
-	static Skill find(String id) => SkillManager.SKILL_DATA[id].copy;
+	static Skill find(String id) => SkillManager.SKILL_DATA[id]?.copy;
 
 	Skill(
 		this.id,

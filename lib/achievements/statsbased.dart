@@ -15,7 +15,8 @@ class StatAchvManager {
 		"grill": grill,
 		"knife_and_board": chop,
 		"saucepan": simmer,
-		"spice_mill": mill
+		"spice_mill": mill,
+		"tinkertool": tinker
 	};
 
 	static void update(String email, String toolType) {
@@ -207,6 +208,20 @@ class StatAchvManager {
 				Achievement.find("assistant_spice_manager").awardTo(email);
 			} else if (milled >= 53) {
 				Achievement.find("spice_intern").awardTo(email);
+			}
+		});
+	}
+
+	static void tinker(email) {
+		StatManager.add(email, Stat.tinkertool_uses, increment: 50).then((int tinkered) {
+			if (tinkered >= 25013) {
+				Achievement.find("grand_poobah_tinkering_ops").awardTo(email);
+			} else if (tinkered >= 10009) {
+				Achievement.find("special_agent_tinkering_ops").awardTo(email);
+			} else if (tinkered >= 2503) {
+				Achievement.find("chief_of_tinkering_operations").awardTo(email);
+			} else if (tinkered >= 1009) {
+				Achievement.find("executive_flunky_tinkering_ops").awardTo(email);
 			}
 		});
 	}
