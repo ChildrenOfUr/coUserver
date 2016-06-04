@@ -1,0 +1,1000 @@
+[
+	{
+		"id": "repair_frying_pan",
+		"tool": "tinkertool",
+		"input": {
+			"frying_pan": 1,
+			"tin": 1
+		},
+		"output": "frying_pan",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -10,
+		"skills": {
+			"tinkering": 1
+		}
+	},
+	{
+		"id": "repair_hatchet",
+		"tool": "tinkertool",
+		"input": {
+			"hatchet": 1,
+			"ingot": 1,
+			"plank": 2
+		},
+		"output": "hatchet",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -15,
+		"skills": {
+			"tinkering": 0
+		}
+	},
+	{
+		"id": "repair_hoe",
+		"tool": "tinkertool",
+		"input": {
+			"hoe": 1,
+			"plank": 1
+		},
+		"output": "hoe",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -15,
+		"skills": {
+			"tinkering": 0
+		}
+	},
+	{
+		"id": "repair_knife_and_board",
+		"tool": "tinkertool",
+		"input": {
+			"knife_and_board": 1,
+			"plank": 2
+		},
+		"output": "knife_and_board",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -10,
+		"skills": {
+			"tinkering": 1
+		}
+	},
+	{
+		"id": "repair_watering_can",
+		"tool": "tinkertool",
+		"input": {
+			"watering_can": 1,
+			"ingot": 1
+		},
+		"output": "watering_can",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -10,
+		"skills": {
+			"tinkering": 0
+		}
+	},
+	{
+		"id": "repair_blender",
+		"tool": "tinkertool",
+		"input": {
+			"blender": 1,
+			"copper": 1
+		},
+		"output": "blender",
+		"output_amt": 1,
+		"time": 15,
+		"energy": -10,
+		"skills": {
+			"tinkering": 1,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "repair_bubble_tuner",
+		"tool": "tinkertool",
+		"input": {
+			"bubble_tuner": 1,
+			"barnacle_talc": 1,
+			"jellisac": 3
+		},
+		"output": "bubble_tuner",
+		"output_amt": 1,
+		"time": 15,
+		"energy": -10,
+		"skills": {
+			"tinkering": 1,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "repair_fruit_changing_machine",
+		"tool": "tinkertool",
+		"input": {
+			"fruit_changing_machine": 1,
+			"copper": 1
+		},
+		"output": "fruit_changing_machine",
+		"output_amt": 1,
+		"time": 15,
+		"energy": -10,
+		"skills": {
+			"tinkering": 1,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "repair_gassifier",
+		"tool": "tinkertool",
+		"input": {
+			"gassifier": 1,
+			"ingot": 1
+		},
+		"output": "gassifier",
+		"output_amt": 1,
+		"time": 15,
+		"energy": -10,
+		"skills": {
+			"tinkering": 1,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "repair_pick",
+		"tool": "tinkertool",
+		"input": {
+			"pick": 1,
+			"plank": 1
+		},
+		"output": "pick",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -15,
+		"skills": {
+			"tinkering": 0,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "repair_shovel",
+		"tool": "tinkertool",
+		"input": {
+			"shovel": 1,
+			"plank": 2
+		},
+		"output": "shovel",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -15,
+		"skills": {
+			"tinkering": 0,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "repair_spice_mill",
+		"tool": "tinkertool",
+		"input": {
+			"spice_mill": 1,
+			"tin": 1
+		},
+		"output": "spice_mill",
+		"output_amt": 1,
+		"time": 15,
+		"energy": -10,
+		"skills": {
+			"tinkering": 1,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "repair_awesome_pot",
+		"tool": "tinkertool",
+		"input": {
+			"awesome_pot": 1,
+			"copper": 1,
+			"ingot": 1
+		},
+		"output": "awesome_pot",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -10,
+		"skills": {
+			"tinkering": 5
+		}
+	},
+	{
+		"id": "repair_cocktail_shaker",
+		"tool": "tinkertool",
+		"input": {
+			"cocktail_shaker": 1,
+			"ingot": 1
+		},
+		"output": "cocktail_shaker",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -10,
+		"skills": {
+			"tinkering": 5
+		}
+	},
+	{
+		"id": "repair_grinder",
+		"tool": "tinkertool",
+		"input": {
+			"grinder": 1,
+			"tin": 2,
+			"ingot": 1
+		},
+		"output": "grinder",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -10,
+		"skills": {
+			"tinkering": 5
+		}
+	},
+	{
+		"id": "repair_saucepan",
+		"tool": "tinkertool",
+		"input": {
+			"saucepan": 1,
+			"tin": 1,
+			"ingot": 1
+		},
+		"output": "saucepan",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -10,
+		"skills": {
+			"tinkering": 5
+		}
+	},
+	{
+		"id": "repair_scraper",
+		"tool": "tinkertool",
+		"input": {
+			"scraper": 1,
+			"tin": 1,
+			"copper": 1,
+			"ingot": 1
+		},
+		"output": "scraper",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -15,
+		"skills": {
+			"tinkering": 5
+		}
+	},
+	{
+		"id": "repair_grand_ol_grinder",
+		"tool": "tinkertool",
+		"input": {
+			"grand_ol_grinder": 1,
+			"molybdenum": 6,
+			"ingot": 7
+		},
+		"output": "grand_ol_grinder",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -10,
+		"skills": {
+			"tinkering": 2,
+			"refining": 2
+		}
+	},
+	{
+		"id": "repair_irrigator_9000",
+		"tool": "tinkertool",
+		"input": {
+			"irrigator_9000": 1,
+			"tin": 4,
+			"molybdenum": 1
+		},
+		"output": "irrigator_9000",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -10,
+		"skills": {
+			"tinkering": 2,
+			"light_green_thumb": 3
+		}
+	},
+	{
+		"id": "repair_high_class_hoe",
+		"tool": "tinkertool",
+		"input": {
+			"high_class_hoe": 1,
+			"molybdenum": 1,
+			"plank": 2
+		},
+		"output": "high_class_hoe",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -15,
+		"skills": {
+			"tinkering": 3,
+			"soil_appreciation": 5
+		}
+	},
+	{
+		"id": "repair_butterfly_milker",
+		"tool": "tinkertool",
+		"input": {
+			"butterfly_milker": 1,
+			"tin": 2,
+			"ingot": 2
+		},
+		"output": "butterfly_milker",
+		"output_amt": 1,
+		"time": 15,
+		"energy": -10,
+		"skills": {
+			"tinkering": 2,
+			"remote_herdkeeping": 1
+		}
+	},
+	{
+		"id": "repair_meat_collector",
+		"tool": "tinkertool",
+		"input": {
+			"meat_collector": 1,
+			"tin": 2,
+			"ingot": 2
+		},
+		"output": "meat_collector",
+		"output_amt": 1,
+		"time": 15,
+		"energy": -10,
+		"skills": {
+			"tinkering": 2,
+			"remote_herdkeeping": 1
+		}
+	},
+	{
+		"id": "repair_piggy_feeder",
+		"tool": "tinkertool",
+		"input": {
+			"piggy_feeder": 1,
+			"tin": 1
+		},
+		"output": "piggy_feeder",
+		"output_amt": 1,
+		"time": 13,
+		"energy": -12,
+		"skills": {
+			"tinkering": 2,
+			"remote_herdkeeping": 1
+		}
+	},
+	{
+		"id": "repair_alchemical_tongs",
+		"tool": "tinkertool",
+		"input": {
+			"alchemical_tongs": 1,
+			"molybdenum": 1,
+			"ingot": 2
+		},
+		"output": "alchemical_tongs",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -15,
+		"skills": {
+			"tinkering": 2,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "repair_bean_seasoner",
+		"tool": "tinkertool",
+		"input": {
+			"bean_seasoner": 1,
+			"tin": 1
+		},
+		"output": "bean_seasoner",
+		"output_amt": 1,
+		"time": 15,
+		"energy": -10,
+		"skills": {
+			"tinkering": 2,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "repair_crystalmalizing_chamber",
+		"tool": "tinkertool",
+		"input": {
+			"crystalmalizing_chamber": 1,
+			"molybdenum": 10
+		},
+		"output": "crystalmalizing_chamber",
+		"output_amt": 1,
+		"time": 15,
+		"energy": -10,
+		"skills": {
+			"tinkering": 2,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "repair_egg_seasoner",
+		"tool": "tinkertool",
+		"input": {
+			"egg_seasoner": 1,
+			"tin": 1
+		},
+		"output": "egg_seasoner",
+		"output_amt": 1,
+		"time": 15,
+		"energy": -10,
+		"skills": {
+			"tinkering": 2,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "repair_fancy_pick",
+		"tool": "tinkertool",
+		"input": {
+			"fancy_pick": 1,
+			"molybdenum": 1,
+			"ingot": 2,
+			"plank": 1
+		},
+		"output": "fancy_pick",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -15,
+		"skills": {
+			"tinkering": 3,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "repair_famous_pugilist_grill",
+		"tool": "tinkertool",
+		"input": {
+			"famous_pugilist_grill": 1,
+			"ingot": 1
+		},
+		"output": "famous_pugilist_grill",
+		"output_amt": 1,
+		"time": 12,
+		"energy": -10,
+		"skills": {
+			"tinkering": 2,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "repair_smelter",
+		"tool": "tinkertool",
+		"input": {
+			"smelter": 1,
+			"tin": 2,
+			"molybdenum": 1
+		},
+		"output": "smelter",
+		"output_amt": 1,
+		"time": 13,
+		"energy": -10,
+		"skills": {
+			"tinkering": 2,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "repair_super_scraper",
+		"tool": "tinkertool",
+		"input": {
+			"super_scraper": 1,
+			"tin": 3,
+			"copper": 1,
+			"molybdenum": 1
+		},
+		"output": "super_scraper",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -15,
+		"skills": {
+			"tinkering": 3,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "new_frying_pan",
+		"tool": "tinkertool",
+		"input": {
+			"tin": 1,
+			"ingot": 4
+		},
+		"output": "frying_pan",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -10,
+		"skills": {
+			"tinkering": 4
+		}
+	},
+	{
+		"id": "new_hatchet",
+		"tool": "tinkertool",
+		"input": {
+			"ingot": 1,
+			"plank": 2,
+			"barnacle_talc": 1,
+			"plain_bubble": 5
+		},
+		"output": "hatchet",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -15,
+		"skills": {
+			"tinkering": 4
+		}
+	},
+	{
+		"id": "new_hoe",
+		"tool": "tinkertool",
+		"input": {
+			"plank": 1,
+			"ingot": 1
+		},
+		"output": "hoe",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -15,
+		"skills": {
+			"tinkering": 4
+		}
+	},
+	{
+		"id": "new_knife_and_board",
+		"tool": "tinkertool",
+		"input": {
+			"plank": 4,
+			"ingot": 1
+		},
+		"output": "knife_and_board",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -10,
+		"skills": {
+			"tinkering": 4
+		}
+	},
+	{
+		"id": "new_watering_can",
+		"tool": "tinkertool",
+		"input": {
+			"tin": 1
+		},
+		"output": "watering_can",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -10,
+		"skills": {
+			"tinkering": 4
+		}
+	},
+	{
+		"id": "new_blender",
+		"tool": "tinkertool",
+		"input": {
+			"copper": 1,
+			"jellisac": 3
+		},
+		"output": "blender",
+		"output_amt": 1,
+		"time": 15,
+		"energy": -10,
+		"skills": {
+			"tinkering": 4,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "new_bubble_tuner",
+		"tool": "tinkertool",
+		"input": {
+			"barnacle_talc": 3,
+			"jellisac": 6
+		},
+		"output": "bubble_tuner",
+		"output_amt": 1,
+		"time": 15,
+		"energy": -10,
+		"skills": {
+			"tinkering": 4,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "new_fruit_changing_machine",
+		"tool": "tinkertool",
+		"input": {
+			"tin": 1,
+			"copper": 1
+		},
+		"output": "fruit_changing_machine",
+		"output_amt": 1,
+		"time": 15,
+		"energy": -10,
+		"skills": {
+			"tinkering": 4,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "new_gassifier",
+		"tool": "tinkertool",
+		"input": {
+			"copper": 1,
+			"ingot": 1
+		},
+		"output": "gassifier",
+		"output_amt": 1,
+		"time": 15,
+		"energy": -10,
+		"skills": {
+			"tinkering": 4,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "new_pick",
+		"tool": "tinkertool",
+		"input": {
+			"copper": 3,
+			"ingot": 5,
+			"plank": 2
+		},
+		"output": "pick",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -15,
+		"skills": {
+			"tinkering": 4,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "new_shovel",
+		"tool": "tinkertool",
+		"input": {
+			"copper": 3,
+			"ingot": 2,
+			"plank": 2
+		},
+		"output": "shovel",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -15,
+		"skills": {
+			"tinkering": 4,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "new_spice_mill",
+		"tool": "tinkertool",
+		"input": {
+			"tin": 2
+		},
+		"output": "spice_mill",
+		"output_amt": 1,
+		"time": 15,
+		"energy": -10,
+		"skills": {
+			"tinkering": 4,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "new_awesome_pot",
+		"tool": "tinkertool",
+		"input": {
+			"copper": 1,
+			"molybdenum": 1,
+			"ingot": 1
+		},
+		"output": "awesome_pot",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -10,
+		"skills": {
+			"tinkering": 5
+		}
+	},
+	{
+		"id": "new_cocktail_shaker",
+		"tool": "tinkertool",
+		"input": {
+			"tin": 1
+		},
+		"output": "cocktail_shaker",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -10,
+		"skills": {
+			"tinkering": 5
+		}
+	},
+	{
+		"id": "new_grinder",
+		"tool": "tinkertool",
+		"input": {
+			"molybdenum": 1,
+			"ingot": 1
+		},
+		"output": "grinder",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -10,
+		"skills": {
+			"tinkering": 5
+		}
+	},
+	{
+		"id": "new_saucepan",
+		"tool": "tinkertool",
+		"input": {
+			"tin": 1,
+			"copper": 1,
+			"ingot": 1
+		},
+		"output": "saucepan",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -10,
+		"skills": {
+			"tinkering": 5
+		}
+	},
+	{
+		"id": "new_scraper",
+		"tool": "tinkertool",
+		"input": {
+			"tin": 1,
+			"copper": 1,
+			"molybdenum": 1
+		},
+		"output": "scraper",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -15,
+		"skills": {
+			"tinkering": 5
+		}
+	},
+	{
+		"id": "new_grand_ol_grinder",
+		"tool": "tinkertool",
+		"input": {
+			"molybdenum": 11,
+			"ingot": 17
+		},
+		"output": "grand_ol_grinder",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -10,
+		"skills": {
+			"tinkering": 5,
+			"refining": 2
+		}
+	},
+	{
+		"id": "new_irrigator_9000",
+		"tool": "tinkertool",
+		"input": {
+			"tin": 7,
+			"molybdenum": 2
+		},
+		"output": "irrigator_9000",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -10,
+		"skills": {
+			"tinkering": 5,
+			"light_green_thumb": 3
+		}
+	},
+	{
+		"id": "new_high_class_hoe",
+		"tool": "tinkertool",
+		"input": {
+			"molybdenum": 3,
+			"ingot": 5,
+			"plank": 2
+		},
+		"output": "high_class_hoe",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -15,
+		"skills": {
+			"tinkering": 5,
+			"soil_appreciation": 5
+		}
+	},
+	{
+		"id": "new_butterfly_milker",
+		"tool": "tinkertool",
+		"input": {
+			"tin": 4,
+			"ingot": 4
+		},
+		"output": "butterfly_milker",
+		"output_amt": 1,
+		"time": 15,
+		"energy": -10,
+		"skills": {
+			"tinkering": 5,
+			"remote_herdkeeping": 1
+		}
+	},
+	{
+		"id": "new_meat_collector",
+		"tool": "tinkertool",
+		"input": {
+			"tin": 5,
+			"ingot": 4
+		},
+		"output": "meat_collector",
+		"output_amt": 1,
+		"time": 15,
+		"energy": -10,
+		"skills": {
+			"tinkering": 5,
+			"remote_herdkeeping": 1
+		}
+	},
+	{
+		"id": "new_piggy_feeder",
+		"tool": "tinkertool",
+		"input": {
+			"tin": 2,
+			"ingot": 1
+		},
+		"output": "piggy_feeder",
+		"output_amt": 1,
+		"time": 13,
+		"energy": -12,
+		"skills": {
+			"tinkering": 5,
+			"remote_herdkeeping": 1
+		}
+	},
+	{
+		"id": "new_alchemical_tongs",
+		"tool": "tinkertool",
+		"input": {
+			"molybdenum": 4,
+			"ingot": 2
+		},
+		"output": "alchemical_tongs",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -15,
+		"skills": {
+			"tinkering": 5,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "new_bean_seasoner",
+		"tool": "tinkertool",
+		"input": {
+			"tin": 2,
+			"jellisac": 2
+		},
+		"output": "bean_seasoner",
+		"output_amt": 1,
+		"time": 15,
+		"energy": -10,
+		"skills": {
+			"tinkering": 5,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "new_crystalmalizing_chamber",
+		"tool": "tinkertool",
+		"input": {
+			"molybdenum": 20
+		},
+		"output": "crystalmalizing_chamber",
+		"output_amt": 1,
+		"time": 15,
+		"energy": -10,
+		"skills": {
+			"tinkering": 5,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "new_egg_seasoner",
+		"tool": "tinkertool",
+		"input": {
+			"tin": 2,
+			"jellisac": 2
+		},
+		"output": "egg_seasoner",
+		"output_amt": 1,
+		"time": 15,
+		"energy": -10,
+		"skills": {
+			"tinkering": 5,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "new_fancy_pick",
+		"tool": "tinkertool",
+		"input": {
+			"molybdenum": 6,
+			"ingot": 5,
+			"plank": 2
+		},
+		"output": "fancy_pick",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -15,
+		"skills": {
+			"tinkering": 5,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "new_famous_pugilist_grill",
+		"tool": "tinkertool",
+		"input": {
+			"copper": 1,
+			"ingot": 1
+		},
+		"output": "famous_pugilist_grill",
+		"output_amt": 1,
+		"time": 12,
+		"energy": -10,
+		"skills": {
+			"tinkering": 5,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "new_smelter",
+		"tool": "tinkertool",
+		"input": {
+			"tin": 2,
+			"copper": 2,
+			"molybdenum": 2,
+			"barnacle_talc": 5
+		},
+		"output": "smelter",
+		"output_amt": 1,
+		"time": 13,
+		"energy": -10,
+		"skills": {
+			"tinkering": 5,
+			"engineering": 1
+		}
+	},
+	{
+		"id": "new_super_scraper",
+		"tool": "tinkertool",
+		"input": {
+			"tin": 7,
+			"copper": 7,
+			"molybdenum": 7
+		},
+		"output": "super_scraper",
+		"output_amt": 1,
+		"time": 10,
+		"energy": -15,
+		"skills": {
+			"tinkering": 5,
+			"engineering": 1
+		}
+	}
+]
