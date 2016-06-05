@@ -186,12 +186,14 @@ class MetabolicsEndpoint {
 		}
 	}
 
-	static denyQuoin(Quoin q, String username) {
-		Map map = {'collectQuoin': 'true', 'success': 'false', 'id': q.id};
+	static bool denyQuoin(Quoin q, String username) {
+		Map<String, String> map = {'collectQuoin': 'true', 'success': 'false', 'id': q.id};
 		try {
 			userSockets[username].add(JSON.encode(map));
+			return true;
 		} catch (err) {
-			log('(metabolics_endpoint_deny_quoin) Could not pass map $map to player $username: $err');
+			log('[Deny Quoin] Could not pass map $map to player $username: $err');
+			return false;
 		}
 	}
 
@@ -331,8 +333,9 @@ class MetabolicsEndpoint {
 
 				q.setCollected(username);
 
-				userSockets[username].add(JSON.encode(map));
-				userSockets[username].add(JSON.encode(encode(m)));
+				userSockets[username].add(JSON.encode(map)); // send quoin
+				print(map);
+				userSockets[username].add(JSON.encode(encode(m))); // send metabolics
 			}
 		} catch (err) {
 			log('(metabolics_endpoint_add_quoin) Could not set metabolics $m for player $username: $err');

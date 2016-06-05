@@ -3,6 +3,7 @@ library street_update_handler;
 import 'dart:io';
 import 'dart:async';
 import 'dart:convert';
+import 'dart:math' hide log;
 import 'dart:mirrors';
 
 import 'package:coUserver/common/util.dart';
@@ -152,7 +153,7 @@ class StreetUpdateHandler {
 			if (street.occupants.length > 0) {
 				//reset the street's expiry if it has one
 				street.expires = null;
-				
+
 				street.plants.forEach((String id, Plant plant) => plant.update());
 				street.quoins.forEach((String id, Quoin quoin) => quoin.update());
 				street.npcs.forEach((String id, NPC npc) => npc.update());
@@ -259,11 +260,34 @@ class StreetUpdateHandler {
 				if (map['clientVersion'] != null && map['clientVersion'] < MIN_CLIENT_VER) {
 					ws.add(JSON.encode({'error':'version too low'}));
 					return;
-				}
-				else {
-					//log("${map['username']} joined $streetName");
+				} else {
 					userSockets[email] = ws;
-					streets[streetName].occupants[username] = ws;
+
+					try {
+						streets[streetName].occupants[username] = ws;
+					} catch (e) {
+						log('[Join] Error adding $username to $streetName: $e.'
+							' Waiting to retry...');
+
+						Duration totalWait = new Duration();
+						await Future.doWhile(() async {
+							if (streets[streetName] != null) {
+								streets[streetName].occupants[username] = ws;
+								return true;
+							}
+
+							// Max wait time of 5 seconds
+							if (totalWait >= new Duration(seconds: 5)) {
+								log('[Join] Gave up on adding $username to $streetName');
+								return false;
+							}
+
+							// Wait 0.5s and try again
+							Duration wait = new Duration(milliseconds: 500);
+							await new Future.delayed(wait);
+							totalWait += wait;
+						});
+					}
 					getMetabolics(username: username, email: email).then((Metabolics m) {
 						MetabolicsEndpoint.addToLocationHistory(username, email, map["tsid"]);
 					});
@@ -280,30 +304,28 @@ class StreetUpdateHandler {
 				return;
 			}
 
-			//the said that they collided with a quion, let's check and credit if true
+			//the client said that they collided with a quion, let's check and credit if true
 			if (map["remove"] != null) {
-				if (map["type"] == "quoin") {
-					//print('remove quoin');
+				if (map["type"] == "'") {
+					print('touched ${map['remove']}');
 					Quoin touched = streets[streetName].quoins[map["remove"]];
 					Identifier player = PlayerUpdateHandler.users[username];
+
 					if (player == null) {
-						log('(street_update_handler) Could not find player $username to collect quoin');
+						log('[Street Update Handler] Could not find player $username to collect quoin');
 					} else if (touched != null && !touched.collected) {
 						num xDiff = (touched.x - player.currentX).abs();
-						//num yDiff = (touched.y - player.currentY).abs();
+						num yDiff = (touched.y - player.currentY).abs();
+						num diff = sqrt(pow(xDiff, 2) + pow(yDiff, 2));
 
-						if (xDiff < 130) {
+						if (diff < 500) {
 							await MetabolicsEndpoint.addQuoin(touched, username);
-							//print('added');
-						}
-						else {
+						} else {
 							MetabolicsEndpoint.denyQuoin(touched, username);
-							log('denied quoin to $username');
+							log('[Street Update Handler] Denied quoin to $username: too far away ($diff)');
 						}
-					}
-					else if (touched == null) {
-						log(
-							'(street_update_handler) Could not collect quoin ${map['remove']} for player $username - quoin is null');
+					} else if (touched == null) {
+						log('[Street Update Handler] Could not collect quoin ${map['remove']} for player $username: quoin not found');
 					}
 				}
 
