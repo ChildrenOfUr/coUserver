@@ -3,9 +3,9 @@ library console;
 import 'dart:async';
 import 'dart:io';
 
+import 'package:coUserver/achievements/stats.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/endpoints/chat_handler.dart';
-import 'package:coUserver/endpoints/stats.dart';
 import 'package:coUserver/endpoints/status.dart';
 
 class Console {

@@ -4,12 +4,12 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:coUserver/achievements/stats.dart';
 import 'package:coUserver/common/harvest_messages.dart';
 import 'package:coUserver/common/identifier.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/endpoints/letters.dart';
 import 'package:coUserver/endpoints/login_date_tracker.dart';
-import 'package:coUserver/endpoints/stats.dart';
 import 'package:coUserver/quests/quest.dart';
 
 //handle player update events

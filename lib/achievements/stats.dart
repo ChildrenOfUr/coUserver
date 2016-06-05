@@ -194,6 +194,7 @@ enum Stat {
 	salmon_pocketed,
 	sauce_pan_uses,
 	shrine_donations,
+	smelter_uses,
 	spice_harvested,
 	spice_milled,
 	spice_plants_petted,

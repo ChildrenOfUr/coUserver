@@ -15,6 +15,7 @@ class StatAchvManager {
 		"grill": grill,
 		"knife_and_board": chop,
 		"saucepan": simmer,
+		"smelter": smelt,
 		"spice_mill": mill,
 		"tinkertool": tinker
 	};
@@ -196,6 +197,22 @@ class StatAchvManager {
 				Achievement.find("roux_guru").awardTo(email);
 			} else if (uses >= 11) {
 				Achievement.find("rolling_boiler").awardTo(email);
+			}
+		});
+	}
+
+	static void smelt(email) {
+		StatManager.add(email, Stat.smelter_uses).then((int smelted) {
+			if (smelted >= 1009) {
+				Achievement.find('hephaestite').awardTo(email);
+			} else if (smelted >= 503) {
+				Achievement.find('metalhead').awardTo(email);
+			} else if (smelted >= 283) {
+				Achievement.find('metal_masseuse').awardTo(email);
+			} else if (smelted >= 127) {
+				Achievement.find('crucible_jockey').awardTo(email);
+			} else if (smelted >= 41) {
+				Achievement.find('forgey_laforge').awardTo(email);
 			}
 		});
 	}
