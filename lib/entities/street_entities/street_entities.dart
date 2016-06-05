@@ -63,10 +63,10 @@ class StreetEntities {
 			PostgreSql dbConn = await dbManager.getConnection();
 
 			try {
-				String query = 'INSERT INTO $TABLE (id, type, tsid, x, y) '
-					'VALUES (@id, @type, @tsid, @x, @y) '
+				String query = 'INSERT INTO $TABLE (id, type, tsid, x, y, metadata) '
+					'VALUES (@id, @type, @tsid, @x, @y, @metadata) '
 					'ON CONFLICT (id) DO UPDATE '
-					'SET tsid = @tsid, x = @x, y = @y';
+					'SET tsid = @tsid, x = @x, y = @y, metadata = @metadata';
 
 				int result = await dbConn.execute(
 					query, encode(entity));

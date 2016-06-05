@@ -3,7 +3,14 @@ part of street_entities;
 class StreetEntity {
 	StreetEntity();
 
-	StreetEntity.create({this.id, this.type, this.tsid, this.x: 0, this.y: 0}) {
+	StreetEntity.create({
+		this.id,
+		this.type,
+		this.tsid,
+		this.x: 0,
+		this.y: 0,
+		this.metadata: const {}
+	}) {
 		assert(id != null);
 		assert(type != null);
 		assert(tsid != null);
@@ -18,6 +25,8 @@ class StreetEntity {
 	@Field() String tsid;
 
 	@Field() int x, y;
+
+	@Field() Map<String, dynamic> metadata;
 
 	@override String toString() => "<StreetEntity $id ($type) on $tsid at ($x, $y)>";
 }
