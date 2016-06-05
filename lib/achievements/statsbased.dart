@@ -170,7 +170,7 @@ class StatAchvManager {
 	}
 
 	static void chop(String email) {
-		StatManager.add(email, Stat.grill_uses).then((int uses) {
+		StatManager.add(email, Stat.knife_board_uses).then((int uses) {
 			if (uses >= 137) {
 				Achievement.find("broil_king").awardTo(email);
 			} else if (uses >= 79) {
