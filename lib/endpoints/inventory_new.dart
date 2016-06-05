@@ -898,7 +898,6 @@ class InventoryV2 {
 		if(possibles.length > 0) {
 			// sort the list and pick the one with the most used already
 			possibles.sort();
-			print(possibles);
 			DurabilitySlot mostUsed = possibles.removeAt(0);
 
 			//write it to the tmpSlots array
