@@ -9,7 +9,7 @@ class StreetEntity {
 		this.tsid,
 		this.x: 0,
 		this.y: 0,
-		this.metadata: const {}
+		this.metadata_json
 	}) {
 		assert(id != null);
 		assert(type != null);
@@ -26,7 +26,11 @@ class StreetEntity {
 
 	@Field() int x, y;
 
-	@Field() Map<String, dynamic> metadata;
+	@Field() String metadata_json;
+
+	Map<String, dynamic> get metadata => JSON.decode(metadata_json);
+
+	set metadata(Map<String, dynamic> map) => metadata_json = JSON.encode(map);
 
 	@override String toString() => "<StreetEntity $id ($type) on $tsid at ($x, $y)>";
 }

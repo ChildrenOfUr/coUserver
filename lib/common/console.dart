@@ -6,9 +6,75 @@ import 'dart:io';
 import 'package:coUserver/achievements/stats.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/endpoints/chat_handler.dart';
+import 'package:coUserver/endpoints/inventory_new.dart';
 import 'package:coUserver/endpoints/status.dart';
+import 'package:coUserver/entities/items/item.dart';
 
 class Console {
+	static void _registerCommands() {
+		new Command.register('help', () {
+			log('List of commands & arguments:');
+			for (Command command in _commands.values) {
+				log('* $command');
+			}
+		});
+
+		new Command.register('status', () async {
+			(Console.formatMap(
+				await getServerStatus()
+					..addAll({'pid': pid})
+			)).split('\n').forEach((String ln) => log(ln));
+		});
+
+		new Command.register('stop', (String exitCode) async {
+			await cleanup(int.parse(exitCode));
+		}, ['exit code']);
+
+		new Command.register('global', (String message) async {
+			ChatHandler.superMessage(message);
+			log('Sent message to Global Chat (${ChatHandler.users.length} online)');
+		}, ['message to post in global chat']);
+
+		new Command.register('migrate', (String object) async {
+			final Map<String, Function> _MIGRATES = {
+				'entities': () async => await StreetEntities.migrateEntities()
+			};
+
+			if (_MIGRATES.keys.contains(object)) {
+				log('Migrating $object...');
+				int migrated = await _MIGRATES[object]();
+				log('Migration of $migrated $object completed!');
+			} else {
+				log('No migrateable object "$object"');
+			}
+		}, ['object to migrate']);
+
+		new Command.register('giveItem', (String email, String itemType) async {
+			if (!items.containsKey(itemType)) {
+				log('No such item: $itemType');
+			} else {
+				if ((await InventoryV2.addItemToUser(email, items[itemType].getMap(), 1)) == 1) {
+					log("Successfully added $itemType to <email=$email>'s inventory");
+				} else {
+					log("Error adding $itemType to <email=$email>'s inventory'");
+				}
+			}
+		}, ['user email', 'item type']);
+
+		new Command.register('useTool', (String email, String itemType, String amount) async {
+			if (await InventoryV2.decreaseDurability(email, itemType, amount: int.parse(amount))) {
+				log("Successfully took $amount durability from <email=$email>'s $itemType");
+			} else {
+				log("Error taking $amount durability from <email=$email>'s $itemType");
+			}
+		}, ['user email', 'tool item type', 'durability to use']);
+
+		new Command.register('stats', () async {
+			Console.formatMap(await StatManager.getAllSums())
+				.split('\n').forEach((String ln) => log(ln));
+		});
+	}
+
 	static final String ARG_GROUP = '"';
 
 	static Map<String, Command> _commands = new Map();
@@ -36,47 +102,7 @@ class Console {
 			}
 		});
 
-		new Command.register('help', () {
-			StringBuffer help = new StringBuffer()
-				..writeln('List of commands & arguments:');
-			for (Command command in _commands.values) {
-				help.writeln('* $command');
-			}
-			log(help.toString().trim());
-		});
-
-		new Command.register('stats', () async {
-			log(Console.formatMap(await StatManager.getAllSums()));
-		});
-
-		new Command.register('status', () async {
-			log(Console.formatMap(
-				await getServerStatus()
-					..addAll({'pid': pid})
-			));
-		});
-
-		new Command.register('stop', (String exitCode) async {
-			await cleanup(int.parse(exitCode));
-		}, ['exit code']);
-
-		new Command.register('migrate', (String object) async {
-			final Map<String, Function> _MIGRATES = {
-				'entities': () async => await StreetEntities.migrateEntities()
-			};
-
-			if (_MIGRATES.keys.contains(object)) {
-				log('Migrating $object...');
-				int migrated = await _MIGRATES[object]();
-				log('Migration of $migrated $object completed!');
-			} else {
-				log('No migrateable object "$object"');
-			}
-		}, ['object to migrate']);
-
-		new Command.register('global', (String message) async {
-			ChatHandler.superMessage(message);
-		}, ['message to post in global chat']);
+		_registerCommands();
 	}
 
 	static String formatMap(Map input) {

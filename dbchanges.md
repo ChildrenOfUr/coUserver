@@ -2,5 +2,5 @@ The following changes have been made to the dev database and will need to be add
 
 ```
 ALTER TABLE street_entities
-ADD COLUMN metadata text NOT NULL DEFAULT '{}';
+ADD COLUMN metadata_json text NOT NULL DEFAULT '{}';
 ```
