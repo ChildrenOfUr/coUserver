@@ -153,7 +153,8 @@ abstract class NPC extends Entity {
 			wallAction(null);
 			x = 0;
 		}
-		if (x > street.bounds.width - width) {
+
+		if ((street?.bounds) != null && x > street.bounds.width - width) {
 			wallAction(null);
 			x = street.bounds.width - width;
 		}

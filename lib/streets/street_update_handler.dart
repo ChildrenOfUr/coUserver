@@ -268,24 +268,13 @@ class StreetUpdateHandler {
 					} catch (e) {
 						log('[Join] Error adding $username to $streetName: $e.'
 							' Waiting to retry...');
-
-						Duration totalWait = new Duration();
-						await Future.doWhile(() async {
-							if (streets[streetName] != null) {
+						streets[streetName].load.future.then((_) {
+							try {
 								streets[streetName].occupants[username] = ws;
-								return true;
+							} catch (e) {
+								log('[Join] Error adding $username to $streetName: $e.'
+									' Giving up.');
 							}
-
-							// Max wait time of 5 seconds
-							if (totalWait >= new Duration(seconds: 5)) {
-								log('[Join] Gave up on adding $username to $streetName');
-								return false;
-							}
-
-							// Wait 0.5s and try again
-							Duration wait = new Duration(milliseconds: 500);
-							await new Future.delayed(wait);
-							totalWait += wait;
 						});
 					}
 					getMetabolics(username: username, email: email).then((Metabolics m) {
@@ -386,14 +375,17 @@ class StreetUpdateHandler {
 	}
 
 	static Future loadStreet(String streetName, String tsid) async {
+		Street street;
 		try {
-			Street street = new Street(streetName, tsid);
+			street = new Street(streetName, tsid);
 			streets[streetName] = street;
 			await street.loadItems();
 			await street.loadJson();
+			street.load.complete(true);
 			log("Loaded street $streetName ($tsid) into memory");
 		} catch(e) {
 			log("Could not load street $tsid: $e");
+			street?.load?.complete(false);
 			throw e;
 		}
 	}
