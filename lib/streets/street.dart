@@ -101,6 +101,7 @@ class Street {
 	int groundY = 0;
 	Rectangle bounds;
 	DateTime expires;
+	Completer<bool> load;
 
 	Map<String, Quoin> quoins = {};
 	Map<String, Plant> plants = {};
@@ -112,6 +113,8 @@ class Street {
 	String label, tsid;
 
 	Street(this.label, this.tsid) {
+		load = new Completer();
+
 		entityMaps = {"quoin":quoins, "plant":plants, "npc":npcs, "door":doors, "groundItem":groundItems};
 
 		//attempt to load street occupants from database
