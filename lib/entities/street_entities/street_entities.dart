@@ -18,6 +18,15 @@ class StreetEntities {
 	static final String TABLE = 'street_entities';
 
 	static Future<List<StreetEntity>> getEntities(String tsid) async {
+		try {
+			if (tsid == null) {
+				throw "You should not pass a null tsid to this function.";
+			}
+		} catch (e, st) {
+			log("Error getting entities for tsid '$tsid': $e\n\n$st");
+			return [];
+		}
+		
 		tsid = tsidL(tsid);
 
 		PostgreSql dbConn = await dbManager.getConnection();
