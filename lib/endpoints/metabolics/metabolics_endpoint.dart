@@ -97,29 +97,45 @@ class MetabolicsEndpoint {
 
 	/// Supply m to speed it up, and init to only check energy (in case they left the game while in Hell)
 	static Future updateDeath(Identifier userIdentifier, [Metabolics m, bool init = false]) async {
+		print('update death');
+		final String HELL_ONE = 'LA5PPFP86NF2FOS';
+		final String CEBARKUL = 'LIF12PMQ5121D68';
+		final int NARAKA = 40;
+
 		if (userIdentifier == null) {
 			return;
 		}
+
 		if (m == null) {
 			m = await getMetabolics(username: userIdentifier.username);
 		}
 
-		if (m.energy == 0 && (m.undead_street == null || init)) {
-			// Dead, but not in Hell
-			Map<String, String> map = {
-				"gotoStreet": "true",
-				"tsid": "LA5PPFP86NF2FOS" // Hell One
-			};
+		if (
+			m.energy == 0 // Dead
+			&& (m.undead_street == null || init) // Not in Hell (or just connecting)
+		) {
+			// Save undead street
 			m.dead = true;
-			userIdentifier.webSocket.add(JSON.encode(map));
-		} else if (m.energy >= HellGrapes.ENERGY_REQ && m.undead_street != null) {
-			// Not dead (at least 10 energy), but in Hell
-			Map<String, String> map = {
+
+			// Go to Hell
+			userIdentifier.webSocket.add(JSON.encode({
 				"gotoStreet": "true",
-				"tsid": m.undead_street // Street where they died
-			};
-			m.dead = false;
-			userIdentifier.webSocket.add(JSON.encode(map));
+				"tsid": HELL_ONE
+			}));
+		} else {
+			Map<String, dynamic> street = getStreetByTsid(m.current_street);
+			if (
+				m.energy >= HellGrapes.ENERGY_REQ // Enough energy to be alive
+				&& (street == null) || ((street['hub_id'] ?? NARAKA) == NARAKA) // In Hell
+			) {
+				// Return to world
+				userIdentifier.webSocket.add(JSON.encode({
+					"gotoStreet": "true",
+					"tsid": m.undead_street ?? CEBARKUL
+				}));
+
+				m.dead = false;
+			}
 		}
 	}
 

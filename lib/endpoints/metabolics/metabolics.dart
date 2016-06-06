@@ -10,6 +10,7 @@ import 'package:coUserver/achievements/stats.dart';
 import 'package:coUserver/buffs/buffmanager.dart';
 import 'package:coUserver/common/constants.dart';
 import 'package:coUserver/common/identifier.dart';
+import 'package:coUserver/common/mapdata/mapdata.dart';
 import 'package:coUserver/common/user.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/endpoints/inventory_new.dart';
