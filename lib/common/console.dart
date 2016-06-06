@@ -13,9 +13,9 @@ import 'package:coUserver/entities/items/item.dart';
 class Console {
 	static void _registerCommands() {
 		new Command.register('help', () {
-			log('List of commands & arguments:');
+			Log.command('List of commands & arguments:');
 			for (Command command in _commands.values) {
-				log('* $command');
+				Log.command('* $command');
 			}
 		});
 
@@ -23,7 +23,7 @@ class Console {
 			(Console.formatMap(
 				await getServerStatus()
 					..addAll({'pid': pid})
-			)).split('\n').forEach((String ln) => log(ln));
+			)).split('\n').forEach((String ln) => Log.command(ln));
 		});
 
 		new Command.register('stop', (String exitCode) async {
@@ -32,7 +32,7 @@ class Console {
 
 		new Command.register('global', (String message) async {
 			ChatHandler.superMessage(message);
-			log('Sent message to Global Chat (${ChatHandler.users.length} online)');
+			Log.command('Sent message to Global Chat (${ChatHandler.users.length} online)');
 		}, ['message to post in global chat']);
 
 		new Command.register('migrate', (String object) async {
@@ -41,37 +41,37 @@ class Console {
 			};
 
 			if (_MIGRATES.keys.contains(object)) {
-				log('Migrating $object...');
+				Log.command('Migrating $object...');
 				int migrated = await _MIGRATES[object]();
-				log('Migration of $migrated $object completed!');
+				Log.command('Migration of $migrated $object completed!');
 			} else {
-				log('No migrateable object "$object"');
+				Log.command('No migrateable object "$object"');
 			}
 		}, ['object to migrate']);
 
 		new Command.register('giveItem', (String email, String itemType) async {
 			if (!items.containsKey(itemType)) {
-				log('No such item: $itemType');
+				Log.command('No such item: $itemType');
 			} else {
 				if ((await InventoryV2.addItemToUser(email, items[itemType].getMap(), 1)) == 1) {
-					log("Successfully added $itemType to <email=$email>'s inventory");
+					Log.command("Successfully added $itemType to <email=$email>'s inventory");
 				} else {
-					log("Error adding $itemType to <email=$email>'s inventory'");
+					Log.command("Error adding $itemType to <email=$email>'s inventory'");
 				}
 			}
 		}, ['user email', 'item type']);
 
 		new Command.register('useTool', (String email, String itemType, String amount) async {
 			if (await InventoryV2.decreaseDurability(email, itemType, amount: int.parse(amount))) {
-				log("Successfully took $amount durability from <email=$email>'s $itemType");
+				Log.command("Successfully took $amount durability from <email=$email>'s $itemType");
 			} else {
-				log("Error taking $amount durability from <email=$email>'s $itemType");
+				Log.command("Error taking $amount durability from <email=$email>'s $itemType");
 			}
 		}, ['user email', 'tool item type', 'durability to use']);
 
 		new Command.register('stats', () async {
 			Console.formatMap(await StatManager.getAllSums())
-				.split('\n').forEach((String ln) => log(ln));
+				.split('\n').forEach((String ln) => Log.command(ln));
 		});
 	}
 
@@ -93,11 +93,11 @@ class Console {
 		_handler = stdin.listen((List<int> chars) async {
 			String input = new String.fromCharCodes(chars).trim();
 			if (input.length > 0) {
-				log('> $input');
+				Log.command('> $input');
 				try {
 					await _runCommand(input);
 				} catch (e) {
-					log('Error running command: $e');
+					Log.command('Error running command: $e');
 				}
 			}
 		});

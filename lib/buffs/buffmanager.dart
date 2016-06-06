@@ -75,8 +75,8 @@ class BuffManager {
 					PlayerBuff buff = new PlayerBuff.fromMap(buffMap);
 					buff.startUpdating();
 				});
-			} catch(e) {
-				log("Could not resume buffs for <email=$email>: $e");
+			} catch (e, st) {
+				Log.error('Could not resume buffs for <email=$email>', e, st);
 			}
 		}
 	}
@@ -91,8 +91,8 @@ class BuffManager {
 				});
 
 				PlayerBuff.cache.remove(email);
-			} catch (e) {
-				log("Could not pause buffs for <email=$email>: $e");
+			} catch (e, st) {
+				Log.error('Could not pause buffs for <email=$email>', e, st);
 			}
 		}
 	}
@@ -139,8 +139,8 @@ class BuffManager {
 			});
 
 			return playerBuffsList;
-		} catch (e) {
-			log("Error getting buff list: $e");
+		} catch (e, st) {
+			Log.error('Error getting buff list', e, st);
 			return null;
 		} finally {
 			dbManager.closeConnection(dbConn);

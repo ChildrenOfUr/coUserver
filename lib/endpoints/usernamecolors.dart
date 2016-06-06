@@ -47,9 +47,9 @@ class UsernameColors {
         // Revert to old color generator
         hex = getByChars(username);
       }
-    } catch (e) {
+  } catch (e, st) {
       // Log error message for investigation
-      log("Unable to get username color for $username: $e");
+      Log.error('Unable to get username color for $username', e, st);
     } finally {
       // Return result (all uppercase)
       return hex.trim().toUpperCase();
@@ -73,12 +73,9 @@ class UsernameColors {
     try {
       // Try to parse int to prevent injection risks
       int.parse(nekkidHex, radix: 16);
-    } on FormatException catch (e) {
-      log("Cannot use invalid hex $nekkidHex as username color for <email=$email>: $e");
+	} catch (e, st) {
       // Invalid hex value (possibly a malicious SQL command?)
-      return false;
-    } catch (e) {
-      // Unknown error
+	  Log.error('Cannot use invalid hex $nekkidHex as username color for <email=$email>', e, st);
       return false;
     }
 
@@ -96,9 +93,9 @@ class UsernameColors {
 
       // 1 row changed?
       success = (result == 1);
-    } catch (e) {
+	} catch (e, st) {
       // Log error message for investigation
-      log("Unable to set username color to $nekkidHex for <email=$email>: $e");
+      Log.error('Unable to set username color to $nekkidHex for <email=$email>', e, st);
     } finally {
       // Return result
       return success;

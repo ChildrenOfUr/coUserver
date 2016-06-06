@@ -121,8 +121,8 @@ class Skill {
 			);
 			int points = JSON.decode(rows.first.skills_json)[id] ?? 0;
 			return new PlayerSkill(copy, email, points);
-		} catch (e) {
-			log("Error getting skill $id: $e");
+		} catch (e, st) {
+			Log.error('Error getting skill $id', e, st);
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}

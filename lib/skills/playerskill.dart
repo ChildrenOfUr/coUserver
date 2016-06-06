@@ -81,8 +81,8 @@ class PlayerSkill extends Skill {
 					" AND u.email = @email",
 				{"newJson": newJson, "email": email}
 			)) == 1);
-		} catch (e) {
-			log("Error setting skill $id for <email=$email>: $e");
+		} catch (e, st) {
+			Log.error('Error setting skill $id for <email=$email>', e, st);
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}

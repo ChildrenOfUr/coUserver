@@ -23,7 +23,7 @@ class StreetEntities {
 				throw new ArgumentError('tsid must not be null');
 			}
 		} catch (e, st) {
-			log("Error getting entities for tsid '$tsid': $e\n$st");
+			Log.error("Error getting entities for tsid '$tsid'", e, st);
 			return new List();
 		}
 
@@ -40,8 +40,8 @@ class StreetEntities {
 				query, StreetEntity, {'tsid': tsid});
 
 			return rows;
-		} catch (e) {
-			log('Could not get entities for $tsid: $e');
+		} catch (e, st) {
+			Log.error('Could not get entities for $tsid', e, st);
 			return new List();
 		} finally {
 			dbManager.closeConnection(dbConn);
@@ -60,8 +60,8 @@ class StreetEntities {
 				query, StreetEntity, {'entityId': entityId});
 
 			return rows.single;
-		} catch(e) {
-			log('Could not get entity $entityId: $e');
+		} catch (e, st) {
+			Log.error('Could not get street entity $entityId', e, st);
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}
@@ -81,8 +81,8 @@ class StreetEntities {
 					query, encode(entity));
 
 				return (result == 1);
-			} catch (e) {
-				log('Could not edit entity $entity: $e');
+			} catch (e, st) {
+				Log.error('Could not edit entity $entity', e, st);
 				return false;
 			} finally {
 				dbManager.closeConnection(dbConn);
@@ -101,8 +101,8 @@ class StreetEntities {
 
 					// Load onto street
 					StreetUpdateHandler.streets[street["label"]].npcs.addAll({id: npc});
-				} catch (e) {
-					log('Error loading new entity $entity: $e');
+				} catch (e, st) {
+					Log.error('Error loading new entity $entity', e, st);
 				}
 				return true;
 			} else {
@@ -130,7 +130,7 @@ class StreetEntities {
 				String tsid = file.uri.pathSegments.last;
 				String json = await file.readAsString();
 				try {
-					log('Migrating $tsid...');
+					Log.verbose('Migrating $tsid...');
 					Map<String, dynamic> map = JSON.decode(json);
 					await Future.forEach(map['entities'], (Map<String, dynamic> entity) async {
 						await StreetEntities.setEntity(new StreetEntity.create(
@@ -143,7 +143,7 @@ class StreetEntities {
 						count++;
 					});
 				} catch (e) {
-					log('    Error migrating $tsid: $e');
+					Log.warn('    Error migrating $tsid', e);
 				}
 			}
 		});

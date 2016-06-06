@@ -80,8 +80,8 @@ async {
 		}
 
 		result = OK;
-	} catch (e) {
-		log('Could not change username from $oldUsername to $newUsername: $e');
+	} catch (e, st) {
+		Log.error('Could not change username from $oldUsername to $newUsername', e, st);
 	} finally {
 		dbManager.closeConnection(dbConn);
 

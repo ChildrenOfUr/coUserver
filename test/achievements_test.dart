@@ -4,8 +4,6 @@ import 'package:test/test.dart';
 
 import 'package:coUserver/achievements/achievements.dart';
 
-import 'test_config.dart';
-
 Future main() async {
 	group('Achievements', () {
 		test('Load data from JSON', () async {

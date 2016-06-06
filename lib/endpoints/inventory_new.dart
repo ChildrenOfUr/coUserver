@@ -409,8 +409,7 @@ class InventoryV2 {
 		inventory_json = jsonx.encode(tmpSlots);
 
 		if (toMerge > 0) {
-			log("[InventoryV2] Cannot give ${item.itemType} x $count because <email=$email> ran"
-			    + " out of slots before all items were added. $toMerge items skipped.");
+			Log.warn('[InventoryV2] Cannot give ${item.itemType} x $count because <email=$email> ran out of slots before all items were added. $toMerge items skipped.');
 			Identifier playerId = PlayerUpdateHandler.users[await User.getUsernameFromEmail(email)];
 			if(playerId != null) {
 				item.putItemOnGround(playerId.currentX+40, playerId.currentY+40, playerId.currentStreet);
@@ -545,8 +544,8 @@ class InventoryV2 {
 			}
 
 			return numRowsUpdated;
-		} catch (e) {
-			log('Could not update inventory: $e');
+		} catch (e, st) {
+			Log.error('Could not update inventory', e, st);
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}
@@ -610,8 +609,8 @@ class InventoryV2 {
 
 	Future<int> _takeAnyItems(String itemType, int count, String email, {bool simulate: false}) async {
 		Map itemMap = items[itemType]?.getMap();
-		if(itemMap == null) {
-			log('Could not get item from type $itemType');
+		if (itemMap == null) {
+			Log.warn('Could not get item from type $itemType');
 			return 0;
 		}
 
@@ -721,9 +720,8 @@ class InventoryV2 {
 
 		if (toGrab > 0) {
 			//abort - if we can't have it all, we can't have any
-			if(!simulate) {
-				log("[InventoryV2] Cannot take ${item.itemType} x $count because the user ran"
-				    + " out of slots before all items were taken. $toGrab items skipped.");
+			if (!simulate) {
+				Log.warn('[InventoryV2] Cannot take ${item.itemType} x $count because the user ran out of slots before all items were taken. $toGrab items skipped.');
 			}
 			return 0;
 		} else {
@@ -1080,7 +1078,7 @@ class InventoryV2 {
 			await InventoryV2.fireInventoryAtUser(userSocket, email, update: true);
 		} catch (e, st) {
 			inv.inventory_json = jsonx.encode(beforeSlots);
-			log("Problem moving item: $e\n$st");
+			Log.error('Problem moving item', e, st);
 			return false;
 		} finally {
 			_releaseLock(email);
@@ -1093,8 +1091,8 @@ class InventoryV2 {
 		if (bagIndex == null) {
 			try {
 				return slots[invIndex];
-			} catch (e) {
-				log("Error accessing inventory slot $invIndex: $e");
+			} catch (e, st) {
+				Log.error('Error accessing inventory slot $invIndex', e, st);
 				return new Slot();
 			}
 		} else {
@@ -1102,8 +1100,8 @@ class InventoryV2 {
 				String mdsString = slots[invIndex].metadata["slots"];
 				Map<String, dynamic> mdsSlot = jsonx.decode(mdsString)[bagIndex];
 				return new Slot.withMap(mdsSlot);
-			} catch (e) {
-				log("Error accessing bag slot $bagIndex of inventory slot $invIndex: $e");
+			} catch (e, st) {
+				Log.error('Error accessing bag slot $bagIndex of inventory slot $invIndex', e, st);
 				return new Slot();
 			}
 		}

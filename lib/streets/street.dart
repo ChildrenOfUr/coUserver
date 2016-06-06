@@ -162,8 +162,8 @@ class Street {
 										.newInstance(new Symbol(""), [id, label, x, y])
 										.reflectee;
 								}
-							} catch (e) {
-								log("Unable to instantiate a class for $type: $e");
+							} catch (e, st) {
+								Log.error('Unable to instantiate a class for $type', e, st);
 							}
 						}
 					}
@@ -231,8 +231,8 @@ class Street {
 				..groundItems = groundItems.values.toList() ?? [];
 			String query = "INSERT INTO streets(id,items) VALUES(@id,@items) ON CONFLICT (id) DO UPDATE SET items = @items";
 			await dbConn.execute(query, dbStreet);
-		} catch (e) {
-			log('could not persist $tsid ($label): $e');
+		} catch (e, st) {
+			Log.error('Could not persist $tsid ($label)', e, st);
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}

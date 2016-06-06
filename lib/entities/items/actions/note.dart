@@ -47,8 +47,8 @@ class NoteManager {
 				"SELECT * FROM notes WHERE id = @id",
 				Note, {"id": id}
 			)).single;
-		} catch(e) {
-			log("Could not find note $id: $e");
+		} catch (e, st) {
+			Log.error('Could not find note $id', e, st);
 			return null;
 		} finally {
 			dbManager.closeConnection(dbConn);
@@ -66,8 +66,8 @@ class NoteManager {
 						"VALUES (@username, @title, @body) RETURNING *",
 					Note, {"username": note.username.trim(), "title": note.title.trim(), "body": note.body}
 				)).single;
-			} catch(e) {
-				log("Could not add note $note: $e");
+			} catch (e, st) {
+				Log.error('Could not add note $note', e, st);
 				return null;
 			} finally {
 				dbManager.closeConnection(dbConn);
@@ -80,8 +80,8 @@ class NoteManager {
 						"WHERE id = @id RETURNING *",
 					Note, {"id": note.id, "title": note.title.trim(), "body": note.body}
 				)).single;
-			} catch(e) {
-				log("Could not edit note $note: $e");
+			} catch (e, st) {
+				Log.error('Could not edit note $note', e, st);
 				return null;
 			} finally {
 				dbManager.closeConnection(dbConn);
@@ -125,8 +125,8 @@ class NoteManager {
 
 			// Send OK to client
 			return added.toMap();
-		} catch(e) {
-			log("Couldn't create note with $noteData: $e");
+		} catch (e, st) {
+			Log.error("Couldn't create note with $noteData", e, st);
 			return ({"error": "Something went wrong :("});
 		}
 	}

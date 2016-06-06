@@ -44,8 +44,8 @@ class Buff {
 			);
 			int remaining = JSON.decode(rows.first.buffs_json)[id] ?? length.inSeconds;
 			return new PlayerBuff(copy, email, remaining);
-		} catch (e) {
-			log("Error getting buff $id for <email=$email>: $e");
+		} catch (e, st) {
+			Log.error('Error getting buff $id for <email=$email>', e, st);
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}

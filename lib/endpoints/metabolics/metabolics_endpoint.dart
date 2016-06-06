@@ -90,7 +90,7 @@ class MetabolicsEndpoint {
 					}
 				}
 			} catch (e, st) {
-				log("(metabolics endpoint - simulate): $e\n$st");
+				Log.error('Metabolics simulation failed', e, st);
 			}
 		});
 	}
@@ -192,13 +192,13 @@ class MetabolicsEndpoint {
 				if (locations.length >= 1259) {
 					Achievement.find("globetrotter_extraordinaire").awardTo(email);
 				}
-			} catch (e) {
-				log("Error awarding location achievement to player $username: $e");
+			} catch (e, st) {
+				Log.error('Error awarding location achievement to player $username', e, st);
 			}
 
 			return finalResult;
-		} catch (e) {
-			log("Error marking location $TSID as visited for player $username: $e");
+		} catch (e, st) {
+			Log.error('Error marking location $TSID as visited for player $username', e, st);
 		}
 	}
 
@@ -207,8 +207,8 @@ class MetabolicsEndpoint {
 		try {
 			userSockets[username].add(JSON.encode(map));
 			return true;
-		} catch (err) {
-			log('[Deny Quoin] Could not pass map $map to player $username: $err');
+		} catch (err, st) {
+			Log.error('Could not pass map $map to player $username denying quoin', err, st);
 			return false;
 		}
 	}
@@ -353,8 +353,8 @@ class MetabolicsEndpoint {
 				print(map);
 				userSockets[username].add(JSON.encode(encode(m))); // send metabolics
 			}
-		} catch (err) {
-			log('(metabolics_endpoint_add_quoin) Could not set metabolics $m for player $username: $err');
+		} catch (err, st) {
+			Log.error('Could not set metabolics $m for player $username adding quoin', err, st);
 		}
 	}
 
@@ -420,7 +420,7 @@ Future<Metabolics> getMetabolics(
 			}
 		}
 	} catch (e, st) {
-		log('(getMetabolics): $e\n$st');
+		Log.error('Getting metabolics failed', e, st);
 	} finally {
 		dbManager.closeConnection(dbConn);
 		return metabolic;
@@ -587,7 +587,7 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 		WebSocket ws = MetabolicsEndpoint.userSockets[await User.getUsernameFromId(metabolics.user_id)];
 		ws?.add(JSON.encode(encode(metabolics)));
 	} catch (e, st) {
-		log('(setMetabolics): $e\n$st');
+		Log.error('Setting metabolics failed', e, st);
 	} finally {
 		dbManager.closeConnection(dbConn);
 		return result;

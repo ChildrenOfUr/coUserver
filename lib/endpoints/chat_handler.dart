@@ -107,8 +107,8 @@ class ChatHandler {
 					_sendMessage(text, username, icon_url);
 			});
 		}
-		catch (err) {
-			log('error sending slack message: $err');
+		catch (err, st) {
+			Log.error('Error sending Slack message', err, st);
 		}
 	}
 
@@ -126,9 +126,8 @@ class ChatHandler {
 		try {
 			KeepAlive.pingList.remove(ws);
 			ws.close(4001, reason);
-		}
-		catch (err) {
-			log('error: $err');
+		} catch (err, st) {
+			Log.error('Could not clean up chat lists', err, st);
 		}
 
 		String leavingUser;
@@ -227,7 +226,7 @@ class ChatHandler {
 			sendAll(JSON.encode(map));
 		}
 		catch (err, st) {
-			log("Error handling chat: $err\n$st");
+			Log.error('Error handling chat', err, st);
 		}
 	}
 
@@ -287,8 +286,8 @@ class UserMutes {
 			return (await dbConn.execute(
 				"UPDATE users SET chat_disabled = true WHERE username = @username",
 				{"username": username}) == 1);
-		} catch (e) {
-			log("Error muting chat for user $username: $e");
+		} catch (e, st) {
+			Log.error('Error muting chat for user $username', e, st);
 			return false;
 		} finally {
 			dbManager.closeConnection(dbConn);
@@ -309,8 +308,8 @@ class UserMutes {
 			return (await dbConn.execute(
 				"UPDATE users SET chat_disabled = false WHERE username = @username",
 				{"username": username}) == 1);
-		} catch (e) {
-			log("Error unmuting chat for user $username: $e");
+		} catch (e, st) {
+			Log.error('Error unmuting chat for user $username', e, st);
 			return false;
 		} finally {
 			dbManager.closeConnection(dbConn);
@@ -332,8 +331,8 @@ class UserMutes {
 			_userMutedCache[username] = result;
 
 			return result;
-		} catch (e) {
-			log("Error getting chat muted status for user $username: $e");
+		} catch (e, st) {
+			Log.error('Error getting chat muted status for user $username', e, st);
 			return false;
 		} finally {
 			dbManager.closeConnection(dbConn);

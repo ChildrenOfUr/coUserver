@@ -15,14 +15,14 @@ class FileCache {
 		new Timer.periodic(INTERVAL, (_) {
 			try {
 				saveCacheToDisk('headsCache.json', headsCache);
-			} catch (e) {
-				log('Problem writing headsCache.json: $e');
+			} catch (e, st) {
+				Log.error('Problem writing headsCache.json', e, st);
 			}
 
 			try {
 				saveCacheToDisk('heightsCache.json', heightsCache);
-			} catch (e) {
-				log('Problem writing heightsCache.json: $e');
+			} catch (e, st) {
+				Log.error('Problem writing heightsCache.json', e, st);
 			}
 		});
 	}
@@ -35,9 +35,9 @@ class FileCache {
 
 		try {
 			return JSON.decode(file.readAsStringSync());
-		} catch (e) {
+		} catch (e, st) {
 			// The file is corrupted, reset it during the next write
-			log('Could not load cache $filename: $e');
+			Log.error('Could not load cache $filename', e, st);
 			return new Map();
 		}
 	}
@@ -50,9 +50,9 @@ class FileCache {
 
 		try {
 			file.writeAsStringSync(JSON.encode(cache), flush: true);
-		} catch (e) {
+		} catch (e, st) {
 			// Filesystem error
-			log('Could not save $cache to $filename: $e');
+			Log.error('Could not save $cache to $filename', e, st);
 		}
 	}
 }

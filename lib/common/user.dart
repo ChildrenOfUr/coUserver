@@ -34,8 +34,8 @@ class User {
 				String query = "SELECT * FROM users WHERE email = @email";
 				User u = (await dbConn.query(query, User, {"email": email})).first;
 				_updateMaps(u);
-			} catch(e) {
-				log("Error getting username for <email=$email>: $e");
+			} catch (e, st) {
+				Log.error('Error getting username for <email=$email>', e, st);
 			} finally {
 				dbManager.closeConnection(dbConn);
 			}
@@ -53,8 +53,8 @@ class User {
 				String query = "SELECT * FROM users WHERE username = @username";
 				User u = (await dbConn.query(query, User, {"username": username})).first;
 				_updateMaps(u);
-			} catch(e) {
-				log("Error getting email for username $username: $e");
+			} catch (e, st) {
+				Log.error('Error getting email for username $username', e, st);
 			} finally {
 				dbManager.closeConnection(dbConn);
 			}
@@ -72,8 +72,8 @@ class User {
 				String query = "SELECT * FROM users WHERE id = @id";
 				User u = (await dbConn.query(query, User, {"id": id})).first;
 				_updateMaps(u);
-			} catch(e) {
-				log("Error getting username for id $id: $e");
+			} catch (e, st) {
+				Log.error('Error getting username for id $id', e, st);
 			} finally {
 				dbManager.closeConnection(dbConn);
 			}
@@ -91,8 +91,8 @@ class User {
 				String query = "SELECT * FROM users WHERE email = @email";
 				User u = (await dbConn.query(query, User, {"email": email})).first;
 				_updateMaps(u);
-			} catch(e) {
-				log("Error getting id for <email=$email>: $e");
+			} catch (e, st) {
+				Log.error('Error getting id for <email=$email>', e, st);
 			} finally {
 				dbManager.closeConnection(dbConn);
 			}

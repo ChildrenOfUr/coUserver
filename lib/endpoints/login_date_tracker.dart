@@ -25,8 +25,8 @@ class LoginDateTracker {
 			);
 			_cache[username] = newDate;
 			return (rows == 1);
-		} catch(e) {
-			log("Error setting last login date for $username: $e");
+		} catch (e, st) {
+			Log.error('Error setting last login date for $username', e, st);
 			return false;
 		} finally {
 			dbManager.closeConnection(dbConn);
@@ -47,8 +47,8 @@ class LoginDateTracker {
 					{"username": username}
 				)).first["last_login"];
 				return lastlogin;
-			} catch(e) {
-				log("Error getting last login date for $username: $e");
+			} catch (e, st) {
+				Log.error('Error getting last login date for $username', e, st);
 				return null;
 			} finally {
 				dbManager.closeConnection(dbConn);

@@ -109,8 +109,8 @@ class SkillManager extends Object {
 			});
 
 			return playerSkillsList;
-		} catch (e) {
-			log("Error getting skill list for email <email=$email>: $e");
+		} catch (e, st) {
+			Log.error('Error getting skill list for email <email=$email>', e, st);
 			return null;
 		} finally {
 			dbManager.closeConnection(dbConn);

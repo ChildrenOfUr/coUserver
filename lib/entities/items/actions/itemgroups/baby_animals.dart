@@ -116,8 +116,8 @@ abstract class BabyAnimals {
 				toast('A $entityType appeared!', userSocket);
 				_uncache();
 				return true;
-			} catch (e) {
-				log('Error spawning entity: $e');
+			} catch (e, st) {
+				Log.error('Error spawning entity', e, st);
 				_uncache();
 				return false;
 			}

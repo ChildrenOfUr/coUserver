@@ -108,8 +108,8 @@ class Achievement {
 					User, {"email": email})
 				).first.achievements.contains(id)
 			);
-		} catch (e) {
-			log("Error getting achievements for <email=$email>: $e");
+		} catch (e, st) {
+			Log.error('Error getting achievements for <email=$email>', e, st);
 			return false;
 		} finally {
 			dbManager.closeConnection(dbConn);
@@ -152,8 +152,8 @@ class Achievement {
 			} else {
 				result = false;
 			}
-		} catch (e) {
-			log("Error setting achievements for <email=$email>: $e");
+		} catch (e, st) {
+			Log.error('Error setting achievements for <email=$email>', e, st);
 			result = false;
 		} finally {
 			dbManager.closeConnection(dbConn);
@@ -205,8 +205,8 @@ Future<String> listAchievements(
 				return '{}';
 			}
 			awardedIds = JSON.decode((await dbConn.query(query, User, data)).first.achievements);
-		} catch (e) {
-			log("Error getting achievements for email ${email ?? username}: $e");
+		} catch (e, st) {
+			Log.error('Error getting achievements for <email=${email ?? username}>', e, st);
 			return '{}';
 		} finally {
 			dbManager.closeConnection(dbConn);

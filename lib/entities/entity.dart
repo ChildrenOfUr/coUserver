@@ -124,9 +124,8 @@ abstract class Entity extends Object with MetabolicsChange {
 					return;
 				}
 			}
-		}
-		catch(e) {
-			log("error enabling/disabling action $action: $e");
+		} catch (e, st) {
+			Log.error('Error enabling/disabling action $action', e, st);
 		}
 	}
 
