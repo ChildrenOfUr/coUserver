@@ -40,20 +40,19 @@ class AchievementCheckers {
 			return true;
 		}
 
-		String addedTsidHubId = mapdata_streets.values.singleWhere((Map streetData) {
-			return (streetData["tsid"] != null && streetData["tsid"] == addedTsid);
-		})["hub_id"].toString();
-
-		if (addedTsidHubId == null) {
-			Log.warning("Missing hub id for street with TSID $addedTsid");
+		String addedTsidHubId;
+		try {
+			addedTsidHubId = getStreetByTsid(addedTsid)['hub_id'];
+		} catch (e) {
+			Log.warning('Cannot find hub id for $addedTsid');
 			return false;
+		}
+
+		if (_checkStreetsInHub(addedTsidHubId)) {
+			AchievementCheckers.getCompletistIdForhub(addedTsidHubId).awardTo(email);
+			return true;
 		} else {
-			if (_checkStreetsInHub(addedTsidHubId)) {
-				AchievementCheckers.getCompletistIdForhub(addedTsidHubId).awardTo(email);
-				return true;
-			} else {
-				return false;
-			}
+			return false;
 		}
 	}
 }

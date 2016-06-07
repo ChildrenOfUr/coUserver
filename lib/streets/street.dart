@@ -196,7 +196,11 @@ class Street {
 			String url = "https://raw.githubusercontent.com/ChildrenOfUr/CAT422-glitch-location-viewer/master/locations/$tsid.json";
 			http.Response response = await http.get(url);
 			streetData = JSON.decode(response.body);
-			_jsonCache[tsid] = streetData;
+			if (response.body != 'Not Found') {
+				_jsonCache[tsid] = streetData;
+			} else {
+				throw 'Street $tsid not found in CAT422 repo';
+			}
 		}
 
 		groundY = -(streetData['dynamic']['ground_y'] as num).abs();
@@ -226,13 +230,17 @@ class Street {
 		PostgreSql dbConn = await dbManager.getConnection();
 
 		try {
+			if (tsid == null) {
+				throw new StateError('Cannot create DBStreet because street tsid is null');
+			}
+
 			DBStreet dbStreet = new DBStreet()
 				..id = tsid
 				..groundItems = groundItems.values.toList() ?? [];
 			String query = "INSERT INTO streets(id,items) VALUES(@id,@items) ON CONFLICT (id) DO UPDATE SET items = @items";
 			await dbConn.execute(query, dbStreet);
-		} catch (e, st) {
-			Log.error('Could not persist $tsid ($label)', e, st);
+		} catch (e) {
+			Log.warning('Could not persist $tsid ($label). It may not have been loaded completely.', e);
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}
