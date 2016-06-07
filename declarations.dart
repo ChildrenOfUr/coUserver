@@ -96,26 +96,7 @@ Future _initRedstone() async {
 	// Initialize redstone
 	try {
 		app.addPlugin(getMapperPlugin(dbManager));
-		app.setupConsoleLog(rsLog.Level.OFF);
-		final Map<rsLog.Level, LogLevel> _LEVELS = {
-			rsLog.Level.ALL: LogLevel.ALL,
-			rsLog.Level.CONFIG: LogLevel.INFO,
-			rsLog.Level.FINE: LogLevel.VERBOSE,
-			rsLog.Level.FINER: LogLevel.VERBOSE,
-			rsLog.Level.FINEST: LogLevel.VERBOSE,
-			rsLog.Level.INFO: LogLevel.INFO,
-			rsLog.Level.OFF: LogLevel.NONE,
-			rsLog.Level.SEVERE: LogLevel.ERROR,
-			rsLog.Level.SHOUT: LogLevel.ALL,
-			rsLog.Level.WARNING: LogLevel.WARN
-		};
-		rsLog.Logger.root.onRecord.listen((rsLog.LogRecord record) {
-			Log.log(
-				record.message,
-				level: _LEVELS[record.level] ?? LogLevel.NONE,
-				error: record.error,
-				stackTrace: record.stackTrace);
-		});
+		app.setupConsoleLog(rsLog.Level.SEVERE);
 		await app.start(port: port, autoCompress: true);
 	} catch (e, st) {
 		Log.error('Could not start server', e, st);
