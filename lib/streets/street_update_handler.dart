@@ -292,8 +292,7 @@ class StreetUpdateHandler {
 
 			//the client said that they collided with a quion, let's check and credit if true
 			if (map["remove"] != null) {
-				if (map["type"] == "'") {
-					print('touched ${map['remove']}');
+				if (map["type"] == 'quoin') {
 					Quoin touched = streets[streetName].quoins[map["remove"]];
 					Identifier player = PlayerUpdateHandler.users[username];
 

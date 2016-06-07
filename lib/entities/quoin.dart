@@ -15,7 +15,6 @@ class Quoin
 	 */
 	update() {
 		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0) {
-			print('$id respawn');
 			collected = false;
 		}
 	}
@@ -28,7 +27,6 @@ class Quoin
 		});
 
 		if (type == "quarazy") {
-			print("skipping setting collected state of quarazy quoin");
 			/*  Quarazy quoin should never be set to 'collected'
 				to enable all users to collect it
 				it will not be shown to a player again once collected,
