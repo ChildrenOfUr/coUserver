@@ -77,7 +77,7 @@ class Shrine extends NPC {
 			//offer icon quest (only after you complete the emblem quest)
 			QuestEndpoint.questLogCache[email].offerQuest('Q5');
 		} else {
-			Log.warn("Failed to donate $qty x $itemType to $type from <email=$email>");
+			Log.warning("Failed to donate $qty x $itemType to $type from <email=$email>");
 		}
 	}
 }

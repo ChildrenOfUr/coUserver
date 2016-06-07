@@ -163,7 +163,7 @@ class Street {
 										.reflectee;
 								}
 							} catch (_) {
-								Log.warn('Unable to instantiate a class for $type');
+								Log.warning('Unable to instantiate a class for $type');
 							}
 						}
 					}

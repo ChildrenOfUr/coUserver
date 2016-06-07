@@ -265,7 +265,7 @@ class StreetUpdateHandler {
 					try {
 						streets[streetName].occupants[username] = ws;
 					} catch (e) {
-						Log.warn('Adding $username to $streetName. Waiting to retry...', e);
+						Log.warning('Adding $username to $streetName. Waiting to retry...', e);
 						streets[streetName].load.future.then((_) {
 							try {
 								streets[streetName].occupants[username] = ws;
@@ -297,7 +297,7 @@ class StreetUpdateHandler {
 					Identifier player = PlayerUpdateHandler.users[username];
 
 					if (player == null) {
-						Log.warn('Could not find player $username to collect quoin');
+						Log.warning('Could not find player $username to collect quoin');
 					} else if (touched != null && !touched.collected) {
 						num xDiff = (touched.x - player.currentX).abs();
 						num yDiff = (touched.y - player.currentY).abs();
@@ -310,7 +310,7 @@ class StreetUpdateHandler {
 							Log.verbose('Denied quoin to $username: too far away ($diff)');
 						}
 					} else if (touched == null) {
-						Log.warn('Could not collect quoin ${map['remove']} for player $username: quoin not found');
+						Log.warning('Could not collect quoin ${map['remove']} for player $username: quoin not found');
 					}
 				}
 

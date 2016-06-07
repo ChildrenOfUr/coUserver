@@ -409,7 +409,7 @@ class InventoryV2 {
 		inventory_json = jsonx.encode(tmpSlots);
 
 		if (toMerge > 0) {
-			Log.warn('[InventoryV2] Cannot give ${item.itemType} x $count because <email=$email> ran out of slots before all items were added. $toMerge items skipped.');
+			Log.warning('[InventoryV2] Cannot give ${item.itemType} x $count because <email=$email> ran out of slots before all items were added. $toMerge items skipped.');
 			Identifier playerId = PlayerUpdateHandler.users[await User.getUsernameFromEmail(email)];
 			if(playerId != null) {
 				item.putItemOnGround(playerId.currentX+40, playerId.currentY+40, playerId.currentStreet);
@@ -610,7 +610,7 @@ class InventoryV2 {
 	Future<int> _takeAnyItems(String itemType, int count, String email, {bool simulate: false}) async {
 		Map itemMap = items[itemType]?.getMap();
 		if (itemMap == null) {
-			Log.warn('Could not get item from type $itemType');
+			Log.warning('Could not get item from type $itemType');
 			return 0;
 		}
 
@@ -721,7 +721,7 @@ class InventoryV2 {
 		if (toGrab > 0) {
 			//abort - if we can't have it all, we can't have any
 			if (!simulate) {
-				Log.warn('[InventoryV2] Cannot take ${item.itemType} x $count because the user ran out of slots before all items were taken. $toGrab items skipped.');
+				Log.warning('[InventoryV2] Cannot take ${item.itemType} x $count because the user ran out of slots before all items were taken. $toGrab items skipped.');
 			}
 			return 0;
 		} else {
@@ -939,7 +939,7 @@ class InventoryV2 {
 				numTriesLeft--;
 			}
 			if (inventoryLocked[email]) {
-				Log.warn("Could not acquire a lock for inventory of <email=$email>");
+				Log.warning("Could not acquire a lock for inventory of <email=$email>");
 				return false;
 			}
 		}

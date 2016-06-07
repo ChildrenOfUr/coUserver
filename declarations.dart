@@ -121,7 +121,7 @@ void _initWebSockets() {
 				String handlerName = request.uri.path.replaceFirst('/', '');
 				_HANDLERS[handlerName](websocket);
 			}).catchError((error) {
-				Log.warn('Socket error', error);
+				Log.warning('Socket error', error);
 			}, test: (Exception e) => e is! WebSocketException)
 				.catchError((error) {}, test: (Exception e) => e is WebSocketException);
 		});

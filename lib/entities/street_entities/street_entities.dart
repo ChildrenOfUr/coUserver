@@ -143,7 +143,7 @@ class StreetEntities {
 						count++;
 					});
 				} catch (e) {
-					Log.warn('    Error migrating $tsid', e);
+					Log.warning('    Error migrating $tsid', e);
 				}
 			}
 		});

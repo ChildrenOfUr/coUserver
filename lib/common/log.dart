@@ -1,7 +1,7 @@
 library logging;
 
 enum LogLevel {
-	ALL, VERBOSE, INFO, COMMAND, WARN, ERROR, NONE
+	ALL, VERBOSE, INFO, COMMAND, WARNING, ERROR, NONE
 }
 
 abstract class Log {
@@ -21,7 +21,7 @@ abstract class Log {
 		LogLevel.VERBOSE: 100,
 		LogLevel.INFO: 200,
 		LogLevel.COMMAND: 300,
-		LogLevel.WARN: 400,
+		LogLevel.WARNING: 400,
 		LogLevel.ERROR: 500,
 		LogLevel.NONE: 1000
 	}[level] ?? 0;
@@ -64,8 +64,8 @@ abstract class Log {
 		return log(object, level: LogLevel.COMMAND);
 	}
 
-	static String warn(dynamic object, [Error error]) {
-		return log(object, level: LogLevel.WARN, error: error);
+	static String warning(dynamic object, [Error error]) {
+		return log(object, level: LogLevel.WARNING, error: error);
 	}
 
 	static String error(dynamic object, Error error, StackTrace stackTrace) {
