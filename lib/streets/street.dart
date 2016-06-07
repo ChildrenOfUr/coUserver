@@ -162,8 +162,8 @@ class Street {
 										.newInstance(new Symbol(""), [id, label, x, y])
 										.reflectee;
 								}
-							} catch (e, st) {
-								Log.error('Unable to instantiate a class for $type', e, st);
+							} catch (_) {
+								Log.warn('Unable to instantiate a class for $type');
 							}
 						}
 					}
