@@ -9,9 +9,11 @@ abstract class Log {
 	static LogLevel printLevel = LogLevel.ALL;
 	static bool printErrors = true;
 	static bool printStackTraces = true;
+	static bool printLinesBetween = false;
 
-	static String levelString(LogLevel level) {
-		return level.toString().split('.')[1];
+	static String levelString(LogLevel level, [bool pad = true]) {
+		String levelStr = level.toString().split('.')[1];
+		return levelStr.padRight(7); // Match longest level string length
 	}
 
 	static int levelValue(LogLevel level) => {
@@ -44,7 +46,7 @@ abstract class Log {
 
 		// Print to console if it fits the log level
 		if (levelValue(level) >= levelValue(printLevel)) {
-			print(message + '\n');
+			print(message + (printLinesBetween ? '\n' : ''));
 		}
 
 		return message;

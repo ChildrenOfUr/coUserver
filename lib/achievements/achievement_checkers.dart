@@ -6,8 +6,8 @@ class AchievementCheckers {
 			String hubName = mapdata_hubs[hubId]['name'];
 			hubName = hubName.toLowerCase().replaceAll(' ', '_');
 			return Achievement.find('${hubName}_completist');
-		} catch (e) {
-			print(e);
+		} catch (e, st) {
+			Log.error('Failed getting completist achv id for $hubId', e, st);
 			return new Achievement();
 		}
 	}
