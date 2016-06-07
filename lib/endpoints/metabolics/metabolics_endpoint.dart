@@ -97,7 +97,6 @@ class MetabolicsEndpoint {
 
 	/// Supply m to speed it up, and init to only check energy (in case they left the game while in Hell)
 	static Future updateDeath(Identifier userIdentifier, [Metabolics m, bool init = false]) async {
-		print('update death');
 		final String HELL_ONE = 'LA5PPFP86NF2FOS';
 		final String CEBARKUL = 'LIF12PMQ5121D68';
 		final int NARAKA = 40;
@@ -350,7 +349,6 @@ class MetabolicsEndpoint {
 				q.setCollected(username);
 
 				userSockets[username].add(JSON.encode(map)); // send quoin
-				print(map);
 				userSockets[username].add(JSON.encode(encode(m))); // send metabolics
 			}
 		} catch (err, st) {
