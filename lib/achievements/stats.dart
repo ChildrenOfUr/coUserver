@@ -44,8 +44,8 @@ class StatManager {
 			} else {
 				return rows.single.toMap()[statName];
 			}
-		} catch (e) {
-			log('Error reading stat $statName for <email=$email>: $e');
+		} catch (e, st) {
+			Log.error('Error reading stat $statName for <email=$email>', e, st);
 			return null;
 		} finally {
 			dbManager.closeConnection(dbConn);
@@ -64,8 +64,8 @@ class StatManager {
 
 			String query = 'SELECT ${sums.join(', ')} FROM stats';
 			return (await dbConn.innerConn.query(query).single).toMap();
-		} catch (e) {
-			log('Error summing stats: $e');
+		} catch (e, st) {
+			Log.error('Error summing stats', e, st);
 			return new Map();
 		} finally {
 			dbManager.closeConnection(dbConn);
@@ -79,8 +79,8 @@ class StatManager {
 		try {
 			String query = 'SELECT SUM($statName) AS $statName FROM stats';
 			return (await dbConn.innerConn.query(query).single).toMap()[statName];
-		} catch (e) {
-			log('Error summing stat $statName: $e');
+		} catch (e, st) {
+			Log.error('Error summing stat $statName', e, st);
 			return 0;
 		} finally {
 			dbManager.closeConnection(dbConn);
@@ -124,8 +124,8 @@ class StatManager {
 				'userId': userId
 			};
 			return (await dbConn.innerConn.query(query, values).single).toMap()[statName];
-		} catch (e) {
-			log('Error writing stat $statName: $e');
+		} catch (e, st) {
+			Log.error('Error writing stat $statName', e, st);
 			return null;
 		} finally {
 			dbManager.closeConnection(dbConn);
@@ -194,11 +194,13 @@ enum Stat {
 	salmon_pocketed,
 	sauce_pan_uses,
 	shrine_donations,
+	smelter_uses,
 	spice_harvested,
 	spice_milled,
 	spice_plants_petted,
 	spice_plants_watered,
 	steps_taken,
+	tinkertool_uses,
 	wood_trees_petted,
 	wood_trees_watered
 }

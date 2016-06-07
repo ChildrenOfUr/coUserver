@@ -7,7 +7,7 @@ part of skills;
 
 class Skill {
 	/// Convert a skill name to a skill reference
-	static Skill find(String id) => SkillManager.SKILL_DATA[id].copy;
+	static Skill find(String id) => SkillManager.SKILL_DATA[id]?.copy;
 
 	Skill(
 		this.id,
@@ -121,8 +121,8 @@ class Skill {
 			);
 			int points = JSON.decode(rows.first.skills_json)[id] ?? 0;
 			return new PlayerSkill(copy, email, points);
-		} catch (e) {
-			log("Error getting skill $id: $e");
+		} catch (e, st) {
+			Log.error('Error getting skill $id', e, st);
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}

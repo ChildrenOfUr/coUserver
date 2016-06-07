@@ -4,12 +4,12 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:coUserver/achievements/stats.dart';
 import 'package:coUserver/common/harvest_messages.dart';
 import 'package:coUserver/common/identifier.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/endpoints/letters.dart';
 import 'package:coUserver/endpoints/login_date_tracker.dart';
-import 'package:coUserver/endpoints/stats.dart';
 import 'package:coUserver/quests/quest.dart';
 
 //handle player update events
@@ -103,7 +103,7 @@ class PlayerUpdateHandler {
 							messagePostCounter[email]++;
 						}
 					} catch (e, st) {
-						log("(player_update_handler/processMessage): $e\n$st");
+						Log.error('Error processing player update', e, st);
 					}
 				} else {
 					// This user must have just connected
@@ -119,7 +119,7 @@ class PlayerUpdateHandler {
 						users[username].currentX = currentX;
 						users[username].currentY = currentY;
 					} catch (e, st) {
-						log("(player_update_handler/processMessage): $e\n$st");
+						Log.error('Processing player update', e, st);
 					}
 				}
 
@@ -127,7 +127,7 @@ class PlayerUpdateHandler {
 			}
 		}
 		catch (error, st) {
-			log("Error processing message (player_update_handler): $error\n$st");
+			Log.error('Processing player message', error, st);
 		}
 	}
 

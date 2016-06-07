@@ -20,6 +20,7 @@ class RecipeBook extends Object with MetabolicsChange {
 
 		List<Map> toolRecipes = [];
 		await Future.forEach(recipes, (Recipe recipe) async {
+			bool skillTooLow = false;
 
 			// If the recipe is made with the requested tool (if requested)
 			if ((tool == "" || tool == null) || tool == items[recipe.tool].itemType) {
@@ -52,10 +53,30 @@ class RecipeBook extends Object with MetabolicsChange {
 					});
 					// End input items loop
 
+					// For every skill it requires...
+					if (recipe.skills != null) {
+						await Future.forEach(recipe.skills.keys, (String skillId) async {
+							if (skillTooLow) {
+								return;
+							}
+
+							int level = recipe.skills[skillId];
+							if (
+								Skill.find(skillId) != null &&
+								await SkillManager.getLevel(skillId, email) < level
+							) {
+								// Player's skill level is too low
+								skillTooLow = true;
+							}
+						});
+					}
+
 				}
 				// End user-specific data
 
-				toolRecipes.add(toolRecipe);
+				if (!skillTooLow) {
+					toolRecipes.add(toolRecipe);
+				}
 
 			}
 			// End tool recipe filter
@@ -66,6 +87,7 @@ class RecipeBook extends Object with MetabolicsChange {
 	}
 
 	// Returned string is displayed as "You had to stop using your {tool} because {reason}
+	// in the client. Returning "OK" will not display a message.
 	@app.Route("/make")
 	Future makeRecipe(@app.QueryParam("token") String token,
 		@app.QueryParam("id") String id,
@@ -90,10 +112,10 @@ class RecipeBook extends Object with MetabolicsChange {
 			recipe = rList.first;
 		}
 
-		if(items[recipe.tool].durability != null) {
+		if (items[recipe.tool].durability != null) {
 			//take away tool durability
 			bool durabilitySuccess = await InventoryV2.decreaseDurability(email, recipe.tool);
-			if(!durabilitySuccess) {
+			if (!durabilitySuccess) {
 				return "it's missing";
 			}
 		}
@@ -106,8 +128,25 @@ class RecipeBook extends Object with MetabolicsChange {
 		}
 
 		// Take all of the items
-		Future.forEach(recipe.input.keys, (String itemType) async {
+		String missingItem = null;
+		await Future.forEach(recipe.input.keys, (String itemType) async {
+			if (missingItem != null) {
+				// Can't escape the async forEach,
+				// but we can save inventory calls
+				return;
+			}
+
 			int qty = recipe.input[itemType];
+
+			// Test for the item
+			int gotSim = (await InventoryV2.takeAnyItemsFromUser(
+				email, itemType, qty, simulate: true));
+			if (gotSim < qty) {
+				missingItem = items[itemType].name;
+				return;
+			}
+
+			// Remove the item
 			int got = (await InventoryV2.takeAnyItemsFromUser(email, itemType, qty));
 			if (got != qty) {
 				// If they didn't have a required item, they're not making a smoothie
@@ -115,14 +154,20 @@ class RecipeBook extends Object with MetabolicsChange {
 			}
 		});
 
+		if (missingItem != null) {
+			return "you ran out of ${missingItem}s";
+		}
+
 		// Wait for it to make it, then give the item
 		new Timer(new Duration(seconds: recipe.time), () async {
 			// Add the item after we finish "making" one
-			await InventoryV2.addItemToUser(email, items[recipe.output].getMap(), recipe.output_amt);
+			await InventoryV2.addItemToUser(
+				email, items[recipe.output].getMap(), recipe.output_amt);
+
 			// Award iMG
 			await trySetMetabolics(email, imgMin: recipe.img);
 
-			//send possible quest event
+			// Send possible quest event
 			messageBus.publish(new RequirementProgress('makeRecipe_${recipe.output}',email));
 
 			// Count stat for achievements

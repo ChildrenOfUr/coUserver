@@ -15,6 +15,7 @@ class Quoin
 	 */
 	update() {
 		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0) {
+			print('$id respawn');
 			collected = false;
 		}
 	}

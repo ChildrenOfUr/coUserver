@@ -101,6 +101,7 @@ class Street {
 	int groundY = 0;
 	Rectangle bounds;
 	DateTime expires;
+	Completer<bool> load;
 
 	Map<String, Quoin> quoins = {};
 	Map<String, Plant> plants = {};
@@ -112,59 +113,63 @@ class Street {
 	String label, tsid;
 
 	Street(this.label, this.tsid) {
+		load = new Completer();
+
 		entityMaps = {"quoin":quoins, "plant":plants, "npc":npcs, "door":doors, "groundItem":groundItems};
 
 		//attempt to load street occupants from database
-		StreetEntities.getEntities(tsid).then((List<StreetEntity> entities) {
-			if (entities.length > 0) {
-				for (StreetEntity entity in entities) {
-					String type = entity.type;
-					int x = entity.x;
-					int y = entity.y;
+		if (tsid != null) {
+			StreetEntities.getEntities(tsid).then((List<StreetEntity> entities) {
+				if (entities.length > 0) {
+					for (StreetEntity entity in entities) {
+						String type = entity.type;
+						int x = entity.x;
+						int y = entity.y;
 
-					//generate a hopefully unique code that stays the same everytime for this object
-					String id = createId(x, y, type, tsid);
+						//generate a hopefully unique code that stays the same everytime for this object
+						String id = createId(x, y, type, tsid);
 
-					if (type == "Img" || type == "Mood" || type == "Energy" || type == "Currant"
-						|| type == "Mystery" || type == "Favor" || type == "Time" || type == "Quarazy") {
-						id = "q" + id;
-						quoins[id] = new Quoin(id, x, y, type.toLowerCase());
-					} else {
-						try {
-							ClassMirror classMirror = findClassMirror(type.replaceAll(" ", ""));
-							if (classMirror.isSubclassOf(findClassMirror("NPC"))) {
-								id = "n" + id;
-								if (classMirror.isSubclassOf(findClassMirror("Vendor")) ||
-									classMirror == findClassMirror("DustTrap")) {
-									// Vendors and dust traps get a street name/TSID to check for collisions
-									npcs[id] = classMirror
-										.newInstance(new Symbol(""), [id, label, tsid, x, y])
-										.reflectee;
-								} else {
-									npcs[id] = classMirror
+						if (type == "Img" || type == "Mood" || type == "Energy" || type == "Currant"
+							|| type == "Mystery" || type == "Favor" || type == "Time" || type == "Quarazy") {
+							id = "q" + id;
+							quoins[id] = new Quoin(id, x, y, type.toLowerCase());
+						} else {
+							try {
+								ClassMirror classMirror = findClassMirror(type.replaceAll(" ", ""));
+								if (classMirror.isSubclassOf(findClassMirror("NPC"))) {
+									id = "n" + id;
+									if (classMirror.isSubclassOf(findClassMirror("Vendor")) ||
+										classMirror == findClassMirror("DustTrap")) {
+										// Vendors and dust traps get a street name/TSID to check for collisions
+										npcs[id] = classMirror
+											.newInstance(new Symbol(""), [id, label, tsid, x, y])
+											.reflectee;
+									} else {
+										npcs[id] = classMirror
+											.newInstance(new Symbol(""), [id, x, y, label])
+											.reflectee;
+									}
+								}
+								if (classMirror.isSubclassOf(findClassMirror("Plant"))) {
+									id = "p" + id;
+									plants[id] = classMirror
 										.newInstance(new Symbol(""), [id, x, y, label])
 										.reflectee;
 								}
+								if (classMirror.isSubclassOf(findClassMirror("Door"))) {
+									id = "d" + id;
+									doors[id] = classMirror
+										.newInstance(new Symbol(""), [id, label, x, y])
+										.reflectee;
+								}
+							} catch (e, st) {
+								Log.error('Unable to instantiate a class for $type', e, st);
 							}
-							if (classMirror.isSubclassOf(findClassMirror("Plant"))) {
-								id = "p" + id;
-								plants[id] = classMirror
-									.newInstance(new Symbol(""), [id, x, y, label])
-									.reflectee;
-							}
-							if (classMirror.isSubclassOf(findClassMirror("Door"))) {
-								id = "d" + id;
-								doors[id] = classMirror
-									.newInstance(new Symbol(""), [id, label, x, y])
-									.reflectee;
-							}
-						} catch (e) {
-							log("Unable to instantiate a class for $type: $e");
 						}
 					}
 				}
-			}
-		});
+			});
+		}
 	}
 
 	Future loadItems() async {
@@ -226,8 +231,8 @@ class Street {
 				..groundItems = groundItems.values.toList() ?? [];
 			String query = "INSERT INTO streets(id,items) VALUES(@id,@items) ON CONFLICT (id) DO UPDATE SET items = @items";
 			await dbConn.execute(query, dbStreet);
-		} catch (e) {
-			log('could not persist $tsid ($label): $e');
+		} catch (e, st) {
+			Log.error('Could not persist $tsid ($label)', e, st);
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}

@@ -26,8 +26,8 @@ class ServerStatus {
 				return !players.contains(username);
 			}).toList();
 			return players;
-		} catch (e) {
-			log('Error getting online players: $e');
+		} catch (e, st) {
+			Log.error('Getting online players', e, st);
 			return new List();
 		}
 	}
@@ -46,8 +46,8 @@ class ServerStatus {
 				});
 			});
 			return streets;
-		} catch (e) {
-			log('Error getting streets loaded: $e');
+		} catch (e, st) {
+			Log.error('Listing loaded streets', e, st);
 			return new List();
 		}
 	}
@@ -59,8 +59,8 @@ class ServerStatus {
 	static Future<int> get bytesUsed async {
 		try {
 			return int.parse(await _getScript('getMemoryUsage')) * 1024;
-		} catch (e) {
-			log('Error getting memory usage: $e');
+		} catch (e, st) {
+			Log.error('Getting memory usage', e, st);
 			return 0;
 		}
 	}
@@ -69,8 +69,8 @@ class ServerStatus {
 	static Future<double> get cpuUsed async {
 		try {
 			return double.parse(await _getScript('getCpuUsage'));
-		} catch (e) {
-			log('Error getting CPU usage: $e');
+		} catch (e, st) {
+			Log.error('Getting CPU usage', e, st);
 			return 0.0;
 		}
 	}
@@ -79,8 +79,8 @@ class ServerStatus {
 	static Duration get uptime {
 		try {
 			return new DateTime.now().difference(serverStart);
-		} catch (e) {
-			log('Error getting uptime: $e');
+		} catch (e, st) {
+			Log.error('Getting uptime', e, st);
 			return new Duration();
 		}
 	}
@@ -102,8 +102,8 @@ class ServerStatus {
 			}
 
 			return (list ? log.split('\n') : log);
-		} catch (e) {
-			log('Error getting server log: $e');
+		} catch (e, st) {
+			Log.error('Getting server log', e, st);
 			return new List();
 		}
 	}

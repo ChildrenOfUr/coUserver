@@ -4,8 +4,8 @@ import 'package:test/test.dart';
 import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper/plugin.dart';
 
+import 'package:coUserver/achievements/stats.dart';
 import 'package:coUserver/common/util.dart';
-import 'package:coUserver/endpoints/stats.dart';
 
 import 'test_config.dart';
 

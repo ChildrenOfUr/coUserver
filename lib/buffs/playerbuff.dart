@@ -114,8 +114,8 @@ class PlayerBuff extends Buff {
 					" AND u.email = @email",
 				{"newJson": newJson, "email": email}
 			)) == 1);
-		} catch (e) {
-			log("Error setting buff $id for <email=$email>: $e");
+		} catch (e, st) {
+			Log.error('Error setting buff $id for <email=$email>', e, st);
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}

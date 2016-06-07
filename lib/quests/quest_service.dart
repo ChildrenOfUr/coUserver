@@ -129,9 +129,8 @@ class QuestService extends Object with MetabolicsChange {
 					quests[q.id] = q;
 				}
 			}
-		}
-		catch (e) {
-			log("Problem loading quests: $e");
+		} catch (e, st) {
+			Log.error('Problem loading quests', e, st);
 		}
 	}
 }

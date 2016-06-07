@@ -30,8 +30,8 @@ class UpgradeManager {
 			// Clear old upgrades data, then save the new
 			_upgrades = new Map();
 			upgrades.forEach((Upgrade upgrade) => _upgrades[upgrade.id] = upgrade);
-		} catch (e) {
-			log("Problem loading upgrades: $e");
+		} catch (e, st) {
+			Log.error('Problem loading upgrades', e, st);
 		}
 	}
 }

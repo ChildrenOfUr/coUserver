@@ -8,7 +8,7 @@ part of skills;
 class PlayerSkill extends Skill {
 	/// Get a PlayerSkill for any player, any skill
 	static Future<PlayerSkill> find(String skillId, String email) async {
-		return Skill.find(skillId).getForPlayer(email);
+		return Skill.find(skillId)?.getForPlayer(email);
 	}
 
 	PlayerSkill(Skill base, this.email, [this.points]) : super.fromMap(base.toMap());
@@ -81,8 +81,8 @@ class PlayerSkill extends Skill {
 					" AND u.email = @email",
 				{"newJson": newJson, "email": email}
 			)) == 1);
-		} catch (e) {
-			log("Error setting skill $id for <email=$email>: $e");
+		} catch (e, st) {
+			Log.error('Error setting skill $id for <email=$email>', e, st);
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}

@@ -14,8 +14,10 @@ import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper_pg/manager.dart';
 
 import 'package:coUserver/API_KEYS.dart';
+import 'package:coUserver/common/log.dart';
 import 'package:coUserver/streets/street_update_handler.dart';
 
+export 'package:coUserver/common/log.dart';
 export 'package:coUserver/entities/street_entities/street_entities.dart';
 
 part 'filecaching.dart';
@@ -90,15 +92,6 @@ ClassMirror findClassMirror(String name) {
 	throw new ArgumentError("Class $name does not exist");
 }
 
-/**
-	Log a message out to the console (and possibly a log file through redirection)
-	Returns the printed message (including prefixes)
-*/
-void log(dynamic object) {
-	String time = new DateTime.now().toString();
-	print('$time: $object');
-}
-
 /// Tell a client to display a toast
 void toast(String message, WebSocket userSocket, {bool skipChat, String onClick}) {
 	userSocket.add(JSON.encode({
@@ -117,7 +110,7 @@ void toast(String message, WebSocket userSocket, {bool skipChat, String onClick}
 Future cleanup([int exitCode = 0]) async {
 	// Persist the state of each loaded street to the database
 	await Future.forEach(StreetUpdateHandler.streets.keys, (String label) async {
-		log('[Cleanup] Persisting $label before shutdown');
+		Log.info('[Cleanup] Persisting $label before shutdown');
 		await StreetUpdateHandler.streets[label]?.persistState();
 	});
 

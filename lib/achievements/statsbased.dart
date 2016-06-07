@@ -15,7 +15,9 @@ class StatAchvManager {
 		"grill": grill,
 		"knife_and_board": chop,
 		"saucepan": simmer,
-		"spice_mill": mill
+		"smelter": smelt,
+		"spice_mill": mill,
+		"tinkertool": tinker
 	};
 
 	static void update(String email, String toolType) {
@@ -168,7 +170,7 @@ class StatAchvManager {
 	}
 
 	static void chop(String email) {
-		StatManager.add(email, Stat.grill_uses).then((int uses) {
+		StatManager.add(email, Stat.knife_board_uses).then((int uses) {
 			if (uses >= 137) {
 				Achievement.find("broil_king").awardTo(email);
 			} else if (uses >= 79) {
@@ -199,6 +201,22 @@ class StatAchvManager {
 		});
 	}
 
+	static void smelt(email) {
+		StatManager.add(email, Stat.smelter_uses).then((int smelted) {
+			if (smelted >= 1009) {
+				Achievement.find('hephaestite').awardTo(email);
+			} else if (smelted >= 503) {
+				Achievement.find('metalhead').awardTo(email);
+			} else if (smelted >= 283) {
+				Achievement.find('metal_masseuse').awardTo(email);
+			} else if (smelted >= 127) {
+				Achievement.find('crucible_jockey').awardTo(email);
+			} else if (smelted >= 41) {
+				Achievement.find('forgey_laforge').awardTo(email);
+			}
+		});
+	}
+
 	static void mill(email) {
 		StatManager.add(email, Stat.spice_milled).then((int milled) {
 			if (milled >= 2003) {
@@ -207,6 +225,20 @@ class StatAchvManager {
 				Achievement.find("assistant_spice_manager").awardTo(email);
 			} else if (milled >= 53) {
 				Achievement.find("spice_intern").awardTo(email);
+			}
+		});
+	}
+
+	static void tinker(email) {
+		StatManager.add(email, Stat.tinkertool_uses, increment: 50).then((int tinkered) {
+			if (tinkered >= 25013) {
+				Achievement.find("grand_poobah_tinkering_ops").awardTo(email);
+			} else if (tinkered >= 10009) {
+				Achievement.find("special_agent_tinkering_ops").awardTo(email);
+			} else if (tinkered >= 2503) {
+				Achievement.find("chief_of_tinkering_operations").awardTo(email);
+			} else if (tinkered >= 1009) {
+				Achievement.find("executive_flunky_tinkering_ops").awardTo(email);
 			}
 		});
 	}

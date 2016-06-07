@@ -6,17 +6,17 @@ abstract class FocusingOrb {
 		return false;
 	}
 
-	Future<bool> focusEnergy(WebSocket userSocket, String username) async {
+	Future<bool> focusEnergy({WebSocket userSocket, String username, String email, Map map, String streetName}) async {
 		toast("+10 energy focused", userSocket);
 		return await ItemUser.trySetMetabolics(username, energy:10);
 	}
 
-	Future<bool> focusMood(WebSocket userSocket, String username) async {
+	Future<bool> focusMood({WebSocket userSocket, String username, String email, Map map, String streetName}) async {
 		toast("+10 mood focused", userSocket);
 		return await ItemUser.trySetMetabolics(username, mood:10);
 	}
 
-	Future<bool> radiate(String streetName, String radiator) async {
+	Future<bool> radiate({WebSocket userSocket, String username, String email, Map map, String streetName}) async {
 		List<String> users = [];
 		List<Identifier> ids = ChatHandler.users.values.where((Identifier id) => id.channelList.contains(streetName)).toList();
 		ids.forEach((Identifier id) => users.add(id.username));
@@ -35,12 +35,12 @@ abstract class FocusingOrb {
 
 			amt = (amt / numUsersOnStreet).ceil();
 			users.forEach((String username) => ItemUser.trySetMetabolics(username, mood: amt, energy: amt, img: amt));
-			StreetUpdateHandler.streets[streetName].occupants.forEach((String username, WebSocket ws) => toast("$radiator is radiating. Everyone here got $amt energy, mood, and iMG", ws));
+			StreetUpdateHandler.streets[streetName].occupants.forEach((String username, WebSocket ws) => toast("$username is radiating. Everyone here got $amt energy, mood, and iMG", ws));
 			return true;
 		}
 	}
 
-	Future<bool> meditate(WebSocket userSocket, String username) async {
+	Future<bool> meditate({WebSocket userSocket, String username, String email, Map map, String streetName}) async {
 		toast("+5 energy, mood, and iMG", userSocket);
 		return await ItemUser.trySetMetabolics(username, energy:5, mood:5, img: 5);
 	}

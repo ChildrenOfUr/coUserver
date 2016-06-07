@@ -19,7 +19,7 @@ class AchievementCheckers {
 			  Map streetData) {
 				if (streetData["hub_id"] == null) {
 					if (streetData["tsid"] != null) {
-						log("Missing hub id for street with TSID ${streetData["tsid"]}");
+						Log.warn('Missing hub id for street with TSID ${streetData['tsid']}');
 					}
 					return false;
 				} else {
@@ -45,7 +45,7 @@ class AchievementCheckers {
 		})["hub_id"].toString();
 
 		if (addedTsidHubId == null) {
-			log("Missing hub id for street with TSID $addedTsid");
+			Log.warn("Missing hub id for street with TSID $addedTsid");
 			return false;
 		} else {
 			if (_checkStreetsInHub(addedTsidHubId)) {

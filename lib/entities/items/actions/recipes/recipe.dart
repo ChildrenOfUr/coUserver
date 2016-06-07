@@ -4,13 +4,14 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:convert';
 
-import 'package:coUserver/entities/items/item.dart';
-import 'package:coUserver/endpoints/inventory_new.dart';
-import 'package:coUserver/API_KEYS.dart';
-import 'package:coUserver/endpoints/metabolics/metabolics.dart';
-import 'package:coUserver/common/util.dart';
-import 'package:coUserver/quests/quest.dart';
 import 'package:coUserver/achievements/achievements.dart';
+import 'package:coUserver/API_KEYS.dart';
+import 'package:coUserver/common/util.dart';
+import 'package:coUserver/endpoints/inventory_new.dart';
+import 'package:coUserver/endpoints/metabolics/metabolics.dart';
+import 'package:coUserver/entities/items/item.dart';
+import 'package:coUserver/quests/quest.dart';
+import 'package:coUserver/skills/skillsmanager.dart';
 
 import 'package:redstone_mapper/mapper.dart';
 import 'package:redstone/redstone.dart' as app;
@@ -26,6 +27,7 @@ class Recipe {
 	@Field() int time;
 	@Field() int energy = 0;
 	@Field() int img = 0;
+	@Field() Map<String, int> skills;
 
 	// Items are initialized in street_update_handler.dart after all of the items are loaded
 	Recipe();

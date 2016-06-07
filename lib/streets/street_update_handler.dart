@@ -3,6 +3,7 @@ library street_update_handler;
 import 'dart:io';
 import 'dart:async';
 import 'dart:convert';
+import 'dart:math' hide log;
 import 'dart:mirrors';
 
 import 'package:coUserver/common/util.dart';
@@ -95,9 +96,8 @@ class StreetUpdateHandler {
 
 			// Load buffs
 			BuffManager.loadBuffs();
-		}
-		catch (e) {
-			log("Problem loading items: $e");
+		} catch (e, st) {
+			Log.error('Problem loading items', e, st);
 		}
 	}
 
@@ -136,8 +136,8 @@ class StreetUpdateHandler {
 					if (socket != null) {
 						try {
 							socket.add(JSON.encode(moveMap));
-						} catch (e) {
-							log("Error sending moveMap $moveMap to $username: $e");
+						} catch (e, st) {
+							Log.error('Error sending moveMap $moveMap to $username', e, st);
 						}
 					}
 				});
@@ -152,7 +152,7 @@ class StreetUpdateHandler {
 			if (street.occupants.length > 0) {
 				//reset the street's expiry if it has one
 				street.expires = null;
-				
+
 				street.plants.forEach((String id, Plant plant) => plant.update());
 				street.quoins.forEach((String id, Quoin quoin) => quoin.update());
 				street.npcs.forEach((String id, NPC npc) => npc.update());
@@ -203,7 +203,7 @@ class StreetUpdateHandler {
 				await street.persistState();
 				street.expires = null;
 				streets.remove(label);
-				log('Unloaded street $label from memory');
+				Log.verbose('Unloaded street $label from memory');
 			} else if (street.expires == null) {
 				street.expires = now.add(new Duration(seconds:5));
 			}
@@ -259,11 +259,21 @@ class StreetUpdateHandler {
 				if (map['clientVersion'] != null && map['clientVersion'] < MIN_CLIENT_VER) {
 					ws.add(JSON.encode({'error':'version too low'}));
 					return;
-				}
-				else {
-					//log("${map['username']} joined $streetName");
+				} else {
 					userSockets[email] = ws;
-					streets[streetName].occupants[username] = ws;
+
+					try {
+						streets[streetName].occupants[username] = ws;
+					} catch (e) {
+						Log.warn('Adding $username to $streetName. Waiting to retry...', e);
+						streets[streetName].load.future.then((_) {
+							try {
+								streets[streetName].occupants[username] = ws;
+							} catch (e, st) {
+								Log.error('Adding $username to $streetName. Giving up.', e, st);
+							}
+						});
+					}
 					getMetabolics(username: username, email: email).then((Metabolics m) {
 						MetabolicsEndpoint.addToLocationHistory(username, email, map["tsid"]);
 					});
@@ -280,30 +290,28 @@ class StreetUpdateHandler {
 				return;
 			}
 
-			//the said that they collided with a quion, let's check and credit if true
+			//the client said that they collided with a quion, let's check and credit if true
 			if (map["remove"] != null) {
-				if (map["type"] == "quoin") {
-					//print('remove quoin');
+				if (map["type"] == "'") {
+					print('touched ${map['remove']}');
 					Quoin touched = streets[streetName].quoins[map["remove"]];
 					Identifier player = PlayerUpdateHandler.users[username];
+
 					if (player == null) {
-						log('(street_update_handler) Could not find player $username to collect quoin');
+						Log.warn('Could not find player $username to collect quoin');
 					} else if (touched != null && !touched.collected) {
 						num xDiff = (touched.x - player.currentX).abs();
-						//num yDiff = (touched.y - player.currentY).abs();
+						num yDiff = (touched.y - player.currentY).abs();
+						num diff = sqrt(pow(xDiff, 2) + pow(yDiff, 2));
 
-						if (xDiff < 130) {
+						if (diff < 500) {
 							await MetabolicsEndpoint.addQuoin(touched, username);
-							//print('added');
-						}
-						else {
+						} else {
 							MetabolicsEndpoint.denyQuoin(touched, username);
-							log('denied quoin to $username');
+							Log.verbose('Denied quoin to $username: too far away ($diff)');
 						}
-					}
-					else if (touched == null) {
-						log(
-							'(street_update_handler) Could not collect quoin ${map['remove']} for player $username - quoin is null');
+					} else if (touched == null) {
+						Log.warn('Could not collect quoin ${map['remove']} for player $username: quoin not found');
 					}
 				}
 
@@ -321,22 +329,29 @@ class StreetUpdateHandler {
 					String methodName = normalizeMethodName(map['callMethod']);
 
 					if (entityMap != null && entityMap[map['id']] != null) {
-						var entity = entityMap[map['id']];
-						//log("user $username calling ${map['callMethod']} on ${entity.id} in $streetName (${map['tsid']})");
-						InstanceMirror entityMirror = reflect(entity);
-						Map<Symbol, dynamic> arguments = {#userSocket:ws, #email:email};
-						if (map['arguments'] != null) {
-							(map['arguments'] as Map).forEach((key, value) => arguments[new Symbol(key)] = value);
+						try {
+							var entity = entityMap[map['id']];
+							InstanceMirror entityMirror = reflect(entity);
+							Map<Symbol, dynamic> arguments = {#userSocket:ws, #email:email};
+							if (map['arguments'] != null) {
+								(map['arguments'] as Map).forEach((key, value) => arguments[new Symbol(key)] = value);
+							}
+							entityMirror.invoke(new Symbol(methodName), [], arguments);
+						} catch (e, st) {
+							Log.error('Could not invoke entity method $methodName', e, st);
 						}
-						entityMirror.invoke(new Symbol(methodName), [], arguments);
 					} else {
 						//check if it's an item and not an entity
-						InstanceMirror instanceMirror = reflect(items[type]);
-						Map<Symbol, dynamic> arguments = {#userSocket:ws, #email:email};
-						arguments[#username] = map['username'];
-						arguments[#streetName] = map['streetName'];
-						arguments[#map] = map['arguments'];
-						instanceMirror.invoke(new Symbol(methodName), [], arguments);
+						try {
+							InstanceMirror instanceMirror = reflect(items[type]);
+							Map<Symbol, dynamic> arguments = {#userSocket:ws, #email:email};
+							arguments[#username] = map['username'];
+							arguments[#streetName] = map['streetName'];
+							arguments[#map] = map['arguments'];
+							instanceMirror.invoke(new Symbol(methodName), [], arguments);
+						} catch (e, st) {
+							Log.error('Could not invoke item method $methodName', e, st);
+						}
 					}
 
 					return;
@@ -344,7 +359,7 @@ class StreetUpdateHandler {
 			}
 		}
 		catch (error, st) {
-			log("Error processing message (street_update_handler): $error\n$st");
+			Log.error('Error processing street update', error, st);
 		}
 	}
 
@@ -364,14 +379,17 @@ class StreetUpdateHandler {
 	}
 
 	static Future loadStreet(String streetName, String tsid) async {
+		Street street;
 		try {
-			Street street = new Street(streetName, tsid);
+			street = new Street(streetName, tsid);
 			streets[streetName] = street;
 			await street.loadItems();
 			await street.loadJson();
-			log("Loaded street $streetName ($tsid) into memory");
-		} catch(e) {
-			log("Could not load street $tsid: $e");
+			street.load.complete(true);
+			Log.verbose('Loaded street $streetName ($tsid) into memory');
+		} catch (e, st) {
+			Log.error('Could not load street $tsid', e, st);
+			street?.load?.complete(false);
 			throw e;
 		}
 	}

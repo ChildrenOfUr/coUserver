@@ -90,36 +90,52 @@ class MetabolicsEndpoint {
 					}
 				}
 			} catch (e, st) {
-				log("(metabolics endpoint - simulate): $e\n$st");
+				Log.error('Metabolics simulation failed', e, st);
 			}
 		});
 	}
 
 	/// Supply m to speed it up, and init to only check energy (in case they left the game while in Hell)
 	static Future updateDeath(Identifier userIdentifier, [Metabolics m, bool init = false]) async {
+		print('update death');
+		final String HELL_ONE = 'LA5PPFP86NF2FOS';
+		final String CEBARKUL = 'LIF12PMQ5121D68';
+		final int NARAKA = 40;
+
 		if (userIdentifier == null) {
 			return;
 		}
+
 		if (m == null) {
 			m = await getMetabolics(username: userIdentifier.username);
 		}
 
-		if (m.energy == 0 && (m.undead_street == null || init)) {
-			// Dead, but not in Hell
-			Map<String, String> map = {
-				"gotoStreet": "true",
-				"tsid": "LA5PPFP86NF2FOS" // Hell One
-			};
+		if (
+			m.energy == 0 // Dead
+			&& (m.undead_street == null || init) // Not in Hell (or just connecting)
+		) {
+			// Save undead street
 			m.dead = true;
-			userIdentifier.webSocket.add(JSON.encode(map));
-		} else if (m.energy >= HellGrapes.ENERGY_REQ && m.undead_street != null) {
-			// Not dead (at least 10 energy), but in Hell
-			Map<String, String> map = {
+
+			// Go to Hell
+			userIdentifier.webSocket.add(JSON.encode({
 				"gotoStreet": "true",
-				"tsid": m.undead_street // Street where they died
-			};
-			m.dead = false;
-			userIdentifier.webSocket.add(JSON.encode(map));
+				"tsid": HELL_ONE
+			}));
+		} else {
+			Map<String, dynamic> street = getStreetByTsid(m.current_street);
+			if (
+				m.energy >= HellGrapes.ENERGY_REQ // Enough energy to be alive
+				&& (street == null) || ((street['hub_id'] ?? NARAKA) == NARAKA) // In Hell
+			) {
+				// Return to world
+				userIdentifier.webSocket.add(JSON.encode({
+					"gotoStreet": "true",
+					"tsid": m.undead_street ?? CEBARKUL
+				}));
+
+				m.dead = false;
+			}
 		}
 	}
 
@@ -176,22 +192,24 @@ class MetabolicsEndpoint {
 				if (locations.length >= 1259) {
 					Achievement.find("globetrotter_extraordinaire").awardTo(email);
 				}
-			} catch (e) {
-				log("Error awarding location achievement to player $username: $e");
+			} catch (e, st) {
+				Log.error('Error awarding location achievement to player $username', e, st);
 			}
 
 			return finalResult;
-		} catch (e) {
-			log("Error marking location $TSID as visited for player $username: $e");
+		} catch (e, st) {
+			Log.error('Error marking location $TSID as visited for player $username', e, st);
 		}
 	}
 
-	static denyQuoin(Quoin q, String username) {
-		Map map = {'collectQuoin': 'true', 'success': 'false', 'id': q.id};
+	static bool denyQuoin(Quoin q, String username) {
+		Map<String, String> map = {'collectQuoin': 'true', 'success': 'false', 'id': q.id};
 		try {
 			userSockets[username].add(JSON.encode(map));
-		} catch (err) {
-			log('(metabolics_endpoint_deny_quoin) Could not pass map $map to player $username: $err');
+			return true;
+		} catch (err, st) {
+			Log.error('Could not pass map $map to player $username denying quoin', err, st);
+			return false;
 		}
 	}
 
@@ -331,11 +349,12 @@ class MetabolicsEndpoint {
 
 				q.setCollected(username);
 
-				userSockets[username].add(JSON.encode(map));
-				userSockets[username].add(JSON.encode(encode(m)));
+				userSockets[username].add(JSON.encode(map)); // send quoin
+				print(map);
+				userSockets[username].add(JSON.encode(encode(m))); // send metabolics
 			}
-		} catch (err) {
-			log('(metabolics_endpoint_add_quoin) Could not set metabolics $m for player $username: $err');
+		} catch (err, st) {
+			Log.error('Could not set metabolics $m for player $username adding quoin', err, st);
 		}
 	}
 
@@ -401,7 +420,7 @@ Future<Metabolics> getMetabolics(
 			}
 		}
 	} catch (e, st) {
-		log('(getMetabolics): $e\n$st');
+		Log.error('Getting metabolics failed', e, st);
 	} finally {
 		dbManager.closeConnection(dbConn);
 		return metabolic;
@@ -568,7 +587,7 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 		WebSocket ws = MetabolicsEndpoint.userSockets[await User.getUsernameFromId(metabolics.user_id)];
 		ws?.add(JSON.encode(encode(metabolics)));
 	} catch (e, st) {
-		log('(setMetabolics): $e\n$st');
+		Log.error('Setting metabolics failed', e, st);
 	} finally {
 		dbManager.closeConnection(dbConn);
 		return result;

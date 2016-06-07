@@ -32,6 +32,9 @@ class DurabilitySlot implements Comparable<DurabilitySlot> {
 	int compareTo(DurabilitySlot other) {
 		return percentRemaining.compareTo(other.percentRemaining);
 	}
+
+	@override
+	String toString() => "Durability $percentRemaining% in $slot.$subSlot";
 }
 
 class Slot {
@@ -406,8 +409,7 @@ class InventoryV2 {
 		inventory_json = jsonx.encode(tmpSlots);
 
 		if (toMerge > 0) {
-			log("[InventoryV2] Cannot give ${item.itemType} x $count because <email=$email> ran"
-			    + " out of slots before all items were added. $toMerge items skipped.");
+			Log.warn('[InventoryV2] Cannot give ${item.itemType} x $count because <email=$email> ran out of slots before all items were added. $toMerge items skipped.');
 			Identifier playerId = PlayerUpdateHandler.users[await User.getUsernameFromEmail(email)];
 			if(playerId != null) {
 				item.putItemOnGround(playerId.currentX+40, playerId.currentY+40, playerId.currentStreet);
@@ -542,8 +544,8 @@ class InventoryV2 {
 			}
 
 			return numRowsUpdated;
-		} catch (e) {
-			log('Could not update inventory: $e');
+		} catch (e, st) {
+			Log.error('Could not update inventory', e, st);
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}
@@ -607,8 +609,8 @@ class InventoryV2 {
 
 	Future<int> _takeAnyItems(String itemType, int count, String email, {bool simulate: false}) async {
 		Map itemMap = items[itemType]?.getMap();
-		if(itemMap == null) {
-			log('Could not get item from type $itemType');
+		if (itemMap == null) {
+			Log.warn('Could not get item from type $itemType');
 			return 0;
 		}
 
@@ -718,9 +720,8 @@ class InventoryV2 {
 
 		if (toGrab > 0) {
 			//abort - if we can't have it all, we can't have any
-			if(!simulate) {
-				log("[InventoryV2] Cannot take ${item.itemType} x $count because the user ran"
-				    + " out of slots before all items were taken. $toGrab items skipped.");
+			if (!simulate) {
+				Log.warn('[InventoryV2] Cannot take ${item.itemType} x $count because the user ran out of slots before all items were taken. $toGrab items skipped.');
 			}
 			return 0;
 		} else {
@@ -848,10 +849,12 @@ class InventoryV2 {
 			for (Slot s in tmpSlots) {
 				if (s.itemType != null && s.itemType == itemType) {
 					int used = int.parse(s.metadata['durabilityUsed']?.toString() ?? '0');
-					if(used+amount > sample.durability) {
+					if(used + amount > sample.durability) {
 						continue;
 					}
-					possibles.add(new DurabilitySlot((sample.durability-used)/sample.durability, index));
+					possibles.add(new DurabilitySlot(
+						100 * ((sample.durability - used) / sample.durability),
+						index));
 				}
 				index++;
 			}
@@ -874,7 +877,9 @@ class InventoryV2 {
 									if(used+amount > sample.durability) {
 										continue;
 									}
-									possibles.add(new DurabilitySlot((sample.durability - used)/sample.durability, index, subSlot: subIndex));
+									possibles.add(new DurabilitySlot(
+										100 * ((sample.durability - used) / sample.durability),
+										index, subSlot: subIndex));
 								}
 								subIndex++;
 							}
@@ -885,8 +890,11 @@ class InventoryV2 {
 			}
 		}
 
+		// remove broken tools
+		possibles = possibles.where((DurabilitySlot ds) => ds.percentRemaining > 0).toList();
+
 		if(possibles.length > 0) {
-			//sort the list and pick the one with the most used already
+			// sort the list and pick the one with the most used already
 			possibles.sort();
 			DurabilitySlot mostUsed = possibles.removeAt(0);
 
@@ -931,14 +939,14 @@ class InventoryV2 {
 				numTriesLeft--;
 			}
 			if(inventoryLocked[email]) {
-				throw "Could not acquire a lock for inventory";
+				throw "Could not acquire a lock for inventory of <email=$email>";
 			}
 		}
 
 		inventoryLocked[email] = true;
 	}
 
-	static _releaseLock(String email) {
+	static void _releaseLock(String email) {
 		inventoryLocked[email] = false;
 	}
 
@@ -1070,7 +1078,7 @@ class InventoryV2 {
 			await InventoryV2.fireInventoryAtUser(userSocket, email, update: true);
 		} catch (e, st) {
 			inv.inventory_json = jsonx.encode(beforeSlots);
-			log("Problem moving item: $e\n$st");
+			Log.error('Problem moving item', e, st);
 			return false;
 		} finally {
 			_releaseLock(email);
@@ -1083,8 +1091,8 @@ class InventoryV2 {
 		if (bagIndex == null) {
 			try {
 				return slots[invIndex];
-			} catch (e) {
-				log("Error accessing inventory slot $invIndex: $e");
+			} catch (e, st) {
+				Log.error('Error accessing inventory slot $invIndex', e, st);
 				return new Slot();
 			}
 		} else {
@@ -1092,8 +1100,8 @@ class InventoryV2 {
 				String mdsString = slots[invIndex].metadata["slots"];
 				Map<String, dynamic> mdsSlot = jsonx.decode(mdsString)[bagIndex];
 				return new Slot.withMap(mdsSlot);
-			} catch (e) {
-				log("Error accessing bag slot $bagIndex of inventory slot $invIndex: $e");
+			} catch (e, st) {
+				Log.error('Error accessing bag slot $bagIndex of inventory slot $invIndex', e, st);
 				return new Slot();
 			}
 		}

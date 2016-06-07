@@ -5,7 +5,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:http/http.dart' as http;
-import 'package:logging/logging.dart';
+import 'package:logging/logging.dart' as rsLog;
 import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper/mapper.dart';
 import 'package:redstone_mapper/plugin.dart';
@@ -66,7 +66,7 @@ Future main() async {
 	// Enable interactive console
 	Console.init();
 
-	log('Server started successfully, took ${ServerStatus.uptime}');
+	Log.info('Server started successfully, took ${ServerStatus.uptime}');
 }
 
 // Add a CORS header to every request
@@ -96,10 +96,10 @@ Future _initRedstone() async {
 	// Initialize redstone
 	try {
 		app.addPlugin(getMapperPlugin(dbManager));
-		app.setupConsoleLog(Level.WARNING);
+		app.setupConsoleLog(rsLog.Level.WARNING);
 		await app.start(port: port, autoCompress: true);
-	} catch (e) {
-		log('Could not start server: $e');
+	} catch (e, st) {
+		Log.error('Could not start server', e, st);
 		await cleanup(1);
 	}
 }
@@ -121,7 +121,7 @@ void _initWebSockets() {
 				String handlerName = request.uri.path.replaceFirst('/', '');
 				_HANDLERS[handlerName](websocket);
 			}).catchError((error) {
-				log('Socket error: $error');
+				Log.warn('Socket error', error);
 			}, test: (Exception e) => e is! WebSocketException)
 				.catchError((error) {}, test: (Exception e) => e is WebSocketException);
 		});
