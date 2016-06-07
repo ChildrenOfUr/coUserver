@@ -24,13 +24,14 @@ class ChatHandler {
 	static Map<String, Identifier> users = new Map<String, Identifier>();
 
 	static void superMessage(
-		String message, {String username: 'GOD', String channel: 'Global Chat'}
+		String message, {String username: 'Server', String channel: 'Global Chat'}
 	) {
 		sendAll(JSON.encode({
 			'username': username,
 			'message': message,
 			'channel': channel
 		}));
+		slackSend(username, message);
 	}
 
 	static Future handle(WebSocket ws) async
