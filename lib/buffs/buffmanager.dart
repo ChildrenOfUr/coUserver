@@ -123,28 +123,33 @@ class BuffManager {
 		}
 
 		PostgreSql dbConn = await dbManager.getConnection();
+
+		Map<String, int> playerBuffsData = new Map();
+		List<Map<String, dynamic>> playerBuffsList = new List();
+
+		// Get data from database
 		try {
-			// Get data from database
-			Map<String, int> playerBuffsData = JSON.decode(
+			playerBuffsData = JSON.decode(
 				(await dbConn.query(CELL_QUERY, Metabolics, {"email": email})).first.buffs_json
 			);
+		} catch (e, st) {
+			Log.error('Error getting buffs from database', e, st);
+		}
 
-			// Fill in buff information
-			List<Map<String, dynamic>> playerBuffsList = new List();
+		// Fill in buff information
+		try {
 			playerBuffsData.forEach((String id, int remaining) {
 				playerBuffsList.add(
 					PlayerBuff.getFromCache(id, email)?.toMap() ??
 					new PlayerBuff(Buff.find(id), email, remaining).toMap()
 				);
 			});
-
-			return playerBuffsList;
 		} catch (e, st) {
-			Log.error('Error getting buff list', e, st);
-			return null;
-		} finally {
-			dbManager.closeConnection(dbConn);
+			Log.error('Error getting buff information', e, st);
 		}
+
+		dbManager.closeConnection(dbConn);
+		return playerBuffsList;
 	}
 
 	/// API access to [getPlayerBuffs] by email
