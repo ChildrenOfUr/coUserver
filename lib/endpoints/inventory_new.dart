@@ -931,19 +931,21 @@ class InventoryV2 {
 		return c.future;
 	}
 
-	static Future _aquireLock(String email) async {
+	static Future<bool> _aquireLock(String email) async {
 		int numTriesLeft = 100; //we'll throw an error after 5 seconds of trying
-		if(inventoryLocked[email] != null) {
-			while(inventoryLocked[email] && numTriesLeft > 0) {
+		if (inventoryLocked[email] != null) {
+			while (inventoryLocked[email] && numTriesLeft > 0) {
 				await _wait(new Duration(milliseconds: 50));
 				numTriesLeft--;
 			}
-			if(inventoryLocked[email]) {
-				throw "Could not acquire a lock for inventory of <email=$email>";
+			if (inventoryLocked[email]) {
+				Log.warn("Could not acquire a lock for inventory of <email=$email>");
+				return false;
 			}
 		}
 
 		inventoryLocked[email] = true;
+		return true;
 	}
 
 	static void _releaseLock(String email) {
@@ -958,15 +960,18 @@ class InventoryV2 {
 
 	///Returns the number of items successfully added to the user's inventory
 	static Future<int> addItemToUser(String email, Map item, int count,	[String fromObject = "_self"]) async {
-		await _aquireLock(email);
+		if (!(await _aquireLock(email))) {
+			return 0;
+		}
+
 		WebSocket userSocket = StreetUpdateHandler.userSockets[email];
 		InventoryV2 inv = await getInventory(email);
 		int added = await inv._addItem(item, count, email);
 		await fireInventoryAtUser(userSocket, email, update: true);
-		if(added > 0) {
+		if (added > 0) {
 			String itemType = item['itemType'];
 			messageBus.publish(new RequirementProgress('getItem_$itemType', email, count: count));
-			if(itemType == 'pick' || itemType == 'fancy_pick') {
+			if (itemType == 'pick' || itemType == 'fancy_pick') {
 				QuestEndpoint.questLogCache[email]?.offerQuest('Q6');
 			}
 		}
@@ -976,7 +981,10 @@ class InventoryV2 {
 	}
 
 	static Future<Item> takeItemFromUser(String email, int slot, int subSlot, int count) async {
-		await _aquireLock(email);
+		if (!(await _aquireLock(email))) {
+			return null;
+		}
+
 		WebSocket userSocket = StreetUpdateHandler.userSockets[email];
 		InventoryV2 inv = await getInventory(email);
 		Item itemTaken = await inv._takeItem(slot, subSlot, count, email);
@@ -988,7 +996,10 @@ class InventoryV2 {
 	}
 
 	static Future<int> takeAnyItemsFromUser(String email, String itemType, int count, {simulate: false}) async {
-		await _aquireLock(email);
+		if (!(await _aquireLock(email))) {
+			return 0;
+		}
+
 		WebSocket userSocket = StreetUpdateHandler.userSockets[email];
 		InventoryV2 inv = await getInventory(email);
 		int taken = await inv._takeAnyItems(itemType, count, email, simulate: simulate);
@@ -1024,7 +1035,10 @@ class InventoryV2 {
 			types = validTypes;
 		}
 
-		await _aquireLock(email);
+		if (!(await _aquireLock(email))) {
+			return false;
+		}
+
 		WebSocket userSocket = StreetUpdateHandler.userSockets[email];
 		InventoryV2 inv = await getInventory(email);
 
@@ -1042,7 +1056,10 @@ class InventoryV2 {
 								int fromBagIndex: -1,
 								int toIndex: -1,
 								int toBagIndex: -1}) async {
-		await _aquireLock(email);
+		if (!(await _aquireLock(email))) {
+			return false;
+		}
+		
 		// Get the user's inventory to work on
 		InventoryV2 inv = await getInventory(email);
 		List<Slot> beforeSlots = inv.slots;
