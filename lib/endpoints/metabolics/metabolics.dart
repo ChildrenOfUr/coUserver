@@ -57,8 +57,18 @@ class MetabolicsChange {
 		if (energy < 0 && m.energy < energy.abs()) {
 			return false;
 		} else {
+			// Set energy
 			m.energy += energy;
+			m.energy = m.energy.clamp(0, m.max_energy);
+
+			// Set mood
 			m.mood += mood;
+			m.mood = m.mood.clamp(0, m.max_mood);
+
+			// Set currants
+			m.currants += currants;
+
+			// Set iMG
 			int baseImg = imgMin;
 			if (imgRange > 0) {
 				baseImg = rand.nextInt(imgRange) + imgMin;
@@ -66,12 +76,14 @@ class MetabolicsChange {
 			int resultImg = (baseImg * m.mood / m.max_mood) ~/ 1;
 			m.img += resultImg;
 			m.lifetime_img += resultImg;
-			m.currants += currants;
+
+			// Send results to client
 			gains['energy'] = energy;
 			gains['mood'] = mood;
 			gains['img'] = resultImg;
 			gains['currants'] = currants;
 
+			// Save to database
 			int result = await setMetabolics(m);
 
 			if (result < 1) {
@@ -155,6 +167,10 @@ class Metabolics {
 	@Field()
 	String current_street = 'LA58KK7B9O522PC',
 		undead_street = null;
+
+	num get energyPercent => (100 * (energy / max_energy));
+
+	num get moodPercent => (100 * (mood / max_mood));
 
 	set dead(bool value) {
 		if (value) {

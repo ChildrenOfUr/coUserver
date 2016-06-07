@@ -29,6 +29,16 @@ class Consumable extends Object with MetabolicsChange {
 		return consumed != null;
 	}
 
+	Future<bool> taste({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
+		bool result = await trySetMetabolics(email, mood: -5);
+		if (result) {
+			toast(
+				'Maybe you should use the lotion on a butterfly and not your tounge?',
+				userSocket);
+		}
+		return result;
+	}
+
 	Future<Item> consume({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		Item consumed = await InventoryV2.takeItemFromUser(email, map['slot'],map['subSlot'], map['count']);
 		if (consumed == null) {
