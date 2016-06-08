@@ -133,7 +133,7 @@ class BuffManager {
 				(await dbConn.query(CELL_QUERY, Metabolics, {"email": email})).first.buffs_json
 			);
 		} catch (e, st) {
-			Log.error('Error getting buffs from database', e, st);
+			Log.error('Error getting buffs from database for <email=$email>', e, st);
 		}
 
 		// Fill in buff information
