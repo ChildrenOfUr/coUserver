@@ -960,9 +960,18 @@ class InventoryV2 {
 	}
 
 	///Returns the number of items successfully added to the user's inventory
-	static Future<int> addItemToUser(String email, Map item, int count,	[String fromObject = "_self"]) async {
+	static Future<int> addItemToUser(String email, dynamic itemTypeOrMap, int count,	[String fromObject = "_self"]) async {
 		if (!(await _aquireLock(email))) {
 			return 0;
+		}
+
+		Map item;
+		if (itemTypeOrMap is Map) {
+			item = itemTypeOrMap;
+		} else if (item is String) {
+			item = items[itemTypeOrMap].getMap();
+		} else {
+			throw new ArgumentError('Item must be an item type or item map, not ${item.runtimeType}');
 		}
 
 		WebSocket userSocket = StreetUpdateHandler.userSockets[email];
@@ -1060,7 +1069,7 @@ class InventoryV2 {
 		if (!(await _aquireLock(email))) {
 			return false;
 		}
-		
+
 		// Get the user's inventory to work on
 		InventoryV2 inv = await getInventory(email);
 		List<Slot> beforeSlots = inv.slots;
