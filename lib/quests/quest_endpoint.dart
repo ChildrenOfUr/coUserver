@@ -40,10 +40,18 @@ class QuestEndpoint {
 			questLogCache[email].startTracking(email);
 		}
 		if (map['acceptQuest'] != null) {
-			messageBus.publish(new AcceptQuest(map['email'],map['id']));
+			try {
+				messageBus.publish(new AcceptQuest(map['email'],map['id']));
+			} catch (e, st) {
+				Log.error('Accepting quest <id=${map['id']}> for <email=${map['email']}>', e, st);
+			}
 		}
 		if (map['rejectQuest'] != null) {
-			messageBus.publish(new RejectQuest(map['email'],map['id']));
+			try {
+				messageBus.publish(new RejectQuest(map['email'],map['id']));
+			} catch (e, st) {
+				Log.error('Rejecting quest <id=${map['id']}> for <email=${map['email']}>', e, st);
+			}
 		}
 	}
 }

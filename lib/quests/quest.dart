@@ -53,7 +53,11 @@ class Requirement extends Trackable {
 	@Field() void set fulfilled(bool value) {
 		_fulfilled = value;
 		if (_fulfilled && beingTracked) {
-			messageBus.publish(new CompleteRequirement(this, email));
+			try {
+				messageBus.publish(new CompleteRequirement(this, email));
+			} catch (e, st) {
+				Log.error('Setting requirement <id=$id> fulfilled to $value for <email=$email>', e, st);
+			}
 		}
 	}
 
@@ -88,7 +92,11 @@ class Requirement extends Trackable {
 
 		if(type == 'timed') {
 			limitTimer = new Timer(new Duration(seconds:timeLimit), () {
-				messageBus.publish(new FailRequirement(this,email));
+				try {
+					messageBus.publish(new FailRequirement(this,email));
+				} catch (e, st) {
+					Log.error('Failing time requirement <id=$id> for <email=$email>', e, st);
+				}
 			});
 		}
 
@@ -113,7 +121,11 @@ class Requirement extends Trackable {
 				return;
 			}
 			numFulfilled += count;
-			messageBus.publish(new RequirementUpdated(this, email));
+			try {
+				messageBus.publish(new RequirementUpdated(this, email));
+			} catch (e, st) {
+				Log.error('Updating requirement <id=$id> for <email=$email>', e, st);
+			}
 		}));
 	}
 
@@ -207,7 +219,13 @@ class Quest extends Trackable with MetabolicsChange {
 				requirements.firstWhere((Requirement r) => !r.fulfilled);
 			} catch (e) {
 				complete = true;
-				messageBus.publish(new CompleteQuest(this, email));
+
+				try {
+					messageBus.publish(new CompleteQuest(this, email));
+				} catch (e, st) {
+					Log.error('Completing requirement of <quest=$id> for <email=$email>', e, st);
+				}
+
 				await _giveRewards();
 			}
 		}));
@@ -217,7 +235,11 @@ class Quest extends Trackable with MetabolicsChange {
 				return;
 			}
 
-			messageBus.publish(new FailQuest(this,email));
+			try {
+				messageBus.publish(new FailQuest(this,email));
+			} catch (e, st) {
+				Log.error('Failing <quest=$id> for <email=$email>', e, st);
+			}
 
 			stopTracking();
 		}));
