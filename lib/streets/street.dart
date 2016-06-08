@@ -10,10 +10,11 @@ import 'package:coUserver/common/util.dart';
 import 'package:coUserver/entities/items/item.dart';
 import 'package:coUserver/entities/entity.dart';
 
-import 'package:redstone_mapper/mapper.dart';
-import 'package:jsonx/jsonx.dart' as jsonx;
-import 'package:redstone_mapper_pg/manager.dart';
 import 'package:http/http.dart' as http;
+import 'package:jsonx/jsonx.dart' as jsonx;
+import 'package:path/path.dart' as path;
+import 'package:redstone_mapper_pg/manager.dart';
+import 'package:redstone_mapper/mapper.dart';
 
 class Wall {
 	String id;
@@ -189,17 +190,31 @@ class Street {
 		}
 	}
 
-	Future loadJson({bool refreshCache: false}) async {
-		Map streetData = _jsonCache[tsid] ?? {};
+	void loadJson({bool refreshCache: false}) {
+		String _tsidG = tsidG(tsid);
+		Map streetData = _jsonCache[_tsidG] ?? {};
 
-		if (refreshCache || !_jsonCache.containsKey(tsid)) {
-			String url = "https://raw.githubusercontent.com/ChildrenOfUr/CAT422-glitch-location-viewer/master/locations/$tsid.json";
-			http.Response response = await http.get(url);
-			streetData = JSON.decode(response.body);
-			if (response.body != 'Not Found') {
-				_jsonCache[tsid] = streetData;
+		if (refreshCache || !_jsonCache.containsKey(_tsidG)) {
+			// Find CAT422 directory
+			String directory;
+			if(Platform.script.data != null) {
+				directory = Directory.current.path;
 			} else {
-				throw 'Street $tsid not found in CAT422 repo';
+				directory = Platform.script.toFilePath();
+				directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
+			}
+			directory = directory.replaceAll('coUserver/test','coUserver');
+
+			// Find street JSON file
+			Directory locations = new Directory(path.join(directory, 'CAT422', 'locations'));
+			File streetFile = new File(path.join(locations.path, '${_tsidG}.json'));
+
+			// Read street JSON file
+			if (streetFile.existsSync()) {
+				_jsonCache[_tsidG] = JSON.decode(streetFile.readAsStringSync());
+				streetData = _jsonCache[_tsidG];
+			} else {
+				throw 'Street <tsidG=${_tsidG}> not found in CAT422 files';
 			}
 		}
 

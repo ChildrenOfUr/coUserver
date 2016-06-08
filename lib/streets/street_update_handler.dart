@@ -196,9 +196,9 @@ class StreetUpdateHandler {
 		//clean up memory of streets where no players currently are
 		//in the future, I imagine this is where the street would be saved to the database
 		//you're right past me, this is where i'm doing it
-		await Future.forEach(toRemove, (String label) async {
+		Future.forEach(toRemove, (String label) async {
 			Street street = streets[label];
-			
+
 			//don't try to clean up a street that was already cleaned up
 			if (street != null) {
 				DateTime now = new DateTime.now();
