@@ -57,7 +57,7 @@ List<Map<String, dynamic>> getStreetsInHub(String hubId) {
 
 Map<String, dynamic> getStreetFile(String tsid) {
 	if (tsid == null) {
-		throw 'TSID cannot be null if you expect me to find a street file';
+		throw new ArgumentError('TSID cannot be null if you expect me to find a street file');
 	}
 
 	tsid = tsidG(tsid);
