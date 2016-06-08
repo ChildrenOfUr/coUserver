@@ -27,8 +27,9 @@ abstract class Log {
 	}[level] ?? 0;
 
 	static String log(dynamic object, {
-		LogLevel level: LogLevel.INFO, Error error, StackTrace stackTrace
+		LogLevel level: LogLevel.INFO, dynamic error, StackTrace stackTrace
 	}) {
+		assert(error == null || error is Error || error is Exception);
 		String time = new DateTime.now().toString();
 		String message = '[${levelString(level)} ($time)] $object';
 
@@ -64,11 +65,11 @@ abstract class Log {
 		return log(object, level: LogLevel.COMMAND);
 	}
 
-	static String warning(dynamic object, [Error error]) {
+	static String warning(dynamic object, [dynamic error]) {
 		return log(object, level: LogLevel.WARNING, error: error);
 	}
 
-	static String error(dynamic object, Error error, StackTrace stackTrace) {
+	static String error(dynamic object, dynamic error, StackTrace stackTrace) {
 		return log(object, level: LogLevel.ERROR, error: error, stackTrace: stackTrace);
 	}
 }

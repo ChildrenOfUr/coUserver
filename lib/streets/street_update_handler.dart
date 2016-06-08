@@ -203,7 +203,7 @@ class StreetUpdateHandler {
 				await street.persistState();
 				street.expires = null;
 				streets.remove(label);
-				Log.verbose('Unloaded street $label from memory');
+				Log.verbose('Unloaded street <label=$label> from memory');
 			} else if (street.expires == null) {
 				street.expires = now.add(new Duration(seconds:5));
 			}
@@ -240,9 +240,9 @@ class StreetUpdateHandler {
 		//everything else will be outgoing
 		try {
 			Map map = JSON.decode(message);
-			String streetName = map["streetName"];
-			String username = map["username"];
-			String email = map['email'];
+			String streetName = map["streetName"].trim();
+			String username = map["username"].trim();
+			String email = map['email'].trim();
 
 			//if the street doesn't yet exist, create it (maybe it got stored back to the datastore)
 			if (!streets.containsKey(streetName)) {
@@ -378,6 +378,7 @@ class StreetUpdateHandler {
 	}
 
 	static Future loadStreet(String streetName, String tsid) async {
+		streetName = streetName.trim();
 		Street street;
 		try {
 			street = new Street(streetName, tsid);
@@ -385,7 +386,7 @@ class StreetUpdateHandler {
 			await street.loadItems();
 			await street.loadJson();
 			street.load.complete(true);
-			Log.verbose('Loaded street $streetName ($tsid) into memory');
+			Log.verbose('Loaded street <streetName=$streetName> ($tsid) into memory');
 		} catch (e, st) {
 			Log.error('Could not load street $tsid', e, st);
 			street?.load?.complete(false);

@@ -7,7 +7,7 @@ class AchievementCheckers {
 			hubName = hubName.toLowerCase().replaceAll(' ', '_');
 			return Achievement.find('${hubName}_completist');
 		} catch (e, st) {
-			Log.error('Failed getting completist achv id for $hubId', e, st);
+			Log.error('Failed getting completist achv id for <hubId=$hubId>', e, st);
 			return new Achievement();
 		}
 	}
@@ -42,7 +42,7 @@ class AchievementCheckers {
 
 		String addedTsidHubId;
 		try {
-			addedTsidHubId = getStreetByTsid(addedTsid)['hub_id'];
+			addedTsidHubId = getStreetByTsid(addedTsid)['hub_id'].toString();
 		} catch (e) {
 			Log.warning('Cannot find hub id for $addedTsid');
 			return false;
