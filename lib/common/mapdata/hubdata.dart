@@ -280,6 +280,10 @@ final Map<String, Map<String, dynamic>> mapdata_hubs = {
 		"y": 72,
 		"music": "forest"
 	},
+	"66": {
+		"name": "The Seams",
+		"hidden": true
+	},
 	"51": {
 		"name": "Uralia",
 		"x": 125,
