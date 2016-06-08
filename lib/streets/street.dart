@@ -222,17 +222,17 @@ class Street {
 
 	Future persistState() async {
 		if (tsid == null) {
-			Log.warning('Trying to persist street with label "$label", but its tsid is null');
-			return;
+			tsid = getStreetByName(label)[tsid];
+			Log.warning('Persisting street <label=$label> with null tsid, but figured out <tsid=$tsid>');
+			if (tsid == null) {
+				Log.warning('Could not find tsid for <label=$label>');
+				return;
+			}
 		}
 
 		PostgreSql dbConn = await dbManager.getConnection();
 
 		try {
-			if (tsid == null) {
-				throw new StateError('Cannot create DBStreet because street tsid is null');
-			}
-
 			DBStreet dbStreet = new DBStreet()
 				..id = tsid
 				..groundItems = groundItems.values.toList() ?? [];
