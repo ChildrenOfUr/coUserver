@@ -397,7 +397,7 @@ class StreetUpdateHandler {
 	static void _callGlobalMethod(Map map, WebSocket userSocket, String email) {
 		ClassMirror classMirror = findClassMirror('StreetUpdateHandler');
 		Map<Symbol, dynamic> arguments = {#userSocket:userSocket, #email:email};
-		if (map.containsKey('streetName')) {
+		if (map['callMethod'] == 'pickup' && map.containsKey('streetName')) {
 			arguments[#streetName] = map['streetName'];
 		}
 		if (map['arguments'] != null) {
