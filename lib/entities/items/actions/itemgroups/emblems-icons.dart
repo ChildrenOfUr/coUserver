@@ -5,21 +5,21 @@ abstract class Emblem extends Object with MetabolicsChange {
 		int amt = rand.nextInt(10) + 5;
 		StatManager.add(email, Stat.emblems_caressed);
 		toast("+$amt mood for caressing", userSocket);
-		return await trySetMetabolics(username, mood:amt);
+		return await trySetMetabolics(email, mood: amt);
 	}
 
 	Future<bool> consider({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		int amt = rand.nextInt(10) + 5;
 		StatManager.add(email, Stat.emblems_considered);
 		toast("+$amt energy for considering", userSocket);
-		return await trySetMetabolics(username, energy:amt);
+		return await trySetMetabolics(email, energy: amt);
 	}
 
 	Future<bool> contemplate({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		int amt = rand.nextInt(10) + 5;
 		StatManager.add(email, Stat.emblems_contemplated);
 		toast("+$amt iMG for contemplating", userSocket);
-		return await trySetMetabolics(username, imgMin:amt);
+		return await trySetMetabolics(email, imgMin: amt);
 	}
 
 	Future<bool> iconize({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
@@ -45,20 +45,20 @@ abstract class Emblem extends Object with MetabolicsChange {
 abstract class Icon extends Object with MetabolicsChange {
 	Future<bool> tithe({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		StatManager.add(email, Stat.icons_tithed);
-		return await ItemUser.trySetMetabolics(username, currants: -100);
+		return await ItemUser.trySetMetabolics(email, currants: -100);
 	}
 
 	Future<bool> ruminate({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		StatManager.add(email, Stat.icons_ruminated);
-		return await ItemUser.trySetMetabolics(username, mood: 50);
+		return await ItemUser.trySetMetabolics(email, mood: 50);
 	}
 
 	Future<bool> revere({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		StatManager.add(email, Stat.icons_revered);
-		return await ItemUser.trySetMetabolics(username, energy: 50);
+		return await ItemUser.trySetMetabolics(email, energy: 50);
 	}
 
 	Future<bool> reflect({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await ItemUser.trySetMetabolics(username, img: 50);
+		return await ItemUser.trySetMetabolics(email, img: 50);
 	}
 }
