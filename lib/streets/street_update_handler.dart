@@ -240,9 +240,9 @@ class StreetUpdateHandler {
 		//everything else will be outgoing
 		try {
 			Map map = JSON.decode(message);
-			String streetName = map["streetName"].trim();
-			String username = map["username"].trim();
-			String email = map['email'].trim();
+			String streetName = map["streetName"]?.trim();
+			String username = map["username"]?.trim();
+			String email = map['email']?.trim();
 
 			//if the street doesn't yet exist, create it (maybe it got stored back to the datastore)
 			if (!streets.containsKey(streetName)) {
