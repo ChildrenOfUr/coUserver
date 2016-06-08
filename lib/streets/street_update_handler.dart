@@ -397,10 +397,42 @@ class StreetUpdateHandler {
 	static void _callGlobalMethod(Map map, WebSocket userSocket, String email) {
 		ClassMirror classMirror = findClassMirror('StreetUpdateHandler');
 		Map<Symbol, dynamic> arguments = {#userSocket:userSocket, #email:email};
+		if (map.containsKey('streetName')) {
+			arguments[#streetName] = map['streetName'];
+		}
 		if (map['arguments'] != null) {
 			(map['arguments'] as Map).forEach((key, value) => arguments[new Symbol(key)] = value);
 		}
 		classMirror.invoke(new Symbol(map['callMethod']), [], arguments);
+	}
+
+	static Future<bool> pickup({WebSocket userSocket, String email, String username, List<String> pickupIds, String streetName}) async {
+		//check that they're all the same type and that their metadata
+		//is all empty or else they aren't eligible for mass pickup
+		String type;
+		bool allEligible = true;
+		for(String id in pickupIds) {
+			Item item = streets[streetName].groundItems[id];
+			if (type == null) {
+				type = item.itemType;
+			} else if (type != item.itemType) {
+				allEligible = false;
+				break;
+			} else if (item.metadata.isNotEmpty) {
+				allEligible = false;
+				break;
+			}
+		}
+
+		if (allEligible) {
+			streets[streetName].groundItems[pickupIds.first]
+				.pickup(email: email, count: pickupIds.length);
+			for(String id in pickupIds) {
+				streets[streetName].groundItems[id].onGround = false;
+			}
+		}
+
+		return true;
 	}
 
 	static Future<bool> teleport({WebSocket userSocket, String email, String tsid, bool energyFree: false}) async {

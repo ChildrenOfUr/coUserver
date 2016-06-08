@@ -43,7 +43,7 @@ class Achievement {
 		directory = directory.replaceAll('coUserver/test','coUserver');
 
 		Directory json = new Directory(path.join(directory, 'lib', 'achievements', 'json'));
-		List<File> categories = json.listSync();
+		List<FileSystemEntity> categories = json.listSync();
 
 		await Future.forEach(categories, (File category) async {
 			await JSON.decode(await category.readAsString()).forEach((String id, Map data) async {

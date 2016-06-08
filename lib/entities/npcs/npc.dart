@@ -17,7 +17,7 @@ abstract class NPC extends Entity {
 		yAccel = -2400,
 		previousX,
 		previousY;
-	bool facingRight = true;
+	bool facingRight = true, grounded = false;
 	MutableRectangle _collisionsRect;
 
 	NPC(this.id, this.x, this.y, this.streetName) {
@@ -41,28 +41,6 @@ abstract class NPC extends Entity {
 		}
 
 		return _collisionsRect;
-	}
-
-	int getYFromGround(num cameFrom) {
-		int returnY = y;
-		if (street == null) {
-			return returnY;
-		}
-
-		CollisionPlatform platform = street.getBestPlatform(cameFrom, x, width, height);
-		if (platform != null) {
-			num goingTo = y + street.groundY;
-			num slope = (platform.end.y - platform.start.y) / (platform.end.x - platform.start.x);
-			num yInt = platform.start.y - slope * platform.start.x;
-			num lineY = slope * x + yInt;
-
-			if (goingTo >= lineY) {
-				returnY = lineY.toInt() - street.groundY;
-				ySpeed = 0;
-			}
-		}
-
-		return returnY ~/ 1;
 	}
 
 	void update() {
@@ -95,17 +73,13 @@ abstract class NPC extends Entity {
 	}
 
 	void defaultXAction() {
-		if (facingRight) {
-			x += speed ~/ NPC.updateFps;
-		} else {
-			x -= speed ~/ NPC.updateFps;
-		}
+		x += speed * (facingRight ? 1 : -1) ~/ NPC.updateFps;
 	}
 
 	void defaultYAction() {
 		ySpeed -= yAccel ~/ NPC.updateFps;
 		y += ySpeed ~/ NPC.updateFps;
-		y = getYFromGround(previousY);
+		y = street.getYFromGround(previousX, previousY, width, height);
 	}
 
 	///Move the entity 'forward' according to which direction they are facing
@@ -137,8 +111,10 @@ abstract class NPC extends Entity {
 
 		//if our new y value is more than 10 pixels away from the old one
 		//we probably changed platforms (dropped down) so decide what to do about that
-		if ((y - previousY).abs() > 10) {
+		if (grounded && (y - previousY).abs() > 10) {
 			ledgeAction();
+		} else if ((y - previousY).abs() < 10) {
+			grounded = true;
 		}
 
 		//stop walking into walls, take an action if we're colliding with one

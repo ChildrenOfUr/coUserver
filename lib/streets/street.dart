@@ -227,6 +227,11 @@ class Street {
 	}
 
 	Future persistState() async {
+		if (tsid == null) {
+			Log.warning('Trying to persist street with label "$label", but its tsid is null');
+			return;
+		}
+
 		PostgreSql dbConn = await dbManager.getConnection();
 
 		try {
@@ -237,7 +242,7 @@ class Street {
 			DBStreet dbStreet = new DBStreet()
 				..id = tsid
 				..groundItems = groundItems.values.toList() ?? [];
-			String query = "INSERT INTO streets(id,items) VALUES(@id,@items) ON CONFLICT (id) DO UPDATE SET items = @items";
+			String query = 'INSERT INTO streets(id,items) VALUES(@id,@items) ON CONFLICT (id) DO UPDATE SET items = @items';
 			await dbConn.execute(query, dbStreet);
 		} catch (e) {
 			Log.warning('Could not persist $tsid ($label). It may not have been loaded completely.', e);
@@ -246,12 +251,32 @@ class Street {
 		}
 	}
 
+	// Find the y of the nearest platform
+	int getYFromGround(num currentX, num currentY, num width, num height) {
+		num returnY = currentY;
+
+		CollisionPlatform platform = _getBestPlatform(currentX, currentY, width, height);
+
+		if (platform != null) {
+			num goingTo = currentY + groundY;
+			num slope = (platform.end.y - platform.start.y) / (platform.end.x - platform.start.x);
+			num yInt = platform.start.y - slope * platform.start.x;
+			num lineY = slope * currentX + yInt;
+
+			if (returnY == currentY || goingTo >= lineY) {
+				returnY = lineY - groundY;
+			}
+		}
+
+		return returnY ~/ 1;
+	}
+
 	//ONLY WORKS IF PLATFORMS ARE SORTED WITH
 	//THE HIGHEST (SMALLEST Y VALUE) FIRST IN THE LIST
 	///returns the platform line that the entity is currently standing
 	///[posX] is the current x position of the entity
 	///[width] and [height] are the width and height of their current animation
-	CollisionPlatform getBestPlatform(num cameFrom, num posX, num width, num height) {
+	CollisionPlatform _getBestPlatform(num posX, num cameFrom, num width, num height) {
 		CollisionPlatform bestPlatform;
 		num x = posX;
 		num feetY = cameFrom + groundY;
