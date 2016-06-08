@@ -1,3 +1,11 @@
+#clone the submodule
+cd CAT422
+if [ ! -d .git ]; then
+    git submodule init
+    git submodule update
+fi
+cd ..
+
 cd .git/modules/CAT422
 echo "Enabling sparse checkout in $PWD"
 sed -i '/\[remote\ \"origin\"\]/i \
