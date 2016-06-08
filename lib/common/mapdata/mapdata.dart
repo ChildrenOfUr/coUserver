@@ -68,8 +68,8 @@ Map<String, dynamic> getStreetFile(String tsid) {
 	if (Platform.script.data != null) {
 		directory = Directory.current.path;
 	} else {
-		directory = Platform.script.toFilePath()
-			.substring(0, directory.lastIndexOf(Platform.pathSeparator));
+		directory = Platform.script.toFilePath();
+		directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
 	}
 	directory = directory.replaceAll('coUserver/test','coUserver');
 
