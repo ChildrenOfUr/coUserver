@@ -43,6 +43,7 @@ part 'npcs/animals/batterfly.dart';
 part 'npcs/animals/butterfly.dart';
 part 'npcs/animals/chicken.dart';
 part 'npcs/animals/firefly.dart';
+part 'npcs/animals/fox.dart';
 part 'npcs/animals/helikitty.dart';
 part 'npcs/animals/piggy.dart';
 part 'npcs/animals/salmon.dart';
