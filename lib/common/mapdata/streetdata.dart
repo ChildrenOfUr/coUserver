@@ -420,6 +420,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GIF9JS2DPJ3327C",
 		"hub_id": 131
 	},
+	"Autumn Lodge": {
+		"tsid": "LDOC74759ST2IG1",
+		"hub_id": 66
+	},
 	"Avsins Cut": {
 		"hub_id": 136,
 		"tsid": "LUVTKP64DEA3D31"
@@ -1502,6 +1506,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Distant Drag F": {
 		"tsid": "GIFF7T7N9O72TP2",
 		"hub_id": 95
+	},
+	"Distant End": {
+		"tsid": "LHVECS766MC3LHP",
+		"hub_id": 66
 	},
 	"Djur Rhomb": {
 		"shrine": "Alph",
@@ -3206,6 +3214,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"hub_id": 98,
 		"tsid": "LA9117J18492SRS"
 	},
+	"Kristel Kaos": {
+		"hub_id": 66,
+		"tsid": "LDOB5HTH1ID2MTL"
+	},
 	"Kuben Ruben": {
 		"tsid": "GDO3KC3TUR03MUH",
 		"hub_id": 126
@@ -4250,6 +4262,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GIFNEU3LGUG2BMK",
 		"hub_id": 100
 	},
+	"Namaste": {
+		"hub_id": 66,
+		"tsid": "LDO6NJEE1AE3MKL"
+	},
 	"Namul Habitat": {
 		"tsid": "GA5RV551E8T2K2F",
 		"hub_id": 123
@@ -4466,6 +4482,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GIF10HE4JTU1S7P",
 		"hub_id": 71
 	},
+	"Oppidan Avenue": {
+		"hub_id": 66,
+		"tsid": "LDOHDJ84BST2UI2"
+	},
 	"Ora Soon": {
 		"vendor": "Produce",
 		"shrine": "Alph",
@@ -4583,6 +4603,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"shrine": "Mab",
 		"tsid": "GUVSCDSTRAF2EOF",
 		"hub_id": 109
+	},
+	"Palindrome": {
+		"hub_id": 66,
+		"tsid": "LTJ1KL16N2O13T2"
 	},
 	"Pallur Runnar": {
 		"vendor": "Gardening Goods",
@@ -4849,6 +4873,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Plains Rte D": {
 		"tsid": "GA5CTEP5UH42CQC",
 		"hub_id": 86
+	},
+	"Plexus": {
+		"hub_id": 66,
+		"tsid": "LHVDIELDQQ7228K"
 	},
 	"Pokhraj Topa": {
 		"vendor": "Grocery",
@@ -5711,6 +5739,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GHVDGF0JMQ7299V",
 		"hub_id": 76
 	},
+	"Snool": {
+		"hub_id": 66,
+		"tsid": "LTJ1KOM8N2O1EFS"
+	},
 	"Snullin Ballin": {
 		"vendor": "Animal Goods",
 		"shrine": "Alph",
@@ -6442,6 +6474,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"tsid": "GIF1687ILK12R66",
 		"hub_id": 75
 	},
+	"Umbra": {
+		"hub_id": 66,
+		"tsid": "LDOSHD9J6NT2HUJ"
+	},
 	"Umebo Bodes": {
 		"shrine": "Zille",
 		"tsid": "GA9KL58B1D82CDV",
@@ -6489,6 +6525,10 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 	"Ustilago Elata": {
 		"tsid": "GIF455U7PK43M1N",
 		"hub_id": 133
+	},
+	"uutiif": {
+		"hub_id": 66,
+		"tsid": "LDOU1UON87E3K2T"
 	},
 	"Vaaka Kala": {
 		"vendor": "Grocery",
@@ -6808,6 +6848,11 @@ final Map<String, Map<String, dynamic>> mapdata_streets = {
 		"shrine": "Lem",
 		"tsid": "GNVB0R0UVKH2OKJ",
 		"hub_id": 88
+	},
+	"Wintry Place": {
+		"vendor": "Sno Cone",
+		"tsid": "GM11E7ODKHO1QJE",
+		"hub_id": 66
 	},
 	"Wolbane Barrel": {
 		"vendor": "Gardening Goods",

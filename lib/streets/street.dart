@@ -3,16 +3,14 @@ library street;
 import 'dart:io';
 import 'dart:mirrors';
 import 'dart:async';
-import 'dart:convert';
 import 'dart:math' hide log;
 
+import 'package:coUserver/common/mapdata/mapdata.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/entities/items/item.dart';
 import 'package:coUserver/entities/entity.dart';
 
-import 'package:http/http.dart' as http;
 import 'package:jsonx/jsonx.dart' as jsonx;
-import 'package:path/path.dart' as path;
 import 'package:redstone_mapper_pg/manager.dart';
 import 'package:redstone_mapper/mapper.dart';
 
@@ -195,27 +193,8 @@ class Street {
 		Map streetData = _jsonCache[_tsidG] ?? {};
 
 		if (refreshCache || !_jsonCache.containsKey(_tsidG)) {
-			// Find CAT422 directory
-			String directory;
-			if(Platform.script.data != null) {
-				directory = Directory.current.path;
-			} else {
-				directory = Platform.script.toFilePath();
-				directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
-			}
-			directory = directory.replaceAll('coUserver/test','coUserver');
-
-			// Find street JSON file
-			Directory locations = new Directory(path.join(directory, 'CAT422', 'locations'));
-			File streetFile = new File(path.join(locations.path, '${_tsidG}.json'));
-
-			// Read street JSON file
-			if (streetFile.existsSync()) {
-				_jsonCache[_tsidG] = JSON.decode(streetFile.readAsStringSync());
-				streetData = _jsonCache[_tsidG];
-			} else {
-				throw 'Street <tsidG=${_tsidG}> not found in CAT422 files';
-			}
+			streetData = getStreetFile(_tsidG);
+			_jsonCache[_tsidG] = streetData;
 		}
 
 		groundY = -(streetData['dynamic']['ground_y'] as num).abs();
