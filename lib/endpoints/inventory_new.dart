@@ -801,7 +801,7 @@ class InventoryV2 {
 				return true;
 			} else {
 				int used = int.parse(slot.metadata["durabilityUsed"]);
-				int max = items[slot.itemType].durability;
+				int max = items[slot.itemType].durability ?? 0;
 				return (used < max);
 			}
 		}
