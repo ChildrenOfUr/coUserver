@@ -102,7 +102,7 @@ class EntityEndpoint {
 		// NPCs
 		Auctioneer, Crab, DustTrap, Mailbox, VisitingStone,
 		// NPCs -> Animals
-		Batterfly, Butterfly, Chicken, Firefly, HeliKitty, Piggy, Salmon,
+		Batterfly, Butterfly, Chicken, Firefly, Fox, HeliKitty, Piggy, Salmon, SilverFox,
 		// NPCs -> Shrines
 		Alph, AlphFirebog, AlphIx, AlphUralia,
 		Cosma, CosmaFirebog, CosmaIx, CosmaUralia,
