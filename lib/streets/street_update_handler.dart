@@ -38,20 +38,11 @@ class StreetUpdateHandler {
 	static Timer updateTimer = new Timer.periodic(npcUpdateDuration, (Timer timer) => updateNpcs());
 
 	static loadItems() async {
+		String dir = serverDir.path;
+
 		try {
-			String directory;
-			//this happens when running unit tests
-			if (Platform.script.data != null) {
-				directory = Directory.current.path;
-			} else {
-				directory = Platform.script.toFilePath();
-				directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
-			}
-
-			directory = directory.replaceAll('coUserver/test', 'coUserver');
-
 			// load items
-			String filePath = path.join(directory, 'lib', 'entities', 'items', 'json');
+			String filePath = path.join(dir, 'lib', 'entities', 'items', 'json');
 			await new Directory(filePath).list().forEach((File category) async {
 				JSON.decode(await category.readAsString()).forEach((String name, Map itemMap) {
 					itemMap['itemType'] = name;
@@ -61,7 +52,7 @@ class StreetUpdateHandler {
 
 			// load recipes
 			filePath = path.join(
-				directory,
+				dir,
 				'lib',
 				'entities',
 				'items',
@@ -75,14 +66,14 @@ class StreetUpdateHandler {
 			});
 
 			// load vendor types
-			filePath = path.join(directory, 'lib', 'entities', 'npcs', 'vendors', 'vendors.json');
+			filePath = path.join(dir, 'lib', 'entities', 'npcs', 'vendors', 'vendors.json');
 			String fileText = await new File(filePath).readAsString();
 			JSON.decode(fileText).forEach((String street, String type) {
 				vendorTypes[street] = type;
 			});
 
 			// load stats given for eating/drinking
-			filePath = path.join(directory, 'lib', 'entities', 'items', 'actions', 'consume.json');
+			filePath = path.join(dir, 'lib', 'entities', 'items', 'actions', 'consume.json');
 			fileText = await new File(filePath).readAsString();
 			JSON.decode(fileText).forEach((String item, Map award) {
 				items[item].consumeValues = award;

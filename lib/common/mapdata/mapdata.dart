@@ -63,18 +63,8 @@ Map<String, dynamic> getStreetFile(String tsid) {
 	tsid = tsidG(tsid);
 	Map<String, dynamic> streetData = {};
 
-	// Find CAT422 directory
-	String directory;
-	if (Platform.script.data != null) {
-		directory = Directory.current.path;
-	} else {
-		directory = Platform.script.toFilePath();
-		directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
-	}
-	directory = directory.replaceAll('coUserver/test','coUserver');
-
 	// Find street JSON file
-	Directory locations = new Directory(path.join(directory, 'CAT422', 'locations'));
+	Directory locations = new Directory(path.join(serverDir.path, 'CAT422', 'locations'));
 	File streetFile = new File(path.join(locations.path, '$tsid.json'));
 
 	// Read street JSON file

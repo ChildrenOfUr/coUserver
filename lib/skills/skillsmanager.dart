@@ -34,19 +34,8 @@ class SkillManager extends Object {
 
 	/// Read skills from JSON file
 	static void loadSkills() {
-		String directory;
-		//this happens when running unit tests
-		if(Platform.script.data != null) {
-			directory = Directory.current.path;
-		} else {
-			directory = Platform.script.toFilePath();
-			directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
-		}
-
-		directory = directory.replaceAll('coUserver/test','coUserver');
-
 		JSON.decode(
-			new File(path.join(directory, 'lib', 'skills', 'skillsdata.json'))
+			new File(path.join(serverDir.path, 'lib', 'skills', 'skillsdata.json'))
 				.readAsStringSync()
 		).forEach((String id, Map data) {
 			SKILL_DATA[id] = new Skill.fromMap(data, id);;

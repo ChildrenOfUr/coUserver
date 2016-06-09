@@ -16,3 +16,4 @@ redstone_log_file
 run/
 coverage*
 .atom/
+logsettings.json

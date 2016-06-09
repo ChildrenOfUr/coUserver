@@ -14,10 +14,10 @@ import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper_pg/manager.dart';
 
 import 'package:coUserver/API_KEYS.dart';
-import 'package:coUserver/common/log.dart';
+import 'package:coUserver/log/log.dart';
 import 'package:coUserver/streets/street_update_handler.dart';
 
-export 'package:coUserver/common/log.dart';
+export 'package:coUserver/log/log.dart';
 export 'package:coUserver/entities/street_entities/street_entities.dart';
 
 part 'filecaching.dart';
@@ -121,4 +121,21 @@ Future cleanup([int exitCode = 0]) async {
 	if (exitCode >= 0) {
 		exit(exitCode);
 	}
+}
+
+/// Get a reference to the coUserver directory
+Directory get serverDir {
+	String directory;
+
+	if (Platform.script.data != null) {
+		directory = Directory.current.path;
+	} else {
+		directory = Platform.script.toFilePath();
+		directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
+	}
+
+	// Run tests in server directory
+	directory = directory.replaceAll('coUserver/test','coUserver');
+
+	return new Directory(directory);
 }
