@@ -61,6 +61,10 @@ Future<int> getActualImageHeight(@app.QueryParam('url') String imageUrl,
 		http.Response response = await http.get(imageUrl);
 
 		Image image = decodeImage(response.bodyBytes);
+		if (image == null) {
+			return 0;
+		}
+
 		Image singleFrame = copyCrop(image, 0, 0, image.width ~/ numColumns, image.height ~/ numRows);
 		int actualHeight = findTrim(singleFrame, mode: TRIM_TRANSPARENT)[3];
 		FileCache.heightsCache[imageUrl] = actualHeight;
