@@ -30,7 +30,7 @@ abstract class Log {
 		LogLevel level: LogLevel.INFO, dynamic error, StackTrace stackTrace
 	}) {
 		assert(error == null || error is Error || error is Exception);
-		String time = new DateTime.now().toString();
+		String time = new DateTime.now().toString().padRight(26, '0');
 		String message = '[${levelString(level)} ($time)] $object';
 
 		// Print errors?
