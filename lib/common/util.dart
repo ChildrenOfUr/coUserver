@@ -14,10 +14,10 @@ import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper_pg/manager.dart';
 
 import 'package:coUserver/API_KEYS.dart';
-import 'package:coUserver/log/log.dart';
+import 'package:coUserver/common/log/log.dart';
 import 'package:coUserver/streets/street_update_handler.dart';
 
-export 'package:coUserver/log/log.dart';
+export 'package:coUserver/common/log/log.dart';
 export 'package:coUserver/entities/street_entities/street_entities.dart';
 
 part 'filecaching.dart';

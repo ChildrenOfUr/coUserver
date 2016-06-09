@@ -66,6 +66,7 @@ Future main() async {
 	// Enable interactive console
 	Console.init();
 
+	Log.init();
 	Log.info('Server started successfully, took ${ServerStatus.uptime}');
 }
 

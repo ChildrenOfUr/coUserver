@@ -73,6 +73,14 @@ class Console {
 			Console.formatMap(await StatManager.getAllSums())
 				.split('\n').forEach((String ln) => Log.command(ln));
 		});
+
+		new Command.register('logOption', (String name, String value) {
+			if (value.toLowerCase() == 'get') {
+				Log.command(LogSettings.getSetting(name));
+			} else {
+				LogSettings.setSetting(name, value);
+			}
+		}, ['option name', 'option value (or "get" to check option)']);
 	}
 
 	static final String ARG_GROUP = '"';
@@ -184,7 +192,7 @@ class Command {
 
 	@override
 	String toString() {
-		String argFmt = (_arguments.length == 0 ? '' : '<${_arguments.join(', ')}>');
+		String argFmt = (_arguments.length == 0 ? '' : '<${_arguments.join('> <')}>');
 		return '$_name $argFmt';
 	}
 }
