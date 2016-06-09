@@ -100,7 +100,7 @@ class EntityEndpoint {
 
 	static final List<Type> entities = [
 		// NPCs
-		Auctioneer, Crab, DustTrap, Mailbox, VisitingStone,
+		Auctioneer, Crab, DustTrap, Mailbox, VisitingStone, Garden,
 		// NPCs -> Animals
 		Batterfly, Butterfly, Chicken, Firefly, Fox, HeliKitty, Piggy, Salmon, SilverFox,
 		// NPCs -> Shrines
