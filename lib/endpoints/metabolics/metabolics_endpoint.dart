@@ -116,18 +116,17 @@ class MetabolicsEndpoint {
 			// Save undead street
 			m.dead = true;
 
-			// Go to Hell
+			// Go to Hell One
 			userIdentifier.webSocket.add(JSON.encode({
 				"gotoStreet": "true",
 				"tsid": HELL_ONE
 			}));
-		} else {
+		} else if (m.energy >= HellGrapes.ENERGY_REQ) {
+			// Enough energy to be alive
+
 			Map<String, dynamic> street = getStreetByTsid(m.current_street);
-			if (
-				m.energy >= HellGrapes.ENERGY_REQ // Enough energy to be alive
-				&& (street == null) || ((street['hub_id'] ?? NARAKA) == NARAKA) // In Hell
-			) {
-				// Return to world
+			if ((street == null) || ((street['hub_id'] ?? NARAKA) == NARAKA)) {
+				// In Naraka, Return to world
 				userIdentifier.webSocket.add(JSON.encode({
 					"gotoStreet": "true",
 					"tsid": m.undead_street ?? CEBARKUL
