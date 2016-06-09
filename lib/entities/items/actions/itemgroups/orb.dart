@@ -1,8 +1,8 @@
 part of item;
 
 abstract class FocusingOrb {
-	Future<bool> levitate(WebSocket userSocket) async {
-		toast("Levitating is not implemented yet. Sorry!", userSocket);
+	Future<bool> levitate({WebSocket userSocket, String username, String email, Map map, String streetName}) async {
+		toast('Levitating is not implemented yet. Sorry!', userSocket);
 		return false;
 	}
 
