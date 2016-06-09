@@ -6,9 +6,9 @@ import 'dart:io';
 import 'dart:math' hide log;
 import 'dart:mirrors';
 
+import 'package:coUserver/API_KEYS.dart';
 import 'package:coUserver/achievements/achievements.dart';
 import 'package:coUserver/achievements/stats.dart';
-import 'package:coUserver/API_KEYS.dart';
 import 'package:coUserver/common/harvest_messages.dart';
 import 'package:coUserver/common/mapdata/mapdata.dart';
 import 'package:coUserver/common/user.dart';
@@ -21,15 +21,14 @@ import 'package:coUserver/endpoints/weather.dart';
 import 'package:coUserver/entities/items/item.dart';
 import 'package:coUserver/quests/quest.dart';
 import 'package:coUserver/skills/skillsmanager.dart';
-import 'package:coUserver/streets/street_update_handler.dart';
 import 'package:coUserver/streets/street.dart';
-
+import 'package:coUserver/streets/street_update_handler.dart';
 import 'package:jsonx/jsonx.dart' as jsonx;
 import 'package:postgresql/postgresql.dart';
-import 'package:redstone_mapper_pg/manager.dart';
+import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper/mapper.dart';
 import 'package:redstone_mapper/plugin.dart';
-import 'package:redstone/redstone.dart' as app;
+import 'package:redstone_mapper_pg/manager.dart';
 
 part 'doors/bureaucratic_hall_door.dart';
 part 'doors/door.dart';
@@ -77,6 +76,7 @@ part 'npcs/vendors/toolvendor.dart';
 part 'npcs/vendors/vendor.dart';
 part 'npcs/vistingstone.dart';
 part 'plants/dirtpile.dart';
+part 'package:coUserver/entities/npcs/garden.dart';
 part 'plants/icenubbin.dart';
 part 'plants/jellisacgrowth.dart';
 part 'plants/mortarbarnacle.dart';

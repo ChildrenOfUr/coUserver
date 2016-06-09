@@ -40,6 +40,10 @@ Random rand = new Random();
 
 /// Get a TSID in 'G...' (CAT422) form
 String tsidG(String tsid) {
+	if (tsid == null) {
+		return tsid;
+	}
+
 	if (tsid.startsWith("L")) {
 		// In CAT422 form
 		return tsid.replaceFirst("L", "G");
