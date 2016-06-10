@@ -1,7 +1,7 @@
 library item;
 
 import 'dart:async';
-import 'dart:math' hide log;
+import 'dart:math';
 import 'dart:convert';
 import 'dart:io';
 

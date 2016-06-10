@@ -1,6 +1,6 @@
 library inventory;
 
-import 'dart:math' hide log;
+import 'dart:math';
 import 'dart:async';
 import 'dart:io';
 import 'dart:convert';

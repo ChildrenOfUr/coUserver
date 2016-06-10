@@ -3,7 +3,7 @@ library street_update_handler;
 import 'dart:io';
 import 'dart:async';
 import 'dart:convert';
-import 'dart:math' hide log;
+import 'dart:math';
 import 'dart:mirrors';
 
 import 'package:coUserver/common/util.dart';

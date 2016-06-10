@@ -3,7 +3,7 @@ library street;
 import 'dart:io';
 import 'dart:mirrors';
 import 'dart:async';
-import 'dart:math' hide log;
+import 'dart:math';
 
 import 'package:coUserver/common/mapdata/mapdata.dart';
 import 'package:coUserver/common/util.dart';

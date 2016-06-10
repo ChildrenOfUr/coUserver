@@ -4,7 +4,7 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:convert';
 import 'dart:mirrors';
-import 'dart:math' hide log;
+import 'dart:math';
 
 import 'package:harvest/harvest.dart' as harvest;
 import 'package:http/http.dart' as http;

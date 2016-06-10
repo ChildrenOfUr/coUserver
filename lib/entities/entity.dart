@@ -3,7 +3,7 @@ library entity;
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'dart:math' hide log;
+import 'dart:math';
 import 'dart:mirrors';
 
 import 'package:coUserver/API_KEYS.dart';
