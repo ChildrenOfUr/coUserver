@@ -15,22 +15,15 @@ class AchievementCheckers {
 	// Checks if the addedTsid completes a hub
 	static bool hubCompletion(List<String> locationHistory, String email, String addedTsid) {
 		bool _checkStreetsInHub(String hubId) {
-			List<Map<String, dynamic>> streetsInHub = MapData.streets.values.where((
-			  Map streetData) {
-				if (streetData["hub_id"] == null) {
-					if (streetData["tsid"] != null) {
-						Log.warning('Missing hub id for street with TSID ${streetData['tsid']}');
-					}
-					return false;
-				} else {
-					return (streetData["hub_id"].toString() == hubId);
+			for (Map<String, dynamic> data in MapData.getStreetsInHub(hubId)) {
+				if (data['tsid'] == null) {
+					continue;
 				}
-			}).toList();
 
-			for (Map<String, dynamic> data in streetsInHub) {
-				String tsid = data["tsid"] ?? "";
-
-				if (!(locationHistory.contains(tsidG(tsid)) || locationHistory.contains(tsidL(tsid)))) {
+				if (
+					!(locationHistory.contains(tsidG(data['tsid']))) ||
+					!(locationHistory.contains(tsidL(data['tsid'])))
+				) {
 					// Neither TSID version visited
 					return false;
 				}
