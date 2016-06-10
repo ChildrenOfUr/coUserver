@@ -12,8 +12,9 @@ class Garden extends NPC {
 	static bool sentMap = false;
 	static final int actionEnergy = 0;
 	static final int hoeEnergy = -5;
-	static final int waterEnergy = -5;
-	static final int harvestEnergy = -5;
+	static final int waterEnergy = -2;
+	static final int harvestEnergy = -3;
+	bool restored = false;
 
 	static Map hoeAction = {"action":"hoe",
 		"actionWord":"hoeing",
@@ -102,12 +103,22 @@ class Garden extends NPC {
 			'hoed' : new Spritesheet('hoed', "http://childrenofur.com/assets/entityImages/garden_plot_hoed.png", 100, 90, 100, 90, 1, false),
 			'watered' : new Spritesheet('watered', "http://childrenofur.com/assets/entityImages/garden_plot_watered.png", 100, 90, 100, 90, 1, false),
 			'planted_baby' : new Spritesheet('planted_baby', "http://childrenofur.com/assets/entityImages/garden_plot_planted_baby.png", 100, 90, 100, 90, 1, false),
-			'cabbage_1' : new Spritesheet('cabbage_1', "http://childrenofur.com/assets/entityImages/cabbage_1.png", 100, 90, 100, 90, 1, false),
-			'cabbage_2' : new Spritesheet('cabbage_2', "http://childrenofur.com/assets/entityImages/cabbage_2.png", 100, 90, 100, 90, 1, false),
-			'cabbage_3' : new Spritesheet('cabbage_3', "http://childrenofur.com/assets/entityImages/cabbage_3.png", 100, 90, 100, 90, 1, false)
 		};
+		_createCropStates();
 		setState('new');
 		actions = [hoeAction];
+	}
+
+	///This will add all of the crop states to the [states] array so that it doesn't
+	///take up so much room and is easier to edit. Just add to the [crops] list to edit it
+	void _createCropStates() {
+		List<String> crops = ['broccoli', 'cabbage', 'carrot', 'corn', 'cucumber', 'onion'];
+		for (String crop in crops) {
+			for (int i=1; i<4; i++) {
+				String cropState = '${crop}_${i}';
+				states[cropState] = new Spritesheet(cropState, 'http://childrenofur.com/assets/entityImages/$cropState.png', 100, 90, 100, 90, 1, false);
+			}
+		}
 	}
 
 	void restoreState(Map<String, String> metadata) {
@@ -140,6 +151,8 @@ class Garden extends NPC {
 			plantedAt = new DateTime.fromMillisecondsSinceEpoch(int.parse(metadata['plantedAt']));
 			_createStageTimes();
 		}
+
+		restored = true;
 	}
 
 	void _createStageTimes() {
@@ -165,6 +178,10 @@ class Garden extends NPC {
 
 	@override
 	void update() {
+		if (!restored) {
+			return;
+		}
+
 		if (gardenState != GardenStates.PLANTED) {
 			return;
 		}
@@ -222,7 +239,7 @@ class Garden extends NPC {
 			return false;
 		}
 
-		int level = await SkillManager.getLevel('croppery',email);
+		int level = await SkillManager.getLevel(SKILL, email);
 		bool success = await _setLevelBasedMetabolics(level, 'hoe', email);
 		if(!success) {
 			return false;
@@ -230,6 +247,8 @@ class Garden extends NPC {
 
 		StatManager.add(email, Stat.crops_hoed);
 		SkillManager.learn(SKILL, email);
+
+		say('...Insert crop hoe phrase here...');
 
 		gardenState = GardenStates.HOED;
 		actions = [waterAction];
@@ -242,7 +261,7 @@ class Garden extends NPC {
 			return false;
 		}
 
-		int level = await SkillManager.getLevel('croppery',email);
+		int level = await SkillManager.getLevel(SKILL, email);
 		bool success = await _setLevelBasedMetabolics(level, 'water', email);
 		if(!success) {
 			return false;
@@ -250,6 +269,8 @@ class Garden extends NPC {
 
 		StatManager.add(email, Stat.crops_watered);
 		SkillManager.learn(SKILL, email);
+
+		say('...Insert crop water phrase here...');
 
 		gardenState = GardenStates.WATERED;
 		actions = [plantAction];
@@ -293,6 +314,9 @@ class Garden extends NPC {
 		actions = [viewAction];
 		setState('planted_baby');
 
+		Clock futureUrTime = new Clock.stoppedAtDate(stage3Time);
+		say("Come back at ${futureUrTime.time} and I'll be ready");
+
 		return true;
 	}
 
@@ -312,7 +336,7 @@ class Garden extends NPC {
 			return false;
 		}
 
-		int level = await SkillManager.getLevel('croppery',email);
+		int level = await SkillManager.getLevel(SKILL, email);
 		bool success = await _setLevelBasedMetabolics(level, 'harvest', email);
 		if(!success) {
 			return false;
@@ -322,7 +346,6 @@ class Garden extends NPC {
 		SkillManager.learn(SKILL, email);
 
 		//give the player the 'fruits' of their labor
-		String itemType = 'Seed_${plantedWith[0].toUpperCase()}${plantedWith.substring(1)}';
 		int count = 1;
 		if (level == 1) {
 			count = 2;
@@ -344,7 +367,8 @@ class Garden extends NPC {
 				count *= 2;
 			}
 		}
-		await InventoryV2.addItemToUser(email, items[itemType].getMap(), count, id);
+		await InventoryV2.addItemToUser(email, items[plantedWith].getMap(), count, id);
+		say('...Insert crop harvest phrase here...');
 
 		plantedWith = '';
 		gardenState = GardenStates.NEW;
