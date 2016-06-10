@@ -24,7 +24,7 @@ abstract class AnsiColors {
 
 	static String get purple => _esc(35);
 
-	static String get yellow => _esc(32);
+	static String get yellow => _esc(33);
 
 	static String get red => _esc(31);
 
