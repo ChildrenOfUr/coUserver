@@ -3,7 +3,7 @@ part of achievements;
 class AchievementCheckers {
 	static Achievement getCompletistIdForhub(String hubId) {
 		try {
-			String hubName = mapdata_hubs[hubId]['name'];
+			String hubName = MapData.hubs[hubId]['name'];
 			hubName = hubName.toLowerCase().replaceAll(' ', '_');
 			return Achievement.find('${hubName}_completist');
 		} catch (e, st) {
@@ -15,7 +15,7 @@ class AchievementCheckers {
 	// Checks if the addedTsid completes a hub
 	static bool hubCompletion(List<String> locationHistory, String email, String addedTsid) {
 		bool _checkStreetsInHub(String hubId) {
-			List<Map<String, dynamic>> streetsInHub = mapdata_streets.values.where((
+			List<Map<String, dynamic>> streetsInHub = MapData.streets.values.where((
 			  Map streetData) {
 				if (streetData["hub_id"] == null) {
 					if (streetData["tsid"] != null) {
@@ -42,7 +42,7 @@ class AchievementCheckers {
 
 		String addedTsidHubId;
 		try {
-			addedTsidHubId = getStreetByTsid(addedTsid)['hub_id'].toString();
+			addedTsidHubId = MapData.getStreetByTsid(addedTsid)['hub_id'].toString();
 		} catch (e) {
 			Log.warning('Cannot find hub id for $addedTsid');
 			return false;

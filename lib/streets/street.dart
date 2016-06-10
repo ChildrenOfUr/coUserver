@@ -191,7 +191,7 @@ class Street {
 		Map streetData = _jsonCache[_tsidG] ?? {};
 
 		if (refreshCache || !_jsonCache.containsKey(_tsidG)) {
-			streetData = getStreetFile(_tsidG);
+			streetData = MapData.getStreetFile(_tsidG);
 			_jsonCache[_tsidG] = streetData;
 		}
 
@@ -220,7 +220,7 @@ class Street {
 
 	Future persistState() async {
 		if (tsid == null) {
-			tsid = getStreetByName(label)[tsid];
+			tsid = MapData.getStreetByName(label)[tsid];
 			Log.warning('Persisting street <label=$label> with null tsid, but figured out <tsid=$tsid>');
 			if (tsid == null) {
 				Log.warning('Could not find tsid for <label=$label>');

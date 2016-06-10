@@ -91,7 +91,7 @@ Future<String> trimImage(@app.QueryParam('username') String username) async {
 		List<int> trimRect = findTrim(image, mode: TRIM_TRANSPARENT);
 		Image trimmed = copyCrop(image, trimRect[0], trimRect[1], trimRect[2], trimRect[3]);
 
-		String str = CryptoUtils.bytesToBase64(encodePng(trimmed));
+		String str = BASE64.encode(encodePng(trimmed));
 		FileCache.headsCache[username] = str;
 		return str;
 	}

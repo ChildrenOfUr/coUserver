@@ -4,6 +4,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:coUserver/achievements/stats.dart';
+import 'package:coUserver/common/mapdata/mapdata.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/endpoints/chat_handler.dart';
 import 'package:coUserver/endpoints/inventory_new.dart';
@@ -33,7 +34,7 @@ class Console {
 		new Command.register('global', (String message) async {
 			ChatHandler.superMessage(message);
 			Log.command('Sent message to Global Chat (${ChatHandler.users.length} online)');
-		}, ['message to post in global chat']);
+		}, ['"message to post in global chat"']);
 
 		new Command.register('migrate', (String object) async {
 			final Map<String, Function> _MIGRATES = {
@@ -50,7 +51,7 @@ class Console {
 			}
 		}, ['object to migrate']);
 
-		new Command.register('giveItem', (String email, String itemType) async {
+		new Command.register('giveitem', (String email, String itemType) async {
 			if (!items.containsKey(itemType)) {
 				Log.command('No such item: $itemType');
 			} else {
@@ -62,7 +63,7 @@ class Console {
 			}
 		}, ['user email', 'item type']);
 
-		new Command.register('useTool', (String email, String itemType, String amount) async {
+		new Command.register('usetool', (String email, String itemType, String amount) async {
 			if (await InventoryV2.decreaseDurability(email, itemType, amount: int.parse(amount))) {
 				Log.command("Successfully took $amount durability from <email=$email>'s $itemType");
 			} else {
@@ -75,13 +76,35 @@ class Console {
 				.split('\n').forEach((String ln) => Log.command(ln));
 		});
 
-		new Command.register('logOption', (String name, String value) {
+		new Command.register('logoption', (String name, String value) {
 			if (value.toLowerCase() == 'get') {
 				Log.command(LogSettings.getSetting(name));
 			} else {
 				LogSettings.setSetting(name, value);
 			}
 		}, ['option name', 'option value (or "get" to check option)']);
+
+		new Command.register('streetbylabel', (String label) {
+			Map<String, dynamic> street = MapData.getStreetByName(label);
+			if (street == null) {
+				Log.command('Cannot find street "$label"');
+			} else if (street['tsid'] == null) {
+				Log.command('Missing TSID');
+			} else {
+				formatMap(street)
+					.split('\n').forEach((String ln) => Log.command(ln));
+			}
+		}, ['"Street Name" to find']);
+
+		new Command.register('streetbytsid', (String tsid) {
+			Map<String, dynamic> street = MapData.getStreetByTsid(tsid);
+			if (street == null) {
+				Log.command('Cannot find street "$tsid"');
+			} else {
+				formatMap(street)
+					.split('\n').forEach((String ln) => Log.command(ln));
+			}
+		}, ['tsid to find']);
 	}
 
 	static final String ARG_GROUP = '"';
@@ -157,7 +180,7 @@ class Console {
 		}
 		args = grouped;
 
-		String name = parts.first;
+		String name = parts.first.toLowerCase();
 		if (!_commands.containsKey(name)) {
 			throw 'Command $name not found';
 		} else {

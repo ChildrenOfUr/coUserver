@@ -9,7 +9,6 @@ dependencies:
   redstone_mapper_pg: "^0.2.0-beta.2+2"
   slack: "^1.2.2"
   image: "^1.1.25"
-  crypto: "^0.9.1"
   harvest: "^2.0.11"
   jsonx: "2.0.1"
 

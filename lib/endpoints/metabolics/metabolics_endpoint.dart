@@ -124,7 +124,7 @@ class MetabolicsEndpoint {
 		} else if (m.energy >= HellGrapes.ENERGY_REQ) {
 			// Enough energy to be alive
 
-			Map<String, dynamic> street = getStreetByTsid(m.current_street);
+			Map<String, dynamic> street = MapData.getStreetByTsid(m.current_street);
 			if ((street == null) || ((street['hub_id'] ?? NARAKA) == NARAKA)) {
 				// In Naraka, Return to world
 				userIdentifier.webSocket.add(JSON.encode({

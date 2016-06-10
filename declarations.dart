@@ -14,6 +14,7 @@ import 'package:coUserver/API_KEYS.dart';
 import 'package:coUserver/common/console.dart';
 import 'package:coUserver/common/identifier.dart';
 import 'package:coUserver/common/keep_alive.dart';
+import 'package:coUserver/common/mapdata/mapdata.dart';
 import 'package:coUserver/common/slack.dart';
 import 'package:coUserver/common/user.dart';
 import 'package:coUserver/common/util.dart';
@@ -42,32 +43,40 @@ final int WEBSOCKET_PORT = 8282;
 
 // Start the server
 Future main() async {
-	// Keep track of when the server was started
-	ServerStatus.serverStart = new DateTime.now();
+	try {
+		// Keep track of when the server was started
+		ServerStatus.serverStart = new DateTime.now();
 
-	// Start listening on REDSTONE_PORT
-	await _initRedstone();
+		// Start listening on REDSTONE_PORT
+		await _initRedstone();
 
-	// Start listening on WEBSOCKET_PORT
-	_initWebSockets();
+		// Start listening on WEBSOCKET_PORT
+		_initWebSockets();
 
-	// Refill energy on new day
-	MetabolicsEndpoint.trackNewDays();
+		// Refill energy on new day
+		MetabolicsEndpoint.trackNewDays();
 
-	// Load image caches
-	FileCache.loadCaches();
+		// Load image caches
+		FileCache.loadCaches();
 
-	// Load items from JSON
-	await StreetUpdateHandler.loadItems();
+		// Load map data from JSON
+		MapData.load();
 
-	// Load quests from JSON
-	await QuestService.loadQuests();
+		// Load items from JSON
+		await StreetUpdateHandler.loadItems();
 
-	// Enable interactive console
-	Console.init();
+		// Load quests from JSON
+		await QuestService.loadQuests();
 
-	Log.init();
-	Log.info('Server started successfully, took ${ServerStatus.uptime}');
+		// Enable interactive console
+		Console.init();
+
+		Log.init();
+		Log.info('Server started successfully, took ${ServerStatus.uptime}');
+	} catch (e, st) {
+		Log.error('Server startup failed', e, st);
+		cleanup(1);
+	}
 }
 
 // Add a CORS header to every request
@@ -95,14 +104,9 @@ Future _initRedstone() async {
 	}
 
 	// Initialize redstone
-	try {
-		app.addPlugin(getMapperPlugin(dbManager));
-		app.setupConsoleLog(rsLog.Level.SEVERE);
-		await app.start(port: port, autoCompress: true);
-	} catch (e, st) {
-		Log.error('Could not start server', e, st);
-		await cleanup(1);
-	}
+	app.addPlugin(getMapperPlugin(dbManager));
+	app.setupConsoleLog(rsLog.Level.SEVERE);
+	await app.start(port: port, autoCompress: true);
 }
 
 /// redstone.dart does not support websockets so we have to listen on a separate port for those connections :(

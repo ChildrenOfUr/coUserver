@@ -22,8 +22,8 @@ class Chicken extends NPC {
 			            ]});
 		actions.add({
 			"action": "incubate",
-			"enabled": mapdata_streets[streetName] != null &&
-				mapdata_streets[streetName]["tsid"] != null,
+			"enabled": MapData.streets[streetName] != null &&
+				MapData.streets[streetName]["tsid"] != null,
 			"actionWord": "incubating",
 			"timeRequired": 0,
 			"requires": [

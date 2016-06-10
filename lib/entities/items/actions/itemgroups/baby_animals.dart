@@ -38,7 +38,7 @@ abstract class BabyAnimals {
 		InventoryV2 inv = await getInventory(email);
 		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
 
-		String tsid = mapdata_streets[streetName]["tsid"];
+		String tsid = MapData.streets[streetName]["tsid"];
 		String entityType = ANIMAL_TYPES[itemInSlot.itemType];
 		if (tsid == null || (await StreetEntityBalancer.streetIsFull(entityType, tsid))) {
 			toast("Isn't this street a little crowded?", userSocket);

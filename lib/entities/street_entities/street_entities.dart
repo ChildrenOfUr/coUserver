@@ -91,7 +91,7 @@ class StreetEntities {
 		}
 
 		bool _setInMemory(StreetEntity entity) {
-			Map<String, dynamic> street = getStreetByTsid(entity.tsid);
+			Map<String, dynamic> street = MapData.getStreetByTsid(entity.tsid);
 			if (street != null) {
 				try {
 					// Create NPC

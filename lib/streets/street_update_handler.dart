@@ -507,13 +507,13 @@ Future teleportUser(@app.Body(app.FORM) Map data) async {
 	String streetName = text.substring(text.lastIndexOf(', ') + 2);
 	String username = text.replaceAll(', $streetName', '');
 
-	Map streetMap = mapdata_streets[streetName];
+	Map streetMap = MapData.streets[streetName];
 	String tsid;
 	if(streetMap != null) {
 		tsid = streetMap['tsid'];
 	} else {
 		//Go to Cebarkul if no other street name was passed to the command
-		tsid = mapdata_streets['Cebarkul']['tsid'];
+		tsid = MapData.streets['Cebarkul']['tsid'];
 		streetName = "Cebarkul, not $streetName because I can't find it in the map data @klikini";
 	}
 	tsid = tsidG(tsid);

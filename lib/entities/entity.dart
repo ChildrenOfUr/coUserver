@@ -146,7 +146,7 @@ abstract class Entity extends Object with MetabolicsChange implements Persistabl
 	Map<String, String> getPersistMetadata() => {};
 
 	Future persist() async {
-		String tsid = getStreetByName(streetName)['tsid'];
+		String tsid = MapData.getStreetByName(streetName)['tsid'];
 		if (tsid == null) {
 			Log.warning('Cannot persist entity <type=$type> <id=$id> because tsid is null'
 							'for <streetName=$streetName>');
