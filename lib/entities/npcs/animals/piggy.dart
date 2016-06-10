@@ -103,7 +103,7 @@ class Piggy extends NPC {
 	}
 
 	Future<bool> feedItem({WebSocket userSocket, String itemType, int count, String email, int slot, int subSlot}) async {
-		bool success = (await InventoryV2.takeItemFromUser(email, slot, subSlot, count)) == count;
+		bool success = (await InventoryV2.takeItemFromUser(email, slot, subSlot, count)) != null;
 		if(!success) {
 			return false;
 		}
