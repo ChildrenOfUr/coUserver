@@ -229,6 +229,7 @@ class Garden extends NPC {
 		}
 
 		StatManager.add(email, Stat.crops_hoed);
+		SkillManager.learn(SKILL, email);
 
 		gardenState = GardenStates.HOED;
 		actions = [waterAction];
@@ -248,6 +249,7 @@ class Garden extends NPC {
 		}
 
 		StatManager.add(email, Stat.crops_watered);
+		SkillManager.learn(SKILL, email);
 
 		gardenState = GardenStates.WATERED;
 		actions = [plantAction];
@@ -282,6 +284,8 @@ class Garden extends NPC {
 		}
 
 		StatManager.add(email, Stat.crops_planted);
+		SkillManager.learn(SKILL, email);
+
 		plantedWith = itemType.replaceAll('Seed_', '').toLowerCase();
 		gardenState = GardenStates.PLANTED;
 		plantedAt = new DateTime.now();
@@ -315,6 +319,8 @@ class Garden extends NPC {
 		}
 
 		StatManager.add(email, Stat.crops_harvested);
+		SkillManager.learn(SKILL, email);
+
 		//give the player the 'fruits' of their labor
 		String itemType = 'Seed_${plantedWith[0].toUpperCase()}${plantedWith.substring(1)}';
 		int count = 1;
