@@ -59,6 +59,25 @@
 		},
 		"giants": ["Spriggan", "Grendaline", "Tii"]
 	},
+	"croppery": {
+		"name": "Croppery",
+		"category": "Growing",
+		"levels": [11, 173, 769],
+		"descriptions": [
+			"Anyone who possesses a Crop Garden in their back yard would be wise to learn Croppery because anyone who knows Croppery will yield twice as much crop product from a plot (along with benefits to mood and imagination).",
+			"Advancing your Croppery skill to the second level means you'll use less energy planting, watering and harvesting your crops. And every so often, the land will give you a little super fun happy bonus present.",
+			"Croppery III makes you a veritable master of the garden, giving you more mood and imagination for tending your crops through their lifecycle, and yielding a higher chance of surprise bonuses (or bonus surprises). Above all of that, every so often you will have a 'super harvest', which yields double the amount of crops from a plot."
+		],
+		"iconUrls": [
+			"http://www.glitchthegame.com/img/skills-460/croppery_1.v1429808924.png",
+			"http://www.glitchthegame.com/img/skills-460/croppery_2.v1429808924.png",
+			"http://www.glitchthegame.com/img/skills-460/croppery_3.v1428362783.png"
+		],
+		"requirements": {
+			"level": 3
+		},
+		"giants": ["Mab", "Grendaline", "Humbaba"]
+	},
 	"element_handling": {
 		"name": "Element Handling",
 		"category": "Alchemy",

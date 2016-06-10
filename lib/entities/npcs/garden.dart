@@ -8,10 +8,16 @@ enum GardenStates {
 }
 
 class Garden extends NPC {
+	static final String SKILL = "croppery";
 	static bool sentMap = false;
+	static final int actionEnergy = 0;
+	static final int hoeEnergy = -5;
+	static final int waterEnergy = -5;
+	static final int harvestEnergy = -5;
+
 	static Map hoeAction = {"action":"hoe",
 		"actionWord":"hoeing",
-		"timeRequired":3000,
+		"timeRequired":2000,
 		"enabled":true,
 		"requires":[
 			{
@@ -20,15 +26,16 @@ class Garden extends NPC {
 				"error": "You don't want to get your fingers dirty."
 			},
 			{
-				"num":5,
+				"num":hoeEnergy,
 				"of":['energy'],
 				"error": "You need at least 5 energy to hoe."
 			}
-		]
+		],
+		"associatedSkill": SKILL
 	};
 
 	static Map waterAction = {"action":"water",
-		"timeRequired":3000,
+		"timeRequired":2000,
 		"enabled":true,
 		"actionWord":"watering",
 		"requires":[
@@ -38,11 +45,12 @@ class Garden extends NPC {
 				"error": "Gardens don't like to be peed on. Go find some clean water, please."
 			},
 			{
-				"num": 2,
+				"num": waterEnergy,
 				"of": ['energy'],
 				"error": "You need at least 2 energy to water."
 			}
 		],
+		"associatedSkill": SKILL
 	};
 
 	static Map plantAction = {"action":"plant",
@@ -58,6 +66,21 @@ class Garden extends NPC {
 				"error": "You need some crop seeds to plant."
 			}
 		],
+		"associatedSkill": SKILL
+	};
+
+	static Map harvestAction = {"action":"harvest",
+		"timeRequired":5000,
+		"enabled":true,
+		"actionWord":"harvesting",
+		"requires":[
+			{
+				"num": harvestEnergy,
+				"of": ['energy'],
+				"error": "You need at least 3 energy to harvest."
+			}
+		],
+		"associatedSkill": SKILL
 	};
 
 	static Map viewAction = {"action":"view",
@@ -69,6 +92,7 @@ class Garden extends NPC {
 	GardenStates gardenState = GardenStates.NEW;
 	String plantedWith = 'none';
 	int plantedState = -1;
+	DateTime plantedAt, stage1Time, stage2Time, stage3Time;
 
 	Garden(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		type = "Crop Garden";
@@ -112,19 +136,31 @@ class Garden extends NPC {
 			plantedState = int.parse(metadata['plantedState']);
 		}
 
-		if (metadata.containsKey('respawn')) {
-			respawn = new DateTime.fromMillisecondsSinceEpoch(int.parse(metadata['respawn']));
+		if (metadata.containsKey('plantedAt')) {
+			plantedAt = new DateTime.fromMillisecondsSinceEpoch(int.parse(metadata['plantedAt']));
+			_createStageTimes();
 		}
 	}
 
+	void _createStageTimes() {
+		stage1Time = plantedAt.add(new Duration(minutes: 5));
+		stage2Time = stage1Time.add(new Duration(minutes: 5));
+		stage3Time = stage2Time.add(new Duration(minutes: 5));
+	}
+
 	Map<String, String> getPersistMetadata() {
-		return {
+		Map<String, String> map = {
 			'gardenState': gardenState.index.toString(),
 			'currentState': currentState.stateName,
 			'plantedWith': plantedWith,
 			'plantedState': plantedState.toString(),
-			'respawn': respawn.millisecondsSinceEpoch.toString()
 		};
+
+		if (plantedAt != null) {
+			map['plantedAt'] = plantedAt.millisecondsSinceEpoch.toString();
+		}
+
+		return map;
 	}
 
 	@override
@@ -134,28 +170,65 @@ class Garden extends NPC {
 		}
 
 		DateTime now = new DateTime.now();
-		if (respawn == null || respawn.isBefore(now)) {
-			//upgrade the plant here and reset the respawn
-			if (plantedState < 3) {
-				plantedState++;
+		if (stage3Time.isBefore(now)) {
+			//the plant is now fully grown and ready for harvest
+			actions = [harvestAction];
+			plantedState = 3;
+		} else if (stage2Time.isBefore(now)) {
+			plantedState = 2;
+		} else if (stage1Time.isBefore(now)) {
+			plantedState = 1;
+		} else {
+			plantedState = 0;
+		}
 
-				if (plantedState == 0) {
-					setState('planted_baby');
-				} else {
-					String stateKey = '${plantedWith}_${plantedState}';
-					if (states.containsKey(stateKey)) {
-						setState(stateKey);
-					}
+		//upgrade the plant here
+		if (plantedState >= 0) {
+			if (plantedState == 0) {
+				setState('planted_baby');
+			} else {
+				String stateKey = '${plantedWith}_${plantedState}';
+				if (states.containsKey(stateKey)) {
+					setState(stateKey);
 				}
-				respawn = now.add(new Duration(minutes: 5));
 			}
 		}
+	}
+
+	Future<bool> _setLevelBasedMetabolics(int level, String action, String email) async {
+		int mood = 2;
+		int imgMin = 5;
+		int energy = actionEnergy;
+
+		if (action == 'hoe') {
+			energy = hoeEnergy;
+		} else if (action == 'water') {
+			energy = waterEnergy;
+		} else if (action == 'harvest') {
+			energy = harvestEnergy;
+		}
+
+		if (level > 0) {
+			mood *= level+1;
+			imgMin *= level+1;
+			energy ~/= level;
+		}
+
+		return trySetMetabolics(email, energy: energy, mood: mood, imgMin: imgMin, imgRange: 4);
 	}
 
 	Future<bool> hoe({WebSocket userSocket, String email}) async {
 		if (gardenState != GardenStates.NEW) {
 			return false;
 		}
+
+		int level = await SkillManager.getLevel('croppery',email);
+		bool success = await _setLevelBasedMetabolics(level, 'hoe', email);
+		if(!success) {
+			return false;
+		}
+
+		StatManager.add(email, Stat.crops_hoed);
 
 		gardenState = GardenStates.HOED;
 		actions = [waterAction];
@@ -167,6 +240,14 @@ class Garden extends NPC {
 		if (gardenState != GardenStates.HOED) {
 			return false;
 		}
+
+		int level = await SkillManager.getLevel('croppery',email);
+		bool success = await _setLevelBasedMetabolics(level, 'water', email);
+		if(!success) {
+			return false;
+		}
+
+		StatManager.add(email, Stat.crops_watered);
 
 		gardenState = GardenStates.WATERED;
 		actions = [plantAction];
@@ -200,8 +281,11 @@ class Garden extends NPC {
 			return false;
 		}
 
+		StatManager.add(email, Stat.crops_planted);
 		plantedWith = itemType.replaceAll('Seed_', '').toLowerCase();
 		gardenState = GardenStates.PLANTED;
+		plantedAt = new DateTime.now();
+		_createStageTimes();
 		actions = [viewAction];
 		setState('planted_baby');
 
@@ -209,7 +293,60 @@ class Garden extends NPC {
 	}
 
 	Future<bool> view({WebSocket userSocket, String email}) async {
-		say('I am currently growing a $plantedWith');
+		//calling this so to reset the gains so the last action's gains
+		//aren't shown in a pure speech bubble
+		await trySetMetabolics(email);
+
+		Clock futureUrTime = new Clock.stoppedAtDate(stage3Time);
+		say('I am currently growing ${pluralize(plantedWith)}.'
+			' I should be ready for harvest at ${futureUrTime.time}');
+		return true;
+	}
+
+	Future<bool> harvest({WebSocket userSocket, String email}) async {
+		if (gardenState != GardenStates.PLANTED) {
+			return false;
+		}
+
+		int level = await SkillManager.getLevel('croppery',email);
+		bool success = await _setLevelBasedMetabolics(level, 'harvest', email);
+		if(!success) {
+			return false;
+		}
+
+		StatManager.add(email, Stat.crops_harvested);
+		//give the player the 'fruits' of their labor
+		String itemType = 'Seed_${plantedWith[0].toUpperCase()}${plantedWith.substring(1)}';
+		int count = 1;
+		if (level == 1) {
+			count = 2;
+		}
+		if (level >= 2) {
+			//lucky #13 gets you a prize
+			if (rand.nextInt(30~/(level-1)) == 13) {
+				Item musicblock = items[Crab.randomMusicblock()];
+				await InventoryV2.addItemToUser(email, musicblock.getMap(), 1, id);
+				toast(
+					"You got a ${musicblock.name}!", userSocket,
+					onClick: "iteminfo|${musicblock.name}"
+					);
+			}
+		}
+		if (level == 3) {
+			//lucky #7 gets you a super harvest
+			if (rand.nextInt(10) == 7) {
+				count *= 2;
+			}
+		}
+		await InventoryV2.addItemToUser(email, items[itemType].getMap(), count, id);
+
+		plantedWith = '';
+		gardenState = GardenStates.NEW;
+		plantedState = 0;
+		plantedAt = null;
+		actions = [hoeAction];
+		setState('new');
+
 		return true;
 	}
 }

@@ -41,6 +41,7 @@ class Clock {
 	String _dayofweek, _year, _day, _month, _time;
 	int _dayInt, _monthInt;
 	List _dPM = [29, 3, 53, 17, 73, 19, 13, 37, 5, 47, 11, 1];
+	DateTime startDate;
 
 	// Getters, so they can only be written by the Clock
 	String get dayofweek => _dayofweek;
@@ -71,9 +72,11 @@ class Clock {
 		new Timer.periodic(new Duration(seconds: 1), (_) => _sendEvents());
 	}
 
-	// timer has updated, send out required events and update interfaces.
-	void _sendEvents() {
+	Clock.stoppedAtDate(this.startDate) {
+		_initData();
+	}
 
+	void _initData() {
 		// Year, month, day, week, time
 		List data = _getDate();
 
@@ -85,6 +88,12 @@ class Clock {
 
 		_dayInt = data[5];
 		_monthInt = data[6];
+	}
+
+	// timer has updated, send out required events and update interfaces.
+	void _sendEvents() {
+
+		_initData();
 
 		// Clock update stream
 		_timeupdateController.add([time, day, dayofweek, month, year, dayInt, monthInt]);
@@ -109,7 +118,8 @@ class Clock {
 		//
 		// how many real seconds have elapsed since game epoch?
 		//
-		int ts = (new DateTime.now().millisecondsSinceEpoch * 0.001).floor();
+		DateTime date = startDate ?? new DateTime.now();
+		int ts = (date.millisecondsSinceEpoch * 0.001).floor();
 		int sec = ts - 1238562000;
 
 		int year = (sec / 4435200).floor();

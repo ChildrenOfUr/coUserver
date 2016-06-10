@@ -11,6 +11,7 @@ dependencies:
   image: "^1.1.25"
   harvest: "^2.0.11"
   jsonx: "2.0.1"
+  inflection: "^0.4.1"
 
 dev_dependencies:
   coverage: "^0.7.2"
