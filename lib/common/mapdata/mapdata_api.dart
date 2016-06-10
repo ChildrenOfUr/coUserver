@@ -4,7 +4,8 @@ abstract class MapdataEndpoint {
 	static Map<String, Map<String, Map<String, dynamic>>> mapdata;
 
 	static void init(
-		Map<String, Map<String, dynamic>> hubs, Map<String, Map<String, dynamic>> streets
+		Map<String, Map<String, dynamic>> hubs,
+		Map<String, Map<String, dynamic>> streets
 	) {
 		mapdata = {
 			'hubs': hubs,
@@ -13,12 +14,6 @@ abstract class MapdataEndpoint {
 	}
 
 	static String getMapData() {
-		// Only assemble the data the first time it is requested,
-		// for future requests use the pre-assembled version
-		if (mapdata == null) {
-
-		}
-
 		return JSON.encode(mapdata);
 	}
 }

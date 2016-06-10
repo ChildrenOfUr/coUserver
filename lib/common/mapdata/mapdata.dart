@@ -31,6 +31,9 @@ abstract class MapData {
 			// Load streets
 			File streetdata = new File(path.join(parent, 'streetdata.json'));
 			_streets = JSON.decode(streetdata.readAsStringSync());
+
+			// Compile into API data
+			MapdataEndpoint.init(_hubs, _streets);
 		} catch (e, st) {
 			Log.error('Error loading map data', e, st);
 			throw e;
