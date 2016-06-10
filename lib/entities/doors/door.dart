@@ -10,6 +10,12 @@ abstract class Door extends Entity {
 		type = "Door";
 	}
 
+	//For now, nothing about doors needs to be persisted to the db
+	Future persist() async {}
+
+	//So there's also nothing to restore
+	void restoreState(Map<String, String> metadata) {}
+
 	Map getMap() {
 		Map map = super.getMap();
 		map['url'] = currentState.url;

@@ -108,10 +108,22 @@ String createId(num x, num y, String type, String tsid) {
 	return type.substring(0, 1) + hash.toString();
 }
 
-abstract class Entity extends Object with MetabolicsChange {
+abstract class Persistable {
+	///This will be called when the [Street] that the [Entity] is on
+	///is persisted to the database
+	Future persist();
+
+	///This will be called when the [Entity] is loaded from the db
+	void restoreState(Map<String,String> metadata);
+
+	///This method will be called to get a map of all data that should be saved to the db
+	Map<String, String> getPersistMetadata();
+}
+
+abstract class Entity extends Object with MetabolicsChange implements Persistable {
 	List<Map> actions = [];
-	int actionTime = 2500;
-	String bubbleText;
+	int actionTime = 2500, x, y;
+	String bubbleText, streetName, type, id;
 	DateTime sayTimeout = null;
 	Map<String, List<String>> responses = {};
 	Map<String, Spritesheet> states;
@@ -128,6 +140,31 @@ abstract class Entity extends Object with MetabolicsChange {
 			}
 		} catch (e, st) {
 			Log.error('Error enabling/disabling action $action', e, st);
+		}
+	}
+
+	Map<String, String> getPersistMetadata() => {};
+
+	Future persist() async {
+		String tsid = getStreetByName(streetName)['tsid'];
+		if (tsid == null) {
+			Log.warning('Cannot persist entity <type=$type> <id=$id> because tsid is null'
+							'for <streetName=$streetName>');
+			return;
+		}
+
+		StreetEntity dbEntity = new StreetEntity.create(id: id, type: type, tsid: tsid, x: x, y: y,
+															metadata_json: JSON.encode(getPersistMetadata()));
+
+		PostgreSql dbConn = await dbManager.getConnection();
+		try {
+			String query = 'UPDATE street_entities SET x = @x, y = @y, metadata_json = @metadata_json'
+				' WHERE id = @id';
+			await dbConn.execute(query, dbEntity);
+		} catch (e, st) {
+			Log.error('Cannot persist entity <type=$type> <id=$id>', e, st);
+		} finally {
+			dbManager.closeConnection(dbConn);
 		}
 	}
 

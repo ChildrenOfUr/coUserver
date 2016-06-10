@@ -124,19 +124,16 @@ class Street {
 						String type = entity.type;
 						int x = entity.x;
 						int y = entity.y;
-
-						//generate a hopefully unique code that stays the same everytime for this object
-						String id = createId(x, y, type, tsid);
+						String id = entity.id;
+						Map<String, String> metadata = entity.metadata;
 
 						if (type == "Img" || type == "Mood" || type == "Energy" || type == "Currant"
 							|| type == "Mystery" || type == "Favor" || type == "Time" || type == "Quarazy") {
-							id = "q" + id;
 							quoins[id] = new Quoin(id, x, y, type.toLowerCase());
 						} else {
 							try {
 								ClassMirror classMirror = findClassMirror(type.replaceAll(" ", ""));
 								if (classMirror.isSubclassOf(findClassMirror("NPC"))) {
-									id = "n" + id;
 									if (classMirror.isSubclassOf(findClassMirror("Vendor")) ||
 										classMirror == findClassMirror("DustTrap")) {
 										// Vendors and dust traps get a street name/TSID to check for collisions
@@ -148,18 +145,19 @@ class Street {
 											.newInstance(new Symbol(""), [id, x, y, label])
 											.reflectee;
 									}
+									npcs[id].restoreState(metadata);
 								}
 								if (classMirror.isSubclassOf(findClassMirror("Plant"))) {
-									id = "p" + id;
 									plants[id] = classMirror
 										.newInstance(new Symbol(""), [id, x, y, label])
 										.reflectee;
+									plants[id].restoreState(metadata);
 								}
 								if (classMirror.isSubclassOf(findClassMirror("Door"))) {
-									id = "d" + id;
 									doors[id] = classMirror
 										.newInstance(new Symbol(""), [id, label, x, y])
 										.reflectee;
+									doors[id].restoreState(metadata);
 								}
 							} catch (_) {
 								Log.warning('Unable to instantiate a class for $type');
@@ -233,11 +231,18 @@ class Street {
 		PostgreSql dbConn = await dbManager.getConnection();
 
 		try {
+			//persist the ground items
 			DBStreet dbStreet = new DBStreet()
 				..id = tsid
 				..groundItems = groundItems.values.toList() ?? [];
 			String query = 'INSERT INTO streets(id,items) VALUES(@id,@items) ON CONFLICT (id) DO UPDATE SET items = @items';
 			await dbConn.execute(query, dbStreet);
+
+			//persist the entities
+			await Future.forEach(npcs.values, (NPC npc) async {
+				await npc.persist();
+			});
+
 		} catch (e) {
 			Log.warning('Could not persist $tsid ($label). It may not have been loaded completely.', e);
 		} finally {

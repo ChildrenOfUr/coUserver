@@ -20,6 +20,20 @@ abstract class Plant extends Entity {
 		respawn = new DateTime.now();
 	}
 
+	void restoreState(Map<String, String> metadata) {
+		if (metadata.containsKey('state')) {
+			state = int.parse(metadata['state']);
+		}
+
+		if (metadata.containsKey('currentState')) {
+			setState(metadata['currentState']);
+		}
+	}
+
+	Map<String, String> getPersistMetadata() {
+		return {'state': state.toString(), 'currentState': currentState.stateName};
+	}
+
 	void update() {
 		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0) {
 			state++;

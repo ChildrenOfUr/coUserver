@@ -46,15 +46,15 @@ class Garden extends NPC {
 	};
 
 	static Map plantAction = {"action":"plant",
-		"timeRequired":0,
+		"timeRequired":3000,
 		"enabled":true,
 		"actionWord":"planting",
 		"requires":[
 			{
 				"num": 1,
-				"of": ['broccoli_seed','cabbage_seed','carrot_seed','corn_seed',
-				       'cucumber_seed','onion_seed','parsnip_seed','potato_seed',
-				       'pumpkin_seed','rice_seed','spinach_seed','tomato_seed','zucchini_seed'],
+				"of": ['Seed_Broccoli','Seed_Cabbage','Seed_Carrot','Seed_Corn',
+				       'Seed_Cucumber','Seed_Onion','Seed_Parsnip','Seed_Potato',
+				       'Seed_Pumpkin','Seed_Rice','Seed_Spinach','Seed_Tomato','Seed_Zucchini'],
 				"error": "You need some crop seeds to plant."
 			},
 			{
@@ -80,12 +80,26 @@ class Garden extends NPC {
 		actions = [hoeAction];
 	}
 
+	void restoreState(Map<String, String> metadata) {
+		if (metadata.containsKey('currentState')) {
+			setState(metadata['currentState']);
+		}
+	}
+
+	Map<String, String> getPersistMetadata() {
+		return {'currentState': currentState.stateName};
+	}
+
 	@override
 	void update() {
 
 	}
 
 	Future<bool> hoe({WebSocket userSocket, String email}) async {
+		if (gardenState != GardenStates.NEW) {
+			return false;
+		}
+
 		gardenState = GardenStates.HOED;
 		actions = [waterAction];
 		setState('hoed');
@@ -93,6 +107,10 @@ class Garden extends NPC {
 	}
 
 	Future<bool> water({WebSocket userSocket, String email}) async {
+		if (gardenState != GardenStates.HOED) {
+			return false;
+		}
+
 		gardenState = GardenStates.WATERED;
 		actions = [plantAction];
 		setState('watered');
@@ -100,6 +118,10 @@ class Garden extends NPC {
 	}
 
 	Future<bool> plant({WebSocket userSocket, String email}) async {
+		if (gardenState != GardenStates.WATERED) {
+			return false;
+		}
+
 		gardenState = GardenStates.PLANTED;
 		actions = [];
 		setState('planted_baby');

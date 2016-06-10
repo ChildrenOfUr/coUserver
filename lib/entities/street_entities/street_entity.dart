@@ -28,9 +28,9 @@ class StreetEntity {
 
 	@Field() String metadata_json;
 
-	Map<String, dynamic> get metadata => JSON.decode(metadata_json);
+	Map<String, String> get metadata => JSON.decode(metadata_json);
 
-	set metadata(Map<String, dynamic> map) => metadata_json = JSON.encode(map);
+	set metadata(Map<String, String> map) => metadata_json = JSON.encode(map);
 
-	@override String toString() => "<StreetEntity $id ($type) on $tsid at ($x, $y)>";
+	@override String toString() => "<StreetEntity $id ($type) on $tsid at ($x, $y) with metadata $metadata>";
 }

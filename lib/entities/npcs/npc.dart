@@ -24,6 +24,16 @@ abstract class NPC extends Entity {
 		respawn = new DateTime.now();
 	}
 
+	void restoreState(Map<String, String> metadata) {
+		if (metadata['facingRight'] == 'false') {
+			facingRight = false;
+		}
+	}
+
+	Map<String,String> getPersistMetadata() {
+		return {'facingRight': facingRight.toString()};
+	}
+
 	int get width => currentState.frameWidth;
 
 	int get height => currentState.frameHeight;
