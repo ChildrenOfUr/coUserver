@@ -2,67 +2,50 @@ part of log;
 
 abstract class LogSettings {
 	/// Get the value of a setting as a String
-	static String getString(String setting, {String fallback}) {
-		return getSetting(setting, type: String, fallback: fallback);
-	}
+	static String getString(String setting, {String fallback}) => getSetting(setting, fallback);
 
 	/// Get the value of a setting as a bool
-	static bool getBool(String setting, {bool fallback}) {
-		return getSetting(setting, type: bool, fallback: fallback);
-	}
+	static bool getBool(String setting, {bool fallback}) => getSetting(setting, fallback);
 
 	/// Get the value of a setting as an int
-	static int getInt(String setting, {int fallback}) {
-		return getSetting(setting, type: int, fallback: fallback);
-	}
+	static int getInt(String setting, {int fallback}) => getSetting(setting, fallback);
 
 	/// Get the value of a setting as a LogLevel
 	static LogLevel getLogLevel(String setting, {LogLevel fallback}) {
-		return getSetting(setting, type: LogLevel, fallback: fallback);
+		try {
+			String value = getSetting(setting, fallback);
+			return LogLevel.values.singleWhere((LogLevel l) => l.toString() == value);
+		} catch (_) {
+			return fallback;
+		}
 	}
 
 	/// Get the value of any type of setting
-	static dynamic getSetting(String setting, {Type type: String, dynamic fallback}) {
-		String value = _cache[setting] ?? _settings[setting];
-
-		if (type == String) {
-			if (value != null) {
-				return value;
-			} else {
-				return fallback;
-			}
-		} else if (type == int) {
-			try {
-				return int.parse(value);
-			} catch (_) {
-				return fallback;
-			}
-		} else if (type == bool) {
-			if (value == 'true') {
-				return true;
-			} else if (value == 'false') {
-				return false;
-			} else {
-				return fallback;
-			}
-		} else if (type == LogLevel) {
-			try {
-				return LogLevel.values.singleWhere((LogLevel level) => level.toString() == value);
-			} catch (_) {
-				return fallback;
-			}
-		} else {
-			throw new ArgumentError('Cannot parse setting to unsupported type $type');
-		}
+	static dynamic getSetting(String setting, [dynamic fallback]) {
+		return _cache[setting]		// 1. Check cache to reduce filesystem accesses
+			?? _settings[setting]	// 2. Read from JSON file
+			?? fallback;			// 3. Default to provided fallback
 	}
 
 	/// Initialize or change a setting
 	static void setSetting(String setting, dynamic value) {
 		if (value != null) {
+			if (value is String) {
+				if (value == 'true') {
+					value = true;
+				} else if (value == 'false') {
+					value = false;
+				} else {
+					try {
+						value = int.parse(value);
+					} catch (_) {}
+				}
+			}
+
 			// Add or change setting
 			_cache[setting] = value;
 			_settings = new Map.from(_settings)
-				..[setting] = value.toString();
+				..[setting] = (value is LogLevel ? value.toString() : value);
 		} else {
 			// Clear setting
 			_cache.remove(setting);
@@ -91,7 +74,7 @@ abstract class LogSettings {
 		String json;
 		try {
 			json = _file.readAsStringSync();
-			if (json == '') {
+			if (json.trim() == '') {
 				json = '{}';
 			}
 		} catch (_) {
