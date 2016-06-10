@@ -104,7 +104,8 @@ part 'spritesheet.dart';
 
 /// Create an entity ID
 String createId(num x, num y, String type, String tsid) {
-	return (type + x.toString() + y.toString() + tsid).hashCode.toString();
+	int hash = (type + x.toString() + y.toString() + tsidL(tsid)).hashCode;
+	return type.substring(0, 1) + hash.toString();
 }
 
 abstract class Entity extends Object with MetabolicsChange {

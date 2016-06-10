@@ -16,19 +16,9 @@ abstract class BabyAnimals {
 			return false;
 		}
 
-		// As much randomness as possible to avoid collisions
-		String randId = 'fed'
-			'${tsid.substring(tsid.length ~/ 3)}'
-			'${pX ~/ 1}'
-			'${pY ~/ 1}'
-			'${rand.nextInt(9999)}';
-		if (randId.length > 30) {
-			randId = randId.substring(0, 30);
-		}
-
 		// Instantiate a new entity
 		StreetEntity newEntity = new StreetEntity.create(
-			id: randId,
+			id: createId(pX, pY, type, tsid),
 			type: type,
 			tsid: tsidL(tsid),
 			x: pX,

@@ -37,7 +37,8 @@ class Console {
 
 		new Command.register('migrate', (String object) async {
 			final Map<String, Function> _MIGRATES = {
-				'entities': () async => await StreetEntities.migrateEntities()
+				'entities': () async => await StreetEntityMigrations.migrateEntities(),
+				'entityIds': () async => await StreetEntityMigrations.reIdEntities()
 			};
 
 			if (_MIGRATES.keys.contains(object)) {
