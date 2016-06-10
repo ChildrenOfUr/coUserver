@@ -3,13 +3,11 @@ part of map_data;
 abstract class MapdataEndpoint {
 	static Map<String, Map<String, Map<String, dynamic>>> mapdata;
 
-	static void init(
-		Map<String, Map<String, dynamic>> hubs,
-		Map<String, Map<String, dynamic>> streets
-	) {
+	static void init(Map hubs, Map streets, Map render) {
 		mapdata = {
 			'hubs': hubs,
-			'streets': streets
+			'streets': streets,
+			'render': render
 		};
 	}
 

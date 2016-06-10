@@ -14,6 +14,7 @@ part 'mapdata_api.dart';
 abstract class MapData {
 	static Map<String, Map<String, dynamic>> _hubs;
 	static Map<String, Map<String, dynamic>> _streets;
+	static Map<String, Map<String, Map<String, dynamic>>> _render;
 
 	static Map<String, Map<String, dynamic>> get hubs => new Map.from(_hubs);
 	static Map<String, Map<String, dynamic>> get streets => new Map.from(_streets);
@@ -32,8 +33,12 @@ abstract class MapData {
 			File streetdata = new File(path.join(parent, 'streetdata.json'));
 			_streets = JSON.decode(streetdata.readAsStringSync());
 
+			// Load map positions
+			File renderdata = new File(path.join(parent, 'renderdata.json'));
+			_render = JSON.decode(renderdata.readAsStringSync());
+
 			// Compile into API data
-			MapdataEndpoint.init(_hubs, _streets);
+			MapdataEndpoint.init(_hubs, _streets, _render);
 		} catch (e, st) {
 			Log.error('Error loading map data', e, st);
 			throw e;
