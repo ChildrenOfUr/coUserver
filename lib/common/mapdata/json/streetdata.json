@@ -1,611 +1,763 @@
 {
 	"0_Hell-0": {
 		"tsid": "LA5A8BOUU3E23J5",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"1_Hell-0": {
 		"tsid": "LA5NA0QJE4E2LCB",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"2 Maharlika Meadows": {
 		"tsid": "LLI26QQII2J12HH",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"2_Hell-0": {
 		"tsid": "LA5J892JAHE2CFH",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"3 Whipping Cross Crossing": {
 		"tsid": "LLI35ROMI2J13OF",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"7 East Hechey Clearing": {
 		"tsid": "LIF1CM8GI2J1HG5",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"8 Adanac": {
 		"tsid": "LLI15NBEI2J17A2",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"9 Maharlika Heights": {
 		"tsid": "LLI263NII2J1O7F",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"9 Middle Valley Meadow": {
 		"tsid": "LLI2IFDKI2J1G6C",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"10 Thicket": {
 		"tsid": "LLI2PC8LI2J1Q9D",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"11 Hayden Seek Alley": {
 		"tsid": "LLI1S88HI2J1JOK",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"11 Herring Bone Hatch": {
 		"tsid": "LIF1KGQHI2J1PN3",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"12 Chad Gallows": {
 		"tsid": "LIF1A8DFI2J14V4",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"13 Pants Place": {
 		"tsid": "LLI2KGLKI2J1KBM",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"13 Ti Street": {
 		"tsid": "LLI2SSLLI2J1KOM",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"14 Maharlika Meadows": {
 		"tsid": "LLI272SII2J1NT9",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"14 Meandering Meadow": {
 		"tsid": "LIF1TGLJI2J110R",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"17 Adanac": {
 		"tsid": "LLI161CEI2J10K4",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"17 East Hechey Clearing": {
 		"tsid": "LLI1LH9GI2J14E8",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"18 Hechey Track": {
 		"tsid": "LLI1VSNHI2J1D9J",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"18 Maharlika Meadows": {
 		"tsid": "LLI279UII2J12U8",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"18 Whipping Cross Crossing": {
 		"tsid": "LLI363OMI2J1QN5",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"19 Georgian Narrows": {
 		"tsid": "LLI1RO6HI2J1DNN",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"19 Lem Hill": {
 		"tsid": "LIF1MB4II2J1ER5",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"21 Middle Valley Meadow": {
 		"tsid": "LLI2INEKI2J1318",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"22 Burnabee": {
 		"tsid": "LLI1EA9FI2J1P2C",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"22 Chad Gallows": {
 		"tsid": "LLI1F2EFI2J1F15",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"22 Maharlika Meadows": {
 		"tsid": "LLI27HUII2J1TJJ",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"22 Pants Place": {
 		"tsid": "LLI2KOMKI2J152P",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"22 The Short Track": {
 		"tsid": "LLI2OQ3LI2J1P60",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"23 Meandering Meadow": {
 		"tsid": "LIF1TNLJI2J1GOG",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"23 Ti Street": {
 		"tsid": "LLI2T6MLI2J1BHG",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"24 Curlingwood": {
 		"tsid": "LLI1GONFI2J1IQF",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"24 East Hechey Clearing": {
 		"tsid": "LIF1D09GI2J1QQ9",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"24 Herring Bone Hatch": {
 		"tsid": "LLI203RHI2J1HHJ",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"26 Adanac": {
 		"tsid": "LLI169DEI2J15N3",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"26 The Short Track": {
 		"tsid": "LLI2P24LI2J1MM5",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"28 Chadwick Mews": {
 		"tsid": "LLI1FMJFI2J10EH",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"29 Lower Valley Hollow": {
 		"tsid": "LLI25SLII2J1P5K",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"30 Burnabee": {
 		"tsid": "LIF19JAFI2J1A4G",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"31 Hayden Seek Alley": {
 		"tsid": "LIF1II9HI2J1969",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"31 Maharlika Meadows": {
 		"tsid": "LIF1Q9VII2J1CQG",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"31 Meandering Meadow": {
 		"tsid": "LLI2BKMJI2J171I",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"31 Middle Valley Meadow": {
 		"tsid": "LLI2IVEKI2J1IH0",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"31 Upper Valley Heights": {
 		"tsid": "LLI3112MI2J1ELE",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"32 Curlingwood": {
 		"tsid": "LIF1B8OFI2J16P7",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"34 Northwest Passage": {
 		"tsid": "LLI2JHHKI2J1BN8",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"35 East Hechey Clearing": {
 		"tsid": "LLI1LOAGI2J1B8L",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"35 Ti Street": {
 		"tsid": "LLI2TGNLI2J143M",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"37 Adanac": {
 		"tsid": "LLI16HEEI2J105H",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"37 Herring Bone Hatch": {
 		"tsid": "LLI20DSHI2J1I1L",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"37 Thicket": {
 		"tsid": "LIF20C9LI2J1BP5",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"37 Whipping Cross Crossing": {
 		"tsid": "LIF262PMI2J1EB9",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"38 Upper Valley Heights": {
 		"tsid": "LLI31B3MI2J165K",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"39 Curlingwood": {
 		"tsid": "LIF1BFOFI2J1S9S",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"39 Meandering Meadow": {
 		"tsid": "LIF1TUMJI2J1TOV",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"41 Hechey Track": {
 		"tsid": "LIF1JKOHI2J165B",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"41 Middle Valley Meadow": {
 		"tsid": "LIF1UUFKI2J177O",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"42 Hayden Seek Alley": {
 		"tsid": "LIF1ISAHI2J1241",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"42 Whipping Cross Crossing": {
 		"tsid": "LLI36BQMI2J114G",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"44 Adanac": {
 		"tsid": "LIF172FEI2J1F12",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"44 West Hechey Clearing": {
 		"tsid": "LIF257LMI2J1IJT",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"47 Curlingwood": {
 		"tsid": "LLI1H2PFI2J1C97",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"47 East Hechey Clearing": {
 		"tsid": "LIF1D7AGI2J1V68",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"47 Northwest Passage": {
 		"tsid": "LLI2JPHKI2J1U4U",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"47 Upper Valley Heights": {
 		"tsid": "LLI31I3MI2J1MAM",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"48 Georgian Narrows": {
 		"tsid": "LIF1I46HI2J1ROP",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"49 Burnabee": {
 		"tsid": "LIF19QAFI2J1Q93",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"49 Chadwick Mews": {
 		"tsid": "LIF1B0JFI2J1N7K",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"50 Hayden Seek Alley": {
 		"tsid": "LIF1J3AHI2J1IV6",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"50 Maharlika Heights": {
 		"tsid": "LLI26BOII2J17TC",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"50 Meandering Meadow": {
 		"tsid": "LIF1U6NJI2J1R9K",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"51 Whipping Cross Crossing": {
 		"tsid": "LIF26CQMI2J1I3I",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"53 Herring Bone Hatch": {
 		"tsid": "LIF1KQTHI2J19VV",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"53 Lower Valley Hollow": {
 		"tsid": "LIF1PAMII2J19L5",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"55 Northwest Passage": {
 		"tsid": "LLI2K1IKI2J1GPN",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"55 Upper Valley Heights": {
 		"tsid": "LIF21N4MI2J19E9",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"56 Curlingwood": {
 		"tsid": "LIF1BMQFI2J1CTG",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"56 East Hechey Clearing": {
 		"tsid": "LLI1M2CGI2J113O",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"56 Middle Valley Meadow": {
 		"tsid": "LIF1V8FKI2J1NMB",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"56 Thicket": {
 		"tsid": "LIF20J9LI2J1TDG",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"58 Ti Street": {
 		"tsid": "LIF219NLI2J1HIV",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"58 Whipping Cross Crossing": {
 		"tsid": "LLI36JRMI2J141L",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"60 Hayden Seek Alley": {
 		"tsid": "LIF1JABHI2J175E",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"60 West Hechey Clearing": {
 		"tsid": "LIF25HMMI2J13EM",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"61 Burnabee": {
 		"tsid": "LIF1A1BFI2J1CCU",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"61 Chadwick Mews": {
 		"tsid": "LLI1FUKFI2J1UA3",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"61 Northwest Passage": {
 		"tsid": "LIF1VNJKI2J15MP",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"61 Whipping Cross Crossing": {
 		"tsid": "LLI36RRMI2J1IJ8",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"62 West Hechey Clearing": {
 		"tsid": "LIF25OMMI2J1MPM",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"63 Herring Bone Hatch": {
 		"tsid": "LLI20NUHI2J135E",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"63 Lower Valley Hollow": {
 		"tsid": "LIF1PHMII2J1QBR",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"63 Meandering Meadow": {
 		"tsid": "LLI2BUPJI2J1K5R",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"63 Upper Valley Heights": {
 		"tsid": "LLI31Q4MI2J1UMB",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"64 Maharlika Heights": {
 		"tsid": "LIF1PROII2J1RPK",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"65 Adanac": {
 		"tsid": "LLI16PGEI2J1HF6",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"65 Georgian Narrows": {
 		"tsid": "LIF1IB7HI2J1AEK",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"65 Hechey Track": {
 		"tsid": "LIF1JROHI2J1SFP",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"65 Upper Valley Heights": {
 		"tsid": "LLI3246MI2J19G7",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"66 Curlingwood": {
 		"tsid": "LIF1BTQFI2J1PQS",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"66 Lapulapu Caverns": {
 		"tsid": "LLI2191II2J1B1P",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"67 East Hechey Clearing": {
 		"tsid": "LIF1DECGI2J1HNT",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"67 Meandering Meadow": {
 		"tsid": "LIF1UGQJI2J12K8",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"67 Northwest Passage": {
 		"tsid": "LIF1VUJKI2J1LVS",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"68 Adanac": {
 		"tsid": "LIF17CHEI2J12O3",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"69 Curlingwood": {
 		"tsid": "LLI1H9RFI2J1KJ9",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"69 Thicket": {
 		"tsid": "LLI2PKALI2J1J2N",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"70 Whipping Cross Crossing": {
 		"tsid": "LIF26MRMI2J1VC7",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"71 Chad Gallows": {
 		"tsid": "LLI1FCGFI2J11OF",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"71 Herring Bone Hatch": {
 		"tsid": "LIF1L4UHI2J1O1O",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"71 Maharlika Heights": {
 		"tsid": "LIF1Q2PII2J186G",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"71 Meandering Meadow": {
 		"tsid": "LLI2C5QJI2J1ML2",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"71 Middle Valley Meadow": {
 		"tsid": "LIF1VFGKI2J151B",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"72 Burnabee": {
 		"tsid": "LLI1EIBFI2J1RUK",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"72 Herring Bone Hatch": {
 		"tsid": "LLI211VHI2J18QK",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"72 Ti Street": {
 		"tsid": "LLI2TNOLI2J1K5S",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"73 Chadwick Mews": {
 		"tsid": "LLI1G8LFI2J1KHJ",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"74 Hechey Track": {
 		"tsid": "LIF1K2PHI2J1JNN",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"74 Lapulapu Caverns": {
 		"tsid": "LLI21H2II2J1D6G",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"75 East Hechey Clearing": {
 		"tsid": "LIF1DLDGI2J119G",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"75 Hayden Seek Alley": {
 		"tsid": "LLI1SIBHI2J1ROJ",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"76 Northwest Passage": {
 		"tsid": "LIF205KKI2J1C3Q",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"76 Pants Place": {
 		"tsid": "LLI2L0MKI2J1LL3",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"76 West Hechey Clearing": {
 		"tsid": "LLI35KNMI2J1L81",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"78 Whipping Cross Crossing": {
 		"tsid": "LLI372SMI2J1KIG",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"79 Burnabee": {
 		"tsid": "LLI1EQCFI2J1G4R",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"79 Chad Gallows": {
 		"tsid": "LIF1AFHFI2J1908",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"79 Herring Bone Hatch": {
 		"tsid": "LIF1LBVHI2J1TI4",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"79 Thicket": {
 		"tsid": "LIF20QBLI2J13O5",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"80 Hechey Track": {
 		"tsid": "LIF1K9QHI2J14KB",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"81 Middle Valley Meadow": {
 		"tsid": "LLI2J7GKI2J1J5E",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"82 Adanac": {
 		"tsid": "LIF17JHEI2J1Q1A",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"82 Pants Place": {
 		"tsid": "LLI2L8NKI2J18S4",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"82 Ti Street": {
 		"tsid": "LIF21GPLI2J186P",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"83 Lapulapu Caverns": {
 		"tsid": "LIF1LP3II2J148V",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"84 Chadwick Mews": {
 		"tsid": "LLI1GGMFI2J19BK",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"84 Maharlika Meadows": {
 		"tsid": "LLI27PVII2J1PJE",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"84 Meandering Meadow": {
 		"tsid": "LIF1UNRJI2J17T4",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"85 Herring Bone Hatch": {
 		"tsid": "LIF1LI0II2J1G40",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"85 Lem Hill": {
 		"tsid": "LLI21P5II2J100Q",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"85 Maharlika Heights": {
 		"tsid": "LLI26JPII2J1L30",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"85 Northwest Passage": {
 		"tsid": "LLI2K9KKI2J1VLS",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"85 Whipping Cross Crossing": {
 		"tsid": "LLI37CTMI2J1GR9",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"87 Curlingwood": {
 		"tsid": "LLI1HJSFI2J16TB",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"88 Lapulapu Caverns": {
 		"tsid": "LIF1M13II2J1QFV",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"89 East Hechey Clearing": {
 		"tsid": "LIF1DSEGI2J13LP",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"89 Thicket": {
 		"tsid": "LIF212CLI2J1ABJ",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"90 Pants Place": {
 		"tsid": "LLI2LGOKI2J1256",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"91 Chad Gallows": {
 		"tsid": "LIF1APIFI2J1DHQ",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"92 Upper Valley Heights": {
 		"tsid": "LIF2216MI2J1UFM",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"95 Georgian Narrows": {
 		"tsid": "LLI1S07HI2J1VJU",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"96 Maharlika Meadows": {
 		"tsid": "LLI2810JI2J1EQA",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"3000x500": {
 		"tsid": "LDO3HKVK5LM2RBI",
@@ -613,79 +765,98 @@
 	},
 	"A Different Perspective": {
 		"tsid": "LUV15AO6EDB3LT0",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"A Different Perspective 2": {
 		"tsid": "LUV4Q7E9USB3KQI",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"A Different Perspective 2 copy": {
 		"tsid": "LUVMMMTKFCC3G52",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"A Different Perspective 2 copy 2": {
 		"tsid": "LUVC1IGRKGD3CI3",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"A Different Perspective 3": {
 		"tsid": "LUVI0F7E22C3HSG",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"A Different Perspective 4": {
 		"tsid": "LUVTBJM182C3H5H",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"A Different Perspective 4 copy": {
 		"tsid": "LUV20JTFLEC3UTF",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"A Different Perspective 4 copy 2": {
 		"tsid": "LUVC92KSKGD3ERD",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"A Different Perspective Flag Removal": {
 		"tsid": "LUV2T2Q1P8D37G3",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"A Fall's Day Solidarity": {
 		"tsid": "LIFACQEPQ0B3LFJ",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"A L'il Animal Kinship": {
 		"tsid": "LHF8PTQ7RFB3PRB",
-		"hub_id": 132
+		"hub_id": 132,
+		"map_hidden": true
 	},
 	"A Secret Place": {
 		"tsid": "LUV2KLUKTME2KN8",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"A Summer's Day": {
 		"tsid": "LNVIH6NU3M13MJJ",
-		"hub_id": 61
+		"hub_id": 61,
+		"map_hidden": true
 	},
 	"A Summer's Day CLONE1": {
 		"tsid": "LIFP95RUMS230K7",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"AH_Large_01": {
 		"tsid": "LHVTS542U0H2ECL",
-		"hub_id": 111
+		"hub_id": 111,
+		"map_hidden": true
 	},
 	"AH_Medium_01": {
 		"tsid": "LHV2G13TU0H25IQ",
-		"hub_id": 111
+		"hub_id": 111,
+		"map_hidden": true
 	},
 	"AH_Quarter_01": {
 		"tsid": "LHV2SF30V0H2SUJ",
-		"hub_id": 111
+		"hub_id": 111,
+		"map_hidden": true
 	},
 	"AH_Quarter_02": {
 		"tsid": "LHV3A9S2V0H2DR0",
-		"hub_id": 111
+		"hub_id": 111,
+		"map_hidden": true
 	},
 	"AH_Small_01": {
 		"tsid": "LHV6SM9RV0H2SFJ",
-		"hub_id": 111
+		"hub_id": 111,
+		"map_hidden": true
 	},
 	"AKR 05": {
 		"tsid": "LIFD63N03P2287O",
@@ -701,79 +872,98 @@
 	},
 	"AM_Large_01": {
 		"tsid": "LHV4QHQRG0H2R7S",
-		"hub_id": 111
+		"hub_id": 111,
+		"map_hidden": true
 	},
 	"AM_Large_02": {
 		"tsid": "LHV52D7TG0H21J4",
-		"hub_id": 111
+		"hub_id": 111,
+		"map_hidden": true
 	},
 	"AM_Large_03": {
 		"tsid": "LHV572STG0H2NKH",
-		"hub_id": 111
+		"hub_id": 111,
+		"map_hidden": true
 	},
 	"AM_Large_04": {
 		"tsid": "LHV5B5JUG0H2NRD",
-		"hub_id": 111
+		"hub_id": 111,
+		"map_hidden": true
 	},
 	"AM_Large_05": {
 		"tsid": "LHV6TR88H0H221O",
-		"hub_id": 111
+		"hub_id": 111,
+		"map_hidden": true
 	},
 	"AM_Medium_01": {
 		"tsid": "LHV7BAQAH0H2I8I",
-		"hub_id": 111
+		"hub_id": 111,
+		"map_hidden": true
 	},
 	"AM_Medium_02": {
 		"tsid": "LHV7LFLCH0H2PTS",
-		"hub_id": 111
+		"hub_id": 111,
+		"map_hidden": true
 	},
 	"AM_Medium_03": {
 		"tsid": "LHV7QAHDH0H2N3P",
-		"hub_id": 111
+		"hub_id": 111,
+		"map_hidden": true
 	},
 	"AM_Medium_04": {
 		"tsid": "LHV85QBGH0H28S6",
-		"hub_id": 111
+		"hub_id": 111,
+		"map_hidden": true
 	},
 	"AM_Medium_05": {
 		"tsid": "LHV89T7HH0H2DLL",
-		"hub_id": 111
+		"hub_id": 111,
+		"map_hidden": true
 	},
 	"AM_Quarter_01": {
 		"tsid": "LHV3MB7JG0H27V1",
-		"hub_id": 111
+		"hub_id": 111,
+		"map_hidden": true
 	},
 	"AM_Quarter_02": {
 		"tsid": "LHV3UBJLG0H231G",
-		"hub_id": 111
+		"hub_id": 111,
+		"map_hidden": true
 	},
 	"AM_Quarter_03": {
 		"tsid": "LHV41CHMG0H2Q89",
-		"hub_id": 111
+		"hub_id": 111,
+		"map_hidden": true
 	},
 	"AM_Quarter_04": {
 		"tsid": "LHV465ONG0H28AR",
-		"hub_id": 111
+		"hub_id": 111,
+		"map_hidden": true
 	},
 	"AM_Small_01": {
 		"tsid": "LHV8GOFIH0H29P3",
-		"hub_id": 111
+		"hub_id": 111,
+		"map_hidden": true
 	},
 	"AM_Small_02": {
 		"tsid": "LHV8LHAJH0H2HM0",
-		"hub_id": 111
+		"hub_id": 111,
+		"map_hidden": true
 	},
 	"AM_Small_03": {
 		"tsid": "LHV8QG7KH0H2I5N",
-		"hub_id": 111
+		"hub_id": 111,
+		"map_hidden": true
 	},
 	"AM_Small_04": {
 		"tsid": "LHV90M8LH0H2VJ1",
-		"hub_id": 111
+		"hub_id": 111,
+		"map_hidden": true
 	},
 	"AM_Small_05": {
 		"tsid": "LHV94P9MH0H2B1R",
-		"hub_id": 111
+		"hub_id": 111,
+		"map_hidden": true
 	},
 	"ASummer's Day CLONE2": {
 		"tsid": "LIFPHJQ0NS23OGV",
@@ -841,27 +1031,33 @@
 	},
 	"Abandoned_Apt_Basement_Grow_Op": {
 		"tsid": "LUVHSIJTDEU22IO",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Abandoned_Apt_Basement_Tree": {
 		"tsid": "LUVISJO7OEU28NC",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Abandoned_Apt_Floor_01_Tree": {
 		"tsid": "LUVUC73JHJU2FNO",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Abandoned_Apt_Floor_02_Tree": {
 		"tsid": "LUVNOLF6PJU22OE",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Abandoned_Apt_Lobby_Tree": {
 		"tsid": "LUVBBVJ0UJU29AM",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Abandoned_floor_01": {
 		"tsid": "LDO8358Q3BT2C69",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Abassid Square": {
 		"tsid": "LM41IRQ6OMO40",
@@ -881,19 +1077,23 @@
 	},
 	"Abbasid-Ix Station": {
 		"tsid": "LM41ITQ6ONPJB",
-		"hub_id": 26
+		"hub_id": 26,
+		"map_hidden": true
 	},
 	"Abbasid_OOL_backyard": {
 		"tsid": "LDOESKQOEVH2KBL",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Abbasid_OOL_interior": {
 		"tsid": "LDOLTRMGJDH27L1",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Abbasid_OOL_street": {
 		"tsid": "LDO2PICLCVH2763",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Abesh Litcha": {
 		"shrine": "Tii",
@@ -913,67 +1113,83 @@
 	},
 	"Abs_02": {
 		"tsid": "LA9UTMRPOT224L8",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Abs_03": {
 		"tsid": "LA910SOC9V3276S",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Abs_04": {
 		"tsid": "LA912ON3P142EDJ",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Abs_05": {
 		"tsid": "LA9105UF4242HGK",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Abs_06": {
 		"tsid": "LA912PQ2H242NM2",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Abs_07": {
 		"tsid": "LA914QV3E44286B",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Abs_08": {
 		"tsid": "LA911M4FBC42V00",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Abs_09": {
 		"tsid": "LA96BIFLTM42J8C",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Abs_10": {
 		"tsid": "LA910UJR4U420BS",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Abs_11": {
 		"tsid": "LA91321JIU425I4",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Abs_12": {
 		"tsid": "LA914JPHUU42624",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Abs_13": {
 		"tsid": "LA915IC5P052FIK",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Abs_14": {
 		"tsid": "LA9181NI415206F",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Abs_15": {
 		"tsid": "LA91DBGTA3520FC",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Abs_16": {
 		"tsid": "LA9103H8K352DL3",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Abs_17": {
 		"tsid": "LA910HB0Q3529NV",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Abysmal Thrill": {
 		"tsid": "LUVEERDACR530SK",
@@ -1226,7 +1442,8 @@
 	},
 	"An Autumn Day": {
 		"tsid": "LUVCCQSMDIB3HOI",
-		"hub_id": 61
+		"hub_id": 61,
+		"map_hidden": true
 	},
 	"Anaka Azimuth": {
 		"vendor": "Gardening Goods",
@@ -1292,7 +1509,8 @@
 	},
 	"Animal Kinship Groddle 2 - Tim Copied": {
 		"tsid": "LIFGLI9QIFB3KEU",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Animal Kinship groddle": {
 		"tsid": "LIFFN0HDG9A3G8L",
@@ -1357,7 +1575,8 @@
 	},
 	"Apartment_01": {
 		"tsid": "LIFPSN7P6AQ1FBJ",
-		"hub_id": 67
+		"hub_id": 67,
+		"map_hidden": true
 	},
 	"Appam Almost": {
 		"vendor": "Kitchen Tools",
@@ -1373,11 +1592,13 @@
 	},
 	"Apt Exterior - test street": {
 		"tsid": "LCR10NE8MRK17GT",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"Apt Hallway - 8 Unit": {
 		"tsid": "LCR10BHEGRK1HV4",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"Apt Lobby": {
 		"tsid": "LCR131GMJOK1GSP",
@@ -1453,7 +1674,8 @@
 	},
 	"Arbito 05 - wip": {
 		"tsid": "LTJ1KPK9N2O1S0D",
-		"hub_id": 66
+		"hub_id": 66,
+		"map_hidden": true
 	},
 	"Arbor Hollow": {
 		"tsid": "LHFDKS616Q23NT6",
@@ -1562,7 +1784,8 @@
 	},
 	"Asslandia_old": {
 		"tsid": "LIFQP5PK95936G2",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"Asubo Bolda": {
 		"vendor": "Grocery",
@@ -1644,31 +1867,38 @@
 	},
 	"BT_01": {
 		"tsid": "LIF8QNR1PJ02RGM",
-		"hub_id": 71
+		"hub_id": 71,
+		"map_hidden": true
 	},
 	"BaM_01": {
 		"tsid": "LA9A4CHP1G52B8U",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"BaM_02": {
 		"tsid": "LA9A4D6R1G52HUI",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"BaM_05": {
 		"tsid": "LA9A4EKS1G52BR3",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"BaM_07": {
 		"tsid": "LA9A4F0U1G52I5F",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"BaM_08": {
 		"tsid": "LA9A4G5V1G5208Q",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"BaM_09": {
 		"tsid": "LA9A4H612G52RBF",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Baavai Buraq": {
 		"vendor": "Kitchen Tools",
@@ -1686,7 +1916,8 @@
 	},
 	"Backup - Barcode": {
 		"tsid": "LUV8O6Q69NT2H50",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Baddam Haddam": {
 		"vendor": "Animal Goods",
@@ -2054,23 +2285,28 @@
 	},
 	"Boards_basement": {
 		"tsid": "LUVNHMMM9RU2G2O",
-		"hub_id": 124
+		"hub_id": 124,
+		"map_hidden": true
 	},
 	"Boards_floor1": {
 		"tsid": "LUVNB41L9RU2KGP",
-		"hub_id": 124
+		"hub_id": 124,
+		"map_hidden": true
 	},
 	"Boards_floor2": {
 		"tsid": "LUVN8UCK9RU2JC0",
-		"hub_id": 124
+		"hub_id": 124,
+		"map_hidden": true
 	},
 	"Boards_floor3": {
 		"tsid": "LUVDHHN8NTU2NE6",
-		"hub_id": 124
+		"hub_id": 124,
+		"map_hidden": true
 	},
 	"Boards_floor4": {
 		"tsid": "LUV3D2L18UU2Q1V",
-		"hub_id": 124
+		"hub_id": 124,
+		"map_hidden": true
 	},
 	"Bobo Mondo": {
 		"vendor": "Kitchen Tools",
@@ -2157,31 +2393,38 @@
 	},
 	"Bonus_Classic": {
 		"tsid": "LTJ176O1QB22J7J",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Bonus_CreepyTown": {
 		"tsid": "LTJ17AEAQB22UOF",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Bonus_Level_2": {
 		"tsid": "LIF11FL3F212VF7",
-		"hub_id": 77
+		"hub_id": 77,
+		"map_hidden": true
 	},
 	"Bonus_Level_3": {
 		"tsid": "LIF1F63PR212EI1",
-		"hub_id": 77
+		"hub_id": 77,
+		"map_hidden": true
 	},
 	"Bonus_Level_Cloud_02": {
 		"tsid": "LUVUQHUECCU29M1",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Bonus_Residence": {
 		"tsid": "LTJ177O7QB22J7M",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Bonus_WinterWonderland": {
 		"tsid": "LTJ178R8QB2215P",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Boonbi Books": {
 		"shrine": "Pot",
@@ -2227,7 +2470,8 @@
 	},
 	"Borked_Level": {
 		"tsid": "LTJ515411K02D7N",
-		"hub_id": 77
+		"hub_id": 77,
+		"map_hidden": true
 	},
 	"Bortola Start": {
 		"tsid": "GA9U90TVB0D2EAH",
@@ -2236,27 +2480,33 @@
 	},
 	"BortolaForest_01": {
 		"tsid": "LHV1MSGKGD3256E",
-		"hub_id": 37
+		"hub_id": 37,
+		"map_hidden": true
 	},
 	"BortolaForest_02": {
 		"tsid": "LHV1NA12ID32G69",
-		"hub_id": 37
+		"hub_id": 37,
+		"map_hidden": true
 	},
 	"BortolaMeadow_01": {
 		"tsid": "LHV13JP0GB32TOH",
-		"hub_id": 37
+		"hub_id": 37,
+		"map_hidden": true
 	},
 	"BortolaMeadow_02": {
 		"tsid": "LHV1J0O47D32E3R",
-		"hub_id": 37
+		"hub_id": 37,
+		"map_hidden": true
 	},
 	"BortolaMeadow_03": {
 		"tsid": "LHV1JFTV8D3276K",
-		"hub_id": 37
+		"hub_id": 37,
+		"map_hidden": true
 	},
 	"BortolaMeadow_04": {
 		"tsid": "LHV1KJIIBD32BL7",
-		"hub_id": 37
+		"hub_id": 37,
+		"map_hidden": true
 	},
 	"Bossam Preserve": {
 		"tsid": "GA5OO9PJC8T26KE",
@@ -2288,19 +2538,23 @@
 	},
 	"Bricks_basement": {
 		"tsid": "LUVO1CQR9RU2GPD",
-		"hub_id": 124
+		"hub_id": 124,
+		"map_hidden": true
 	},
 	"Bricks_floor1": {
 		"tsid": "LUV1E37KLRU2UE7",
-		"hub_id": 124
+		"hub_id": 124,
+		"map_hidden": true
 	},
 	"Bricks_floor2": {
 		"tsid": "LUV1JI1MLRU2VNL",
-		"hub_id": 124
+		"hub_id": 124,
+		"map_hidden": true
 	},
 	"Bricks_floor3": {
 		"tsid": "LUVKPQPF3UU26T7",
-		"hub_id": 124
+		"hub_id": 124,
+		"map_hidden": true
 	},
 	"Bridge Upper var 2": {
 		"tsid": "LHFHVRUKBPI27SF",
@@ -2784,19 +3038,23 @@
 	},
 	"Cloud_coins_1": {
 		"tsid": "LDON3OH6RH031UC",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Cloud_float_static": {
 		"tsid": "LDO4Q0TFTN13ITU",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Cloud_horiz": {
 		"tsid": "LDOGT645PBU206D",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Cloud_horiz_2": {
 		"tsid": "LDO33J8N7CU22GN",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Cloudhopolis": {
 		"tsid": "LDO3V27SHQ13BAI",
@@ -2842,103 +3100,128 @@
 	},
 	"Concept_01": {
 		"tsid": "LIFNQTD2UD02IQ3",
-		"hub_id": 75
+		"hub_id": 75,
+		"map_hidden": true
 	},
 	"Concept_Flying_Race_lvl": {
 		"tsid": "LA57GN9OTJ92IIC",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Concept_Jetpack_Lvl": {
 		"tsid": "LA516KVP8T72B1C",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Concept_Jetpack_Lvl_v1.0": {
 		"tsid": "LA51087E1L824NE",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Concept_Tamila_Deep3": {
 		"tsid": "LA51HEG3CC62S48",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Concept_Tamila_DeepBling": {
 		"tsid": "LA51EARRTK62F36",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Concept_Tamila_Grassy": {
 		"tsid": "LA5502Q8SN52IF6",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Concepts_AlienPlatforms": {
 		"tsid": "LTJ16KA5PB22DLE",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Concepts_BerryForest": {
 		"tsid": "LTJ16L6APB229LE",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Concepts_Boneyard": {
 		"tsid": "LTJ16OBEPB22TN4",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Concepts_Boneyard2": {
 		"tsid": "LTJ16PFFPB22TA5",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Concepts_CactiGears": {
 		"tsid": "LTJ16QOGPB22HFH",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Concepts_ChutesAndLadders": {
 		"tsid": "LTJ16RDIPB22EHI",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Concepts_DesertDay": {
 		"tsid": "LTJ16SLJPB22G1G",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Concepts_DesertNight": {
 		"tsid": "LTJ16TVKPB224AD",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Concepts_DesertRuins": {
 		"tsid": "LTJ17C8HQB2213P",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Concepts_ElevationDeprivation": {
 		"tsid": "LTJ16VEOPB22VGA",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Concepts_GearForest": {
 		"tsid": "LTJ1704QPB221P5",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Concepts_HydroPlantius": {
 		"tsid": "LTJ171FRPB22RC0",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Concepts_JunkyardDay": {
 		"tsid": "LTJ174OTPB22AQ1",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Concepts_JunkyardNight": {
 		"tsid": "LTJ175TVPB22HRO",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Concepts_Rooftops": {
 		"tsid": "LTJ17BIFQB223BL",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Concepts_StoneCastle": {
 		"tsid": "LTJ17DQIQB22CD8",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Concepts_TentacleYard": {
 		"tsid": "LTJ17EFKQB224ON",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Concepts_Vineyard": {
 		"tsid": "LTJ17FVLQB22PFU",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Consumable Deco Janagi Elations": {
 		"tsid": "LUVFAV6HS3O2D5Q",
@@ -3389,19 +3672,23 @@
 	},
 	"Dungeon_Level_01": {
 		"tsid": "LTJ13CD3A3S1B0F",
-		"hub_id": 63
+		"hub_id": 63,
+		"map_hidden": true
 	},
 	"Dungeon_Level_02": {
 		"tsid": "LTJ13FB2E5S1QJI",
-		"hub_id": 63
+		"hub_id": 63,
+		"map_hidden": true
 	},
 	"Dungeon_Level_04": {
 		"tsid": "LTJ151MK08S1PE2",
-		"hub_id": 63
+		"hub_id": 63,
+		"map_hidden": true
 	},
 	"Dungeon_Level_05": {
 		"tsid": "LTJ13J9KS5S1TDI",
-		"hub_id": 63
+		"hub_id": 63,
+		"map_hidden": true
 	},
 	"Dunlin Roble": {
 		"shrine": "Lem",
@@ -3458,15 +3745,18 @@
 	},
 	"EZ Cooking Groddle 2": {
 		"tsid": "LIFFMFLMCDB3LGH",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"EZ Cooking Groddle 2 - Tim Copied": {
 		"tsid": "LIF73M8GJDB3MD1",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"EZ cooking groddle": {
 		"tsid": "LIFAG1T6JMA3UAF",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"East Hechey Clearing": {
 		"tsid": "LM4103P17E3G0",
@@ -3641,19 +3931,23 @@
 	},
 	"Enchanted_Wood_Forest_01": {
 		"tsid": "LDOLN0A14IR27H4",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Enchanted_Wood_Forest_02": {
 		"tsid": "LDO4IT3OOKR21DB",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Enchanted_Wood_Forest_03": {
 		"tsid": "LDOVVP4CAPR2NCM",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Enchanted_Wood_Forest_04": {
 		"tsid": "LDOUII0GD1S272O",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Enjan Park": {
 		"tsid": "GA5CUF0978T2L64",
@@ -3731,15 +4025,18 @@
 	},
 	"FB_01": {
 		"tsid": "LA952QUH90A2P22",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"FB_02": {
 		"tsid": "LA953PEQO0A2UFB",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"FB_03": {
 		"tsid": "LA916MFUT2A2RLK",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Facta Verba": {
 		"tsid": "GA54AT4AK613NBL",
@@ -3807,7 +4104,8 @@
 	},
 	"Fernucopia_Clone_June_08": {
 		"tsid": "LUV2VG152E1314O",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Fervor Tack A": {
 		"tsid": "GIFF8LVSAO72S3C",
@@ -3993,83 +4291,103 @@
 	},
 	"Fox_01": {
 		"tsid": "LDOE8K8Q4JQ2NTU",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Fox_02": {
 		"tsid": "LDOLUNM11TQ21MB",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Fox_Meadow_Alakol_L_Entry": {
 		"tsid": "LUVHTCF00DT24F1",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Fox_Meadow_Alakol_R_Entry": {
 		"tsid": "LUVVAMLR4DT27A6",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Fox_Meadow_Reg_01": {
 		"tsid": "LDO660BU9KR2TF0",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Fox_Reg_02": {
 		"tsid": "LDO911JMAKR2PHM",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Fox_Reg_03": {
 		"tsid": "LDO3KPE7HKR2H4H",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Fox_Reg_Forest_01": {
 		"tsid": "LDOJ7DS2LKR2BVC",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Fox_Reserve_Meadow_03": {
 		"tsid": "LDOMR3A86JS2MU3",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Fox_Run_01": {
 		"tsid": "LUV53SMRLHR2GNF",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Fox_Transit_01": {
 		"tsid": "LUV6RA1TMHR2A6S",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Fox_Transit_02": {
 		"tsid": "LUVDH2LE9IR2R20",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Fox_Transit_03": {
 		"tsid": "LUVI7DNJ6KR2GIR",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Fox_Transit_09": {
 		"tsid": "LUVE61SIM7T2A95",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Fox_brushing_preserve_meadows_02": {
 		"tsid": "LDOJQ5O1E7R2BGP",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Fox_brushing_preserve_meadows_03": {
 		"tsid": "LDOKQHQN5KR2P6H",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Fox_preserve_heights_01": {
 		"tsid": "LDOIIK5065T21NG",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Fox_preserve_heights_02": {
 		"tsid": "LDOLP1TSF5T2E0J",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Fox_preserve_heights_03": {
 		"tsid": "LDOS23O9O5T2RL6",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Fox_preserve_heights_04": {
 		"tsid": "LDORSIIV08T2PAD",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Froughtful Fen": {
 		"mailbox": true,
@@ -4288,15 +4606,18 @@
 	},
 	"GF Middlecave 01": {
 		"tsid": "LIFK72HLP3N1JSN",
-		"hub_id": 60
+		"hub_id": 60,
+		"map_hidden": true
 	},
 	"GF Rightcave 01": {
 		"tsid": "LIFS95NCH3N15U0",
-		"hub_id": 60
+		"hub_id": 60,
+		"map_hidden": true
 	},
 	"GF Stacked 10": {
 		"tsid": "LIFH5V4SOCM1DFB",
-		"hub_id": 60
+		"hub_id": 60,
+		"map_hidden": true
 	},
 	"GFJ Subway Station": {
 		"tsid": "LCRC6VC9MAO1Q7F",
@@ -4304,7 +4625,8 @@
 	},
 	"GF_POL": {
 		"tsid": "LLI1811ADFH1232",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"GForest Quarter 01": {
 		"tsid": "LCR113BML8L149L",
@@ -4316,11 +4638,13 @@
 	},
 	"GH Middlecave 01": {
 		"tsid": "LIFD3HGQ93N1EDN",
-		"hub_id": 60
+		"hub_id": 60,
+		"map_hidden": true
 	},
 	"GH Stacked 11": {
 		"tsid": "LIFB5USAFUM12L9",
-		"hub_id": 60
+		"hub_id": 60,
+		"map_hidden": true
 	},
 	"GHeights Interior POL Template": {
 		"tsid": "LCR16D52TSL1BSH",
@@ -4336,27 +4660,33 @@
 	},
 	"GI Clone - Gentle Island Exit": {
 		"tsid": "LUVFC099RAB3FSG",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"GI Clone - Diversionary Path Firebog Style": {
 		"tsid": "LUVGSVUERAB386N",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"GI Clone - Doonboggle Trail": {
 		"tsid": "LUVH5H2GRAB3CDC",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"GI Clone - High Jumper's Gully": {
 		"tsid": "LUVFRB5BRAB3HMV",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"GI Clone - Progress Way Uralia Style": {
 		"tsid": "LUVG4QICRAB3T2E",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"GI Clone - Surveyor's Stroll": {
 		"tsid": "LUVGHAKDRAB3VSF",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"GM110": {
 		"tsid": "LLI10JQH87H1VAA",
@@ -4480,11 +4810,13 @@
 	},
 	"GM Greeter": {
 		"tsid": "LIF1028Q4QS1E3K",
-		"hub_id": 60
+		"hub_id": 60,
+		"map_hidden": true
 	},
 	"GM Stacked 11": {
 		"tsid": "LIFMELPD2UM1BG0",
-		"hub_id": 60
+		"hub_id": 60,
+		"map_hidden": true
 	},
 	"GMeadow Quarter 01": {
 		"tsid": "LCR1060O19L1VD3",
@@ -4568,59 +4900,73 @@
 	},
 	"GOL_concept_forest_sec": {
 		"tsid": "LDOQVG5BK7F2V5M",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"GOL_forest_meadow": {
 		"tsid": "LDO2HFKFK9G2R14",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"GOL_meadow_forest": {
 		"tsid": "LDOQCS87RBG2IPI",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"GOL_secondary_forest": {
 		"tsid": "LDO2F3H1L7F2KMA",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"GOL_secondary_forest_2": {
 		"tsid": "LDOL8JO60BF2VNL",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"GOL_secondary_forest_3": {
 		"tsid": "LDOUO1ARUUF2A9I",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"GOL_secondary_heights": {
 		"tsid": "LDOLHA6BISF2EVG",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"GOL_secondary_mine": {
 		"tsid": "LDOCO0KFKAF2S40",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"GP_01": {
 		"tsid": "LA9PVQGAVP32IDB",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"GP_02": {
 		"tsid": "LA912OVJGQ32MVJ",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"GP_03": {
 		"tsid": "LA914Q81VQ3283G",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"GP_04": {
 		"tsid": "LA914P6OUQ32II8",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"GP_05": {
 		"tsid": "LA912JI3KS328H0",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"GP_06": {
 		"tsid": "LA912LFMIV32HL6",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Gaare Grims": {
 		"shrine": "Friendly",
@@ -4652,7 +4998,8 @@
 	},
 	"Game_lobby_01": {
 		"tsid": "LDO34L8NVAQ29F4",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Gananagati": {
 		"hub_id": 140,
@@ -4809,15 +5156,18 @@
 	},
 	"Gloomy_basement": {
 		"tsid": "LUVMM8IE9RU2PLV",
-		"hub_id": 124
+		"hub_id": 124,
+		"map_hidden": true
 	},
 	"Gloomy_floor1": {
 		"tsid": "LUVM7LGA9RU2DR8",
-		"hub_id": 124
+		"hub_id": 124,
+		"map_hidden": true
 	},
 	"Gloomy_floor2": {
 		"tsid": "LUVM2NV89RU2LD2",
-		"hub_id": 124
+		"hub_id": 124,
+		"map_hidden": true
 	},
 	"Glutton Greens": {
 		"tsid": "LA931BPTNLD3E35",
@@ -4829,7 +5179,8 @@
 	},
 	"GoL_Concept_Forest": {
 		"tsid": "LDODCCDI6RE21FP",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Goli Grabs": {
 		"shrine": "Lem",
@@ -4926,7 +5277,8 @@
 	},
 	"Green Bonus - lisa": {
 		"tsid": "LHVOT8RDT403AKO",
-		"hub_id": 125
+		"hub_id": 125,
+		"map_hidden": true
 	},
 	"GreenScreen": {
 		"tsid": "LIFFREDO3IV1EE0",
@@ -5045,27 +5397,33 @@
 	},
 	"Group_Meadows": {
 		"tsid": "LA5H0CNSTAA2G64",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Group_forest": {
 		"tsid": "LA9IKALC0BA2VJP",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Grow-Op_basement": {
 		"tsid": "LUVLUJM79RU2FK8",
-		"hub_id": 124
+		"hub_id": 124,
+		"map_hidden": true
 	},
 	"Grow-Op_floor1": {
 		"tsid": "LUVLNAE59RU2PN7",
-		"hub_id": 124
+		"hub_id": 124,
+		"map_hidden": true
 	},
 	"Grow-Op_floor2": {
 		"tsid": "LUVLIOT39RU20BD",
-		"hub_id": 124
+		"hub_id": 124,
+		"map_hidden": true
 	},
 	"Grow-Op_floor3": {
 		"tsid": "LUVUVLH3TTU2CV4",
-		"hub_id": 124
+		"hub_id": 124,
+		"map_hidden": true
 	},
 	"Growing Stuff": {
 		"tsid": "LA9S2N3F15F3JD3",
@@ -5120,31 +5478,38 @@
 	},
 	"HD 01": {
 		"tsid": "LIFA9CFPS0321FG",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"HELL-Y-NESS": {
 		"tsid": "LUVHKFTM84E2E7B",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"HELL-Y-NESS 2": {
 		"tsid": "LUVH26VK2JE238A",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"HELL-Y-NESS 3": {
 		"tsid": "LUV46MU3EJE26LR",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"HELL-Y-NESS 4": {
 		"tsid": "LUVD5SEB6NF2TTR",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"HELL-Y-NESS CIRCLE": {
 		"tsid": "LUV6AG0IP7P264R",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"HU 01": {
 		"tsid": "LIFQ3NU4K032M8S",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Hackfast Quicks": {
 		"vendor": "Animal Goods",
@@ -5393,7 +5758,8 @@
 	},
 	"Hell 09 - WhiteHell clone": {
 		"tsid": "LUVHSTLFCJE2ORT",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Hell Bar": {
 		"tsid": "LA5FPUNAI7P2NVF",
@@ -5417,11 +5783,13 @@
 	},
 	"Hell_Concept": {
 		"tsid": "LDO1BIVPOMD26FU",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Hell_Concept2": {
 		"tsid": "LDO2V17871E2ORI",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Hellenturret Pass": {
 		"mailbox": true,
@@ -5489,7 +5857,8 @@
 	},
 	"HogtiePiggy_ConceptRace": {
 		"tsid": "LA51225P5U42K93",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Horseshoe Walk": {
 		"tsid": "LIF1FGVA5MP1COU",
@@ -5505,15 +5874,18 @@
 	},
 	"Hub1Test_01": {
 		"tsid": "LTJ11DNICKT1FV8",
-		"hub_id": 63
+		"hub_id": 63,
+		"map_hidden": true
 	},
 	"Hub1Test_02": {
 		"tsid": "LTJ11DQU07T163U",
-		"hub_id": 63
+		"hub_id": 63,
+		"map_hidden": true
 	},
 	"Hub1test_03": {
 		"tsid": "LTJ1BRDPPMT1NN5",
-		"hub_id": 63
+		"hub_id": 63,
+		"map_hidden": true
 	},
 	"Hub Concept 01": {
 		"tsid": "LUV5D62MQ863N5G",
@@ -5585,11 +5957,13 @@
 	},
 	"Indoor_PartySpace_Concept": {
 		"tsid": "LA55RSUPRM92T3V",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Indoor_PartySpace_Concept2": {
 		"tsid": "LA562I3LKO922PM",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Indri Slope": {
 		"tsid": "LUV2SSTOU8A30RS",
@@ -5629,43 +6003,53 @@
 	},
 	"Instance Party 01 - Test Level": {
 		"tsid": "LUV29U82IHD2H85",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Instance Party 01 - Trampoline": {
 		"tsid": "LUV7GU1HTHD2AAA",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Instance Party 02 - Test Level": {
 		"tsid": "LUV2ST2LAID2J29",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Instance Party 08 - Halloween -Flaming Humaba": {
 		"tsid": "LUVGJRE0SKD2T41",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Instance Party 08 - Kitchen - Rich Tagine": {
 		"tsid": "LUVKCUO1JKD2JCP",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Instance Party 08 A - Halloween": {
 		"tsid": "LUVD40A361E2STV",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Instance Party 04 - Test Level": {
 		"tsid": "LUV904LLBID2VTH",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Instance Party 05 - Groddle Double Rainbow": {
 		"tsid": "LUVCIEP6CID2R00",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Instance Party 06 - CTPC Areas": {
 		"tsid": "LUVPLCV65KD2GUK",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Instance Party 06 A - Swimming Physics": {
 		"tsid": "LUVSQLE0GKD2JGN",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Institute of Ocular Testing": {
 		"tsid": "LNVUCOIA1MJ2M54",
@@ -5715,11 +6099,13 @@
 	},
 	"Ix Concept 01": {
 		"tsid": "LA9D3R5F2S6210B",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Ix Concept 02": {
 		"tsid": "LA94L9SV6672VU7",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Jacob's Climb": {
 		"mailbox": true,
@@ -5857,7 +6243,8 @@
 	},
 	"JuJu_Bandit_Quest": {
 		"tsid": "LA5AOKHTPAO2QRR",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Juju Hideout": {
 		"tsid": "LNVDIG7F7DO2CM5",
@@ -5899,15 +6286,18 @@
 	},
 	"KJ 01": {
 		"tsid": "LIFDRBM0H832JRH",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"KJ 01a": {
 		"tsid": "LIF2I3NPTI32G5C",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"KK_newCTPC": {
 		"tsid": "LDOR66ATD2F2HJ1",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Kaavi Kannot": {
 		"vendor": "Alchemical Goods",
@@ -6388,7 +6778,8 @@
 		"vendor": "Hardware",
 		"shrine": "Cosma",
 		"tsid": "GA9GA91EN6N2OHB",
-		"hub_id": 116
+		"hub_id": 116,
+		"map_hidden": true
 	},
 	"Laccaria Quadrata": {
 		"tsid": "GIFP24DTLI43SM4",
@@ -6498,11 +6889,13 @@
 	},
 	"Le Miserable": {
 		"tsid": "LIFMMN6E7A73R0T",
-		"hub_id": 135
+		"hub_id": 135,
+		"map_hidden": true
 	},
 	"Le Voyage Violet": {
 		"tsid": "LNVV4OTMAUG2PQV",
-		"hub_id": 61
+		"hub_id": 61,
+		"map_hidden": true
 	},
 	"Lebben Laps": {
 		"vendor": "Animal Goods",
@@ -6658,7 +7051,8 @@
 	},
 	"Light Green Thumb Orange small - Tim Copied": {
 		"tsid": "LIFF035ICDB3689",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Light green thumb Groddle orange": {
 		"tsid": "LIFSFVGBAMA3MRK",
@@ -7143,7 +7537,8 @@
 	},
 	"Meadow - high camera view": {
 		"tsid": "LLI10KCN87H18I6",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"Meadow Community Machine Room": {
 		"tsid": "GCR101Q98A12EHH",
@@ -7238,7 +7633,8 @@
 	},
 	"Mental_Space_Long": {
 		"tsid": "LDOQDRQ79HP22UT",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Mercia Mersey": {
 		"vendor": "Produce",
@@ -7529,7 +7925,8 @@
 	},
 	"Mountaineering_r_01": {
 		"tsid": "LDOI7GN6QIM2BG9",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Mrandeya Minds": {
 		"vendor": "Grocery",
@@ -7551,7 +7948,8 @@
 	},
 	"Mud-Dip Marsh": {
 		"tsid": "LIFILJDUI0Q1QHI",
-		"hub_id": 67
+		"hub_id": 67,
+		"map_hidden": true
 	},
 	"Mullangi Meda": {
 		"vendor": "Kitchen Tools",
@@ -7633,19 +8031,23 @@
 	},
 	"NB STREET 2": {
 		"tsid": "LIFDEA0D8343K2F",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"NB STREET 3": {
 		"tsid": "LIFCLP268343NF2",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"NB Street 1": {
 		"tsid": "LIFC9JJ28343FH2",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"NEW 12 - not using": {
 		"tsid": "LLI11A8RAD71UPD",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"NEWSTuFF": {
 		"tsid": "LIFPS30A98Q1I26",
@@ -7653,11 +8055,13 @@
 	},
 	"NFB_01": {
 		"tsid": "LA9467JV16A2KT9",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"NFB_02": {
 		"tsid": "LA981K7FK8A21O1",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Naama Habitat": {
 		"tsid": "GHV73IC58DT2RO7",
@@ -7801,7 +8205,8 @@
 	},
 	"New - Talking 'bout Soil Appreciation": {
 		"tsid": "LUVNDKDK4GB3LAP",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"New Deep Swimming Hub 01": {
 		"tsid": "LUVPOM0GTPB354C",
@@ -7885,43 +8290,53 @@
 	},
 	"NewImg_1": {
 		"tsid": "LDOQBR0ED4036RH",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"NewImg_2": {
 		"tsid": "LDOFC5BU2703Q0U",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"NewImg_3": {
 		"tsid": "LDO47728CH031VA",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"NewImg_Street2_ian_cloud": {
 		"tsid": "LDO5T28FF3136PA",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"NewImg_Street2_newest": {
 		"tsid": "LDO4SVHHMB13VKA",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"NewImg_street2": {
 		"tsid": "LDOMKU094P035Q2",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"NewImg_street2_2": {
 		"tsid": "LDOREQ21SR034TN",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"NewImg_street2_kajuu": {
 		"tsid": "LDOM29FHV313R5J",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"NewImg_street2_sonic": {
 		"tsid": "LDOIRETEC613G3N",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"NewImg_street2_sonic_clone": {
 		"tsid": "LDOQFNM9P613O2J",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"NewSkool": {
 		"tsid": "LLI10BT8T5FE7",
@@ -7937,51 +8352,63 @@
 	},
 	"NewXP_Faded": {
 		"tsid": "LDO36NGG8RE2LJH",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"NewXP_Street1": {
 		"tsid": "LDO6N4ER8RE2TMV",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"NewXP_Street2": {
 		"tsid": "LDOSRMB8VKF2K28",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"NewXP_Street3": {
 		"tsid": "LDOI7C9B5LF2CSA",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"NewXP_Street4": {
 		"tsid": "LDO53CQD3NF2VH0",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"NewXP_Street5": {
 		"tsid": "LDOLLVOQBQF2EFH",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"New_XP_Proto_02": {
 		"tsid": "LUVAII5O1703E9F",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"New_XP_proto_03": {
 		"tsid": "LUVLHQMG4703O3N",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"New_XP_proto_05": {
 		"tsid": "LUV6EJHAJ70393O",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"New_XP_test_street_01": {
 		"tsid": "LUVCET235A0313S",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"New_xp_cavern_ianp_clone": {
 		"tsid": "LUV5760U2A037PN",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"New_xp_proto_01": {
 		"tsid": "LUVU0LREU6032UL",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Newbie Island Street 2 Clone": {
 		"tsid": "LIF84J7074536P0",
@@ -8003,7 +8430,8 @@
 	},
 	"Nex_XP_proto_04": {
 		"tsid": "LUVOOIP5F703M1L",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Nia Sra": {
 		"vendor": "Animal Goods",
@@ -8118,7 +8546,8 @@
 	},
 	"Nylon_Korall": {
 		"tsid": "LA5N1R3B7ND2TGV",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Oasis Concept 01": {
 		"tsid": "LA910TNF4U4276N",
@@ -8172,19 +8601,23 @@
 	},
 	"Old - A L'il Animal Kinship": {
 		"tsid": "LHFEB4262843QGP",
-		"hub_id": 132
+		"hub_id": 132,
+		"map_hidden": true
 	},
 	"Old - Breezy EZ Cookin'": {
 		"tsid": "LNV1G5D928433U1",
-		"hub_id": 132
+		"hub_id": 132,
+		"map_hidden": true
 	},
 	"Old - Lift Your Light Green Thumb": {
 		"tsid": "LIF4JU7J2043DVT",
-		"hub_id": 132
+		"hub_id": 132,
+		"map_hidden": true
 	},
 	"Old - Talking 'bout Soil Appreciation": {
 		"tsid": "LNV529RA7K539JF",
-		"hub_id": 132
+		"hub_id": 132,
+		"map_hidden": true
 	},
 	"Old Diversionary Path": {
 		"tsid": "LIFUS3T1NE332QL",
@@ -8244,15 +8677,18 @@
 	},
 	"Oldish - A L'il Animal Kinship": {
 		"tsid": "LHV7BPM1EV6372N",
-		"hub_id": 132
+		"hub_id": 132,
+		"map_hidden": true
 	},
 	"Oldish - Breezy EZ Cookin'": {
 		"tsid": "LHFEP7TOBV63GIP",
-		"hub_id": 132
+		"hub_id": 132,
+		"map_hidden": true
 	},
 	"Oldish - Lift Your Light Green Thumb": {
 		"tsid": "LHF2F0O4EV63M8E",
-		"hub_id": 132
+		"hub_id": 132,
+		"map_hidden": true
 	},
 	"Omnium Prospice": {
 		"tsid": "GA5RFFFCK813Q99",
@@ -8305,11 +8741,13 @@
 	},
 	"Orange Part 1 - ian": {
 		"tsid": "LHVON0VLF403KH1",
-		"hub_id": 125
+		"hub_id": 125,
+		"map_hidden": true
 	},
 	"Orange Part 3 - ian": {
 		"tsid": "LHVD8GNQO4035MB",
-		"hub_id": 125
+		"hub_id": 125,
+		"map_hidden": true
 	},
 	"Orangian": {
 		"tsid": "LHVCKEPHO403BN5",
@@ -8389,19 +8827,23 @@
 	},
 	"POL - 02/23/12 Groddle Ext Plat Change": {
 		"tsid": "LUV5S32FUSO2ODT",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"POL - 02/24/12 Groddle Int HOR Plat Change": {
 		"tsid": "LUVDCTSGNVO2G23",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"POL - 02/27/12 Groddle Ext Plat Change": {
 		"tsid": "LUVEENLG97P20R0",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"POL - 02/27/12 Groddle Int HOR Plat Change": {
 		"tsid": "LUVT322BN7P2CT3",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"POL Center Expansion Test 01": {
 		"tsid": "LUV7DQ062RL2TU9",
@@ -8413,39 +8855,48 @@
 	},
 	"POL Concept 1A - Shimla Shit": {
 		"tsid": "LUVGMI5PQ8L2E2S",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"POL Concept 1B - Mountain Forest": {
 		"tsid": "LUVFI0SRVQJ22LB",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"POL Concept 1C - Mountain Forest": {
 		"tsid": "LUVM02GU0RJ2ILS",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"POL Concept 1D - Mountain Forest": {
 		"tsid": "LUV657A26TJ2FR6",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"POL Concept 3A - Forest Valley Lvl 0": {
 		"tsid": "LUVSK7DHA5M26RV",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"POL Concept 3A - Forest Valley Lvl 1": {
 		"tsid": "LUVL4LMI85M2JD3",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"POL Concept 3A - Forest Valley Lvl 3": {
 		"tsid": "LUVMG92P23M2GP4",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"POL Concept 1A - Mountain Forest": {
 		"tsid": "LUV9GK3J7JJ2QFF",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"POL HOT Interior - Forest Valley": {
 		"tsid": "LUV6DFSA54N2QUR",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"POL Interior Test": {
 		"tsid": "LUVKJNODTLJ2PSN",
@@ -8457,7 +8908,8 @@
 	},
 	"POL Placement (small-center-right)": {
 		"tsid": "LNV3MHS739O2LA3",
-		"hub_id": 115
+		"hub_id": 115,
+		"map_hidden": true
 	},
 	"POL Plat Template": {
 		"tsid": "LUV5MVF72JJ2C4V",
@@ -8469,7 +8921,8 @@
 	},
 	"POL Plat Test - New Into Old": {
 		"tsid": "LUV83SR3C8O2Q0R",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"POL Screen Shots": {
 		"tsid": "LA5AL0B42PB2KPQ",
@@ -8485,11 +8938,13 @@
 	},
 	"POL placement (lrg-center-right)": {
 		"tsid": "LNVF5FC2QVM29VK",
-		"hub_id": 115
+		"hub_id": 115,
+		"map_hidden": true
 	},
 	"POL placement (med-center-right)": {
 		"tsid": "LNV2B56Q29O24VN",
-		"hub_id": 115
+		"hub_id": 115,
+		"map_hidden": true
 	},
 	"POL placement (right)": {
 		"tsid": "LNVLMMI3OIM2LAQ",
@@ -8497,375 +8952,468 @@
 	},
 	"POL's_alakol_L1.1": {
 		"tsid": "LA59PUSH2RL2Q0F",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_alakol_L1.2": {
 		"tsid": "LA5IOK5NMRL2LS2",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_alakol_L1.3": {
 		"tsid": "LA5B36ENOTL2VRC",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_forest_L3.1": {
 		"tsid": "LA5NKPB5PDM2JM3",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_forest_L3.2": {
 		"tsid": "LA5FHFP6CDM215M",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_forest_L3.3": {
 		"tsid": "LA5C2498C3M2EOT",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_alakol_1.1_HOB": {
 		"tsid": "LA5AHJRHKJN2I5D",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_alakol_1.1_HOR": {
 		"tsid": "LA566KNHIJN2CIB",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_alakol_1.1_HOT": {
 		"tsid": "LA5UTIOHSJN22FN",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_alakol_1.2_HOB": {
 		"tsid": "LA59MFQTJJN2IN6",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_alakol_1.2_HOR": {
 		"tsid": "LA5S4CUFFJN2OTV",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_alakol_1.2_HOT": {
 		"tsid": "LA5CG5VJLJN24ND",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_alakol_1.3_HOB": {
 		"tsid": "LA5DP1727HN21I2",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_alakol_1.3_HOR": {
 		"tsid": "LA5ROUS1VGN2K0H",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_alakol_1.3_HOT": {
 		"tsid": "LA566KLLGHN2PMM",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_forest_3.1_HOB": {
 		"tsid": "LA5ADI9RV8O29TL",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_forest_3.1_HOR": {
 		"tsid": "LA5V0Q6KR8O23F0",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_forest_3.1_HOT": {
 		"tsid": "LA55PFAGNAO2VA5",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_forest_3.2_HOB": {
 		"tsid": "LA54DO4JT8O24BE",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_forest_3.2_HOR": {
 		"tsid": "LA5Q0L1GP8O2BRO",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_forest_3.2_HOT": {
 		"tsid": "LA5DD71S09O2R60",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_forest_3.3_HOB": {
 		"tsid": "LA56KDA3Q6N2NF8",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_forest_3.3_HOR": {
 		"tsid": "LA5O70IOJ1N232A",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_forest_3.3_HOT": {
 		"tsid": "LA53VMNJ57N2A10",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_kajuu_1_HOT": {
 		"tsid": "LA5QEHLN34N2JAN",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_uralia_1.1_HOB": {
 		"tsid": "LA5ILF416IP28RN",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_uralia_1.1_HOR": {
 		"tsid": "LA5DBQLN3IP2MC2",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_uralia_1.1_HOT": {
 		"tsid": "LA5TH6JJAIP2DNP",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_uralia_1.2_HOB": {
 		"tsid": "LA5FO1UP4IP21TT",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_uralia_1.2_HOR": {
 		"tsid": "LA5AT0EO2IP22K5",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_uralia_1.2_HOT": {
 		"tsid": "LA5LGBJ17IP2TGD",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_uralia_1.3_HOB": {
 		"tsid": "LA5SU2NPEHP290C",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_uralia_1.3_HOR": {
 		"tsid": "LA5IVDBNHFP2ITO",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_interior_uralia_1.3_HOT": {
 		"tsid": "LA5J38JMOHP2R52",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_meadow_blinged": {
 		"tsid": "LA52Q4PH6JJ2V1T",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_meadow_decked": {
 		"tsid": "LA5KFD6PUNJ27LB",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_meadow_normal": {
 		"tsid": "LA514GHDBOJ2UF0",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_mtn_meadow1": {
 		"tsid": "LA5IG7KFHQJ2RHF",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_mtn_meadow2": {
 		"tsid": "LA54LVID9TJ2IFU",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_triney": {
 		"tsid": "LA5MS3HD7JL2K7U",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_uralia_1.1": {
 		"tsid": "LA551HST0IP2229",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_uralia_1.2": {
 		"tsid": "LA51JJ1BVHP297P",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL's_uralia_1.3": {
 		"tsid": "LA5GJV32OEP2SMV",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"POL_Exterior_Moon_High": {
 		"tsid": "LDOIR9RKRMR2E3H",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_cave_1": {
 		"tsid": "LDOL3C9QB9L2KDO",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_cave_2": {
 		"tsid": "LDO21GAOTBL26KQ",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_deepforest_3": {
 		"tsid": "LDO517UK0HL2JLD",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_experiment_1": {
 		"tsid": "LDORNJL78JL2NSC",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_ext_bonsai_high": {
 		"tsid": "LHVB8N443DE33ES",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"POL_ext_coral_high": {
 		"tsid": "LHVJ59V4IJ83KVT",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"POL_ext_crimson_forest_high": {
 		"tsid": "LHVNB85LD9S2BRK",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"POL_ext_moon_high": {
 		"tsid": "LHVNBUCLD9S2T56",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"POL_ext_rook_high": {
 		"tsid": "LHV2NGF1S9S2QU0",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"POL_ext_ruin_high": {
 		"tsid": "LHVNCNLLD9S29N8",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"POL_ext_triney_2_high": {
 		"tsid": "LHVNDHULD9S2QVD",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"POL_exterior_firebog_1": {
 		"tsid": "LDOE8OSCFDO271D",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_exterior_firebog_2": {
 		"tsid": "LDO6KJJULDO2JTL",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_exterior_firebog_3": {
 		"tsid": "LDOBSAIHNDO2EVG",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_exterior_ruin_High": {
 		"tsid": "LDOI72A5T7R29VD",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_exterior_weird_high": {
 		"tsid": "LDO97M7OA5R2HOC",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_firebog_1": {
 		"tsid": "LDOTUAIKGPK2GAN",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_firebog_2": {
 		"tsid": "LDOKG9F96VK2BUP",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_forest_1": {
 		"tsid": "LDOP5P1O6JJ2SAV",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_forest_2": {
 		"tsid": "LDOR56KALQJ2C12",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_forest_3": {
 		"tsid": "LDO5PBLE9RJ2IJT",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_forest_4": {
 		"tsid": "LDO9TH6SO7K2AJQ",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_forest_5": {
 		"tsid": "LDOGK0H5Q7K2C30",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_forest_valley_1": {
 		"tsid": "LDO254GJ50M2D3D",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_forest_valley_2": {
 		"tsid": "LDOK2UITA5M2SS4",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_forest_valley_4": {
 		"tsid": "LDOA5M1RGIM2TLP",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_int_coral_HOR_high": {
 		"tsid": "LHVJA3I5IJ83NP9",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"POL_int_crimson_HOR_high": {
 		"tsid": "LHVOHDHKSI8388U",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"POL_int_moon_HOR_high": {
 		"tsid": "LHV4B1RP7JS2K01",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"POL_int_mordor_high": {
 		"tsid": "LHVBF6273DE3LFU",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"POL_int_rook_HOR_high": {
 		"tsid": "LHVFLNOFOJS28O2",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"POL_int_ruin_HOR_high": {
 		"tsid": "LHV4CJEQ7JS2G64",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"POL_int_triney_2_HOR_high": {
 		"tsid": "LHV4DK1R7JS2P08",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"POL_interior_deep_forest_HOT_High": {
 		"tsid": "LDO34563GHN2921",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_interior_deep_forest_HOT_Low": {
 		"tsid": "LDOFMSQGUJN2IK9",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_interior_firebog_HoB_High": {
 		"tsid": "LDO4U1D7F4N2QNV",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_interior_firebog_HoB_Low": {
 		"tsid": "LDO1T1A94MN2P7M",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_interior_firebog_HoB_Medium": {
 		"tsid": "LDOS0TFO2MN2BGH",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_interior_firebog_HoR_High": {
 		"tsid": "LDOJ1TH7I1N266J",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_interior_firebog_HoR_Low": {
 		"tsid": "LDONUBVBRMN2SNA",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_interior_firebog_HoR_Medium": {
 		"tsid": "LDOLUT8SQMN2FH0",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_interior_firebog_HoT_High": {
 		"tsid": "LDOLA16E22N2EI8",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_interior_firebog_HoT_Low": {
 		"tsid": "LDOVQATMTMN2JIQ",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_interior_firebog_HoT_Medium": {
 		"tsid": "LDOPUB00SMN2S5C",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_interior_forest_valley_HoB": {
 		"tsid": "LDOJE3O8V6N20OL",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_interior_forest_valley_HoR": {
 		"tsid": "LDO9CB12FVM2EK0",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_interior_forest_valley_HoT": {
 		"tsid": "LDOQ9HPT99N2S21",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_intrior_moon_HoR": {
 		"tsid": "LDOHTTVEEPR2LA8",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"POL_uralia_1": {
 		"tsid": "LDORA16CS7K2HBA",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Paala Latte": {
 		"vendor": "Animal Goods",
@@ -9036,47 +9584,58 @@
 	},
 	"Party Space - Music Concept 04": {
 		"tsid": "LUVN2ASD4I43Q8M",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Party Space - Music Concept 05": {
 		"tsid": "LUV2L9NJJK4394D",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Party Space - Music Concept 06": {
 		"tsid": "LUVACB4GMK43A7U",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Party Space - Music Test 01": {
 		"tsid": "LUV97L3HVK43674",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Party Space - Music Test 02": {
 		"tsid": "LUVIH710Q153E7N",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Party Space - Music Test 03": {
 		"tsid": "LUV2NNA83K53OIL",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Party Space - Uralia Music": {
 		"tsid": "LNV714EIBM33ING",
-		"hub_id": 61
+		"hub_id": 61,
+		"map_hidden": true
 	},
 	"Party Space - Uralia Music 01": {
 		"tsid": "LUVIPPFMIU23OK0",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Party Space - Uralia Music 02": {
 		"tsid": "LUVIMKL80M33D1S",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Party Space - Uralia Music 03": {
 		"tsid": "LUVKM3J72043RTR",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Party Space - Uralia Music Danny": {
 		"tsid": "LUVTEL4EG04301L",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Parvana Pungence": {
 		"vendor": "Kitchen Tools",
@@ -9157,15 +9716,18 @@
 	},
 	"Penumbra_Bonus_Level_Prototype_01": {
 		"tsid": "LUVQ18IQ0VT2BH0",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Penumbra_Bonus_Level_Prototype_01_Clone": {
 		"tsid": "LUV4VESCIG33OTO",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Penumbra_not working": {
 		"tsid": "LUVVJVMNAQB3CE6",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Perhoni Flim": {
 		"mailbox": true,
@@ -9253,7 +9815,8 @@
 	},
 	"Piggy_TowerDefense_Concept": {
 		"tsid": "LA569OGS3P92GOS",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Pigs can fly": {
 		"tsid": "LIF13OBTSQP1U38",
@@ -9347,7 +9910,8 @@
 	},
 	"Plat_Temp": {
 		"tsid": "LDOVMJ6AUQL28PH",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Platforming Imagination Coin Level 01": {
 		"tsid": "LUVHOQEHILV2ORR",
@@ -9653,71 +10217,88 @@
 	},
 	"RaceConcept_HogtiePiggy_v1.1": {
 		"tsid": "LA51DPN7U052IKD",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"RaceConcept_HogtiePiggy_v1.2": {
 		"tsid": "LA5CRG44NL52SOA",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"RaceConcept_HogtiePiggy_v1.3": {
 		"tsid": "LA510DDRBL62GC3",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"RaceConcept_HogtiePiggy_v2": {
 		"tsid": "LA53T6VAKL522AG",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"RaceConcept_HogtiePiggy_v3": {
 		"tsid": "LA59SBG0ML522E6",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"RaceConcepts_HCrystal2": {
 		"tsid": "LTJIDDBEDC22KK5",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"RaceConcepts_HCrystal3": {
 		"tsid": "LTJIJF8MDC22MIU",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"RaceConcepts_HCrystal_V1": {
 		"tsid": "LTJ17JSPRB22Q75",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"RaceConcepts_HCrystal_V2": {
 		"tsid": "LA5DRASR2M22CPS",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"RaceConcepts_HCrystal_V3": {
 		"tsid": "LA5AB456SO22E3C",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"RaceConcepts_HEX_V1": {
 		"tsid": "LA5LLNQK3P225CU",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"RaceConcepts_HRainbow": {
 		"tsid": "LTJJNFE0FC220GC",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"RaceConcepts_VCracks": {
 		"tsid": "LA5E1E82PM22TDK",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"RaceConcepts_VCrystal": {
 		"tsid": "LA5DBNLMAE2244B",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"RaceConcepts_VCrystal2": {
 		"tsid": "LA5B7UKT1F227UT",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"RaceConcepts_VRainbow": {
 		"tsid": "LA5CHUI92F22QGU",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Race_Clone": {
 		"tsid": "LA9M7IA0R0328J1",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Radial Heights": {
 		"tsid": "LHFR8BRSVT33AE0",
@@ -9915,15 +10496,18 @@
 	},
 	"Revised_BerryLuscious": {
 		"tsid": "LTJ16MTBPB22LRT",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Revised_BoneAppetit": {
 		"tsid": "LTJ16N8DPB22CN3",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Revised_DesertedDrought": {
 		"tsid": "LTJ16UQMPB22CFU",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Rhyol Dolo": {
 		"shrine": "Cosma",
@@ -9993,11 +10577,13 @@
 	},
 	"Rook_Stole_My_Eggs": {
 		"tsid": "LA5FJAEUBK927L6",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Rook_Stole_My_Eggs_Vdark": {
 		"tsid": "LA562J91LO92T1O",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Rooks' Woods": {
 		"tsid": "LLI1AD8LUCH109E",
@@ -10120,103 +10706,128 @@
 	},
 	"SM Amber Quarter 01": {
 		"tsid": "LA9VNE1LOQA2JFU",
-		"hub_id": 70
+		"hub_id": 70,
+		"map_hidden": true
 	},
 	"SM Amber Quarter 02": {
 		"tsid": "LA9VT7GNOQA2T9V",
-		"hub_id": 70
+		"hub_id": 70,
+		"map_hidden": true
 	},
 	"SM Apartment 01": {
 		"tsid": "LCR18H2DTFS17FB",
-		"hub_id": 70
+		"hub_id": 70,
+		"map_hidden": true
 	},
 	"SM Apartment 02": {
 		"tsid": "LCR18ILDTFS14V3",
-		"hub_id": 70
+		"hub_id": 70,
+		"map_hidden": true
 	},
 	"SM Apartment 03": {
 		"tsid": "LCR18JHETFS1BN4",
-		"hub_id": 70
+		"hub_id": 70,
+		"map_hidden": true
 	},
 	"SM Apartment 04": {
 		"tsid": "LCR18K8FTFS1IQT",
-		"hub_id": 70
+		"hub_id": 70,
+		"map_hidden": true
 	},
 	"SM Apartment Interior - Hallway": {
 		"tsid": "LIF1148F1VQ16AB",
-		"hub_id": 60
+		"hub_id": 60,
+		"map_hidden": true
 	},
 	"SM Apartment Street Template": {
 		"tsid": "LIF1129U0VQ1DKB",
-		"hub_id": 60
+		"hub_id": 60,
+		"map_hidden": true
 	},
 	"SM Apartment Suite Interior - POL": {
 		"tsid": "LIF113MA1VQ1O18",
-		"hub_id": 60
+		"hub_id": 60,
+		"map_hidden": true
 	},
 	"SM Concept - Spec Underground 01": {
 		"tsid": "LIFI7VCTGNS1493",
-		"hub_id": 60
+		"hub_id": 60,
+		"map_hidden": true
 	},
 	"SM Concept - Spec Underground 02": {
 		"tsid": "LIF17HA1OLS1TVP",
-		"hub_id": 60
+		"hub_id": 60,
+		"map_hidden": true
 	},
 	"SM Concept - Spec Underground Vertical": {
 		"tsid": "LIF6KTGQ1OS13DF",
-		"hub_id": 60
+		"hub_id": 60,
+		"map_hidden": true
 	},
 	"SM Large 01": {
 		"tsid": "LCR17I8NN8S1KIP",
-		"hub_id": 70
+		"hub_id": 70,
+		"map_hidden": true
 	},
 	"SM Medium 01": {
 		"tsid": "LCR17JPON8S1OR7",
-		"hub_id": 70
+		"hub_id": 70,
+		"map_hidden": true
 	},
 	"SM Medium 02": {
 		"tsid": "LCR17KOPN8S1I6N",
-		"hub_id": 70
+		"hub_id": 70,
+		"map_hidden": true
 	},
 	"SM Quarter 02": {
 		"tsid": "LCR18MKITFS1F81",
-		"hub_id": 70
+		"hub_id": 70,
+		"map_hidden": true
 	},
 	"SM Quarter 01": {
 		"tsid": "LCR18LHGTFS1HJV",
-		"hub_id": 70
+		"hub_id": 70,
+		"map_hidden": true
 	},
 	"SM Quarter Concept": {
 		"tsid": "LIF13DFIHER1IJ4",
-		"hub_id": 60
+		"hub_id": 60,
+		"map_hidden": true
 	},
 	"SM Quarter Concept 01": {
 		"tsid": "LCR18N6CVFS1CGS",
-		"hub_id": 70
+		"hub_id": 70,
+		"map_hidden": true
 	},
 	"SM Quarter Concept 02": {
 		"tsid": "LCR18O9HVFS10TN",
-		"hub_id": 70
+		"hub_id": 70,
+		"map_hidden": true
 	},
 	"SM Quarter Concept 03": {
 		"tsid": "LCR18PBNVFS1NME",
-		"hub_id": 70
+		"hub_id": 70,
+		"map_hidden": true
 	},
 	"SM Quarter Test 01": {
 		"tsid": "LIFO8N1AHCT1THJ",
-		"hub_id": 60
+		"hub_id": 60,
+		"map_hidden": true
 	},
 	"SM Small 01": {
 		"tsid": "LCR17LJQN8S1U9E",
-		"hub_id": 70
+		"hub_id": 70,
+		"map_hidden": true
 	},
 	"SM Small 02": {
 		"tsid": "LCR17MCRN8S1M7A",
-		"hub_id": 70
+		"hub_id": 70,
+		"map_hidden": true
 	},
 	"SM Spec Underground Concept": {
 		"tsid": "LIF16G8VFLS1O6U",
-		"hub_id": 60
+		"hub_id": 60,
+		"map_hidden": true
 	},
 	"Saafed Leek": {
 		"vendor": "Grocery",
@@ -10539,7 +11150,8 @@
 	},
 	"SiloHell_long": {
 		"tsid": "LDOOPQ524JE2RTF",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Simean Dims": {
 		"vendor": "Kitchen Tools",
@@ -10590,23 +11202,28 @@
 	},
 	"Skill_Quest_LGT": {
 		"tsid": "LDO86VJ80S03U3G",
-		"hub_id": 127
+		"hub_id": 127,
+		"map_hidden": true
 	},
 	"Skill_level_quest_AK_stars": {
 		"tsid": "LIFH70Q8JU23FHQ",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Skill_level_quest_LGT_stars": {
 		"tsid": "LIFS697BJF23G7G",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Skill_quest_cloud_1": {
 		"tsid": "LDOCSEPAVJ03AP4",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Skill_quest_cloud_2": {
 		"tsid": "LDOOAM30SM03CMD",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Sky Plunge": {
 		"tsid": "LHFO01RM7I238UN",
@@ -10644,19 +11261,23 @@
 	},
 	"Sludgy_basement": {
 		"tsid": "LUVN54BJ9RU2QU3",
-		"hub_id": 124
+		"hub_id": 124,
+		"map_hidden": true
 	},
 	"Sludgy_floor1": {
 		"tsid": "LUVMUTFH9RU2SHK",
-		"hub_id": 124
+		"hub_id": 124,
+		"map_hidden": true
 	},
 	"Sludgy_floor2": {
 		"tsid": "LUVMSFKG9RU2GQC",
-		"hub_id": 124
+		"hub_id": 124,
+		"map_hidden": true
 	},
 	"Sludgy_floor3": {
 		"tsid": "LUVCAUGRMTU2C81",
-		"hub_id": 124
+		"hub_id": 124,
+		"map_hidden": true
 	},
 	"Smallend High": {
 		"vendor": "Produce",
@@ -10756,19 +11377,23 @@
 	},
 	"Space_Level_clone": {
 		"tsid": "LUV101PLJB13H23",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Space_Level_var_02": {
 		"tsid": "LUV2VFO2MB13L45",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Space_level_01": {
 		"tsid": "LUV2O431MB13SA8",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Space_level_var_01": {
 		"tsid": "LUV2R8R1MB13T1K",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Spagh Federa": {
 		"vendor": "Gardening Goods",
@@ -10866,15 +11491,18 @@
 	},
 	"Start_Forest": {
 		"tsid": "LIF1E96NRLS1J3F",
-		"hub_id": 67
+		"hub_id": 67,
+		"map_hidden": true
 	},
 	"Start_Heights": {
 		"tsid": "LIF10298HQS1I09",
-		"hub_id": 67
+		"hub_id": 67,
+		"map_hidden": true
 	},
 	"Start_Meadow": {
 		"tsid": "LIFITF5VHNS10Q6",
-		"hub_id": 67
+		"hub_id": 67,
+		"map_hidden": true
 	},
 	"Statkratu Plat": {
 		"hub_id": 136,
@@ -10975,7 +11603,8 @@
 	},
 	"Sub-Gravity Race": {
 		"tsid": "LA9P79SIEM92A9C",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Subarna Spells": {
 		"shrine": "Cosma",
@@ -11067,11 +11696,13 @@
 	},
 	"Swamp_01": {
 		"tsid": "LTJ10HS7C4T13TK",
-		"hub_id": 63
+		"hub_id": 63,
+		"map_hidden": true
 	},
 	"Swamp_02": {
 		"tsid": "LTJ10JHPI4T1TAR",
-		"hub_id": 63
+		"hub_id": 63,
+		"map_hidden": true
 	},
 	"Swimming Coin Level 02": {
 		"tsid": "LUVCEHJ4Q493R34",
@@ -11153,7 +11784,8 @@
 	},
 	"TR1 Clone 1 - Keita Assets": {
 		"tsid": "LUVI0GLE7QD319Q",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"TR1 Clone 2": {
 		"tsid": "LUVOOGCKF4E395V",
@@ -11362,15 +11994,18 @@
 	},
 	"Testing_PlaceholderDay1": {
 		"tsid": "LTJ17GPOQB22TQE",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Testing_PlaceholderDay2": {
 		"tsid": "LTJ17H6QQB224M6",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Testing_PlaceholderNight1": {
 		"tsid": "LTJ17IUSQB22N5P",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Texture Hflip Test": {
 		"tsid": "LA9K16OIHD821QU",
@@ -11476,7 +12111,8 @@
 	},
 	"The Society of Keen-Eyed Noticers": {
 		"tsid": "LIFCSSIJNOA3PTE",
-		"hub_id": 135
+		"hub_id": 135,
+		"map_hidden": true
 	},
 	"The Timeport 3001": {
 		"tsid": "LLI127EALA01IDF",
@@ -11557,7 +12193,8 @@
 	},
 	"Ti Street": {
 		"tsid": "LM4106P196QP2",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"Tibsii Wibbs": {
 		"vendor": "Mining",
@@ -11566,47 +12203,58 @@
 	},
 	"Ticket to Paradice 08 - Swim 02": {
 		"tsid": "LUV99C90GJ53KNT",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Ticket to Paradise 01 - Cloud Clone": {
 		"tsid": "LUVNLUMLPP43FS3",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Ticket to Paradise 02- Sky Plunge Clone": {
 		"tsid": "LUVHHUM77Q43STK",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Ticket to Paradise 03 - Sky Tramp": {
 		"tsid": "LUVL055FG15328C",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Ticket to Paradise 04 - Mario": {
 		"tsid": "LUV9677LK6536ET",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Ticket to Paradise 05 - Swim": {
 		"tsid": "LUVH97IG3453GO1",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Ticket to Paradise 06 - Cloud 2": {
 		"tsid": "LUVA23MLQJ53JB7",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Ticket to Paradise 07 - Coin Vent": {
 		"tsid": "LUVTJMJFN4532QR",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Ticket to Paradise 09 - Cloud Ring 2": {
 		"tsid": "LUVB7II46K53MSR",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Ticket to Paradise 10 - Ricochet": {
 		"tsid": "LUV77MO45M530GF",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Ticket to Paradise XX - Swim 03": {
 		"tsid": "LUVUQ2VGNJ53C4Q",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Tigrinni Grins": {
 		"vendor": "Hardware",
@@ -11646,15 +12294,18 @@
 	},
 	"Tile_tower": {
 		"tsid": "LIFD3OE334A3KNH",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Tile_tower2": {
 		"tsid": "LIF9A0SJ64A3C5T",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Tile_tower3": {
 		"tsid": "LIF3JA9R94A3775",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Tillymurry Hurry": {
 		"vendor": "Alchemical Goods",
@@ -11683,7 +12334,8 @@
 	},
 	"Tint Test - Kajuu - Appam Almost": {
 		"tsid": "LIFOGTJFQCB2M9K",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Tistel Stock": {
 		"vendor": "Hardware",
@@ -11843,7 +12495,8 @@
 	},
 	"Toxic Moon_old": {
 		"tsid": "LDOJC2H8C9E2SQB",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Trabriz Tale": {
 		"vendor": "Gardening Goods",
@@ -11875,19 +12528,23 @@
 	},
 	"Tree_basement": {
 		"tsid": "LUVRJE9FKRU26SS",
-		"hub_id": 124
+		"hub_id": 124,
+		"map_hidden": true
 	},
 	"Tree_floor1": {
 		"tsid": "LUVRO96GKRU26EL",
-		"hub_id": 124
+		"hub_id": 124,
+		"map_hidden": true
 	},
 	"Tree_floor2": {
 		"tsid": "LUVRUPDHKRU2SV5",
-		"hub_id": 124
+		"hub_id": 124,
+		"map_hidden": true
 	},
 	"Tree_lobby": {
 		"tsid": "LUVS243IKRU2SF2",
-		"hub_id": 124
+		"hub_id": 124,
+		"map_hidden": true
 	},
 	"Tremella Frondosa": {
 		"tsid": "GIF9O9SDPJ3318J",
@@ -12087,11 +12744,13 @@
 	},
 	"VU 01": {
 		"tsid": "LIF96HIEB0321HB",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"VU 02": {
 		"tsid": "LIFQA538K032B96",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Vaaka Kala": {
 		"vendor": "Grocery",
@@ -12389,7 +13048,8 @@
 	},
 	"Waterfall C - rework": {
 		"tsid": "LUVDODF0TG336UQ",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Waterfall Climb": {
 		"tsid": "LIFR7REVQ583H6Q",
@@ -12526,7 +13186,8 @@
 	},
 	"Winter_Walk_Icicles_Fall_Altogether": {
 		"tsid": "LHFV0MQPQJ738JP",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"Wintry Place": {
 		"vendor": "Sno Cone",
@@ -12647,7 +13308,8 @@
 	},
 	"ZZ Kumbham Bham obs": {
 		"tsid": "LUV47PRP8DF2CG6",
-		"hub_id": 109
+		"hub_id": 109,
+		"map_hidden": true
 	},
 	"Zalaib Labra": {
 		"vendor": "Kitchen Tools",
@@ -12721,47 +13383,58 @@
 	},
 	"abandoned_apartment_basement_puzzle_01": {
 		"tsid": "LUV44VC323V27FG",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"abandoned_hallway_sludgy": {
 		"tsid": "LDO21R9HRJU28L3",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"abandoned_hallway_sludgy_2": {
 		"tsid": "LDOEIBGHTJU2BEA",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"abandoned_lobby_sludgy": {
 		"tsid": "LDONJS3NPJU2BAA",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"abbasid_ghost_town": {
 		"tsid": "LA5O96IDVO53IR2",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"apartment_basement": {
 		"tsid": "LDO2G1EMOFT2QCD",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"apartment_basement_2": {
 		"tsid": "LDO4P8VUREU26CA",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"apartment_basement_sludgy": {
 		"tsid": "LDOOMV7GEJU20PE",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"apartment_quest_01": {
 		"tsid": "LDODCEPSBUU29SA",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"aranna_ext_1_high": {
 		"tsid": "LHVJCP16IJ83IJT",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"aranna_int_1_HOR_high": {
 		"tsid": "LHVJH6H6IJ83OU8",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"backup street": {
 		"tsid": "LA9DNS8S9VM2UD7",
@@ -12769,7 +13442,8 @@
 	},
 	"bar_interior": {
 		"tsid": "LIF6PJE8MJC3MKV",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"blackwater": {
 		"tsid": "LDOAIDL6D4E2KVK",
@@ -12777,15 +13451,18 @@
 	},
 	"block_jenga_test": {
 		"tsid": "LA5CK5OMPI43PAR",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"block_test_01": {
 		"tsid": "LDO27GGH59U2O3L",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"block_test_02": {
 		"tsid": "LA5607UKPK4303Q",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"blue and white clone": {
 		"tsid": "LDOHAC36D1U2OPU",
@@ -12793,11 +13470,13 @@
 	},
 	"bricks_basement_stairs": {
 		"tsid": "LDOJU6K2LGV2Q6R",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"bricks_lobby_stairs": {
 		"tsid": "LDON3NNMLGV2BT4",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"bridge lower clone": {
 		"tsid": "LHFDDI46P0J25VU",
@@ -12825,11 +13504,13 @@
 	},
 	"climb_09": {
 		"tsid": "LUVDUTBSTNV22SM",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"climb_10": {
 		"tsid": "LUVJHBA4AK032RK",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"cloud 'em good": {
 		"tsid": "LA589B15S513SMP",
@@ -12841,31 +13522,38 @@
 	},
 	"cloud_drop_1": {
 		"tsid": "LDO3OQBO5E13P1N",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"cloud_drop_2": {
 		"tsid": "LDOQBF6DEO138FJ",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"coin_hub_1": {
 		"tsid": "LDO6MMLI6GV2TU6",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"coin_hub_diff_1": {
 		"tsid": "LDONPTJCCLV271J",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"coin_hub_diff_2": {
 		"tsid": "LIF312VM3F23PPO",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"coin_hub_forest_1": {
 		"tsid": "LDOGA80D8GV2B7M",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"coin_hub_forest_2": {
 		"tsid": "LDO7BII7OIV2J0S",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"colour test": {
 		"tsid": "LUVQA9BK3F23AFP",
@@ -12893,79 +13581,98 @@
 	},
 	"dino_organ_blue": {
 		"tsid": "LIF8NEEEJCC3S7S",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"dino_organ_blue2": {
 		"tsid": "LDOHGTM73GD3GH5",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"dino_organ_brown": {
 		"tsid": "LDOTQ7BJGUC3CNP",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"dino_organ_green": {
 		"tsid": "LIFUJN0JDMC39IB",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"dino_organ_grey": {
 		"tsid": "LDO9B85T2UC3DKL",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"dino_organ_orange": {
 		"tsid": "LDO777EL73D30B8",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"dino_organ_yellow": {
 		"tsid": "LIFSTR1LIJC3J52",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"dino_vertical": {
 		"tsid": "LIFSDI2J3TB332A",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"dinosaur_1": {
 		"tsid": "LIFU1AT1F793FIH",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"dinosaur_2": {
 		"tsid": "LIFCA5BUHA93UR0",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"dinosaur_3": {
 		"tsid": "LIFKDL6PIA93PTJ",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"dinosaur_anim1": {
 		"tsid": "LIF7QETHJK93J3F",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"dinosaur_anim2": {
 		"tsid": "LIFTH1UILK93FPR",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"dinosaur_anim3": {
 		"tsid": "LIFLCDRDTK934T4",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"dinosaur_body1": {
 		"tsid": "LIFRT6IIAA93VTP",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"dinosaur_entrance01": {
 		"tsid": "LIFE0A41P793SLB",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"dinosaur_entrance02": {
 		"tsid": "LIFVMSI42893NN2",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"embargo--Kitinen": {
 		"tsid": "LTJ1KDHISAU1FPK",
-		"hub_id": 72
+		"hub_id": 72,
+		"map_hidden": true
 	},
 	"empty_street": {
 		"tsid": "LDOIKCDC7ND2PJK",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"entrance": {
 		"tsid": "LDOV4O07NDQ2GO8",
@@ -12973,7 +13680,8 @@
 	},
 	"esquibeth_overlay_test": {
 		"tsid": "LIFDDJ4TNO839BS",
-		"hub_id": 61
+		"hub_id": 61,
+		"map_hidden": true
 	},
 	"eye spy": {
 		"tsid": "LIFRFPK7V973F48",
@@ -13005,167 +13713,208 @@
 	},
 	"firebog_ext_1_high": {
 		"tsid": "LHVNEKCMD9S21IB",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"firebog_ext_1a_high": {
 		"tsid": "LDOCSHMHQ1L24B9",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"firebog_ext_1b_high": {
 		"tsid": "LHVNFDNMD9S2SV4",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"firebog_ext_1b_high (Ryan)": {
 		"tsid": "LUVHG2I9DMS2J7R",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"firebog_ext_2_high": {
 		"tsid": "LUVV7D63HRL2HUE",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"firebog_ext_2_low": {
 		"tsid": "LUVRURSAVMN2JE6",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"firebog_ext_2_mid": {
 		"tsid": "LUVKK54QTMN2072",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"firebog_ext_3_high": {
 		"tsid": "LHVNHNFND9S2SUJ",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"firebog_ext_3_low": {
 		"tsid": "LDOIHB3B8UL22OA",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"firebog_ext_3_mid": {
 		"tsid": "LDODEQDO7RL2H1K",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"firebog_ext_4_high": {
 		"tsid": "LHVNK18OD9S2S6T",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"firebog_ext_4_high (Lisa)": {
 		"tsid": "LUV46MR59OS2TC5",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"firebog_ext_4a_high": {
 		"tsid": "LHVNL6LOD9S2P1R",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"firebog_int_1_HOR_high": {
 		"tsid": "LHV4EOIR7JS2VML",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"firebog_int_1b_HOR_high": {
 		"tsid": "LHVMQ88RE9U2RF6",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"firebog_int_2_HOB_high": {
 		"tsid": "LUVC5G0CKHN25S1",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"firebog_int_2_HOB_low": {
 		"tsid": "LUV655EADKN2GMC",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"firebog_int_2_HOB_mid": {
 		"tsid": "LUVF883Q8KN2HL1",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"firebog_int_2_HOR_high": {
 		"tsid": "LUVR90802HN2IKU",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"firebog_int_2_HOR_low": {
 		"tsid": "LUVP9NBJSJN231S",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"firebog_int_2_HOR_mid": {
 		"tsid": "LUVM6B0PRJN297Q",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"firebog_int_2_HOT_high": {
 		"tsid": "LUVTLJV3OHN2AL4",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"firebog_int_2_HOT_low": {
 		"tsid": "LUVH7JEN1KN20M6",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"firebog_int_2_HOT_mid": {
 		"tsid": "LUVSOLFC4KN2FLS",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"firebog_int_3_HOR_high": {
 		"tsid": "LHVMR4LRE9U2H5R",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"firebog_int_4_HOR_high": {
 		"tsid": "LUV4FQN89OS2I7H",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"firebog_int_4a_HOR_high": {
 		"tsid": "LHVMS6CSE9U2NKR",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"floor_basement_grow-op": {
 		"tsid": "LA5KBNBEHHU2II6",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"floor_condemned": {
 		"tsid": "LA5U7PNGHBO2ELL",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"floor_condemned2": {
 		"tsid": "LA5FCD6TREU2CA5",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"floor_deprived": {
 		"tsid": "LA53VPD7H5O2T31",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"floor_falling_apart": {
 		"tsid": "LA57F6F79CU2LLD",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"floor_forsaken": {
 		"tsid": "LA54K5CB79N28A7",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"floor_grow-op": {
 		"tsid": "LA5CGNI2FHU22L6",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"floor_grow-op2": {
 		"tsid": "LA5T95NOFJU25TB",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"floor_mythic": {
 		"tsid": "LA5H5GE8HRS29NJ",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"floor_mythic2": {
 		"tsid": "LA569N4B1FU2A47",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"floor_open_wall": {
 		"tsid": "LA561487LCU21A8",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"floor_rubble": {
 		"tsid": "LA5NLRLC7RS2MQE",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"floor_rubble2": {
 		"tsid": "LA5MRE0LUEU295R",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"floor_rubble3": {
 		"tsid": "LA5A85K0UJU2IHS",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"for1": {
 		"tsid": "LA9STU800792PKB",
@@ -13185,231 +13934,288 @@
 	},
 	"forest_dusk_ext_1_high": {
 		"tsid": "LHVJR5O7IJ838AM",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"forest_dusk_int_1_HOR_high": {
 		"tsid": "LHVK32K8IJ835JQ",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"forest_ext_1_high": {
 		"tsid": "LHVO1K3UD9S2L90",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"forest_ext_2_high": {
 		"tsid": "LHVO2OMUD9S2919",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"forest_ext_2a_high": {
 		"tsid": "LDODAM10LGL2E9U",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"forest_ext_2b_high": {
 		"tsid": "LDOLI8RP1CL25RA",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"forest_ext_3_high": {
 		"tsid": "LHVO3BVUD9S2RIV",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"forest_ext_3_low": {
 		"tsid": "LA5R7NJ7GDM2R7U",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"forest_ext_3_mid": {
 		"tsid": "LA51BO8RTCM2GG2",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"forest_ext_4_high": {
 		"tsid": "LHVO45AVD9S2D3K",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"forest_ext_4_low": {
 		"tsid": "LDO6UC32OIM23H4",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"forest_ext_4_mid": {
 		"tsid": "LDO4DISENIM2IGM",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"forest_ext_5_high": {
 		"tsid": "LHVO4HHVD9S2QHR",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"forest_ext_5_low": {
 		"tsid": "LA59HSJHFIM2D34",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"forest_ext_5_mid": {
 		"tsid": "LA51BK3KCIM2OL3",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"forest_ext_6_high": {
 		"tsid": "LHVO5ISVD9S2QFL",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"forest_ext_6_low": {
 		"tsid": "LA5ANQUSKDM2FK5",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"forest_ext_6_mid": {
 		"tsid": "LA5G4R6V1DM2M8F",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"forest_int_1_HOR_high": {
 		"tsid": "LHV4GRBS7JS2662",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"forest_int_2_HOB_high": {
 		"tsid": "LDOJPUCDCHN2949",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"forest_int_2_HOB_low": {
 		"tsid": "LDOBOGRA5KN2025",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"forest_int_2_HOR_balcony_test": {
 		"tsid": "LNVROVB92M33QIH",
-		"hub_id": 115
+		"hub_id": 115,
+		"map_hidden": true
 	},
 	"forest_int_2_HOR_high": {
 		"tsid": "LHV4H8JS7JS2QMF",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"forest_int_2_HOR_low": {
 		"tsid": "LDONB9DD0KN24JP",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"forest_int_2_HOR_mid": {
 		"tsid": "LDOHAEEAMJN2HA0",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"forest_int_2_HOT_high": {
 		"tsid": "LDOF6SIH5EQ23LQ",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"forest_int_2_HOT_low": {
 		"tsid": "LDOFU4VN5EQ28LH",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"forest_int_2_HOT_mid": {
 		"tsid": "LDO7LO4DSJN2QIP",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"forest_int_3_HOB_high": {
 		"tsid": "LA591VIK52N2C7I",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"forest_int_3_HOR_high": {
 		"tsid": "LUVE4SA7DNR2O8R",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"forest_int_4_HOR_high": {
 		"tsid": "LHV4IC6T7JS2M0K",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"forest_int_5_HOR_high": {
 		"tsid": "LHV4IVET7JS2CP7",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"forest_int_6_HOR_high": {
 		"tsid": "LUVA21PF2NR2RTN",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"forest_platformer_proto_01": {
 		"tsid": "LUVJTEVNCGV2FNO",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"forest_platformer_proto_02": {
 		"tsid": "LUVBI8CRAIV2D0D",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"forest_platformer_proto_03": {
 		"tsid": "LUVEMDTN0JV2GGF",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"forest_platformer_proto_04": {
 		"tsid": "LUVSUGKK2LV2GRV",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"forest_platformer_proto_05": {
 		"tsid": "LUVMVGVVLNV2FSJ",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"forest_platformer_proto_10": {
 		"tsid": "LUVG3PQN5503UJE",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"forest_sunset_ext_1_high": {
 		"tsid": "LHVK7159IJ83DI8",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"forest_sunset_int_1_HOR_high": {
 		"tsid": "LHVKBKQ9IJ83KRA",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"game_lobby_2": {
 		"tsid": "LDOOS8MEKDQ2MKT",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"gol_forestHeights_garden": {
 		"tsid": "LA5UIK1GK9G22ER",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"gol_forest_garden": {
 		"tsid": "LA5QESR7RAF25J6",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"gol_forest_orchard": {
 		"tsid": "LA5262MBJ7F26KB",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"gol_forest_orchard2": {
 		"tsid": "LA5G1TCNEKF2KBD",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"gol_heightsForest_garden": {
 		"tsid": "LA56UIHQ4FG2B3G",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"gol_heightsForest_orchard": {
 		"tsid": "LA5K1RLUVBG2MUR",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"gol_heights_garden": {
 		"tsid": "LA5RDVLL0DF2VDH",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"gol_heights_garden2": {
 		"tsid": "LA5KCIPTDSF2U2Q",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"gol_heights_orchard": {
 		"tsid": "LA5P028KF8F2LF1",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"gol_heights_orchard2": {
 		"tsid": "LA5EV29F5LF2F6G",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"gol_meadowForest_orchard": {
 		"tsid": "LA5BAHRBCPG2T0S",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"gol_meadow_garden": {
 		"tsid": "LA53TTMNO6G2M18",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"gol_meadow_orchard": {
 		"tsid": "LA5CB5G1VUF26OJ",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"gol_mines_1": {
 		"tsid": "LA51UE2BJNF2OOV",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"greedy_street_spirit_SWF_check": {
 		"tsid": "LHFJ24TRSPB3IFE",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"groddle apt swf test": {
 		"tsid": "LUVTQ8CG0FU284T",
@@ -13417,31 +14223,38 @@
 	},
 	"group_location_forest": {
 		"tsid": "LA5NK8NLF2F2RH8",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"group_location_heights": {
 		"tsid": "LA530Q9U23F27RB",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"group_location_heights2": {
 		"tsid": "LA5QSIOH2QF2IN0",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"heights_ext_1_high": {
 		"tsid": "LHVO6PG0E9S25QI",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"heights_int_1_HOR_high": {
 		"tsid": "LHV4JSUT7JS2GM3",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"hell_int": {
 		"tsid": "LDOAUE5ILLE23RC",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"hell_int_2": {
 		"tsid": "LDO4N2V13PE2CI2",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"hide": {
 		"tsid": "LDOIBNJG14Q274N",
@@ -13465,11 +14278,13 @@
 	},
 	"highlands_ext_1_high": {
 		"tsid": "LHVO7CP0E9S28LD",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"highlands_int_1_HOR_high": {
 		"tsid": "LHV4KL8U7JS2N7K",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"hills": {
 		"tsid": "LDO4L5R5N0Q2EPV",
@@ -13481,19 +14296,23 @@
 	},
 	"housing_exterior_01": {
 		"tsid": "LUVQVM81TMR25I7",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"imagination_space_mockup_01": {
 		"tsid": "LDOJS8P4RLQ2M5C",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"imagination_space_mockup_02": {
 		"tsid": "LDOAD4PF1MQ21D4",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"imagination_space_mockup_03": {
 		"tsid": "LDOTP67ATTQ2S6M",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"jump": {
 		"tsid": "LDOHMER53BQ2T7I",
@@ -13505,83 +14324,103 @@
 	},
 	"justins_pachinko": {
 		"tsid": "LIF3LN6VAD230NE",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"kajuu_ext_1_high": {
 		"tsid": "LHVO8251E9S2OQK",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"kajuu_ext_2_high": {
 		"tsid": "LHVO96V1E9S2FTQ",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"kajuu_ext_3_high": {
 		"tsid": "LHVO9IE2E9S2LHA",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"kajuu_int_1_HOB_high": {
 		"tsid": "LA5ST9RC7KN2O3S",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"kajuu_int_1_HOB_low": {
 		"tsid": "LA5EQK2LSMN2I1V",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"kajuu_int_1_HOB_mid": {
 		"tsid": "LA561IVNPMN28I9",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"kajuu_int_1_HOR_high": {
 		"tsid": "LHV4LDMU7JS21K9",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"kajuu_int_1_HOR_low": {
 		"tsid": "LA5BH42BRMN288S",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"kajuu_int_1_HOR_mid": {
 		"tsid": "LA5C7HUPEMN22ST",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"kajuu_int_1_HOT_high": {
 		"tsid": "LA5F7114P4N2UFO",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"kajuu_int_1_HOT_low": {
 		"tsid": "LA5DLAF3SMN2BJQ",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"kajuu_int_1_HOT_mid": {
 		"tsid": "LA546533PMN2D3M",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"kajuu_int_2_HOR_high": {
 		"tsid": "LUVS39NSQPR28KU",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"kajuu_int_3_HOR_high": {
 		"tsid": "LHVMKTUOE9U2CPH",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"keita_block_lvl_v2": {
 		"tsid": "LA59M3P08843FI3",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"keita_block_lvl_v3": {
 		"tsid": "LA5O0DCJRP43QJS",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"keita_block_lvl_v4": {
 		"tsid": "LA568436HQ43ICH",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"key room_01": {
 		"tsid": "LIF119O7E0129QN",
-		"hub_id": 77
+		"hub_id": 77,
+		"map_hidden": true
 	},
 	"key room_02": {
 		"tsid": "LIF1DHJ4L2128BU",
-		"hub_id": 77
+		"hub_id": 77,
+		"map_hidden": true
 	},
 	"kindergarten Tyrant": {
 		"tsid": "LDODCEJQ64E2DOK",
@@ -13589,123 +14428,153 @@
 	},
 	"large_01": {
 		"tsid": "LLI11ATJDT71DR9",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"large_02": {
 		"tsid": "LLI11BIKDT71LGG",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"large_03": {
 		"tsid": "LLI11C5LDT71NA1",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"large_04": {
 		"tsid": "LLI11DPLDT71MD4",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"large_05": {
 		"tsid": "LLI11E9ODT71B11",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"level_cloud_bonus": {
 		"tsid": "LA5M7STG2TT26NT",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"level_cloud_bonus2": {
 		"tsid": "LA550F4QMBU2SVE",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"level_puzzle": {
 		"tsid": "LA5VG2V9FST2QKP",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"level_story_quest": {
 		"tsid": "LA551H2D7VT2MI2",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"level_story_quest_v2": {
 		"tsid": "LA550ENAGQ13JLC",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"level_story_quest_v3": {
 		"tsid": "LA5S4J92ET13AUG",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"lobby_condemned": {
 		"tsid": "LA5ETNT5SAO2BPM",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"lobby_gloomy": {
 		"tsid": "LA53NI4R6KU2VRQ",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"lvl_apt_underground_tarpit": {
 		"tsid": "LA5GFO72UF23GRA",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"lvl_apt_underground_tarpit_v2": {
 		"tsid": "LA5BH4C95Q23R2C",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"lvl_constellation_connect_dots": {
 		"tsid": "LHFNN2C4NC73G1P",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"lvl_puzzle_colour_blockage": {
 		"tsid": "LHFODJRQ5293A06",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"lvl_puzzle_colour_player": {
 		"tsid": "LHFKB23ANR73VEJ",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"lvl_puzzle_disappear_blocks": {
 		"tsid": "LHF4M94STJ73IL7",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"lvl_quest_Radiant_Glare": {
 		"tsid": "LHFDAFL8UG83P89",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"lvl_quest_apt_bonus": {
 		"tsid": "LA5Q5O929DV2VDT",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"lvl_quest_apt_fireGravity": {
 		"tsid": "LA5H5BJRODV2LNC",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"lvl_quest_apt_platforming": {
 		"tsid": "LA5M2330GUU2GRC",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"lvl_quest_block_drop_puzzle": {
 		"tsid": "LHFUAKE2AT63QO8",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"lvl_quest_bridge_puzzle": {
 		"tsid": "LHFHKPI55C73VO9",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"lvl_quest_column_puzzle": {
 		"tsid": "LHF1KSKPKQ63C9I",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"lvl_quest_haiku": {
 		"tsid": "LHFRTV597G63C97",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"lvl_quest_light_perpective": {
 		"tsid": "LA5133URA043HNJ",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"lvl_quest_winter_walk_bonus": {
 		"tsid": "LA5UCFHO5A23OFI",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"lvl_quest_winter_walk_v2": {
 		"tsid": "LA5LMVE3CA236GS",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"main street (do not use!)": {
 		"tsid": "LM416MPGG78QR",
@@ -13989,91 +14858,113 @@
 	},
 	"master_geo_ext": {
 		"tsid": "LHVIPEHNV103TBI",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"master_geo_int": {
 		"tsid": "LHVKMEPF02037U5",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"meadows_ext_1_high": {
 		"tsid": "LUVOJG9N6UL2D7A",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"meadows_ext_1_low": {
 		"tsid": "LUVLRJUQF3M27HU",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"meadows_ext_2_high": {
 		"tsid": "LUVHJ8S78NM2JB6",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"meadows_ext_2_low": {
 		"tsid": "LUVE3EC7S1N2C73",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"meadows_ext_2_mid": {
 		"tsid": "LUV7HDEPQ1N2NUI",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"meadows_ext_3_high": {
 		"tsid": "LHVOCLS3E9S2AHI",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"meadows_ext_3a_high": {
 		"tsid": "LA51JLMD8CL2640",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"meadows_ext_default_high": {
 		"tsid": "LUVVHODHUMR252V",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"meadows_int_1_HOB_high": {
 		"tsid": "LUVSD79S52N29G4",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"meadows_int_1_HOR_high": {
 		"tsid": "LUV394IAD9N2K8K",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"meadows_int_1_HOT_high": {
 		"tsid": "LUV2B0KQS4N2TKJ",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"meadows_int_2_HOR_high": {
 		"tsid": "LHV4O1KV7JS2MOP",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"meadows_int_3_HOR_high": {
 		"tsid": "LUVIJ4ALFPR2SQP",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"meadows_int_default_HOR_high": {
 		"tsid": "LUVR75EMBPR27K6",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"meadows_int_default_HOR_high Latest": {
 		"tsid": "LUV41KCETLS2LGI",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"med_01": {
 		"tsid": "LLI10LH3CT71MLR",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"med_02": {
 		"tsid": "LLI10MC4CT712I1",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"med_03": {
 		"tsid": "LLI10NU4CT71617",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"med_04": {
 		"tsid": "LLI10OJ5CT71TGA",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"med_05": {
 		"tsid": "LLI10P29CT71GV6",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"mental space": {
 		"tsid": "LDON6DO9HCP286T",
@@ -14081,11 +14972,13 @@
 	},
 	"mental_street_long_original": {
 		"tsid": "LDOMOBDFIHP253I",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"modular_tree_test": {
 		"tsid": "LA52STMQ9P53TF3",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"moon3": {
 		"tsid": "LDO2ODHRE1E29RH",
@@ -14093,27 +14986,33 @@
 	},
 	"mountain_kneeling_L1": {
 		"tsid": "LA5QL0JIKKM2A0T",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"mountain_kneeling_L2": {
 		"tsid": "LA56H0ETGLM2T7N",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"mountain_kneeling_L3": {
 		"tsid": "LA5EL1CO0VM27M8",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"mountain_kneeling_L4": {
 		"tsid": "LA59RGRVL9N2TQD",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"mountain_kneeling_L5": {
 		"tsid": "LA56579SLON2HBU",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"mountaineering quest test 02 - jp": {
 		"tsid": "LNVEPESCLGL25U2",
-		"hub_id": 115
+		"hub_id": 115,
+		"map_hidden": true
 	},
 	"mushroom bling sandbox": {
 		"tsid": "LLIE5DVCCQG1U4K",
@@ -14185,39 +15084,48 @@
 	},
 	"newXP underground style - neuron": {
 		"tsid": "LA51BRC9070355K",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"newXP underground style - veins": {
 		"tsid": "LA536Q5FD703675",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"new_ice_hub_2": {
 		"tsid": "LHFP5LTHU993FQP",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"new_meadow4": {
 		"tsid": "LIFOAFPMTG33KH0",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"newheights_01": {
 		"tsid": "LA9M3O8M17B27LL",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"night_08": {
 		"tsid": "LHFQSC8E25E3IAU",
-		"hub_id": 141
+		"hub_id": 141,
+		"map_hidden": true
 	},
 	"party_space_star_sound": {
 		"tsid": "LA5TNSD78S23R80",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"phys_test": {
 		"tsid": "LA9S0HK968A22E9",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"phys_test2": {
 		"tsid": "LA9UKQDA78A24OQ",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"physics settings": {
 		"tsid": "LIFCJTRKTN83O2D",
@@ -14229,11 +15137,13 @@
 	},
 	"picto_pattern_v2": {
 		"tsid": "LHF7VSM85FC363H",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"placeholder_street_01": {
 		"tsid": "LIF1EUQKP212SGH",
-		"hub_id": 77
+		"hub_id": 77,
+		"map_hidden": true
 	},
 	"plain meadow": {
 		"tsid": "LNVM32THGBL2MVE",
@@ -14241,27 +15151,33 @@
 	},
 	"platforming_quoin_mtn": {
 		"tsid": "LA56SLRAHLV261L",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"pol_ext_meadow.swffirebog.swf": {
 		"tsid": "LDOSPKJBGPK239E",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"puzzle_lvl_mental_block_2": {
 		"tsid": "LHFHOBKOQ1C3T1J",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"puzzle_lvl_pattern_sequence": {
 		"tsid": "LHFBA1ENKSB3E5F",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"puzzle_lvl_rook_scratchings": {
 		"tsid": "LHF37B1JM1C35DO",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"puzzle_lvl_unclutter_your_mind": {
 		"tsid": "LHF7CTQJKEA3PDE",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"quoins": {
 		"tsid": "LUV6IPE0UFB3NFA",
@@ -14269,7 +15185,8 @@
 	},
 	"radiant_glare_SWF_check": {
 		"tsid": "LHF3N3J4HQB33AE",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"red barron": {
 		"tsid": "LIFNVBEH0E636PU",
@@ -14281,15 +15198,18 @@
 	},
 	"savannah_ext_1_high": {
 		"tsid": "LHVKGNIAIJ83QB4",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"savannah_int_1_HOR_high": {
 		"tsid": "LHVKHSOAIJ834MU",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"seam street for foxes - log": {
 		"tsid": "LA5QD9A86NT2S37",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"seam street to foxes": {
 		"tsid": "LA57OFILRFT2B3S",
@@ -14297,7 +15217,8 @@
 	},
 	"skill_quest_level_stars": {
 		"tsid": "LNVPFAU8RU23V8V",
-		"hub_id": 115
+		"hub_id": 115,
+		"map_hidden": true
 	},
 	"skyball": {
 		"tsid": "LA9117Q58K624RI",
@@ -14305,31 +15226,38 @@
 	},
 	"slip_n_slide_SWF_check": {
 		"tsid": "LHF8BTS0PPB3HV6",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"slip_n_slide_double_long": {
 		"tsid": "LHF4DGCPFB63SVD",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"small_01": {
 		"tsid": "LLI1219QFT7184O",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"small_02": {
 		"tsid": "LLI1221RFT71H7G",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"small_03": {
 		"tsid": "LLI123VRFT714DD",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"small_04": {
 		"tsid": "LLI124LSFT71NI9",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"small_05": {
 		"tsid": "LLI125HTFT71C3R",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"soil appreciation another copy": {
 		"tsid": "LIF39H48QM538AM",
@@ -14341,7 +15269,8 @@
 	},
 	"star_test": {
 		"tsid": "LIFLLDAC6KC3MA6",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"test": {
 		"tsid": "LDOUUI73HLD3PDB",
@@ -14361,15 +15290,18 @@
 	},
 	"test_newXP_1": {
 		"tsid": "LDOSH8OS10R2350",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"test_newXP_1.1": {
 		"tsid": "LDOCBRJV28R2BLV",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"test_newXP_2": {
 		"tsid": "LDO9IKEBB0R285J",
-		"hub_id": 118
+		"hub_id": 118,
+		"map_hidden": true
 	},
 	"testbed": {
 		"tsid": "LIFUO75QRJ736TB",
@@ -14377,75 +15309,93 @@
 	},
 	"ticket_to_paradise_Hbounce": {
 		"tsid": "LA5O2ETITV33EQO",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"ticket_to_paradise_Hpingpong": {
 		"tsid": "LA5GBI56T153IV9",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"ticket_to_paradise_Hzoom": {
 		"tsid": "LA5CHNQFHN43HS9",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"ticket_to_paradise_Vbounce": {
 		"tsid": "LA5DD6FJST3354H",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"ticket_to_paradise_Vbounce2": {
 		"tsid": "LA5NLK2Q9U3322C",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"ticket_to_paradise_VeasyFloat": {
 		"tsid": "LA5KGVLKI843ILD",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"ticket_to_paradise_Vfall": {
 		"tsid": "LA5PON9VD153MB8",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"ticket_to_paradise_Vfloat": {
 		"tsid": "LA5UNAT2L743IKD",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"ticket_to_paradise_ice_loops": {
 		"tsid": "LA5LSPOB9K53F12",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"ticket_to_paradise_mtn_scaling": {
 		"tsid": "LA5H89K7IJ538UU",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"ticket_to_paradise_rhythm_pattern": {
 		"tsid": "LA5V00H4CK53UUQ",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"treetop_03": {
 		"tsid": "LUV5H06NT103BA0",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"treetop_04": {
 		"tsid": "LUVNHD49C4039P4",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"treetop_05": {
 		"tsid": "LUVI9G1JT4038B5",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"treetop_06": {
 		"tsid": "LUVR75EQ3K038G8",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"treetop_07": {
 		"tsid": "LUVT7NP8U6030FD",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"treetop_08": {
 		"tsid": "LUVBFJRB4P03C16",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"underwater_party_space": {
 		"tsid": "LHFLNH05KH9376A",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"unnnn": {
 		"tsid": "LIFPV9EMLT72DP4",
@@ -14453,43 +15403,53 @@
 	},
 	"uralia_ext_1_high": {
 		"tsid": "LHVOEBT4E9S2PK1",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"uralia_ext_2_high": {
 		"tsid": "LHVOG5L5E9S2DLS",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"uralia_ext_2a_high": {
 		"tsid": "LHVOGOV5E9S29CE",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"uralia_ext_2b_high": {
 		"tsid": "LDOE4F2MICK2AN2",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"uralia_ext_3_high": {
 		"tsid": "LUVSHPRMM2R2UDC",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"uralia_ext_3_high (New)": {
 		"tsid": "LUVDNU0O8MS2QAH",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"uralia_int_1_HOR_high": {
 		"tsid": "LHV4PNL08JS298O",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"uralia_int_2_HOR_high": {
 		"tsid": "LHV57CMSCF43SI7",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"uralia_int_2a_HOR_high": {
 		"tsid": "LHVMN2RPE9U24OJ",
-		"hub_id": 117
+		"hub_id": 117,
+		"map_hidden": true
 	},
 	"uralia_int_3_HOR_high": {
 		"tsid": "LUV8R7T1R403QKH",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"uutiif": {
 		"hub_id": 66,
@@ -14501,31 +15461,38 @@
 	},
 	"walk_toward_the_light_SWF_check": {
 		"tsid": "LHF5VGK8HQB3QO9",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"winter_haven_SWF_check": {
 		"tsid": "LHFG37CNDQB33JD",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"winter_walk_SWF_check": {
 		"tsid": "LHFEPR5KDQB3283",
-		"hub_id": 80
+		"hub_id": 80,
+		"map_hidden": true
 	},
 	"xx_forest_int_5_HOR_high": {
 		"tsid": "LUV4FSTL9NR21EA",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"z Template AG": {
 		"tsid": "LTJ3DDABUHV1RB2",
-		"hub_id": 72
+		"hub_id": 72,
+		"map_hidden": true
 	},
 	"z Template Deep H 01": {
 		"tsid": "LTJ1FFBMS9V1H5U",
-		"hub_id": 72
+		"hub_id": 72,
+		"map_hidden": true
 	},
 	"z Template Shallow": {
 		"tsid": "LTJ101C15SV1RRI",
-		"hub_id": 72
+		"hub_id": 72,
+		"map_hidden": true
 	},
 	"zBackup Swimming Coin Level 08": {
 		"tsid": "LUVUHU3944A3F9F",
@@ -14545,38 +15512,47 @@
 	},
 	"z_Plateau Template 01": {
 		"tsid": "LUV96MMOC9L2UGO",
-		"hub_id": 114
+		"hub_id": 114,
+		"map_hidden": true
 	},
 	"z_TEMPLATE_SM Aboveground 07": {
 		"tsid": "LTJN189C18Q1RBP",
-		"hub_id": 63
+		"hub_id": 63,
+		"map_hidden": true
 	},
 	"z_keep_SM Final Apartment 01": {
 		"tsid": "LTJOIBSS3MR11K7",
-		"hub_id": 63
+		"hub_id": 63,
+		"map_hidden": true
 	},
 	"z_keep_SM Aboveground 04 - embargo": {
 		"tsid": "LTJ128OL5NO1MFL",
-		"hub_id": 63
+		"hub_id": 63,
+		"map_hidden": true
 	},
 	"znotused - Fenneq Preserve 1": {
 		"tsid": "LA5E1HUU25T20BH",
-		"hub_id": 123
+		"hub_id": 123,
+		"map_hidden": true
 	},
 	"znotused-Fox_Preserve_02 R": {
 		"tsid": "LUVDI420COS2HJB",
-		"hub_id": 120
+		"hub_id": 120,
+		"map_hidden": true
 	},
 	"znotused-Fox_Preserve_07": {
 		"tsid": "LUVQS2A3POS2BU1",
-		"hub_id": 120
+		"hub_id": 120,
+		"map_hidden": true
 	},
 	"znotused-Fox_Transit_01": {
 		"tsid": "LUVNG9KO9KR23BQ",
-		"hub_id": 120
+		"hub_id": 120,
+		"map_hidden": true
 	},
 	"znotused-Fox_Transit_10": {
 		"tsid": "LUVBPAIFBOS2TL3",
-		"hub_id": 120
+		"hub_id": 120,
+		"map_hidden": true
 	}
 }
