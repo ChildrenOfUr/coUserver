@@ -3,7 +3,7 @@ part of achievements;
 class AchievementCheckers {
 	static Achievement getCompletistIdForhub(String hubId) {
 		try {
-			String hubName = MapData.hubs[hubId]['name'];
+			String hubName = MapData.hubs[hubId.toString()]['name'];
 			hubName = hubName.toLowerCase().replaceAll(' ', '_');
 			return Achievement.find('${hubName}_completist');
 		} catch (e, st) {
@@ -20,10 +20,10 @@ class AchievementCheckers {
 					continue;
 				}
 
-				if (
-					!(locationHistory.contains(tsidG(data['tsid']))) ||
-					!(locationHistory.contains(tsidL(data['tsid'])))
-				) {
+				bool gVisited = locationHistory.contains(tsidG(data['tsid']));
+				bool lVisited = locationHistory.contains(tsidL(data['tsid']));
+
+				if (!gVisited && !lVisited) {
 					// Neither TSID version visited
 					return false;
 				}
@@ -42,7 +42,7 @@ class AchievementCheckers {
 		}
 
 		if (_checkStreetsInHub(addedTsidHubId)) {
-			AchievementCheckers.getCompletistIdForhub(addedTsidHubId).awardTo(email);
+			//AchievementCheckers.getCompletistIdForhub(addedTsidHubId).awardTo(email);
 			return true;
 		} else {
 			return false;
