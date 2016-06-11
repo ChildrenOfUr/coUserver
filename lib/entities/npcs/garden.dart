@@ -112,7 +112,8 @@ class Garden extends NPC {
 	///This will add all of the crop states to the [states] array so that it doesn't
 	///take up so much room and is easier to edit. Just add to the [crops] list to edit it
 	void _createCropStates() {
-		List<String> crops = ['broccoli', 'cabbage', 'carrot', 'corn', 'cucumber', 'onion'];
+		List<String> crops = ['broccoli', 'cabbage', 'carrot', 'corn', 'cucumber', 'onion',
+		'parsnip', 'potato', 'pumpkin', 'rice', 'spinach', 'tomato', 'zucchini'];
 		for (String crop in crops) {
 			for (int i=1; i<4; i++) {
 				String cropState = '${crop}_${i}';

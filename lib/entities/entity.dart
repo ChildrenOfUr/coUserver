@@ -157,8 +157,9 @@ abstract class Entity extends Object with MetabolicsChange implements Persistabl
 		StreetEntity dbEntity = new StreetEntity.create(id: id, type: type, tsid: tsid, x: x, y: y,
 															metadata_json: JSON.encode(getPersistMetadata()));
 
-		PostgreSql dbConn = await dbManager.getConnection();
+		PostgreSql dbConn;
 		try {
+			dbConn = await dbManager.getConnection();
 			String query = 'UPDATE street_entities SET x = @x, y = @y, metadata_json = @metadata_json'
 				' WHERE id = @id';
 			await dbConn.execute(query, dbEntity);

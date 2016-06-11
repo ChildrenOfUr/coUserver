@@ -93,6 +93,11 @@ class StreetEntities {
 		bool _setInMemory(StreetEntity entity) {
 			Map<String, dynamic> street = MapData.getStreetByTsid(entity.tsid);
 			if (street != null) {
+				//if the street isn't currently loaded, then just return
+				if (StreetUpdateHandler.streets[street["label"]] == null) {
+					return true;
+				}
+
 				try {
 					// Create NPC
 					String id = 'n' + createId(entity.x, entity.x, entity.type, entity.tsid);

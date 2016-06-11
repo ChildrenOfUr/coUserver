@@ -28,7 +28,6 @@ import 'package:coUserver/streets/player_update_handler.dart';
 import 'package:coUserver/streets/street_update_handler.dart';
 
 part 'package:coUserver/endpoints/elevation.dart';
-part 'package:coUserver/endpoints/getentities.dart';
 part 'package:coUserver/endpoints/getitems.dart';
 part 'package:coUserver/endpoints/report.dart';
 part 'package:coUserver/endpoints/slack.dart';
