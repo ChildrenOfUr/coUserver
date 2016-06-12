@@ -10,19 +10,29 @@ abstract class BabyAnimals {
 	/// Keep track of who is feeding/spawning which entities between feed1() and feed2()
 	static Map<String, Map<String, dynamic>> userActionCache = new Map();
 
-	static Future<bool> spawn(String type, String tsid, int pX, int pY) async {
+	static Future<bool> spawn(String type, String tsid, int pX, int pY, String email) async {
 		// Check for overcrowding
 		if (await StreetEntityBalancer.streetIsFull(type, tsid)) {
 			return false;
 		}
 
 		// Instantiate a new entity
+		String username;
+		try {
+			String _username = await User.getUsernameFromEmail(email);
+			assert(_username != null);
+			username = _username;
+		} catch (_) {
+			username = null;
+		}
+
 		StreetEntity newEntity = new StreetEntity.create(
 			id: createId(pX, pY, type, tsid),
 			type: type,
 			tsid: tsidL(tsid),
 			x: pX,
-			y: pY
+			y: pY,
+			username: username
 		);
 
 		if (!(await StreetEntities.setEntity(newEntity))) {
@@ -97,7 +107,7 @@ abstract class BabyAnimals {
 					return false;
 				}
 
-				if (!(await spawn(entityType, player.tsid, player.currentX, player.currentY))) {
+				if (!(await spawn(entityType, player.tsid, player.currentX, player.currentY, email))) {
 					// Spawn failed
 					_uncache();
 					return false;
