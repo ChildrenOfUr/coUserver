@@ -7,6 +7,10 @@ abstract class NPC extends Entity {
 	 * attempts to perform one of the available actions;
 	 * */
 
+	static final Spritesheet TRANSPARENT_SPRITE = new Spritesheet('_hidden',
+		'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+		1, 1, 1, 1, 1, true);
+
 	static int updateFps = 20;
 
 	String id, type, streetName;
@@ -146,25 +150,24 @@ abstract class NPC extends Entity {
 		}
 	}
 
-	Map getMap() {
-		Map map = super.getMap();
-		map["id"] = id;
-		map["url"] = currentState.url;
-		map["type"] = type;
-		map["numRows"] = currentState.numRows;
-		map["numColumns"] = currentState.numColumns;
-		map["numFrames"] = currentState.numFrames;
-		map["x"] = x;
-		map["y"] = y;
-		map['speed'] = speed;
-		map['ySpeed'] = ySpeed;
-		map['animation_name'] = currentState.stateName;
-		map["width"] = width;
-		map["height"] = height;
-		map['loops'] = currentState.loops;
-		map['loopDelay'] = currentState.loopDelay;
-		map["facingRight"] = facingRight;
-		map["actions"] = actions;
-		return map;
-	}
+	Map getMap() => super.getMap()
+		..addAll({
+			"id": id,
+			"url": currentState.url,
+			"type": type,
+			"numRows": currentState.numRows,
+			"numColumns": currentState.numColumns,
+			"numFrames": currentState.numFrames,
+			"x": x,
+			"y": y,
+			'speed': speed,
+			'ySpeed': ySpeed,
+			'animation_name': currentState.stateName,
+			"width": width,
+			"height": height,
+			'loops': currentState.loops,
+			'loopDelay': currentState.loopDelay,
+			"facingRight": facingRight,
+			"actions": actions
+		});
 }
