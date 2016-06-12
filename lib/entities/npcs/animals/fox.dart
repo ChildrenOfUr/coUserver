@@ -1,28 +1,34 @@
 part of entity;
 
+enum FoxDestinationType {
+	HOME, BAIT
+}
+
 class Fox extends NPC {
 	static final String
 		BRUSH = 'fox_brush',
 		FIBER = 'fiber';
 
-	static final Duration
-		EAT_TIME = new Duration(seconds: 5),
-		SPAWN_TIME = new Duration(seconds: 3);
+	static final Duration SPAWN_TIME = new Duration(seconds: 3);
 
 	static final int
 		SPEED_STOP = 0,
-		SPEED_SLOW = 20,
-		SPEED_FAST = 40;
+		SPEED_SLOW = 40,
+		SPEED_FAST = 80;
 
 	Spritesheet lastState;
 
-	bool despawning = false, waiting = false;
-	Point<num> movingTo;
+	bool despawning = false, waiting = false, brushing = false;
+
+	Point<num> movingTo, home;
+	FoxDestinationType destinationType;
 
 	Fox(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		// Client rendering
 		type = 'Fox';
 		speed = 0; // px/sec
+
+		home = new Point(x, y);
 
 		// Actions
 		actionTime = 1;
@@ -63,6 +69,8 @@ class Fox extends NPC {
 
 	Future<bool> brush({WebSocket userSocket, String email}) async {
 		if (rand.nextBool()) {
+			brushing = true;
+
 			if (!(await InventoryV2.decreaseDurability(email, BRUSH))) {
 				// Could not use brush durability
 				return false;
@@ -74,6 +82,8 @@ class Fox extends NPC {
 			}
 
 			toast('You got a $FIBER!', userSocket);
+
+			brushing = false;
 
 			return true;
 		} else {
@@ -124,26 +134,35 @@ class Fox extends NPC {
 			return;
 		}
 
+		if (brushing) {
+			speed = SPEED_STOP;
+			setState('brushed');
+			return;
+		}
+
 		if (movingTo == null) {
 			// Find & target bait
 			FoxBait nearestBait = findNearestBait();
-			if (nearestBait != null) {
+			if (nearestBait != null && nearestBait.attractedFox == null) {
+				// Claim an unclaimed piece of bait
+				nearestBait.attractedFox = this;
+
 				// Appear soon
 				waiting = true;
 				new Future.delayed(SPAWN_TIME).then((_) {
+					speed = SPEED_SLOW;
 					show('walk');
 					movingTo = new Point(nearestBait.x, nearestBait.y);
+					destinationType = FoxDestinationType.BAIT;
 					waiting = false;
 				});
-			} else {
+			} else if (!despawning) {
 				// Disappear soon
-				if (!despawning) {
-					despawning = true;
-					new Future.delayed(SPAWN_TIME).then((_) {
-						hide();
-						despawning = false;
-					});
-				}
+				despawning = true;
+				new Future.delayed(SPAWN_TIME).then((_) {
+					hide();
+					despawning = false;
+				});
 			}
 		} else {
 			facingRight = (movingTo.x > this.x);
@@ -152,22 +171,31 @@ class Fox extends NPC {
 				// At target
 				movingTo = null;
 
-				setState('eat');
-				waiting = true;
-				new Future.delayed(EAT_TIME).then((_) {
-					waiting = false;
+				if (destinationType == FoxDestinationType.BAIT) {
+					// Eat bait
+					speed = SPEED_STOP;
+					setState('eat');
+					waiting = true;
+					findNearestBait().eat().then((_) {
+						// Return to start position
+						speed = SPEED_FAST;
+						setState('run');
+						movingTo = home;
+						destinationType = FoxDestinationType.HOME;
+					});
+				} else if (destinationType == FoxDestinationType.HOME) {
+					// Start over
 					hide();
-				});
-
-				findNearestBait().eat();
+					new Future.delayed(SPAWN_TIME).then((_) {
+						waiting = false;
+					});
+				}
 			} else {
 				// Move toward target
-				if (rand.nextInt(10) < 8) {
-					// Chance of stopping
-					speed = SPEED_STOP;
-					setState('pause');
-				} else if (speed == SPEED_STOP) {
-					// Stopped, start again
+				if (destinationType == FoxDestinationType.HOME) {
+					speed = SPEED_FAST;
+					setState('run');
+				} else if (destinationType == FoxDestinationType.BAIT) {
 					speed = SPEED_SLOW;
 					setState('walk');
 				}
@@ -209,7 +237,12 @@ class FoxBait extends NPC {
 	/// Maps street names to fox bait objects for locating by foxes
 	static Map<String, List<FoxBait>> placedBait = {};
 
-	static final Duration MAX_TIME = new Duration(minutes: 5);
+	static final Duration
+		EAT_TIME = new Duration(seconds: 3),
+		MAX_TIME = new Duration(minutes: 5);
+
+	// 1 fox per bait
+	Fox attractedFox = null;
 
 	FoxBait(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		type = 'Fox Bait';
@@ -239,9 +272,19 @@ class FoxBait extends NPC {
 		new Future.delayed(MAX_TIME).then((_) => eat());
 	}
 
-	void eat() {
+	@override
+	void update() {
+		super.update();
+
+		// Fall to platforms
+		moveXY();
+	}
+
+	Future eat() async {
+		await new Future.delayed(EAT_TIME);
 		setState('_hidden');
 		removing = true;
+		attractedFox = null;
 	}
 
 	String toString() => 'FoxBait at ($x, $y)';

@@ -12,7 +12,7 @@ class FoxBaitItem {
 		try {
 			Identifier player = PlayerUpdateHandler.users[username];
 			num x = player.currentX + 60;
-			num y = player.currentY + 150;
+			num y = player.currentY;
 			String id = createId(x, y, 'FoxBait', streetName);
 			new FoxBait(id, x, y, streetName);
 			return true;
