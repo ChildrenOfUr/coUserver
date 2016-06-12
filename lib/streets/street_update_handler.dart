@@ -130,7 +130,9 @@ class StreetUpdateHandler {
 						//to take into account the players skills so that the costs are right
 						await Future.forEach(moveMap['npcs'], (Map npcMove) async {
 							NPC npc = street.npcs[npcMove['id']];
-							npcMove['actions'] = encode(await npc.customizeActions(email));
+							if (npc != null) {
+								npcMove['actions'] = encode(await npc.customizeActions(email));
+							}
 						});
 						try {
 							socket.add(JSON.encode(moveMap));
@@ -187,7 +189,9 @@ class StreetUpdateHandler {
 						//to take into account the players skills so that the costs are right
 						await Future.forEach(updates['npcs'], (Map npcMap) async {
 							NPC npc = street.npcs[npcMap['id']];
-							npcMap['actions'] = encode(await npc.customizeActions(email));
+							if (npc != null) {
+								npcMap['actions'] = encode(await npc.customizeActions(email));
+							}
 						});
 
 						socket.add(JSON.encode(updates));

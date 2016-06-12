@@ -118,6 +118,7 @@ class Piggy extends NPC {
 		}
 
 		StatManager.add(email, Stat.piggies_nibbled);
+		SkillManager.learn(SKILL, email);
 		nibbleList.add(email);
 
 		//give the player the 'fruits' of their labor

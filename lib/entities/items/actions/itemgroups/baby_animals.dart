@@ -107,7 +107,7 @@ abstract class BabyAnimals {
 					return false;
 				}
 
-				if (!(await spawn(entityType, player.tsid, player.currentX, player.currentY, email))) {
+				if (!(await spawn(entityType, player.tsid, player.currentX~/1, player.currentY~/1, email))) {
 					// Spawn failed
 					_uncache();
 					return false;

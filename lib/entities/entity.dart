@@ -257,7 +257,7 @@ abstract class Entity extends Object with MetabolicsChange implements Persistabl
 		}
 
 		//check that the player has the necessary item(s)
-		bool hasAtLeastOne = false;
+		bool hasAtLeastOne = action.itemRequirements.any.length == 0;
 		await Future.forEach(action.itemRequirements.any, (String itemType) async {
 			if(!hasAtLeastOne) {
 				if (includeBroken) {
