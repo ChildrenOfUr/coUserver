@@ -5,6 +5,18 @@ class Fox extends NPC {
 		BRUSH = 'fox_brush',
 		FIBER = 'fiber';
 
+	static final Duration DESPAWN_TIME = new Duration(seconds: 3);
+
+	static final int
+		SPEED_STOP = 0,
+		SPEED_SLOW = 20,
+		SPEED_FAST = 40;
+
+	Spritesheet lastState;
+
+	bool despawning = false;
+	Point<num> movingTo;
+
 	Fox(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		// Client rendering
 		type = 'Fox';
@@ -48,9 +60,10 @@ class Fox extends NPC {
 			'taunt': new Spritesheet('taunt',
 				'http://c2.glitch.bz/items/2012-12-06/npc_fox_fox_orangeFox_x1_taunt_png_1354839596.png', 918, 973, 153, 139, 40, false),
 			'walk': new Spritesheet('walk',
-				'http://c2.glitch.bz/items/2012-12-06/npc_fox_fox_orangeFox_x1_walk_png_1354839598.png', 918, 556, 153, 139, 24, true)
+				'http://c2.glitch.bz/items/2012-12-06/npc_fox_fox_orangeFox_x1_walk_png_1354839598.png', 918, 556, 153, 139, 24, true),
+			'_hide': NPC.TRANSPARENT_SPRITE
 		};
-		setState('pause');
+		hide();
 	}
 
 	Future<bool> brush({WebSocket userSocket, String email}) async {
@@ -74,11 +87,75 @@ class Fox extends NPC {
 		}
 	}
 
+	FoxBait findNearestBait() {
+		List<FoxBait> onStreet = FoxBait.placedBait[streetName] ?? [];
+
+		FoxBait nearestBait;
+		num nearestDist;
+		onStreet.forEach((FoxBait bait) {
+			num distX = (this.x - bait.x).abs();
+			num distY = (this.y - bait.y).abs();
+			num dist = sqrt(pow(distX, 2) + pow(distY, 2));
+
+			if (nearestDist == null || dist < nearestDist) {
+				nearestDist = dist;
+				nearestBait = bait;
+			}
+		});
+
+		return nearestBait;
+	}
+
+	void hide() {
+		lastState = currentState;
+		setState('_hide');
+	}
+
+	void show([String overrideState]) {
+		String state = overrideState ?? lastState?.stateName;
+		if (state != null) {
+			setState(state);
+		}
+		lastState = null;
+	}
+
 	@override
 	void update() {
 		super.update();
 
-		// TODO: behavior. https://github.com/ChildrenOfUr/cou-issues/issues/971
+		if (movingTo == null) {
+			// Find & target bait
+			FoxBait nearestBait = findNearestBait();
+			if (nearestBait != null) {
+				// Appear
+				show();
+				if (movingTo == null) {
+					movingTo = new Point(nearestBait.x, nearestBait.y);
+				}
+			} else {
+				// Disappear soon
+				if (!despawning) {
+					despawning = true;
+					new Future.delayed(DESPAWN_TIME).then((_) {
+						hide();
+						despawning = false;
+					});
+				}
+			}
+		} else {
+			// Move toward target
+			facingRight = (movingTo.x > this.x);
+
+			if (rand.nextInt(10) < 4) {
+				// Chance of stopping
+				speed = SPEED_STOP;
+				setState('pause');
+			} else if (speed == SPEED_STOP) {
+				// Stopped, start again
+				speed = SPEED_SLOW;
+				setState('walk');
+			}
+		}
 	}
 }
 
@@ -102,8 +179,25 @@ class SilverFox extends Fox {
 			'taunt': new Spritesheet('taunt',
 				'http://c2.glitch.bz/items/2012-12-06/npc_fox_fox_silverFox_x1_taunt_png_1354839613.png', 918, 973, 153, 139, 40, false),
 			'walk': new Spritesheet('walk',
-				'http://c2.glitch.bz/items/2012-12-06/npc_fox_fox_silverFox_x1_walk_png_1354839614.png', 918, 556, 153, 139, 24, true)
+				'http://c2.glitch.bz/items/2012-12-06/npc_fox_fox_silverFox_x1_walk_png_1354839614.png', 918, 556, 153, 139, 24, true),
+			'_hide': NPC.TRANSPARENT_SPRITE
 		};
-		setState('pause');
+		hide();
+	}
+}
+
+class FoxBait extends NPC {
+	/// Maps street names to fox bait objects for locating by foxes
+	static Map<String, List<FoxBait>> placedBait = {};
+
+	FoxBait(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
+		// Mark bait as placed on this street
+		if (placedBait[streetName] == null) {
+			placedBait[streetName] = [];
+		}
+		placedBait[streetName].add(this);
+
+		// #1: randomly pick a shard image
+		// #2: go away after a certain amount of time
 	}
 }
