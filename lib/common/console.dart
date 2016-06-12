@@ -10,6 +10,7 @@ import 'package:coUserver/endpoints/chat_handler.dart';
 import 'package:coUserver/endpoints/inventory_new.dart';
 import 'package:coUserver/endpoints/status.dart';
 import 'package:coUserver/entities/items/item.dart';
+import 'package:coUserver/endpoints/metabolics/metabolics.dart';
 
 class Console {
 	static void _registerCommands() {
@@ -50,6 +51,10 @@ class Console {
 				Log.command('No migrateable object "$object"');
 			}
 		}, ['object to migrate']);
+
+		new Command.register('upgradeenergy', () async {
+			await MetabolicsEndpoint.upgradeEnergy();
+		});
 
 		new Command.register('giveitem', (String email, String itemType, String qty) async {
 			if (!items.containsKey(itemType)) {

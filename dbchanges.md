@@ -5,3 +5,5 @@ alter table stats add column crops_hoed integer not null default 0;
 alter table stats add column crops_planted integer not null default 0;
 alter table stats add column crops_watered integer not null default 0;
 alter table stats add column piggies_fed integer not null default 0;
+
+need to run upgradeenergy from the console for the live server

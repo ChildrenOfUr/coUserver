@@ -8,6 +8,27 @@ class MetabolicsEndpoint {
 	static Timer simulateTimer = new Timer.periodic(new Duration(seconds: 5), (Timer timer) => simulate());
 	static Map<String, WebSocket> userSockets = {};
 
+	static Future upgradeEnergy() async {
+		String query = 'SELECT * FROM metabolics';
+		PostgreSql dbConn = await dbManager.getConnection();
+		try {
+			List<Metabolics> playerMetabolics = await dbConn.query(query, Metabolics);
+			await Future.forEach(playerMetabolics, (Metabolics m) async {
+				if (m.lifetime_img != null) {
+					int newEnergy = energyLevels[getLevel(m.lifetime_img)];
+					m.energy = newEnergy;
+					m.max_energy = newEnergy;
+					print('player ${m.user_id} now has $newEnergy energy');
+					await setMetabolics(m);
+				}
+			});
+		} catch (e, st) {
+			Log.error('Could not upgrade energy', e, st);
+		} finally {
+			dbManager.closeConnection(dbConn);
+		}
+	}
+
 	static void trackNewDays() {
 		// Refill everyone's energy on the start of a new day
 		Clock clock = new Clock();
@@ -334,7 +355,11 @@ class MetabolicsEndpoint {
 
 		// Compare "after" and "before" img
 		if (getLevel(m.lifetime_img) > getLevel(oldImg)) {
-			// Level up
+			// let's give people more energy as they level
+			int newEnergy = energyLevels[getLevel(m.lifetime_img)];
+			m.energy = m.max_energy = newEnergy;
+
+			// send level up to client
 			MetabolicsEndpoint.userSockets[username]?.add(JSON.encode({
 				                                                          "levelUp": getLevel(m.lifetime_img)
 			                                                          }));
