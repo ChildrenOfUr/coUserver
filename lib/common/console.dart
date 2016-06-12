@@ -51,17 +51,21 @@ class Console {
 			}
 		}, ['object to migrate']);
 
-		new Command.register('giveitem', (String email, String itemType) async {
+		new Command.register('giveitem', (String email, String itemType, String qty) async {
 			if (!items.containsKey(itemType)) {
 				Log.command('No such item: $itemType');
 			} else {
-				if ((await InventoryV2.addItemToUser(email, items[itemType].getMap(), 1)) == 1) {
-					Log.command("Successfully added $itemType to <email=$email>'s inventory");
-				} else {
-					Log.command("Error adding $itemType to <email=$email>'s inventory'");
+				try {
+					int _qty = int.parse(qty);
+					int added = await InventoryV2.addItemToUser(
+						email, items[itemType].getMap(), _qty);
+					assert(added == _qty);
+					Log.command("Successfully added $itemType x $_qty to <email=$email>'s inventory");
+				} catch (_) {
+					Log.command("Error adding $itemType x ($qty) to <email=$email>'s inventory'");
 				}
 			}
-		}, ['user email', 'item type']);
+		}, ['user email', 'item type', 'count']);
 
 		new Command.register('usetool', (String email, String itemType, String amount) async {
 			if (await InventoryV2.decreaseDurability(email, itemType, amount: int.parse(amount))) {

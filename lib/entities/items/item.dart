@@ -27,31 +27,20 @@ import 'package:redstone_mapper_pg/manager.dart';
 import 'package:redstone_mapper/mapper.dart';
 import 'package:redstone/redstone.dart' as app;
 
-part 'package:coUserver/entities/action.dart';
-
 part 'actions/itemgroups/baby_animals.dart';
-
 part 'actions/itemgroups/consume.dart';
-
 part 'actions/itemgroups/cubimals.dart';
-
 part 'actions/itemgroups/emblems-icons.dart';
-
+part 'actions/itemgroups/foxbait.dart';
 part 'actions/itemgroups/milk-butter-cheese.dart';
-
 part 'actions/itemgroups/orb.dart';
-
 part 'actions/itemgroups/piggy_plop.dart';
-
 part 'actions/itemgroups/potions.dart';
-
 part 'actions/itemgroups/quill.dart';
-
 part 'actions/itemgroups/recipe-tool.dart';
-
 part 'actions/note.dart';
-
 part 'item_user.dart';
+part 'package:coUserver/entities/action.dart';
 
 Map<String, Item> items = {};
 
@@ -64,6 +53,7 @@ class Item extends Object
 		CubimalBox,
 		Emblem,
 		FocusingOrb,
+		FoxBaitItem,
 		Icon,
 		MilkButterCheese,
 		PiggyPlop,

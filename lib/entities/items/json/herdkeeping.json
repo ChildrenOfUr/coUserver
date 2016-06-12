@@ -106,10 +106,19 @@
     "name": "Fox Bait",
     "category": "Herdkeeping Supplies",
     "iconUrl": "http://childrenofur.com/assets/entityImages/fox_bait__x1_1_png_1354839628.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/fox_bait__x1_stink1_png_1354839629.png",
+	"iconNum": 1,
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/fox_bait__x1_1_png_1354839628.png",
     "stacksTo": 100,
     "price": 30,
-    "description": "A nugget of fox-pleasing goodness, filled with every fox's favourite flavours. Proof positive that you catch more foxes with Fox Bait than you do with vinegar (just in case anyone suggested the alternative, which on reflection seems unlikely)."
+    "description": "A nugget of fox-pleasing goodness, filled with every fox's favourite flavours. Proof positive that you catch more foxes with Fox Bait than you do with vinegar (just in case anyone suggested the alternative, which on reflection seems unlikely).",
+	"actions": [
+		{
+        	"actionName": "Place Bait",
+			"description": "Drop the bait on the ground to attract a fox",
+        	"itemRequirements": {},
+        	"skillRequirements": {}
+        }
+	]
   },
   "hogtied_piggy": {
     "name": "Hog-tied Piggy",

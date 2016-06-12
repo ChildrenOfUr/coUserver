@@ -7,6 +7,9 @@ abstract class NPC extends Entity {
 	 * attempts to perform one of the available actions;
 	 * */
 
+	/// 1px x 1px transparent gif.
+	/// The client will not enable interaction on this state by checking the url string,
+	/// so update it in the client as well as the server if you change it.
 	static final Spritesheet TRANSPARENT_SPRITE = new Spritesheet('_hidden',
 		'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
 		1, 1, 1, 1, 1, true);
