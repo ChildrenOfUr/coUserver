@@ -109,12 +109,33 @@ class StreetUpdateHandler {
 			          });
 	}
 
+	static Map<String, Map<String, NPC>> _pendingNpcs = {};
+
+	static void queueNpcAdd(NPC npc, String action) {
+		if (_pendingNpcs[npc.streetName] == null) {
+			_pendingNpcs[npc.streetName] = {};
+		}
+		_pendingNpcs[npc.streetName].addAll({npc.id: npc});
+	}
+
 	static void updateNpcs() {
 		streets.forEach((String streetName, Street street) {
 			if (street.occupants.length > 0) {
 				Map<String, dynamic> moveMap = {};
 				moveMap['npcMove'] = 'true';
 				moveMap['npcs'] = [];
+
+				// Add queued NPCs
+				street.npcs.addAll(_pendingNpcs[streetName] ?? {});
+				_pendingNpcs[streetName]?.clear();
+
+				// Remove queued NPCs
+				new Map.from(street.npcs).forEach((String id, NPC npc) {
+					if (npc.removing) {
+						street.npcs.remove(id);
+					}
+				});
+
 				street.npcs.forEach((String id, NPC npc) {
 					npc.update();
 					if(npc.previousX != npc.x ||

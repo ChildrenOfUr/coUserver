@@ -172,6 +172,8 @@ class Fox extends NPC {
 					setState('walk');
 				}
 			}
+
+			moveXY();
 		}
 	}
 }
@@ -239,7 +241,7 @@ class FoxBait extends NPC {
 
 	void eat() {
 		setState('_hidden');
-		StreetUpdateHandler.streets[streetName]?.npcs?.remove(this.id);
+		removing = true;
 	}
 
 	String toString() => 'FoxBait at ($x, $y)';

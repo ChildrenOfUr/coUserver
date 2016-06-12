@@ -18,7 +18,7 @@ abstract class NPC extends Entity {
 
 	String id, type, streetName;
 	num x, y, previousX, previousY, speed = 0, ySpeed = 0, yAccel = -2400;
-	bool facingRight = true, grounded = false;
+	bool facingRight = true, grounded = false, removing = false;
 	MutableRectangle _collisionsRect;
 
 	NPC(this.id, this.x, this.y, this.streetName) {
