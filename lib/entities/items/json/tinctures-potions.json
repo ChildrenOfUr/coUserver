@@ -36,7 +36,7 @@
     "description": "When poured on the floor, it releases a very pleasant scent (a strange mixture of cherry tart, custard, pineapple, roast turkey, toffee, and hot buttered toast) and a cloud causing people to feel most curious, like they're shutting up like a telescope or some such.",
     "actions": [
       {
-        "name": "Shrink yourself"
+        "actionName": "Shrink yourself"
       }
     ]
   },
@@ -86,7 +86,7 @@
     "description": "\"A noble potion embiggenifies the smallest glitch\" reads the tiny label on this tinier bottle. Embiggenifies, you ask? \"Yes\" say the voices of the ancients, drifting to you through the sour aftersmell of the potion, \"Embiggenifies. It is a perfectly cromulent word.\" For creating an embiggenifying cloud wherever you choose.",
     "actions": [
       {
-        "name": "Grow yourself"
+        "actionName": "Grow yourself"
       }
     ]
   },

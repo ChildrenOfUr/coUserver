@@ -56,7 +56,7 @@
     "description": "Someone needs a job done and you look like just the person to do it. Get it done for them and you'll be rewarded.",
     "actions": [
       {
-        "name": "Open Quest",
+        "actionName": "Open Quest",
         "description": "Let's see what needs done",
         "itemRequirements": {},
         "skillRequirements": {}

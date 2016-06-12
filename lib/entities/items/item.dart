@@ -135,7 +135,7 @@ class Item extends Object
 
 		bool found = false;
 		actions.forEach((Action action) {
-			if (action.name == 'drop') {
+			if (action.actionName == 'drop') {
 				found = true;
 			}
 		});
@@ -184,7 +184,7 @@ class Item extends Object
 			List<Map> result = encode(actions);
 			bool found = false;
 			actions.forEach((Action action) {
-				if (action.name == 'drop') {
+				if (action.actionName == 'drop') {
 					found = true;
 				}
 			});

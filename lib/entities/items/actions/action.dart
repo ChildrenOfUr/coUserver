@@ -2,7 +2,7 @@ part of item;
 
 class Action {
 	@Field()
-	String name;
+	String actionName;
 	@Field()
 	bool multiEnabled = false;
 	@Field()
@@ -18,11 +18,11 @@ class Action {
 
 	Action();
 
-	Action.withName(this.name);
+	Action.withName(this.actionName);
 
 	@override
 	String toString() {
-		String returnString = "$name requires any of ${itemRequirements.any}, all of ${itemRequirements.all} and at least ";
+		String returnString = "$actionName requires any of ${itemRequirements.any}, all of ${itemRequirements.all} and at least ";
 		skillRequirements.requiredSkillLevels.forEach((String skill, int level) {
 			returnString += "$level level of $skill, ";
 		});

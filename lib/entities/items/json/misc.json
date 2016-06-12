@@ -243,19 +243,19 @@
     "description": "Piggy plop is the delicately scented excrescence of a healthy piggy. Round, brown, and mysterious, it may contain presents.",
     "actions": [
       {
-        "name": "Taste",
+        "actionName": "Taste",
         "description": "You do you",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Sniff",
+        "actionName": "Sniff",
         "description": "You're an odd one, aren't ya?",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Examine",
+        "actionName": "Examine",
         "description": "Take a closer look at this plop",
         "itemRequirements": {},
         "skillRequirements": {}

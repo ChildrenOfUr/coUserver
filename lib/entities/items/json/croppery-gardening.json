@@ -18,7 +18,7 @@
     "description": "One floret of unabashedly healthy broccoli.",
     "actions": [
       {
-        "name": "Eat",
+        "actionName": "Eat",
         "multiEnabled": true,
         "description": "Eat it raw? If you really want to...",
         "itemRequirements": {},
@@ -54,7 +54,7 @@
     "description": "A head of tender, delicately pungent cabbage.",
     "actions": [
       {
-        "name": "Eat",
+        "actionName": "Eat",
         "multiEnabled": true,
         "description": "Eat it raw? If you really want to...",
         "itemRequirements": {},
@@ -81,7 +81,7 @@
     "description": "A fresh, firm carrot.",
     "actions": [
       {
-        "name": "Eat",
+        "actionName": "Eat",
         "multiEnabled": true,
         "description": "Eat it raw? If you really want to...",
         "itemRequirements": {},
@@ -108,7 +108,7 @@
     "description": "Many kernels of sweet corn, conveniently located on a sturdy cob.",
     "actions": [
       {
-        "name": "Eat",
+        "actionName": "Eat",
         "multiEnabled": true,
         "description": "Eat it raw? If you really want to...",
         "itemRequirements": {},
@@ -135,7 +135,7 @@
     "description": "An innocuous cucumber.",
     "actions": [
       {
-        "name": "Eat",
+        "actionName": "Eat",
         "multiEnabled": true,
         "description": "Eat it raw? If you really want to...",
         "itemRequirements": {},
@@ -189,7 +189,7 @@
     "description": "A patented no-tears onion.",
     "actions": [
       {
-        "name": "Eat",
+        "actionName": "Eat",
         "multiEnabled": true,
         "description": "Eat it raw? If you really want to...",
         "itemRequirements": {},
@@ -216,7 +216,7 @@
     "description": "A pungent parsnip.",
     "actions": [
       {
-        "name": "Eat",
+        "actionName": "Eat",
         "multiEnabled": true,
         "description": "Eat it raw? If you really want to...",
         "itemRequirements": {},
@@ -243,7 +243,7 @@
     "description": "A humble potato.",
     "actions": [
       {
-        "name": "Eat",
+        "actionName": "Eat",
         "multiEnabled": true,
         "description": "Eat it raw? If you really want to...",
         "itemRequirements": {},
@@ -270,7 +270,7 @@
     "description": "One plump and thick-skinned pumpkin. Perfect for carving, mulching, munching, and, in times of need, for using as a carriage drawn by tamed gerbils.",
     "actions": [
       {
-        "name": "Eat",
+        "actionName": "Eat",
         "multiEnabled": true,
         "description": "Eat it raw? If you really want to...",
         "itemRequirements": {},
@@ -297,7 +297,7 @@
     "description": "A pot of freshly made rice.",
     "actions": [
       {
-        "name": "Eat",
+        "actionName": "Eat",
         "multiEnabled": true,
         "description": "Eat it raw? If you really want to...",
         "itemRequirements": {},
@@ -333,14 +333,14 @@
     "description": "Hearty green spinach. It's strong to the finich.",
     "actions": [
       {
-        "name": "Eat",
+        "actionName": "Eat",
         "multiEnabled": true,
         "description": "Eat it raw? If you really want to...",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Activate",
+        "actionName": "Activate",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -365,7 +365,7 @@
     "description": "A ripe, heirloom-quality tomato.",
     "actions": [
       {
-        "name": "Eat",
+        "actionName": "Eat",
         "multiEnabled": true,
         "description": "Eat a deliciously ripe tomato.",
         "itemRequirements": {},
@@ -401,7 +401,7 @@
     "description": "A teeny-weeny green zucchini.",
     "actions": [
       {
-        "name": "Eat",
+        "actionName": "Eat",
         "multiEnabled": true,
         "description": "Eat it raw? If you really want to...",
         "itemRequirements": {},

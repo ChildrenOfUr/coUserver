@@ -25,7 +25,7 @@
     "description": "Handy bendy Alchemical Tongs help you to create exciting metals like Tin, Copper and Molybdenum by adding elements to boring old hot smelted metal.",
     "actions": [
       {
-        "name": "Alchemize",
+        "actionName": "Alchemize",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -45,7 +45,7 @@
     "description": "An awesome pot is used to make special dishes. Very special.",
     "actions": [
       {
-        "name": "Cook",
+        "actionName": "Cook",
         "description": "Awesome!!",
         "itemRequirements": {},
         "skillRequirements": {
@@ -65,7 +65,7 @@
     "description": "A state-of-the-art beaker, integral for converting compounds into powders. Now available in exciting Pyrex, specifically designed for today's modern clumsy alchemist.",
     "actions": [
       {
-        "name": "Stir",
+        "actionName": "Stir",
         "description": "Make powders",
         "itemRequirements": {},
         "skillRequirements": {
@@ -85,7 +85,7 @@
     "description": "A Bean Seasoner seasons beans. You probably guessed that already.",
     "actions": [
       {
-        "name": "Season",
+        "actionName": "Season",
         "description": "Season plain beans",
         "itemRequirements": {},
         "skillRequirements": {
@@ -107,7 +107,7 @@
     "description": "A Blender is very good for blending juices, smoothies and other concoctions. This seems a generally sturdy model.",
     "actions": [
       {
-        "name": "Blend",
+        "actionName": "Blend",
         "description": "Blend drinks",
         "itemRequirements": {},
         "skillRequirements": {
@@ -128,7 +128,7 @@
     "description": "A Bubble Tuner somehow converts plain bubbles into not-plain bubbles. How? Nobody knows.",
     "actions": [
       {
-        "name": "Tune Bubbles",
+        "actionName": "Tune Bubbles",
         "description": "Make all kinds of bubbles",
         "itemRequirements": {},
         "skillRequirements": {
@@ -150,7 +150,7 @@
     "description": "A charmed pot for potioneers of all levels. This thick, heavy, magic-imbued cauldron is perfect for potions, from novice concoctions to expert unctions.",
     "actions": [
       {
-        "name": "Brew",
+        "actionName": "Brew",
         "description": "Brew a selection of potent potions",
         "itemRequirements": {},
         "skillRequirements": {
@@ -186,7 +186,7 @@
     "description": "A shiny, chrome-plated cocktail shaker for making special drinks.",
     "actions": [
       {
-        "name": "Shake",
+        "actionName": "Shake",
         "description": "Make cocktails",
         "itemRequirements": {},
         "skillRequirements": {
@@ -209,7 +209,7 @@
     "description": "One handy pocketsized gadget for all your furniture construction needs. Comes complete with four pokey whojamaflilps, one specializing in tweaking the wotsit, one in cranking the doodah, and the other two in levering the begiantus out of any sticky-outty bits. A true professional's tool.",
     "actions": [
       {
-        "name": "Construct",
+        "actionName": "Construct",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -238,7 +238,7 @@
     "description": "An Egg Seasoner is an important tool for seasoning and incubating eggs that hatch into all kinds of exciting animals.",
     "actions": [
       {
-        "name": "Season",
+        "actionName": "Season",
         "description": "Season plain eggs",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -258,7 +258,7 @@
     "description": "For grilling food. Named after the infamous gang of Potian Grillers (all called George) who roamed the countryside in days of yore, indiscriminately punching things into submission then grilling them until they were well done. Whole continents once lived in fear of the Four Georgemen of the Apocgrillypse. You, meanwhile, get to use their tribute novelty cooking item.",
     "actions": [
       {
-        "name": "Grill",
+        "actionName": "Grill",
         "description": "Grill food",
         "itemRequirements": {},
         "skillRequirements": {
@@ -291,7 +291,7 @@
     "description": "An iridescent focusing orb. It calms your swirly thoughts, helps you meditate, levitate and fight the enemies of the imagination.",
     "actions": [
       {
-        "name": "Levitate",
+        "actionName": "Levitate",
         "description": "Gives a short burst of levitation using spacebar. Costs 50 energy",
         "itemRequirements": {},
         "skillRequirements": {
@@ -300,7 +300,7 @@
         "timeRequired": 5000
       },
       {
-        "name": "Focus Energy",
+        "actionName": "Focus Energy",
         "description": "Increase your energy",
         "itemRequirements": {},
         "skillRequirements": {
@@ -309,7 +309,7 @@
         "timeRequired": 10000
       },
       {
-        "name": "Focus Mood",
+        "actionName": "Focus Mood",
         "description": "Increase your mood",
         "itemRequirements": {},
         "skillRequirements": {
@@ -318,7 +318,7 @@
         "timeRequired": 10000
       },
       {
-        "name": "Radiate",
+        "actionName": "Radiate",
         "description": "Help your neighbors",
         "itemRequirements": {},
         "skillRequirements": {
@@ -327,7 +327,7 @@
         "timeRequired": 20000
       },
       {
-        "name": "Meditate",
+        "actionName": "Meditate",
         "description": "Focus on the orb",
         "itemRequirements": {},
         "skillRequirements": {
@@ -360,7 +360,7 @@
     "description": "A triple-carbine fruit-changing machine. It will transmogrify cherries into other fruit. This can come in surprisingly handy.",
     "actions": [
       {
-        "name": "Convert Fruit",
+        "actionName": "Convert Fruit",
         "description": "Make all kinds of fruit",
         "itemRequirements": {},
         "skillRequirements": {
@@ -383,7 +383,7 @@
     "description": "A useful pan for frying things in.",
     "actions": [
       {
-        "name": "Fry",
+        "actionName": "Fry",
         "description": "Use the pan",
         "itemRequirements": {},
         "skillRequirements": {
@@ -404,7 +404,7 @@
     "description": "An ergonomically correct gassifier. It can turn general vapour into much more exciting gases.",
     "actions": [
       {
-        "name": "Convert Gas",
+        "actionName": "Convert Gas",
         "description": "Make all kinds of gas",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -425,7 +425,7 @@
     "description": "More hefty than any grinder you may have met before, a meatier mortar and more powerful pestle means a lot more grind for your currant. Which is good, as it also costs a bunch more currants.",
     "actions": [
       {
-        "name": "Crush",
+        "actionName": "Crush",
         "itemRequirements": {},
         "skillRequirements": {
           "Refining": 1
@@ -447,7 +447,7 @@
     "description": "A sturdy, no-nonsense grinder. Harness its awesome power to grind rocks (and those rock-like barnacles) into alchemical elements.",
     "actions": [
       {
-        "name": "Crush",
+        "actionName": "Crush",
         "itemRequirements": {},
         "skillRequirements": {
           "Refining": 1
@@ -519,7 +519,7 @@
     "description": "A good knife and cutting board. They can be used to make simple foods.",
     "actions": [
       {
-        "name": "Chop",
+        "actionName": "Chop",
         "description": "Get chopping",
         "itemRequirements": {},
         "skillRequirements": {
@@ -542,7 +542,7 @@
     "description": "The Loomer (TM) is used to Loom thread into String, General Fabric and Rugs through a process of Loomeration so complex, only those with a deep enough understanding of the Fiber Arts II can perform the Loomering.",
     "actions": [
       {
-        "name": "Loom",
+        "actionName": "Loom",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -575,7 +575,7 @@
     "description": "This fancy quill (and the skill of Penpersonship) will let you write messages and notes. And maybe give yourself inky fingers.",
     "actions": [
       {
-        "name": "Write Note",
+        "actionName": "Write Note",
         "itemRequirements": {
           "paper": 1
         },
@@ -599,7 +599,7 @@
     "description": "A saucepan is a must-have item for making sauces.",
     "actions": [
       {
-        "name": "Simmer",
+        "actionName": "Simmer",
         "description": "Get saucy",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -646,7 +646,7 @@
     "description": "Extracting purest metal from even the dullest chunk of Metal Rock, this classic Smelter is the second step to creating all manner of exciting secondary metals. (Learning Smelting is step one.)",
     "actions": [
       {
-        "name": "Smelt",
+        "actionName": "Smelt",
         "description": "Make ingots",
         "itemRequirements": {},
         "skillRequirements": {
@@ -666,7 +666,7 @@
     "description": "A basic spice mill for converting basic allspice into other more exciting spices.",
     "actions": [
       {
-        "name": "Mill",
+        "actionName": "Mill",
         "itemRequirements": {},
         "skillRequirements": {
           "Spice Milling": 1
@@ -688,7 +688,7 @@
     "description": "In the mists of time, storytellers spoke of  a magical spindle that could be used to spin starlight into downy threads to weave into a cloak of invisibility. But it's not this spindle. This is just a spindle. It's used to turn fibers into thread. But that other one sounds amazing, right?",
     "actions": [
       {
-        "name": "Spin",
+        "actionName": "Spin",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -707,7 +707,7 @@
     "description": "The ancients whispered of the spindle of Cosma that could spin the very fibres of air into cloths of heaven, enwrought with golden and silver light; blue and dim and dark cloths of night and light and the half-light. This is not that spindle. But it is really quite a good spindle, and it lasts longer than the other kind of spindle.",
     "actions": [
       {
-        "name": "Spin",
+        "actionName": "Spin",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -748,7 +748,7 @@
     "description": "If you want to turn elements into compounds, you need a handy-dandy test tube. It's totally tubular.",
     "actions": [
       {
-        "name": "Stir",
+        "actionName": "Stir",
         "description": "Make compounds",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -769,7 +769,7 @@
     "description": "Anyone who wants to beef up the benefits of herbs or create ingredients for powerful potions would do well to avail themselves of this basic Tincturing Kit and the Tincturing skill. As the name suggests, it is perfect for making tinctures. And no use at all for anything else.",
     "actions": [
       {
-        "name": "Tincture",
+        "actionName": "Tincture",
         "description": "Essencify",
         "itemRequirements": {},
         "skillRequirements": {
@@ -792,7 +792,7 @@
     "description": "Are you the DIY type who likes to repair your own tools? The nitpicky type who likes to craft their own gear from scratch? Then a Tinkertool is a very handy thing for you to have.",
     "actions": [
       {
-        "name": "Tinker",
+        "actionName": "Tinker",
         "itemRequirements": {},
         "skillRequirements": {}
       }

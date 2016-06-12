@@ -46,7 +46,7 @@
     "description": "A note is the kind of thing you write on.",
     "actions": [
 	    {
-		    "name": "Read Note"
+		    "actionName": "Read Note"
 	    }
     ]
   },
