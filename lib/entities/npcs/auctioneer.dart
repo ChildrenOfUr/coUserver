@@ -3,10 +3,9 @@ part of entity;
 class Auctioneer extends NPC {
 	Auctioneer(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		actionTime = 0;
-		actions.add({"action":"Talk To",
-			            "timeRequired":actionTime,
-			            "enabled":true,
-			            "actionWord":""});
+		actions.add(
+			new Action.withName('Talk To')
+		);
 
 		type = "Auctioneer";
 		speed = 0;

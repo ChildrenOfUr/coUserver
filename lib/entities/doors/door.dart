@@ -16,7 +16,7 @@ abstract class Door extends Entity {
 	//So there's also nothing to restore
 	void restoreState(Map<String, String> metadata) {}
 
-	Map getMap() {
+	Map<String, dynamic> getMap() {
 		Map map = super.getMap();
 		map['url'] = currentState.url;
 		map['id'] = id;
@@ -25,7 +25,7 @@ abstract class Door extends Entity {
 		map["numColumns"] = currentState.numColumns;
 		map["numFrames"] = currentState.numFrames;
 		map['state'] = 0;
-		map["actions"] = actions;
+		map["actions"] = encode(actions);
 		map['x'] = x;
 		map['y'] = y;
 		return map;

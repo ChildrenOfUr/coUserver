@@ -122,7 +122,7 @@ abstract class Persistable {
 }
 
 abstract class Entity extends Object with MetabolicsChange implements Persistable {
-	List<Map> actions = [];
+	List<Action> actions = [];
 	int actionTime = 2500, x, y;
 	String bubbleText, streetName, type, id;
 	DateTime sayTimeout = null;
@@ -131,23 +131,29 @@ abstract class Entity extends Object with MetabolicsChange implements Persistabl
 	Spritesheet currentState;
 	DateTime respawn;
 
-	void setActionEnabled(String action, bool enabled) {
+	void setActionEnabled(String actionName, bool enabled) {
 		try {
-			for(Map actionMap in actions) {
-				if(actionMap['action'] == action) {
-					actionMap['enabled'] = enabled;
+			for(Action action in actions) {
+				if(action.actionName == actionName) {
+					action.enabled = enabled;
 					return;
 				}
 			}
 		} catch (e, st) {
-			Log.error('Error enabling/disabling action $action', e, st);
+			Log.error('Error enabling/disabling action $actionName', e, st);
 		}
 	}
 
 	Map<String, String> getPersistMetadata() => {};
 
 	Future persist() async {
-		String tsid = MapData.getStreetByName(streetName)['tsid'];
+		Map streetDataMap = MapData.getStreetByName(streetName);
+		if (streetDataMap == null) {
+			Log.warning('Cannot persist entity <type=$type> <id=$id> because streetDataMap'
+						' was null for this entity (type=$type) <streetName=$streetName>');
+		}
+
+		String tsid = streetDataMap['tsid'];
 		if (tsid == null) {
 			Log.warning('Cannot persist entity <type=$type> <id=$id> because tsid is null'
 							'for <streetName=$streetName>');
@@ -170,11 +176,18 @@ abstract class Entity extends Object with MetabolicsChange implements Persistabl
 		}
 	}
 
-	Map getMap() {
+	Map<String, dynamic> getMap() {
 		Map map = {};
 		map['bubbleText'] = bubbleText;
 		map['gains'] = gains;
 		return map;
+	}
+
+	///This will be called when sending the npc's state to the client
+	///In order to display accurate energy costs etc., we need to take the
+	///players skills into account
+	Future<List<Action>> customizeActions(String email) async {
+		return actions;
 	}
 
 	void say(String message) {
@@ -210,5 +223,65 @@ abstract class Entity extends Object with MetabolicsChange implements Persistabl
 		//then multiply the length by the repeat
 		int length = (currentState.numFrames / 30 * 1000).toInt() * repeat;
 		respawn = new DateTime.now().add(new Duration(milliseconds: length));
+	}
+
+	///Check the various requirements for an action to be allowed to be performed
+	///The energy check will be skipped by default since most actions will check this
+	///through trySetMetabolics anyway
+	Future<bool> hasRequirements(String actionName, String email, {bool includeBroken: false, bool testEnergy: false}) async {
+		Action action = actions.singleWhere((Action a) => a.actionName == actionName);
+		bool hasRequirements = true;
+
+		//check that the player has the necessary energy
+		if (testEnergy) {
+			Metabolics m = await getMetabolics(email: email);
+			if (m.energy < action.energyRequirements.energyAmount) {
+				return false;
+			}
+		}
+
+		//check the players skill level(s) against the required skill level(s)
+		await Future.forEach(action.skillRequirements.requiredSkillLevels.keys, (String skillName) async {
+			if (hasRequirements == true) {
+				int reqSkillLevel = action.skillRequirements.requiredSkillLevels[skillName];
+				int haveLevel = await SkillManager.getLevel(skillName, email);
+				if (haveLevel < reqSkillLevel) {
+					hasRequirements = false;
+				}
+			}
+		});
+
+		//possibly exit early
+		if (!hasRequirements) {
+			return false;
+		}
+
+		//check that the player has the necessary item(s)
+		bool hasAtLeastOne = false;
+		await Future.forEach(action.itemRequirements.any, (String itemType) async {
+			if(!hasAtLeastOne) {
+				if (includeBroken) {
+					hasAtLeastOne = await InventoryV2.hasItem(email, itemType, 1);
+				} else {
+					hasAtLeastOne = await InventoryV2.hasUnbrokenItem(email, itemType, 1);
+				}
+			}
+		});
+
+		//possibly exit early
+		if (!hasAtLeastOne) {
+			return false;
+		}
+
+		await Future.forEach(action.itemRequirements.all.keys, (String itemType) async {
+			int numNeeded = action.itemRequirements.all[itemType];
+			if (includeBroken) {
+				hasRequirements = await InventoryV2.hasItem(email, itemType, numNeeded);
+			} else {
+				hasRequirements = await InventoryV2.hasUnbrokenItem(email, itemType, numNeeded);
+			}
+		});
+
+		return hasRequirements;
 	}
 }

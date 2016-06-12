@@ -18,6 +18,31 @@
 		},
 		"giants": ["Tii", "Alph", "Lem"]
 	},
+	"animal_kinship": {
+		"name": "Animal Kinship",
+		"category": "Animals",
+		"levels": [7, 17, 67, 257, 509, 1019, 2039],
+		"descriptions": [
+			"Animals can seem skittish until you learn the basics of Animal Kinship. With it, you'll no longer fail at basic animal interactions; petting, nibbling, massaging will happen faster; chickens will consent to be squeezed more than once a day, and you'll lose much less energy to boot.",
+			"Advancing on the path of Animal Kinship introduces some additional rewards for the basic animal interactions, such as increasing the amount of meat piggies give when nibbled and the amount of milk butterflies give when milked.",
+			"The third level of animal kinship grants a further increase in imagination rewards for animal interactions and gives a chance for large meat, milk and grain bonuses.",
+			"The fourth level of Animal Kinship increases the basic milk and meat rewards, gives a chance of a serious mood bonus when massaging butterflies and is necessary to learn Animal Husbandry.",
+			"At the fifth level of Animal Kinship, practitioners experience substantial lifts in the imagination rewards, more mood bonus in some interactions and an increase in the chance for bonus meat and milk. Massaging a Butterfly no longer requires a lotion. Tantalizingly, it also confers the power to name your animal friends.",
+			"A rarefied skill offering kinship so close that pigs no longer require petting before a nibble, nor butterflies expect a massage before they'll consent to a milking - and not once, but twice a day. Same number of critters - TWICE the meat and milk action! Rewards and bonuses are all notched up as well.",
+			"The ultimate in Animal Kinship. Almost every interaction now grants significant imagination, rewards and bonus chances are gigantic and the animals themselves ... well, they love you best."
+		],
+		"iconUrls": [
+			"https://www.glitchthegame.com/img/skills-460/animalkinship_1.v1428362783.png",
+			"https://www.glitchthegame.com/img/skills-460/animalkinship_2.v1428362783.png",
+			"https://www.glitchthegame.com/img/skills-460/animalkinship_3.v1429808924.png",
+			"https://www.glitchthegame.com/img/skills-460/animalkinship_4.v1428362783.png",
+			"https://www.glitchthegame.com/img/skills-460/animalkinship_5.v1428362783.png",
+			"https://www.glitchthegame.com/img/skills-460/animalkinship_6.v1428362783.png",
+			"https://www.glitchthegame.com/img/skills-460/animalkinship_7.v1428362783.png"
+		],
+		"requirements": {},
+		"giants": ["Humbaba", "Friendly", "Mab"]
+	},
 	"arborology": {
 		"name": "Arborology",
 		"category": "Gathering",

@@ -7,11 +7,10 @@ class Shrine extends NPC {
 	Shrine(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		actionTime = 0;
 
-		actions
-			..add({"action":"Commune With",
-				      "timeRequired":actionTime,
-				      "enabled":true,
-				      "actionWord":""});
+		actions.add (
+			new Action.withName('Commune With')
+				..timeRequired = actionTime
+		);
 	}
 
 	@override

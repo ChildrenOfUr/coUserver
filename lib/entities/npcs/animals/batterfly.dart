@@ -9,12 +9,10 @@ class Batterfly extends NPC {
 	Batterfly(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		type = "Batterfly";
 		speed = 75; //pixels per second
-		actions
-			..add({'action':'feed',
-				      'timeRequired':0,
-				      'enabled':true,
-				      'actionWord':'feeding'
-			      });
+		actions.add(
+			new Action.withName('feed')
+				..actionWord = 'feeding'
+		);
 		states = {
 			"chew": new Spritesheet(
 				"chew",

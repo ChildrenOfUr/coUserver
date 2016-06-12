@@ -8,46 +8,27 @@ abstract class Tree extends Plant {
 	int maturity;
 
 	Tree(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
-		actions..add({"action":"harvest",
-			"timeRequired":actionTime,
-			"enabled":true,
-			"actionWord":"harvesting",
-			"requires":[{
-					'num':5,
-					'of':['energy'],
-					"error": "You need at least 5 energy to harvest."
-				}],
-				"associatedSkill": SKILL
-			})..add({"action":"water",
-			"timeRequired":actionTime,
-			"enabled":true,
-			"actionWord":"watering",
-			"requires":[
-				{
-					"num":1,
-					"of":["watering_can", "irrigator_9000"],
-					"error": "Trees don't like to be peed on. Go find some clean water, please."
-				},
-				{
-					"num": 2,
-					"of": ['energy'],
-					"error": "You need at least 2 energy to water."
-				}
-			],
-			"associatedSkill": SKILL
-		})..add({"action":"pet",
-			"timeRequired":actionTime,
-			"enabled":true,
-			"actionWord":"petting",
-			"requires":[
-				{
-					'num':2,
-					'of':['energy'],
-					'error': "You need at least 2 energy to pet."
-				}
-			],
-			"associatedSkill": SKILL
-		});
+		ItemRequirements itemReq = new ItemRequirements()
+			..any = ['shovel', 'ace_of_spades']
+			..error = "Trees don't like to be peed on. Go find some clean water, please.";
+		actions.addAll([
+			new Action.withName('harvest')
+				..actionWord = 'harvesting'
+				..timeRequired = actionTime
+				..energyRequirements = new EnergyRequirements(energyAmount: 5)
+				..associatedSkill = SKILL,
+			new Action.withName('water')
+				..actionWord = 'watering'
+				..timeRequired = actionTime
+				..energyRequirements = new EnergyRequirements(energyAmount: 2)
+				..itemRequirements = itemReq
+				..associatedSkill = SKILL,
+			new Action.withName('pet')
+				..actionWord = 'petting'
+				..timeRequired = actionTime
+				..energyRequirements = new EnergyRequirements(energyAmount: 2)
+				..associatedSkill = SKILL
+					   ]);
 	}
 
 	void update() {
@@ -131,8 +112,8 @@ abstract class Tree extends Plant {
 
 	Future<bool> water({WebSocket userSocket, String email}) async {
 		//make sure the player has a watering can that water this tree
-		Map mineAction = actions.firstWhere((Map action) => action['action'] == 'water');
-		List<String> types = mineAction['requires'][0]['of'];
+		Action digAction = actions.singleWhere((Action a) => a.actionName == 'water');
+		List<String> types = digAction.itemRequirements.any;
 		bool success = await InventoryV2.decreaseDurability(email, types);
 		if (!success) {
 			return false;

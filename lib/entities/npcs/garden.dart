@@ -10,92 +10,52 @@ enum GardenStates {
 class Garden extends NPC {
 	static final String SKILL = "croppery";
 	static bool sentMap = false;
-	static final int actionEnergy = 0;
-	static final int hoeEnergy = -5;
-	static final int waterEnergy = -2;
-	static final int harvestEnergy = -3;
+	static final int ACTION_ENERGY = 0;
+	static final int HOE_ENERGY = -5;
+	static final int WATER_ENERGY = -2;
+	static final int HARVEST_ENERGY = -3;
 	bool restored = false;
-
-	static Map hoeAction = {"action":"hoe",
-		"actionWord":"hoeing",
-		"timeRequired":2000,
-		"enabled":true,
-		"requires":[
-			{
-				"num":1,
-				"of":["hoe", "high_class_hoe"],
-				"error": "You don't want to get your fingers dirty."
-			},
-			{
-				"num":hoeEnergy,
-				"of":['energy'],
-				"error": "You need at least 5 energy to hoe."
-			}
-		],
-		"associatedSkill": SKILL
-	};
-
-	static Map waterAction = {"action":"water",
-		"timeRequired":2000,
-		"enabled":true,
-		"actionWord":"watering",
-		"requires":[
-			{
-				"num":1,
-				"of":["watering_can", "irrigator_9000"],
-				"error": "Gardens don't like to be peed on. Go find some clean water, please."
-			},
-			{
-				"num": waterEnergy,
-				"of": ['energy'],
-				"error": "You need at least 2 energy to water."
-			}
-		],
-		"associatedSkill": SKILL
-	};
-
-	static Map plantAction = {"action":"plant",
-		"timeRequired":0,
-		"enabled":true,
-		"actionWord":"planting",
-		"requires":[
-			{
-				"num": 1,
-				"of": ['Seed_Broccoli','Seed_Cabbage','Seed_Carrot','Seed_Corn',
-				       'Seed_Cucumber','Seed_Onion','Seed_Parsnip','Seed_Potato',
-				       'Seed_Pumpkin','Seed_Rice','Seed_Spinach','Seed_Tomato','Seed_Zucchini'],
-				"error": "You need some crop seeds to plant."
-			}
-		],
-		"associatedSkill": SKILL
-	};
-
-	static Map harvestAction = {"action":"harvest",
-		"timeRequired":5000,
-		"enabled":true,
-		"actionWord":"harvesting",
-		"requires":[
-			{
-				"num": harvestEnergy,
-				"of": ['energy'],
-				"error": "You need at least 3 energy to harvest."
-			}
-		],
-		"associatedSkill": SKILL
-	};
-
-	static Map viewAction = {"action":"view",
-		"timeRequired":0,
-		"enabled":true,
-		"actionWord":"viewing",
-	};
 
 	GardenStates gardenState = GardenStates.NEW;
 	String plantedWith = 'none';
 	int plantedState = -1;
 	DateTime plantedAt, stage1Time, stage2Time, stage3Time;
+	Action hoeAction, waterAction, plantAction, viewAction, harvestAction;
 
 	Garden(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
+		ItemRequirements hoeReq = new ItemRequirements()
+			..any = ['hoe', 'high_class_hoe']
+			..error = "You don't want to get your fingers dirty.";
+		ItemRequirements waterReq = new ItemRequirements()
+			..any = ['watering_can', 'irrigator_9000']
+			..error = "Gardens don't like to be peed on. Go find some clean water, please.";
+		ItemRequirements plantReq = new ItemRequirements()
+			..any = ['Seed_Broccoli','Seed_Cabbage','Seed_Carrot','Seed_Corn',
+			'Seed_Cucumber','Seed_Onion','Seed_Parsnip','Seed_Potato',
+			'Seed_Pumpkin','Seed_Rice','Seed_Spinach','Seed_Tomato','Seed_Zucchini']
+			..error = 'You need some crops to plant';
+
+		hoeAction = new Action.withName('hoe')
+			..actionWord = 'hoeing'
+			..timeRequired = 2000
+			..energyRequirements = new EnergyRequirements(energyAmount: HOE_ENERGY)
+			..itemRequirements = hoeReq
+			..associatedSkill = SKILL;
+		waterAction = new Action.withName('water')
+			..actionWord = 'watering'
+			..timeRequired = 2000
+			..energyRequirements = new EnergyRequirements(energyAmount: WATER_ENERGY)
+			..itemRequirements = waterReq
+			..associatedSkill = SKILL;
+		plantAction = new Action.withName('plant')
+			..itemRequirements = plantReq
+			..associatedSkill = SKILL;
+		viewAction = new Action.withName('view');
+		harvestAction = new Action.withName('harvest')
+			..actionWord = 'harvesting'
+			..timeRequired = 5000
+			..energyRequirements = new EnergyRequirements(energyAmount: HARVEST_ENERGY)
+			..associatedSkill = SKILL;
 		type = "Crop Garden";
 		states =
 		{
@@ -216,14 +176,14 @@ class Garden extends NPC {
 	Future<bool> _setLevelBasedMetabolics(int level, String action, String email) async {
 		int mood = 2;
 		int imgMin = 5;
-		int energy = actionEnergy;
+		int energy = ACTION_ENERGY;
 
 		if (action == 'hoe') {
-			energy = hoeEnergy;
+			energy = HOE_ENERGY;
 		} else if (action == 'water') {
-			energy = waterEnergy;
+			energy = WATER_ENERGY;
 		} else if (action == 'harvest') {
-			energy = harvestEnergy;
+			energy = HARVEST_ENERGY;
 		}
 
 		if (level > 0) {

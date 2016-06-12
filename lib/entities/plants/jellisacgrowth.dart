@@ -5,19 +5,14 @@ class Jellisac extends Plant {
 		actionTime = 2000;
 		type = "Jellisac Growth";
 
-		actions.add({
-			"action":"grab",
-			"actionWord":"squishing",
-			"timeRequired":actionTime,
-			"enabled":true,
-			"requires":[
-				{
-					"num":4,
-					"of":['energy'],
-					"error": "You need at least 4 energy to even think about touching this."
-				}
-			]
-		});
+		EnergyRequirements energyReq = new EnergyRequirements(energyAmount: 4)
+			..error = 'You need at least 4 energy to even this about touching this';
+		actions.add(
+			new Action.withName('grab')
+				..actionWord = 'squishing'
+				..timeRequired = actionTime
+				..energyRequirements = energyReq
+		);
 
 		states = {
 			"1-2-3-4-5" : new Spritesheet("1-2-3-4-5", "http://childrenofur.com/assets/entityImages/jellisac.png", 210, 49, 42, 49, 5, false),

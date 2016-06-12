@@ -192,6 +192,7 @@ enum Stat {
 	peat_harvested,
 	piggies_nibbled,
 	piggies_petted,
+	piggies_fed,
 	planks_harvested,
 	quoins_collected,
 	rocks_mined,

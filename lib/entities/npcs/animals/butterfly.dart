@@ -10,32 +10,16 @@ class Butterfly extends NPC {
 
 	Butterfly(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		type = "Butterfly";
-		actions
-			..add({
-				      "action": "massage",
-				      "timeRequired": actionTime,
-				      "enabled": true,
-				      "actionWord": "massaging",
-				      "requires":[
-					      {
-						      'num':7,
-						      'of':['energy']
-					      }
-				      ]
-			      });
-		actions
-			..add({
-				      "action": "milk",
-				      "timeRequired": actionTime,
-				      "enabled": true,
-				      "actionWord": "milking",
-				      "requires":[
-					      {
-						      'num':5,
-						      'of':['energy']
-					      }
-				      ]
-			      });
+		actions.addAll([
+			new Action.withName('massage')
+				..timeRequired = actionTime
+				..actionWord = 'massaging'
+				..energyRequirements = new EnergyRequirements(energyAmount: 7),
+			new Action.withName('milk')
+				..timeRequired = actionTime
+				..actionWord = 'milking'
+				..energyRequirements = new EnergyRequirements(energyAmount: 5)
+					   ]);
 		speed = 75; //pixels per second
 		states = {
 			"fly-angle1": new Spritesheet(

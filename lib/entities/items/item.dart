@@ -27,7 +27,7 @@ import 'package:redstone_mapper_pg/manager.dart';
 import 'package:redstone_mapper/mapper.dart';
 import 'package:redstone/redstone.dart' as app;
 
-part 'actions/action.dart';
+part 'package:coUserver/entities/action.dart';
 
 part 'actions/itemgroups/baby_animals.dart';
 

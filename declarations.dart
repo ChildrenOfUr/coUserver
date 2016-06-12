@@ -7,7 +7,6 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart' as rsLog;
 import 'package:redstone/redstone.dart' as app;
-import 'package:redstone_mapper/mapper.dart';
 import 'package:redstone_mapper/plugin.dart';
 
 import 'package:coUserver/API_KEYS.dart';

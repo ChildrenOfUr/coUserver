@@ -93,7 +93,7 @@ abstract class NPC extends Entity {
 	void defaultYAction() {
 		ySpeed -= yAccel ~/ NPC.updateFps;
 		y += ySpeed ~/ NPC.updateFps;
-		y = street.getYFromGround(previousX, previousY, width, height);
+		y = street.getYFromGround(x, previousY, width, height);
 	}
 
 	///Move the entity 'forward' according to which direction they are facing
@@ -168,6 +168,6 @@ abstract class NPC extends Entity {
 			'loops': currentState.loops,
 			'loopDelay': currentState.loopDelay,
 			"facingRight": facingRight,
-			"actions": actions
+			"actions": encode(actions)
 		});
 }

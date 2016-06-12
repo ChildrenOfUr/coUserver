@@ -32,16 +32,13 @@ class WoodTree extends Tree {
 			]
 		};
 
-		actions[0]
-			..["action"] = "chop"
-			..["actionWord"] = "chopping"
-			..['requires'] = [
-				{
-				"num":1,
-				"of":["hatchet", "class_axe"],
-				"error": "You need something sharp to cut the wood with."
-			}
-		];
+		ItemRequirements itemReq = new ItemRequirements()
+			..any = ['hatchet', 'class_axe']
+			..error = 'You need something sharp to cut the wood with';
+		actions.singleWhere((Action a) => a.actionName == 'harvest')
+			..actionName = 'chop'
+			..actionWord = 'chopping'
+			..itemRequirements = itemReq;
 
 		states =
 		{
@@ -58,8 +55,8 @@ class WoodTree extends Tree {
 
 	Future<bool> chop({WebSocket userSocket, String email}) async {
 		//make sure the player has a hatchet that chop some wood
-		Map mineAction = actions.firstWhere((Map action) => action['action'] == 'chop');
-		List<String> types = mineAction['requires'][0]['of'];
+		Action digAction = actions.singleWhere((Action a) => a.actionName == 'chop');
+		List<String> types = digAction.itemRequirements.any;
 		bool success = await InventoryV2.decreaseDurability(email, types);
 		if(!success) {
 			return false;

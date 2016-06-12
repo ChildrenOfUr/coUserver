@@ -61,6 +61,14 @@ class Clock {
 
 	int get monthInt => _monthInt;
 
+	int get hourInt {
+		if (time.contains('am')) {
+			return int.parse(time.replaceAll('am','').split(':')[0]);
+		} else {
+			return int.parse(time.replaceAll('pm','').split(':')[1])+12;
+		}
+	}
+
 	Clock() {
 		_newdayController = new StreamController.broadcast();
 		_timeupdateController = new StreamController.broadcast();

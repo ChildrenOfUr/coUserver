@@ -5,12 +5,10 @@ abstract class LockedDoor extends Door {
 
 	LockedDoor(String id, String streetName, int x, int y) : super(id, streetName, x, y) {
 		type = "Locked Door";
-		actions.add({
-			"action": "exit",
-			"timeRequired": 0,
-			"enabled": true,
-			"actionWord": "walking out"
-		});
+		actions.add(
+			new Action.withName('exit')
+				..actionWord = 'walking out'
+		);
 	}
 
 	void enter({WebSocket userSocket, String email}) {

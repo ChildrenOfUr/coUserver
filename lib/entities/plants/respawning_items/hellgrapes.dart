@@ -9,14 +9,11 @@ class HellGrapes extends RespawningItem {
 		itemType = 'bunch_of_grapes';
 		actionTime = 3000;
 
-		actions.add({
-			'action': 'squish',
-			'actionWord': 'squishing',
-			'description': 'You have to work to get out.',
-			'timeRequired': 0,
-			'enabled': true,
-			'requires': []
-		});
+		actions.add(
+			new Action.withName('squish')
+				..actionWord = 'squishing'
+				..description = 'You have to work to get out.'
+		);
 
 		states = {
 			'grapes': new Spritesheet('1-2-3-4', 'http://childrenofur.com/assets/entityImages/bunch_of_grapes__x1_1_x1_2_x1_3_x1_4_png_1354829730.png', 228, 30, 57, 30, 4, true)

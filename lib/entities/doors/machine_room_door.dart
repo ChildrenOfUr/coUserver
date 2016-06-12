@@ -20,12 +20,10 @@ class MachineRoomDoor extends Door {
 					break;
 			}
 			outside = false;
-			actions.add({
-				"action": "exit",
-				"timeRequired": 0,
-				"enabled": true,
-				"actionWord": "walking out"
-			});
+			actions.add(
+				new Action.withName('exit')
+					..actionWord = 'walking out'
+				);
 			currentState = new Spritesheet("door_mr_int", "http://childrenofur.com/assets/entityImages/machine_room_door_int.png", 57, 244, 57, 244, 1, true);
 		} else {
 			switch(streetName) {
@@ -45,12 +43,10 @@ class MachineRoomDoor extends Door {
 					break;
 			}
 			outside = true;
-			actions.add({
-				"action": "exit",
-				"timeRequired": 0,
-				"enabled": true,
-				"actionWord": "walking out"
-			});
+			actions.add(
+				new Action.withName('enter')
+					..actionWord = 'walking in'
+				);
 			currentState = new Spritesheet("door_mr_ext", "http://childrenofur.com/assets/entityImages/door_asset_community_machine_room_ext.svg", 57, 244, 57, 244, 1, true);
 		}
 		type = "Machine Room";

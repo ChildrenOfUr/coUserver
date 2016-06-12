@@ -2,7 +2,7 @@ part of entity;
 
 class DustTrap extends NPC {
 	DateTime now;
-	String streetName, tsid;
+	String tsid;
 
 	bool _approx(num compare, num to) {
 		return (compare - to).abs() < 30;

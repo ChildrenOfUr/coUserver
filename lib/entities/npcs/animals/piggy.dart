@@ -1,40 +1,32 @@
 part of entity;
 
 class Piggy extends NPC {
+	static final String SKILL = 'animal_kinship';
+	static final int NIBBLE_ENERGY = -5;
+	static final int PET_ENERGY = -4;
+	List<String> petList = [], nibbleList = [];
+	DateTime lastReset = new DateTime.now();
+
 	Piggy(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
-		actions
-			..add({"action":"nibble",
-				      "timeRequired":actionTime,
-				      "enabled":true,
-				      "actionWord":"nibbling",
-				      "requires":[
-					      {
-						      'num':3,
-						      'of':['energy']
-					      }
-				      ]})
-			..add({"action":"pet",
-				      "timeRequired":actionTime,
-				      "enabled":true,
-				      "actionWord":"petting",
-				      "requires":[
-					      {
-						      'num':2,
-						      'of':['energy']
-					      }
-				      ]})
-			..add({'action':'feed',
-					'timeRequired':0,
-					'enabled':true,
-					'actionWord':'feeding',
-					'requires': [
-						{
-							'num':1,
-							'of':['broccoli','cabbage','carrot','corn','cucumber','onion',
-							'parsnip','potato','pumpkin','rice','spinach','tomato','zucchini'],
-							'error': "You don't have anything that looks good right now."
-						}
-					]});
+		ItemRequirements itemReq = new ItemRequirements()
+			..any = ['broccoli','cabbage','carrot','corn','cucumber','onion',
+							'parsnip','potato','pumpkin','rice','spinach','tomato','zucchini']
+			..error = "You don't have anything that looks good right now";
+		actions.addAll([
+			 new Action.withName('nibble')
+				 ..timeRequired = actionTime
+				 ..actionWord = 'nibbling'
+				 ..energyRequirements = new EnergyRequirements(energyAmount: NIBBLE_ENERGY)
+				..associatedSkill = SKILL,
+			new Action.withName('pet')
+				..timeRequired = actionTime
+				..actionWord = 'petting'
+				..energyRequirements = new EnergyRequirements(energyAmount: PET_ENERGY)
+				..associatedSkill = SKILL,
+			new Action.withName('feed')
+				..itemRequirements = itemReq
+				..associatedSkill = SKILL
+				  ]);
 		type = "Piggy";
 		speed = 75; //pixels per second
 
@@ -59,17 +51,94 @@ class Piggy extends NPC {
 				"Do I boar you?"
 			]
 		};
+
+		Clock clock = new Clock();
+		clock.onNewDay.listen((_) => _resetLists());
+	}
+
+	void _resetLists() {
+		petList.clear();
+		nibbleList.clear();
+		lastReset = new DateTime.now();
+	}
+
+	void restoreState(Map<String, String> metadata) {
+		if (metadata.containsKey('petList')) {
+			petList = JSON.decode(metadata['petList']);
+		}
+		if (metadata.containsKey('nibbleList')) {
+			nibbleList = JSON.decode(metadata['nibbleList']);
+		}
+		if (metadata.containsKey('lastReset')) {
+			lastReset = new DateTime.fromMillisecondsSinceEpoch(int.parse(metadata['lastReset']));
+			Clock lastResetClock = new Clock.stoppedAtDate(lastReset);
+			Clock currentClock = new Clock.stoppedAtDate(new DateTime.now());
+			if (lastResetClock.dayInt < currentClock.dayInt ||
+			    lastResetClock.hourInt < 6 && currentClock.hourInt >= 6) {
+				_resetLists();
+			}
+		}
+	}
+
+	Map<String, String> getPersistMetadata() {
+		Map<String, String> map = {
+			'petList': JSON.encode(petList),
+			'nibbleList': JSON.encode(nibbleList),
+			'lastReset': lastReset.millisecondsSinceEpoch.toString()
+		};
+
+		return map;
+	}
+
+	Future<bool> _setLevelBasedMetabolics(int level, String action, String email) async {
+		int mood = 2;
+		int imgMin = 5;
+		int energy = 0;
+
+		if (action == 'pet') {
+			energy = PET_ENERGY;
+		} else if (action == 'nibble') {
+			energy = NIBBLE_ENERGY;
+		}
+
+		if (level > 0) {
+			mood *= level+1;
+			imgMin *= level+1;
+			energy ~/= level;
+		}
+
+		return trySetMetabolics(email, energy: energy, mood: mood, imgMin: imgMin, imgRange: 4);
 	}
 
 	Future<bool> nibble({WebSocket userSocket, String email}) async {
-		bool success = await super.trySetMetabolics(email, energy:-3, mood:2, imgMin:7, imgRange:4);
+		int level = await SkillManager.getLevel(SKILL, email);
+		bool success = await _setLevelBasedMetabolics(level, 'nibble', email);
 		if(!success) {
 			return false;
 		}
 
 		StatManager.add(email, Stat.piggies_nibbled);
+		nibbleList.add(email);
+
 		//give the player the 'fruits' of their labor
-		await InventoryV2.addItemToUser(email, items['meat'].getMap(), 1, id);
+		int odds = 100000;
+		int count = 1;
+		if (level == 7) {
+			count = 4;
+			odds = 3;
+		} else if (level > 4) {
+			count = 3;
+			odds = 10;
+		} else if (level > 3) {
+			odds = 20;
+		} else if (level > 1) {
+			count = 2;
+		}
+		if (rand.nextInt(odds) == 7) {
+			count += 5;
+		}
+
+		await InventoryV2.addItemToUser(email, items['meat'].getMap(), count, id);
 
 		setState('nibble');
 		say(responses['nibble'].elementAt(rand.nextInt(responses['nibble'].length)));
@@ -78,12 +147,16 @@ class Piggy extends NPC {
 	}
 
 	Future<bool> pet({WebSocket userSocket, String email}) async {
-		bool success = await super.trySetMetabolics(email, energy:-2, mood:3, imgMin:5, imgRange:3);
+		int level = await SkillManager.getLevel(SKILL, email);
+		bool success = await _setLevelBasedMetabolics(level, 'pet', email);
 		if(!success) {
 			return false;
 		}
 
 		StatManager.add(email, Stat.piggies_petted);
+		SkillManager.learn(SKILL, email);
+		petList.add(email);
+
 		say(responses['pet'].elementAt(rand.nextInt(responses['pet'].length)));
 
 		QuestEndpoint.questLogCache[email].offerQuest('Q9');
@@ -107,6 +180,9 @@ class Piggy extends NPC {
 		if(!success) {
 			return false;
 		}
+
+		StatManager.add(email, Stat.piggies_fed);
+		SkillManager.learn(SKILL, email);
 
 		Item item = new Item.clone('piggy_plop');
 		item.metadata['seedType'] = itemType;
@@ -140,5 +216,51 @@ class Piggy extends NPC {
 				setState('walk');
 			}
 		}
+	}
+
+	@override
+	Future<List<Action>> customizeActions(String email) async {
+		int akLevel = await SkillManager.getLevel(SKILL, email);
+		List<Action> personalActions = [];
+		await Future.forEach(actions, (Action action) async {
+			Action personalAction = new Action.clone(action);
+			if (action.actionName == 'nibble') {
+				//player must have petted first unless their level is > 5
+				//also they can only nibble once per day
+				if (akLevel > 5) {
+					int times = _countNibbles(email);
+					if (times >= 2) {
+						personalAction.enabled = false;
+						personalAction.error = 'You can only nibble this piggy twice per day';
+					}
+				} else {
+					if (!petList.contains(email)) {
+						personalAction.enabled = false;
+						personalAction.error = 'Try petting first';
+					} else if (nibbleList.contains(email)) {
+						personalAction.enabled = false;
+						personalAction.error = 'You can only nibble this piggy once per day';
+					}
+				}
+
+				if (akLevel > 5) {
+					personalAction.energyRequirements.energyAmount = 2;
+				} else if (akLevel > 2) {
+					personalAction.energyRequirements.energyAmount = 4;
+				}
+			}
+			personalActions.add(personalAction);
+		});
+		return personalActions;
+	}
+
+	int _countNibbles(String email) {
+		int times = 0;
+		for (String e in nibbleList) {
+			if (e == email) {
+				times++;
+			}
+		}
+		return times;
 	}
 }

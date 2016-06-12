@@ -39,7 +39,7 @@ class Quoin
 		respawn = new DateTime.now().add(new Duration(seconds: duration));
 	}
 
-	Map getMap() => {
+	Map<String, dynamic> getMap() => {
 		"id": id,
 		"url": url,
 		"type": type,

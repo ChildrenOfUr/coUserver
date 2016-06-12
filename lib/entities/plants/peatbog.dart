@@ -5,23 +5,16 @@ class PeatBog extends Plant {
 		actionTime = 5000;
 		type = "Peat Bog";
 
-		actions.add({"action":"dig",
-			"actionWord":"digging",
-			"timeRequired":actionTime,
-			"enabled":true,
-			"requires":[
-				{
-					"num":1,
-					"of":["shovel", "ace_of_spades"],
-					"error": "You can't grip this stuff without a tool."
-				},
-				{
-					"num":10,
-					"of":['energy'],
-					"error": "You need at least 10 energy to dig."
-				}
-			]
-		});
+		ItemRequirements itemReq = new ItemRequirements()
+			..any = ['shovel', 'ace_of_spades']
+			..error = "You can't grip this stuff without a tool.";
+		actions.add(
+			new Action.withName('dig')
+				..actionWord = 'digging'
+				..timeRequired = actionTime
+				..energyRequirements = new EnergyRequirements(energyAmount: 10)
+				..itemRequirements = itemReq
+			);
 
 		states = {
 			"5-4-3-2-1" : new Spritesheet("5-4-3-2-1", "http://childrenofur.com/assets/entityImages/peat_x1_5_x1_4_x1_3_x1_2_x1_1__1_png_1354832710.png", 633, 104, 211, 52, 5, false),
@@ -50,8 +43,8 @@ class PeatBog extends Plant {
 
 	Future<bool> dig({WebSocket userSocket, String email}) async {
 		//make sure the player has a shovel that can dig this peat
-		Map mineAction = actions.firstWhere((Map action) => action['action'] == 'dig');
-		List<String> types = mineAction['requires'][0]['of'];
+		Action digAction = actions.singleWhere((Action a) => a.actionName == 'dig');
+		List<String> types = digAction.itemRequirements.any;
 		bool success = await InventoryV2.decreaseDurability(email, types);
 		if(!success) {
 			return false;

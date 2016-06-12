@@ -95,6 +95,7 @@ class DBStreet {
 
 class Street {
 	static Map<String, Map> _jsonCache = {};
+	static Map<String, bool> persistLock = {};
 	List<CollisionPlatform> platforms = [];
 	List<Wall> walls = [];
 	int groundY = 0;
@@ -228,6 +229,7 @@ class Street {
 			}
 		}
 
+		persistLock[label] = true;
 		PostgreSql dbConn = await dbManager.getConnection();
 
 		try {
@@ -243,9 +245,10 @@ class Street {
 				await npc.persist();
 			});
 
-		} catch (e) {
-			Log.warning('Could not persist $tsid ($label). It may not have been loaded completely.', e);
+		} catch (e, st) {
+			Log.error('Could not persist $tsid ($label). It may not have been loaded completely.', e, st);
 		} finally {
+			persistLock.remove(label);
 			dbManager.closeConnection(dbConn);
 		}
 	}

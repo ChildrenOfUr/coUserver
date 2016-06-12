@@ -10,29 +10,20 @@ class Chicken extends NPC {
 	bool incubating = false;
 
 	Chicken(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
-		actions.add({"action":"squeeze",
-			            "enabled":true,
-			            "timeRequired":actionTime,
-			            "actionWord":"squeezing",
-			            "requires":[
-				            {
-					            'num':5,
-					            'of':['energy']
-				            }
-			            ]});
-		actions.add({
-			"action": "incubate",
-			"enabled": MapData.streets[streetName] != null &&
-				MapData.streets[streetName]["tsid"] != null,
-			"actionWord": "incubating",
-			"timeRequired": 0,
-			"requires": [
-				{
-					"num": 1,
-					"of": EGG_ANIMALS.keys.toList()
-				}
-			]
-		});
+		ItemRequirements itemReq = new ItemRequirements()
+			..any = EGG_ANIMALS.keys.toList();
+		actions.addAll([
+			new Action.withName('squeeze')
+				..actionWord = 'squeezing'
+				..timeRequired = actionTime
+				..energyRequirements = new EnergyRequirements(energyAmount: 5),
+			new Action.withName('incubate')
+				..enabled = MapData.streets[streetName] != null &&
+							MapData.streets[streetName]["tsid"] != null
+				..actionWord = 'incubating'
+				..timeRequired = actionTime
+				..itemRequirements = itemReq
+					   ]);
 
 		type = "Chicken";
 		speed = 75; //pixels per second

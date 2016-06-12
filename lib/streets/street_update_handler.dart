@@ -123,8 +123,15 @@ class StreetUpdateHandler {
 					}
 				});
 
-				street.occupants.forEach((String username, WebSocket socket) {
+				street.occupants.forEach((String username, WebSocket socket) async {
 					if (socket != null) {
+						String email = await User.getEmailFromUsername(username);
+						//we need to modify the actions list for the npcs and plants
+						//to take into account the players skills so that the costs are right
+						await Future.forEach(moveMap['npcs'], (Map npcMove) async {
+							NPC npc = street.npcs[npcMove['id']];
+							npcMove['actions'] = encode(await npc.customizeActions(email));
+						});
 						try {
 							socket.add(JSON.encode(moveMap));
 						} catch (e, st) {
@@ -173,8 +180,16 @@ class StreetUpdateHandler {
 
 				pickedUpItems.forEach((String id) => street.groundItems.remove(id));
 
-				street.occupants.forEach((String username, WebSocket socket) {
+				street.occupants.forEach((String username, WebSocket socket) async {
 					if (socket != null) {
+						String email = await User.getEmailFromUsername(username);
+						//we need to modify the actions list for the npcs and plants
+						//to take into account the players skills so that the costs are right
+						await Future.forEach(updates['npcs'], (Map npcMap) async {
+							NPC npc = street.npcs[npcMap['id']];
+							npcMap['actions'] = encode(await npc.customizeActions(email));
+						});
+
 						socket.add(JSON.encode(updates));
 					}
 				});
@@ -194,6 +209,10 @@ class StreetUpdateHandler {
 			if (street != null) {
 				DateTime now = new DateTime.now();
 				if (street.expires?.isBefore(now) ?? false) {
+					if (Street.persistLock.containsKey(label)) {
+						Log.verbose('Already in the process of persisting <label=$label> so not doing it again');
+						return;
+					}
 					await street.persistState();
 					street.expires = null;
 					streets.remove(label);

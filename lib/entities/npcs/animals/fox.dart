@@ -24,22 +24,15 @@ class Fox extends NPC {
 
 		// Actions
 		actionTime = 1;
-		actions.add({
-			'action': 'brush',
-			'timeRequired': actionTime,
-			'enabled': true,
-			'actionWord': 'brushing',
-			'requires':[
-				{
-					'num': 10,
-					'of': ['energy']
-				},
-				{
-					'num': 1,
-					'of': [BRUSH]
-				}
-			]
-		});
+		ItemRequirements itemReq = new ItemRequirements()
+			..any = [BRUSH];
+		actions.add(
+			new Action.withName('brush')
+				..timeRequired = actionTime
+				..actionWord = 'brushing'
+				..energyRequirements = new EnergyRequirements(energyAmount: 3)
+				..itemRequirements = itemReq
+		);
 
 		// Spritesheets
 		states = {

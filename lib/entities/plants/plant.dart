@@ -12,7 +12,7 @@ abstract class Plant extends Entity {
 	String id, type, streetName;
 	int state, maxState, x, y, actionTime = 3000;
 	DateTime respawn;
-	List<Map> actions = [];
+	List<Action> actions = [];
 	Map<String, Spritesheet> states;
 	Spritesheet currentState;
 
@@ -45,7 +45,7 @@ abstract class Plant extends Entity {
 		}
 	}
 
-	Map getMap() {
+	Map<String, dynamic> getMap() {
 		Map map = super.getMap();
 		map['url'] = currentState.url;
 		map['id'] = id;
@@ -54,7 +54,7 @@ abstract class Plant extends Entity {
 		map["numRows"] = currentState.numRows;
 		map["numColumns"] = currentState.numColumns;
 		map["numFrames"] = currentState.numFrames;
-		map["actions"] = actions;
+		map["actions"] = encode(actions);
 		map['x'] = x;
 		map['y'] = y;
 		return map;

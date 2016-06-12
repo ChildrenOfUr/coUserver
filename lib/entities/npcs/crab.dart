@@ -44,17 +44,14 @@ class Crab extends NPC {
 		speed = 60; // pixels per second
 
 		actionTime = 0;
-		actions.add({
-			"action": "Talk To",
-			"timeRequired": actionTime,
-			"enabled": true,
-			"actionWord": "crabbing",
-			"requires": [{
-				"num": 1,
-				"of": ALL_MUSICBLOCK_TYPES,
-				"error": ERROR_NO_MUSIC
-			}]
-		});
+		ItemRequirements itemReq = new ItemRequirements()
+			..any = ALL_MUSICBLOCK_TYPES
+			..error = ERROR_NO_MUSIC;
+		actions.add(
+			new Action.withName('play for')
+				..actionWord = 'crabbing'
+				..itemRequirements = itemReq
+		);
 
 		states = {
 			"dislike_off": new Spritesheet(
@@ -122,7 +119,7 @@ class Crab extends NPC {
 	}
 
 	/// Called from the client menu
-	void talkTo({WebSocket userSocket, String email}) {
+	void playFor({WebSocket userSocket, String email}) {
 		userSocket.add(JSON.encode({
 			"action": "playMusic",
 			"id": id,

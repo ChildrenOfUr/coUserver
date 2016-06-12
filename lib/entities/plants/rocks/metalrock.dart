@@ -4,18 +4,12 @@ class MetalRock extends Rock {
 	MetalRock(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
 		type = "Metal Rock";
 
-		actions[0]['requires'] = [
-			{
-				"num":1,
-				"of":["fancy_pick"],
-				"error": "You need a special pick to mine harder rocks."
-			},
-			{
-				"num":10,
-				"of":['energy'],
-				"error": "You need at least 10 energy to mine."
-			}
-		];
+		ItemRequirements itemReq = new ItemRequirements()
+			..any = ['fancy_pick']
+			..error = 'You need a special pick to mine harder rocks.';
+		actions.singleWhere((Action a) => a.actionName == 'mine')
+			..itemRequirements = itemReq
+			..energyRequirements = new EnergyRequirements(energyAmount: 10);
 
 		states =
 		{
