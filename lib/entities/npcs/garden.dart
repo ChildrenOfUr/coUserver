@@ -22,7 +22,7 @@ class Garden extends NPC {
 	DateTime plantedAt, stage1Time, stage2Time, stage3Time;
 	Action hoeAction, waterAction, plantAction, viewAction, harvestAction;
 
-	Garden(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
+	Garden(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		ItemRequirements hoeReq = new ItemRequirements()
 			..any = ['hoe', 'high_class_hoe']
 			..error = "You don't want to get your fingers dirty.";

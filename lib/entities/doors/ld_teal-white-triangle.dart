@@ -1,7 +1,7 @@
 part of entity;
 
 class TealWhiteTriangleLockedDoor extends LockedDoor {
-	TealWhiteTriangleLockedDoor(String id, String streetName, int x, int y) : super(id, streetName, x, y) {
+	TealWhiteTriangleLockedDoor(String id, String streetName, num x, num y) : super(id, streetName, x, y) {
 		requiredKey = "teal_white_triangle_key";
 
 		if (streetName == "Ajaya Bliss") {

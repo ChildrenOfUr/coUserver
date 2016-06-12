@@ -7,7 +7,7 @@ abstract class Tree extends Plant {
 
 	int maturity;
 
-	Tree(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
+	Tree(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		ItemRequirements itemReq = new ItemRequirements()
 			..any = ['shovel', 'ace_of_spades']
 			..error = "Trees don't like to be peed on. Go find some clean water, please.";

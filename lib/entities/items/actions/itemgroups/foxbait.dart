@@ -11,8 +11,8 @@ class FoxBaitItem {
 		// Create entity
 		try {
 			Identifier player = PlayerUpdateHandler.users[username];
-			int x = player.currentX + 60;
-			int y = player.currentY + 150;
+			num x = player.currentX + 60;
+			num y = player.currentY + 150;
 			String id = createId(x, y, 'FoxBait', streetName);
 			new FoxBait(id, x, y, streetName);
 			return true;

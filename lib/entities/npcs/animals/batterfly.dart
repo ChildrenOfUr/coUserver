@@ -6,7 +6,7 @@ class Batterfly extends NPC {
 		maxBob = 50;
 	bool bobbingUp = true;
 
-	Batterfly(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
+	Batterfly(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		type = "Batterfly";
 		speed = 75; //pixels per second
 		actions.add(

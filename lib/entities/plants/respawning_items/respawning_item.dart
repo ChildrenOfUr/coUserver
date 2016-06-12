@@ -3,7 +3,7 @@ part of entity;
 abstract class RespawningItem extends Plant {
 	String itemType;
 
-	RespawningItem(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
+	RespawningItem(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		actions.add(
 			new Action.withName('pick up')
 				..actionWord = 'picking up'

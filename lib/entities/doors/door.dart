@@ -4,7 +4,7 @@ abstract class Door extends Entity {
 	String id, type, toLocation, streetName;
 	bool outside;
 	Spritesheet currentState;
-	int x,y;
+	num x,y;
 
 	Door(this.id, this.streetName, this.x, this.y) {
 		type = "Door";

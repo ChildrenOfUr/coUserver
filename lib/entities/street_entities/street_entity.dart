@@ -29,7 +29,7 @@ class StreetEntity {
 	/// Must start with L
 	@Field() String tsid;
 
-	@Field() int x, y;
+	@Field() num x, y;
 
 	@Field() String metadata_json;
 

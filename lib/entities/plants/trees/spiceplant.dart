@@ -1,7 +1,7 @@
 part of entity;
 
 class SpicePlant extends Tree {
-	SpicePlant(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
+	SpicePlant(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		type = "Spice Plant";
 		rewardItemType = "allspice";
 

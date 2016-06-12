@@ -1,7 +1,7 @@
 part of entity;
 
 class MachineRoomDoor extends Door {
-	MachineRoomDoor(String id, String streetName, int x, int y) : super (id, streetName, x, y) {
+	MachineRoomDoor(String id, String streetName, num x, num y) : super (id, streetName, x, y) {
 		if(streetName.toLowerCase().contains("machine room")) {
 			switch(streetName) {
 				case "Besara Community Machine Room":

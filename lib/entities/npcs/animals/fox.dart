@@ -19,7 +19,7 @@ class Fox extends NPC {
 	bool despawning = false, waiting = false;
 	Point<num> movingTo;
 
-	Fox(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
+	Fox(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		// Client rendering
 		type = 'Fox';
 		speed = 0; // px/sec
@@ -177,7 +177,7 @@ class Fox extends NPC {
 }
 
 class SilverFox extends Fox {
-	SilverFox(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
+	SilverFox(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		states = {
 			'brushed': new Spritesheet('brushed',
 				'http://c2.glitch.bz/items/2012-12-06/npc_fox_fox_silverFox_x1_brushed_png_1354839613.png', 306, 139, 153, 139, 2, true),
@@ -209,7 +209,7 @@ class FoxBait extends NPC {
 
 	static final Duration MAX_TIME = new Duration(minutes: 5);
 
-	FoxBait(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
+	FoxBait(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		type = 'Fox Bait';
 		speed = 0;
 

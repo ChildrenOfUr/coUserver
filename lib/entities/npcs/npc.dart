@@ -17,13 +17,7 @@ abstract class NPC extends Entity {
 	static int updateFps = 20;
 
 	String id, type, streetName;
-	int x,
-		y,
-		speed = 0,
-		ySpeed = 0,
-		yAccel = -2400,
-		previousX,
-		previousY;
+	num x, y, previousX, previousY, speed = 0, ySpeed = 0, yAccel = -2400;
 	bool facingRight = true, grounded = false;
 	MutableRectangle _collisionsRect;
 
@@ -90,12 +84,12 @@ abstract class NPC extends Entity {
 	}
 
 	void defaultXAction() {
-		x += speed * (facingRight ? 1 : -1) ~/ NPC.updateFps;
+		x += speed * (facingRight ? 1 : -1) / NPC.updateFps;
 	}
 
 	void defaultYAction() {
-		ySpeed -= yAccel ~/ NPC.updateFps;
-		y += ySpeed ~/ NPC.updateFps;
+		ySpeed -= yAccel / NPC.updateFps;
+		y += ySpeed / NPC.updateFps;
 		y = street.getYFromGround(x, previousY, width, height);
 	}
 

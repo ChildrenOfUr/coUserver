@@ -1,7 +1,7 @@
 part of entity;
 
 class DirtPile extends Plant {
-	DirtPile(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
+	DirtPile(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		actionTime = 3000;
 		type = "Dirt Pile";
 

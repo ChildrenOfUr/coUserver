@@ -3,7 +3,7 @@ part of entity;
 class SnoConeVendingMachine extends Vendor {
 	int openCount = 0;
 
-	SnoConeVendingMachine(String id, String streetName, String tsid, int x, int y) : super(id, streetName, tsid, x, y) {
+	SnoConeVendingMachine(String id, String streetName, String tsid, num x, num y) : super(id, streetName, tsid, x, y) {
 		type = 'Sno Cone Vending Machine';
 		itemsForSale = [
 			items["snocone_blue"].getMap(),

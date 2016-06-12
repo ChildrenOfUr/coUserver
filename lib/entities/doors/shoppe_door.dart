@@ -1,7 +1,7 @@
 part of entity;
 
 class ShoppeDoor extends Door {
-	ShoppeDoor(String id, String streetName, int x, int y)
+	ShoppeDoor(String id, String streetName, num x, num y)
 	: super(id, streetName, x, y) {
 		if (streetName == "Uncle Friendly's Emporium") {
 			toLocation = "LM4109NI2R640"; // Guillermo Gamera Way

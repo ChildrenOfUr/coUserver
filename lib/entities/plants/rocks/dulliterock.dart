@@ -1,7 +1,7 @@
 part of entity;
 
 class DulliteRock extends Rock {
-	DulliteRock(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
+	DulliteRock(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		type = "Dullite Rock";
 
 		states =

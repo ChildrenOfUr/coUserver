@@ -2,7 +2,7 @@ part of entity;
 
 class Zille extends Shrine
 {
-	Zille(String id, int x, int y, String streetName) : super(id,x,y, streetName)
+	Zille(String id, num x, num y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 			{
@@ -19,7 +19,7 @@ class Zille extends Shrine
 
 class ZilleFirebog extends Shrine
 {
-	ZilleFirebog(String id, int x, int y, String streetName) : super(id,x,y, streetName)
+	ZilleFirebog(String id, num x, num y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{
@@ -36,7 +36,7 @@ class ZilleFirebog extends Shrine
 
 class ZilleIx extends Shrine
 {
-	ZilleIx(String id, int x, int y, String streetName) : super(id,x,y, streetName)
+	ZilleIx(String id, num x, num y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{
@@ -53,7 +53,7 @@ class ZilleIx extends Shrine
 
 class ZilleUralia extends Shrine
 {
-	ZilleUralia(String id, int x, int y, String streetName) : super(id,x,y, streetName)
+	ZilleUralia(String id, num x, num y, String streetName) : super(id,x,y, streetName)
 	{
 		states =
 		{

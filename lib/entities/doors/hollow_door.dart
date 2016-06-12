@@ -36,7 +36,7 @@ class HollowDoor extends Door {
 		});
 	}
 
-	HollowDoor(String id, String streetName, int x, int y) : super(id, streetName, x, y) {
+	HollowDoor(String id, String streetName, num x, num y) : super(id, streetName, x, y) {
 		Map<String, dynamic> datastate = _findState(streetName);
 		outside = datastate["outside"];
 

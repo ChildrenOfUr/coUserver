@@ -1,7 +1,7 @@
 part of entity;
 
 class SparklyRock extends Rock {
-	SparklyRock(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
+	SparklyRock(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		type = "Sparkly Rock";
 
 		states =

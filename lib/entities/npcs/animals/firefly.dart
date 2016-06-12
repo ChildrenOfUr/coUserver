@@ -3,7 +3,7 @@ part of entity;
 class Firefly extends NPC {
 	Clock ffClock = new Clock();
 
-	Firefly(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
+	Firefly(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		actionTime = 4000;
 		type = "Firefly";
 		ItemRequirements itemReq = new ItemRequirements()

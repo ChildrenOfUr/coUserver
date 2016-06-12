@@ -1,7 +1,7 @@
 part of entity;
 
 class FruitTree extends Tree {
-	FruitTree(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
+	FruitTree(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		type = "Fruit Tree";
 		rewardItemType = "cherry";
 

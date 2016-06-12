@@ -3,7 +3,7 @@ part of entity;
 abstract class LockedDoor extends Door {
 	String requiredKey;
 
-	LockedDoor(String id, String streetName, int x, int y) : super(id, streetName, x, y) {
+	LockedDoor(String id, String streetName, num x, num y) : super(id, streetName, x, y) {
 		type = "Locked Door";
 		actions.add(
 			new Action.withName('exit')

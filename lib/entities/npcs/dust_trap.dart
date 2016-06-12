@@ -8,7 +8,7 @@ class DustTrap extends NPC {
 		return (compare - to).abs() < 30;
 	}
 
-	DustTrap(String id, String streetName, this.tsid, int x, int y) : super(id, x, y, streetName) {
+	DustTrap(String id, String streetName, this.tsid, num x, num y) : super(id, x, y, streetName) {
 		messageBus.subscribe(PlayerPosition, (PlayerPosition position) {
 			if(currentState != states['up'] || position.streetName != streetName) {
 				return;

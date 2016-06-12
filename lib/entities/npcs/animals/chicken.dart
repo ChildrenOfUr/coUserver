@@ -12,7 +12,7 @@ class Chicken extends NPC {
 	List<String> squeezeList = [];
 	DateTime lastReset = new DateTime.now();
 
-	Chicken(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
+	Chicken(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		ItemRequirements itemReq = new ItemRequirements()
 			..any = EGG_ANIMALS.keys.toList()
 			..error = "You'll need an animal egg for the chicken to incubate";

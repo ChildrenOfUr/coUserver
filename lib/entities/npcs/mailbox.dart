@@ -1,7 +1,7 @@
 part of entity;
 
 class Mailbox extends NPC {
-	Mailbox(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
+	Mailbox(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		actionTime = 0;
 		actions.addAll([
 			new Action.withName('check for mail'),
