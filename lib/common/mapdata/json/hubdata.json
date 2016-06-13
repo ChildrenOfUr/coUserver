@@ -1049,7 +1049,8 @@
 		"color_top": "#96a7aa",
 		"mote_id": 9,
 		"mote_name": "Ur",
-		"map_hidden": true
+		"map_hidden": true,
+		"broken": true
 	},
 	"95": {
 		"name": "Xalanga",
