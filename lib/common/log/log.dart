@@ -100,8 +100,8 @@ abstract class Log {
 		return log(object, level: LogLevel.WARNING, error: error);
 	}
 
-	/// Log an error message, [Error] or [Exception] object, and [StackTrace] to the console
-	static String error(dynamic object, dynamic error, StackTrace stackTrace) {
+	/// Log an error message, maybe an [Error] or [Exception] object, and maybe a [StackTrace] to the console
+	static String error(dynamic object, [dynamic error, StackTrace stackTrace]) {
 		return log(object, level: LogLevel.ERROR, error: error, stackTrace: stackTrace);
 	}
 
