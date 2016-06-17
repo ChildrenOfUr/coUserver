@@ -293,6 +293,11 @@ class UserQuestLog extends Trackable {
 				return;
 			}
 
+			if (q.quest == null) {
+				Log.error('CompleteQuest missing Quest for <email=$email>');
+				return;
+			}
+
 			q.quest.complete = true;
 			q.quest.stopTracking();
 
