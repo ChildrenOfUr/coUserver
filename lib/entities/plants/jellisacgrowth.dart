@@ -23,7 +23,7 @@ class Jellisac extends Plant {
 	}
 
 	Future<bool> grab({WebSocket userSocket, String email}) async {
-		bool success = await super.trySetMetabolics(email,energy:-4,imgMin:10,imgRange:5);
+		bool success = await super.trySetMetabolics(email,energy:-4,imgMin:2,imgRange:5);
 		if(!success) {
 			return false;
 		}
