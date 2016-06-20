@@ -28,10 +28,8 @@ import 'package:redstone_mapper/mapper.dart';
 import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper_pg/manager.dart';
 
-part 'global_action_monster.dart';
-
 //handle player update events
-class StreetUpdateHandler extends Object with GlobalActionMonster {
+class StreetUpdateHandler {
 	static Duration simulateDuration = new Duration(seconds: 1);
 	static Duration npcUpdateDuration = new Duration(milliseconds: 1000~/NPC.updateFps);
 	static Map<String, Street> streets = new Map();
@@ -588,7 +586,7 @@ Future teleportUser(@app.Body(app.FORM) Map data) async {
 		}
 
 	} else {
-		await GlobalActionMonster.teleport(userSocket: userSocket, email: email,
+		await StreetUpdateHandler.teleport(userSocket: userSocket, email: email,
 											   tsid: tsid, energyFree: true);
 		return '$username has been teleported to $streetName';
 	}
