@@ -63,6 +63,7 @@ class StreetEntities {
 			return rows.single;
 		} catch (e, st) {
 			Log.error('Could not get street entity $entityId', e, st);
+			return null;
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}

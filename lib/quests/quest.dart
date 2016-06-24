@@ -10,7 +10,7 @@ import 'package:coUserver/entities/items/item.dart';
 import 'package:coUserver/endpoints/inventory_new.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
 
-import 'package:harvest/harvest.dart' as harvest;
+import 'package:message_bus/message_bus.dart';
 import 'package:redstone_mapper/mapper.dart';
 import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper/plugin.dart';
@@ -18,14 +18,17 @@ import 'package:redstone_mapper_pg/manager.dart';
 import 'package:path/path.dart' as path;
 
 part 'messages.dart';
+
 part 'quest_endpoint.dart';
+
 part 'quest_service.dart';
 
-abstract class Trackable {
+abstract class Trackable implements EventHandler {
 	String email;
 	bool beingTracked = false;
 	Timer limitTimer;
-	List<StreamSubscription<harvest.Message>> mbSubscriptions = [];
+	Map<Type, EventHandler> mbSubscriptions = {};
+	Map<String, dynamic> headers = {};
 
 	void startTracking(String email) {
 		this.email = email;
@@ -34,14 +37,15 @@ abstract class Trackable {
 
 	void stopTracking() {
 		limitTimer?.cancel();
-		mbSubscriptions.forEach((sub) => sub.cancel());
+		mbSubscriptions.forEach((Type type, EventHandler handler) => messageBus.unsubscribe(type, handler));
 		mbSubscriptions.clear();
 		beingTracked = false;
 	}
 }
 
 class Requirement extends Trackable {
-	bool _fulfilled = false, failed = false;
+	bool _fulfilled = false,
+		failed = false;
 	int _numFulfilled = 0;
 	@Field() int numRequired, timeLimit;
 	@Field() String id, text, type, eventType;
@@ -83,50 +87,51 @@ class Requirement extends Trackable {
 	}
 
 	@override
+	void handleEvent(RequirementProgress progress) {
+		bool goodEvent = false;
+		int count = 1;
+		if (_matchingEvent(progress.eventType)) {
+			if (type == 'counter_unique' && !typeDone.contains(progress.eventType)) {
+				goodEvent = true;
+				typeDone.add(progress.eventType);
+			} else if (type == 'counter' || type == 'timed') {
+				goodEvent = true;
+				count = progress.count;
+			}
+		}
+
+		if (!goodEvent || fulfilled) {
+			return;
+		}
+		numFulfilled += count;
+		try {
+			messageBus.publish(new RequirementUpdated(this, email));
+		} catch (e, st) {
+			Log.error('Updating requirement <id=$id> for <email=$email>', e, st);
+		}
+	}
+
+	@override
 	void startTracking(String email) {
-		if(fulfilled) {
+		if (fulfilled) {
 			return;
 		}
 
 		super.startTracking(email);
 
-		if(type == 'timed') {
-			limitTimer = new Timer(new Duration(seconds:timeLimit), () {
+		if (type == 'timed') {
+			limitTimer = new Timer(new Duration(seconds: timeLimit), () {
 				try {
-					messageBus.publish(new FailRequirement(this,email));
+					messageBus.publish(new FailRequirement(this, email));
 				} catch (e, st) {
 					Log.error('Failing time requirement <id=$id> for <email=$email>', e, st);
 				}
 			});
 		}
 
-		mbSubscriptions.add(messageBus.subscribe(RequirementProgress, (RequirementProgress progress) {
-			if(progress.email != email) {
-				return;
-			}
-
-			bool goodEvent = false;
-			int count = 1;
-			if (_matchingEvent(progress.eventType)) {
-				if (type == 'counter_unique' && !typeDone.contains(progress.eventType)) {
-					goodEvent = true;
-					typeDone.add(progress.eventType);
-				} else if (type == 'counter' || type == 'timed') {
-					goodEvent = true;
-					count = progress.count;
-				}
-			}
-
-			if (!goodEvent || fulfilled) {
-				return;
-			}
-			numFulfilled += count;
-			try {
-				messageBus.publish(new RequirementUpdated(this, email));
-			} catch (e, st) {
-				Log.error('Updating requirement <id=$id> for <email=$email>', e, st);
-			}
-		}));
+		messageBus.subscribe(RequirementProgress, this,
+								 whereFunc: (RequirementProgress progress) => progress.email == email);
+		mbSubscriptions[RequirementProgress] = this;
 	}
 
 	bool _matchingEvent(String event) {
@@ -162,7 +167,10 @@ class ConvoChoice {
 }
 
 class QuestRewards {
-	@Field() int energy= 0, mood = 0, img = 0, currants = 0;
+	@Field() int energy = 0,
+		mood = 0,
+		img = 0,
+		currants = 0;
 	@Field() List<QuestFavor> favor = [];
 }
 
@@ -197,24 +205,8 @@ class Quest extends Trackable with MetabolicsChange {
 	}
 
 	@override
-	void startTracking(String email, {bool justStarted: false}) {
-		if(complete) {
-			return;
-		}
-
-		super.startTracking(email);
-
-		requirements.forEach((Requirement r) => r.startTracking(email));
-
-		String heading = justStarted ? 'questBegin' : 'questInProgress';
-		Map questInProgress = {heading: true, 'quest': encode(this)};
-		QuestEndpoint.userSockets[email]?.add(JSON.encode(questInProgress));
-
-		mbSubscriptions.add(messageBus.subscribe(CompleteRequirement, (CompleteRequirement r) async {
-			if (!requirements.contains(r.requirement) || r.email != email) {
-				return;
-			}
-
+	Future handleEvent(dynamic r) async {
+		if (r is CompleteRequirement) {
 			try {
 				requirements.firstWhere((Requirement r) => !r.fulfilled);
 			} catch (e) {
@@ -228,31 +220,48 @@ class Quest extends Trackable with MetabolicsChange {
 
 				await _giveRewards();
 			}
-		}));
-
-		mbSubscriptions.add(messageBus.subscribe(FailRequirement, (FailRequirement r) {
-			if (!requirements.contains(r.requirement) || r.email != email) {
-				return;
-			}
-
+		} else if (r is FailRequirement) {
 			try {
-				messageBus.publish(new FailQuest(this,email));
+				messageBus.publish(new FailQuest(this, email));
 			} catch (e, st) {
 				Log.error('Failing <quest=$id> for <email=$email>', e, st);
 			}
 
 			stopTracking();
-		}));
-
-		//tell the user's ui about the latest status
-		mbSubscriptions.add(messageBus.subscribe(RequirementUpdated, (RequirementUpdated update) {
-			if (update.email != email) {
-				return;
-			}
-
+		} else if (r is RequirementUpdated) {
 			Map map = {'questUpdate': true, 'quest': encode(this)};
 			QuestEndpoint.userSockets[email]?.add(JSON.encode(map));
-		}));
+		}
+	}
+
+	@override
+	void startTracking(String email, {bool justStarted: false}) {
+		if (complete) {
+			return;
+		}
+
+		super.startTracking(email);
+
+		requirements.forEach((Requirement r) => r.startTracking(email));
+
+		String heading = justStarted ? 'questBegin' : 'questInProgress';
+		Map questInProgress = {heading: true, 'quest': encode(this)};
+		QuestEndpoint.userSockets[email]?.add(JSON.encode(questInProgress));
+
+		messageBus.subscribe(CompleteRequirement, this, whereFunc: (CompleteRequirement r) {
+			return requirements.contains(r.requirement) && r.email == email;
+		});
+		messageBus.subscribe(FailRequirement, this, whereFunc: (FailRequirement r) {
+			return requirements.contains(r.requirement) && r.email == email;
+		});
+		messageBus.subscribe(RequirementUpdated, this, whereFunc: (RequirementUpdated update) {
+			return requirements.contains(update.requirement) && update.email == email;
+		});
+		mbSubscriptions.addAll({
+								   CompleteRequirement: this,
+								   FailRequirement: this,
+								   RequirementUpdated: this
+							   });
 	}
 
 	Future<bool> _giveRewards() {
@@ -266,7 +275,7 @@ class Quest extends Trackable with MetabolicsChange {
 	}
 
 	@override
-	bool operator ==(Quest other) => this.id == other.id;
+	bool operator ==(other) => this.id == other.id;
 
 	@override
 	int get hashCode => id.hashCode;
@@ -279,25 +288,13 @@ class UserQuestLog extends Trackable {
 	@Field() String completed_list, in_progress_list;
 
 	@override
-	void startTracking(String email) {
-		super.startTracking(email);
-
-		//start tracking on all our in progress quests
-		inProgressQuests.forEach((Quest q) => q.startTracking(email));
-
-		//listen for quest completion events
-		//if they don't belong to us, let someone else get them
-		//if they do belong to us, send a message to the client to tell them of their success
-		mbSubscriptions.add(messageBus.subscribe(CompleteQuest, (CompleteQuest q) {
-			if (q.email != email) {
-				return;
-			}
-
+	Future handleEvent(dynamic event) async {
+		if (event is CompleteQuest) {
+			CompleteQuest q = event;
 			if (q.quest == null) {
 				Log.error('CompleteQuest missing Quest for <email=$email>');
 				return;
 			}
-
 			q.quest.complete = true;
 			q.quest.stopTracking();
 
@@ -315,17 +312,12 @@ class UserQuestLog extends Trackable {
 
 			//if they completed the sammich quest, go get a snocone
 			//wait for a minute before offering
-			if(q.quest.id == 'Q1') {
-				new Timer(new Duration(minutes:1), () =>
+			if (q.quest.id == 'Q1') {
+				new Timer(new Duration(minutes: 1), () =>
 					QuestEndpoint.questLogCache[email].offerQuest('Q7'));
 			}
-		}));
-
-		mbSubscriptions.add(messageBus.subscribe(FailQuest, (FailQuest q) {
-			if (q.email != email) {
-				return;
-			}
-
+		} else if (event is FailQuest) {
+			FailQuest q = event;
 			q.quest.stopTracking();
 
 			Map map = {'questFail': true, 'quest': encode(q.quest)};
@@ -337,17 +329,11 @@ class UserQuestLog extends Trackable {
 				..removeWhere((Quest quest) => quest == q.quest);
 
 			QuestService.updateQuestLog(this);
-		}));
-
-		//save our progress to the database so it doesn't get lost
-		mbSubscriptions.add(messageBus.subscribe(RequirementUpdated, (RequirementUpdated update) {
-			if (update.email != email) {
-				return;
-			}
-
+		} else if (event is RequirementUpdated) {
+			RequirementUpdated update = event;
 			List<Quest> tmp = [];
 			inProgressQuests.forEach((Quest q) {
-				if(q.requirements.contains(update.requirement)) {
+				if (q.requirements.contains(update.requirement)) {
 					q.requirements.remove(update.requirement);
 					q.requirements.add(update.requirement);
 				}
@@ -356,7 +342,45 @@ class UserQuestLog extends Trackable {
 			inProgressQuests = tmp;
 
 			QuestService.updateQuestLog(this);
-		}));
+		} else if (event is AcceptQuest) {
+			AcceptQuest acceptance = event;
+			if (headers['fromItem'] ?? false) {
+				Item itemInSlot = await InventoryV2.takeItemFromUser(email, headers['slot'], headers['subSlot'], 1);
+				if (itemInSlot == null) {
+					return;
+				}
+			}
+			offeringQuest = false;
+			QuestEndpoint.questLogCache[acceptance.email].addInProgressQuest(acceptance.questId);
+		} else if (event is RejectQuest) {
+			offeringQuest = false;
+		}
+	}
+
+	@override
+	void startTracking(String email) {
+		super.startTracking(email);
+
+		//start tracking on all our in progress quests
+		inProgressQuests.forEach((Quest q) => q.startTracking(email));
+
+		//listen for quest completion events
+		//if they don't belong to us, let someone else get them
+		//if they do belong to us, send a message to the client to tell them of their success
+		messageBus.subscribe(CompleteQuest, this, whereFunc: (CompleteQuest q) {
+			return q.email == email;
+		});
+		messageBus.subscribe(FailQuest, this, whereFunc: (FailQuest q) {
+			return q.email == email;
+		});
+		messageBus.subscribe(RequirementUpdated, this, whereFunc: (RequirementUpdated update) {
+			return update.email == email;
+		});
+		mbSubscriptions.addAll({
+								   CompleteQuest: this,
+								   FailQuest: this,
+								   RequirementUpdated: this
+							   });
 	}
 
 	@override
@@ -387,7 +411,7 @@ class UserQuestLog extends Trackable {
 		}
 
 		if (completedQuests.contains(quest) ||
-		    inProgressQuests.contains(quest)) {
+			inProgressQuests.contains(quest)) {
 			return true;
 		}
 
@@ -402,32 +426,27 @@ class UserQuestLog extends Trackable {
 		}
 
 		//check if prerequisite quests are complete
-		for(String prereq in questToOffer.prerequisites) {
+		for (String prereq in questToOffer.prerequisites) {
 			Quest previousQ = new Quest.clone(prereq);
-			if(!completedQuests.contains(previousQ)) {
+			if (!completedQuests.contains(previousQ)) {
 				return;
 			}
 		}
 
-		mbSubscriptions.add(messageBus.subscribe(AcceptQuest, (AcceptQuest acceptance) async {
-			if(acceptance.email != email) {
-				return;
-			}
-			if(fromItem) {
-				Item itemInSlot = await	InventoryV2.takeItemFromUser(email, slot, subSlot, 1);
-				if (itemInSlot == null) {
-					return;
-				}
-			}
-			offeringQuest = false;
-			QuestEndpoint.questLogCache[acceptance.email].addInProgressQuest(acceptance.questId);
-		}));
-		mbSubscriptions.add(messageBus.subscribe(RejectQuest, (RejectQuest rejection) {
-			if(rejection.email != email) {
-				return;
-			}
-			offeringQuest = false;
-		}));
+		messageBus.subscribe(AcceptQuest, this, whereFunc: (AcceptQuest acceptance) {
+			return acceptance.email == email;
+		}, enrichFunc: () {
+			headers['fromItem'] = fromItem;
+			headers['slot'] = slot;
+			headers['subSlot'] = subSlot;
+		});
+		messageBus.subscribe(RejectQuest, this, whereFunc: (RejectQuest rejection) {
+			return rejection.email == email;
+		});
+		mbSubscriptions.addAll({
+								   AcceptQuest: this,
+								   RejectQuest: this
+							   });
 
 		Map questOffer = {
 			'questOffer': true,

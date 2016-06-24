@@ -11,7 +11,6 @@ import 'package:coUserver/common/util.dart';
 import 'package:coUserver/skills/skillsmanager.dart';
 import 'package:coUserver/streets/street_update_handler.dart';
 
-import 'package:harvest/harvest.dart' as harvest;
 import 'package:path/path.dart' as path;
 import 'package:redstone_mapper_pg/manager.dart';
 import 'package:redstone_mapper/mapper.dart';
@@ -20,7 +19,7 @@ import 'package:redstone/redstone.dart' as app;
 part 'achievement_checkers.dart';
 part 'statsbased.dart';
 
-class AchievementAward extends harvest.Message {
+class AchievementAward {
 	String email;
 	Map achieveMap;
 

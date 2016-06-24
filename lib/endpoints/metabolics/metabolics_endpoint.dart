@@ -219,6 +219,8 @@ class MetabolicsEndpoint {
 		} catch (e, st) {
 			Log.error('Error marking location $TSID as visited for player $username', e, st);
 		}
+
+		return false;
 	}
 
 	static bool denyQuoin(Quoin q, String username) {

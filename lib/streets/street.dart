@@ -244,6 +244,9 @@ class Street {
 			await Future.forEach(npcs.values, (NPC npc) async {
 				await npc.persist();
 			});
+			await Future.forEach(plants.values, (Plant plant) async {
+				await plant.persist();
+			});
 
 		} catch (e, st) {
 			Log.error('Could not persist $tsid ($label). It may not have been loaded completely.', e, st);

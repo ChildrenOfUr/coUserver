@@ -6,7 +6,7 @@ import 'dart:convert';
 import 'dart:mirrors';
 import 'dart:math';
 
-import 'package:harvest/harvest.dart' as harvest;
+import 'package:message_bus/message_bus.dart';
 import 'package:http/http.dart' as http;
 import 'package:image/image.dart';
 import 'package:redstone/redstone.dart' as app;
@@ -30,7 +30,7 @@ PostgreSqlManager dbManager = new PostgreSqlManager(databaseUri);
 PostgreSql get dbConn => app.request.attributes.dbConn;
 
 /// Global message bus
-harvest.MessageBus messageBus = new harvest.MessageBus.async();
+MessageBus messageBus = new MessageBus();
 
 /// Minimum client version to allow connections from
 final int MIN_CLIENT_VER = 142;

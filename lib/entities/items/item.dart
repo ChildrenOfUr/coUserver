@@ -257,25 +257,28 @@ class Item extends Object
 	}
 
 	// Place the item in the street
-	void putItemOnGround(num x, num y, String streetName, {String id}) {
+	void putItemOnGround(num x, num y, String streetName, {String id, int count: 1}) {
 		Street street = StreetUpdateHandler.streets[streetName];
 		if (street == null) {
 			return;
 		}
 
-		if (id == null) {
-			String randString = new Random().nextInt(1000).toString();
-			id = "i" + createId(x, y, itemType, streetName + randString);
+		for (int i=0; i<count; i++) {
+			String tempId = id;
+			if (tempId == null) {
+				String randString = new Random().nextInt(10000).toString();
+				tempId = "i" + createId(x, y, itemType, streetName + randString);
+			}
+
+			Item item = new Item.clone(itemType)
+				..x = x
+				..y = y
+				..item_id = tempId
+				..onGround = true
+				..metadata = this.metadata;
+			item.y = street.getYFromGround(item.x, item.y, 1, 1);
+
+			street.groundItems[tempId] = item;
 		}
-
-		Item item = new Item.clone(itemType)
-			..x = x
-			..y = y
-			..item_id = id
-			..onGround = true
-			..metadata = this.metadata;
-		item.y = street.getYFromGround(item.x, item.y, 1, 1);
-
-		street.groundItems[id] = item;
 	}
 }

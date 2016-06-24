@@ -45,7 +45,7 @@ Future<Map> getSpritesheets(
 	}
 
 	Map<String, String> spritesheets = {};
-	File cache = new File('./playerSpritesheets/${username.toLowerCase()}.json');
+	File cache = new File('./spineSkins/${username.toLowerCase()}.json');
 	if (!(await cache.exists())) {
 		try {
 			await cache.create(recursive: true);

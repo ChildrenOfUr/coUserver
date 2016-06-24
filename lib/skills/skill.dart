@@ -123,6 +123,7 @@ class Skill {
 			return new PlayerSkill(copy, email, points);
 		} catch (e, st) {
 			Log.error('Error getting skill $id', e, st);
+			return null;
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}

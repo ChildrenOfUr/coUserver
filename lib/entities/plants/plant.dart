@@ -35,14 +35,14 @@ abstract class Plant extends Entity {
 	}
 
 	void update() {
-		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0) {
-			state++;
-			respawn = new DateTime.now().add(new Duration(seconds:30));
-		}
-
-		if(state > maxState) {
-			state = maxState;
-		}
+//		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0) {
+//			state++;
+//			respawn = new DateTime.now().add(new Duration(seconds:30));
+//		}
+//
+//		if(state > maxState) {
+//			state = maxState;
+//		}
 	}
 
 	Map<String, dynamic> getMap() {

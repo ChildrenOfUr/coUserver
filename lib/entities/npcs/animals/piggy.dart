@@ -16,14 +16,17 @@ class Piggy extends NPC {
 			 new Action.withName('nibble')
 				 ..timeRequired = actionTime
 				 ..actionWord = 'nibbling'
+				 ..description = 'Have a little nibble'
 				 ..energyRequirements = new EnergyRequirements(energyAmount: NIBBLE_ENERGY)
 				..associatedSkill = SKILL,
 			new Action.withName('pet')
 				..timeRequired = actionTime
 				..actionWord = 'petting'
+				..description = 'Give the piggy a pet'
 				..energyRequirements = new EnergyRequirements(energyAmount: PET_ENERGY)
 				..associatedSkill = SKILL,
 			new Action.withName('feed')
+				..description = 'Feed the piggy some produce and see what it produces'
 				..itemRequirements = itemReq
 				..associatedSkill = SKILL
 				  ]);
@@ -62,6 +65,7 @@ class Piggy extends NPC {
 		lastReset = new DateTime.now();
 	}
 
+	@override
 	void restoreState(Map<String, String> metadata) {
 		if (metadata.containsKey('petList')) {
 			petList = JSON.decode(metadata['petList']);
@@ -80,6 +84,7 @@ class Piggy extends NPC {
 		}
 	}
 
+	@override
 	Map<String, String> getPersistMetadata() {
 		Map<String, String> map = {
 			'petList': JSON.encode(petList),

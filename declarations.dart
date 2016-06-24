@@ -4,11 +4,6 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:http/http.dart' as http;
-import 'package:logging/logging.dart' as rsLog;
-import 'package:redstone/redstone.dart' as app;
-import 'package:redstone_mapper/plugin.dart';
-
 import 'package:coUserver/API_KEYS.dart';
 import 'package:coUserver/common/console.dart';
 import 'package:coUserver/common/identifier.dart';
@@ -25,6 +20,10 @@ import 'package:coUserver/entities/items/item.dart';
 import 'package:coUserver/quests/quest.dart';
 import 'package:coUserver/streets/player_update_handler.dart';
 import 'package:coUserver/streets/street_update_handler.dart';
+import 'package:http/http.dart' as http;
+import 'package:logging/logging.dart' as rsLog;
+import 'package:redstone/redstone.dart' as app;
+import 'package:redstone_mapper/plugin.dart';
 
 part 'package:coUserver/endpoints/elevation.dart';
 part 'package:coUserver/endpoints/getitems.dart';
@@ -105,6 +104,17 @@ Future _initRedstone() async {
 	app.addPlugin(getMapperPlugin(dbManager));
 	app.setupConsoleLog(rsLog.Level.SEVERE);
 	await app.start(port: port, autoCompress: true);
+}
+
+///This will serve up the needed files to animate the player characters
+@app.Route('/getSpine')
+Future<File> getSpine(@app.QueryParam() email, @app.QueryParam() filename) async {
+	File file = new File('./spineSkins/$email/$filename');
+	if (await file.exists()) {
+		return file;
+	} else {
+		return null;
+	}
 }
 
 /// redstone.dart does not support websockets so we have to listen on a separate port for those connections :(

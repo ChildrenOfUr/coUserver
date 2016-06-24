@@ -306,6 +306,7 @@
       },
       {
         "actionName": "Compress",
+        "multiEnabled": true,
         "description": "Makes cheese. Costs 3 energy.",
         "itemRequirements": {},
         "skillRequirements": {}

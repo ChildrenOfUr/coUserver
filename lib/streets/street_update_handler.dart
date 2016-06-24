@@ -214,6 +214,12 @@ class StreetUpdateHandler {
 								npcMap['actions'] = encode(await npc.customizeActions(email));
 							}
 						});
+						await Future.forEach(updates['plants'], (Map plantMap) async {
+							Plant plant = street.plants[plantMap['id']];
+							if (plant != null) {
+								plantMap['actions'] = encode(await plant.customizeActions(email));
+							}
+						});
 
 						socket.add(JSON.encode(updates));
 					}

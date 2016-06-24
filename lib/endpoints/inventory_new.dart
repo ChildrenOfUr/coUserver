@@ -412,7 +412,7 @@ class InventoryV2 {
 			Log.warning('[InventoryV2] Cannot give ${item.itemType} x $count because <email=$email> ran out of slots before all items were added.');
 			Identifier playerId = PlayerUpdateHandler.users[await User.getUsernameFromEmail(email)];
 			if(playerId != null) {
-				item.putItemOnGround(playerId.currentX+40, playerId.currentY, playerId.currentStreet);
+				item.putItemOnGround(playerId.currentX+40, playerId.currentY, playerId.currentStreet, count: toMerge);
 				Log.info('$toMerge ${item.itemType}(s) dropped.');
 			}
 		}
@@ -960,7 +960,7 @@ class InventoryV2 {
 	}
 
 	///Returns the number of items successfully added to the user's inventory
-	static Future<int> addItemToUser(String email, dynamic itemTypeOrMap, int count,	[String fromObject = "_self"]) async {
+	static Future<int> addItemToUser(String email, dynamic itemTypeOrMap, int count, [String fromObject = "_self"]) async {
 		if (!(await _aquireLock(email))) {
 			return 0;
 		}
@@ -968,7 +968,7 @@ class InventoryV2 {
 		Map item;
 		if (itemTypeOrMap is Map) {
 			item = itemTypeOrMap;
-		} else if (item is String) {
+		} else if (itemTypeOrMap is String) {
 			item = items[itemTypeOrMap].getMap();
 		} else {
 			throw new ArgumentError('Item must be an item type or item map, not ${item.runtimeType}');

@@ -6,6 +6,7 @@ API_KEYS.dart
 build
 streetEntities
 playerSpritesheets
+spineSkins
 stats.json
 heightsCache.json
 headsCache.json

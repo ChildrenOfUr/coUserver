@@ -60,6 +60,7 @@
       },
       {
         "actionName": "Shake Bottle",
+        "multiEnabled": true,
         "description": "Makes butter. Costs 2 energy.",
         "itemRequirements": {},
         "skillRequirements": {}

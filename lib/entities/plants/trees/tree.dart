@@ -31,14 +31,30 @@ abstract class Tree extends Plant {
 					   ]);
 	}
 
+	@override
+	void restoreState(Map<String, String> metadata) {
+		if (metadata.containsKey('maturity')) {
+			maturity = JSON.decode(metadata['maturity']);
+			setState('maturity_$maturity');
+			maxState = currentState.numFrames - 1;
+		}
+		if (metadata.containsKey('state')) {
+			state = JSON.decode(metadata['state']);
+		}
+	}
+
+	@override
+	Map<String, String> getPersistMetadata() {
+		Map<String, String> map = {
+			'maturity': JSON.encode(maturity),
+			'state': JSON.encode(state),
+		};
+
+		return map;
+	}
+
 	void update() {
 		super.update();
-
-		if (state > 0) {
-			setActionEnabled("harvest", true);
-		} else {
-			setActionEnabled("harvest", false);
-		}
 
 		if (
 			WeatherEndpoint.currentState == WeatherState.RAINING &&
@@ -85,7 +101,6 @@ abstract class Tree extends Plant {
 		//say a witty thing
 		say(responses['harvest'].elementAt(rand.nextInt(responses['harvest'].length)));
 
-		respawn = new DateTime.now().add(new Duration(seconds: 30));
 		state--;
 
 		//give the player the 'fruits' of their labor
@@ -144,7 +159,6 @@ abstract class Tree extends Plant {
 			StatManager.add(email, stat);
 		}
 
-		respawn = new DateTime.now().add(new Duration(seconds: 30));
 		state++;
 
 		SkillManager.learn(SKILL, email);
@@ -186,5 +200,36 @@ abstract class Tree extends Plant {
 		}
 
 		return true;
+	}
+
+	@override
+	Future<List<Action>> customizeActions(String email) async {
+		int arbologyLevel = await SkillManager.getLevel(SKILL, email);
+		List<Action> personalActions = [];
+		await Future.forEach(actions, (Action action) async {
+			Action personalAction = new Action.clone(action);
+			if (action.actionName == 'harvest') {
+				if (arbologyLevel > 2) {
+					personalAction.energyRequirements = new EnergyRequirements(energyAmount: 3);
+				}
+				if (state <= 0) {
+					personalAction.enabled = false;
+					personalAction.error = "There's nothing to harvest right now. Try giving me some water.";
+				}
+			}
+			if (action.actionName == 'water') {
+				if (state >= maxState) {
+					personalAction.enabled = false;
+					personalAction.error = "I'm not thirsty right now.";
+				}
+				if (WeatherEndpoint.currentState == WeatherState.RAINING) {
+					personalAction.enabled = false;
+					personalAction.error = "It's already raining, I don't need anymore water.";
+				}
+			}
+			personalActions.add(personalAction);
+		});
+
+		return personalActions;
 	}
 }
