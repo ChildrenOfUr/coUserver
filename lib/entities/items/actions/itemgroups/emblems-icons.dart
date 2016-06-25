@@ -45,20 +45,20 @@ abstract class Emblem extends Object with MetabolicsChange {
 abstract class Icon extends Object with MetabolicsChange {
 	Future<bool> tithe({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		StatManager.add(email, Stat.icons_tithed);
-		return await ItemUser.trySetMetabolics(email, currants: -100);
+		return await trySetMetabolics(email, currants: -100);
 	}
 
 	Future<bool> ruminate({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		StatManager.add(email, Stat.icons_ruminated);
-		return await ItemUser.trySetMetabolics(email, mood: 50);
+		return await trySetMetabolics(email, mood: 50);
 	}
 
 	Future<bool> revere({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		StatManager.add(email, Stat.icons_revered);
-		return await ItemUser.trySetMetabolics(email, energy: 50);
+		return await trySetMetabolics(email, energy: 50);
 	}
 
 	Future<bool> reflect({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		return await ItemUser.trySetMetabolics(email, img: 50);
+		return await trySetMetabolics(email, imgMin: 50);
 	}
 }

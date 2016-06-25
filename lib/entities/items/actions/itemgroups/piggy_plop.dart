@@ -13,7 +13,7 @@ abstract class PiggyPlop extends Object with MetabolicsChange {
 
 		if(itemInSlot.itemType == 'butterfly_lotion') {
 			toast("That didn't taste as good as it smells. -5 mood", userSocket);
-			return await ItemUser.trySetMetabolics(username, mood: -5);
+			return await trySetMetabolics(username, mood: -5);
 		} else if(itemInSlot.itemType == 'piggy_plop') {
 			toast("I don't think you're doing this right", userSocket);
 			return true;

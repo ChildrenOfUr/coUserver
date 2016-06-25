@@ -162,8 +162,8 @@
   "gift_box_wrapped": {
     "name": "Gift Box",
     "category": "Toys",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped__x1_1_png_1354837365.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped__x1_1_png_1354837365.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped.png",
     "stacksTo": 1,
     "price": 0,
     "description": "One mystery surprise gift box, filled with… well, filled with gifts. But what gifts? There's only one way to find out… No, not asking the person who gave it to you. The OTHER, non-spoilerific way. Open it!"

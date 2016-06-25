@@ -14,17 +14,20 @@ abstract class Tree extends Plant {
 		actions.addAll([
 			new Action.withName('harvest')
 				..actionWord = 'harvesting'
+				..description = 'Harvest this tree'
 				..timeRequired = actionTime
 				..energyRequirements = new EnergyRequirements(energyAmount: 5)
 				..associatedSkill = SKILL,
 			new Action.withName('water')
 				..actionWord = 'watering'
+				..description = 'Water this tree'
 				..timeRequired = actionTime
 				..energyRequirements = new EnergyRequirements(energyAmount: 2)
 				..itemRequirements = itemReq
 				..associatedSkill = SKILL,
 			new Action.withName('pet')
 				..actionWord = 'petting'
+				..description = 'Pet this tree'
 				..timeRequired = actionTime
 				..energyRequirements = new EnergyRequirements(energyAmount: 2)
 				..associatedSkill = SKILL

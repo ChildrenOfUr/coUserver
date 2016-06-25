@@ -215,6 +215,58 @@
     "price": 0,
     "description": "The Glitch Advanced Moving Service (GAMS) will pack up your belongings and transfer them to your new home for you."
   },
+  "new_player_pack_butterfly": {
+    "name": "New Player Pack",
+    "recipeName": "New Player Pack (Butterfly)",
+    "category": "Other",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped.png",
+    "stacksTo": 11,
+    "price": 0,
+    "description": "Welcome new players into the world of Ur. This pack contains a few items that should spark the imagination",
+    "actions": [
+      {
+        "actionName": "Open Pack",
+        "description": "Open to see what's inside",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
+  },
+  "new_player_pack_chicken": {
+    "name": "New Player Pack",
+    "category": "Other",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped.png",
+    "stacksTo": 11,
+    "price": 0,
+    "description": "Welcome new players into the world of Ur. This pack contains a few items that should spark the imagination",
+    "actions": [
+      {
+        "actionName": "Open Pack",
+        "description": "Open to see what's inside",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
+  },
+  "new_player_pack_piggy": {
+    "name": "New Player Pack",
+    "category": "Other",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped.png",
+    "stacksTo": 11,
+    "price": 0,
+    "description": "Welcome new players into the world of Ur. This pack contains a few items that should spark the imagination",
+    "actions": [
+      {
+        "actionName": "Open Pack",
+        "description": "Open to see what's inside",
+        "itemRequirements": {},
+        "skillRequirements": {}
+      }
+    ]
+  },
   "note_pole": {
     "name": "Note Pole",
     "category": "Other",

@@ -150,6 +150,22 @@ class MetabolicsChange {
 		StatManager.add(email, Stat.favor_earned, increment: favAmt);
 		return metabolics;
 	}
+
+	Future<int> getMood({String username, String email, int userId}) async {
+		if (username == null && email == null && userId == null) {
+			throw new ArgumentError('You must pass either username, email or userId');
+		}
+
+		return (await getMetabolics(username: username, email: email, userId: userId)).mood;
+	}
+
+	Future<int> getEnergy({String username, String email, int userId}) async {
+		if (username == null && email == null && userId == null) {
+			throw new ArgumentError('You must pass either username, email or userId');
+		}
+
+		return (await getMetabolics(username: username, email: email, userId: userId)).energy;
+	}
 }
 
 class Metabolics {

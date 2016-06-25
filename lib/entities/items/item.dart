@@ -33,13 +33,13 @@ part 'actions/itemgroups/cubimals.dart';
 part 'actions/itemgroups/emblems-icons.dart';
 part 'actions/itemgroups/foxbait.dart';
 part 'actions/itemgroups/milk-butter-cheese.dart';
+part 'actions/itemgroups/misc.dart';
 part 'actions/itemgroups/orb.dart';
 part 'actions/itemgroups/piggy_plop.dart';
 part 'actions/itemgroups/potions.dart';
 part 'actions/itemgroups/quill.dart';
 part 'actions/itemgroups/recipe-tool.dart';
 part 'actions/note.dart';
-part 'item_user.dart';
 part 'package:coUserver/entities/action.dart';
 
 Map<String, Item> items = {};
@@ -56,6 +56,7 @@ class Item extends Object
 		FoxBaitItem,
 		Icon,
 		MilkButterCheese,
+		NewPlayerPack,
 		PiggyPlop,
 		Potions,
 		Quill,
@@ -71,6 +72,7 @@ class Item extends Object
 	@Field() String brokenUrl;
 	@Field() String toolAnimation;
 	@Field() String name;
+	@Field() String recipeName;
 	@Field() String description;
 	@Field() String itemType;
 	@Field() String item_id;
@@ -109,6 +111,7 @@ class Item extends Object
 		brokenUrl = model.brokenUrl;
 		toolAnimation = model.toolAnimation;
 		name = model.name;
+		recipeName = model.recipeName;
 		description = model.description;
 		price = model.price;
 		stacksTo = model.stacksTo;
@@ -142,6 +145,7 @@ class Item extends Object
 		"spriteUrl": spriteUrl,
 		"brokenUrl": brokenUrl,
 		"name": name,
+		"recipeName": recipeName,
 		"itemType": itemType,
 		"category": category,
 		"isContainer": isContainer,

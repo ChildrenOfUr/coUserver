@@ -46,7 +46,7 @@
     "description": "A vial of butterfly milk. It has the tingly effervescence of a thousand tiny butterfly farts.",
     "actions": [
       {
-        "actionName": "Sniff",
+        "actionName": "Sniff Milk",
         "description": "Advised for curing the blues",
         "itemRequirements": {},
         "skillRequirements": {}

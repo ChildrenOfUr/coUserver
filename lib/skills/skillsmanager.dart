@@ -87,9 +87,7 @@ class SkillManager extends Object {
 		PostgreSql dbConn = await dbManager.getConnection();
 		try {
 			// Get data from database
-			Map<String, int> playerSkillsData = JSON.decode(
-				(await dbConn.query(CELL_QUERY, Metabolics, {"email": email})).first.skills_json
-			);
+			Map<String, int> playerSkillsData = JSON.decode((await getMetabolics(email: email)).skills_json);
 
 			// Fill in skill information
 			List<Map<String, dynamic>> playerSkillsList = new List();

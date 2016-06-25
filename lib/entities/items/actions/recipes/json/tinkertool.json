@@ -1,5 +1,62 @@
 [
 	{
+		"id": "create_new_player_pack_butterfly",
+		"tool": "tinkertool",
+		"input": {
+			"coffee": 10,
+			"spinach": 5,
+			"awesome_stew": 3,
+			"emotional_bear": 1,
+			"sneezing_powder": 1,
+			"butterfly_egg": 1
+		},
+		"output": "new_player_pack_butterfly",
+		"output_amt": 1,
+		"time": 30,
+		"energy": -50,
+		"skills": {
+			"tinkering": 1
+		}
+	},
+	{
+		"id": "create_new_player_pack_chicken",
+		"tool": "tinkertool",
+		"input": {
+			"coffee": 10,
+			"spinach": 5,
+			"awesome_stew": 3,
+			"emotional_bear": 1,
+			"sneezing_powder": 1,
+			"chicken_egg": 1
+		},
+		"output": "new_player_pack_chicken",
+		"output_amt": 1,
+		"time": 30,
+		"energy": -50,
+		"skills": {
+			"tinkering": 1
+		}
+	},
+	{
+		"id": "create_new_player_pack_piggy",
+		"tool": "tinkertool",
+		"input": {
+			"coffee": 10,
+			"spinach": 5,
+			"awesome_stew": 3,
+			"emotional_bear": 1,
+			"sneezing_powder": 1,
+			"piggy_egg": 1
+		},
+		"output": "new_player_pack_piggy",
+		"output_amt": 1,
+		"time": 30,
+		"energy": -50,
+		"skills": {
+			"tinkering": 1
+		}
+	},
+	{
 		"id": "repair_frying_pan",
 		"tool": "tinkertool",
 		"input": {
