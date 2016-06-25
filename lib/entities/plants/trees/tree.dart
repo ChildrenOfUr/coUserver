@@ -9,7 +9,7 @@ abstract class Tree extends Plant {
 
 	Tree(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		ItemRequirements itemReq = new ItemRequirements()
-			..any = ['shovel', 'ace_of_spades']
+			..any = ['watering_can', 'irrigator_9000']
 			..error = "Trees don't like to be peed on. Go find some clean water, please.";
 		actions.addAll([
 			new Action.withName('harvest')
