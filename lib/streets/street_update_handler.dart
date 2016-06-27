@@ -384,8 +384,6 @@ class StreetUpdateHandler {
 						} catch (e, st) {
 							Log.error('Could not invoke entity method $methodName', e, st);
 						}
-					} else if (map['arguments'] != null && map['arguments']['player'] != null) {
-						_callGlobalMethod(map, ws, email);
 					} else {
 						//check if it's an item and not an entity
 						try {
