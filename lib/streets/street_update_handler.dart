@@ -384,6 +384,8 @@ class StreetUpdateHandler {
 						} catch (e, st) {
 							Log.error('Could not invoke entity method $methodName', e, st);
 						}
+					} else if (map['arguments'] != null && map['arguments']['player'] != null) {
+						_callGlobalMethod(map, ws, email);
 					} else {
 						//check if it's an item and not an entity
 						try {
@@ -528,15 +530,15 @@ class StreetUpdateHandler {
 	static Future changeClientUsername({WebSocket userSocket, String email, String oldUsername, String newUsername}) async =>
 		changeUsername(oldUsername: oldUsername, newUsername: newUsername, userSocket: userSocket);
 
-	static void profile({WebSocket userSocket, String email, String username}) {
+	static void profile({WebSocket userSocket, String email, String username, String player}) {
 		userSocket.add(JSON.encode({
-			'open_profile': username
+			'open_profile': player
 		}));
 	}
 
-	static void follow({WebSocket userSocket, String email, String username}) {
+	static void follow({WebSocket userSocket, String email, String username, String player}) {
 		userSocket.add(JSON.encode({
-			'follow': username
+			'follow': player
 		}));
 	}
 }
