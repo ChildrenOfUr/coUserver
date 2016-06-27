@@ -209,7 +209,7 @@ class Garden extends NPC {
 		StatManager.add(email, Stat.crops_hoed);
 		SkillManager.learn(SKILL, email);
 
-		say('...Insert crop hoe phrase here...');
+		say(''); // display gains
 
 		gardenState = GardenStates.HOED;
 		actions = [waterAction];
@@ -231,7 +231,7 @@ class Garden extends NPC {
 		StatManager.add(email, Stat.crops_watered);
 		SkillManager.learn(SKILL, email);
 
-		say('...Insert crop water phrase here...');
+		say(''); // display gains
 
 		gardenState = GardenStates.WATERED;
 		actions = [plantAction];
@@ -329,7 +329,7 @@ class Garden extends NPC {
 			}
 		}
 		await InventoryV2.addItemToUser(email, items[plantedWith].getMap(), count, id);
-		say('...Insert crop harvest phrase here...');
+		say('');
 
 		plantedWith = '';
 		gardenState = GardenStates.NEW;
