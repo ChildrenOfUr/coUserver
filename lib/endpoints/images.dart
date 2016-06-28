@@ -6,6 +6,11 @@ Future<bool> setCustomAvatar(
 	@app.QueryParam('avatar') String avatar
 ) async {
 	try {
+		if (avatar == username) {
+			// Reset to default
+			avatar = null;
+		}
+
 		int result = await dbConn.execute(
 			'UPDATE users SET custom_avatar = @avatar WHERE username = @username',
 			{'username': username, 'avatar': avatar});
