@@ -199,13 +199,13 @@
     "description": "It's a Batterfly Cubimal! Collect all Series 1 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -223,13 +223,13 @@
     "description": "It's a Bureaucrat Cubimal! Collect all Series 1 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -247,13 +247,13 @@
     "description": "It's a Butler Cubimal! Collect all Series 2 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -271,13 +271,13 @@
     "description": "It's a Butterfly Cubimal! Collect all Series 1 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -295,13 +295,13 @@
     "description": "It's a Cactus Cubimal! Collect all Series 1 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -319,13 +319,13 @@
     "description": "It's a Chick Cubimal! Collect all Series 1 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -343,13 +343,13 @@
     "description": "It's a Crab Cubimal! Collect all Series 1 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -367,13 +367,13 @@
     "description": "It's a Craftybot Cubimal! Collect all Series 2 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -391,13 +391,13 @@
     "description": "It's a Deimaginator Cubimal! Collect all Series 1 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -415,13 +415,13 @@
     "description": "It's a Dustbunny Cubimal! Collect all Series 1 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -439,13 +439,13 @@
     "description": "It's an Emo-Bear Cubimal! Collect all Series 2 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -463,13 +463,13 @@
     "description": "It's a Firebog Street Spirit Cubimal! Collect all Series 2 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -487,13 +487,13 @@
     "description": "It's a Firefly Cubimal! Collect all Series 1 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -511,13 +511,13 @@
     "description": "It's a Fox Cubimal! Collect all Series 2 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -535,13 +535,13 @@
     "description": "It's a Fox Ranger Cubimal! Collect all Series 2 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -559,13 +559,13 @@
     "description": "It's a Frog Cubimal! Collect all Series 1 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -583,13 +583,13 @@
     "description": "It's a Gnome Cubimal! Collect all Series 2 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -607,13 +607,13 @@
     "description": "It's a Greeterbot Cubimal! Collect all Series 1 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -631,13 +631,13 @@
     "description": "It's a Groddle Street Spirit Cubimal! Collect all Series 2 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -655,13 +655,13 @@
     "description": "It's a Gwendolyn Cubimal! Collect all Series 1 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -679,13 +679,13 @@
     "description": "It's a Helga Cubimal! Collect all Series 1 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -703,13 +703,13 @@
     "description": "It's a Hell Bartender Cubimal! Collect all Series 2 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -727,13 +727,13 @@
     "description": "It's an Ilmenskie Jones Cubimal! Collect all Series 2 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -751,13 +751,13 @@
     "description": "It's a JuJu Cubimal! Collect all Series 1 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -775,13 +775,13 @@
     "description": "It's a Magic Rock Cubimal! Collect all Series 1 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -799,13 +799,13 @@
     "description": "It's a Meal Vendor Cubimal! Collect all Series 2 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -823,13 +823,13 @@
     "description": "It's a Phantom Cubimal! Collect all Series 2 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -847,13 +847,13 @@
     "description": "It's a Piggy Cubimal! Collect all Series 1 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -871,13 +871,13 @@
     "description": "It's a Rook Cubimal! Collect all Series 1 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -895,13 +895,13 @@
     "description": "It's a Rube Cubimal! Collect all Series 1 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -919,13 +919,13 @@
     "description": "It's a Scion of Purple Cubimal! Collect all Series 2 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -943,13 +943,13 @@
     "description": "It's a Señor Funpickle Cubimal! Collect all Series 2 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -967,13 +967,13 @@
     "description": "It's a Sloth Cubimal! Collect all Series 2 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -991,13 +991,13 @@
     "description": "It's a Smuggler Cubimal! Collect all Series 1 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1015,13 +1015,13 @@
     "description": "It's a Sno Cone Vendor Cubimal! Collect all Series 1 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1039,13 +1039,13 @@
     "description": "It's a Squid Cubimal! Collect all Series 1 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1063,13 +1063,13 @@
     "description": "It's a Tool Vendor Cubimal! Collect all Series 2 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1087,13 +1087,13 @@
     "description": "It's a Trisor Cubimal! Collect all Series 2 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1111,13 +1111,13 @@
     "description": "It's an Uncle Friendly Cubimal! Collect all Series 1 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1135,13 +1135,13 @@
     "description": "It's a Uralia Street Spirit Cubimal! Collect all Series 2 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1159,13 +1159,13 @@
     "description": "It's a Yeti Cubimal! Collect all Series 1 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1695,13 +1695,13 @@
     "description": "This Factory Defect Chick Cubimal was hand-picked straight out of the garbage bin by an assembly line worker.",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1718,13 +1718,13 @@
     "description": "It's a Gardening Tools Vendor Cubimal! Collect all Series 2 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -1741,13 +1741,13 @@
     "description": "It's a Mai,ntenance Bot Cubimal! Collect all Series 2 Cubimals!",
     "actions": [
       {
-        "name": "Race",
+        "actionName": "Race",
         "description": "Race it against another Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Set Free",
+        "actionName": "Set Free",
         "description": "Release your cubimal back into the wild",
         "itemRequirements": {},
         "skillRequirements": {}

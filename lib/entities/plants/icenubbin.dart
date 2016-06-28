@@ -1,28 +1,21 @@
 part of entity;
 
 class IceNubbin extends Plant {
-	IceNubbin (String id, int x, int y, String streetName) : super(id, x, y, streetName) {
+	IceNubbin (String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		actionTime = 2000;
 		type = "Ice Nubbin";
 
-		actions.add({
-			"action":"collect",
-			"actionWord":"breaking the ice",
-			"timeRequired":actionTime,
-			"enabled":true,
-			"requires":[
-				{
-					"num":1,
-					"of":["scraper", "super_scraper"],
-					"error": "You need something sharp to cut off ice cubes with."
-				},
-				{
-					"num":4,
-					"of":['energy'],
-					"error": "You need at least 4 energy to pull off ice cubes."
-				}
-			]
-		});
+		ItemRequirements itemReq = new ItemRequirements()
+			..any = ['scraper', 'super_scraper'];
+		EnergyRequirements energyReq = new EnergyRequirements(energyAmount: 4)
+			..error = 'You need at least 4 energy to pull off ice cubes';
+		actions.add(
+			new Action.withName('collect')
+				..actionWord = 'breaking the ice'
+				..timeRequired = actionTime
+				..energyRequirements = energyReq
+				..itemRequirements = itemReq
+		);
 
 		states = {
 			"1-2-3-4-5" : new Spritesheet("1-2-3-4-5", "http://childrenofur.com/assets/entityImages/ice_knob.png", 290, 84, 58, 84, 5, false),
@@ -34,8 +27,8 @@ class IceNubbin extends Plant {
 
 	Future<bool> collect ({WebSocket userSocket, String email}) async {
 		//make sure the player has a shovel that can scrape this ice
-		Map mineAction = actions.firstWhere((Map action) => action['action'] == 'collect');
-		List<String> types = mineAction['requires'][0]['of'];
+		Action digAction = actions.singleWhere((Action a) => a.actionName == 'collect');
+		List<String> types = digAction.itemRequirements.any;
 		bool success = await InventoryV2.decreaseDurability(email, types);
 		if(!success) {
 			return false;
@@ -86,5 +79,5 @@ class IceNubbin extends Plant {
 }
 
 class IceKnob extends IceNubbin {
-	IceKnob(String id, int x, int y, String streetName) : super(id, x, y, streetName);
+	IceKnob(String id, num x, num y, String streetName) : super(id, x, y, streetName);
 }

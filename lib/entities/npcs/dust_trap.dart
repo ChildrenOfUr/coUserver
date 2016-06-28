@@ -1,22 +1,30 @@
 part of entity;
 
-class DustTrap extends NPC {
+class DustTrap extends NPC implements EventHandler<PlayerPosition> {
 	DateTime now;
-	String streetName, tsid;
+	String tsid;
+
+	@override
+	Map<String, dynamic> headers;
+
+	@override
+	void handleEvent(PlayerPosition position) {
+		if (currentState != states['up']) {
+			return;
+		}
+
+		if(_approx(x,position.x) && _approx(y,position.y+140)) {
+			stepOn(StreetUpdateHandler.userSockets[position.email], position.email);
+		}
+	}
 
 	bool _approx(num compare, num to) {
 		return (compare - to).abs() < 30;
 	}
 
-	DustTrap(String id, String streetName, this.tsid, int x, int y) : super(id, x, y, streetName) {
-		messageBus.subscribe(PlayerPosition, (PlayerPosition position) {
-			if(currentState != states['up'] || position.streetName != streetName) {
-				return;
-			}
-
-			if(_approx(x,position.x) && _approx(y,position.y+140)) {
-				stepOn(StreetUpdateHandler.userSockets[position.email], position.email);
-			}
+	DustTrap(String id, String streetName, this.tsid, num x, num y) : super(id, x, y, streetName) {
+		messageBus.subscribe(PlayerPosition, this, whereFunc: (PlayerPosition position) {
+			return position.streetName == streetName;
 		});
 
 		actionTime = 0;

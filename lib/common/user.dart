@@ -9,7 +9,7 @@ import 'package:redstone_mapper_pg/manager.dart';
 
 class User {
 	@Field() int id;
-	@Field() String username, email, bio, achievements, elevation;
+	@Field() String username, email, bio, achievements, elevation, custom_avatar;
 	@Field() bool chat_disabled;
 	@Field() DateTime last_login;
 

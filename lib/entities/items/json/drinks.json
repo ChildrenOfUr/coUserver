@@ -9,7 +9,7 @@
     "description": "A shiny can of mmm... beer.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
@@ -27,7 +27,7 @@
     "description": "A super-frothy bubble tea.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
@@ -46,20 +46,21 @@
     "description": "A vial of butterfly milk. It has the tingly effervescence of a thousand tiny butterfly farts.",
     "actions": [
       {
-        "name": "Sniff",
+        "actionName": "Sniff Milk",
         "description": "Advised for curing the blues",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Think of the butterfly you got this from while you're at it",
         "itemRequirements": {},
         "skillRequirements": {}
       },
       {
-        "name": "Shake Bottle",
+        "actionName": "Shake Bottle",
+        "multiEnabled": true,
         "description": "Makes butter. Costs 2 energy.",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -76,7 +77,7 @@
     "description": "A thick, warm carrot margarita.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
@@ -94,7 +95,7 @@
     "description": "A Cloud 11 smoothie. Pretty much the best smoothie ever invented in the history of smoothies.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
@@ -112,7 +113,7 @@
     "description": "A nourishing cloudberry daiquiri. It goes down smooth.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
@@ -130,7 +131,7 @@
     "description": "A steaming mug of strong, life-affirming coffee.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Feeling tired?",
         "itemRequirements": {},
@@ -148,7 +149,7 @@
     "description": "An urbane, sophistimicated cosma-politan.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
@@ -166,7 +167,7 @@
     "description": "Mmm... all the goodness of crab juice, plus tomatoes!",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
@@ -184,7 +185,7 @@
     "description": "A shaken-and-stirred-and-shaken-again creamy martini.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
@@ -202,7 +203,7 @@
     "description": "This water is so plain, it has no Brownian motion, but Beigien motion instead. Drink at own risk.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "How can a simple cup of water look so boring?",
         "itemRequirements": {},
@@ -220,7 +221,7 @@
     "description": "A seismically upgraded earthshaker.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "It might rock your world.",
         "itemRequirements": {},
@@ -238,7 +239,7 @@
     "description": "A goblet of mysteriously yummy exotic juice.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "The label reads, \"Imported from somewhere\".",
         "itemRequirements": {},
@@ -256,7 +257,7 @@
     "description": "A powerful brew with a scent acrid enough to perm your nostril hairs.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Smelt yo' face off!",
         "itemRequirements": {},
@@ -274,7 +275,7 @@
     "description": "A 5-alarm flaming Humbaba.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
@@ -292,7 +293,7 @@
     "description": "A glass of nigh-ambrosial fruit juice.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
@@ -310,7 +311,7 @@
     "description": "A sweet, innocent gurly drink.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
@@ -328,7 +329,7 @@
     "description": "One jug of premium high-octane hooch.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
@@ -346,7 +347,7 @@
     "description": "A tall glass of exquisitely sour lemon juice.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "You're not afraid of sour, are you?",
         "itemRequirements": {},
@@ -364,7 +365,7 @@
     "description": "A Mabbish coffee has all the goodness of regular coffee, but gooder.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
@@ -382,7 +383,7 @@
     "description": "A bracing tumbler of mega-healthy veggie juice.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
@@ -400,7 +401,7 @@
     "description": "A surprising glass of orange juice.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
@@ -418,7 +419,7 @@
     "description": "All the refreshment of beer combined with the autumnal savoury heft of pumpkin. Then combined with cinnamon. For no reason anyone can decipher.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
@@ -436,7 +437,7 @@
     "description": "A refreshingly pungent sunrise.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
@@ -454,7 +455,7 @@
     "description": "A savory smoothie. It sticks to your ribs and doesn't let go.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
@@ -472,7 +473,7 @@
     "description": "A low and lazy slow gin fizz.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
@@ -490,7 +491,7 @@
     "description": "A tall glass of exceedingly spicy grog.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
@@ -508,7 +509,7 @@
     "description": "A berry tasty too-berry shake.",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Pour this liquid into your mouth and hope for the best.",
         "itemRequirements": {},
@@ -526,7 +527,7 @@
     "description": "A forbidding decanter filled with wine of the dead, made from grapes crushed in Purgatory. This Hade-licious drink will revive even the most pooped of hellions... but will kill all who drink it aboveground. Pour it on cultivated items in your home street or yard to unreap what you've sown. Beware its cursed powers!",
     "actions": [
       {
-        "name": "Drink",
+        "actionName": "Drink",
         "multiEnabled": true,
         "description": "Just because it has \"dead\" in the name doesn't mean it will kill you.",
         "itemRequirements": {},

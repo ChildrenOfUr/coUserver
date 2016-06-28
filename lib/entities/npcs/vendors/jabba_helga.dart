@@ -3,7 +3,7 @@ part of entity;
 class Helga extends Vendor {
 	int openCount = 0;
 
-	Helga(String id, String streetName, String tsid, int x, int y) : super(id, streetName, tsid, x, y) {
+	Helga(String id, String streetName, String tsid, num x, num y) : super(id, streetName, tsid, x, y) {
 		type = "Helga";
 		itemsPredefined = true;
 		itemsForSale = [

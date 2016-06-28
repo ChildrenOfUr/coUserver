@@ -1,7 +1,7 @@
 part of entity;
 
 class BerylRock extends Rock {
-	BerylRock(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
+	BerylRock(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		type = "Beryl Rock";
 
 		states =

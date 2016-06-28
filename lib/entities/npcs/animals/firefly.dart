@@ -3,28 +3,21 @@ part of entity;
 class Firefly extends NPC {
 	Clock ffClock = new Clock();
 
-	Firefly(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
+	Firefly(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		actionTime = 4000;
 		type = "Firefly";
-		actions
-			..add({
-			"action": "collect",
-			"timeRequired": actionTime,
-			"enabled": true,
-			"actionWord": "chasing",
-			"requires":[
-				{
-					'num':3,
-					'of':['energy'],
-					"error": "Chasing fireflies is hard work, so you'll need at least 3 energy."
-				},
-				{
-					'num': 1,
-					'of': ['firefly_jar'],
-					"error": "Fireflies won't stay in your hands. You need a jar."
-				}
-			]
-		});
+		ItemRequirements itemReq = new ItemRequirements()
+			..any = ['firefly_jar']
+			..error = "Fireflies won't stay in your hands. You need a jar.";
+		EnergyRequirements energyReq = new EnergyRequirements(energyAmount: 3)
+			..error = "Chasing fireflies is hard work, so you'll need at least 3 energy.";
+		actions.add(
+			new Action.withName('collect')
+				..timeRequired = actionTime
+				..actionWord = 'chasing'
+				..energyRequirements = energyReq
+				..itemRequirements = itemReq
+		);
 		speed = 5; //pixels per second
 		states = {
 			"fullPath": new Spritesheet("fullPath", "http://childrenofur.com/assets/entityImages/npc_firefly__x1_fullPath_png_1354833043.png", 870, 360, 87, 40, 89, true),
@@ -35,6 +28,11 @@ class Firefly extends NPC {
 	}
 
 	Future<bool> collect({WebSocket userSocket, String email}) async {
+		//uncomment this bit when collection works
+//		if (!(await hasRequirements('collect', email))) {
+//			return false;
+//		}
+
 		// small flight path for 10 seconds
 		setState("smallPath");
 

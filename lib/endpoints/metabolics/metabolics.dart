@@ -150,6 +150,22 @@ class MetabolicsChange {
 		StatManager.add(email, Stat.favor_earned, increment: favAmt);
 		return metabolics;
 	}
+
+	Future<int> getMood({String username, String email, int userId}) async {
+		if (username == null && email == null && userId == null) {
+			throw new ArgumentError('You must pass either username, email or userId');
+		}
+
+		return (await getMetabolics(username: username, email: email, userId: userId)).mood;
+	}
+
+	Future<int> getEnergy({String username, String email, int userId}) async {
+		if (username == null && email == null && userId == null) {
+			throw new ArgumentError('You must pass either username, email or userId');
+		}
+
+		return (await getMetabolics(username: username, email: email, userId: userId)).energy;
+	}
 }
 
 class Metabolics {
@@ -302,6 +318,70 @@ Map<int, int> imgLevels = {
 	58: 6223679260,
 	59: 8526440586,
 	60: 11681223603
+};
+
+Map<int, int> energyLevels  = {
+	0: 100,
+	1: 100,
+	2: 110,
+	3: 120,
+	4: 130,
+	5: 140,
+	6: 150,
+	7: 170,
+	8: 190,
+	9: 210,
+	10: 230,
+	11: 250,
+	12: 270,
+	13: 300,
+	14: 330,
+	15: 360,
+	16: 390,
+	17: 420,
+	18: 450,
+	19: 480,
+	20: 520,
+	21: 560,
+	22: 600,
+	23: 640,
+	24: 700,
+	25: 750,
+	26: 800,
+	27: 850,
+	28: 900,
+	29: 950,
+	30: 1100,
+	31: 1150,
+	32: 1200,
+	33: 1260,
+	34: 1310,
+	35: 1370,
+	36: 1430,
+	37: 1490,
+	38: 1550,
+	39: 1610,
+	40: 1670,
+	41: 1740,
+	42: 1830,
+	43: 1900,
+	44: 1970,
+	45: 2050,
+	46: 2130,
+	47: 2210,
+	48: 2290,
+	49: 2370,
+	50: 2460,
+	51: 2550,
+	52: 2640,
+	53: 2730,
+	54: 2830,
+	55: 2930,
+	56: 3030,
+	57: 3140,
+	58: 3240,
+	59: 3340,
+	60: 3450
 };
 
 @app.Route("/getLevel")

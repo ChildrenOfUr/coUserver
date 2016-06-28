@@ -3,17 +3,16 @@ library street;
 import 'dart:io';
 import 'dart:mirrors';
 import 'dart:async';
-import 'dart:convert';
-import 'dart:math' hide log;
+import 'dart:math';
 
+import 'package:coUserver/common/mapdata/mapdata.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/entities/items/item.dart';
 import 'package:coUserver/entities/entity.dart';
 
-import 'package:redstone_mapper/mapper.dart';
 import 'package:jsonx/jsonx.dart' as jsonx;
 import 'package:redstone_mapper_pg/manager.dart';
-import 'package:http/http.dart' as http;
+import 'package:redstone_mapper/mapper.dart';
 
 class Wall {
 	String id;
@@ -96,6 +95,7 @@ class DBStreet {
 
 class Street {
 	static Map<String, Map> _jsonCache = {};
+	static Map<String, bool> persistLock = {};
 	List<CollisionPlatform> platforms = [];
 	List<Wall> walls = [];
 	int groundY = 0;
@@ -125,19 +125,16 @@ class Street {
 						String type = entity.type;
 						int x = entity.x;
 						int y = entity.y;
-
-						//generate a hopefully unique code that stays the same everytime for this object
-						String id = createId(x, y, type, tsid);
+						String id = entity.id;
+						Map<String, String> metadata = entity.metadata;
 
 						if (type == "Img" || type == "Mood" || type == "Energy" || type == "Currant"
 							|| type == "Mystery" || type == "Favor" || type == "Time" || type == "Quarazy") {
-							id = "q" + id;
 							quoins[id] = new Quoin(id, x, y, type.toLowerCase());
 						} else {
 							try {
 								ClassMirror classMirror = findClassMirror(type.replaceAll(" ", ""));
 								if (classMirror.isSubclassOf(findClassMirror("NPC"))) {
-									id = "n" + id;
 									if (classMirror.isSubclassOf(findClassMirror("Vendor")) ||
 										classMirror == findClassMirror("DustTrap")) {
 										// Vendors and dust traps get a street name/TSID to check for collisions
@@ -149,18 +146,19 @@ class Street {
 											.newInstance(new Symbol(""), [id, x, y, label])
 											.reflectee;
 									}
+									npcs[id].restoreState(metadata);
 								}
 								if (classMirror.isSubclassOf(findClassMirror("Plant"))) {
-									id = "p" + id;
 									plants[id] = classMirror
 										.newInstance(new Symbol(""), [id, x, y, label])
 										.reflectee;
+									plants[id].restoreState(metadata);
 								}
 								if (classMirror.isSubclassOf(findClassMirror("Door"))) {
-									id = "d" + id;
 									doors[id] = classMirror
 										.newInstance(new Symbol(""), [id, label, x, y])
 										.reflectee;
+									doors[id].restoreState(metadata);
 								}
 							} catch (_) {
 								Log.warning('Unable to instantiate a class for $type');
@@ -189,18 +187,13 @@ class Street {
 		}
 	}
 
-	Future loadJson({bool refreshCache: false}) async {
-		Map streetData = _jsonCache[tsid] ?? {};
+	void loadJson({bool refreshCache: false}) {
+		String _tsidG = tsidG(tsid);
+		Map streetData = _jsonCache[_tsidG] ?? {};
 
-		if (refreshCache || !_jsonCache.containsKey(tsid)) {
-			String url = "https://raw.githubusercontent.com/ChildrenOfUr/CAT422-glitch-location-viewer/master/locations/$tsid.json";
-			http.Response response = await http.get(url);
-			streetData = JSON.decode(response.body);
-			if (response.body != 'Not Found') {
-				_jsonCache[tsid] = streetData;
-			} else {
-				throw 'Street $tsid not found in CAT422 repo';
-			}
+		if (refreshCache || !_jsonCache.containsKey(_tsidG)) {
+			streetData = MapData.getStreetFile(_tsidG);
+			_jsonCache[_tsidG] = streetData;
 		}
 
 		groundY = -(streetData['dynamic']['ground_y'] as num).abs();
@@ -227,23 +220,60 @@ class Street {
 	}
 
 	Future persistState() async {
+		if (tsid == null) {
+			tsid = MapData.getStreetByName(label)[tsid];
+			Log.warning('Persisting street <label=$label> with null tsid, but figured out <tsid=$tsid>');
+			if (tsid == null) {
+				Log.warning('Could not find tsid for <label=$label>');
+				return;
+			}
+		}
+
+		persistLock[label] = true;
 		PostgreSql dbConn = await dbManager.getConnection();
 
 		try {
-			if (tsid == null) {
-				throw new StateError('Cannot create DBStreet because street tsid is null');
-			}
-
+			//persist the ground items
 			DBStreet dbStreet = new DBStreet()
 				..id = tsid
 				..groundItems = groundItems.values.toList() ?? [];
-			String query = "INSERT INTO streets(id,items) VALUES(@id,@items) ON CONFLICT (id) DO UPDATE SET items = @items";
+			String query = 'INSERT INTO streets(id,items) VALUES(@id,@items) ON CONFLICT (id) DO UPDATE SET items = @items';
 			await dbConn.execute(query, dbStreet);
-		} catch (e) {
-			Log.warning('Could not persist $tsid ($label). It may not have been loaded completely.', e);
+
+			//persist the entities
+			await Future.forEach(npcs.values, (NPC npc) async {
+				await npc.persist();
+			});
+			await Future.forEach(plants.values, (Plant plant) async {
+				await plant.persist();
+			});
+
+		} catch (e, st) {
+			Log.error('Could not persist $tsid ($label). It may not have been loaded completely.', e, st);
 		} finally {
+			persistLock.remove(label);
 			dbManager.closeConnection(dbConn);
 		}
+	}
+
+	// Find the y of the nearest platform
+	int getYFromGround(num currentX, num currentY, num width, num height) {
+		num returnY = currentY;
+
+		CollisionPlatform platform = _getBestPlatform(currentX, currentY, width, height);
+
+		if (platform != null) {
+			num goingTo = currentY + groundY;
+			num slope = (platform.end.y - platform.start.y) / (platform.end.x - platform.start.x);
+			num yInt = platform.start.y - slope * platform.start.x;
+			num lineY = slope * currentX + yInt;
+
+			if (returnY == currentY || goingTo >= lineY) {
+				returnY = lineY - groundY;
+			}
+		}
+
+		return returnY ~/ 1;
 	}
 
 	//ONLY WORKS IF PLATFORMS ARE SORTED WITH
@@ -251,7 +281,7 @@ class Street {
 	///returns the platform line that the entity is currently standing
 	///[posX] is the current x position of the entity
 	///[width] and [height] are the width and height of their current animation
-	CollisionPlatform getBestPlatform(num cameFrom, num posX, num width, num height) {
+	CollisionPlatform _getBestPlatform(num posX, num cameFrom, num width, num height) {
 		CollisionPlatform bestPlatform;
 		num x = posX;
 		num feetY = cameFrom + groundY;

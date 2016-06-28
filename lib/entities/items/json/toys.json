@@ -9,7 +9,7 @@
     "description": "This die has 12 sides. One for every Giant, plus a mystery guest.",
     "actions": [
       {
-        "name": "Roll",
+        "actionName": "Roll",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -43,7 +43,7 @@
     "description": "Contains one (1) Series 1 Cubimal. Open it up to find out which one is inside. Collect them all!",
     "actions": [
       {
-        "name": "Take Out Cubimal",
+        "actionName": "Take Out Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -59,7 +59,7 @@
     "description": "Contains one (1) Series 2 Cubimal. Open it up to find out which one is inside. Collect 'em all!",
     "actions": [
       {
-        "name": "Take Out Cubimal",
+        "actionName": "Take Out Cubimal",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -75,7 +75,7 @@
     "description": "Roll up!",
     "actions": [
       {
-        "name": "Roll",
+        "actionName": "Roll",
         "itemRequirements": {},
         "skillRequirements": {}
       }
@@ -101,7 +101,7 @@
     "description": "For those who believe their fate is predetermined, this fortune holds your destiny. Plus, your lucky lottery numbers!",
     "actions": [
       {
-        "name": "Read Fortune"
+        "actionName": "Read Fortune"
       }
     ]
   },
@@ -116,7 +116,7 @@
     "description": "Comes without a note inside. Add your own and give it to a friend!",
     "actions": [
       {
-        "name": "Insert Note",
+        "actionName": "Insert Note",
         "itemRequirements": {
           "all": {
             "note": 1
@@ -136,7 +136,7 @@
     "description": "Comes with a note inside.",
     "actions": [
       {
-        "name": "Break Cookie"
+        "actionName": "Break Cookie"
       }
     ]
   },
@@ -162,8 +162,8 @@
   "gift_box_wrapped": {
     "name": "Gift Box",
     "category": "Toys",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped__x1_1_png_1354837365.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped__x1_1_png_1354837365.png",
+    "iconUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped.png",
     "stacksTo": 1,
     "price": 0,
     "description": "One mystery surprise gift box, filled with… well, filled with gifts. But what gifts? There's only one way to find out… No, not asking the person who gave it to you. The OTHER, non-spoilerific way. Open it!"

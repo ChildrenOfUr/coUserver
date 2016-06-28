@@ -10,29 +10,29 @@ abstract class BabyAnimals {
 	/// Keep track of who is feeding/spawning which entities between feed1() and feed2()
 	static Map<String, Map<String, dynamic>> userActionCache = new Map();
 
-	static Future<bool> spawn(String type, String tsid, int pX, int pY) async {
+	static Future<bool> spawn(String type, String tsid, int pX, int pY, String email) async {
 		// Check for overcrowding
 		if (await StreetEntityBalancer.streetIsFull(type, tsid)) {
 			return false;
 		}
 
-		// As much randomness as possible to avoid collisions
-		String randId = 'fed'
-			'${tsid.substring(tsid.length ~/ 3)}'
-			'${pX ~/ 1}'
-			'${pY ~/ 1}'
-			'${rand.nextInt(9999)}';
-		if (randId.length > 30) {
-			randId = randId.substring(0, 30);
+		// Instantiate a new entity
+		String username;
+		try {
+			String _username = await User.getUsernameFromEmail(email);
+			assert(_username != null);
+			username = _username;
+		} catch (_) {
+			username = null;
 		}
 
-		// Instantiate a new entity
 		StreetEntity newEntity = new StreetEntity.create(
-			id: randId,
+			id: createId(pX, pY, type, tsid),
 			type: type,
 			tsid: tsidL(tsid),
 			x: pX,
-			y: pY
+			y: pY,
+			username: username
 		);
 
 		if (!(await StreetEntities.setEntity(newEntity))) {
@@ -48,7 +48,7 @@ abstract class BabyAnimals {
 		InventoryV2 inv = await getInventory(email);
 		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
 
-		String tsid = mapdata_streets[streetName]["tsid"];
+		String tsid = MapData.streets[streetName]["tsid"];
 		String entityType = ANIMAL_TYPES[itemInSlot.itemType];
 		if (tsid == null || (await StreetEntityBalancer.streetIsFull(entityType, tsid))) {
 			toast("Isn't this street a little crowded?", userSocket);
@@ -107,7 +107,7 @@ abstract class BabyAnimals {
 					return false;
 				}
 
-				if (!(await spawn(entityType, player.tsid, player.currentX, player.currentY))) {
+				if (!(await spawn(entityType, player.tsid, player.currentX, player.currentY, email))) {
 					// Spawn failed
 					_uncache();
 					return false;

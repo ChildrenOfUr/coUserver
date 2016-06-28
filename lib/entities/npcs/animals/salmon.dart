@@ -1,15 +1,13 @@
 part of entity;
 
 class Salmon extends NPC {
-	Salmon(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
-		actions.add({
-			            "action": "pocket",
-			            "enabled": true,
-			            "timeRequired": 0,
-			            "actionWord": "pocketing",
-			            "description": "Put in pocket",
-			            "requires": [{'num': 4, 'of': ['energy']}]
-		            });
+	Salmon(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
+		actions.add(
+			new Action.withName('pocket')
+				..actionWord = 'pocketing'
+				..description = 'Put in pocket'
+				..energyRequirements = new EnergyRequirements(energyAmount: 4)
+		);
 		type = "Salmon";
 		speed = 35;
 		ySpeed = 0;

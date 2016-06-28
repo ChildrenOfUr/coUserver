@@ -83,6 +83,7 @@ class PlayerSkill extends Skill {
 			)) == 1);
 		} catch (e, st) {
 			Log.error('Error setting skill $id for <email=$email>', e, st);
+			return false;
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}

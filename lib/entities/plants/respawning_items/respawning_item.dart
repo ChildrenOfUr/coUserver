@@ -3,15 +3,12 @@ part of entity;
 abstract class RespawningItem extends Plant {
 	String itemType;
 
-	RespawningItem(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
-		actions.add({
-			'action': 'pick up',
-			'actionWord': 'picking up',
-			'description': 'Take it for yourself',
-			'timeRequired': 0,
-			'enabled': true,
-			'requires': []
-		});
+	RespawningItem(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
+		actions.add(
+			new Action.withName('pick up')
+				..actionWord = 'picking up'
+				..description = 'Take it for yourself'
+		);
 
 		state = 0;
 		maxState = 0;

@@ -4,16 +4,11 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:http/http.dart' as http;
-import 'package:logging/logging.dart' as rsLog;
-import 'package:redstone/redstone.dart' as app;
-import 'package:redstone_mapper/mapper.dart';
-import 'package:redstone_mapper/plugin.dart';
-
 import 'package:coUserver/API_KEYS.dart';
 import 'package:coUserver/common/console.dart';
 import 'package:coUserver/common/identifier.dart';
 import 'package:coUserver/common/keep_alive.dart';
+import 'package:coUserver/common/mapdata/mapdata.dart';
 import 'package:coUserver/common/slack.dart';
 import 'package:coUserver/common/user.dart';
 import 'package:coUserver/common/util.dart';
@@ -25,9 +20,12 @@ import 'package:coUserver/entities/items/item.dart';
 import 'package:coUserver/quests/quest.dart';
 import 'package:coUserver/streets/player_update_handler.dart';
 import 'package:coUserver/streets/street_update_handler.dart';
+import 'package:http/http.dart' as http;
+import 'package:logging/logging.dart' as rsLog;
+import 'package:redstone/redstone.dart' as app;
+import 'package:redstone_mapper/plugin.dart';
 
 part 'package:coUserver/endpoints/elevation.dart';
-part 'package:coUserver/endpoints/getentities.dart';
 part 'package:coUserver/endpoints/getitems.dart';
 part 'package:coUserver/endpoints/report.dart';
 part 'package:coUserver/endpoints/slack.dart';
@@ -42,31 +40,40 @@ final int WEBSOCKET_PORT = 8282;
 
 // Start the server
 Future main() async {
-	// Keep track of when the server was started
-	ServerStatus.serverStart = new DateTime.now();
+	try {
+		// Keep track of when the server was started
+		ServerStatus.serverStart = new DateTime.now();
 
-	// Start listening on REDSTONE_PORT
-	await _initRedstone();
+		// Start listening on REDSTONE_PORT
+		await _initRedstone();
 
-	// Start listening on WEBSOCKET_PORT
-	_initWebSockets();
+		// Start listening on WEBSOCKET_PORT
+		_initWebSockets();
 
-	// Refill energy on new day
-	MetabolicsEndpoint.trackNewDays();
+		// Refill energy on new day
+		MetabolicsEndpoint.trackNewDays();
 
-	// Load image caches
-	FileCache.loadCaches();
+		// Load image caches
+		FileCache.loadCaches();
 
-	// Load items from JSON
-	await StreetUpdateHandler.loadItems();
+		// Load map data from JSON
+		MapData.load();
 
-	// Load quests from JSON
-	await QuestService.loadQuests();
+		// Load items from JSON
+		await StreetUpdateHandler.loadItems();
 
-	// Enable interactive console
-	Console.init();
+		// Load quests from JSON
+		await QuestService.loadQuests();
 
-	Log.info('Server started successfully, took ${ServerStatus.uptime}');
+		// Enable interactive console
+		Console.init();
+
+		Log.init();
+		Log.info('Server started successfully, took ${ServerStatus.uptime}');
+	} catch (e, st) {
+		Log.error('Server startup failed', e, st);
+		cleanup(1);
+	}
 }
 
 // Add a CORS header to every request
@@ -94,13 +101,19 @@ Future _initRedstone() async {
 	}
 
 	// Initialize redstone
-	try {
-		app.addPlugin(getMapperPlugin(dbManager));
-		app.setupConsoleLog(rsLog.Level.SEVERE);
-		await app.start(port: port, autoCompress: true);
-	} catch (e, st) {
-		Log.error('Could not start server', e, st);
-		await cleanup(1);
+	app.addPlugin(getMapperPlugin(dbManager));
+	app.setupConsoleLog(rsLog.Level.SEVERE);
+	await app.start(port: port, autoCompress: true);
+}
+
+///This will serve up the needed files to animate the player characters
+@app.Route('/getSpine')
+Future<File> getSpine(@app.QueryParam() email, @app.QueryParam() filename) async {
+	File file = new File('./spineSkins/$email/$filename');
+	if (await file.exists()) {
+		return file;
+	} else {
+		return null;
 	}
 }
 

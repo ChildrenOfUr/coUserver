@@ -1,20 +1,19 @@
 part of item;
 
 abstract class PiggyPlop extends Object with MetabolicsChange {
-	static Future<bool> sniff({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
+	Future<bool> sniffPlop({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		toast('Wow, no. Nope, bad idea', userSocket);
 		return true;
 	}
 
 	// Piggy Plop
-	// Butterfly Lotion
-	static Future<bool> taste({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
+	Future<bool> tastePlop({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		InventoryV2 inv = await getInventory(email);
 		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
 
 		if(itemInSlot.itemType == 'butterfly_lotion') {
 			toast("That didn't taste as good as it smells. -5 mood", userSocket);
-			return await ItemUser.trySetMetabolics(username, mood: -5);
+			return await trySetMetabolics(username, mood: -5);
 		} else if(itemInSlot.itemType == 'piggy_plop') {
 			toast("I don't think you're doing this right", userSocket);
 			return true;
@@ -23,7 +22,7 @@ abstract class PiggyPlop extends Object with MetabolicsChange {
 		}
 	}
 
-	static Future<bool> examine({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
+	Future<bool> examinePlop({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		//1 in 5 chance to get 2
 		int count = 1 + (rand.nextInt(5) == 3 ? 1 : 0);
 		String quantifier = count == 1 ? 'a pack' : '$count packs';

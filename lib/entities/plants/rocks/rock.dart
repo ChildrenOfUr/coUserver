@@ -3,29 +3,21 @@ part of entity;
 abstract class Rock extends Plant {
 	static final String SKILL = "mining";
 
-	Rock(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
+	Rock(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		maxState = 0;
 		actionTime = 5000;
 
-		actions.add({
-			            "action": "mine",
-			            "actionWord": "mining",
-			            "timeRequired": actionTime,
-			            "enabled": true,
-			            "requires": [
-				            {
-					            "num": 1,
-					            "of": ["pick", "fancy_pick"],
-					            "error": "You need some type of pick to mine this."
-				            },
-				            {
-					            "num": 10,
-					            "of": ['energy'],
-					            "error": "You need at least 10 energy to mine."
-				            }
-			            ],
-						"associatedSkill": SKILL
-		            });
+		ItemRequirements itemReq = new ItemRequirements()
+			..any = ['pick', 'fancy_pick']
+			..error = 'You need some type of pick to mine this.';
+		actions.add(
+			new Action.withName('mine')
+				..actionWord = 'mining'
+				..timeRequired = actionTime
+				..itemRequirements = itemReq
+				..energyRequirements = new EnergyRequirements(energyAmount: 10)
+				..associatedSkill = SKILL
+		);
 
 		responses = {
 			'gone': [
@@ -68,8 +60,8 @@ abstract class Rock extends Plant {
 		}
 
 		//make sure the player has a pick that can mine this rock
-		Map mineAction = actions.firstWhere((Map action) => action['action'] == 'mine');
-		List<String> types = mineAction['requires'][0]['of'];
+		Action digAction = actions.singleWhere((Action a) => a.actionName == 'mine');
+		List<String> types = digAction.itemRequirements.any;
 		int miningSkillLevel = await SkillManager.getLevel(SKILL, email);
 		bool success = await InventoryV2.decreaseDurability(email, types, amount: (miningSkillLevel >= 3 ? 1 : 2));
 		if(!success) {

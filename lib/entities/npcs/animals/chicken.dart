@@ -1,6 +1,7 @@
 part of entity;
 
 class Chicken extends NPC {
+	static final String SKILL = 'animal_kinship';
 	static final Map<String, String> EGG_ANIMALS = {
 		"butterfly_egg": "caterpillar",
 		"chicken_egg": "chick",
@@ -8,31 +9,25 @@ class Chicken extends NPC {
 	};
 
 	bool incubating = false;
+	List<String> squeezeList = [];
+	DateTime lastReset = new DateTime.now();
 
-	Chicken(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
-		actions.add({"action":"squeeze",
-			            "enabled":true,
-			            "timeRequired":actionTime,
-			            "actionWord":"squeezing",
-			            "requires":[
-				            {
-					            'num':5,
-					            'of':['energy']
-				            }
-			            ]});
-		actions.add({
-			"action": "incubate",
-			"enabled": mapdata_streets[streetName] != null &&
-				mapdata_streets[streetName]["tsid"] != null,
-			"actionWord": "incubating",
-			"timeRequired": 0,
-			"requires": [
-				{
-					"num": 1,
-					"of": EGG_ANIMALS.keys.toList()
-				}
-			]
-		});
+	Chicken(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
+		ItemRequirements itemReq = new ItemRequirements()
+			..any = EGG_ANIMALS.keys.toList()
+			..error = "You'll need an animal egg for the chicken to incubate";
+		actions.addAll([
+			new Action.withName('squeeze')
+				..actionWord = 'squeezing'
+				..timeRequired = actionTime
+				..energyRequirements = new EnergyRequirements(energyAmount: 2)
+				..associatedSkill = SKILL,
+			new Action.withName('incubate')
+				..enabled = MapData.streets[streetName] != null &&
+							MapData.streets[streetName]["tsid"] != null
+				..actionWord = 'incubating'
+				..itemRequirements = itemReq
+					   ]);
 
 		type = "Chicken";
 		speed = 75; //pixels per second
@@ -139,21 +134,82 @@ class Chicken extends NPC {
 				"Ta DA!"
 			]
 		};
+
+		Clock clock = new Clock();
+		clock.onNewDay.listen((_) => _resetLists());
 	}
 
+	void _resetLists() {
+		squeezeList.clear();
+		lastReset = new DateTime.now();
+	}
+
+	void restoreState(Map<String, String> metadata) {
+		if (metadata.containsKey('squeezeList')) {
+			squeezeList = JSON.decode(metadata['squeezeList']);
+		}
+		if (metadata.containsKey('lastReset')) {
+			lastReset = new DateTime.fromMillisecondsSinceEpoch(int.parse(metadata['lastReset']));
+			Clock lastResetClock = new Clock.stoppedAtDate(lastReset);
+			Clock currentClock = new Clock.stoppedAtDate(new DateTime.now());
+			if (lastResetClock.dayInt < currentClock.dayInt ||
+				lastResetClock.hourInt < 6 && currentClock.hourInt >= 6) {
+				_resetLists();
+			}
+		}
+	}
+
+	Map<String, String> getPersistMetadata() {
+		Map<String, String> map = {
+			'squeezeList': JSON.encode(squeezeList),
+			'lastReset': lastReset.millisecondsSinceEpoch.toString()
+		};
+
+		return map;
+	}
+
+
 	Future<bool> squeeze({WebSocket userSocket, String email}) async {
-		bool success = await trySetMetabolics(email, energy:-2, mood:2, imgMin:3, imgRange:2);
+		int level = await SkillManager.getLevel(SKILL, email);
+		int energy = -1;
+		int mood = 2 * (level + 1);
+		int imgMin = 3 * (level + 1);
+		int imgRange = 2 * (level + 1) ~/ 3;
+		int count = 1;
+		int odds = 20;
+
+		if (level == 0) {
+			//1 in 3 chance to fail
+			if (rand.nextInt(3) == 1) {
+				say(responses['squeezeFail'].elementAt(rand.nextInt(responses['squeezeFail'].length)));
+				return false;
+			}
+		}
+
+		if (level == 7) {
+			count = 4;
+			odds = 5;
+		} else if (level > 4) {;
+			count = 3;
+			odds = 10;
+		} else if (level > 1) {
+			count = 2;
+			odds = 15;
+		}
+
+		bool success = await trySetMetabolics(email, energy: energy, mood: mood, imgMin:imgMin, imgRange: imgRange);
 		if(!success) {
-			say(responses['squeezeFail'].elementAt(rand.nextInt(responses['squeezeFail'].length)));
 			return false;
 		}
 
-		if(rand.nextInt(5) == 1) {
-			// 1/5 chance of bonus
-			await InventoryV2.addItemToUser(email, items['grain'].getMap(), 3, id);
+		SkillManager.learn(SKILL, email);
+
+		if(rand.nextInt(odds) == 1) {
+			// 1/odds chance of bonus
+			await InventoryV2.addItemToUser(email, items['grain'].getMap(), count+3, id);
 			say(responses['squeezeExtra'].elementAt(rand.nextInt(responses['squeezeExtra'].length)));
 		} else {
-			await InventoryV2.addItemToUser(email, items['grain'].getMap(), 1, id);
+			await InventoryV2.addItemToUser(email, items['grain'].getMap(), count, id);
 			say(responses['squeeze'].elementAt(rand.nextInt(responses['squeeze'].length)));
 		}
 
@@ -264,5 +320,67 @@ class Chicken extends NPC {
 				}
 			}
 		}
+	}
+
+	@override
+	Future<List<Action>> customizeActions(String email) async {
+		int akLevel = await SkillManager.getLevel(SKILL, email);
+		List<Action> personalActions = [];
+		await Future.forEach(actions, (Action action) async {
+			Action personalAction = new Action.clone(action);
+			if (action.actionName == 'squeeze') {
+				//chickens can only be squeezed once per day unless AK > 0
+				//then twice per day unless AK > 4
+				//then only thrice
+				int times = _countSqueezes(email);
+				if (akLevel > 6) {
+					personalAction.timeRequired ~/= 3;
+				}
+				if (akLevel > 4) {
+					personalAction.timeRequired ~/= 2;
+					if (times >= 3) {
+						personalAction.enabled = false;
+						personalAction.error = 'You can only squeeze this chicken thrice per day';
+					}
+				} else if (akLevel > 0) {
+					if (times >= 2) {
+						personalAction.enabled = false;
+						personalAction.error = 'You can only squeeze this chicken twice per day';
+					}
+				} else {
+					if (times >= 1) {
+						personalAction.enabled = false;
+						personalAction.error = 'You can only squeeze this chicken once per day';
+					}
+				}
+
+				//it's hard to do when you're low level
+				if (akLevel == 0) {
+					personalAction.energyRequirements.energyAmount = 3;
+				}
+				//the cost of squeezing goes up, but so do the rewards so that's fine
+				if (akLevel > 2) {
+					personalAction.energyRequirements.energyAmount = 2;
+				}
+			} else if (action.actionName == 'incubate') {
+				//you can only incubate eggs if you have at least AK 3
+				if (akLevel < 3) {
+					personalAction.enabled = false;
+					personalAction.error = 'You need at least level 3 of Animal Kinship to incubate an egg';
+				}
+			}
+			personalActions.add(personalAction);
+		});
+		return personalActions;
+	}
+
+	int _countSqueezes(String email) {
+		int times = 0;
+		for (String e in squeezeList) {
+			if (e == email) {
+				times++;
+			}
+		}
+		return times;
 	}
 }

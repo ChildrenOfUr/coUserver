@@ -4,20 +4,20 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:convert';
 import 'dart:mirrors';
-import 'dart:math' hide log;
+import 'dart:math';
 
-import 'package:crypto/crypto.dart';
-import 'package:harvest/harvest.dart' as harvest;
+import 'package:message_bus/message_bus.dart';
 import 'package:http/http.dart' as http;
 import 'package:image/image.dart';
 import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper_pg/manager.dart';
 
 import 'package:coUserver/API_KEYS.dart';
-import 'package:coUserver/common/log.dart';
+import 'package:coUserver/common/log/log.dart';
+import 'package:coUserver/common/user.dart';
 import 'package:coUserver/streets/street_update_handler.dart';
 
-export 'package:coUserver/common/log.dart';
+export 'package:coUserver/common/log/log.dart';
 export 'package:coUserver/entities/street_entities/street_entities.dart';
 
 part 'filecaching.dart';
@@ -30,16 +30,20 @@ PostgreSqlManager dbManager = new PostgreSqlManager(databaseUri);
 PostgreSql get dbConn => app.request.attributes.dbConn;
 
 /// Global message bus
-harvest.MessageBus messageBus = new harvest.MessageBus.async();
+MessageBus messageBus = new MessageBus();
 
 /// Minimum client version to allow connections from
-final int MIN_CLIENT_VER = 142;
+final int MIN_CLIENT_VER = 143;
 
 /// Global random object
 Random rand = new Random();
 
 /// Get a TSID in 'G...' (CAT422) form
 String tsidG(String tsid) {
+	if (tsid == null) {
+		return tsid;
+	}
+
 	if (tsid.startsWith("L")) {
 		// In CAT422 form
 		return tsid.replaceFirst("L", "G");
@@ -117,4 +121,21 @@ Future cleanup([int exitCode = 0]) async {
 	if (exitCode >= 0) {
 		exit(exitCode);
 	}
+}
+
+/// Get a reference to the coUserver directory
+Directory get serverDir {
+	String directory;
+
+	if (Platform.script.data != null) {
+		directory = Directory.current.path;
+	} else {
+		directory = Platform.script.toFilePath();
+		directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
+	}
+
+	// Run tests in server directory
+	directory = directory.replaceAll('coUserver/test','coUserver');
+
+	return new Directory(directory);
 }

@@ -1,6 +1,6 @@
 library inventory;
 
-import 'dart:math' hide log;
+import 'dart:math';
 import 'dart:async';
 import 'dart:io';
 import 'dart:convert';
@@ -409,10 +409,11 @@ class InventoryV2 {
 		inventory_json = jsonx.encode(tmpSlots);
 
 		if (toMerge > 0) {
-			Log.warning('[InventoryV2] Cannot give ${item.itemType} x $count because <email=$email> ran out of slots before all items were added. $toMerge items skipped.');
+			Log.warning('[InventoryV2] Cannot give ${item.itemType} x $count because <email=$email> ran out of slots before all items were added.');
 			Identifier playerId = PlayerUpdateHandler.users[await User.getUsernameFromEmail(email)];
 			if(playerId != null) {
-				item.putItemOnGround(playerId.currentX+40, playerId.currentY+40, playerId.currentStreet);
+				item.putItemOnGround(playerId.currentX+40, playerId.currentY, playerId.currentStreet, count: toMerge);
+				Log.info('$toMerge ${item.itemType}(s) dropped.');
 			}
 		}
 
@@ -800,7 +801,7 @@ class InventoryV2 {
 				return true;
 			} else {
 				int used = int.parse(slot.metadata["durabilityUsed"]);
-				int max = items[slot.itemType].durability;
+				int max = items[slot.itemType].durability ?? 0;
 				return (used < max);
 			}
 		}
@@ -959,9 +960,18 @@ class InventoryV2 {
 	}
 
 	///Returns the number of items successfully added to the user's inventory
-	static Future<int> addItemToUser(String email, Map item, int count,	[String fromObject = "_self"]) async {
+	static Future<int> addItemToUser(String email, dynamic itemTypeOrMap, int count, [String fromObject = "_self"]) async {
 		if (!(await _aquireLock(email))) {
 			return 0;
+		}
+
+		Map item;
+		if (itemTypeOrMap is Map) {
+			item = itemTypeOrMap;
+		} else if (itemTypeOrMap is String) {
+			item = items[itemTypeOrMap].getMap();
+		} else {
+			throw new ArgumentError('Item must be an item type or item map, not ${item.runtimeType}');
 		}
 
 		WebSocket userSocket = StreetUpdateHandler.userSockets[email];
@@ -1059,7 +1069,7 @@ class InventoryV2 {
 		if (!(await _aquireLock(email))) {
 			return false;
 		}
-		
+
 		// Get the user's inventory to work on
 		InventoryV2 inv = await getInventory(email);
 		List<Slot> beforeSlots = inv.slots;

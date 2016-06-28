@@ -1,8 +1,6 @@
 library harvest_messages;
 
-import 'package:harvest/harvest.dart';
-
-class PlayerPosition extends Message {
+class PlayerPosition {
 	String email, streetName;
 	num x,y;
 

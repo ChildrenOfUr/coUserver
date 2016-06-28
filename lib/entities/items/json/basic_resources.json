@@ -153,7 +153,7 @@
     "description": "A simple meat.",
     "actions": [
       {
-        "name": "Eat",
+        "actionName": "Eat",
         "multiEnabled": true,
         "description": "Shove it into your mouth, but with manners.",
         "itemRequirements": {},

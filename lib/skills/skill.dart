@@ -119,10 +119,14 @@ class Skill {
 			List<Metabolics> rows = await dbConn.query(
 				SkillManager.CELL_QUERY, Metabolics, {"email": email}
 			);
-			int points = JSON.decode(rows.first.skills_json)[id] ?? 0;
+			int points = 0;
+			if (rows.length > 0) {
+				points = JSON.decode(rows.first.skills_json)[id] ?? 0;
+			}
 			return new PlayerSkill(copy, email, points);
 		} catch (e, st) {
 			Log.error('Error getting skill $id', e, st);
+			return null;
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}

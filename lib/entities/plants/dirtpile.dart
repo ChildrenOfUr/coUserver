@@ -1,29 +1,19 @@
 part of entity;
 
 class DirtPile extends Plant {
-	DirtPile(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
+	DirtPile(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		actionTime = 3000;
 		type = "Dirt Pile";
 
-		actions.add({
-			            "action": "dig",
-			            "actionWord": "digging",
-			            "timeRequired": actionTime,
-			            "enabled": true,
-			            "requires": [
-				            {
-					            "num": 1,
-					            "of": ["shovel", "ace_of_spades"],
-					            "error": "What, you were going to dig with your bare hands?"
-				            },
-				            {
-					            "num": 8,
-					            "of": ['energy'],
-					            "error": "You need at least 8 energy to dig."
-				            }
-			            ]
-		            });
-
+		ItemRequirements itemReq = new ItemRequirements()
+			..any = ['shovel', 'ace_of_spades'];
+		actions.add(
+			new Action.withName('dig')
+				..actionWord = 'digging'
+				..timeRequired = actionTime
+				..energyRequirements = new EnergyRequirements(energyAmount: 8)
+				..itemRequirements = itemReq
+		);
 		states = {
 			"maturity_1": new Spritesheet(
 				"maturity_1",
@@ -69,8 +59,8 @@ class DirtPile extends Plant {
 
 	Future<bool> dig({WebSocket userSocket, String email}) async {
 		//make sure the player has a shovel that can dig this dirt
-		Map mineAction = actions.firstWhere((Map action) => action['action'] == 'dig');
-		List<String> types = mineAction['requires'][0]['of'];
+		Action digAction = actions.singleWhere((Action a) => a.actionName == 'dig');
+		List<String> types = digAction.itemRequirements.any;
 		bool success = await InventoryV2.decreaseDurability(email, types);
 		if(!success) {
 			return false;

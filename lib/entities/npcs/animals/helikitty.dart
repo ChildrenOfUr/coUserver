@@ -3,21 +3,14 @@ part of entity;
 class HeliKitty extends NPC {
 	int age;
 
-	HeliKitty(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
+	HeliKitty(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		type = "Heli Kitty";
-		actions
-			..add({
-				      "action": "pet",
-				      "timeRequired": actionTime,
-				      "enabled": true,
-				      "actionWord": "petting",
-				      "requires":[
-					      {
-						      'num':5,
-						      'of':['energy']
-					      }
-				      ]
-			      });
+		actions.add(
+			new Action.withName('pet')
+				..timeRequired = actionTime
+				..actionWord = 'petting'
+				..energyRequirements = new EnergyRequirements(energyAmount: 5)
+		);
 		speed = 75; //pixels per second
 		age = 3; //TODO: make them get older
 		states = {

@@ -8,6 +8,27 @@ class MetabolicsEndpoint {
 	static Timer simulateTimer = new Timer.periodic(new Duration(seconds: 5), (Timer timer) => simulate());
 	static Map<String, WebSocket> userSockets = {};
 
+	static Future upgradeEnergy() async {
+		String query = 'SELECT * FROM metabolics';
+		PostgreSql dbConn = await dbManager.getConnection();
+		try {
+			List<Metabolics> playerMetabolics = await dbConn.query(query, Metabolics);
+			await Future.forEach(playerMetabolics, (Metabolics m) async {
+				if (m.lifetime_img != null) {
+					int newEnergy = energyLevels[getLevel(m.lifetime_img)];
+					m.energy = newEnergy;
+					m.max_energy = newEnergy;
+					print('player ${m.user_id} now has $newEnergy energy');
+					await setMetabolics(m);
+				}
+			});
+		} catch (e, st) {
+			Log.error('Could not upgrade energy', e, st);
+		} finally {
+			dbManager.closeConnection(dbConn);
+		}
+	}
+
 	static void trackNewDays() {
 		// Refill everyone's energy on the start of a new day
 		Clock clock = new Clock();
@@ -97,8 +118,8 @@ class MetabolicsEndpoint {
 
 	/// Supply m to speed it up, and init to only check energy (in case they left the game while in Hell)
 	static Future updateDeath(Identifier userIdentifier, [Metabolics m, bool init = false]) async {
-		final String HELL_ONE = 'LA5PPFP86NF2FOS';
-		final String CEBARKUL = 'LIF12PMQ5121D68';
+		final String HELL_ONE = 'GA5PPFP86NF2FOS';
+		final String CEBARKUL = 'GIF12PMQ5121D68';
 		final int NARAKA = 40;
 
 		if (userIdentifier == null) {
@@ -116,18 +137,17 @@ class MetabolicsEndpoint {
 			// Save undead street
 			m.dead = true;
 
-			// Go to Hell
+			// Go to Hell One
 			userIdentifier.webSocket.add(JSON.encode({
 				"gotoStreet": "true",
 				"tsid": HELL_ONE
 			}));
-		} else {
-			Map<String, dynamic> street = getStreetByTsid(m.current_street);
-			if (
-				m.energy >= HellGrapes.ENERGY_REQ // Enough energy to be alive
-				&& (street == null) || ((street['hub_id'] ?? NARAKA) == NARAKA) // In Hell
-			) {
-				// Return to world
+		} else if (m.energy >= HellGrapes.ENERGY_REQ) {
+			// Enough energy to be alive
+
+			Map<String, dynamic> street = MapData.getStreetByTsid(m.current_street);
+			if ((street == null) || ((street['hub_id'] ?? NARAKA) == NARAKA)) {
+				// In Naraka, Return to world
 				userIdentifier.webSocket.add(JSON.encode({
 					"gotoStreet": "true",
 					"tsid": m.undead_street ?? CEBARKUL
@@ -199,6 +219,8 @@ class MetabolicsEndpoint {
 		} catch (e, st) {
 			Log.error('Error marking location $TSID as visited for player $username', e, st);
 		}
+
+		return false;
 	}
 
 	static bool denyQuoin(Quoin q, String username) {
@@ -335,7 +357,11 @@ class MetabolicsEndpoint {
 
 		// Compare "after" and "before" img
 		if (getLevel(m.lifetime_img) > getLevel(oldImg)) {
-			// Level up
+			// let's give people more energy as they level
+			int newEnergy = energyLevels[getLevel(m.lifetime_img)];
+			m.energy = m.max_energy = newEnergy;
+
+			// send level up to client
 			MetabolicsEndpoint.userSockets[username]?.add(JSON.encode({
 				                                                          "levelUp": getLevel(m.lifetime_img)
 			                                                          }));

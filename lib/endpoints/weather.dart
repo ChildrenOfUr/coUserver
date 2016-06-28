@@ -3,7 +3,7 @@ library weather;
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'dart:math' hide log;
+import 'dart:math';
 
 enum WeatherState {
 	CLEAR, RAINING, SNOWING, WINDY

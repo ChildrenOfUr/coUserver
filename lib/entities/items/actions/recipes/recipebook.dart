@@ -19,6 +19,7 @@ class RecipeBook extends Object with MetabolicsChange {
 		}
 
 		List<Map> toolRecipes = [];
+		Map<String, int> skillCache = {};
 		await Future.forEach(recipes, (Recipe recipe) async {
 			bool skillTooLow = false;
 
@@ -61,16 +62,14 @@ class RecipeBook extends Object with MetabolicsChange {
 							}
 
 							int level = recipe.skills[skillId];
-							if (
-								Skill.find(skillId) != null &&
-								await SkillManager.getLevel(skillId, email) < level
-							) {
+							int playerLevel = skillCache[skillId] ?? await SkillManager.getLevel(skillId, email);
+							skillCache[skillId] = playerLevel;
+							if (Skill.find(skillId) != null && playerLevel < level) {
 								// Player's skill level is too low
 								skillTooLow = true;
 							}
 						});
 					}
-
 				}
 				// End user-specific data
 
@@ -127,8 +126,8 @@ class RecipeBook extends Object with MetabolicsChange {
 			return "you are out of energy";
 		}
 
-		// Take all of the items
 		String missingItem = null;
+		// Test all of the items
 		await Future.forEach(recipe.input.keys, (String itemType) async {
 			if (missingItem != null) {
 				// Can't escape the async forEach,
@@ -145,18 +144,22 @@ class RecipeBook extends Object with MetabolicsChange {
 				missingItem = items[itemType].name;
 				return;
 			}
+		});
 
+		if (missingItem != null) {
+			return "you ran out of ${missingItem}s";
+		}
+
+		// Take all of the items
+		await Future.forEach(recipe.input.keys, (String itemType) async {
 			// Remove the item
+			int qty = recipe.input[itemType];
 			int got = (await InventoryV2.takeAnyItemsFromUser(email, itemType, qty));
 			if (got != qty) {
 				// If they didn't have a required item, they're not making a smoothie
 				throw "Not enough $itemType. Took $got but wanted $qty";
 			}
 		});
-
-		if (missingItem != null) {
-			return "you ran out of ${missingItem}s";
-		}
 
 		// Wait for it to make it, then give the item
 		new Timer(new Duration(seconds: recipe.time), () async {

@@ -11,7 +11,6 @@ import 'package:coUserver/common/util.dart';
 import 'package:coUserver/skills/skillsmanager.dart';
 import 'package:coUserver/streets/street_update_handler.dart';
 
-import 'package:harvest/harvest.dart' as harvest;
 import 'package:path/path.dart' as path;
 import 'package:redstone_mapper_pg/manager.dart';
 import 'package:redstone_mapper/mapper.dart';
@@ -20,7 +19,7 @@ import 'package:redstone/redstone.dart' as app;
 part 'achievement_checkers.dart';
 part 'statsbased.dart';
 
-class AchievementAward extends harvest.Message {
+class AchievementAward {
 	String email;
 	Map achieveMap;
 
@@ -31,19 +30,8 @@ class Achievement {
 	static Map<String, Achievement> _ACHIEVEMENTS = new Map();
 
 	static Future<int> load() async {
-		String directory;
-		//this happens when running unit tests
-		if(Platform.script.data != null) {
-			directory = Directory.current.path;
-		} else {
-			directory = Platform.script.toFilePath();
-			directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
-		}
-
-		directory = directory.replaceAll('coUserver/test','coUserver');
-
-		Directory json = new Directory(path.join(directory, 'lib', 'achievements', 'json'));
-		List<File> categories = json.listSync();
+		Directory json = new Directory(path.join(serverDir.path, 'lib', 'achievements', 'json'));
+		List<FileSystemEntity> categories = json.listSync();
 
 		await Future.forEach(categories, (File category) async {
 			await JSON.decode(await category.readAsString()).forEach((String id, Map data) async {

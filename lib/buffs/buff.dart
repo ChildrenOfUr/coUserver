@@ -46,6 +46,7 @@ class Buff {
 			return new PlayerBuff(copy, email, remaining);
 		} catch (e, st) {
 			Log.error('Error getting buff $id for <email=$email>', e, st);
+			return null;
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}

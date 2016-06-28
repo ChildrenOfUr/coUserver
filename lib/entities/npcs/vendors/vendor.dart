@@ -14,25 +14,16 @@ abstract class Vendor extends NPC {
 		'vendorType' decides which items to sell, and is never displayed to the user
 	 **/
 
-	Vendor(String id, String streetName, String tsid, int x, int y) : super(id, x, y, streetName) {
+	Vendor(String id, String streetName, String tsid, num x, num y) : super(id, x, y, streetName) {
 		//vendor actions are instant
 		actionTime = 0;
 		type = "Street Spirit";
-		actions
-			..add({
-				      "action": "buy",
-				      "timeRequired": actionTime,
-				      "enabled": true,
-				      "actionWord": ""
-			      })
-			..add({
-				      "action": "sell",
-				      "timeRequired": actionTime,
-				      "enabled": true,
-				      "actionWord": ""
-			      });
+		actions.addAll([
+						   new Action.withName('buy'),
+						   new Action.withName('sell')
+					   ]);
 
-		if(!itemsPredefined) {
+		if (!itemsPredefined) {
 			itemsForSale.clear();
 
 			String vendorType = vendorTypes[streetName];
@@ -40,7 +31,7 @@ abstract class Vendor extends NPC {
 				vendorType = getRandomVendorType();
 			}
 
-			switch(vendorType) {
+			switch (vendorType) {
 				case 'alchemical':
 					type = "Street Spirit: Alchemical Goods";
 					itemsForSale = [
@@ -138,11 +129,11 @@ abstract class Vendor extends NPC {
 						items["fuelmaker_core"].getMap(),
 						items["cauldron"].getMap(),
 						items["tincturing_kit"].getMap(),
-						items["still"].getMap(),//
+						items["still"].getMap(), //
 						items["metalmaker_mechanism"].getMap(),
 						items["metalmaker_tooler"].getMap(),
 						items["woodworker_chassis"].getMap(),
-						items["spindle"].getMap(),//
+						items["spindle"].getMap(), //
 						items["loomer"].getMap(),
 						items["construction_tool"].getMap(),
 						items["bulb"].getMap()
@@ -278,18 +269,18 @@ abstract class Vendor extends NPC {
 	}
 
 	buyItem({WebSocket userSocket, String itemType, int num, String email}) async {
-		if(!items.containsKey(itemType)) {
+		if (!items.containsKey(itemType)) {
 			return;
 		}
 
 		Item item = new Item.clone(itemType);
 		Metabolics m = await getMetabolics(email: email);
-		if(m.currants >= calcPrice(item) * num) {
+		if (m.currants >= calcPrice(item) * num) {
 			m.currants -= calcPrice(item) * num;
 			setMetabolics(m);
 			await InventoryV2.addItemToUser(email, item.getMap(), num, id);
 
-			if(item.itemType == 'knife_and_board') {
+			if (item.itemType == 'knife_and_board') {
 				//offer the make me a sammich quest
 				QuestEndpoint.questLogCache[email].offerQuest('Q1');
 			}
@@ -299,13 +290,13 @@ abstract class Vendor extends NPC {
 	}
 
 	sellItem({WebSocket userSocket, String itemType, int num, String email}) async {
-		if(!items.containsKey(itemType)) {
+		if (!items.containsKey(itemType)) {
 			return;
 		}
 
 		bool success = (await InventoryV2.takeAnyItemsFromUser(email, itemType, num) == num);
 
-		if(success) {
+		if (success) {
 			Item item = items[itemType];
 
 			Metabolics m = await getMetabolics(email: email);
@@ -320,7 +311,7 @@ abstract class Vendor extends NPC {
 
 	List<Map> pickItems(List<String> categories) {
 		itemsToSell = items.values.where((Item m) {
-			if(categories.contains(m.getMap()["category"])) {
+			if (categories.contains(m.getMap()["category"])) {
 				return true;
 			} else {
 				return false;

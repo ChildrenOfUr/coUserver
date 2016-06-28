@@ -4,13 +4,19 @@ abstract class Door extends Entity {
 	String id, type, toLocation, streetName;
 	bool outside;
 	Spritesheet currentState;
-	int x,y;
+	num x,y;
 
 	Door(this.id, this.streetName, this.x, this.y) {
 		type = "Door";
 	}
 
-	Map getMap() {
+	//For now, nothing about doors needs to be persisted to the db
+	Future persist() async {}
+
+	//So there's also nothing to restore
+	void restoreState(Map<String, String> metadata) {}
+
+	Map<String, dynamic> getMap() {
 		Map map = super.getMap();
 		map['url'] = currentState.url;
 		map['id'] = id;
@@ -19,7 +25,7 @@ abstract class Door extends Entity {
 		map["numColumns"] = currentState.numColumns;
 		map["numFrames"] = currentState.numFrames;
 		map['state'] = 0;
-		map["actions"] = actions;
+		map["actions"] = encode(actions);
 		map['x'] = x;
 		map['y'] = y;
 		return map;

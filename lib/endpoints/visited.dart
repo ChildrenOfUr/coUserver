@@ -23,7 +23,7 @@ Future<List<String>> getLocationHistoryInverse(
 ) async {
 	List<String> history = await getLocationHistory(email);
 	List<String> allTsids = new List();
-	mapdata_streets.values.forEach((Map<String, dynamic> streetData) {
+	MapData.streets.values.forEach((Map<String, dynamic> streetData) {
 		if (
 			// TSID available
 			(streetData["tsid"] != null) &&
@@ -41,7 +41,7 @@ Future<String> randomUnvisitedTsid(String email, {bool inclHidden: true}) async 
 	if (unvisited.length > 0) {
 		return unvisited[rand.nextInt(unvisited.length)];
 	} else {
-		List<Map> allWithData = mapdata_streets.values.where((Map data) {
+		List<Map> allWithData = MapData.streets.values.where((Map data) {
 			if (data["tsid"] == null) {
 				// Don't include streets without TSIDs
 				return false;
@@ -63,7 +63,7 @@ Future<String> randomUnvisitedTsid(String email, {bool inclHidden: true}) async 
 bool streetIsHidden(Map streetData) {
 	try {
 		bool streetLevel = (streetData["map_hidden"] ?? false);
-		bool hubLevel = (mapdata_hubs[streetData["hub_id"]]["map_hidden"] ?? false);
+		bool hubLevel = (MapData.hubs[streetData["hub_id"]]["map_hidden"] ?? false);
 		return (streetLevel || hubLevel);
 	} catch(_) {
 		// Missing data

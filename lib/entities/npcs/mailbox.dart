@@ -1,15 +1,12 @@
 part of entity;
 
 class Mailbox extends NPC {
-	Mailbox(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
+	Mailbox(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		actionTime = 0;
-		actions..add({"action":"check mail",
-			             "timeRequired":actionTime,
-			             "enabled":true,
-			             "actionWord":""})..add({"action":"view inbox",
-				                                    "timeRequired":actionTime,
-				                                    "enabled":true,
-				                                    "actionWord":""});
+		actions.addAll([
+			new Action.withName('check for mail'),
+			new Action.withName('view inbox')
+						]);
 
 		type = "Mailbox";
 		speed = 0;
@@ -75,7 +72,7 @@ class Mailbox extends NPC {
 		}
 	}
 
-	Future checkMail({WebSocket userSocket, String email}) async {
+	Future checkForMail({WebSocket userSocket, String email}) async {
 		String query = "SELECT * FROM messages JOIN users ON username = to_user WHERE email = @email AND read = FALSE";
 		PostgreSql dbConn = await dbManager.getConnection();
 		List<Message> messages = await dbConn.query(query, Message, {'email':email});

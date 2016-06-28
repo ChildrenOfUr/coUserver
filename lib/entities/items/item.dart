@@ -1,7 +1,7 @@
 library item;
 
 import 'dart:async';
-import 'dart:math' hide log;
+import 'dart:math';
 import 'dart:convert';
 import 'dart:io';
 
@@ -27,37 +27,40 @@ import 'package:redstone_mapper_pg/manager.dart';
 import 'package:redstone_mapper/mapper.dart';
 import 'package:redstone/redstone.dart' as app;
 
-part 'actions/action.dart';
 part 'actions/itemgroups/baby_animals.dart';
 part 'actions/itemgroups/consume.dart';
 part 'actions/itemgroups/cubimals.dart';
 part 'actions/itemgroups/emblems-icons.dart';
+part 'actions/itemgroups/foxbait.dart';
 part 'actions/itemgroups/milk-butter-cheese.dart';
+part 'actions/itemgroups/misc.dart';
 part 'actions/itemgroups/orb.dart';
 part 'actions/itemgroups/piggy_plop.dart';
 part 'actions/itemgroups/potions.dart';
 part 'actions/itemgroups/quill.dart';
 part 'actions/itemgroups/recipe-tool.dart';
 part 'actions/note.dart';
-part 'item_user.dart';
+part 'package:coUserver/entities/action.dart';
 
 Map<String, Item> items = {};
 
 class Item extends Object
-	with MetabolicsChange,
-	BabyAnimals,
-	Consumable,
-	Cubimal,
-	CubimalBox,
-	Emblem,
-	FocusingOrb,
-	Icon,
-	MilkButterCheese,
-	PiggyPlop,
-	Potions,
-	Quill,
-	RecipeTool
-{
+	with
+		MetabolicsChange,
+		BabyAnimals,
+		Consumable,
+		Cubimal,
+		CubimalBox,
+		Emblem,
+		FocusingOrb,
+		FoxBaitItem,
+		Icon,
+		MilkButterCheese,
+		NewPlayerPack,
+		PiggyPlop,
+		Potions,
+		Quill,
+		RecipeTool {
 	// Discounts, stored as itemType: part paid out of 1 (eg. 0.8 for 20% off)
 	static Map<String, num> discountedItems = {};
 
@@ -69,6 +72,7 @@ class Item extends Object
 	@Field() String brokenUrl;
 	@Field() String toolAnimation;
 	@Field() String name;
+	@Field() String recipeName;
 	@Field() String description;
 	@Field() String itemType;
 	@Field() String item_id;
@@ -107,6 +111,7 @@ class Item extends Object
 		brokenUrl = model.brokenUrl;
 		toolAnimation = model.toolAnimation;
 		name = model.name;
+		recipeName = model.recipeName;
 		description = model.description;
 		price = model.price;
 		stacksTo = model.stacksTo;
@@ -123,7 +128,7 @@ class Item extends Object
 
 		bool found = false;
 		actions.forEach((Action action) {
-			if (action.name == 'drop') {
+			if (action.actionName == 'drop') {
 				found = true;
 			}
 		});
@@ -140,6 +145,7 @@ class Item extends Object
 		"spriteUrl": spriteUrl,
 		"brokenUrl": brokenUrl,
 		"name": name,
+		"recipeName": recipeName,
 		"itemType": itemType,
 		"category": category,
 		"isContainer": isContainer,
@@ -172,7 +178,7 @@ class Item extends Object
 			List<Map> result = encode(actions);
 			bool found = false;
 			actions.forEach((Action action) {
-				if (action.name == 'drop') {
+				if (action.actionName == 'drop') {
 					found = true;
 				}
 			});
@@ -187,7 +193,7 @@ class Item extends Object
 
 	bool filterAllows({Item testItem, String itemType}) {
 		// Allow an empty slot
-		if(testItem == null && itemType == null) {
+		if (testItem == null && itemType == null) {
 			return true;
 		}
 
@@ -218,80 +224,65 @@ class Item extends Object
 		quests[quest.id] = quest;
 		QuestEndpoint.questLogCache[email].offerQuest(
 			quest.id, fromItem: true, slot: map['slot'], subSlot: map['subSlot']
-		);
+			);
 
 		return true;
 	}
 
 	// Client: ground -> inventory
-	Future pickup({WebSocket userSocket, String email, String username}) async {
+	Future pickup({WebSocket userSocket, String email, String username, int count: 1}) async {
 		onGround = false;
 
 		Item item = new Item.clone(itemType)
 			..onGround = false
 			..metadata = this.metadata;
 
-		await InventoryV2.addItemToUser(email, item.getMap(), 1, item_id);
-		StatManager.add(email, Stat.items_picked_up);
+		await InventoryV2.addItemToUser(email, item.getMap(), count, item_id);
+		StatManager.add(email, Stat.items_picked_up, increment: count);
 	}
 
 	// Client: inventory -> ground
 	Future drop({WebSocket userSocket, Map map, String streetName, String email, String username}) async {
 		Item droppedItem = await InventoryV2.takeItemFromUser(
 			email, map['slot'], map['subSlot'], map['count']
-		);
+			);
 
-		if (droppedItem == null) {
+		Identifier playerId = PlayerUpdateHandler.users[username];
+
+		if (droppedItem == null|| playerId == null) {
 			return;
 		}
 
-		for(int i = 0; i < map['count']; i++) {
-			droppedItem.putItemOnGround(map['x'], map['y'], streetName);
+		for (int i = 0; i < map['count']; i++) {
+			droppedItem.putItemOnGround(playerId.currentX+40, playerId.currentY, streetName);
 		}
 
 		StatManager.add(email, Stat.items_dropped, increment: map['count']);
 	}
 
 	// Place the item in the street
-	void putItemOnGround(num x, num y, String streetName, {String id}) {
-		if(id == null) {
-			String randString = new Random().nextInt(1000).toString();
-			id = "i" + createId(x, y, itemType, streetName + randString);
-		}
-
-		Item item = new Item.clone(itemType)
-			..x = x
-			..y = y
-			..item_id = id
-			..onGround = true
-			..metadata = this.metadata;
-		item.y = item.getYFromGround(streetName);
-
-		StreetUpdateHandler.streets[streetName].groundItems[id] = item;
-	}
-
-	// Find the y of the nearest platform
-	int getYFromGround(String streetName) {
-		num returnY = y;
+	void putItemOnGround(num x, num y, String streetName, {String id, int count: 1}) {
 		Street street = StreetUpdateHandler.streets[streetName];
-
 		if (street == null) {
-			return returnY;
+			return;
 		}
 
-		CollisionPlatform platform = street.getBestPlatform(y, x, 1, 1);
-
-		if (platform != null) {
-			num goingTo = y + street.groundY;
-			num slope = (platform.end.y - platform.start.y) / (platform.end.x - platform.start.x);
-			num yInt = platform.start.y - slope * platform.start.x;
-			num lineY = slope * x + yInt;
-
-			if (goingTo >= lineY) {
-				returnY = lineY - street.groundY;
+		for (int i=0; i<count; i++) {
+			String tempId = id;
+			if (tempId == null) {
+				String randString = new Random().nextInt(10000).toString();
+				tempId = "i" + createId(x, y, itemType, streetName + randString);
 			}
-		}
 
-		return returnY ~/ 1;
+			Item item = new Item.clone(itemType)
+				..x = x
+				..y = y
+				..item_id = tempId
+				..onGround = true
+				..metadata = this.metadata;
+			item.y = street.getYFromGround(item.x, item.y, 1, 1);
+
+			street.groundItems[tempId] = item;
+		}
 	}
 }

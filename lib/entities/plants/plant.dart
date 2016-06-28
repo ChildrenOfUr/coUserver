@@ -12,7 +12,7 @@ abstract class Plant extends Entity {
 	String id, type, streetName;
 	int state, maxState, x, y, actionTime = 3000;
 	DateTime respawn;
-	List<Map> actions = [];
+	List<Action> actions = [];
 	Map<String, Spritesheet> states;
 	Spritesheet currentState;
 
@@ -20,18 +20,32 @@ abstract class Plant extends Entity {
 		respawn = new DateTime.now();
 	}
 
-	void update() {
-		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0) {
-			state++;
-			respawn = new DateTime.now().add(new Duration(seconds:30));
+	void restoreState(Map<String, String> metadata) {
+		if (metadata.containsKey('state')) {
+			state = int.parse(metadata['state']);
 		}
 
-		if(state > maxState) {
-			state = maxState;
+		if (metadata.containsKey('currentState')) {
+			setState(metadata['currentState']);
 		}
 	}
 
-	Map getMap() {
+	Map<String, String> getPersistMetadata() {
+		return {'state': state.toString(), 'currentState': currentState.stateName};
+	}
+
+	void update() {
+//		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0) {
+//			state++;
+//			respawn = new DateTime.now().add(new Duration(seconds:30));
+//		}
+//
+//		if(state > maxState) {
+//			state = maxState;
+//		}
+	}
+
+	Map<String, dynamic> getMap() {
 		Map map = super.getMap();
 		map['url'] = currentState.url;
 		map['id'] = id;
@@ -40,7 +54,7 @@ abstract class Plant extends Entity {
 		map["numRows"] = currentState.numRows;
 		map["numColumns"] = currentState.numColumns;
 		map["numFrames"] = currentState.numFrames;
-		map["actions"] = actions;
+		map["actions"] = encode(actions);
 		map['x'] = x;
 		map['y'] = y;
 		return map;

@@ -3,14 +3,12 @@ part of entity;
 abstract class LockedDoor extends Door {
 	String requiredKey;
 
-	LockedDoor(String id, String streetName, int x, int y) : super(id, streetName, x, y) {
+	LockedDoor(String id, String streetName, num x, num y) : super(id, streetName, x, y) {
 		type = "Locked Door";
-		actions.add({
-			"action": "exit",
-			"timeRequired": 0,
-			"enabled": true,
-			"actionWord": "walking out"
-		});
+		actions.add(
+			new Action.withName('exit')
+				..actionWord = 'walking out'
+		);
 	}
 
 	void enter({WebSocket userSocket, String email}) {

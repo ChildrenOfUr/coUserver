@@ -1,7 +1,7 @@
 part of entity;
 
 class StreetSpiritGroddle extends StreetSpirit {
-	StreetSpiritGroddle(String id, String streetName, String tsid, int x, int y) : super(id, streetName, tsid, x, y) {
+	StreetSpiritGroddle(String id, String streetName, String tsid, num x, num y) : super(id, streetName, tsid, x, y) {
 		speed = -75;
 		itemsPredefined = false;
 

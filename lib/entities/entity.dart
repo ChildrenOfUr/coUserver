@@ -3,12 +3,12 @@ library entity;
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'dart:math' hide log;
+import 'dart:math';
 import 'dart:mirrors';
 
+import 'package:coUserver/API_KEYS.dart';
 import 'package:coUserver/achievements/achievements.dart';
 import 'package:coUserver/achievements/stats.dart';
-import 'package:coUserver/API_KEYS.dart';
 import 'package:coUserver/common/harvest_messages.dart';
 import 'package:coUserver/common/mapdata/mapdata.dart';
 import 'package:coUserver/common/user.dart';
@@ -21,15 +21,16 @@ import 'package:coUserver/endpoints/weather.dart';
 import 'package:coUserver/entities/items/item.dart';
 import 'package:coUserver/quests/quest.dart';
 import 'package:coUserver/skills/skillsmanager.dart';
-import 'package:coUserver/streets/street_update_handler.dart';
 import 'package:coUserver/streets/street.dart';
-
+import 'package:coUserver/streets/street_update_handler.dart';
+import 'package:inflection/inflection.dart';
 import 'package:jsonx/jsonx.dart' as jsonx;
+import 'package:message_bus/message_bus.dart';
 import 'package:postgresql/postgresql.dart';
-import 'package:redstone_mapper_pg/manager.dart';
+import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper/mapper.dart';
 import 'package:redstone_mapper/plugin.dart';
-import 'package:redstone/redstone.dart' as app;
+import 'package:redstone_mapper_pg/manager.dart';
 
 part 'doors/bureaucratic_hall_door.dart';
 part 'doors/door.dart';
@@ -43,6 +44,7 @@ part 'npcs/animals/batterfly.dart';
 part 'npcs/animals/butterfly.dart';
 part 'npcs/animals/chicken.dart';
 part 'npcs/animals/firefly.dart';
+part 'npcs/animals/fox.dart';
 part 'npcs/animals/helikitty.dart';
 part 'npcs/animals/piggy.dart';
 part 'npcs/animals/salmon.dart';
@@ -75,6 +77,7 @@ part 'npcs/vendors/streetspiritzutto.dart';
 part 'npcs/vendors/toolvendor.dart';
 part 'npcs/vendors/vendor.dart';
 part 'npcs/vistingstone.dart';
+part 'package:coUserver/entities/npcs/garden.dart';
 part 'plants/dirtpile.dart';
 part 'plants/icenubbin.dart';
 part 'plants/jellisacgrowth.dart';
@@ -103,37 +106,89 @@ part 'spritesheet.dart';
 
 /// Create an entity ID
 String createId(num x, num y, String type, String tsid) {
-	return (type + x.toString() + y.toString() + tsid).hashCode.toString();
+	int hash = (type + x.toString() + y.toString() + tsidL(tsid)).hashCode;
+	return type.substring(0, 1) + hash.toString();
 }
 
-abstract class Entity extends Object with MetabolicsChange {
-	List<Map> actions = [];
-	int actionTime = 2500;
-	String bubbleText;
+abstract class Persistable {
+	///This will be called when the [Street] that the [Entity] is on
+	///is persisted to the database
+	Future persist();
+
+	///This will be called when the [Entity] is loaded from the db
+	void restoreState(Map<String,String> metadata);
+
+	///This method will be called to get a map of all data that should be saved to the db
+	Map<String, String> getPersistMetadata();
+}
+
+abstract class Entity extends Object with MetabolicsChange implements Persistable {
+	List<Action> actions = [];
+	int actionTime = 2500, x, y;
+	String bubbleText, streetName, type, id;
 	DateTime sayTimeout = null;
 	Map<String, List<String>> responses = {};
 	Map<String, Spritesheet> states;
 	Spritesheet currentState;
 	DateTime respawn;
 
-	void setActionEnabled(String action, bool enabled) {
+	void setActionEnabled(String actionName, bool enabled) {
 		try {
-			for(Map actionMap in actions) {
-				if(actionMap['action'] == action) {
-					actionMap['enabled'] = enabled;
+			for(Action action in actions) {
+				if(action.actionName == actionName) {
+					action.enabled = enabled;
 					return;
 				}
 			}
 		} catch (e, st) {
-			Log.error('Error enabling/disabling action $action', e, st);
+			Log.error('Error enabling/disabling action $actionName', e, st);
 		}
 	}
 
-	Map getMap() {
+	Map<String, String> getPersistMetadata() => {};
+
+	Future persist() async {
+		Map streetDataMap = MapData.getStreetByName(streetName);
+		if (streetDataMap == null) {
+			Log.warning('Cannot persist entity <type=$type> <id=$id> because streetDataMap'
+						' was null for this entity (type=$type) <streetName=$streetName>');
+		}
+
+		String tsid = streetDataMap['tsid'];
+		if (tsid == null) {
+			Log.warning('Cannot persist entity <type=$type> <id=$id> because tsid is null'
+							'for <streetName=$streetName>');
+			return;
+		}
+
+		StreetEntity dbEntity = new StreetEntity.create(id: id, type: type, tsid: tsid, x: x, y: y,
+															metadata_json: JSON.encode(getPersistMetadata()));
+
+		PostgreSql dbConn;
+		try {
+			dbConn = await dbManager.getConnection();
+			String query = 'UPDATE street_entities SET x = @x, y = @y, metadata_json = @metadata_json'
+				' WHERE id = @id';
+			await dbConn.execute(query, dbEntity);
+		} catch (e, st) {
+			Log.error('Cannot persist entity <type=$type> <id=$id>', e, st);
+		} finally {
+			dbManager.closeConnection(dbConn);
+		}
+	}
+
+	Map<String, dynamic> getMap() {
 		Map map = {};
 		map['bubbleText'] = bubbleText;
 		map['gains'] = gains;
 		return map;
+	}
+
+	///This will be called when sending the npc's state to the client
+	///In order to display accurate energy costs etc., we need to take the
+	///players skills into account
+	Future<List<Action>> customizeActions(String email) async {
+		return actions;
 	}
 
 	void say(String message) {
@@ -169,5 +224,65 @@ abstract class Entity extends Object with MetabolicsChange {
 		//then multiply the length by the repeat
 		int length = (currentState.numFrames / 30 * 1000).toInt() * repeat;
 		respawn = new DateTime.now().add(new Duration(milliseconds: length));
+	}
+
+	///Check the various requirements for an action to be allowed to be performed
+	///The energy check will be skipped by default since most actions will check this
+	///through trySetMetabolics anyway
+	Future<bool> hasRequirements(String actionName, String email, {bool includeBroken: false, bool testEnergy: false}) async {
+		Action action = actions.singleWhere((Action a) => a.actionName == actionName);
+		bool hasRequirements = true;
+
+		//check that the player has the necessary energy
+		if (testEnergy) {
+			Metabolics m = await getMetabolics(email: email);
+			if (m.energy < action.energyRequirements.energyAmount) {
+				return false;
+			}
+		}
+
+		//check the players skill level(s) against the required skill level(s)
+		await Future.forEach(action.skillRequirements.requiredSkillLevels.keys, (String skillName) async {
+			if (hasRequirements == true) {
+				int reqSkillLevel = action.skillRequirements.requiredSkillLevels[skillName];
+				int haveLevel = await SkillManager.getLevel(skillName, email);
+				if (haveLevel < reqSkillLevel) {
+					hasRequirements = false;
+				}
+			}
+		});
+
+		//possibly exit early
+		if (!hasRequirements) {
+			return false;
+		}
+
+		//check that the player has the necessary item(s)
+		bool hasAtLeastOne = action.itemRequirements.any.length == 0;
+		await Future.forEach(action.itemRequirements.any, (String itemType) async {
+			if(!hasAtLeastOne) {
+				if (includeBroken) {
+					hasAtLeastOne = await InventoryV2.hasItem(email, itemType, 1);
+				} else {
+					hasAtLeastOne = await InventoryV2.hasUnbrokenItem(email, itemType, 1);
+				}
+			}
+		});
+
+		//possibly exit early
+		if (!hasAtLeastOne) {
+			return false;
+		}
+
+		await Future.forEach(action.itemRequirements.all.keys, (String itemType) async {
+			int numNeeded = action.itemRequirements.all[itemType];
+			if (includeBroken) {
+				hasRequirements = await InventoryV2.hasItem(email, itemType, numNeeded);
+			} else {
+				hasRequirements = await InventoryV2.hasUnbrokenItem(email, itemType, numNeeded);
+			}
+		});
+
+		return hasRequirements;
 	}
 }

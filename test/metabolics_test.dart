@@ -10,7 +10,6 @@ import 'package:test/test.dart';
 import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper/plugin.dart';
 import 'package:redstone_mapper_pg/manager.dart';
-import 'package:harvest/harvest.dart' as harvest;
 
 class MockMetabolicsObject extends Object with MetabolicsChange {}
 
@@ -21,7 +20,7 @@ Future main() async {
 	app.redstoneSetUp();
 
 	//ignore messages about quest requirements being completed when not on the quest
-	messageBus.deadMessageHandler = (harvest.Message m) {};
+	messageBus.undeliverableHandler = (_) {};
 
 	//load game items
 	await StreetUpdateHandler.loadItems();

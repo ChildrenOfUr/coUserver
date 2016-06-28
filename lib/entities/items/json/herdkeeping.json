@@ -19,7 +19,7 @@
     "description": "A tiny tube of butterfly lotion, without which a butterfly cannot be massaged. Remember: butterflies chafe easily, but they still like it pretty hard.",
     "actions": [
       {
-        "name": "Taste",
+        "actionName": "Taste",
         "description": "It does smell pretty good...",
         "itemRequirements": {},
         "skillRequirements": {}
@@ -56,7 +56,7 @@
 	"description": "A proto-Butterfly.",
 	"actions": [
       {
-        "name": "Feed",
+        "actionName": "Feed",
         "multiEnabled": true,
         "description": "Help this little one grow up",
         "itemRequirements": {},
@@ -76,7 +76,7 @@
 	"description": "A wide-eyed chick, fresh from the egg. It needs grain in order to reach full chickenhood.",
 	"actions": [
       {
-        "name": "Feed",
+        "actionName": "Feed",
         "multiEnabled": true,
         "description": "Help this little one grow up",
         "itemRequirements": {},
@@ -106,10 +106,19 @@
     "name": "Fox Bait",
     "category": "Herdkeeping Supplies",
     "iconUrl": "http://childrenofur.com/assets/entityImages/fox_bait__x1_1_png_1354839628.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/fox_bait__x1_stink1_png_1354839629.png",
+	"iconNum": 1,
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/fox_bait__x1_1_png_1354839628.png",
     "stacksTo": 100,
     "price": 30,
-    "description": "A nugget of fox-pleasing goodness, filled with every fox's favourite flavours. Proof positive that you catch more foxes with Fox Bait than you do with vinegar (just in case anyone suggested the alternative, which on reflection seems unlikely)."
+    "description": "A nugget of fox-pleasing goodness, filled with every fox's favourite flavours. Proof positive that you catch more foxes with Fox Bait than you do with vinegar (just in case anyone suggested the alternative, which on reflection seems unlikely).",
+	"actions": [
+		{
+        	"actionName": "Place Bait",
+			"description": "Drop the bait on the ground to attract a fox",
+        	"itemRequirements": {},
+        	"skillRequirements": {}
+        }
+	]
   },
   "hogtied_piggy": {
     "name": "Hog-tied Piggy",
@@ -178,7 +187,7 @@
 	"description": "One wiggly little piggly. He wants to turn into a big pig. Feed him nourishing plant-y food to help him grow.",
 	"actions": [
       {
-        "name": "Feed",
+        "actionName": "Feed",
         "multiEnabled": true,
         "description": "Help this little one grow up",
         "itemRequirements": {},

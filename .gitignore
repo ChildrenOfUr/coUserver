@@ -6,6 +6,7 @@ API_KEYS.dart
 build
 streetEntities
 playerSpritesheets
+spineSkins
 stats.json
 heightsCache.json
 headsCache.json
@@ -16,3 +17,4 @@ redstone_log_file
 run/
 coverage*
 .atom/
+logsettings.json

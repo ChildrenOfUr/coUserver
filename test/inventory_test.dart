@@ -12,7 +12,6 @@ import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper/plugin.dart';
 import 'package:redstone_mapper/mapper.dart';
 import 'package:redstone_mapper_pg/manager.dart';
-import 'package:harvest/harvest.dart' as harvest;
 import 'package:jsonx/jsonx.dart' as jsonx;
 
 Type listOfSlots = const jsonx.TypeHelper<List<Slot>>().type;
@@ -23,7 +22,7 @@ Future main() async {
 	app.redstoneSetUp();
 
 	//ignore messages about quest requirements being completed when not on the quest
-	messageBus.deadMessageHandler = (harvest.Message m) {};
+	messageBus.undeliverableHandler = (_) {};
 
 	//load game items
 	await StreetUpdateHandler.loadItems();

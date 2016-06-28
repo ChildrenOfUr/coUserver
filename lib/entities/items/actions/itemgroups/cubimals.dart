@@ -10,13 +10,13 @@ abstract class Cubimal extends Object with MetabolicsChange {
 		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
 
 		// number 1 to 50
-		int base = ItemUser.rand.nextInt(49) + 1;
+		int base = rand.nextInt(49) + 1;
 		// number 0.0 (incl) to 1.0 (excl)
-		double multiplier = ItemUser.rand.nextDouble();
+		double multiplier = rand.nextDouble();
 		// multiply them for more variety
 		num result = base * multiplier;
 		// 80% chance to cut numbers at least 17 in half
-		if (result >= 17 && ItemUser.rand.nextInt(4) <= 3) result /= 2;
+		if (result >= 17 && rand.nextInt(4) <= 3) result /= 2;
 		// cut to two decimal places (and a string)
 		String twoPlaces = result.toStringAsFixed(2);
 		// back to number format
@@ -49,7 +49,7 @@ abstract class Cubimal extends Object with MetabolicsChange {
 		String cubiType = itemInSlot.itemType;
 		bool success = (await InventoryV2.takeAnyItemsFromUser(email, cubiType, 1) == 1);
 		if (!success) return false;
-		int img = ((freeValues[itemInSlot.itemType.substring(8)] / 2) * (ItemUser.rand.nextDouble() + 0.1)).truncate();
+		int img = ((freeValues[itemInSlot.itemType.substring(8)] / 2) * (rand.nextDouble() + 0.1)).truncate();
 		trySetMetabolics(email, mood: 10, imgMin: img);
 		StatManager.add(email, Stat.cubimals_set_free);
 		toast("Your cubimal was released back into the wild. You got $img iMG.", userSocket);
@@ -124,7 +124,7 @@ abstract class CubimalBox {
 		}
 		String cubimal = "cubimal_";
 		String box = "cubimal_series_" + series.toString() + "_box";
-		num seek = ItemUser.rand.nextInt(10000) / 100;
+		num seek = rand.nextInt(10000) / 100;
 		for (String cubiChance in cubis.keys) {
 			if (seek <= num.parse(cubiChance)) {
 				cubimal += cubis[cubiChance];

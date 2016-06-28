@@ -7,21 +7,32 @@ abstract class NPC extends Entity {
 	 * attempts to perform one of the available actions;
 	 * */
 
+	/// 1px x 1px transparent gif.
+	/// The client will not enable interaction on this state by checking the url string,
+	/// so update it in the client as well as the server if you change it.
+	static final Spritesheet TRANSPARENT_SPRITE = new Spritesheet('_hidden',
+		'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+		1, 1, 1, 1, 1, true);
+
 	static int updateFps = 20;
 
 	String id, type, streetName;
-	int x,
-		y,
-		speed = 0,
-		ySpeed = 0,
-		yAccel = -2400,
-		previousX,
-		previousY;
-	bool facingRight = true;
+	num x, y, previousX, previousY, speed = 0, ySpeed = 0, yAccel = -2400;
+	bool facingRight = true, grounded = false, removing = false;
 	MutableRectangle _collisionsRect;
 
 	NPC(this.id, this.x, this.y, this.streetName) {
 		respawn = new DateTime.now();
+	}
+
+	void restoreState(Map<String, String> metadata) {
+		if (metadata['facingRight'] == 'false') {
+			facingRight = false;
+		}
+	}
+
+	Map<String,String> getPersistMetadata() {
+		return {'facingRight': facingRight.toString()};
 	}
 
 	int get width => currentState.frameWidth;
@@ -41,28 +52,6 @@ abstract class NPC extends Entity {
 		}
 
 		return _collisionsRect;
-	}
-
-	int getYFromGround(num cameFrom) {
-		int returnY = y;
-		if (street == null) {
-			return returnY;
-		}
-
-		CollisionPlatform platform = street.getBestPlatform(cameFrom, x, width, height);
-		if (platform != null) {
-			num goingTo = y + street.groundY;
-			num slope = (platform.end.y - platform.start.y) / (platform.end.x - platform.start.x);
-			num yInt = platform.start.y - slope * platform.start.x;
-			num lineY = slope * x + yInt;
-
-			if (goingTo >= lineY) {
-				returnY = lineY.toInt() - street.groundY;
-				ySpeed = 0;
-			}
-		}
-
-		return returnY ~/ 1;
 	}
 
 	void update() {
@@ -95,17 +84,13 @@ abstract class NPC extends Entity {
 	}
 
 	void defaultXAction() {
-		if (facingRight) {
-			x += speed ~/ NPC.updateFps;
-		} else {
-			x -= speed ~/ NPC.updateFps;
-		}
+		x += speed * (facingRight ? 1 : -1) / NPC.updateFps;
 	}
 
 	void defaultYAction() {
-		ySpeed -= yAccel ~/ NPC.updateFps;
-		y += ySpeed ~/ NPC.updateFps;
-		y = getYFromGround(previousY);
+		ySpeed -= yAccel / NPC.updateFps;
+		y += ySpeed / NPC.updateFps;
+		y = street.getYFromGround(x, previousY, width, height);
 	}
 
 	///Move the entity 'forward' according to which direction they are facing
@@ -137,8 +122,10 @@ abstract class NPC extends Entity {
 
 		//if our new y value is more than 10 pixels away from the old one
 		//we probably changed platforms (dropped down) so decide what to do about that
-		if ((y - previousY).abs() > 10) {
+		if (grounded && (y - previousY).abs() > 10) {
 			ledgeAction();
+		} else if ((y - previousY).abs() < 10) {
+			grounded = true;
 		}
 
 		//stop walking into walls, take an action if we're colliding with one
@@ -160,25 +147,24 @@ abstract class NPC extends Entity {
 		}
 	}
 
-	Map getMap() {
-		Map map = super.getMap();
-		map["id"] = id;
-		map["url"] = currentState.url;
-		map["type"] = type;
-		map["numRows"] = currentState.numRows;
-		map["numColumns"] = currentState.numColumns;
-		map["numFrames"] = currentState.numFrames;
-		map["x"] = x;
-		map["y"] = y;
-		map['speed'] = speed;
-		map['ySpeed'] = ySpeed;
-		map['animation_name'] = currentState.stateName;
-		map["width"] = width;
-		map["height"] = height;
-		map['loops'] = currentState.loops;
-		map['loopDelay'] = currentState.loopDelay;
-		map["facingRight"] = facingRight;
-		map["actions"] = actions;
-		return map;
-	}
+	Map getMap() => super.getMap()
+		..addAll({
+			"id": id,
+			"url": currentState.url,
+			"type": type,
+			"numRows": currentState.numRows,
+			"numColumns": currentState.numColumns,
+			"numFrames": currentState.numFrames,
+			"x": x,
+			"y": y,
+			'speed': speed,
+			'ySpeed': ySpeed,
+			'animation_name': currentState.stateName,
+			"width": width,
+			"height": height,
+			'loops': currentState.loops,
+			'loopDelay': currentState.loopDelay,
+			"facingRight": facingRight,
+			"actions": encode(actions)
+		});
 }

@@ -12,6 +12,7 @@ import 'package:redstone_mapper/mapper.dart';
 import 'package:redstone_mapper_pg/manager.dart';
 
 part 'balancer.dart';
+part 'migrations.dart';
 part 'street_entity.dart';
 
 class StreetEntities {
@@ -62,6 +63,7 @@ class StreetEntities {
 			return rows.single;
 		} catch (e, st) {
 			Log.error('Could not get street entity $entityId', e, st);
+			return null;
 		} finally {
 			dbManager.closeConnection(dbConn);
 		}
@@ -90,8 +92,13 @@ class StreetEntities {
 		}
 
 		bool _setInMemory(StreetEntity entity) {
-			Map<String, dynamic> street = getStreetByTsid(entity.tsid);
+			Map<String, dynamic> street = MapData.getStreetByTsid(entity.tsid);
 			if (street != null) {
+				//if the street isn't currently loaded, then just return
+				if (StreetUpdateHandler.streets[street["label"]] == null) {
+					return true;
+				}
+
 				try {
 					// Create NPC
 					String id = 'n' + createId(entity.x, entity.x, entity.type, entity.tsid);
@@ -117,37 +124,5 @@ class StreetEntities {
 		} else {
 			return true;
 		}
-	}
-
-	static Future<int> migrateEntities() async {
-		Directory streetEntities = new Directory('./streetEntities');
-		List<FileSystemEntity> files = streetEntities.listSync();
-
-		int count = 0;
-
-		await Future.forEach(files, (FileSystemEntity file) async {
-			if (file is File) {
-				String tsid = file.uri.pathSegments.last;
-				String json = await file.readAsString();
-				try {
-					Log.verbose('Migrating $tsid...');
-					Map<String, dynamic> map = JSON.decode(json);
-					await Future.forEach(map['entities'], (Map<String, dynamic> entity) async {
-						await StreetEntities.setEntity(new StreetEntity.create(
-							id: 'migrate$count',
-							type: entity['type'],
-							tsid: tsid,
-							x: entity['x'],
-							y: entity['y']
-						), loadNow: false);
-						count++;
-					});
-				} catch (e) {
-					Log.warning('    Error migrating $tsid', e);
-				}
-			}
-		});
-
-		return count;
 	}
 }

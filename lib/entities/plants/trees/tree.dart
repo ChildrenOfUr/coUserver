@@ -7,57 +7,57 @@ abstract class Tree extends Plant {
 
 	int maturity;
 
-	Tree(String id, int x, int y, String streetName) : super(id, x, y, streetName) {
-		actions..add({"action":"harvest",
-			"timeRequired":actionTime,
-			"enabled":true,
-			"actionWord":"harvesting",
-			"requires":[{
-					'num':5,
-					'of':['energy'],
-					"error": "You need at least 5 energy to harvest."
-				}],
-				"associatedSkill": SKILL
-			})..add({"action":"water",
-			"timeRequired":actionTime,
-			"enabled":true,
-			"actionWord":"watering",
-			"requires":[
-				{
-					"num":1,
-					"of":["watering_can", "irrigator_9000"],
-					"error": "Trees don't like to be peed on. Go find some clean water, please."
-				},
-				{
-					"num": 2,
-					"of": ['energy'],
-					"error": "You need at least 2 energy to water."
-				}
-			],
-			"associatedSkill": SKILL
-		})..add({"action":"pet",
-			"timeRequired":actionTime,
-			"enabled":true,
-			"actionWord":"petting",
-			"requires":[
-				{
-					'num':2,
-					'of':['energy'],
-					'error': "You need at least 2 energy to pet."
-				}
-			],
-			"associatedSkill": SKILL
-		});
+	Tree(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
+		ItemRequirements itemReq = new ItemRequirements()
+			..any = ['watering_can', 'irrigator_9000']
+			..error = "Trees don't like to be peed on. Go find some clean water, please.";
+		actions.addAll([
+			new Action.withName('harvest')
+				..actionWord = 'harvesting'
+				..description = 'Harvest this tree'
+				..timeRequired = actionTime
+				..energyRequirements = new EnergyRequirements(energyAmount: 5)
+				..associatedSkill = SKILL,
+			new Action.withName('water')
+				..actionWord = 'watering'
+				..description = 'Water this tree'
+				..timeRequired = actionTime
+				..energyRequirements = new EnergyRequirements(energyAmount: 2)
+				..itemRequirements = itemReq
+				..associatedSkill = SKILL,
+			new Action.withName('pet')
+				..actionWord = 'petting'
+				..description = 'Pet this tree'
+				..timeRequired = actionTime
+				..energyRequirements = new EnergyRequirements(energyAmount: 2)
+				..associatedSkill = SKILL
+					   ]);
+	}
+
+	@override
+	void restoreState(Map<String, String> metadata) {
+		if (metadata.containsKey('maturity')) {
+			maturity = JSON.decode(metadata['maturity']);
+			setState('maturity_$maturity');
+			maxState = currentState.numFrames - 1;
+		}
+		if (metadata.containsKey('state')) {
+			state = JSON.decode(metadata['state']);
+		}
+	}
+
+	@override
+	Map<String, String> getPersistMetadata() {
+		Map<String, String> map = {
+			'maturity': JSON.encode(maturity),
+			'state': JSON.encode(state),
+		};
+
+		return map;
 	}
 
 	void update() {
 		super.update();
-
-		if (state > 0) {
-			setActionEnabled("harvest", true);
-		} else {
-			setActionEnabled("harvest", false);
-		}
 
 		if (
 			WeatherEndpoint.currentState == WeatherState.RAINING &&
@@ -104,7 +104,6 @@ abstract class Tree extends Plant {
 		//say a witty thing
 		say(responses['harvest'].elementAt(rand.nextInt(responses['harvest'].length)));
 
-		respawn = new DateTime.now().add(new Duration(seconds: 30));
 		state--;
 
 		//give the player the 'fruits' of their labor
@@ -131,8 +130,8 @@ abstract class Tree extends Plant {
 
 	Future<bool> water({WebSocket userSocket, String email}) async {
 		//make sure the player has a watering can that water this tree
-		Map mineAction = actions.firstWhere((Map action) => action['action'] == 'water');
-		List<String> types = mineAction['requires'][0]['of'];
+		Action digAction = actions.singleWhere((Action a) => a.actionName == 'water');
+		List<String> types = digAction.itemRequirements.any;
 		bool success = await InventoryV2.decreaseDurability(email, types);
 		if (!success) {
 			return false;
@@ -163,7 +162,6 @@ abstract class Tree extends Plant {
 			StatManager.add(email, stat);
 		}
 
-		respawn = new DateTime.now().add(new Duration(seconds: 30));
 		state++;
 
 		SkillManager.learn(SKILL, email);
@@ -205,5 +203,36 @@ abstract class Tree extends Plant {
 		}
 
 		return true;
+	}
+
+	@override
+	Future<List<Action>> customizeActions(String email) async {
+		int arbologyLevel = await SkillManager.getLevel(SKILL, email);
+		List<Action> personalActions = [];
+		await Future.forEach(actions, (Action action) async {
+			Action personalAction = new Action.clone(action);
+			if (action.actionName == 'harvest') {
+				if (arbologyLevel > 2) {
+					personalAction.energyRequirements = new EnergyRequirements(energyAmount: 3);
+				}
+				if (state <= 0) {
+					personalAction.enabled = false;
+					personalAction.error = "There's nothing to harvest right now. Try giving me some water.";
+				}
+			}
+			if (action.actionName == 'water') {
+				if (state >= maxState) {
+					personalAction.enabled = false;
+					personalAction.error = "I'm not thirsty right now.";
+				}
+				if (WeatherEndpoint.currentState == WeatherState.RAINING) {
+					personalAction.enabled = false;
+					personalAction.error = "It's already raining, I don't need anymore water.";
+				}
+			}
+			personalActions.add(personalAction);
+		});
+
+		return personalActions;
 	}
 }

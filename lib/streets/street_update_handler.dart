@@ -3,7 +3,7 @@ library street_update_handler;
 import 'dart:io';
 import 'dart:async';
 import 'dart:convert';
-import 'dart:math' hide log;
+import 'dart:math';
 import 'dart:mirrors';
 
 import 'package:coUserver/common/util.dart';
@@ -38,20 +38,11 @@ class StreetUpdateHandler {
 	static Timer updateTimer = new Timer.periodic(npcUpdateDuration, (Timer timer) => updateNpcs());
 
 	static loadItems() async {
+		String dir = serverDir.path;
+
 		try {
-			String directory;
-			//this happens when running unit tests
-			if (Platform.script.data != null) {
-				directory = Directory.current.path;
-			} else {
-				directory = Platform.script.toFilePath();
-				directory = directory.substring(0, directory.lastIndexOf(Platform.pathSeparator));
-			}
-
-			directory = directory.replaceAll('coUserver/test', 'coUserver');
-
 			// load items
-			String filePath = path.join(directory, 'lib', 'entities', 'items', 'json');
+			String filePath = path.join(dir, 'lib', 'entities', 'items', 'json');
 			await new Directory(filePath).list().forEach((File category) async {
 				JSON.decode(await category.readAsString()).forEach((String name, Map itemMap) {
 					itemMap['itemType'] = name;
@@ -61,7 +52,7 @@ class StreetUpdateHandler {
 
 			// load recipes
 			filePath = path.join(
-				directory,
+				dir,
 				'lib',
 				'entities',
 				'items',
@@ -75,14 +66,14 @@ class StreetUpdateHandler {
 			});
 
 			// load vendor types
-			filePath = path.join(directory, 'lib', 'entities', 'npcs', 'vendors', 'vendors.json');
+			filePath = path.join(dir, 'lib', 'entities', 'npcs', 'vendors', 'vendors.json');
 			String fileText = await new File(filePath).readAsString();
 			JSON.decode(fileText).forEach((String street, String type) {
 				vendorTypes[street] = type;
 			});
 
 			// load stats given for eating/drinking
-			filePath = path.join(directory, 'lib', 'entities', 'items', 'actions', 'consume.json');
+			filePath = path.join(dir, 'lib', 'entities', 'items', 'actions', 'consume.json');
 			fileText = await new File(filePath).readAsString();
 			JSON.decode(fileText).forEach((String item, Map award) {
 				items[item].consumeValues = award;
@@ -118,12 +109,33 @@ class StreetUpdateHandler {
 			          });
 	}
 
+	static Map<String, Map<String, NPC>> _pendingNpcs = {};
+
+	static void queueNpcAdd(NPC npc, String action) {
+		if (_pendingNpcs[npc.streetName] == null) {
+			_pendingNpcs[npc.streetName] = {};
+		}
+		_pendingNpcs[npc.streetName].addAll({npc.id: npc});
+	}
+
 	static void updateNpcs() {
 		streets.forEach((String streetName, Street street) {
 			if (street.occupants.length > 0) {
 				Map<String, dynamic> moveMap = {};
 				moveMap['npcMove'] = 'true';
 				moveMap['npcs'] = [];
+
+				// Add queued NPCs
+				street.npcs.addAll(_pendingNpcs[streetName] ?? {});
+				_pendingNpcs[streetName]?.clear();
+
+				// Remove queued NPCs
+				new Map.from(street.npcs).forEach((String id, NPC npc) {
+					if (npc.removing) {
+						street.npcs.remove(id);
+					}
+				});
+
 				street.npcs.forEach((String id, NPC npc) {
 					npc.update();
 					if(npc.previousX != npc.x ||
@@ -132,8 +144,17 @@ class StreetUpdateHandler {
 					}
 				});
 
-				street.occupants.forEach((String username, WebSocket socket) {
+				street.occupants.forEach((String username, WebSocket socket) async {
 					if (socket != null) {
+						String email = await User.getEmailFromUsername(username);
+						//we need to modify the actions list for the npcs and plants
+						//to take into account the players skills so that the costs are right
+						await Future.forEach(moveMap['npcs'], (Map npcMove) async {
+							NPC npc = street.npcs[npcMove['id']];
+							if (npc != null) {
+								npcMove['actions'] = encode(await npc.customizeActions(email));
+							}
+						});
 						try {
 							socket.add(JSON.encode(moveMap));
 						} catch (e, st) {
@@ -145,7 +166,7 @@ class StreetUpdateHandler {
 		});
 	}
 
-	static void simulateStreets() {
+	static Future simulateStreets() async {
 		List<String> toRemove = [];
 		streets.forEach((String streetName, Street street) {
 			//only simulate street with someone on it
@@ -182,8 +203,24 @@ class StreetUpdateHandler {
 
 				pickedUpItems.forEach((String id) => street.groundItems.remove(id));
 
-				street.occupants.forEach((String username, WebSocket socket) {
+				street.occupants.forEach((String username, WebSocket socket) async {
 					if (socket != null) {
+						String email = await User.getEmailFromUsername(username);
+						//we need to modify the actions list for the npcs and plants
+						//to take into account the players skills so that the costs are right
+						await Future.forEach(updates['npcs'], (Map npcMap) async {
+							NPC npc = street.npcs[npcMap['id']];
+							if (npc != null) {
+								npcMap['actions'] = encode(await npc.customizeActions(email));
+							}
+						});
+						await Future.forEach(updates['plants'], (Map plantMap) async {
+							Plant plant = street.plants[plantMap['id']];
+							if (plant != null) {
+								plantMap['actions'] = encode(await plant.customizeActions(email));
+							}
+						});
+
 						socket.add(JSON.encode(updates));
 					}
 				});
@@ -196,16 +233,24 @@ class StreetUpdateHandler {
 		//clean up memory of streets where no players currently are
 		//in the future, I imagine this is where the street would be saved to the database
 		//you're right past me, this is where i'm doing it
-		Future.forEach(toRemove, (String label) async {
+		await Future.forEach(toRemove, (String label) async {
 			Street street = streets[label];
-			DateTime now = new DateTime.now();
-			if (street.expires?.isBefore(now) ?? false) {
-				await street.persistState();
-				street.expires = null;
-				streets.remove(label);
-				Log.verbose('Unloaded street <label=$label> from memory');
-			} else if (street.expires == null) {
-				street.expires = now.add(new Duration(seconds:5));
+
+			//don't try to clean up a street that was already cleaned up
+			if (street != null) {
+				DateTime now = new DateTime.now();
+				if (street.expires?.isBefore(now) ?? false) {
+					if (Street.persistLock.containsKey(label)) {
+						Log.verbose('Already in the process of persisting <label=$label> so not doing it again');
+						return;
+					}
+					await street.persistState();
+					street.expires = null;
+					streets.remove(label);
+					Log.verbose('Unloaded street <label=$label> from memory');
+				} else if (street.expires == null) {
+					street.expires = now.add(new Duration(seconds:5));
+				}
 			}
 		});
 	}
@@ -397,14 +442,46 @@ class StreetUpdateHandler {
 	static void _callGlobalMethod(Map map, WebSocket userSocket, String email) {
 		ClassMirror classMirror = findClassMirror('StreetUpdateHandler');
 		Map<Symbol, dynamic> arguments = {#userSocket:userSocket, #email:email};
+		if (map['callMethod'] == 'pickup' && map.containsKey('streetName')) {
+			arguments[#streetName] = map['streetName'];
+		}
 		if (map['arguments'] != null) {
 			(map['arguments'] as Map).forEach((key, value) => arguments[new Symbol(key)] = value);
 		}
 		classMirror.invoke(new Symbol(map['callMethod']), [], arguments);
 	}
 
+	static Future<bool> pickup({WebSocket userSocket, String email, String username, List<String> pickupIds, String streetName}) async {
+		//check that they're all the same type and that their metadata
+		//is all empty or else they aren't eligible for mass pickup
+		String type;
+		bool allEligible = true;
+		for (String id in pickupIds) {
+			Item item = StreetUpdateHandler.streets[streetName].groundItems[id];
+			if (type == null) {
+				type = item.itemType;
+			} else if (type != item.itemType) {
+				allEligible = false;
+				break;
+			} else if (item.metadata.isNotEmpty) {
+				allEligible = false;
+				break;
+			}
+		}
+
+		if (allEligible) {
+			StreetUpdateHandler.streets[streetName].groundItems[pickupIds.first]
+				.pickup(email: email, count: pickupIds.length);
+			for (String id in pickupIds) {
+				StreetUpdateHandler.streets[streetName].groundItems[id].onGround = false;
+			}
+		}
+
+		return true;
+	}
+
 	static Future<bool> teleport({WebSocket userSocket, String email, String tsid, bool energyFree: false}) async {
-		if(!energyFree) {
+		if (!energyFree) {
 			Metabolics m = await getMetabolics(email: email);
 			if (m.user_id == -1 || m.energy < 50) {
 				return false;
@@ -417,46 +494,51 @@ class StreetUpdateHandler {
 			}
 		}
 
-		Map map = {}
-			..["gotoStreet"] = "true"
-			..["tsid"] = tsid;
-		userSocket.add(JSON.encode(map));
+		userSocket.add(JSON.encode({
+			"gotoStreet": "true",
+			"tsid": tsid
+		}));
 
 		return true;
 	}
 
-	static Future<bool> moveItem({WebSocket userSocket, String email,
-	int fromIndex: -1,
-	int fromBagIndex: -1,
-	int toBagIndex: -1,
-	int toIndex: -1}) async {
+	static Future<bool> moveItem({WebSocket userSocket, String email, int fromIndex: -1, int fromBagIndex: -1, int toBagIndex: -1, int toIndex: -1}) async {
 		if (fromIndex == -1 || toIndex == -1) {
 			//something's wrong
 			return false;
 		}
 
-		return await InventoryV2.moveItem(email, fromIndex: fromIndex, toIndex: toIndex,
-			                                  fromBagIndex: fromBagIndex, toBagIndex: toBagIndex);
+		return await InventoryV2.moveItem(email,
+			fromIndex: fromIndex, toIndex: toIndex, fromBagIndex: fromBagIndex, toBagIndex: toBagIndex);
 	}
 
 	static Future writeNote({WebSocket userSocket, String email, Map noteData}) async {
 		Map newNote = await NoteManager.addFromClient(noteData);
 		userSocket.add(JSON.encode({
-			                           "note_response": newNote
-		                           }));
+			"note_response": newNote
+		}));
 
 		InventoryV2.decreaseDurability(email, NoteManager.tool_item);
 	}
 
-	static Future feed2({
-		WebSocket userSocket, String email, String itemType, int count, int slot, int subSlot}) async =>
-		BabyAnimals.feed2(
-			userSocket: userSocket, email: email,
+	static Future feed2({WebSocket userSocket, String email, String itemType, int count, int slot, int subSlot}) async =>
+		BabyAnimals.feed2(userSocket: userSocket, email: email,
 			itemType: itemType, count: count, slot: slot, subSlot: subSlot);
 
-	static Future changeClientUsername({
-		WebSocket userSocket, String email, String oldUsername, String newUsername}) async =>
+	static Future changeClientUsername({WebSocket userSocket, String email, String oldUsername, String newUsername}) async =>
 		changeUsername(oldUsername: oldUsername, newUsername: newUsername, userSocket: userSocket);
+
+	static void profile({WebSocket userSocket, String email, String username, String player}) {
+		userSocket.add(JSON.encode({
+			'open_profile': player
+		}));
+	}
+
+	static void follow({WebSocket userSocket, String email, String username, String player}) {
+		userSocket.add(JSON.encode({
+			'follow': player
+		}));
+	}
 }
 
 @app.Route('/teleport', methods: const[app.POST])
@@ -465,7 +547,7 @@ Future teleportUser(@app.Body(app.FORM) Map data) async {
 	String channel = data['channel_id'];
 	String text = data['text'];
 
-	if(token != slackTeleportToken) {
+	if (token != slackTeleportToken) {
 		return 'YOU SHALL NOT PASS';
 	}
 
@@ -473,20 +555,20 @@ Future teleportUser(@app.Body(app.FORM) Map data) async {
 		return 'Run this from the administration group';
 	}
 
-	if(text.split(', ').length != 2) {
+	if (text.split(', ').length != 2) {
 		return "U dun mesed ↑ (formatting was probably wrong)";
 	}
 
 	String streetName = text.substring(text.lastIndexOf(', ') + 2);
 	String username = text.replaceAll(', $streetName', '');
 
-	Map streetMap = mapdata_streets[streetName];
+	Map streetMap = MapData.streets[streetName];
 	String tsid;
 	if(streetMap != null) {
 		tsid = streetMap['tsid'];
 	} else {
 		//Go to Cebarkul if no other street name was passed to the command
-		tsid = mapdata_streets['Cebarkul']['tsid'];
+		tsid = MapData.streets['Cebarkul']['tsid'];
 		streetName = "Cebarkul, not $streetName because I can't find it in the map data @klikini";
 	}
 	tsid = tsidG(tsid);

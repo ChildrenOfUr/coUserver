@@ -1,6 +1,6 @@
 library letters;
 
-import 'dart:math' hide log;
+import 'dart:math';
 
 import 'package:redstone/redstone.dart' as app;
 
