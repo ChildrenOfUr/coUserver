@@ -368,7 +368,8 @@ class StreetUpdateHandler {
 					_callGlobalMethod(map, ws, email);
 					return;
 				} else {
-					String type = map['type'].replaceAll(" entity", "");
+					String type = map['type'].replaceAll("entity", "").trim();
+					type = type.replaceAll('groundItemGlow','').trim();
 					Map entityMap = streets[streetName].entityMaps[type];
 					String methodName = normalizeMethodName(map['callMethod']);
 
