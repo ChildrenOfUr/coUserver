@@ -42,8 +42,13 @@ class AchievementCheckers {
 		}
 
 		if (_checkStreetsInHub(addedTsidHubId)) {
-			//AchievementCheckers.getCompletistIdForhub(addedTsidHubId).awardTo(email);
-			return true;
+			try {
+				AchievementCheckers.getCompletistIdForhub(addedTsidHubId).awardTo(email);
+				return true;
+			} catch (e) {
+				Log.warning('Awarding completist <addedTsidHubId=$addedTsidHubId> to <email=$email>');
+				return false;
+			}
 		} else {
 			return false;
 		}
