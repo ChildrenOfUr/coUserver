@@ -8,9 +8,10 @@ class MetabolicsEndpoint {
 	static Timer simulateTimer = new Timer.periodic(new Duration(seconds: 5), (Timer timer) => simulate());
 	static Map<String, WebSocket> userSockets = {};
 
-	static Future upgradeEnergy() async {
+	static Future<int> upgradeEnergy() async {
 		String query = 'SELECT * FROM metabolics';
 		PostgreSql dbConn = await dbManager.getConnection();
+		int upgraded = 0;
 		try {
 			List<Metabolics> playerMetabolics = await dbConn.query(query, Metabolics);
 			await Future.forEach(playerMetabolics, (Metabolics m) async {
@@ -18,14 +19,16 @@ class MetabolicsEndpoint {
 					int newEnergy = energyLevels[getLevel(m.lifetime_img)];
 					m.energy = newEnergy;
 					m.max_energy = newEnergy;
-					print('player ${m.user_id} now has $newEnergy energy');
+					Log.verbose('player ${m.user_id} now has $newEnergy energy');
 					await setMetabolics(m);
+					upgraded++;
 				}
 			});
 		} catch (e, st) {
 			Log.error('Could not upgrade energy', e, st);
 		} finally {
 			dbManager.closeConnection(dbConn);
+			return upgraded;
 		}
 	}
 

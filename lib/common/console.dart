@@ -13,6 +13,12 @@ import 'package:coUserver/entities/items/item.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
 
 class Console {
+	static final Map<String, Function> _MIGRATES = {
+		'energy': () async => await MetabolicsEndpoint.upgradeEnergy(),
+		'entities': () async => await StreetEntityMigrations.migrateEntities(),
+		'entityIds': () async => await StreetEntityMigrations.reIdEntities(),
+	};
+
 	static void _registerCommands() {
 		new Command.register('help', () {
 			Log.command('List of commands & arguments:');
@@ -35,14 +41,9 @@ class Console {
 		new Command.register('global', (String message) async {
 			ChatHandler.superMessage(message);
 			Log.command('Sent message to Global Chat (${ChatHandler.users.length} online)');
-		}, ['"message to post in global chat"']);
+		}, ['"message" to post in global chat']);
 
 		new Command.register('migrate', (String object) async {
-			final Map<String, Function> _MIGRATES = {
-				'entities': () async => await StreetEntityMigrations.migrateEntities(),
-				'entityIds': () async => await StreetEntityMigrations.reIdEntities()
-			};
-
 			if (_MIGRATES.keys.contains(object)) {
 				Log.command('Migrating $object...');
 				int migrated = await _MIGRATES[object]();
@@ -50,11 +51,7 @@ class Console {
 			} else {
 				Log.command('No migrateable object "$object"');
 			}
-		}, ['object to migrate']);
-
-		new Command.register('upgradeenergy', () async {
-			await MetabolicsEndpoint.upgradeEnergy();
-		});
+		}, [_MIGRATES.keys.join(' | ')]);
 
 		new Command.register('giveitem', (String email, String itemType, String qty) async {
 			if (!items.containsKey(itemType)) {
