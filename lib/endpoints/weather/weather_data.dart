@@ -2,8 +2,11 @@ part of weather;
 
 /// Weather conditions (1 place, 1 time)
 class WeatherData {
-	/// City geo location
-	@Field() Point<num> geoCoords;
+	/// City geo location latitude
+	@Field() num latitude;
+
+	/// City geo location longitude
+	@Field() num longitude;
 
 	/// Weather condition id
 	@Field() int weatherId;
@@ -54,16 +57,21 @@ class WeatherData {
 	@Field() num snowVol;
 
 	/// Time of data calculation, unix, UTC
-	@Field() DateTime calcDate;
+	DateTime calcDate;
+	@Field() String get calcDateTxt => calcDate.toString();
 
 	/// Country code (GB, JP etc.)
 	@Field() String countryCode;
 
 	/// Sunrise time, unix, UTC
-	@Field() DateTime sunrise;
+	DateTime sunrise;
+	@Field() String get sunriseTxt => sunrise.toString();
+	@Field() set sunriseTxt(String _txt) => sunrise = DateTime.parse(_txt);
 
 	/// Sunset time, unix, UTC
-	@Field() DateTime sunset;
+	DateTime sunset;
+	@Field() String get sunsetTxt => sunset.toString();
+	@Field() set sunsetTxt(String _txt) => sunset = DateTime.parse(_txt);
 
 	/// City ID
 	@Field() int cityId;
@@ -74,7 +82,8 @@ class WeatherData {
 	/// Parse data from the OpenWeatherMap API
 	WeatherData(Map owm) {
 		if (owm['coord'] != null) {
-			geoCoords = new Point(owm['coord']['lon'], owm['coord']['lat']);
+			longitude = owm['coord']['lon'];
+			latitude = owm['coord']['lat'];
 		}
 
 		weatherId = owm['weather'].single['id'];
@@ -99,8 +108,12 @@ class WeatherData {
 
 		snowVol = (owm['snow'] != null ? owm['snow']['3h'] : 0);
 
-		calcDate = new DateTime.fromMillisecondsSinceEpoch(
-			owm['dt'] * 1000, isUtc: true);
+		if (owm['dt'] != null) {
+			calcDate = new DateTime.fromMillisecondsSinceEpoch(
+				owm['dt'] * 1000, isUtc: true);
+		} else if (owm['dt_txt'] != null) {
+			calcDate = DateTime.parse(owm['dt_txt']);
+		}
 
 		countryCode = owm['sys']['country'];
 

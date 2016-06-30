@@ -46,8 +46,11 @@ class WeatherLocation {
 		}
 	}
 
-	/// City geo location
-	Point<num> get geoCoords => current.geoCoords;
+	/// City geo location latitude
+	num get latitude => current.latitude;
+
+	/// City geo location longitude
+	num get longitude => current.longitude;
 
 	/// City ID
 	int get cityId => current.cityId;

@@ -30,7 +30,7 @@ class WeatherEndpoint {
 	static void handle(WebSocket ws) {
 		ws.listen(
 			(message) => processMessage(ws, message),
-			onError: (error) => cleanupList(ws),
+			onError: (_) => cleanupList(ws),
 			onDone: () => cleanupList(ws));
 	}
 
@@ -61,6 +61,9 @@ class WeatherEndpoint {
 		String tsid = PlayerUpdateHandler.users[username]?.tsid;
 		if (tsid != null) {
 			ws.add(JSON.encode(await WeatherService.getConditionsMap(tsid)));
+		} else {
+			// Client will retry when it is done loading
+			ws.close(null, 'Street not loaded ready');
 		}
 	}
 
