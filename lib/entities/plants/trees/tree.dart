@@ -227,7 +227,7 @@ abstract class Tree extends Plant {
 				}
 				if (await WeatherEndpoint.rainingIn(MapData.getStreetByName(streetName)['tsid'])) {
 					personalAction.enabled = false;
-					personalAction.error = "It's already raining, I don't need anymore water.";
+					personalAction.error = "It's already raining, I don't need any more water.";
 				}
 			}
 			personalActions.add(personalAction);
