@@ -39,12 +39,14 @@ class StreetUpdateHandler {
 
 	static loadItems() async {
 		String dir = serverDir.path;
+		String filePath, fileText;
 
 		try {
 			// load items
-			String filePath = path.join(dir, 'lib', 'entities', 'items', 'json');
+			filePath = path.join(dir, 'lib', 'entities', 'items', 'json');
 			await new Directory(filePath).list().forEach((File category) async {
-				JSON.decode(await category.readAsString()).forEach((String name, Map itemMap) {
+				fileText = await category.readAsString();
+				JSON.decode(fileText).forEach((String name, Map itemMap) {
 					itemMap['itemType'] = name;
 					items[name] = decode(itemMap, Item);
 				});
@@ -60,14 +62,15 @@ class StreetUpdateHandler {
 				'recipes',
 				'json');
 			await new Directory(filePath).list().forEach((File tool) async {
-				JSON.decode(await tool.readAsString()).forEach((Map recipeMap) {
+				fileText = await tool.readAsString();
+				JSON.decode(fileText).forEach((Map recipeMap) {
 					RecipeBook.recipes.add(decode(recipeMap, Recipe));
 				});
 			});
 
 			// load vendor types
 			filePath = path.join(dir, 'lib', 'entities', 'npcs', 'vendors', 'vendors.json');
-			String fileText = await new File(filePath).readAsString();
+			fileText = await new File(filePath).readAsString();
 			JSON.decode(fileText).forEach((String street, String type) {
 				vendorTypes[street] = type;
 			});
@@ -76,7 +79,11 @@ class StreetUpdateHandler {
 			filePath = path.join(dir, 'lib', 'entities', 'items', 'actions', 'consume.json');
 			fileText = await new File(filePath).readAsString();
 			JSON.decode(fileText).forEach((String item, Map award) {
-				items[item].consumeValues = award;
+				try {
+					items[item].consumeValues = award;
+				} catch (e) {
+					Log.error('Error setting consume values for $item to $award', e);
+				}
 			});
 
 			// Load achievements

@@ -1377,6 +1377,11 @@
 		"hub_id": 76,
 		"map_hidden": true
 	},
+	"Alakol Start 2": {
+		"tsid": "LNVKFBM3PVC2GDD",
+		"hub_id": 76,
+		"map_hidden": true
+	},
 	"Alecha Kolo": {
 		"vendor": "Mining",
 		"tsid": "GA5T7SLLO3H2ERO",
