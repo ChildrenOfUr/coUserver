@@ -7,7 +7,8 @@
 		"color_top": "#8a9297",
 		"mote_id": 9,
 		"mote_name": "Ur",
-		"map_hidden": true
+		"map_hidden": true,
+		"owm_city": 6356055
 	},
 	"26": {
 		"name": "Abbasid",
@@ -17,7 +18,8 @@
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
 		"mote_id": 9,
-		"mote_name": "Ur"
+		"mote_name": "Ur",
+		"owm_city": 745044
 	},
 	"76": {
 		"name": "Alakol",
@@ -30,7 +32,8 @@
 		"img_fg": "http://c2.glitch.bz/client_maps/2012-04-24/alakol_fg_1335307185.png",
 		"color": "#2d8a4a",
 		"color_btm": "#706769",
-		"color_top": "#a99c9e"
+		"color_top": "#a99c9e",
+		"owm_city": 2643743
 	},
 	"83": {
 		"name": "Alakol POLs",
@@ -40,7 +43,8 @@
 		"color_top": "#8a9297",
 		"mote_id": 9,
 		"mote_name": "Ur",
-		"map_hidden": true
+		"map_hidden": true,
+		"owm_city": 2643743
 	},
 	"89": {
 		"name": "Andra",
@@ -53,7 +57,8 @@
 		"img_fg": "http://c1.glitch.bz/img/maps/map_fg_andra_59153.png",
 		"color": "#de5d25",
 		"color_btm": "#8a7c85",
-		"color_top": "#ac949e"
+		"color_top": "#ac949e",
+		"owm_city": 4724129
 	},
 	"94": {
 		"name": "Andra POLs",
@@ -63,7 +68,8 @@
 		"color_top": "#8a9297",
 		"mote_id": 9,
 		"mote_name": "Ur",
-		"map_hidden": true
+		"map_hidden": true,
+		"owm_city": 5308655
 	},
 	"101": {
 		"name": "Aranna",
@@ -179,7 +185,8 @@
 		"color_top": "#8a9297",
 		"mote_id": 10,
 		"mote_name": "Instances",
-		"map_hidden": true
+		"map_hidden": true,
+		"owm_city": 4792307
 	},
 	"107": {
 		"name": "Callopee",
@@ -1063,7 +1070,8 @@
 		"img_fg": "http://c1.glitch.bz/img/maps/map_fg_xalanga_56739.png",
 		"color": "#8f5200",
 		"color_btm": "#96aaa9",
-		"color_top": "#7d8985"
+		"color_top": "#7d8985",
+		"owm_city": 5308655
 	},
 	"91": {
 		"name": "Zhambu",

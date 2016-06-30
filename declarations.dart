@@ -15,7 +15,7 @@ import 'package:coUserver/common/util.dart';
 import 'package:coUserver/endpoints/chat_handler.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
 import 'package:coUserver/endpoints/status.dart';
-import 'package:coUserver/endpoints/weather.dart';
+import 'package:coUserver/endpoints/weather/weather.dart';
 import 'package:coUserver/entities/items/item.dart';
 import 'package:coUserver/quests/quest.dart';
 import 'package:coUserver/streets/player_update_handler.dart';

@@ -17,7 +17,7 @@ import 'package:coUserver/endpoints/inventory_new.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
 import 'package:coUserver/endpoints/time.dart';
 import 'package:coUserver/endpoints/visited.dart';
-import 'package:coUserver/endpoints/weather.dart';
+import 'package:coUserver/endpoints/weather/weather.dart';
 import 'package:coUserver/entities/items/item.dart';
 import 'package:coUserver/quests/quest.dart';
 import 'package:coUserver/skills/skillsmanager.dart';

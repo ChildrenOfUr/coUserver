@@ -11,6 +11,7 @@ import 'package:coUserver/endpoints/inventory_new.dart';
 import 'package:coUserver/endpoints/status.dart';
 import 'package:coUserver/entities/items/item.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
+import 'package:coUserver/endpoints/weather/weather.dart';
 
 class Console {
 	static final Map<String, Function> _MIGRATES = {
@@ -111,6 +112,14 @@ class Console {
 					.split('\n').forEach((String ln) => Log.command(ln));
 			}
 		}, ['tsid to find']);
+
+		new Command.register('weather', (String tsid) async {
+			Map<String, dynamic> weather = await WeatherService.getConditionsMap(tsid);
+			Log.command('Current Conditions\n' + formatMap(weather['current']));
+			weather['forecast'].forEach((Map<String, dynamic> day) {
+				Log.command('5-day forecast\n' + formatMap(day));
+			});
+		}, ['tsid for which to get weather']);
 	}
 
 	static final String ARG_GROUP = '"';

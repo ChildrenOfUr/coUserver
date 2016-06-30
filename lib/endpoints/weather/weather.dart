@@ -1,0 +1,82 @@
+library weather;
+
+import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+import 'dart:math';
+
+import 'package:http/http.dart' as http;
+import 'package:redstone_mapper/mapper.dart';
+
+import 'package:coUserver/API_KEYS.dart';
+import 'package:coUserver/common/mapdata/mapdata.dart';
+import 'package:coUserver/common/util.dart';
+import 'package:coUserver/streets/player_update_handler.dart';
+
+part 'weather_data.dart';
+part 'weather_location.dart';
+part 'weather_service.dart';
+
+/// Handles client communication through WebSockets
+class WeatherEndpoint {
+	/// Send the data to the client every 5 seconds
+	static final Timer updateTimer = new Timer.periodic(
+		new Duration(seconds: 5), (_) => update());
+
+	/// Connected clients
+	static Map<String, WebSocket> userSockets = {};
+
+	/// Add a new client
+	static void handle(WebSocket ws) {
+		ws.listen(
+			(message) => processMessage(ws, message),
+			onError: (error) => cleanupList(ws),
+			onDone: () => cleanupList(ws));
+	}
+
+	/// Remove disconnected clients
+	static void cleanupList(WebSocket ws) {
+		String leavingUser;
+
+		userSockets.forEach((String username, WebSocket socket) {
+			if (ws == socket) {
+				socket = null;
+				leavingUser = username;
+			}
+		});
+
+		userSockets.remove(leavingUser);
+	}
+
+	/// Handle incoming messages from clients
+	static void processMessage(WebSocket ws, String message) {
+		Map map = JSON.decode(message);
+		String username = map['username'];
+
+		if (!userSockets.containsKey(username)) {
+			userSockets[username] = ws;
+		}
+
+		// Send the current weather to the just connected user
+		String tsid = PlayerUpdateHandler.users[username]?.tsid;
+		if (tsid != null) {
+			ws.add(WeatherService.getConditionsMap(tsid));
+		}
+	}
+
+	/// Whether the weather is rainy on a street
+	static Future<bool> rainingIn(String tsid) async {
+		WeatherLocation weather = await WeatherService.getConditions(tsid);
+		return weather.current.weatherMain.toLowerCase().contains('rain');
+	}
+
+	/// Send data to all clients
+	static Future update() async {
+		await Future.forEach(userSockets.keys, (String username) async {
+			String tsid = PlayerUpdateHandler.users[username].tsid;
+			userSockets[username].add(JSON.encode({
+				'current': encode(await WeatherService.getConditions(tsid))
+			}));
+		});
+	}
+}

@@ -56,11 +56,11 @@ abstract class Tree extends Plant {
 		return map;
 	}
 
-	void update() {
+	Future update() async {
 		super.update();
 
 		if (
-			WeatherEndpoint.currentState == WeatherState.RAINING &&
+			(await WeatherEndpoint.rainingIn(MapData.getStreetByName(streetName)['tsid'])) &&
 			new DateTime.now().difference(lastWeatherUpdate).inSeconds > 23
 		) {
 			// Every 23 seconds while raining
@@ -225,7 +225,7 @@ abstract class Tree extends Plant {
 					personalAction.enabled = false;
 					personalAction.error = "I'm not thirsty right now.";
 				}
-				if (WeatherEndpoint.currentState == WeatherState.RAINING) {
+				if (await WeatherEndpoint.rainingIn(MapData.getStreetByName(streetName)['tsid'])) {
 					personalAction.enabled = false;
 					personalAction.error = "It's already raining, I don't need anymore water.";
 				}
