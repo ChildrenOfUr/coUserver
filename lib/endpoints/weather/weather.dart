@@ -60,7 +60,7 @@ class WeatherEndpoint {
 		// Send the current weather to the just connected user
 		String tsid = PlayerUpdateHandler.users[username]?.tsid;
 		if (tsid != null) {
-			ws.add(await WeatherService.getConditionsMap(tsid));
+			ws.add(JSON.encode(await WeatherService.getConditionsMap(tsid)));
 		}
 	}
 
