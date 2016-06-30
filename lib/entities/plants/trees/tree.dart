@@ -227,7 +227,7 @@ abstract class Tree extends Plant {
 				}
 				if (WeatherEndpoint.currentState == WeatherState.RAINING) {
 					personalAction.enabled = false;
-					personalAction.error = "It's already raining, I don't need anymore water.";
+					personalAction.error = "It's already raining, I don't need any more water.";
 				}
 			}
 			personalActions.add(personalAction);
