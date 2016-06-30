@@ -49,7 +49,7 @@ class WeatherEndpoint {
 	}
 
 	/// Handle incoming messages from clients
-	static void processMessage(WebSocket ws, String message) {
+	static Future processMessage(WebSocket ws, String message) async {
 		Map map = JSON.decode(message);
 		String username = map['username'];
 
@@ -60,7 +60,7 @@ class WeatherEndpoint {
 		// Send the current weather to the just connected user
 		String tsid = PlayerUpdateHandler.users[username]?.tsid;
 		if (tsid != null) {
-			ws.add(WeatherService.getConditionsMap(tsid));
+			ws.add(await WeatherService.getConditionsMap(tsid));
 		}
 	}
 
