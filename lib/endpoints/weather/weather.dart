@@ -3,7 +3,6 @@ library weather;
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'dart:math';
 
 import 'package:http/http.dart' as http;
 import 'package:redstone_mapper/mapper.dart';
@@ -52,18 +51,20 @@ class WeatherEndpoint {
 	static Future processMessage(WebSocket ws, String message) async {
 		Map map = JSON.decode(message);
 		String username = map['username'];
+		String tsid = map['tsid'].toString();
 
+		// Add reference to user if not already stored
 		if (!userSockets.containsKey(username)) {
 			userSockets[username] = ws;
 		}
 
 		// Send the current weather to the just connected user
-		String tsid = PlayerUpdateHandler.users[username]?.tsid;
-		if (tsid != null) {
+		if (tsid != 'null') {
+			// Get weather data for location
 			ws.add(JSON.encode(await WeatherService.getConditionsMap(tsid)));
 		} else {
 			// Client will retry when it is done loading
-			ws.close(null, 'Street not loaded ready');
+			ws.close(null, 'Street not loaded');
 		}
 	}
 
@@ -83,3 +84,5 @@ class WeatherEndpoint {
 		});
 	}
 }
+
+// TODO: maybe use the clock math to convert the real dates in the weather forecast to Ur dates?

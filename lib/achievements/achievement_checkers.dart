@@ -30,7 +30,7 @@ class AchievementCheckers {
 			}
 
 			// Visited every street in hub
-			return true;
+			return false; //true; // TODO: fix false positives
 		}
 
 		String addedTsidHubId;
