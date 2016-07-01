@@ -44,8 +44,8 @@ class StreetUpdateHandler {
 		try {
 			// load items
 			filePath = path.join(dir, 'lib', 'entities', 'items', 'json');
-			await new Directory(filePath).list().forEach((File category) async {
-				fileText = await category.readAsString();
+			await Future.forEach(await new Directory(filePath).list().toList(), (File cat) async {
+				fileText = await cat.readAsString();
 				JSON.decode(fileText).forEach((String name, Map itemMap) {
 					itemMap['itemType'] = name;
 					items[name] = decode(itemMap, Item);
@@ -61,7 +61,7 @@ class StreetUpdateHandler {
 				'actions',
 				'recipes',
 				'json');
-			await new Directory(filePath).list().forEach((File tool) async {
+			await Future.forEach(await new Directory(filePath).list().toList(), (File tool) async {
 				fileText = await tool.readAsString();
 				JSON.decode(fileText).forEach((Map recipeMap) {
 					RecipeBook.recipes.add(decode(recipeMap, Recipe));
