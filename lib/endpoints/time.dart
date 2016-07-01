@@ -3,6 +3,7 @@ library time;
 import 'dart:async';
 
 import 'package:redstone/redstone.dart' as app;
+import 'package:redstone_mapper/mapper.dart';
 
 @app.Route('/getHolidays')
 Future<List<String>> getHolidays(@app.QueryParam('month') int month,
@@ -36,6 +37,19 @@ Map<String, Map<int, List<String>>> holidaysByMonth = {'Primuary': {5:['AlphaCon
 	'Recurse':{1:['Recurse']}};
 
 class Clock {
+	/**
+		day: ordinal of month: '13th'
+		dayInt: day of month, starting at 1: 17
+		dayofweek: name of day: 'Twoday'
+		month: name of month: 'Primuary'
+		monthInt: number of month, starting at 1: 6
+		time: formatted time: '6:23pm'
+		year: name of year: 'Year 37'
+	*/
+	static Map<String, dynamic> realLifeToGame(DateTime dt) {
+		return encode(new Clock.stoppedAtDate(dt));
+	}
+
 	StreamController _newdayController, _timeupdateController;
 	Stream onUpdate, onNewDay, onHoliday;
 	String _dayofweek, _year, _day, _month, _time;
@@ -44,22 +58,22 @@ class Clock {
 	DateTime startDate;
 
 	// Getters, so they can only be written by the Clock
-	String get dayofweek => _dayofweek;
+	@Field() String get dayofweek => _dayofweek;
 
-	String get year => _year;
+	@Field() String get year => _year;
 
-	String get day => _day;
+	@Field() String get day => _day;
 
-	String get month => _month;
+	@Field() String get month => _month;
 
-	String get time => _time;
+	@Field() String get time => _time;
 
 	List<int> get daysPerMonth => _dPM;
 
 	// Integer versions
-	int get dayInt => _dayInt;
+	@Field() int get dayInt => _dayInt;
 
-	int get monthInt => _monthInt;
+	@Field() int get monthInt => _monthInt;
 
 	int get hourInt {
 		if (time.contains('am')) {

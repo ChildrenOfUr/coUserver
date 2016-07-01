@@ -12,13 +12,9 @@ class WeatherService {
 	static final String OWM_API = 'http://api.openweathermap.org/data/2.5/';
 
 	/// OpenWeatherMap endpoint parameters
-	static final String OWM_PARAMS =
-		'?appid=$openWeatherMap'
-		'&units=imperial'
-		'&mode=json'
-		'&id='; // id is set when called
+	static final String OWM_PARAMS = '?appid=$openWeatherMap&id=';
 
-	/// Refresh data every hour
+	/// Refresh data from OpenWeatherMap every hour
 	static final Timer cacheTimer = new Timer.periodic(
 		new Duration(hours: 1), (_) => download());
 
@@ -79,12 +75,14 @@ class WeatherService {
 
 				// Get forecast conditions
 				List<WeatherData> forecast = [];
-				((await _download('forecast', cityId))['list']).forEach((Map day) {
+				List<Map> days = ((await _download('forecast/daily', cityId))['list']);
+				print(days.length);
+				days.sublist(1, 5).forEach((Map day) {
 					forecast.add(new WeatherData(day));
 				});
 
 				// Assemble location data
-				WeatherLocation weather = new WeatherLocation(current: current, forecast: forecast);
+				WeatherLocation weather = new WeatherLocation(current, forecast);
 
 				// Add to cache
 				cache[cityId] = weather;
@@ -97,7 +95,7 @@ class WeatherService {
 		}
 	}
 
-	/// Decode and return the result of calling either the 'weather' or 'forecast' API
+	/// Decode and return the result of calling either the 'weather' or 'forecast/daily' endpoint
 	static Future<Map> _download(String endpoint, int cityId) async {
 		// Download from OpenWeatherMap
 		String url = OWM_API + endpoint + OWM_PARAMS + cityId.toString();
