@@ -187,7 +187,8 @@
 		"color_top": "#8a9297",
 		"mote_id": 10,
 		"mote_name": "Instances",
-		"map_hidden": true
+		"map_hidden": true,
+		"owm_city_id": 248946
 	},
 	"107": {
 		"name": "Callopee",
@@ -200,7 +201,8 @@
 		"img_fg": "http://c1.glitch.bz/img/maps/map_fg_callopee_66209.png",
 		"color": "#a75200",
 		"color_btm": "#7c8b7e",
-		"color_top": "#94ab9c"
+		"color_top": "#94ab9c",
+		"owm_city_id": 248946
 	},
 	"120": {
 		"name": "Cauda",
@@ -447,7 +449,8 @@
 		"img_fg": "http://c1.glitch.bz/img/maps/map_fg_ilmenskie_caverns_43684.png",
 		"color": "#633279",
 		"color_btm": "#464949",
-		"color_top": "#646869"
+		"color_top": "#646869",
+		"owm_city_id": 6544881
 	},
 	"78": {
 		"name": "Ilmenskie Deeps",
@@ -460,7 +463,8 @@
 		"img_fg": "http://c1.glitch.bz/img/maps/map_fg_ilmenskie_deep_46962.png",
 		"color": "#492e5e",
 		"color_btm": "#4a4846",
-		"color_top": "#676563"
+		"color_top": "#676563",
+		"owm_city_id": 760825
 	},
 	"27": {
 		"name": "Ix",
@@ -618,7 +622,8 @@
 		"img_bg": "http://c2.glitch.bz/client_maps/2012-08-07/kloro_bg_1344390972.jpg",
 		"color": "804a16",
 		"color_btm": "7e8487",
-		"color_top": "98a2a7"
+		"color_top": "98a2a7",
+		"owm_city_id": 2821975
 	},
 	"57": {
 		"name": "Levelup Templates",
@@ -674,7 +679,8 @@
 		"img_fg": "http://c1.glitch.bz/img/maps/map_bg_massadoe_73050.png",
 		"color": "a77e00",
 		"color_btm": "897e88",
-		"color_top": "a897a3"
+		"color_top": "a897a3",
+		"owm_city_id": 146268
 	},
 	"142": {
 		"name": "Moshi Moshi Oshilatis",
@@ -802,7 +808,8 @@
 		"img_fg": "http://c2.glitch.bz/client_maps/2012-07-17/pollokoo_fg_1342573363.png",
 		"color": "#a56800",
 		"color_btm": "#94a3ac",
-		"color_top": "#7b898b"
+		"color_top": "#7b898b",
+		"owm_city_id": 360630
 	},
 	"37": {
 		"name": "POLs",
