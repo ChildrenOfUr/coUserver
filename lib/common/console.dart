@@ -116,10 +116,14 @@ class Console {
 
 		new Command.register('weather', (String tsid) async {
 			Map<String, dynamic> weather = await WeatherService.getConditionsMap(tsid);
-			Log.command('Current Conditions\n' + formatMap(weather['current']));
-			weather['forecast'].forEach((Map<String, dynamic> day) {
-				Log.command('5-day forecast\n' + formatMap(day));
-			});
+			if (weather['error'] == null) {
+				Log.command('Current Conditions\n' + formatMap(weather['current']));
+				weather['forecast'].forEach((Map<String, dynamic> day) {
+					Log.command('5-day forecast\n' + formatMap(day));
+				});
+			} else {
+				Log.command('No weather in $tsid');
+			}
 		}, ['tsid for which to get weather']);
 	}
 

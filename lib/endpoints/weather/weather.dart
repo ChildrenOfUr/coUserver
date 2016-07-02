@@ -71,7 +71,11 @@ class WeatherEndpoint {
 	/// Whether the weather is rainy on a street
 	static Future<bool> rainingIn(String tsid) async {
 		WeatherLocation weather = await WeatherService.getConditions(tsid);
-		return weather.current.weatherMain.toLowerCase().contains('rain');
+		if (weather != null) {
+			return weather.current.weatherMain.toLowerCase().contains('rain');
+		} else {
+			return false;
+		}
 	}
 
 	/// Send data to all clients

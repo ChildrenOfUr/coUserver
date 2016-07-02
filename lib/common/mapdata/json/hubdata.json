@@ -30,7 +30,8 @@
 		"img_fg": "http://c2.glitch.bz/client_maps/2012-04-24/alakol_fg_1335307185.png",
 		"color": "#2d8a4a",
 		"color_btm": "#706769",
-		"color_top": "#a99c9e"
+		"color_top": "#a99c9e",
+		"owm_city_id": 4255466
 	},
 	"83": {
 		"name": "Alakol POLs",
@@ -53,7 +54,8 @@
 		"img_fg": "http://c1.glitch.bz/img/maps/map_fg_andra_59153.png",
 		"color": "#de5d25",
 		"color_btm": "#8a7c85",
-		"color_top": "#ac949e"
+		"color_top": "#ac949e",
+		"owm_city_id": 4671654
 	},
 	"94": {
 		"name": "Andra POLs",
@@ -75,7 +77,8 @@
 		"img_bg": "http://c1.glitch.bz/img/maps/map_bg_aranna_61517.jpg",
 		"color": "#00a773",
 		"color_btm": "#887f87",
-		"color_top": "#a799a2"
+		"color_top": "#a799a2",
+		"owm_city_id": 5859888
 	},
 	"103": {
 		"name": "Aranna POLs",
@@ -117,7 +120,8 @@
 		"img_bg": "http://c2.glitch.bz/client_maps/2012-06-15/balzare_bg_1339793302.jpg",
 		"color": "980094",
 		"color_btm": "877e7e",
-		"color_top": "a79a98"
+		"color_top": "a79a98",
+		"owm_city_id": 710403
 	},
 	"86": {
 		"name": "Baqala",
@@ -130,7 +134,8 @@
 		"img_fg": "http://c1.glitch.bz/img/maps/map_fg_baqala_52144.png",
 		"color": "#959b00",
 		"color_btm": "#82897f",
-		"color_top": "#9eaa9c"
+		"color_top": "#9eaa9c",
+		"owm_city_id": 2483761
 	},
 	"98": {
 		"name": "Besara",
@@ -143,7 +148,8 @@
 		"img_fg": "http://c2.glitch.bz/client_maps/2012-04-24/besara_fg_1335307191.png",
 		"color": "#34a700",
 		"color_btm": "#897f81",
-		"color_top": "#a89898"
+		"color_top": "#a89898",
+		"owm_city_id": 2972315
 	},
 	"75": {
 		"name": "Bortola",
@@ -156,7 +162,8 @@
 		"img_fg": "http://c2.glitch.bz/client_maps/2012-04-24/bortola_fg_1335307201.png",
 		"color": "#3b7700",
 		"color_btm": "#767265",
-		"color_top": "#b1ab96"
+		"color_top": "#b1ab96",
+		"owm_city_id": 3127461
 	},
 	"112": {
 		"name": "Brillah",
@@ -169,7 +176,8 @@
 		"img_fg": "http://c2.glitch.bz/client_maps/2011-12-16/brillah_fg_1324082487.png",
 		"color": "#00a773",
 		"color_btm": "#877e86",
-		"color_top": "#a89aa3"
+		"color_top": "#a89aa3",
+		"owm_city_id": 5206379
 	},
 	"69": {
 		"name": "Bureaucratic Hall",
@@ -205,7 +213,8 @@
 		"img_fg": "http://c2.glitch.bz/client_maps/2012-04-24/cauda_fg_1335303214.png",
 		"color": "52a700",
 		"color_btm": "88857f",
-		"color_top": "a7a598"
+		"color_top": "a7a598",
+		"owm_city_id": 4887398
 	},
 	"72": {
 		"name": "Chakra Phool",
@@ -217,7 +226,8 @@
 		"img_bg": "http://c1.glitch.bz/img/maps/map_bg_chakra_phool_43684.jpg",
 		"color": "#6d5255",
 		"color_btm": "897d88",
-		"color_top": "a995a5"
+		"color_top": "a995a5",
+		"owm_city_id": 964420
 	},
 	"90": {
 		"name": "Choru",
@@ -230,7 +240,8 @@
 		"img_fg": "http://c1.glitch.bz/img/maps/map_fg_choru_53631.png",
 		"color": "#b8aa00",
 		"color_btm": "#897e7e",
-		"color_top": "#aa9a97"
+		"color_top": "#aa9a97",
+		"owm_city_id": 5308655
 	},
 	"141": {
 		"name": "Drifa",
@@ -243,7 +254,8 @@
 		"img_bg": "http://c2.glitch.bz/client_maps/2012-11-21/drifa_bg_1353538228.jpg",
 		"color": "#ff0000",
 		"color_btm": "#606669",
-		"color_top": "#8a9297"
+		"color_top": "#8a9297",
+		"owm_city_id": 2013159
 	},
 	"49": {
 		"name": "Eesti Life Catalog",
@@ -266,7 +278,8 @@
 		"img_fg": "http://c2.glitch.bz/client_maps/2012-04-24/fenneq_fg_1335291122.png",
 		"color": "b55513",
 		"color_btm": "7f8588",
-		"color_top": "989fa7"
+		"color_top": "989fa7",
+		"owm_city_id": 6538450
 	},
 	"82": {
 		"name": "Fernando",
@@ -308,7 +321,8 @@
 		"img_bg": "http://c2.glitch.bz/client_maps/2012-09-12/firozi_bg_1347491743.jpg",
 		"color": "954f18",
 		"color_btm": "7c867c",
-		"color_top": "98a89a"
+		"color_top": "98a89a",
+		"owm_city_id": 2643743
 	},
 	"119": {
 		"name": "Folivoria",
@@ -321,7 +335,8 @@
 		"img_fg": "http://c2.glitch.bz/client_maps/2012-04-19/folivoria_fg_1334879259.png",
 		"color": "a75200",
 		"color_btm": "817f88",
-		"color_top": "9e98a7"
+		"color_top": "9e98a7",
+		"owm_city_id": 745044
 	},
 	"129": {
 		"name": "Gentle Island",
@@ -344,7 +359,8 @@
 		"img_fg": "http://c1.glitch.bz/img/maps/map_fg_groddle_forest_59153.png",
 		"color": "#5f721d",
 		"color_btm": "#6b7954",
-		"color_top": "#99ad78"
+		"color_top": "#99ad78",
+		"owm_city_id": 1697970
 	},
 	"64": {
 		"name": "Groddle Heights",
@@ -357,7 +373,8 @@
 		"img_bg": "http://c1.glitch.bz/img/maps/map_bg_groddle_heights_43684.jpg",
 		"color": "#6a5522",
 		"color_btm": "#756262",
-		"color_top": "#a88d8d"
+		"color_top": "#a88d8d",
+		"owm_city_id": 2660498
 	},
 	"58": {
 		"name": "Groddle Meadow",
@@ -370,7 +387,8 @@
 		"img_fg": "http://c1.glitch.bz/img/maps/map_fg_groddle_meadow_59153.png",
 		"color": "#1d3a80",
 		"color_btm": "#6a6d7f",
-		"color_top": "#989cb6"
+		"color_top": "#989cb6",
+		"owm_city_id": 5391959
 	},
 	"131": {
 		"name": "Haoma",
@@ -382,7 +400,8 @@
 		"img_bg": "http://c2.glitch.bz/client_maps/2012-08-07/haoma_bg_1344390920.jpg",
 		"color": "00a79d",
 		"color_btm": "88857f",
-		"color_top": "a7a498"
+		"color_top": "a7a498",
+		"owm_city_id": 3571824
 	},
 	"116": {
 		"name": "Haraiva",
@@ -394,7 +413,8 @@
 		"img_bg": "http://c2.glitch.bz/client_maps/2012-09-12/haraiva_bg_1347491622.jpg",
 		"color": "189495",
 		"color_btm": "867c86",
-		"color_top": "a898a7"
+		"color_top": "a898a7",
+		"owm_city_id": 6173331
 	},
 	"117": {
 		"name": "Homes",
@@ -452,7 +472,8 @@
 		"img_bg": "http://c1.glitch.bz/img/maps/map_bg_ix_43684.jpg",
 		"color": "#651717",
 		"color_btm": "#7f6a6a",
-		"color_top": "#b69898"
+		"color_top": "#b69898",
+		"owm_city_id": 616530
 	},
 	"136": {
 		"name": "Jal",
@@ -465,7 +486,8 @@
 		"img_bg": "http://c2.glitch.bz/client_maps/2012-10-15/jal_bg_1350335497.jpg",
 		"color": "005182",
 		"color_btm": "7b898c",
-		"color_top": "91a4ae"
+		"color_top": "91a4ae",
+		"owm_city_id": 1926004
 	},
 	"71": {
 		"name": "Jethimadh",
@@ -479,7 +501,8 @@
 		"img_fg": "http://c1.glitch.bz/img/maps/map_fg_jethimadh_59153.png",
 		"color": "#726758",
 		"color_btm": "#778385",
-		"color_top": "#8da2a7"
+		"color_top": "#8da2a7",
+		"owm_city_id": 216541
 	},
 	"77": {
 		"name": "Jethimadh Tower: Base",
@@ -534,7 +557,8 @@
 		"img_fg": "http://c1.glitch.bz/img/maps/map_fg_kajuu_59153.png",
 		"color": "#a05200",
 		"color_btm": "#606d64",
-		"color_top": "#83978c"
+		"color_top": "#83978c",
+		"owm_city_id": 4004898
 	},
 	"87": {
 		"name": "Kajuu POLs",
@@ -557,7 +581,8 @@
 		"img_fg": "http://c1.glitch.bz/img/maps/map_fg_kalavana_61084.png",
 		"color": "#a73600",
 		"color_btm": "#a1aa96",
-		"color_top": "#888a7e"
+		"color_top": "#888a7e",
+		"owm_city_id": 3919968
 	},
 	"88": {
 		"name": "Karnata",
@@ -570,7 +595,8 @@
 		"img_fg": "http://c1.glitch.bz/img/maps/map_fg_karnata_74575.png",
 		"color": "#479500",
 		"color_btm": "#887f87",
-		"color_top": "#a89aa4"
+		"color_top": "#a89aa4",
+		"owm_city_id": 4792307
 	},
 	"118": {
 		"name": "Keita",
@@ -614,7 +640,8 @@
 		"img_bg": "http://c1.glitch.bz/img/maps/map_bg_lida_73050.jpg",
 		"color": "#00a73d",
 		"color_btm": "#897e81",
-		"color_top": "#a89798"
+		"color_top": "#a89798",
+		"owm_city_id": 1070940
 	},
 	"111": {
 		"name": "Lida POLs",
@@ -680,7 +707,8 @@
 		"img_fg": "http://c2.glitch.bz/client_maps/2012-04-24/muufo_fg_1335308000.png",
 		"color": "#008f03",
 		"color_btm": "#847d89",
-		"color_top": "#a696aa"
+		"color_top": "#a696aa",
+		"owm_city_id": 2950159
 	},
 	"40": {
 		"name": "Naraka",
@@ -692,7 +720,8 @@
 		"img_fg": "http://c1.glitch.bz/img/maps/map_fg_purgatory_69074.png",
 		"color": "#7b0000",
 		"color_btm": "#2e2325",
-		"color_top": "#4c3c3d"
+		"color_top": "#4c3c3d",
+		"owm_city_id": 1259813
 	},
 	"134": {
 		"name": "NewXP",
@@ -715,7 +744,8 @@
 		"img_bg": "http://c2.glitch.bz/client_maps/2012-10-30/nottis_bg_1351664108.jpg",
 		"color": "0097a7",
 		"color_btm": "769091",
-		"color_top": "89afb6"
+		"color_top": "89afb6",
+		"owm_city_id": 4993369
 	},
 	"28": {
 		"name": "Old Groddle Forest",
@@ -738,7 +768,8 @@
 		"img_fg": "http://c1.glitch.bz/img/maps/map_fg_ormonos_72522.png",
 		"color": "#00937f",
 		"color_btm": "#847e87",
-		"color_top": "#a699a7"
+		"color_top": "#a699a7",
+		"owm_city_id": 5128581
 	},
 	"108": {
 		"name": "Party Locations",
@@ -814,7 +845,8 @@
 		"img_fg": "http://c2.glitch.bz/client_maps/2012-04-24/rasana_fg_1335307178.png",
 		"color": "#00a77b",
 		"color_btm": "#837e87",
-		"color_top": "#a199a7"
+		"color_top": "#a199a7",
+		"owm_city_id": 4930956
 	},
 	"127": {
 		"name": "Robin",
@@ -836,7 +868,8 @@
 		"img_bg": "http://c2.glitch.bz/client_maps/2012-06-15/roobrik_bg_1339793222.jpg",
 		"color": "a75200",
 		"color_btm": "82887f",
-		"color_top": "9ba798"
+		"color_top": "9ba798",
+		"owm_city_id": 3665098
 	},
 	"81": {
 		"name": "Ryan",
@@ -859,7 +892,8 @@
 		"img_fg": "http://c2.glitch.bz/client_maps/2012-04-24/salatu_fg_1335307182.png",
 		"color": "#008f6a",
 		"color_btm": "#8a7e81",
-		"color_top": "#aa9796"
+		"color_top": "#aa9796",
+		"owm_city_id": 2397674
 	},
 	"140": {
 		"name": "Samudra",
@@ -872,7 +906,8 @@
 		"img_bg": "http://c2.glitch.bz/client_maps/2012-11-14/samudra_bg_1352921754.jpg",
 		"color": "#ff0000",
 		"color_btm": "#606669",
-		"color_top": "#8a9297"
+		"color_top": "#8a9297",
+		"owm_city_id": 1796556
 	},
 	"63": {
 		"name": "Shimla Mirch",
@@ -885,7 +920,8 @@
 		"img_fg": "http://c1.glitch.bz/img/maps/map_fg_shimla_mirch_59153.png",
 		"color": "#545454",
 		"color_btm": "7c7d88",
-		"color_top": "9596a9"
+		"color_top": "9596a9",
+		"owm_city_id": 4147241
 	},
 	"70": {
 		"name": "Shimla Mirch POLs",
@@ -938,7 +974,8 @@
 		"img_fg": "http://c2.glitch.bz/client_maps/2012-04-19/sura_fg_1334879408.png",
 		"color": "1d8a00",
 		"color_btm": "877f7e",
-		"color_top": "a79a98"
+		"color_top": "a79a98",
+		"owm_city_id": 5592170
 	},
 	"113": {
 		"name": "Tahli",
@@ -951,7 +988,8 @@
 		"img_fg": "http://c2.glitch.bz/client_maps/2012-04-24/tahli_fg_1335293431.png",
 		"color": "a75200",
 		"color_btm": "7f8288",
-		"color_top": "989aa7"
+		"color_top": "989aa7",
+		"owm_city_id": 5506956
 	},
 	"92": {
 		"name": "Tamila",
@@ -964,7 +1002,8 @@
 		"img_fg": "http://c2.glitch.bz/client_maps/2012-04-24/tamila_fg_1335307197.png",
 		"color": "#718f00",
 		"color_btm": "#7d8988",
-		"color_top": "#96a6aa"
+		"color_top": "#96a6aa",
+		"owm_city_id": 5044407
 	},
 	"52": {
 		"name": "The New Start - May 2010",
@@ -1027,7 +1066,8 @@
 		"img_fg": "http://c1.glitch.bz/img/maps/map_fg_uralia_59153.png",
 		"color": "#591f73",
 		"color_btm": "7c7e88",
-		"color_top": "9597a9"
+		"color_top": "9597a9",
+		"owm_city_id": 2158177
 	},
 	"100": {
 		"name": "Vantalu",
@@ -1039,7 +1079,8 @@
 		"img_bg": "http://c1.glitch.bz/img/maps/map_bg_vantalu_73816.jpg",
 		"color": "#2da89e",
 		"color_btm": "#87837e",
-		"color_top": "#a7a399"
+		"color_top": "#a7a399",
+		"owm_city_id": 5809844
 	},
 	"143": {
 		"name": "Vortex of Random",
@@ -1063,7 +1104,8 @@
 		"img_fg": "http://c1.glitch.bz/img/maps/map_fg_xalanga_56739.png",
 		"color": "#8f5200",
 		"color_btm": "#96aaa9",
-		"color_top": "#7d8985"
+		"color_top": "#7d8985",
+		"owm_city_id": 109223
 	},
 	"91": {
 		"name": "Zhambu",
@@ -1076,6 +1118,7 @@
 		"img_fg": "http://c1.glitch.bz/img/maps/map_fg_zhambu_53974.png",
 		"color": "#d88a00",
 		"color_btm": "#94aca2",
-		"color_top": "#7d8b82"
+		"color_top": "#7d8b82",
+		"owm_city_id": 1169825
 	}
 }
