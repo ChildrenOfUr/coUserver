@@ -18,6 +18,7 @@ class Console {
 		'energy': () async => await MetabolicsEndpoint.upgradeEnergy(),
 		'entities': () async => await StreetEntityMigrations.migrateEntities(),
 		'entityIds': () async => await StreetEntityMigrations.reIdEntities(),
+		'locationhistories': () async => await MetabolicsEndpoint.convertLocationHistories()
 	};
 
 	static void _registerCommands() {

@@ -32,6 +32,39 @@ class MetabolicsEndpoint {
 		}
 	}
 
+	static Future<int> convertLocationHistories() async {
+		String query = 'SELECT * FROM metabolics';
+		PostgreSql dbConn = await dbManager.getConnection();
+		int converted = 0;
+
+		try {
+			await Future.forEach(await dbConn.query(query, Metabolics), (Metabolics m) async {
+				List<String> oldTsids = JSON.decode(m.location_history);
+				if (oldTsids.length == 0) {
+					return;
+				}
+
+				List<String> newTsids = [];
+
+				oldTsids.forEach((String tsid) {
+					tsid = tsidL(tsid);
+					if (!newTsids.contains(tsid)) {
+						newTsids.add(tsid);
+					}
+				});
+
+				m.location_history = JSON.encode(newTsids);
+				await setMetabolics(m);
+				converted++;
+			});
+		} catch (e, st) {
+			Log.error('Could not convert location history', e, st);
+		} finally {
+			dbManager.closeConnection(dbConn);
+			return converted;
+		}
+	}
+
 	static void trackNewDays() {
 		// Refill everyone's energy on the start of a new day
 		Clock clock = new Clock();
@@ -161,16 +194,17 @@ class MetabolicsEndpoint {
 		}
 	}
 
-	static Future<bool> addToLocationHistory(String username, String email, String TSID) async {
+	static Future<bool> addToLocationHistory(String username, String email, String tsid) async {
 		Metabolics m = await getMetabolics(username: username);
 		List<String> locations = JSON.decode(m.location_history);
+		tsid = tsidL(tsid);
 
 		try {
 			bool finalResult;
 
 			// If it's not already in the history
-			if (!locations.contains(TSID)) {
-				locations.add(TSID);
+			if (!locations.contains(tsid)) {
+				locations.add(tsid);
 				m.location_history = JSON.encode(locations);
 				int result = await setMetabolics(m);
 				finalResult = (result > 0);
@@ -180,7 +214,7 @@ class MetabolicsEndpoint {
 			}
 
 			// Award achievment?
-			AchievementCheckers.hubCompletion(locations, email, TSID);
+			AchievementCheckers.hubCompletion(locations, email, tsid);
 
 			try {
 				if (locations.length >= 5) {
@@ -220,7 +254,7 @@ class MetabolicsEndpoint {
 
 			return finalResult;
 		} catch (e, st) {
-			Log.error('Error marking location $TSID as visited for player $username', e, st);
+			Log.error('Error marking location $tsid as visited for player $username', e, st);
 		}
 
 		return false;

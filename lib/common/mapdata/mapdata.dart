@@ -62,12 +62,12 @@ abstract class MapData {
 	}
 
 	/// List all streets in a hub
-	static List<Map<String, dynamic>> getStreetsInHub(String hubId) {
+	static List<Map<String, dynamic>> getStreetsInHub(dynamic hubId) {
 		return _streets.values.where((Map<String, dynamic> street) {
 			if (street["hub_id"] == null) {
 				return false;
 			} else {
-				return street["hub_id"] == hubId;
+				return street["hub_id"].toString() == hubId.toString();
 			}
 		}).toList();
 	}

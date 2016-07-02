@@ -10,7 +10,6 @@ import 'package:redstone_mapper/mapper.dart';
 import 'package:coUserver/API_KEYS.dart';
 import 'package:coUserver/common/mapdata/mapdata.dart';
 import 'package:coUserver/common/util.dart';
-import 'package:coUserver/endpoints/time.dart';
 import 'package:coUserver/streets/player_update_handler.dart';
 
 part 'weather_data.dart';

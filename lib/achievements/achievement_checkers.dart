@@ -17,26 +17,26 @@ class AchievementCheckers {
 		bool _checkStreetsInHub(String hubId) {
 			for (Map<String, dynamic> data in MapData.getStreetsInHub(hubId)) {
 				if (data['tsid'] == null) {
+					Log.warning('Missing TSID for $data');
 					continue;
 				}
-
-				bool gVisited = locationHistory.contains(tsidG(data['tsid']));
-				bool lVisited = locationHistory.contains(tsidL(data['tsid']));
-
-				if (!gVisited && !lVisited) {
-					// Neither TSID version visited
+				if (!locationHistory.contains(tsidL(data['tsid']))) {
+					// Not visited
 					return false;
 				}
 			}
 
 			// Visited every street in hub
-			return false; //true; // TODO: fix false positives
+			return true;
 		}
 
 		String addedTsidHubId;
 		try {
 			addedTsidHubId = MapData.getStreetByTsid(addedTsid)['hub_id'].toString();
-		} catch (e) {
+			if (addedTsidHubId == 'null') {
+				throw new Exception('addedTsidHubId may not be null');
+			}
+		} catch (_) {
 			Log.warning('Cannot find hub id for $addedTsid');
 			return false;
 		}
@@ -45,8 +45,8 @@ class AchievementCheckers {
 			try {
 				AchievementCheckers.getCompletistIdForhub(addedTsidHubId).awardTo(email);
 				return true;
-			} catch (e) {
-				Log.warning('Awarding completist <addedTsidHubId=$addedTsidHubId> to <email=$email>');
+			} catch (_) {
+				Log.warning('Awarding completist <addedTsidHubId=$addedTsidHubId> to <email=$email> failed');
 				return false;
 			}
 		} else {
