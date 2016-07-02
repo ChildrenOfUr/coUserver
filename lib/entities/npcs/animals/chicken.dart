@@ -145,9 +145,12 @@ class Chicken extends NPC {
 	}
 
 	void restoreState(Map<String, String> metadata) {
+		super.restoreState(metadata);
+
 		if (metadata.containsKey('squeezeList')) {
 			squeezeList = JSON.decode(metadata['squeezeList']);
 		}
+		
 		if (metadata.containsKey('lastReset')) {
 			lastReset = new DateTime.fromMillisecondsSinceEpoch(int.parse(metadata['lastReset']));
 			Clock lastResetClock = new Clock.stoppedAtDate(lastReset);
@@ -159,14 +162,9 @@ class Chicken extends NPC {
 		}
 	}
 
-	Map<String, String> getPersistMetadata() {
-		Map<String, String> map = {
-			'squeezeList': JSON.encode(squeezeList),
-			'lastReset': lastReset.millisecondsSinceEpoch.toString()
-		};
-
-		return map;
-	}
+	Map<String, String> getPersistMetadata() => super.getPersistMetadata()
+		..['squeezeList'] = JSON.encode(squeezeList)
+		..['lastReset'] = lastReset.millisecondsSinceEpoch.toString();
 
 
 	Future<bool> squeeze({WebSocket userSocket, String email}) async {

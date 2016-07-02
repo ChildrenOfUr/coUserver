@@ -101,6 +101,8 @@ class Garden extends NPC {
 	}
 
 	void restoreState(Map<String, String> metadata) {
+		super.restoreState(metadata);
+
 		if (metadata.containsKey('gardenState')) {
 			gardenState = GardenStates.values[int.parse(metadata['gardenState'])];
 			if (gardenState == GardenStates.NEW) {
@@ -141,12 +143,11 @@ class Garden extends NPC {
 	}
 
 	Map<String, String> getPersistMetadata() {
-		Map<String, String> map = {
-			'gardenState': gardenState.index.toString(),
-			'currentState': currentState.stateName,
-			'plantedWith': plantedWith,
-			'plantedState': plantedState.toString(),
-		};
+		Map<String, String> map = super.getPersistMetadata()
+			..['gardenState'] = gardenState.index.toString()
+			..['currentState'] = currentState.stateName
+			..['plantedWith'] = plantedWith
+			..['plantedState'] = plantedState.toString();
 
 		if (plantedAt != null) {
 			map['plantedAt'] = plantedAt.millisecondsSinceEpoch.toString();
