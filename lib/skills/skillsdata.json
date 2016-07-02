@@ -46,7 +46,7 @@
 	"arborology": {
 		"name": "Arborology",
 		"category": "Gathering",
-		"levels": [151, 1532, 61625, 141516, 241516],
+		"levels": [151, 132, 1625, 4116, 6516],
 		"descriptions": [
 			"The Arborology skill means an increased awareness of how the great garden of Ur grows: and how best to exploit it. Hurrah! You can get a little more imagination every time you harvest.",
 			"A higher level of Arborology skill bestows upon you a certain facility with trees such that your deft and graceful harvesting hands return twice more product with each harvest.",
@@ -121,7 +121,7 @@
 	"mining": {
 		"name": "Mining",
 		"category": "Industrial",
-		"levels": [127, 1362, 75123, 85123],
+		"levels": [27, 362, 1123, 2113],
 		"descriptions": [
 			"Mining is the gateway to some pretty valuable resource extraction procedures: you'll be using a Pick to produce Chunks of Ore from special rocks scattered around the world. Though mining is hard work, the rewards are worth it.",
 			"Mining II increases the chance of special rewards and reduces the amount of energy you use to extract ore. Sweet.",
