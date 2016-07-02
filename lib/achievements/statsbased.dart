@@ -172,15 +172,15 @@ class StatAchvManager {
 	static void chop(String email) {
 		StatManager.add(email, Stat.knife_board_uses).then((int uses) {
 			if (uses >= 137) {
-				Achievement.find("broil_king").awardTo(email);
+				Achievement.find("master_whacker").awardTo(email);
 			} else if (uses >= 79) {
-				Achievement.find("killer_griller").awardTo(email);
+				Achievement.find("silver_cleaver_award").awardTo(email);
 			} else if (uses >= 41) {
-				Achievement.find("master_carbonifier").awardTo(email);
+				Achievement.find("nice_dicer").awardTo(email);
 			} else if (uses >= 23) {
-				Achievement.find("grill_jockey").awardTo(email);
+				Achievement.find("fine_mincer").awardTo(email);
 			} else if (uses >= 11) {
-				Achievement.find("brazier_apprentice").awardTo(email);
+				Achievement.find("able_chopper").awardTo(email);
 			}
 		});
 	}
