@@ -140,8 +140,7 @@ class MetabolicsEndpoint {
 					m.current_street_y = userIdentifier.currentY;
 
 					//store the metabolics back to the database
-					int result = await setMetabolics(m);
-					if (result > 0) {
+					if (await setMetabolics(m)) {
 						//send the metabolics back to the user
 						ws.add(JSON.encode(encode(m)));
 					}
@@ -206,8 +205,7 @@ class MetabolicsEndpoint {
 			if (!locations.contains(tsid)) {
 				locations.add(tsid);
 				m.location_history = JSON.encode(locations);
-				int result = await setMetabolics(m);
-				finalResult = (result > 0);
+				finalResult = await setMetabolics(m);
 			} else {
 				// Already in history
 				finalResult = false;
@@ -392,21 +390,8 @@ class MetabolicsEndpoint {
 			m.quoins_collected++;
 		}
 
-		// Compare "after" and "before" img
-		if (getLevel(m.lifetime_img) > getLevel(oldImg)) {
-			// let's give people more energy as they level
-			int newEnergy = energyLevels[getLevel(m.lifetime_img)];
-			m.energy = m.max_energy = newEnergy;
-
-			// send level up to client
-			MetabolicsEndpoint.userSockets[username]?.add(JSON.encode({
-				                                                          "levelUp": getLevel(m.lifetime_img)
-			                                                          }));
-		}
-
 		try {
-			int result = await setMetabolics(m);
-			if (result > 0) {
+			if (await setMetabolics(m)) {
 				Map map = {'collectQuoin': 'true', 'id': q.id, 'amt': amt, 'quoinType': q.type};
 
 				q.setCollected(username);
@@ -489,8 +474,8 @@ Future<Metabolics> getMetabolics(
 }
 
 @app.Route('/setMetabolics', methods: const [app.POST])
-Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
-	int result = 0;
+Future<bool> setMetabolics(@Decode() Metabolics metabolics) async {
+	bool result;
 
 	// Check for level increase
 
@@ -503,8 +488,18 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 
 	// Compare
 	if (levelEnd > levelStart) {
-		// Refill energy if level increased (client handles popup checking)
+		// Expand energy tank if level increased
+		metabolics.max_energy = energyLevels[levelEnd];
+
+		// Refill energy to new tank size
 		metabolics.energy = metabolics.max_energy;
+
+		// Send level up event to client
+		String username = await User.getUsernameFromId(metabolics.user_id);
+
+		MetabolicsEndpoint.userSockets[username]?.add(JSON.encode({
+			"levelUp": levelEnd
+		}));
 	}
 
 	// Do not overset the metabolics that have maxes
@@ -642,7 +637,7 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 				"@quoins_collected)";
 		}
 
-		result = await dbConn.execute(query, metabolics);
+		result = (await dbConn.execute(query, metabolics)) == 1;
 
 		//send the new metabolics to the user right away
 		WebSocket ws = MetabolicsEndpoint.userSockets[await User.getUsernameFromId(metabolics.user_id)];

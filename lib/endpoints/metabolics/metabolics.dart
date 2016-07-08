@@ -50,9 +50,6 @@ class MetabolicsChange {
 
 		Metabolics m = await getMetabolics(email: email);
 
-		// Store old img
-		int oldImg = m.lifetime_img;
-
 		//if we're taking away energy, make sure we have enough
 		if (energy < 0 && m.energy < energy.abs()) {
 			return false;
@@ -84,21 +81,11 @@ class MetabolicsChange {
 			gains['currants'] = currants;
 
 			// Save to database
-			int result = await setMetabolics(m);
-
-			if (result < 1) {
+			if (!(await setMetabolics(m))) {
 				return false;
 			}
 
-			// Compare "after" and "before" img
-			if (getLevel(m.lifetime_img) > getLevel(oldImg)) {
-				// Level up
-				String username = await User.getUsernameFromEmail(email);
 
-				MetabolicsEndpoint.userSockets[username]?.add(JSON.encode({
-					                                                          "levelUp": getLevel(m.lifetime_img)
-				                                                          }));
-			}
 		}
 
 		return true;

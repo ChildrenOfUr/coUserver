@@ -495,8 +495,7 @@ class StreetUpdateHandler {
 				return false;
 			} else {
 				m.energy -= 50;
-				int result = await setMetabolics(m);
-				if (result < 1) {
+				if (!(await setMetabolics(m))) {
 					return false;
 				}
 			}
