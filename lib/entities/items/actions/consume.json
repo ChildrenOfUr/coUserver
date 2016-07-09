@@ -199,6 +199,11 @@
     "mood": 0,
     "img": 0
   },
+  "egg": {
+    "energy": 1,
+    "mood": -1,
+    "img": 0
+  },
   "eggy_scramble": {
     "energy": 8,
     "mood": 0,
