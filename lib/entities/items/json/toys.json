@@ -153,11 +153,12 @@
     "name": "Garden Gnome",
     "category": "Toys",
     "iconUrl": "http://childrenofur.com/assets/entityImages/npc_garden_gnome__x1_idle0_png_1354832661.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_garden_gnome__x1_bounce_png_1354832663.png",
+    "spriteUrl": "http://childrenofur.com/assets/entityImages/npc_garden_gnome__x1_idle0_png_1354832661.png",
     "iconNum": 1,
     "stacksTo": 1,
     "price": 2000,
-    "description": "Hey, it's that weird old tiny bearded life-companion you've been hoping for! When placed in your yard, house or on your home street, your new little chum will reveal his hidden (or \"creepy\") talents…"
+    "description": "Hey, it's that weird old tiny bearded life-companion you've been hoping for! When placed in your yard, house or on your home street, your new little chum will reveal his hidden (or \"creepy\") talents…",
+	"entity": "GardenGnome"
   },
   "gift_box_wrapped": {
     "name": "Gift Box",
