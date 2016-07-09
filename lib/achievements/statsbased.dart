@@ -230,6 +230,7 @@ class StatAchvManager {
 	}
 
 	static void tinker(email) {
+		SkillManager.learn('tinkering', email);
 		StatManager.add(email, Stat.tinkertool_uses, increment: 50).then((int tinkered) {
 			if (tinkered >= 25013) {
 				Achievement.find("grand_poobah_tinkering_ops").awardTo(email);
