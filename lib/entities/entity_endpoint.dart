@@ -118,7 +118,7 @@ class EntityEndpoint {
 		// NPCs -> Vendors
 		Helga, UncleFriendly, MealVendor, SnoConeVendingMachine,
 		StreetSpiritFirebog, StreetSpiritGroddle, StreetSpiritZutto,
-		ToolVendor,
+		ToolVendor, GardeningGoodsVendor,
 		AlchemicalVendor, AnimalVendor, GardeningVendor, GroceriesVendor,
 		HardwareVendor, KitchenVendor, MiningVendor, ProduceVendor, ToyVendor,
 		// Plants

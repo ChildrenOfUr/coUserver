@@ -78,9 +78,21 @@ abstract class Vendor extends NPC {
 						items["hatchet"].getMap(),
 						items["bean_seasoner"].getMap(),
 						items["shovel"].getMap(),
-						items["garden_gnome"].getMap()
+						items["garden_gnome"].getMap(),
+						items['broccoli_seed'].getMap(),
+						items['cabbage_seed'].getMap(),
+						items['carrot_seed'].getMap(),
+						items['corn_seed'].getMap(),
+						items['cucumber_seed'].getMap(),
+						items['onion_seed'].getMap(),
+						items['parsnip_seed'].getMap(),
+						items['potato_seed'].getMap(),
+						items['pumpkin_seed'].getMap(),
+						items['rice_seed'].getMap(),
+						items['spinach_seed'].getMap(),
+						items['tomato_seed'].getMap(),
+						items['zucchini_seed'].getMap()
 					];
-					itemsForSale.addAll(pickItems(["Seeds"]));
 					break;
 
 				case 'groceries':

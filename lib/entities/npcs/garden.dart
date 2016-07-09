@@ -22,7 +22,20 @@ class Garden extends NPC {
 			..error = "Gardens don't like to be peed on. Go find some clean water, please.",
 		ITEM_REQ_PLANT = new ItemRequirements()
 			..any = [
-				'Seed_Broccoli', 'Seed_Cabbage', 'Seed_Carrot', 'Seed_Corn', 'Seed_Cucumber', 'Seed_Onion', 'Seed_Parsnip', 'Seed_Potato', 'Seed_Pumpkin', 'Seed_Rice', 'Seed_Spinach', 'Seed_Tomato', 'Seed_Zucchini']
+				'broccoli_seed',
+				'cabbage_seed',
+				'carrot_seed',
+				'corn_seed',
+				'cucumber_seed',
+				'onion_seed',
+				'parsnip_seed',
+				'potato_seed',
+				'pumpkin_seed',
+				'rice_seed',
+				'spinach_seed',
+				'tomato_seed',
+				'zucchini_seed'
+			]
 			..error = 'You need some crops to plant';
 
 	static final EnergyRequirements

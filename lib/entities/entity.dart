@@ -69,6 +69,7 @@ part 'npcs/vendors/fakevendors.dart';
 part 'npcs/vendors/jabba_helga.dart';
 part 'npcs/vendors/jabba_unclefriendly.dart';
 part 'npcs/vendors/mealvendor.dart';
+part 'npcs/vendors/scarecrow.dart';
 part 'npcs/vendors/snoconevendingmachine.dart';
 part 'npcs/vendors/street_spirit.dart';
 part 'npcs/vendors/streetspiritfirebog.dart';
