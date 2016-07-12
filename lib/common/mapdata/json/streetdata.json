@@ -6859,7 +6859,8 @@
 		"vendor": "Alchemical Goods",
 		"shrine": "Zille",
 		"tsid": "LCR12SD8J4K1PCV",
-		"hub_id": 64
+		"hub_id": 64,
+		"broken": true
 	},
 	"Large Alakol Model Home": {
 		"tsid": "LHV38BSD7G32CMQ",
