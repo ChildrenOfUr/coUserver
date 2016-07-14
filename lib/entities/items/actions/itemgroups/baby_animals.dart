@@ -60,7 +60,7 @@ abstract class BabyAnimals {
 			'openWindow': 'itemChooser',
 			'action': 'feed2',
 			'windowTitle': 'Feed ${itemInSlot.name} what?',
-			'filter': 'category=Food'
+			'filter': 'category=Croppery & Gardening Supplies|||itemType=^(?!.+(?:_seed|_bean)).+\$'
 		}));
 
 		userActionCache[email] = {
