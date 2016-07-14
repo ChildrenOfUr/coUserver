@@ -12686,7 +12686,8 @@
 		"tsid": "LM4118MEHFDMM",
 		"hub_id": 27,
 		"disallow_bound_expansion": true,
-		"disable_weather": true
+		"disable_weather": true,
+		"broken": true
 	},
 	"Undermine Hollows": {
 		"vendor": "Hardware",
