@@ -51,6 +51,7 @@ class StreetUpdateHandler {
 					items[name] = decode(itemMap, Item);
 				});
 			});
+			Log.verbose('Items loaded');
 
 			// load recipes
 			filePath = path.join(
@@ -67,6 +68,7 @@ class StreetUpdateHandler {
 					RecipeBook.recipes.add(decode(recipeMap, Recipe));
 				});
 			});
+			Log.verbose('Recipes loaded');
 
 			// load vendor types
 			filePath = path.join(dir, 'lib', 'entities', 'npcs', 'vendors', 'vendors.json');
@@ -74,6 +76,7 @@ class StreetUpdateHandler {
 			JSON.decode(fileText).forEach((String street, String type) {
 				vendorTypes[street] = type;
 			});
+			Log.verbose('Vendor types loaded');
 
 			// load stats given for eating/drinking
 			filePath = path.join(dir, 'lib', 'entities', 'items', 'actions', 'consume.json');
@@ -85,15 +88,19 @@ class StreetUpdateHandler {
 					Log.error('Error setting consume values for $item to $award', e);
 				}
 			});
+			Log.verbose('Consume values loaded');
 
 			// Load achievements
 			Achievement.load();
+			Log.verbose('Achievements loaded');
 
 			// Load skills
 			SkillManager.loadSkills();
+			Log.verbose('Skills loaded');
 
 			// Load buffs
 			BuffManager.loadBuffs();
+			Log.verbose('Buffs loaded');
 		} catch (e, st) {
 			Log.error('Problem loading items', e, st);
 		}

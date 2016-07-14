@@ -41,34 +41,44 @@ final int WEBSOCKET_PORT = 8282;
 // Start the server
 Future main() async {
 	try {
+		// Start logging
+		Log.init();
+
 		// Keep track of when the server was started
 		ServerStatus.serverStart = new DateTime.now();
+		Log.verbose('Server starting up');
 
 		// Start listening on REDSTONE_PORT
 		await _initRedstone();
+		Log.verbose('Redstone initialized');
 
 		// Start listening on WEBSOCKET_PORT
 		_initWebSockets();
+		Log.verbose('WebSockets initialized');
 
 		// Refill energy on new day
 		MetabolicsEndpoint.trackNewDays();
+		Log.verbose('Tracking new days');
 
 		// Load image caches
 		FileCache.loadCaches();
+		Log.verbose('Caches loaded');
 
 		// Load map data from JSON
 		MapData.load();
+		Log.verbose('Map data loaded');
 
 		// Load items from JSON
 		await StreetUpdateHandler.loadItems();
 
 		// Load quests from JSON
 		await QuestService.loadQuests();
+		Log.verbose('Quests loaded');
 
 		// Enable interactive console
 		Console.init();
+		Log.verbose('Console initialized');
 
-		Log.init();
 		Log.info('Server started successfully, took ${ServerStatus.uptime}');
 	} catch (e, st) {
 		Log.error('Server startup failed', e, st);
