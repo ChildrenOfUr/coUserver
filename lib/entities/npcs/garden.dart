@@ -292,7 +292,7 @@ class Garden extends NPC {
 			return false;
 		}
 
-		bool success = (await InventoryV2.takeItemFromUser(email, slot, subSlot, count)) != null;
+		bool success = (await InventoryV2.takeItemFromUser(email, slot, subSlot, 1)) != null;
 		if(!success) {
 			return false;
 		}
@@ -300,7 +300,7 @@ class Garden extends NPC {
 		StatManager.add(email, Stat.crops_planted);
 		SkillManager.learn(SKILL, email);
 
-		plantedWith = itemType.replaceAll('Seed_', '').toLowerCase();
+		plantedWith = itemType.replaceAll('Seed_', '').replaceAll('_seed', '').toLowerCase();
 		gardenState = GardenStates.PLANTED;
 		plantedAt = new DateTime.now();
 		_createStageTimes();
