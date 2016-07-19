@@ -66,6 +66,8 @@ class MortarBarnacle extends Plant {
 
 		await InventoryV2.addItemToUser(email, items['barnacle'].getMap(), numToGive, id);
 
+		say();
+
 		return true;
 	}
 }

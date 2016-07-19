@@ -192,9 +192,8 @@ abstract class Entity extends Object with MetabolicsChange implements Persistabl
 		return actions;
 	}
 
-	void say(String message) {
-		if(message == null || message.trim() == '')
-			return;
+	void say([String message]) {
+		message = (message ?? '').trim();
 
 		DateTime now = new DateTime.now();
 		if(sayTimeout == null || sayTimeout.compareTo(now) < 0) {

@@ -56,6 +56,8 @@ class Jellisac extends Plant {
 
 		await InventoryV2.addItemToUser(email, items['jellisac'].getMap(), numToGive, id);
 
+		say();
+
 		return true;
 	}
 }
