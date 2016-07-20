@@ -102,7 +102,8 @@ class Slot {
 
 @app.Group("/inventory")
 class InventoryV2 {
-	static Map<String,bool> inventoryLocked = {};
+	// Email to list of locks
+	static Map<String,List<String>> inventoryLocked = {};
 	// Globals ////////////////////////////////////////////////////////////////////////////////////
 
 	// Sets how many slots each player has
@@ -932,25 +933,27 @@ class InventoryV2 {
 		return c.future;
 	}
 
-	static Future<bool> _aquireLock(String email) async {
+	static Future<bool> _aquireLock(String email, String reason) async {
 		int numTriesLeft = 100; //we'll throw an error after 5 seconds of trying
 		if (inventoryLocked[email] != null) {
-			while (inventoryLocked[email] && numTriesLeft > 0) {
+			while ((inventoryLocked[email] ?? []).length > 0 && numTriesLeft > 0) {
 				await _wait(new Duration(milliseconds: 50));
 				numTriesLeft--;
 			}
-			if (inventoryLocked[email]) {
-				Log.warning("Could not acquire a lock for inventory of <email=$email>");
+
+			if ((inventoryLocked[email] ?? []).length > 0) {
+				Log.warning("Could not acquire a lock for inventory of <email=$email> for $reason because ${inventoryLocked[email]}");
 				return false;
 			}
 		}
 
-		inventoryLocked[email] = true;
+		inventoryLocked[email] = (inventoryLocked[email] ?? []);
+		inventoryLocked[email].add(reason);
 		return true;
 	}
 
-	static void _releaseLock(String email) {
-		inventoryLocked[email] = false;
+	static void _releaseLock(String email, String reason) {
+		inventoryLocked[email].remove(reason);
 	}
 
 	// Static Public Methods //////////////////////////////////////////////////////////////////////
@@ -961,7 +964,7 @@ class InventoryV2 {
 
 	///Returns the number of items successfully added to the user's inventory
 	static Future<int> addItemToUser(String email, dynamic itemTypeOrMap, int count, [String fromObject = "_self"]) async {
-		if (!(await _aquireLock(email))) {
+		if (!(await _aquireLock(email, 'addItemToUser'))) {
 			return 0;
 		}
 
@@ -986,12 +989,12 @@ class InventoryV2 {
 			}
 		}
 
-		_releaseLock(email);
+		_releaseLock(email, 'addItemToUser');
 		return added;
 	}
 
 	static Future<Item> takeItemFromUser(String email, int slot, int subSlot, int count) async {
-		if (!(await _aquireLock(email))) {
+		if (!(await _aquireLock(email, 'takeItemFromUser'))) {
 			return null;
 		}
 
@@ -1001,12 +1004,12 @@ class InventoryV2 {
 		if (itemTaken != null) {
 			await fireInventoryAtUser(userSocket, email, update: true);
 		}
-		_releaseLock(email);
+		_releaseLock(email, 'takeItemFromUser');
 		return itemTaken;
 	}
 
 	static Future<int> takeAnyItemsFromUser(String email, String itemType, int count, {simulate: false}) async {
-		if (!(await _aquireLock(email))) {
+		if (!(await _aquireLock(email, 'takeAnyItemsFromUser'))) {
 			return 0;
 		}
 
@@ -1017,7 +1020,7 @@ class InventoryV2 {
 			await fireInventoryAtUser(userSocket, email, update: true);
 		}
 
-		_releaseLock(email);
+		_releaseLock(email, 'takeAnyItemsFromUser');
 		return taken;
 	}
 
@@ -1045,7 +1048,7 @@ class InventoryV2 {
 			types = validTypes;
 		}
 
-		if (!(await _aquireLock(email))) {
+		if (!(await _aquireLock(email, 'decreaseDurability'))) {
 			return false;
 		}
 
@@ -1058,7 +1061,7 @@ class InventoryV2 {
 			await fireInventoryAtUser(userSocket, email, update: true);
 		}
 
-		_releaseLock(email);
+		_releaseLock(email, 'decreaseDurability');
 		return success;
 	}
 
@@ -1066,7 +1069,7 @@ class InventoryV2 {
 								int fromBagIndex: -1,
 								int toIndex: -1,
 								int toBagIndex: -1}) async {
-		if (!(await _aquireLock(email))) {
+		if (!(await _aquireLock(email, 'moveItem'))) {
 			return false;
 		}
 
@@ -1108,7 +1111,7 @@ class InventoryV2 {
 			Log.error('Problem moving item', e, st);
 			return false;
 		} finally {
-			_releaseLock(email);
+			_releaseLock(email, 'moveItem');
 		}
 
 		return true;
