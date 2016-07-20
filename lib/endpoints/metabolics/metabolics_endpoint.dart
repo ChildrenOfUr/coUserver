@@ -272,9 +272,6 @@ class MetabolicsEndpoint {
 	static Future addQuoin(Quoin q, String username) async {
 		Metabolics m = await getMetabolics(username: username);
 
-		// Store "before" img
-		int oldImg = m.lifetime_img;
-
 		if (m.quoins_collected >= constants.quoinLimit) {
 			// Daily quoin limit
 			denyQuoin(q, username);

@@ -373,3 +373,7 @@ class Garden extends NPC {
 		return true;
 	}
 }
+
+class HerbGarden extends Garden {
+	HerbGarden(String id, num x, num y, String streetName) : super(id, x, y, streetName);
+}
