@@ -36,7 +36,7 @@ class GardeningGoodsVendor extends Vendor {
 
 	GardeningGoodsVendor(String id, String streetName, String tsid, num x, num y)
 	: super(id, streetName, tsid, x, y) {
-		type = 'Tool Vendor';
+		type = 'Gardening Goods Vendor';
 		speed = 0;
 
 		states = SPRITESHEETS;
