@@ -116,6 +116,8 @@ class RecipeBook extends Object with MetabolicsChange {
 			recipe = rList.first;
 		}
 
+		Log.verbose('recipe makes ${recipe.output_amt} ${recipe.output}');
+
 		if (items[recipe.tool].durability != null) {
 			//take away tool durability
 			bool durabilitySuccess = await InventoryV2.decreaseDurability(email, recipe.tool);

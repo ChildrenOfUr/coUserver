@@ -9,7 +9,7 @@
             "pinch_of_salt": 1
         },
         "output": "abbasid_ribs",
-        "output_amount": 1,
+        "output_amt": 1,
         "energy": -7,
         "time": 4
     },
@@ -23,7 +23,7 @@
             "plank": 2
         },
         "output": "cedar_plank_salmon",
-        "output_amount": 1,
+        "output_amt": 1,
         "energy": -7,
         "time": 4
     },
@@ -37,7 +37,7 @@
             "bun": 1
         },
         "output": "expensive_grilled_cheese",
-        "output_amount": 1,
+        "output_amt": 1,
         "energy": -7,
         "time": 4
     },
@@ -50,7 +50,7 @@
             "egg": 1
         },
         "output": "frog_in_a_hole",
-        "output_amount": 1,
+        "output_amt": 1,
         "energy": -7,
         "time": 4
     },
@@ -62,7 +62,7 @@
             "butterfly_butter": 2
         },
         "output": "greasy_frybread",
-        "output_amount": 1,
+        "output_amt": 1,
         "energy": -7,
         "time": 4
     },
@@ -74,7 +74,7 @@
             "cheese": 2
         },
         "output": "grilled_cheese",
-        "output_amount": 1,
+        "output_amt": 1,
         "energy": -7,
         "time": 4
     },
@@ -89,7 +89,7 @@
             "tomato": 1
         },
         "output": "lemburger",
-        "output_amount": 1,
+        "output_amt": 1,
         "energy": -7,
         "time": 4
     },
@@ -103,7 +103,7 @@
             "secret_sauce": 1
         },
         "output": "obvious_panini",
-        "output_amount": 1,
+        "output_amt": 1,
         "energy": -7,
         "time": 4
     },
@@ -117,7 +117,7 @@
             "pineapple": 1
         },
         "output": "pineapple_upside_down_pizza",
-        "output_amount": 1,
+        "output_amt": 1,
         "energy": -7,
         "time": 4
     },
@@ -129,7 +129,7 @@
             "sweet_n_sour_sauce": 1
         },
         "output": "simple_bbq",
-        "output_amount": 1,
+        "output_amt": 1,
         "energy": -7,
         "time": 4
     },
@@ -144,7 +144,7 @@
             "tomato": 2
         },
         "output": "super_veggie_kebabs",
-        "output_amount": 1,
+        "output_amt": 1,
         "energy": -7,
         "time": 4
     },
@@ -158,7 +158,7 @@
             "butterfly_butter": 2
         },
         "output": "waffles",
-        "output_amount": 1,
+        "output_amt": 1,
         "energy": -7,
         "time": 4
     }

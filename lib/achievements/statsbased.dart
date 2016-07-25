@@ -12,7 +12,7 @@ class StatAchvManager {
 		"fruit_changing_machine": convertFruit,
 		"frying_pan": fry,
 		"gassifier": gassify,
-		"grill": grill,
+		"famous_pugilist_grill": grill,
 		"knife_and_board": chop,
 		"saucepan": simmer,
 		"smelter": smelt,
@@ -154,7 +154,7 @@ class StatAchvManager {
 	}
 
 	static void grill(String email) {
-		StatManager.add(email, Stat.grill_uses).then((int uses) {
+		StatManager.add(email, Stat.famous_pugilist_grill_uses).then((int uses) {
 			if (uses >= 137) {
 				Achievement.find("broil_king").awardTo(email);
 			} else if (uses >= 79) {
