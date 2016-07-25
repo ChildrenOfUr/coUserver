@@ -29,7 +29,9 @@ class GardeningGoodsVendor extends Vendor {
 		'walk_end': new Spritesheet('walk_end',
 			'http://childrenofur.com/assets/entityImages/npc_gardening_vendor__x1_walk_end_png_1354831000.png', 890, 594, 178, 198, 13, false),
 		'walk': new Spritesheet('walk',
-			'http://childrenofur.com/assets/entityImages/npc_gardening_vendor__x1_walk_png_1354830998.png', 890, 594, 178, 198, 15, true)
+			'http://childrenofur.com/assets/entityImages/npc_gardening_vendor__x1_walk_png_1354830998.png', 890, 594, 178, 198, 15, true),
+		'turn_left': SPRITESHEETS['walk'],
+		'turn_right': SPRITESHEETS['walk']
 	};
 
 	int openCount = 0;
@@ -52,12 +54,6 @@ class GardeningGoodsVendor extends Vendor {
 		// update x and y
 		if (currentState.stateName == 'walk') {
 			moveXY(wallAction: (Wall wall) {
-				if (facingRight) {
-					setState('turn_left');
-				} else {
-					setState('turn_right');
-				}
-
 				facingRight = !facingRight;
 			});
 		}
@@ -75,15 +71,7 @@ class GardeningGoodsVendor extends Vendor {
 				// start walking right
 				setState('walk');
 			} else {
-				// if we haven't just turned
-				// 1 in 10 that we turn around and start walking
-				if (rand.nextInt(10) == 8) {
-					if (facingRight) {
-						setState('turn_left');
-					} else {
-						setState('turn_right');
-					}
-				} else if (rand.nextInt(2) == 1) {
+				if (rand.nextInt(2) == 1) {
 					setState('walk', repeat: 5);
 				} else {
 					if (rand.nextInt(4) > 2) {
