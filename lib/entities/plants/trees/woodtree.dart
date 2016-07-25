@@ -78,4 +78,24 @@ class WoodTree extends Tree {
 
 		return success;
 	}
+
+	Future<bool> pet({WebSocket userSocket, String email}) async {
+		bool success = await super.pet(userSocket: userSocket, email: email);
+
+		if (success) {
+			StatManager.add(email, Stat.wood_trees_petted);
+		}
+
+		return success;
+	}
+
+	Future<bool> water({WebSocket userSocket, String email}) async {
+		bool success = await super.water(userSocket: userSocket, email: email);
+
+		if (success) {
+			StatManager.add(email, Stat.wood_trees_watered);
+		}
+
+		return success;
+	}
 }

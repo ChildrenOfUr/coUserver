@@ -70,4 +70,36 @@ class BeanTree extends Tree {
 
 		return success;
 	}
+
+	Future<bool> pet({WebSocket userSocket, String email}) async {
+		bool success = await super.pet(userSocket: userSocket, email: email);
+
+		if (success) {
+			StatManager.add(email, Stat.bean_trees_petted).then((int stat) {
+				if (stat >= 127) {
+					Achievement.find("professional_bean_tree_fondler").awardTo(email);
+				} else if (stat >= 41) {
+					Achievement.find("notquitepro_bean_tree_fondler").awardTo(email);
+				} else if (stat >= 11) {
+					Achievement.find("amateur_bean_tree_fondler").awardTo(email);
+				}
+			});
+		}
+
+		return success;
+	}
+
+	Future<bool> water({WebSocket userSocket, String email}) async {
+		bool success = await super.water(userSocket: userSocket, email: email);
+
+		if (success) {
+			StatManager.add(email, Stat.bean_trees_watered).then((int stat) {
+				if (stat >= 41) {
+					Achievement.find("betterthanlousy_douser").awardTo(email);
+				}
+			});
+		}
+
+		return success;
+	}
 }

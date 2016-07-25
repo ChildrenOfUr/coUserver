@@ -149,17 +149,23 @@ abstract class Tree extends Plant {
 		//say a witty thing
 		say(responses['water'].elementAt(rand.nextInt(responses['water'].length)));
 
-		Stat stat = ({
-			'Bean Tree': Stat.bean_trees_watered,
-			'Bubble Tree': Stat.bubble_trees_watered,
-			'Egg Plant': Stat.egg_plants_watered,
-			'Fruit Tree': Stat.fruit_trees_watered,
-			'Gas Plant': Stat.gas_plants_watered,
-			'Spice Plant': Stat.spice_plants_watered,
-			'Wood Tree': Stat.wood_trees_watered
-		})[type];
-		if (stat != null) {
-			StatManager.add(email, stat);
+		// Award achievements
+		Map<Stat, int> stats = await StatManager.getAll(email);
+		int totalWatered = 0
+			+ stats[Stat.bean_trees_watered]
+			+ stats[Stat.bubble_trees_watered]
+			+ stats[Stat.egg_plants_watered]
+			+ stats[Stat.fruit_trees_watered]
+			+ stats[Stat.gas_plants_watered]
+			+ stats[Stat.spice_plants_watered]
+			+ stats[Stat.wood_trees_watered];
+
+		if (totalWatered >= 127) {
+			Achievement.find("secondrate_rainmaker").awardTo(email);
+		} else if (totalWatered >= 41) {
+			Achievement.find("firstrate_rainmaker").awardTo(email);
+		} else if (totalWatered >= 7) {
+			Achievement.find("novice_precipitator").awardTo(email);
 		}
 
 		state++;
@@ -182,25 +188,35 @@ abstract class Tree extends Plant {
 		//say a witty thing
 		say(responses['pet'].elementAt(rand.nextInt(responses['pet'].length)));
 
+		// Award achievements
+		Map<Stat, int> stats = await StatManager.getAll(email);
+		int totalPetted = 0
+			+ stats[Stat.bean_trees_petted]
+			+ stats[Stat.bubble_trees_petted]
+			+ stats[Stat.egg_plants_petted]
+			+ stats[Stat.fruit_trees_petted]
+			+ stats[Stat.gas_plants_petted]
+			+ stats[Stat.spice_plants_petted]
+			+ stats[Stat.wood_trees_petted];
+
+		if (totalPetted >= 1009) {
+			Achievement.find("finallyprettygood_tree_hugger").awardTo(email);
+		} else if (totalPetted >= 503) {
+			Achievement.find("definitelymuchbetter_tree_hugger").awardTo(email);
+		} else if (totalPetted >= 283) {
+			Achievement.find("extremely_promising_tree_hugger").awardTo(email);
+		} else if (totalPetted >= 41) {
+			Achievement.find("decent_tree_hugger").awardTo(email);
+		} else if (totalPetted >= 7) {
+			Achievement.find("okbutneedsimprovement_tree_hugger").awardTo(email);
+		}
+
 		//offer the tree petter quest
 		QuestEndpoint.questLogCache[email].offerQuest('Q2');
 
 		messageBus.publish(new RequirementProgress('treePet$type', email));
 
 		SkillManager.learn(SKILL, email);
-
-		Stat stat = ({
-			'Bean Tree': Stat.bean_trees_petted,
-			'Bubble Tree': Stat.bubble_trees_petted,
-			'Egg Plant': Stat.egg_plants_petted,
-			'Fruit Tree': Stat.fruit_trees_petted,
-			'Gas Plant': Stat.gas_plants_petted,
-			'Spice Plant': Stat.spice_plants_petted,
-			'Wood Tree': Stat.wood_trees_petted
-		})[type];
-		if (stat != null) {
-			StatManager.add(email, stat);
-		}
 
 		return true;
 	}

@@ -68,4 +68,36 @@ class EggPlant extends Tree {
 
 		return success;
 	}
+
+	Future<bool> pet({WebSocket userSocket, String email}) async {
+		bool success = await super.pet(userSocket: userSocket, email: email);
+
+		if (success) {
+			StatManager.add(email, Stat.egg_plants_petted).then((int stat) {
+				if (stat >= 127) {
+					Achievement.find("super_supreme_egg_plant_coddler").awardTo(email);
+				} else if (stat >= 41) {
+					Achievement.find("supreme_egg_plant_coddler").awardTo(email);
+				} else if (stat >= 11) {
+					Achievement.find("egg_plant_coddler").awardTo(email);
+				}
+			});
+		}
+
+		return success;
+	}
+
+	Future<bool> water({WebSocket userSocket, String email}) async {
+		bool success = await super.water(userSocket: userSocket, email: email);
+
+		if (success) {
+			StatManager.add(email, Stat.egg_plants_watered).then((int stat) {
+				if (stat >= 41) {
+					Achievement.find("about_average_irrigationist").awardTo(email);
+				}
+			});
+		}
+
+		return success;
+	}
 }
