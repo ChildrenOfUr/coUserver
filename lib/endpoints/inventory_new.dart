@@ -964,10 +964,6 @@ class InventoryV2 {
 
 	///Returns the number of items successfully added to the user's inventory
 	static Future<int> addItemToUser(String email, dynamic itemTypeOrMap, int count, [String fromObject = "_self"]) async {
-		if (!(await _aquireLock(email, 'addItemToUser'))) {
-			return 0;
-		}
-
 		Map item;
 		if (itemTypeOrMap is Map) {
 			item = itemTypeOrMap;
@@ -975,6 +971,14 @@ class InventoryV2 {
 			item = items[itemTypeOrMap].getMap();
 		} else {
 			throw new ArgumentError('Item must be an item type or item map, not ${item.runtimeType}');
+		}
+
+		if(count is! int || count < 1) {
+			throw new ArgumentError('Count must be greater than or equal to 1');
+		}
+
+		if (!(await _aquireLock(email, 'addItemToUser'))) {
+			return 0;
 		}
 
 		WebSocket userSocket = StreetUpdateHandler.userSockets[email];
@@ -994,6 +998,10 @@ class InventoryV2 {
 	}
 
 	static Future<Item> takeItemFromUser(String email, int slot, int subSlot, int count) async {
+		if(count is! int || count < 1) {
+			throw new ArgumentError('Count must be greater than or equal to 1');
+		}
+
 		if (!(await _aquireLock(email, 'takeItemFromUser'))) {
 			return null;
 		}
@@ -1009,6 +1017,10 @@ class InventoryV2 {
 	}
 
 	static Future<int> takeAnyItemsFromUser(String email, String itemType, int count, {simulate: false}) async {
+		if(count is! int || count < 1) {
+			throw new ArgumentError('Count must be greater than or equal to 1');
+		}
+
 		if (!(await _aquireLock(email, 'takeAnyItemsFromUser'))) {
 			return 0;
 		}
