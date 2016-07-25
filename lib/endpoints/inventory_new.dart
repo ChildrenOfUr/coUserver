@@ -936,7 +936,7 @@ class InventoryV2 {
 	static Future<bool> _aquireLock(String email, String reason) async {
 		int numTriesLeft = 100; //we'll throw an error after 5 seconds of trying
 		if (inventoryLocked[email] != null) {
-			while ((inventoryLocked[email] ?? []).length > 0 && numTriesLeft > 0) {
+			while (inventoryLocked[email].length > 0 && numTriesLeft > 0) {
 				await _wait(new Duration(milliseconds: 50));
 				numTriesLeft--;
 			}

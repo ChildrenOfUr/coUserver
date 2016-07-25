@@ -175,7 +175,7 @@ enum Stat {
 	gas_plants_petted,
 	gas_plants_watered,
 	grapes_squished,
-	grill_uses,
+	famous_pugilist_grill_uses,
 	heli_kitties_petted,
 	ice_scraped,
 	icons_collected,
