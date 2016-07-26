@@ -140,15 +140,10 @@ class StreetUpdateHandler {
 				moveMap['npcs'] = [];
 
 				// Add queued NPCs
-				street.npcs.addAll(_pendingNpcs[streetName] ?? {});
-				_pendingNpcs[streetName]?.clear();
-
-				// Remove queued NPCs
-				new Map.from(street.npcs).forEach((String id, NPC npc) {
-					if (npc.removing) {
-						street.npcs.remove(id);
-					}
-				});
+				if (_pendingNpcs.length > 0) {
+					street.npcs.addAll(_pendingNpcs[streetName] ?? {});
+					_pendingNpcs[streetName]?.clear();
+				}
 
 				street.npcs.forEach((String id, NPC npc) {
 					npc.update();
@@ -160,15 +155,6 @@ class StreetUpdateHandler {
 
 				street.occupants.forEach((String username, WebSocket socket) async {
 					if (socket != null) {
-						String email = await User.getEmailFromUsername(username);
-						//we need to modify the actions list for the npcs and plants
-						//to take into account the players skills so that the costs are right
-						await Future.forEach(moveMap['npcs'], (Map npcMove) async {
-							NPC npc = street.npcs[npcMove['id']];
-							if (npc != null) {
-								npcMove['actions'] = encode(await npc.customizeActions(email));
-							}
-						});
 						try {
 							socket.add(JSON.encode(moveMap));
 						} catch (e, st) {
