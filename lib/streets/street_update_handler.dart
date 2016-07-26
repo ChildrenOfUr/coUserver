@@ -6,27 +6,23 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:mirrors';
 
+import 'package:coUserver/API_KEYS.dart';
+import 'package:coUserver/buffs/buffmanager.dart';
+import 'package:coUserver/common/identifier.dart';
+import 'package:coUserver/common/mapdata/mapdata.dart';
+import 'package:coUserver/common/user.dart';
 import 'package:coUserver/common/util.dart';
-import 'package:coUserver/achievements/achievements.dart';
-import 'package:coUserver/streets/player_update_handler.dart';
-import 'package:coUserver/streets/street.dart';
-import 'package:coUserver/entities/entity.dart';
+import 'package:coUserver/endpoints/changeusername.dart';
 import 'package:coUserver/endpoints/inventory_new.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
+import 'package:coUserver/entities/entity.dart';
 import 'package:coUserver/entities/items/item.dart';
-import 'package:coUserver/common/identifier.dart';
-import 'package:coUserver/endpoints/changeusername.dart';
-import 'package:coUserver/skills/skillsmanager.dart';
-import 'package:coUserver/buffs/buffmanager.dart';
-import 'package:coUserver/entities/items/actions/recipes/recipe.dart';
-import 'package:coUserver/API_KEYS.dart';
-import 'package:coUserver/common/user.dart';
-import 'package:coUserver/common/mapdata/mapdata.dart';
+import 'package:coUserver/streets/player_update_handler.dart';
+import 'package:coUserver/streets/street.dart';
 
-import 'package:path/path.dart' as path;
+import 'package:redstone_mapper_pg/manager.dart';
 import 'package:redstone_mapper/mapper.dart';
 import 'package:redstone/redstone.dart' as app;
-import 'package:redstone_mapper_pg/manager.dart';
 
 //handle player update events
 class StreetUpdateHandler {
@@ -37,72 +33,13 @@ class StreetUpdateHandler {
 	static Timer simulateTimer = new Timer.periodic(simulateDuration, (Timer timer) => simulateStreets());
 	static Timer updateTimer = new Timer.periodic(npcUpdateDuration, (Timer timer) => updateNpcs());
 
-	static loadItems() async {
-		String dir = serverDir.path;
-		String filePath, fileText;
-
+	static Future loadItems() async {
 		try {
-			// load items
-			filePath = path.join(dir, 'lib', 'entities', 'items', 'json');
-			await Future.forEach(await new Directory(filePath).list().toList(), (File cat) async {
-				fileText = await cat.readAsString();
-				JSON.decode(fileText).forEach((String name, Map itemMap) {
-					itemMap['itemType'] = name;
-					items[name] = decode(itemMap, Item);
-				});
-			});
-			Log.verbose('Items loaded');
-
-			// load recipes
-			filePath = path.join(
-				dir,
-				'lib',
-				'entities',
-				'items',
-				'actions',
-				'recipes',
-				'json');
-			await Future.forEach(await new Directory(filePath).list().toList(), (File tool) async {
-				fileText = await tool.readAsString();
-				JSON.decode(fileText).forEach((Map recipeMap) {
-					RecipeBook.recipes.add(decode(recipeMap, Recipe));
-				});
-			});
-			Log.verbose('Recipes loaded');
-
-			// load vendor types
-			filePath = path.join(dir, 'lib', 'entities', 'npcs', 'vendors', 'vendors.json');
-			fileText = await new File(filePath).readAsString();
-			JSON.decode(fileText).forEach((String street, String type) {
-				vendorTypes[street] = type;
-			});
-			Log.verbose('Vendor types loaded');
-
-			// load stats given for eating/drinking
-			filePath = path.join(dir, 'lib', 'entities', 'items', 'actions', 'consume.json');
-			fileText = await new File(filePath).readAsString();
-			JSON.decode(fileText).forEach((String item, Map award) {
-				try {
-					items[item].consumeValues = award;
-				} catch (e) {
-					Log.error('Error setting consume values for $item to $award', e);
-				}
-			});
-			Log.verbose('Consume values loaded');
-
-			// Load achievements
-			Achievement.load();
-			Log.verbose('Achievements loaded');
-
-			// Load skills
-			SkillManager.loadSkills();
-			Log.verbose('Skills loaded');
-
-			// Load buffs
-			BuffManager.loadBuffs();
-			Log.verbose('Buffs loaded');
+			await Item.loadItems();
+			await Item.loadConsumeValues();
+			await Vendor.loadVendorTypes();
 		} catch (e, st) {
-			Log.error('Problem loading items', e, st);
+			Log.error('[StreetUpdateHandler] Problem loading objects from JSON', e, st);
 		}
 	}
 

@@ -46,6 +46,7 @@ class Achievement {
 			});
 		});
 
+		Log.verbose('[Achievement] Loaded ${_ACHIEVEMENTS.length} achievements');
 		return _ACHIEVEMENTS.length;
 	}
 

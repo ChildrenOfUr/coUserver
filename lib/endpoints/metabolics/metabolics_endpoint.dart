@@ -69,6 +69,8 @@ class MetabolicsEndpoint {
 		// Refill everyone's energy on the start of a new day
 		Clock clock = new Clock();
 		clock.onNewDay.listen((_) => MetabolicsEndpoint.refillAllEnergy());
+
+		Log.verbose('[Init] Tracking new days');
 	}
 
 	static Future refillAllEnergy() async {

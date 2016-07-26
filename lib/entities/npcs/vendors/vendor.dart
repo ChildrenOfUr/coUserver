@@ -3,6 +3,16 @@ part of entity;
 Map<String, String> vendorTypes = {};
 
 abstract class Vendor extends NPC {
+	static Future<int> loadVendorTypes() async {
+		String filePath = path.join(
+			serverDir.path, 'lib', 'entities', 'npcs', 'vendors', 'vendors.json');
+		JSON.decode(await new File(filePath).readAsString()).forEach((String street, String type) {
+			vendorTypes[street] = type;
+		});
+		Log.verbose('[Vendor] Loaded ${vendorTypes.length} vendor types');
+		return vendorTypes.length;
+	}
+
 	List<Map> itemsForSale = new List();
 	String vendorType;
 	List<Item> itemsToSell;

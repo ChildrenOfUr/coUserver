@@ -1,5 +1,6 @@
 library map_data;
 
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -20,22 +21,35 @@ abstract class MapData {
 	static Map<String, Map<String, dynamic>> get streets => new Map.from(_streets);
 
 	/// Load from JSON
-	static void load() {
+	static Future load() async {
+		Future _loadHubs(String parent) async {
+			File hubdata = new File(path.join(parent, 'hubdata.json'));
+			_hubs = JSON.decode(await hubdata.readAsString());
+			Log.verbose('[MapData] Loaded ${_hubs.length} hub files');
+		}
+
+		Future _loadStreets(String parent) async {
+			File streetdata = new File(path.join(parent, 'streetdata.json'));
+			_streets = JSON.decode(await streetdata.readAsString());
+			Log.verbose('[MapData] Loaded ${_streets.length} street files');
+		}
+
+		Future _loadRender(String parent) async {
+			File renderdata = new File(path.join(parent, 'renderdata.json'));
+			_render = JSON.decode(await renderdata.readAsString());
+			Log.verbose('[MapData] Loaded ${_render.length} street render files');
+		}
+
 		try {
 			// Find mapdata directory
 			String parent = path.joinAll([serverDir.path, 'lib', 'common', 'mapdata', 'json']);
 
-			// Load hubs
-			File hubdata = new File(path.join(parent, 'hubdata.json'));
-			_hubs = JSON.decode(hubdata.readAsStringSync());
-
-			// Load streets
-			File streetdata = new File(path.join(parent, 'streetdata.json'));
-			_streets = JSON.decode(streetdata.readAsStringSync());
-
-			// Load map positions
-			File renderdata = new File(path.join(parent, 'renderdata.json'));
-			_render = JSON.decode(renderdata.readAsStringSync());
+			// Wait for all loads to complete
+			await Future.wait([
+				_loadHubs(parent),
+				_loadStreets(parent),
+				_loadRender(parent)
+			], eagerError: true);
 
 			// Compile into API data
 			MapdataEndpoint.init(_hubs, _streets, _render);

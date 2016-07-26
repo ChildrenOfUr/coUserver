@@ -6,35 +6,37 @@ class FileCache {
 	static Map<String, int> heightsCache;
 	static Map<String, String> headsCache;
 
-	static void loadCaches() {
+	static Future loadCaches() async {
 		// Make trees speech bubbles appear where they should
-		heightsCache = loadCacheFromDisk('heightsCache.json');
-		headsCache = loadCacheFromDisk('headsCache.json');
+		heightsCache = await loadCacheFromDisk('heightsCache.json');
+		headsCache = await loadCacheFromDisk('headsCache.json');
 
 		// Save the cache to the disk
-		new Timer.periodic(INTERVAL, (_) {
+		new Timer.periodic(INTERVAL, (_) async {
 			try {
-				saveCacheToDisk('headsCache.json', headsCache);
+				await saveCacheToDisk('headsCache.json', headsCache);
 			} catch (e, st) {
 				Log.error('Problem writing headsCache.json', e, st);
 			}
 
 			try {
-				saveCacheToDisk('heightsCache.json', heightsCache);
+				await saveCacheToDisk('heightsCache.json', heightsCache);
 			} catch (e, st) {
 				Log.error('Problem writing heightsCache.json', e, st);
 			}
 		});
+
+		Log.verbose('[Init] Caches loaded');
 	}
 
-	static Map loadCacheFromDisk(String filename) {
+	static Future<Map> loadCacheFromDisk(String filename) async {
 		File file = new File(filename);
-		if (!file.existsSync()) {
+		if (!(await file.exists())) {
 			return new Map();
 		}
 
 		try {
-			return JSON.decode(file.readAsStringSync());
+			return JSON.decode(await file.readAsString());
 		} catch (e, st) {
 			// The file is corrupted, reset it during the next write
 			Log.error('Could not load cache $filename', e, st);
@@ -42,14 +44,14 @@ class FileCache {
 		}
 	}
 
-	static void saveCacheToDisk(String filename, Map cache) {
+	static Future saveCacheToDisk(String filename, Map cache) async {
 		File file = new File(filename);
-		if (!file.existsSync()) {
-			file.createSync(recursive: true);
+		if (!(await file.exists())) {
+			await file.create(recursive: true);
 		}
 
 		try {
-			file.writeAsStringSync(JSON.encode(cache), flush: true);
+			await file.writeAsString(JSON.encode(cache), flush: true);
 		} catch (e, st) {
 			// Filesystem error
 			Log.error('Could not save $cache to $filename', e, st);

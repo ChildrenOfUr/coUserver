@@ -23,6 +23,7 @@ import 'package:coUserver/streets/player_update_handler.dart';
 import 'package:coUserver/streets/street_update_handler.dart';
 import 'package:coUserver/streets/street.dart';
 
+import 'package:path/path.dart' as path;
 import 'package:redstone_mapper_pg/manager.dart';
 import 'package:redstone_mapper/mapper.dart';
 import 'package:redstone/redstone.dart' as app;
@@ -61,6 +62,43 @@ class Item extends Object
 		Potions,
 		Quill,
 		RecipeTool {
+
+	// Load item data from JSON files
+	static Future<int> loadItems() async {
+		String filePath = path.join(serverDir.path, 'lib', 'entities', 'items', 'json');
+		await Future.forEach(await new Directory(filePath).list().toList(), (File cat) async {
+			JSON.decode(await cat.readAsString()).forEach((String name, Map itemMap) {
+				itemMap['itemType'] = name;
+				items[name] = decode(itemMap, Item);
+			});
+		});
+
+		Log.verbose('[Item] Loaded ${items.length} items');
+		return items.length;
+	}
+
+	// Load consume values from JSON file
+	static Future<int> loadConsumeValues() async {
+		if (items.length == 0) {
+			throw 'You must load items before consume values';
+		}
+
+		int total = 0;
+		String filePath = path.join(
+			serverDir.path, 'lib', 'entities', 'items', 'actions', 'consume.json');
+		JSON.decode(await new File(filePath).readAsString()).forEach((String item, Map award) {
+			try {
+				items[item].consumeValues = award;
+				total++;
+			} catch (e) {
+				Log.error('Error setting consume values for $item to $award', e);
+			}
+		});
+
+		Log.verbose('[Item] Loaded $total consume values');
+		return total;
+	}
+
 	// Discounts, stored as itemType: part paid out of 1 (eg. 0.8 for 20% off)
 	static Map<String, num> discountedItems = {};
 

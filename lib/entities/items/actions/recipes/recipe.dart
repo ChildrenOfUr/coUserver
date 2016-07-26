@@ -1,8 +1,8 @@
 library recipes;
 
 import 'dart:async';
-import 'dart:io';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:coUserver/achievements/achievements.dart';
 import 'package:coUserver/API_KEYS.dart';
@@ -13,12 +13,26 @@ import 'package:coUserver/entities/items/item.dart';
 import 'package:coUserver/quests/quest.dart';
 import 'package:coUserver/skills/skillsmanager.dart';
 
+import 'package:path/path.dart' as path;
 import 'package:redstone_mapper/mapper.dart';
 import 'package:redstone/redstone.dart' as app;
 
 part 'recipebook.dart';
 
 class Recipe {
+	static Future<int> load() async {
+		String filePath = path.join(
+			serverDir.path, 'lib', 'entities', 'items', 'actions', 'recipes', 'json');
+		await Future.forEach(await new Directory(filePath).list().toList(), (File tool) async {
+			JSON.decode(await tool.readAsString()).forEach((Map recipeMap) {
+				RecipeBook.recipes.add(decode(recipeMap, Recipe));
+			});
+		});
+
+		Log.verbose('[Recipe] Loaded ${RecipeBook.recipes.length} recipes');
+		return RecipeBook.recipes.length;
+	}
+
 	@Field() String id;
 	@Field() String tool;
 	@Field() Map<String, int> input;

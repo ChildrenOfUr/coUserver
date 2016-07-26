@@ -33,15 +33,15 @@ class SkillManager extends Object {
 	static final Completer _loading = new Completer();
 
 	/// Read skills from JSON file
-	static void loadSkills() {
-		JSON.decode(
-			new File(path.join(serverDir.path, 'lib', 'skills', 'skillsdata.json'))
-				.readAsStringSync()
-		).forEach((String id, Map data) {
+	static Future<int> loadSkills() async {
+		File file = new File(path.join(serverDir.path, 'lib', 'skills', 'skillsdata.json'));
+		JSON.decode(await file.readAsString()).forEach((String id, Map data) {
 			SKILL_DATA[id] = new Skill.fromMap(data, id);;
 		});
 
 		_loading.complete();
+		Log.verbose('[SkillManager] Loaded ${SKILL_DATA.length} skills');
+		return SKILL_DATA.length;
 	}
 
 	/// Add points to a player's skill
