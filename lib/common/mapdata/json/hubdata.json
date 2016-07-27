@@ -135,7 +135,8 @@
 		"color": "#959b00",
 		"color_btm": "#82897f",
 		"color_top": "#9eaa9c",
-		"owm_city_id": 2483761
+		"owm_city_id": 2483761,
+		"savanna": true
 	},
 	"98": {
 		"name": "Besara",
@@ -243,7 +244,8 @@
 		"color": "#b8aa00",
 		"color_btm": "#897e7e",
 		"color_top": "#aa9a97",
-		"owm_city_id": 5308655
+		"owm_city_id": 5308655,
+		"savanna": true
 	},
 	"141": {
 		"name": "Drifa",
@@ -1112,7 +1114,8 @@
 		"color": "#8f5200",
 		"color_btm": "#96aaa9",
 		"color_top": "#7d8985",
-		"owm_city_id": 109223
+		"owm_city_id": 109223,
+		"savanna": true
 	},
 	"91": {
 		"name": "Zhambu",
@@ -1126,6 +1129,7 @@
 		"color": "#d88a00",
 		"color_btm": "#94aca2",
 		"color_top": "#7d8b82",
-		"owm_city_id": 1169825
+		"owm_city_id": 1169825,
+		"savanna": true
 	}
 }
