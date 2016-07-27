@@ -37,7 +37,7 @@ abstract class MapData {
 		Future _loadRender(String parent) async {
 			File renderdata = new File(path.join(parent, 'renderdata.json'));
 			_render = JSON.decode(await renderdata.readAsString());
-			Log.verbose('[MapData] Loaded ${_render.length} street render files');
+			Log.verbose('[MapData] Loaded ${_render.length} hub render files');
 		}
 
 		try {

@@ -26,7 +26,7 @@ class FileCache {
 			}
 		});
 
-		Log.verbose('[Init] Caches loaded');
+		Log.verbose('[FileCache] Caches loaded');
 	}
 
 	static Future<Map> loadCacheFromDisk(String filename) async {

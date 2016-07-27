@@ -156,7 +156,7 @@ class Console {
 
 		_registerCommands();
 
-		Log.verbose('[Init] Console initialized');
+		Log.verbose('[Console] Console initialized');
 	}
 
 	static String formatMap(Map input) {
