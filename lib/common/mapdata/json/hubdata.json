@@ -442,7 +442,6 @@
 	},
 	"50": {
 		"name": "Ilmenskie Caverns",
-		"map_hidden": true,
 		"music": "ilmenskie",
 		"mote_id": 9,
 		"mote_name": "Ur",
@@ -456,7 +455,6 @@
 	},
 	"78": {
 		"name": "Ilmenskie Deeps",
-		"map_hidden": true,
 		"music": "ilmenskie",
 		"mote_id": 9,
 		"mote_name": "Ur",
