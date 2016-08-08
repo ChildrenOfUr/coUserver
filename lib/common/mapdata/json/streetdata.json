@@ -10960,7 +10960,8 @@
 		"vendor": "Mining",
 		"shrine": "Humbaba",
 		"tsid": "LM169I1E0C226G1",
-		"hub_id": 78
+		"hub_id": 78,
+		"broken": true
 	},
 	"Savanna Sunset": {
 		"tsid": "LA9RM4IT05F3B4M",
