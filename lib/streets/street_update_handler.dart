@@ -21,7 +21,7 @@ import 'package:coUserver/streets/player_update_handler.dart';
 import 'package:coUserver/streets/street.dart';
 
 import 'package:redstone_mapper_pg/manager.dart';
-import 'package:redstone_mapper/mapper.dart';
+import 'package:redstone_mapper/plugin.dart';
 import 'package:redstone/redstone.dart' as app;
 
 //handle player update events
@@ -142,22 +142,6 @@ class StreetUpdateHandler {
 
 				street.occupants.forEach((String username, WebSocket socket) async {
 					if (socket != null) {
-						String email = await User.getEmailFromUsername(username);
-						//we need to modify the actions list for the npcs and plants
-						//to take into account the players skills so that the costs are right
-						await Future.forEach(updates['npcs'], (Map npcMap) async {
-							NPC npc = street.npcs[npcMap['id']];
-							if (npc != null) {
-								npcMap['actions'] = encode(await npc.customizeActions(email));
-							}
-						});
-						await Future.forEach(updates['plants'], (Map plantMap) async {
-							Plant plant = street.plants[plantMap['id']];
-							if (plant != null) {
-								plantMap['actions'] = encode(await plant.customizeActions(email));
-							}
-						});
-
 						socket.add(JSON.encode(updates));
 					}
 				});
@@ -476,6 +460,40 @@ class StreetUpdateHandler {
 			'follow': player
 		}));
 	}
+}
+
+@app.Route('/getActions')
+@Encode()
+Future<List<Action>> getActions(@app.QueryParam() String email,
+                  @app.QueryParam() String id,
+                  @app.QueryParam() String label) async {
+	if (email == null || id == null || label == null) {
+		Log.verbose('<email=$email> tried to get actions for <id=$id> on <label=$label>');
+		return [];
+	}
+	if (StreetUpdateHandler.streets[label] == null) {
+		Log.verbose('<label=$label> is not a currently loaded street');
+		return [];
+	}
+
+	Actionable entity;
+	entity = StreetUpdateHandler.streets[label].npcs[id];
+	if (entity == null) {
+		entity = StreetUpdateHandler.streets[label].plants[id];
+	}
+	if (entity == null) {
+		entity = StreetUpdateHandler.streets[label].doors[id];
+	}
+	if (entity == null) {
+		entity = StreetUpdateHandler.streets[label].groundItems[id];
+	}
+
+	if (entity == null) {
+		Log.verbose('<id=$id> is not a valid entity on <label=$label>');
+		return [];
+	}
+
+	return entity.customizeActions(email);
 }
 
 @app.Route('/teleport', methods: const[app.POST])

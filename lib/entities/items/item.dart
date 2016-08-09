@@ -61,7 +61,11 @@ class Item extends Object
 		PiggyPlop,
 		Potions,
 		Quill,
-		RecipeTool {
+		RecipeTool implements Actionable {
+
+	Future<List<Action>> customizeActions(String email) async {
+		return actions;
+	}
 
 	// Load item data from JSON files
 	static Future<int> loadItems() async {

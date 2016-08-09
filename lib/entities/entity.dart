@@ -125,7 +125,14 @@ abstract class Persistable {
 	Map<String, String> getPersistMetadata();
 }
 
-abstract class Entity extends Object with MetabolicsChange implements Persistable {
+abstract class Actionable {
+	///This will be called when sending the npc's state to the client
+	///In order to display accurate energy costs etc., we need to take the
+	///players skills into account
+	Future<List<Action>> customizeActions(String email);
+}
+
+abstract class Entity extends Object with MetabolicsChange implements Persistable, Actionable {
 	List<Action> actions = [];
 	int actionTime = 2500, x, y;
 	String bubbleText, streetName, type, id;
@@ -187,9 +194,6 @@ abstract class Entity extends Object with MetabolicsChange implements Persistabl
 		return map;
 	}
 
-	///This will be called when sending the npc's state to the client
-	///In order to display accurate energy costs etc., we need to take the
-	///players skills into account
 	Future<List<Action>> customizeActions(String email) async {
 		return actions;
 	}

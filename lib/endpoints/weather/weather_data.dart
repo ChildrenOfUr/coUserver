@@ -101,10 +101,10 @@ class WeatherData {
 			latitude = owm['coord']['lat'];
 		}
 
-		weatherId = owm['weather'].single['id'];
-		weatherMain = owm['weather'].single['main'];
-		weatherDesc = owm['weather'].single['description'];
-		weatherIcon = WeatherService.OWM_IMG + owm['weather'].single['icon'] + '.png';
+		weatherId = owm['weather'].first['id'];
+		weatherMain = owm['weather'].first['main'];
+		weatherDesc = owm['weather'].first['description'];
+		weatherIcon = WeatherService.OWM_IMG + owm['weather'].first['icon'] + '.png';
 
 		if (owm['main'] != null) {
 			temp = kelvinToFahrenheit(owm['main']['temp']);
