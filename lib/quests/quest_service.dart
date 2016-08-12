@@ -131,9 +131,10 @@ class QuestService extends Object with MetabolicsChange {
 			}
 
 			Log.verbose('[QuestService] Loaded ${quests.length} quests');
-			return quests.length;
 		} catch (e, st) {
 			Log.error('Problem loading quests', e, st);
 		}
+
+		return quests.length;
 	}
 }
