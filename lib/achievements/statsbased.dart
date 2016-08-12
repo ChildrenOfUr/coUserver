@@ -30,22 +30,22 @@ class StatAchvManager {
 		}
 	}
 
-	static void cook(String email) {
-		StatManager.add(email, Stat.awesome_pot_uses).then((int uses) {
-			if (uses >= 11) {
-				Achievement.find("1star_cuisinartist").awardTo(email);
-			} else if (uses >= 23) {
-				Achievement.find("2star_cuisinartist").awardTo(email);
-			} else if (uses >= 41) {
-				Achievement.find("3star_cuisinartist").awardTo(email);
-			} else if (uses >= 79) {
-				Achievement.find("4star_cuisinartist").awardTo(email);
-			} else if (uses >= 101) {
-				Achievement.find("5star_cuisinartist").awardTo(email);
-			} else if (uses >= 137) {
-				Achievement.find("golden_ladle_award").awardTo(email);
-			}
-		});
+    static void cook(String email) {
+        StatManager.add(email, Stat.awesome_pot_uses).then((int uses) {
+                if (uses >= 137) {
+                    Achievement.find("golden_ladle_award").awardTo(email);
+                } else if (uses >= 101) {
+                    Achievement.find("5star_cuisinartist").awardTo(email);
+                } else if (uses >= 79) {
+                    Achievement.find("4star_cuisinartist").awardTo(email); 
+                } else if (uses >= 41) {
+                    Achievement.find("3star_cuisinartist").awardTo(email);
+                } else if (uses >= 23) {
+                    Achievement.find("2star_cuisinartist").awardTo(email);
+                } else if (uses >= 11) {
+                    Achievement.find("1star_cuisinartist").awardTo(email);
+                }
+                });
 	}
 
 	static void stir(String email) {
@@ -54,15 +54,15 @@ class StatAchvManager {
 
 	static void seasonBeans(String email) {
 		StatManager.add(email, Stat.beans_seasoned).then((int seasoned) {
-			if (seasoned >= 53) {
+            if (seasoned >= 2003) {
+                Achievement.find("generalissimo_beanorator").awardTo(email);
+            } else if (seasoned >= 503) {
+                Achievement.find("beanorator_1st_class").awardTo(email);
+            } else if (seasoned >= 53) {
 				Achievement.find("beanorator_2nd_class").awardTo(email);
-			} else if (seasoned >= 503) {
-				Achievement.find("beanorator_1st_class").awardTo(email);
-			} else if (seasoned >= 2003) {
-				Achievement.find("generalissimo_beanorator").awardTo(email);
 			}
-		});
-	}
+	    });
+    }
 
 	static void blend(String email) {
 		StatManager.add(email, Stat.blender_uses).then((int uses) {
