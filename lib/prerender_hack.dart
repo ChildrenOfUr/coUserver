@@ -16,6 +16,9 @@ Future<String> uploadStreetRender(@app.Body(app.JSON) Map street) async {
 
 	await Future.forEach(layers.keys, (String layerName) => writeLayerToFile(tsid, layerName, layers[layerName]));
 
+	//don't clog up the dev server with layer files. Those are only needed on the fatcow server
+	await streetDir.delete(recursive: true);
+
 	return 'saved';
 }
 
@@ -44,5 +47,6 @@ Future uploadToServer(File layer, String tsid, String layerName) async {
 	request.files.add(multipartFile);
 	request.fields['tsid'] = tsid;
 	request.fields['filename'] = filename;
+	request.fields['redstoneToken'] = redstoneToken;
 	await request.send();
 }
