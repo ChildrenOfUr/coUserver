@@ -188,6 +188,7 @@ abstract class Vendor extends NPC {
 						items["pick"].getMap(),
 						items["fancy_pick"].getMap(),
 						items["grinder"].getMap(),
+                        items["grand_ol_grinder"].getMap(),
 						items["smelter"].getMap(),
 						items["tinkertool"].getMap(),
 						items["elemental_pouch"].getMap(),
