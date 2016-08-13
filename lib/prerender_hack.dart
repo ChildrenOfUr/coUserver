@@ -40,7 +40,7 @@ Future writeLayerToFile(String tsid, String layerName, String dataUri) async {
 Future uploadToServer(File layer, String tsid, String layerName) async {
 	http.MultipartRequest request = new http.MultipartRequest("POST",
 		Uri.parse("http://childrenofur.com/assets/upload_street_layer.php"));
-	String filename = 'streetLayers/$tsid/$layerName.png';
+	String filename = 'streetLayers/dev/$tsid/$layerName.png';
 	http.MultipartFile multipartFile = new http.MultipartFile.fromBytes(
 		'file', layer.readAsBytesSync(), filename: filename);
 	request.files.add(multipartFile);
