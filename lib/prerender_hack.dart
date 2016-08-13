@@ -29,12 +29,9 @@ Future writeLayerToFile(String tsid, String layerName, String dataUri) async {
 
 	dataUri = dataUri.substring(dataUri.indexOf(',') + 1);
 	await layer.writeAsBytes(new Base64Decoder().convert(dataUri));
-
-	Log.verbose('saved $layerName for $tsid to ${layer.path}');
-
 	await uploadToServer(layer, tsid, layerName);
 
-	Log.verbose('uploaded $layerName for $tsid to http://childrenofur.com/assets/$tsid/$layerName.png');
+	Log.verbose('uploaded $layerName for $tsid to http://childrenofur.com/assets/streetLayers/dev/$tsid/$layerName.png');
 }
 
 Future uploadToServer(File layer, String tsid, String layerName) async {
@@ -42,7 +39,9 @@ Future uploadToServer(File layer, String tsid, String layerName) async {
 		Uri.parse("http://childrenofur.com/assets/upload_street_layer.php"));
 	String filename = 'streetLayers/dev/$tsid/$layerName.png';
 	http.MultipartFile multipartFile = new http.MultipartFile.fromBytes(
-		'file', layer.readAsBytesSync(), filename: filename);
+		'file', layer.readAsBytesSync());
 	request.files.add(multipartFile);
+	request.fields['tsid'] = tsid;
+	request.fields['filename'] = filename;
 	await request.send();
 }
