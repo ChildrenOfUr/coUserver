@@ -136,7 +136,9 @@ class Console {
 	static void init() {
 		// Graceful shutdown
 		ProcessSignal.SIGINT.watch().listen((ProcessSignal sig) async => await cleanup());
-		ProcessSignal.SIGTERM.watch().listen((ProcessSignal sig) async => await cleanup());
+		if (!Platform.isWindows) {
+			ProcessSignal.SIGTERM.watch().listen((ProcessSignal sig) async => await cleanup());
+		}
 
 		stdin.echoMode = true;
 		stdin.lineMode = true;

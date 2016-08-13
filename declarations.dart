@@ -35,6 +35,7 @@ part 'package:coUserver/endpoints/report.dart';
 part 'package:coUserver/endpoints/slack.dart';
 part 'package:coUserver/endpoints/usernamecolors.dart';
 part 'package:coUserver/endpoints/users.dart';
+part 'package:coUserver/prerender_hack.dart';
 
 // Port for app (redstone routing)
 final int REDSTONE_PORT = 8181;
