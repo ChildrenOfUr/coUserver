@@ -794,27 +794,27 @@ class InventoryV2 {
 		return JSON.decode(inventory_json);
 	}
 
-	// Returns the number of a certain item a user has
-	int countItem(String itemType, {bool includeBroken: true}) {
-		bool _durabilityOk(Slot slot) {
-			bool hasDurability = slot.metadata["durabilityUsed"] != null;
-			if (!hasDurability) {
+	bool _durabilityOk(Slot slot) {
+		if (!slot.metadata.containsKey('durabilityUsed')) {
+			return true;
+		} else {
+			int used = int.parse(slot.metadata['durabilityUsed'], onError: (String source) => 0);
+			int max = items[slot.itemType].durability;
+			if (items[slot.itemType].durability == null) {
 				return true;
 			} else {
-				int used = int.parse(slot.metadata["durabilityUsed"]);
-				int max = items[slot.itemType].durability ?? 0;
 				return (used < max);
 			}
 		}
+	}
 
+	// Returns the number of a certain item a user has
+	int countItem(String itemType, {bool includeBroken: true}) {
 		int count = 0;
 
 		//count all the normal slots
 		slots.forEach((Slot s) {
-			if (
-				(s.itemType != null && s.itemType == itemType)
-				&& (includeBroken || _durabilityOk(s))
-			) {
+			if (s.itemType == itemType	&& (includeBroken || _durabilityOk(s))) {
 				count += s.count;
 			}
 		});
@@ -826,10 +826,7 @@ class InventoryV2 {
 				List<Slot> bagSlots = jsonx.decode(s.metadata['slots'], type: listOfSlots);
 				if (bagSlots != null) {
 					bagSlots.forEach((Slot bagSlot) {
-						if (
-							(bagSlot.itemType != null && bagSlot.itemType == itemType)
-							&& (includeBroken || _durabilityOk(bagSlot))
-						) {
+						if (bagSlot.itemType == itemType && (includeBroken || _durabilityOk(bagSlot))) {
 							count += bagSlot.count;
 						}
 					});
@@ -1037,12 +1034,12 @@ class InventoryV2 {
 	}
 
 	static Future<bool> hasItem(String email, String itemType, int count) async {
-		return (await takeAnyItemsFromUser(email, itemType, count, simulate:true)) == count;
+		return (await takeAnyItemsFromUser(email, itemType, count, simulate:true)) >= count;
 	}
 
 	static Future<bool> hasUnbrokenItem(String email, String itemType, int count) async {
 		InventoryV2 inv = await getInventory(email);
-		return (await inv.countItem(itemType, includeBroken: false)) == count;
+		return (await inv.countItem(itemType, includeBroken: false)) >= count;
 	}
 
 	/**
