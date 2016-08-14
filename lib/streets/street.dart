@@ -160,8 +160,8 @@ class Street {
 										.reflectee;
 									doors[id].restoreState(metadata);
 								}
-							} catch (_) {
-								Log.warning('Unable to instantiate a class for $type');
+							} catch (e) {
+								Log.warning('Unable to instantiate a class for $type: $e');
 							}
 						}
 					}
