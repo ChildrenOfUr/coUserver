@@ -74,9 +74,10 @@ class BuffManager {
 	static Future stopUpdatingUser(String email) async {
 		if (email != null) {
 			try {
-				(await getPlayerBuffs(email: email)).forEach((Map<String, dynamic> buffMap) {
+				List<Map<String, dynamic>> playerBuffs = await getPlayerBuffs(email: email);
+				await Future.forEach(playerBuffs, (Map<String, dynamic> buffMap) async {
 					PlayerBuff buff = new PlayerBuff.fromMap(buffMap);
-					buff.stopUpdating();
+					await buff.stopUpdating();
 				});
 
 				PlayerBuff.cache.remove(email);

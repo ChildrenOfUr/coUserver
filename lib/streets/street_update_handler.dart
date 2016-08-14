@@ -143,10 +143,24 @@ class StreetUpdateHandler {
 				street.occupants.forEach((String username, WebSocket socket) async {
 					if (socket != null) {
 						socket.add(JSON.encode(updates));
+						String email = await User.getEmailFromUsername(username);
+
+						// SAVANNA: Player buff expired?
+						if (
+							MapData.isSavannaStreet(streetName)
+							&& !(await BuffManager.playerHasBuff('nostalgia', email))
+						) {
+							// Kick them out
+							String outTsid = MapData.savannaEscapeTo(streetName);
+							teleport(userSocket: socket, email: email,
+								tsid: outTsid, energyFree: true);
+
+							// Prevent reentry
+							BuffManager.addToUser('nostalgia_over', email, socket);
+						}
 					}
 				});
-			}
-			else {
+			} else {
 				toRemove.add(street.label);
 			}
 		});
@@ -248,6 +262,19 @@ class StreetUpdateHandler {
 						MetabolicsEndpoint.updateDeath(PlayerUpdateHandler.users[username], null, true);
 						BuffManager.startUpdatingUser(email);
 					}
+
+					// SAVANNA: Start tracking time
+					if (
+						MapData.isSavannaStreet(streetName)
+						&& !(await BuffManager.playerHasBuff('nostalgia', email))
+					) {
+						BuffManager.addToUser('nostalgia', email, ws);
+
+						// TODO: quest https://github.com/tinyspeck/glitch-GameServerJS/blob/f4cf3e3ed540227b0f1fec26dd5273c03b0f9ead/quests/baqala_nostalgia.js
+
+						// TODO: rock https://github.com/tinyspeck/glitch-GameServerJS/blob/f4cf3e3ed540227b0f1fec26dd5273c03b0f9ead/locations/savanna.js
+					}
+
 					return;
 				}
 			}
