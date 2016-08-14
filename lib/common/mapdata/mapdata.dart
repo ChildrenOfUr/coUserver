@@ -108,4 +108,39 @@ abstract class MapData {
 
 		return streetData;
 	}
+
+	/// Whether a street is in the savanna
+	static bool isSavannaStreet(String streetName) {
+		try {
+			Map<String, dynamic> street = getStreetByName(streetName);
+			assert(street != null);
+			Map<String, dynamic> hub = hubs[street['hub_id'].toString()];
+			assert(hub != null && hub['savanna'] != null);
+			return hub['savanna'];
+		} catch (_) {
+			return false;
+		}
+	}
+
+	/// Get the "nearest" non-savanna street
+	static String savannaEscapeTo(String currentStreetName) {
+		final Map<String, String> HUB_TO_TSID = {
+			'86': 'LIF18V95I972R96', // Baqala to Tamila
+			'90': 'LIFF6BQE33H26JC', // Choru to Vantalu
+			'95': 'LDO8NGHIFTQ21CQ', // Xalanga to Folivoria
+			'91': 'LHF4QVGL7NI269C', // Zhambu to Tahli
+		};
+
+		try {
+			String currentTsid = getStreetByName(currentStreetName)['tsid'];
+			assert(currentTsid != null);
+
+			String hubId = getStreetByTsid(currentTsid)['hub_id'].toString();
+			assert(hubId != 'null');
+			assert(HUB_TO_TSID[hubId] != null);
+			return HUB_TO_TSID[hubId];
+		} catch (_) {
+			return 'LIF12PMQ5121D68'; // Default to Cebarkul
+		}
+	}
 }

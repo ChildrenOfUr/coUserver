@@ -53,7 +53,7 @@ class EggPlant extends Tree {
 		bool success = await super.harvest(userSocket:userSocket,email:email);
 
 		if(success) {
-			StatManager.add(email, Stat.eggs_harvested).then((int harvested) {
+			StatManager.add(email, Stat.eggs_harveted).then((int harvested) {
 				if (harvested >= 5003) {
 					Achievement.find("egg_freak").awardTo(email);
 				} else if (harvested >= 1009) {
