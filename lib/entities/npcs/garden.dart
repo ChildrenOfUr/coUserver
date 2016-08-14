@@ -280,7 +280,7 @@ class Garden extends NPC {
 			'action': 'plantSeed',
 			'id': id,
 			'openWindow': 'itemChooser',
-			'filter': 'category=Seeds',
+			'filter': 'category=Croppery & Gardening Supplies|||itemType=.*_seed',
 			'windowTitle': 'Plant What?'
 		}));
 
