@@ -30,8 +30,10 @@ class GardeningGoodsVendor extends Vendor {
 			'http://childrenofur.com/assets/entityImages/npc_gardening_vendor__x1_walk_end_png_1354831000.png', 890, 594, 178, 198, 13, false),
 		'walk': new Spritesheet('walk',
 			'http://childrenofur.com/assets/entityImages/npc_gardening_vendor__x1_walk_png_1354830998.png', 890, 594, 178, 198, 15, true),
-		'turn_left': SPRITESHEETS['walk'],
-		'turn_right': SPRITESHEETS['walk']
+		'turn_left': new Spritesheet('walk',
+			'http://childrenofur.com/assets/entityImages/npc_gardening_vendor__x1_walk_png_1354830998.png', 890, 594, 178, 198, 15, true),
+		'turn_right': new Spritesheet('walk',
+			'http://childrenofur.com/assets/entityImages/npc_gardening_vendor__x1_walk_png_1354830998.png', 890, 594, 178, 198, 15, true),
 	};
 
 	int openCount = 0;
