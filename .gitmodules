@@ -1,3 +1,4 @@
 [submodule "CAT422"]
 	path = CAT422
 	url = https://github.com/ChildrenOfUr/CAT422-glitch-location-viewer
+	branch = dev
