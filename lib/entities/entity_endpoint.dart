@@ -134,60 +134,60 @@ class EntityEndpoint {
 
 ////These two methods are used by the map filler
 ////I will leave them commented out when not in use
-//@app.Route('/getEntities')
-//Future<Map<String, StreetEntity>> getEntities(@app.QueryParam('tsid') String tsid) async {
-//	return {"entities": encode(await StreetEntities.getEntities(tsid))};
-//}
-//
-//class EntitySet {
-//	@Field() String tsid;
-//	@Field() List<StreetEntity> entities;
-//}
-//
-//@app.Route('/setEntities', methods: const[app.POST])
-//Future<String> setEntities(@Decode() EntitySet entitySet) async {
-//	bool success = true;
-//	String error = '';
-//
-//	if (entitySet.tsid == null) {
-//		return 'Error: You must provide a tsid';
-//	}
-//
-//	//we need to know what entities are currently on the street
-//	//if there is one on the street that isn't in the list we get
-//	//here, then we need to remove it
-//	List<StreetEntity> existingEntities = await StreetEntities.getEntities(entitySet.tsid);
-//
-//	await Future.forEach(entitySet.entities, (StreetEntity entity) async {
-//		try {
-//			if (entity.id == null) {
-//				entity.id = createId(entity.x, entity.y, entity.type, tsidL(entity.tsid));
-//			}
-//			await StreetEntities.setEntity(entity);
-//			existingEntities.removeWhere((StreetEntity ent) => ent.id == entity.id);
-//		} catch (e, st) {
-//			success = false;
-//			error = e.toString();
-//			Log.error('Could not save entity',e,st);
-//		}
-//	});
-//
-//	//any entities remaining in existingEntities must have been deleted
-//	//from the map filler so we will remove them from the db
-//	List<String> idList = [];
-//	for (StreetEntity ent in existingEntities) {
-//		idList.add("'${ent.id}'");
-//	}
-//
-//	if (idList.length > 0) {
-//		String ids = idList.toString().replaceAll('[','(').replaceAll(']',')');
-//		String query = 'DELETE FROM ${StreetEntities.TABLE} WHERE id IN $ids';
-//		await dbConn.execute(query);
-//	}
-//
-//	if (success) {
-//		return 'OK';
-//	} else {
-//		return 'Error saving entities: $error';
-//	}
-//}
+@app.Route('/getEntities')
+Future<Map<String, StreetEntity>> getEntities(@app.QueryParam('tsid') String tsid) async {
+	return {"entities": encode(await StreetEntities.getEntities(tsid))};
+}
+
+class EntitySet {
+	@Field() String tsid;
+	@Field() List<StreetEntity> entities;
+}
+
+@app.Route('/setEntities', methods: const[app.POST])
+Future<String> setEntities(@Decode() EntitySet entitySet) async {
+	bool success = true;
+	String error = '';
+
+	if (entitySet.tsid == null) {
+		return 'Error: You must provide a tsid';
+	}
+
+	//we need to know what entities are currently on the street
+	//if there is one on the street that isn't in the list we get
+	//here, then we need to remove it
+	List<StreetEntity> existingEntities = await StreetEntities.getEntities(entitySet.tsid);
+
+	await Future.forEach(entitySet.entities, (StreetEntity entity) async {
+		try {
+			if (entity.id == null) {
+				entity.id = createId(entity.x, entity.y, entity.type, tsidL(entity.tsid));
+			}
+			await StreetEntities.setEntity(entity);
+			existingEntities.removeWhere((StreetEntity ent) => ent.id == entity.id);
+		} catch (e, st) {
+			success = false;
+			error = e.toString();
+			Log.error('Could not save entity',e,st);
+		}
+	});
+
+	//any entities remaining in existingEntities must have been deleted
+	//from the map filler so we will remove them from the db
+	List<String> idList = [];
+	for (StreetEntity ent in existingEntities) {
+		idList.add("'${ent.id}'");
+	}
+
+	if (idList.length > 0) {
+		String ids = idList.toString().replaceAll('[','(').replaceAll(']',')');
+		String query = 'DELETE FROM ${StreetEntities.TABLE} WHERE id IN $ids';
+		await dbConn.execute(query);
+	}
+
+	if (success) {
+		return 'OK';
+	} else {
+		return 'Error saving entities: $error';
+	}
+}

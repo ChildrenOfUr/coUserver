@@ -90,10 +90,11 @@ class StreetUpdateHandler {
 					}
 				});
 
+				String moveMapString = JSON.encode(moveMap);
 				street.occupants.forEach((String username, WebSocket socket) async {
 					if (socket != null) {
 						try {
-							socket.add(JSON.encode(moveMap));
+							socket.add(moveMapString);
 						} catch (e, st) {
 							Log.error('Error sending moveMap $moveMap to $username', e, st);
 						}
@@ -111,9 +112,11 @@ class StreetUpdateHandler {
 				//reset the street's expiry if it has one
 				street.expires = null;
 
+				DateTime start = new DateTime.now();
 				street.plants.forEach((String id, Plant plant) => plant.update());
 				street.quoins.forEach((String id, Quoin quoin) => quoin.update());
 				street.npcs.forEach((String id, NPC npc) => npc.update());
+				print('update time is : ${new DateTime.now().difference(start).inMilliseconds}ms');
 
 				Map<String, dynamic> updates = {
 					"label":streetName,
