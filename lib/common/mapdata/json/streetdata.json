@@ -13201,7 +13201,8 @@
 	"Wintry Place": {
 		"vendor": "Sno Cone",
 		"tsid": "LM11E7ODKHO1QJE",
-		"hub_id": 66
+		"hub_id": 66,
+		"snowy_weather": true
 	},
 	"Wolbane Barrel": {
 		"vendor": "Gardening Goods",
