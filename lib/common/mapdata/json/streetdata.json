@@ -3903,10 +3903,6 @@
 		"tsid": "LUV1KSDCHIR2BUB",
 		"hub_id": 84
 	},
-	"Enchanted Wood Forest (Mangled 2)": {
-		"tsid": "LUV9OQAUJTQ2LF0",
-		"hub_id": 84
-	},
 	"Enchanted Wood Forest (Inner Tree 1)": {
 		"tsid": "LUVL1RP94TQ21FU",
 		"hub_id": 84
@@ -3925,6 +3921,10 @@
 	},
 	"Enchanted Wood Forest (Mangled 1)": {
 		"tsid": "LUV7G4GJVSQ2FJ8",
+		"hub_id": 84
+	},
+	"Enchanted Wood Forest (Mangled 2)": {
+		"tsid": "LUV9OQAUJTQ2LF0",
 		"hub_id": 84
 	},
 	"Enchanted Wood Forest Short": {
@@ -4664,11 +4664,6 @@
 		"tsid": "LCR10PO6QFL1TAI",
 		"hub_id": 55
 	},
-	"GI Clone - Gentle Island Exit": {
-		"tsid": "LUVFC099RAB3FSG",
-		"hub_id": 84,
-		"map_hidden": true
-	},
 	"GI Clone - Diversionary Path Firebog Style": {
 		"tsid": "LUVGSVUERAB386N",
 		"hub_id": 84,
@@ -4676,6 +4671,11 @@
 	},
 	"GI Clone - Doonboggle Trail": {
 		"tsid": "LUVH5H2GRAB3CDC",
+		"hub_id": 84,
+		"map_hidden": true
+	},
+	"GI Clone - Gentle Island Exit": {
+		"tsid": "LUVFC099RAB3FSG",
 		"hub_id": 84,
 		"map_hidden": true
 	},
@@ -6022,21 +6022,6 @@
 		"hub_id": 82,
 		"map_hidden": true
 	},
-	"Instance Party 08 - Halloween -Flaming Humaba": {
-		"tsid": "LUVGJRE0SKD2T41",
-		"hub_id": 82,
-		"map_hidden": true
-	},
-	"Instance Party 08 - Kitchen - Rich Tagine": {
-		"tsid": "LUVKCUO1JKD2JCP",
-		"hub_id": 82,
-		"map_hidden": true
-	},
-	"Instance Party 08 A - Halloween": {
-		"tsid": "LUVD40A361E2STV",
-		"hub_id": 82,
-		"map_hidden": true
-	},
 	"Instance Party 04 - Test Level": {
 		"tsid": "LUV904LLBID2VTH",
 		"hub_id": 82,
@@ -6054,6 +6039,21 @@
 	},
 	"Instance Party 06 A - Swimming Physics": {
 		"tsid": "LUVSQLE0GKD2JGN",
+		"hub_id": 82,
+		"map_hidden": true
+	},
+	"Instance Party 08 - Halloween -Flaming Humaba": {
+		"tsid": "LUVGJRE0SKD2T41",
+		"hub_id": 82,
+		"map_hidden": true
+	},
+	"Instance Party 08 - Kitchen - Rich Tagine": {
+		"tsid": "LUVKCUO1JKD2JCP",
+		"hub_id": 82,
+		"map_hidden": true
+	},
+	"Instance Party 08 A - Halloween": {
+		"tsid": "LUVD40A361E2STV",
 		"hub_id": 82,
 		"map_hidden": true
 	},
@@ -7863,70 +7863,87 @@
 		"hub_id": 119
 	},
 	"Mountain Scaling": {
+		"map_hidden": true,
 		"tsid": "LHFSE9JCDR53EG8",
 		"hub_id": 130
 	},
 	"Mountaineering": {
+		"map_hidden": true,
 		"tsid": "LUV79VHQU3J24FB",
 		"hub_id": 84
 	},
 	"Mountaineering Asset Test": {
+		"map_hidden": true,
 		"tsid": "LUVJF3MP83M2QP7",
 		"hub_id": 84
 	},
 	"Mountaineering Fun Test 01": {
+		"map_hidden": true,
 		"tsid": "LUVPC9PVM5M2K3U",
 		"hub_id": 84
 	},
 	"Mountaineering Fun Test 02": {
+		"map_hidden": true,
 		"tsid": "LUVIHL6FODM2NVN",
 		"hub_id": 84
 	},
 	"Mountaineering Fun Test 03": {
+		"map_hidden": true,
 		"tsid": "LUVSOLS8AGM2C1R",
 		"hub_id": 84
 	},
 	"Mountaineering Fun Test 04": {
+		"map_hidden": true,
 		"tsid": "LUV8LP0NGFM2CHM",
 		"hub_id": 84
 	},
 	"Mountaineering Movement Test 01": {
+		"map_hidden": true,
 		"tsid": "LUVFPI23FBL2KRU",
 		"hub_id": 84
 	},
 	"Mountaineering Movement Test 02": {
+		"map_hidden": true,
 		"tsid": "LUVQF04DHBL2B4R",
 		"hub_id": 84
 	},
 	"Mountaineering Movement Test 03": {
+		"map_hidden": true,
 		"tsid": "LUV4FHV4JBL2P1H",
 		"hub_id": 84
 	},
 	"Mountaineering Movement Test 04": {
+		"map_hidden": true,
 		"tsid": "LUV61JG4QBL29T9",
 		"hub_id": 84
 	},
 	"Mountaineering Movement Test 05": {
+		"map_hidden": true,
 		"tsid": "LUVH309SAHL2F0K",
 		"hub_id": 84
 	},
 	"Mountaineering Quest Test 01": {
+		"map_hidden": true,
 		"tsid": "LUV2TS9KU8L27RP",
 		"hub_id": 84
 	},
 	"Mountaineering Quest Test 02": {
+		"map_hidden": true,
 		"tsid": "LUVSTEIHOBL2BT2",
 		"hub_id": 84
 	},
 	"Mountaineering Quest Test 03": {
+		"map_hidden": true,
 		"tsid": "LUVM25TNNGL2TQA",
 		"hub_id": 84
 	},
 	"Mountaineering Quest Test 04": {
+		"map_hidden": true,
 		"tsid": "LUVAPH8S9UL2FJI",
 		"hub_id": 84
 	},
 	"Mountaineering Single Pixel Plat Bug": {
+		"map_hidden": true,
 		"tsid": "LUVPK4FPP5O2F0I",
 		"hub_id": 84
 	},
@@ -8860,6 +8877,11 @@
 		"tsid": "LUVL4I5K4RL23HF",
 		"hub_id": 84
 	},
+	"POL Concept 1A - Mountain Forest": {
+		"tsid": "LUV9GK3J7JJ2QFF",
+		"hub_id": 84,
+		"map_hidden": true
+	},
 	"POL Concept 1A - Shimla Shit": {
 		"tsid": "LUVGMI5PQ8L2E2S",
 		"hub_id": 84,
@@ -8892,11 +8914,6 @@
 	},
 	"POL Concept 3A - Forest Valley Lvl 3": {
 		"tsid": "LUVMG92P23M2GP4",
-		"hub_id": 84,
-		"map_hidden": true
-	},
-	"POL Concept 1A - Mountain Forest": {
-		"tsid": "LUV9GK3J7JJ2QFF",
 		"hub_id": 84,
 		"map_hidden": true
 	},
@@ -10786,13 +10803,13 @@
 		"hub_id": 70,
 		"map_hidden": true
 	},
-	"SM Quarter 02": {
-		"tsid": "LCR18MKITFS1F81",
+	"SM Quarter 01": {
+		"tsid": "LCR18LHGTFS1HJV",
 		"hub_id": 70,
 		"map_hidden": true
 	},
-	"SM Quarter 01": {
-		"tsid": "LCR18LHGTFS1HJV",
+	"SM Quarter 02": {
+		"tsid": "LCR18MKITFS1F81",
 		"hub_id": 70,
 		"map_hidden": true
 	},
@@ -11439,13 +11456,13 @@
 		"tsid": "LNV8DCHH72I2222",
 		"hub_id": 88
 	},
-	"Stacked Meadow 01": {
-		"tsid": "LCRHDVFAKNL1TKD",
-		"hub_id": 58
-	},
 	"Stacked Forest 03": {
 		"tsid": "LCR168NJLQL175U",
 		"hub_id": 56
+	},
+	"Stacked Meadow 01": {
+		"tsid": "LCRHDVFAKNL1TKD",
+		"hub_id": 58
 	},
 	"Stacked Meadow 02": {
 		"tsid": "LCR16B8SMQL16C3",
@@ -11712,6 +11729,10 @@
 		"hub_id": 63,
 		"map_hidden": true
 	},
+	"Swimming Coin Level 01": {
+		"tsid": "LUVBL4S0Q493246",
+		"hub_id": 82
+	},
 	"Swimming Coin Level 02": {
 		"tsid": "LUVCEHJ4Q493R34",
 		"hub_id": 82
@@ -11738,10 +11759,6 @@
 	},
 	"Swimming Coin Level 09": {
 		"tsid": "LUV932DRPP93I32",
-		"hub_id": 82
-	},
-	"Swimming Coin Level 01": {
-		"tsid": "LUVBL4S0Q493246",
 		"hub_id": 82
 	},
 	"Swippery Swopes": {
@@ -13447,6 +13464,7 @@
 		"map_hidden": true
 	},
 	"backup street": {
+		"map_hidden": true,
 		"tsid": "LA9DNS8S9VM2UD7",
 		"hub_id": 116
 	},
@@ -13456,6 +13474,7 @@
 		"map_hidden": true
 	},
 	"blackwater": {
+		"map_hidden": true,
 		"tsid": "LDOAIDL6D4E2KVK",
 		"hub_id": 81
 	},
@@ -13475,6 +13494,7 @@
 		"map_hidden": true
 	},
 	"blue and white clone": {
+		"map_hidden": true,
 		"tsid": "LDOHAC36D1U2OPU",
 		"hub_id": 81
 	},
@@ -13489,26 +13509,32 @@
 		"map_hidden": true
 	},
 	"bridge lower clone": {
+		"map_hidden": true,
 		"tsid": "LHFDDI46P0J25VU",
 		"hub_id": 113
 	},
 	"bum street": {
+		"map_hidden": true,
 		"tsid": "LDO66753JJN2689",
 		"hub_id": 81
 	},
 	"cal test 5": {
+		"map_hidden": true,
 		"tsid": "LM413CQ4TLUUS",
 		"hub_id": 27
 	},
 	"cal test street": {
+		"map_hidden": true,
 		"tsid": "LIF137TMNMUV5",
 		"hub_id": 40
 	},
 	"cliff asset test": {
+		"map_hidden": true,
 		"tsid": "LUVUQO8J43M2GU5",
 		"hub_id": 82
 	},
 	"cliff assets clone backup": {
+		"map_hidden": true,
 		"tsid": "LUVBUNDNHFM2J0H",
 		"hub_id": 82
 	},
@@ -13523,10 +13549,12 @@
 		"map_hidden": true
 	},
 	"cloud 'em good": {
+		"map_hidden": true,
 		"tsid": "LA589B15S513SMP",
 		"hub_id": 80
 	},
 	"cloud 'em good backup": {
+		"map_hidden": true,
 		"tsid": "LA56C0J18613JF2",
 		"hub_id": 80
 	},
@@ -13566,33 +13594,39 @@
 		"map_hidden": true
 	},
 	"colour test": {
+		"map_hidden": true,
 		"tsid": "LUVQA9BK3F23AFP",
 		"hub_id": 84
 	},
 	"deep H 02": {
+		"map_hidden": true,
 		"tsid": "LTJ1F4BGR9V1OS1",
 		"hub_id": 72
 	},
 	"dino head street": {
+		"map_hidden": true,
 		"tsid": "LA91167564929Q3",
 		"hub_id": 81
 	},
 	"dino head street blue": {
+		"map_hidden": true,
 		"tsid": "LIFV7DO40FC3O6R",
 		"hub_id": 81
 	},
 	"dino head street orange": {
+		"map_hidden": true,
 		"tsid": "LDOL8UAMJGD3P52",
 		"hub_id": 81
 	},
 	"dino head street yellow": {
+		"map_hidden": true,
 		"tsid": "LDO7UDKV56D39PO",
 		"hub_id": 81
 	},
 	"dino_organ_blue": {
+		"map_hidden": true,
 		"tsid": "LIF8NEEEJCC3S7S",
-		"hub_id": 118,
-		"map_hidden": true
+		"hub_id": 118
 	},
 	"dino_organ_blue2": {
 		"tsid": "LDOHGTM73GD3GH5",
@@ -13685,6 +13719,7 @@
 		"map_hidden": true
 	},
 	"entrance": {
+		"map_hidden": true,
 		"tsid": "LDOV4O07NDQ2GO8",
 		"hub_id": 118
 	},
@@ -13694,30 +13729,37 @@
 		"map_hidden": true
 	},
 	"eye spy": {
+		"map_hidden": true,
 		"tsid": "LIFRFPK7V973F48",
 		"hub_id": 81
 	},
 	"eye spy 2 eyes": {
+		"map_hidden": true,
 		"tsid": "LDOLA3N8Q5D33N2",
 		"hub_id": 81
 	},
 	"eye spy 2 long": {
+		"map_hidden": true,
 		"tsid": "LDOK5FG916D3O3B",
 		"hub_id": 81
 	},
 	"far": {
+		"map_hidden": true,
 		"tsid": "LDO386V42EQ2DN9",
 		"hub_id": 118
 	},
 	"faux house": {
+		"map_hidden": true,
 		"tsid": "LIFPCLFJ6S7340K",
 		"hub_id": 81
 	},
 	"fgm01": {
+		"map_hidden": true,
 		"tsid": "LUV6DQ3EFLD30F1",
 		"hub_id": 82
 	},
 	"filter bling test": {
+		"map_hidden": true,
 		"tsid": "LLI1A8P6BCH14UC",
 		"hub_id": 57
 	},
@@ -13927,18 +13969,22 @@
 		"map_hidden": true
 	},
 	"for1": {
+		"map_hidden": true,
 		"tsid": "LA9STU800792PKB",
 		"hub_id": 81
 	},
 	"for2": {
+		"map_hidden": true,
 		"tsid": "LA91LUVHHV826GN",
 		"hub_id": 81
 	},
 	"for3": {
+		"map_hidden": true,
 		"tsid": "LA91N8LMD192AA2",
 		"hub_id": 81
 	},
 	"forest1": {
+		"map_hidden": true,
 		"tsid": "LA94TLAPM672A6G",
 		"hub_id": 81
 	},
@@ -14228,6 +14274,7 @@
 		"map_hidden": true
 	},
 	"groddle apt swf test": {
+		"map_hidden": true,
 		"tsid": "LUVTQ8CG0FU284T",
 		"hub_id": 84
 	},
@@ -14267,22 +14314,27 @@
 		"map_hidden": true
 	},
 	"hide": {
+		"map_hidden": true,
 		"tsid": "LDOIBNJG14Q274N",
 		"hub_id": 118
 	},
 	"high1": {
+		"map_hidden": true,
 		"tsid": "LA9T4I8MRT729JR",
 		"hub_id": 81
 	},
 	"high2": {
+		"map_hidden": true,
 		"tsid": "LA9FS5LOI082BIH",
 		"hub_id": 81
 	},
 	"high3": {
+		"map_hidden": true,
 		"tsid": "LA9BS7PNH282MGA",
 		"hub_id": 81
 	},
 	"high4": {
+		"map_hidden": true,
 		"tsid": "LA9KDFR87382QS6",
 		"hub_id": 81
 	},
@@ -14297,10 +14349,12 @@
 		"map_hidden": true
 	},
 	"hills": {
+		"map_hidden": true,
 		"tsid": "LDO4L5R5N0Q2EPV",
 		"hub_id": 118
 	},
 	"hills2": {
+		"map_hidden": true,
 		"tsid": "LDO2O98IVAQ281O",
 		"hub_id": 118
 	},
@@ -14325,10 +14379,12 @@
 		"map_hidden": true
 	},
 	"jump": {
+		"map_hidden": true,
 		"tsid": "LDOHMER53BQ2T7I",
 		"hub_id": 118
 	},
 	"justin's test": {
+		"map_hidden": true,
 		"tsid": "LNVKBGH0IHL251J",
 		"hub_id": 115
 	},
@@ -14587,282 +14643,352 @@
 		"map_hidden": true
 	},
 	"main street (do not use!)": {
+		"map_hidden": true,
 		"tsid": "LM416MPGG78QR",
 		"hub_id": 37
 	},
 	"main street for hub 33": {
+		"map_hidden": true,
 		"tsid": "LM4104MGKHVB5",
 		"hub_id": 33
 	},
 	"main street for hub 40": {
+		"map_hidden": true,
 		"tsid": "LM4106R9OLLF7",
 		"hub_id": 40
 	},
 	"main street for hub 55": {
+		"map_hidden": true,
 		"tsid": "LLI108VKRS7157F",
 		"hub_id": 55
 	},
 	"main street for hub 56": {
+		"map_hidden": true,
 		"tsid": "LLI1013Q5BB14E0",
 		"hub_id": 56
 	},
 	"main street for hub 57": {
+		"map_hidden": true,
 		"tsid": "LLI25PQAFHD1BFM",
 		"hub_id": 57
 	},
 	"main street for hub 58": {
+		"map_hidden": true,
 		"tsid": "LLI32FCEUTD1984",
 		"hub_id": 58
 	},
 	"main street for hub 60": {
+		"map_hidden": true,
 		"tsid": "LIF102MOD9F1EM1",
 		"hub_id": 60
 	},
 	"main street for hub 63": {
+		"map_hidden": true,
 		"tsid": "LLI57C572HI1KPC",
 		"hub_id": 63
 	},
 	"main street for hub 64": {
+		"map_hidden": true,
 		"tsid": "LLI59ABR3JI1BBQ",
 		"hub_id": 64
 	},
 	"main street for hub 66": {
+		"map_hidden": true,
 		"tsid": "LTJ1KK45N2O1CG1",
 		"hub_id": 66
 	},
 	"main street for hub 67": {
+		"map_hidden": true,
 		"tsid": "LIF109GGV3P1MOU",
 		"hub_id": 67
 	},
 	"main street for hub 70": {
+		"map_hidden": true,
 		"tsid": "LCR17HNFN8S1HBR",
 		"hub_id": 70
 	},
 	"main street for hub 72": {
+		"map_hidden": true,
 		"tsid": "LTJ1KCGFSAU1934",
 		"hub_id": 72
 	},
 	"main street for hub 73": {
+		"map_hidden": true,
 		"tsid": "LIF1FI13GEU1HQN",
 		"hub_id": 73
 	},
 	"main street for hub 75": {
+		"map_hidden": true,
 		"tsid": "LIFNQSJ1UD02M6B",
 		"hub_id": 75
 	},
 	"main street for hub 76": {
+		"map_hidden": true,
 		"tsid": "LLI17M1P8J027U4",
 		"hub_id": 76
 	},
 	"main street for hub 77": {
+		"map_hidden": true,
 		"tsid": "LTJ50JDDRJ02SGE",
 		"hub_id": 77
 	},
 	"main street for hub 79": {
+		"map_hidden": true,
 		"tsid": "LCR8MN6EJI12O76",
 		"hub_id": 79
 	},
 	"main street for hub 81": {
+		"map_hidden": true,
 		"tsid": "LA9EEMFVQE2257N",
 		"hub_id": 81
 	},
 	"main street for hub 82": {
+		"map_hidden": true,
 		"tsid": "LIFIO3CI7F22P96",
 		"hub_id": 82
 	},
 	"main street for hub 83": {
+		"map_hidden": true,
 		"tsid": "LIFE3A4ELA321E0",
 		"hub_id": 83
 	},
 	"main street for hub 85": {
+		"map_hidden": true,
 		"tsid": "LHV14F40DQ32IOH",
 		"hub_id": 85
 	},
 	"main street for hub 86": {
+		"map_hidden": true,
 		"tsid": "LA5144I7IC42FTD",
 		"hub_id": 86
 	},
 	"main street for hub 87": {
+		"map_hidden": true,
 		"tsid": "LIFCD92E8K42V04",
 		"hub_id": 87
 	},
 	"main street for hub 89": {
+		"map_hidden": true,
 		"tsid": "LA5Q1RUOT852EMO",
 		"hub_id": 89
 	},
 	"main street for hub 91": {
+		"map_hidden": true,
 		"tsid": "LA5VF07QAG52N50",
 		"hub_id": 91
 	},
 	"main street for hub 92": {
+		"map_hidden": true,
 		"tsid": "LIF1OI3OQQ523OK",
 		"hub_id": 92
 	},
 	"main street for hub 93": {
+		"map_hidden": true,
 		"tsid": "LIFG3HUVNP62UVV",
 		"hub_id": 93
 	},
 	"main street for hub 94": {
+		"map_hidden": true,
 		"tsid": "LHV2LD28AS62C69",
 		"hub_id": 94
 	},
 	"main street for hub 95": {
+		"map_hidden": true,
 		"tsid": "LIFF7LS69O72TCN",
 		"hub_id": 95
 	},
 	"main street for hub 96": {
+		"map_hidden": true,
 		"tsid": "LIFFUTK9TQ72UCD",
 		"hub_id": 96
 	},
 	"main street for hub 97": {
+		"map_hidden": true,
 		"tsid": "LA9TBK6SGR726VM",
 		"hub_id": 97
 	},
 	"main street for hub 98": {
+		"map_hidden": true,
 		"tsid": "LA912ITK8S82IQ6",
 		"hub_id": 98
 	},
 	"main street for hub 101": {
+		"map_hidden": true,
 		"tsid": "LHVR9OQH76A2B2E",
 		"hub_id": 101
 	},
 	"main street for hub 103": {
+		"map_hidden": true,
 		"tsid": "LA5AG7R8KEB218M",
 		"hub_id": 103
 	},
 	"main street for hub 105": {
+		"map_hidden": true,
 		"tsid": "LIFK0VM2BJC229N",
 		"hub_id": 105
 	},
 	"main street for hub 106": {
+		"map_hidden": true,
 		"tsid": "LHFBFOCR92D2HUR",
 		"hub_id": 106
 	},
 	"main street for hub 107": {
+		"map_hidden": true,
 		"tsid": "LDOH00F4D5D23QR",
 		"hub_id": 107
 	},
 	"main street for hub 108": {
+		"map_hidden": true,
 		"tsid": "LDOFHCU7G1E24VS",
 		"hub_id": 108
 	},
 	"main street for hub 109": {
+		"map_hidden": true,
 		"tsid": "LUV3BKB1DOE2BJ2",
 		"hub_id": 109
 	},
 	"main street for hub 110": {
+		"map_hidden": true,
 		"tsid": "LA5RJCG77UG2T4S",
 		"hub_id": 110
 	},
 	"main street for hub 111": {
+		"map_hidden": true,
 		"tsid": "LHV398JFG0H2KJS",
 		"hub_id": 111
 	},
 	"main street for hub 114": {
+		"map_hidden": true,
 		"tsid": "LUVETBS9PIJ2KAO",
 		"hub_id": 114
 	},
 	"main street for hub 115": {
+		"map_hidden": true,
 		"tsid": "LNVLVU5GGBL293B",
 		"hub_id": 115
 	},
 	"main street for hub 116": {
+		"map_hidden": true,
 		"tsid": "LA998BHV7NM2BLD",
 		"hub_id": 116
 	},
 	"main street for hub 119": {
+		"map_hidden": true,
 		"tsid": "LDO55SEINLQ2N67",
 		"hub_id": 119
 	},
 	"main street for hub 120": {
+		"map_hidden": true,
 		"tsid": "LUVLO82O8KR2L7V",
 		"hub_id": 120
 	},
 	"main street for hub 121": {
+		"map_hidden": true,
 		"tsid": "LA54KT2CLKR2BND",
 		"hub_id": 121
 	},
 	"main street for hub 123": {
+		"map_hidden": true,
 		"tsid": "LA58EBRU2US212A",
 		"hub_id": 123
 	},
 	"main street for hub 124": {
+		"map_hidden": true,
 		"tsid": "LUVHC57I7RU20R7",
 		"hub_id": 124
 	},
 	"main street for hub 125": {
+		"map_hidden": true,
 		"tsid": "LHVOJ41KF403NA3",
 		"hub_id": 125
 	},
 	"main street for hub 126": {
+		"map_hidden": true,
 		"tsid": "LDOVNB7VTR03BOQ",
 		"hub_id": 126
 	},
 	"main street for hub 127": {
+		"map_hidden": true,
 		"tsid": "LDO3D03RUR03LLF",
 		"hub_id": 127
 	},
 	"main street for hub 128": {
+		"map_hidden": true,
 		"tsid": "LA5E9N71S313NV3",
 		"hub_id": 128
 	},
 	"main street for hub 129": {
+		"map_hidden": true,
 		"tsid": "LIF15Q8D1023CLJ",
 		"hub_id": 129
 	},
 	"main street for hub 130": {
+		"map_hidden": true,
 		"tsid": "LHFCO8GVRH23ITN",
 		"hub_id": 130
 	},
 	"main street for hub 131": {
+		"map_hidden": true,
 		"tsid": "LIFR63F1CE333M9",
 		"hub_id": 131
 	},
 	"main street for hub 132": {
+		"map_hidden": true,
 		"tsid": "LUVLA45E20431TD",
 		"hub_id": 132
 	},
 	"main street for hub 133": {
+		"map_hidden": true,
 		"tsid": "LIFH8EFKN743HKI",
 		"hub_id": 133
 	},
 	"main street for hub 134": {
+		"map_hidden": true,
 		"tsid": "LIFB85MQDJ53DM0",
 		"hub_id": 134
 	},
 	"main street for hub 135": {
+		"map_hidden": true,
 		"tsid": "LIFM4TOB7A7391O",
 		"hub_id": 135
 	},
 	"main street for hub 136": {
+		"map_hidden": true,
 		"tsid": "LUVVDQKFU8A3JFR",
 		"hub_id": 136
 	},
 	"main street for hub 137": {
+		"map_hidden": true,
 		"tsid": "LHVTI9SD3MA328M",
 		"hub_id": 137
 	},
 	"main street for hub 138": {
+		"map_hidden": true,
 		"tsid": "LHVRHB9PR1C354T",
 		"hub_id": 138
 	},
 	"main street for hub 139": {
+		"map_hidden": true,
 		"tsid": "LHF2L16RR1C3C0F",
 		"hub_id": 139
 	},
 	"main street for hub 140": {
+		"map_hidden": true,
 		"tsid": "LUVTV26O2FC3DLB",
 		"hub_id": 140
 	},
 	"main street for hub 141": {
+		"map_hidden": true,
 		"tsid": "LHFIM1TGTTC33LE",
 		"hub_id": 141
 	},
 	"main street for hub 142": {
+		"map_hidden": true,
 		"tsid": "LA9SNOL77LD3JQG",
 		"hub_id": 142
 	},
 	"main street for hub 143": {
+		"map_hidden": true,
 		"tsid": "LA9Q52R0V4F3VQ9",
 		"hub_id": 143
 	},
@@ -14977,6 +15103,7 @@
 		"map_hidden": true
 	},
 	"mental space": {
+		"map_hidden": true,
 		"tsid": "LDON6DO9HCP286T",
 		"hub_id": 81
 	},
@@ -14991,6 +15118,7 @@
 		"map_hidden": true
 	},
 	"moon3": {
+		"map_hidden": true,
 		"tsid": "LDO2ODHRE1E29RH",
 		"hub_id": 81
 	},
@@ -15025,70 +15153,87 @@
 		"map_hidden": true
 	},
 	"mushroom bling sandbox": {
+		"map_hidden": true,
 		"tsid": "LLIE5DVCCQG1U4K",
 		"hub_id": 57
 	},
 	"music simple": {
+		"map_hidden": true,
 		"tsid": "LIFARNE7D043VUS",
 		"hub_id": 81
 	},
 	"new Forest 01": {
+		"map_hidden": true,
 		"tsid": "LIF1N1H1BIA2MAB",
 		"hub_id": 82
 	},
 	"new Forest 02": {
+		"map_hidden": true,
 		"tsid": "LIF1QMMJMIA2QE9",
 		"hub_id": 82
 	},
 	"new Forest Transition 01": {
+		"map_hidden": true,
 		"tsid": "LIFSBJOUC8A2UH2",
 		"hub_id": 82
 	},
 	"new Forest Transition 02": {
+		"map_hidden": true,
 		"tsid": "LIFLMDNLIAA2J44",
 		"hub_id": 82
 	},
 	"new Heights 4": {
+		"map_hidden": true,
 		"tsid": "LIF3SVNBT5A2IFO",
 		"hub_id": 82
 	},
 	"new Heights 5": {
+		"map_hidden": true,
 		"tsid": "LIFQL8Q276A21A3",
 		"hub_id": 82
 	},
 	"new Heights 6": {
+		"map_hidden": true,
 		"tsid": "LIFBAG57J8A25DE",
 		"hub_id": 82
 	},
 	"new Heights Hub 2": {
+		"map_hidden": true,
 		"tsid": "LIF14BJKT2A266F",
 		"hub_id": 82
 	},
 	"new Heights Hub 3": {
+		"map_hidden": true,
 		"tsid": "LIFCAI89E3A27Q6",
 		"hub_id": 82
 	},
 	"new Hub Heights": {
+		"map_hidden": true,
 		"tsid": "LIFPQ9EAB0A21LN",
 		"hub_id": 82
 	},
 	"newTam1": {
+		"map_hidden": true,
 		"tsid": "LA9BTKDBCN6257V",
 		"hub_id": 81
 	},
 	"newTam2": {
+		"map_hidden": true,
 		"tsid": "LA9T6H26LN620BV",
 		"hub_id": 81
 	},
 	"newTam3": {
+		"map_hidden": true,
 		"tsid": "LA9VAQQHPP629Q8",
 		"hub_id": 81
 	},
 	"newTam4": {
+		"map_hidden": true,
 		"tsid": "LA9M9QAD5Q623B9",
 		"hub_id": 81
 	},
 	"newTam5": {
+		"map_hidden": true,
 		"tsid": "LA9TC7ELAS62G2O",
 		"hub_id": 81
 	},
@@ -15138,17 +15283,19 @@
 		"map_hidden": true
 	},
 	"physics settings": {
+		"map_hidden": true,
 		"tsid": "LIFCJTRKTN83O2D",
 		"hub_id": 81
 	},
 	"physics settings 2": {
+		"map_hidden": true,
 		"tsid": "LIFEEKITTN83RKK",
 		"hub_id": 81
 	},
 	"picto_pattern_v2": {
+		"map_hidden": true,
 		"tsid": "LHF7VSM85FC363H",
-		"hub_id": 80,
-		"map_hidden": true
+		"hub_id": 80
 	},
 	"placeholder_street_01": {
 		"tsid": "LIF1EUQKP212SGH",
@@ -15156,6 +15303,7 @@
 		"map_hidden": true
 	},
 	"plain meadow": {
+		"map_hidden": true,
 		"tsid": "LNVM32THGBL2MVE",
 		"hub_id": 115
 	},
@@ -15190,6 +15338,7 @@
 		"map_hidden": true
 	},
 	"quoins": {
+		"map_hidden": true,
 		"tsid": "LUV6IPE0UFB3NFA",
 		"hub_id": 84
 	},
@@ -15199,10 +15348,12 @@
 		"map_hidden": true
 	},
 	"red barron": {
+		"map_hidden": true,
 		"tsid": "LIFNVBEH0E636PU",
 		"hub_id": 81
 	},
 	"rube spy": {
+		"map_hidden": true,
 		"tsid": "LIFA3DRGAH7346I",
 		"hub_id": 81
 	},
@@ -15222,6 +15373,7 @@
 		"map_hidden": true
 	},
 	"seam street to foxes": {
+		"map_hidden": true,
 		"tsid": "LA57OFILRFT2B3S",
 		"hub_id": 80
 	},
@@ -15231,6 +15383,7 @@
 		"map_hidden": true
 	},
 	"skyball": {
+		"map_hidden": true,
 		"tsid": "LA9117Q58K624RI",
 		"hub_id": 81
 	},
@@ -15270,10 +15423,12 @@
 		"map_hidden": true
 	},
 	"soil appreciation another copy": {
+		"map_hidden": true,
 		"tsid": "LIF39H48QM538AM",
 		"hub_id": 81
 	},
 	"spirited": {
+		"map_hidden": true,
 		"tsid": "LIFH8R7TUV02R5D",
 		"hub_id": 77
 	},
@@ -15283,18 +15438,22 @@
 		"map_hidden": true
 	},
 	"test": {
+		"map_hidden": true,
 		"tsid": "LDOUUI73HLD3PDB",
 		"hub_id": 118
 	},
 	"test clone items": {
+		"map_hidden": true,
 		"tsid": "LUVB5LD0IKD2CF4",
 		"hub_id": 82
 	},
 	"test cloner 02": {
+		"map_hidden": true,
 		"tsid": "LUVFENGKIKD2G26",
 		"hub_id": 82
 	},
 	"test subway slow": {
+		"map_hidden": true,
 		"tsid": "LUVI67CEU793JIJ",
 		"hub_id": 82
 	},
@@ -15314,6 +15473,7 @@
 		"map_hidden": true
 	},
 	"testbed": {
+		"map_hidden": true,
 		"tsid": "LIFUO75QRJ736TB",
 		"hub_id": 81
 	},
@@ -15408,6 +15568,7 @@
 		"map_hidden": true
 	},
 	"unnnn": {
+		"map_hidden": true,
 		"tsid": "LIFPV9EMLT72DP4",
 		"hub_id": 96
 	},
@@ -15462,10 +15623,12 @@
 		"map_hidden": true
 	},
 	"uutiif": {
+		"map_hidden": true,
 		"hub_id": 66,
 		"tsid": "LDOU1UON87E3K2T"
 	},
 	"vision quest": {
+		"map_hidden": true,
 		"tsid": "LA5BEP9AS8J2VBP",
 		"hub_id": 80
 	},
@@ -15505,18 +15668,22 @@
 		"map_hidden": true
 	},
 	"zBackup Swimming Coin Level 08": {
+		"map_hidden": true,
 		"tsid": "LUVUHU3944A3F9F",
 		"hub_id": 82
 	},
 	"zWaterfall 03 Backup": {
+		"map_hidden": true,
 		"tsid": "LIFDC2V22093A54",
 		"hub_id": 61
 	},
 	"zWaterfall 04": {
+		"map_hidden": true,
 		"tsid": "LIFRG6I0R5836IS",
 		"hub_id": 61
 	},
 	"zWaterfall 04 Backup": {
+		"map_hidden": true,
 		"tsid": "LIFE37Q62093K82",
 		"hub_id": 61
 	},
@@ -15530,13 +15697,13 @@
 		"hub_id": 63,
 		"map_hidden": true
 	},
-	"z_keep_SM Final Apartment 01": {
-		"tsid": "LTJOIBSS3MR11K7",
+	"z_keep_SM Aboveground 04 - embargo": {
+		"tsid": "LTJ128OL5NO1MFL",
 		"hub_id": 63,
 		"map_hidden": true
 	},
-	"z_keep_SM Aboveground 04 - embargo": {
-		"tsid": "LTJ128OL5NO1MFL",
+	"z_keep_SM Final Apartment 01": {
+		"tsid": "LTJOIBSS3MR11K7",
 		"hub_id": 63,
 		"map_hidden": true
 	},
