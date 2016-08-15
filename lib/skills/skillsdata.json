@@ -16,7 +16,8 @@
 				"element_handling": 1
 			}
 		},
-		"giants": ["Tii", "Alph", "Lem"]
+		"giants": ["Tii", "Alph", "Lem"],
+		"color": "#......"
 	},
 	"animal_kinship": {
 		"name": "Animal Kinship",
@@ -41,7 +42,8 @@
 			"https://www.glitchthegame.com/img/skills-460/animalkinship_7.v1428362783.png"
 		],
 		"requirements": {},
-		"giants": ["Humbaba", "Friendly", "Mab"]
+		"giants": ["Humbaba", "Friendly", "Mab"],
+		"color": "#......"
 	},
 	"arborology": {
 		"name": "Arborology",
@@ -67,7 +69,8 @@
 				"light_green_thumb": 1
 			}
 		},
-		"giants": ["Spriggan", "Grendaline", "Mab"]
+		"giants": ["Spriggan", "Grendaline", "Mab"],
+		"color": "#......"
 	},
 	"bubble_tuning": {
 		"name": "Bubble Tuning",
@@ -82,7 +85,8 @@
 		"requirements": {
 			"level": 3
 		},
-		"giants": ["Spriggan", "Grendaline", "Tii"]
+		"giants": ["Spriggan", "Grendaline", "Tii"],
+		"color": "#......"
 	},
 	"croppery": {
 		"name": "Croppery",
@@ -101,7 +105,8 @@
 		"requirements": {
 			"level": 3
 		},
-		"giants": ["Mab", "Grendaline", "Humbaba"]
+		"giants": ["Mab", "Grendaline", "Humbaba"],
+		"color": "#......"
 	},
 	"element_handling": {
 		"name": "Element Handling",
@@ -116,7 +121,8 @@
 		"requirements": {
 			"level": 3
 		},
-		"giants": ["Tii", "Alph", "Lem"]
+		"giants": ["Tii", "Alph", "Lem"],
+		"color": "#......"
 	},
 	"mining": {
 		"name": "Mining",
@@ -137,7 +143,8 @@
 		"requirements": {
 			"level": 3
 		},
-		"giants": ["Zille", "Alph", "Cosma"]
+		"giants": ["Zille", "Alph", "Cosma"],
+		"color": "#......"
 	},
 	"penpersonship": {
 		"name": "Penpersonship",
@@ -152,7 +159,8 @@
 		"requirements": {
 			"level": 7
 		},
-		"giants": ["Lem", "Friendly", "Spriggan"]
+		"giants": ["Lem", "Friendly", "Spriggan"],
+		"color": "#......"
 	},
 	"tinkering": {
 		"name": "Tinkering",
@@ -175,6 +183,7 @@
 		"requirements": {
 			"level": 3
 		},
-		"giants": ["Alph", "Friendly", "Tii"]
+		"giants": ["Alph", "Friendly", "Tii"],
+		"color": "#......"
 	}
 }

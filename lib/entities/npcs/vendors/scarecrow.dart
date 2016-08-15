@@ -55,35 +55,27 @@ class GardeningGoodsVendor extends Vendor {
 
 		// update x and y
 		if (currentState.stateName == 'walk') {
-			moveXY(wallAction: (Wall wall) {
-				facingRight = !facingRight;
-			});
+			moveXY(
+				wallAction: (Wall wall) {
+					// Don't turn around
+					return;
+				},
+				ledgeAction: () {
+					// Float, don't fall
+					return;
+				}
+			);
 		}
 
 		if (respawn != null && respawn.compareTo(new DateTime.now()) <= 0) {
-			// if we just turned, we should say we're facing the other way, then we should start moving (that's why we turned around after all)
-			if (currentState.stateName == 'turn_left') {
-				// if we turned left, we are no longer facing right
-				facingRight = false;
-				// start walking left
-				setState('walk');
-			} else if (currentState.stateName == 'turn_right') {
-				// if we turned right, we are now facing right
-				facingRight = true;
-				// start walking right
-				setState('walk');
+			if (rand.nextInt(4) > 2) {
+				// 50% chance of trying to attract buyers for 5 seconds
+				setState('attract');
+				respawn = new DateTime.now().add(new Duration(seconds: 5));
 			} else {
-				if (rand.nextInt(2) == 1) {
-					setState('walk', repeat: 5);
-				} else {
-					if (rand.nextInt(4) > 2) {
-						// 50% chance of trying to attract buyers
-						setState('attract');
-					} else if (rand.nextInt(2) == 1){
-						// wait
-						setState('idle_stand');
-					}
-				}
+				// Wait for 20 seconds
+				setState('idle_stand');
+				respawn = new DateTime.now().add(new Duration(seconds: 20));
 			}
 		}
 	}

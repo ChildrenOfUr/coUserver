@@ -25,7 +25,7 @@ import 'package:redstone_mapper/plugin.dart';
 import 'package:redstone/redstone.dart' as app;
 
 //handle player update events
-class StreetUpdateHandler {
+class StreetUpdateHandler extends Object with MetabolicsChange {
 	static Duration simulateDuration = new Duration(seconds: 1);
 	static Duration npcUpdateDuration = new Duration(milliseconds: 1000~/NPC.updateFps);
 	static Map<String, Street> streets = new Map();
@@ -142,6 +142,14 @@ class StreetUpdateHandler {
 				pickedUpItems.forEach((String id) => street.groundItems.remove(id));
 
 				street.occupants.forEach((String username, WebSocket socket) async {
+					if (street.label == 'Wintry Place') {
+						// Degrade energy
+						getMetabolics(username: username).then((Metabolics metabolics) async {
+							metabolics.energy -= 1;
+							await setMetabolics(metabolics);
+						});
+					}
+
 					if (socket != null) {
 						socket.add(JSON.encode(updates));
 						String email = await User.getEmailFromUsername(username);
@@ -152,9 +160,15 @@ class StreetUpdateHandler {
 							&& !(await BuffManager.playerHasBuff('nostalgia', email))
 						) {
 							// Kick them out
+							toast(
+								'The nostalgia is overwhelming. You need to take a break',
+								socket);
 							String outTsid = MapData.savannaEscapeTo(streetName);
-							teleport(userSocket: socket, email: email,
-								tsid: outTsid, energyFree: true);
+							teleport(
+								userSocket: socket,
+								email: email,
+								tsid: outTsid,
+								energyFree: true);
 
 							// Prevent reentry
 							BuffManager.addToUser('nostalgia_over', email, socket);
@@ -265,15 +279,28 @@ class StreetUpdateHandler {
 					}
 
 					// SAVANNA: Start tracking time
-					if (
-						MapData.isSavannaStreet(streetName)
-						&& !(await BuffManager.playerHasBuff('nostalgia', email))
-					) {
-						BuffManager.addToUser('nostalgia', email, ws);
+					if (MapData.isSavannaStreet(streetName)) {
+						// Entering Savanna
+						if (!(await BuffManager.playerHasBuff('nostalgia_over', email))) {
+							// Allow
+							BuffManager.addToUser('nostalgia', email, ws);
+						} else {
+							// Disallow
+							toast('You are still too overwhelmed by nostalgia', ws);
+							String outTsid = MapData.savannaEscapeTo(streetName);
+							teleport(
+								userSocket: ws,
+								email: email,
+								tsid: outTsid,
+								energyFree: true);
+						}
 
 						// TODO: quest https://github.com/tinyspeck/glitch-GameServerJS/blob/f4cf3e3ed540227b0f1fec26dd5273c03b0f9ead/quests/baqala_nostalgia.js
 
 						// TODO: rock https://github.com/tinyspeck/glitch-GameServerJS/blob/f4cf3e3ed540227b0f1fec26dd5273c03b0f9ead/locations/savanna.js
+					} else {
+						// Leaving Savanna
+						BuffManager.removeFromUser('nostalgia', email, ws);
 					}
 
 					return;

@@ -39,10 +39,16 @@ class BuffManager {
 	}
 
 	/// Give a user a buff
-	static Future addToUser(String buffId, String email, WebSocket userSocket) async {
+	static Future<bool> addToUser(String buffId, String email, WebSocket userSocket) async {
+		if (await BuffManager.playerHasBuff(buffId, email)) {
+			// User already has this buff
+			return false;
+		}
+
 		PlayerBuff newBuff = new PlayerBuff(Buff.find(buffId), email);
 		userSocket.add(JSON.encode({"buff": newBuff.toMap()}));
 		newBuff.startUpdating();
+		return true;
 	}
 
 	/// Remove a buff from a user
