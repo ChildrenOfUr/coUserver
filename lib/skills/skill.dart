@@ -17,7 +17,8 @@ class Skill {
 		this.levels,
 		this.iconUrls,
 		this.requirements,
-		this.giants
+		this.giants,
+		this.color
 	) {
 		_verifyZeroState();
 	}
@@ -31,6 +32,7 @@ class Skill {
 		this.iconUrls = map["iconUrls"];
 		this.requirements = map["requirements"];
 		this.giants = map["giants"];
+		this.color = map["color"];
 
 		_verifyZeroState();
 	}
@@ -45,7 +47,8 @@ class Skill {
 		"iconUrls": iconUrls,
 		"requirements": requirements,
 		"giants": giants,
-		"primary_giant": primaryGiant
+		"primary_giant": primaryGiant,
+		"color": color
 	};
 
 	/// Copy (new object, not reference)
@@ -57,6 +60,7 @@ class Skill {
 	String name;
 	String category;
 	List<String> descriptions;
+	String color; // #123456, used for client progress bars
 
 	// Levels
 
