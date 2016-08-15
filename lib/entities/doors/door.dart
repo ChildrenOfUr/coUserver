@@ -11,7 +11,7 @@ abstract class Door extends Entity {
 	}
 
 	//For now, nothing about doors needs to be persisted to the db
-	Future persist() async {}
+	StreetEntity persist() => null;
 
 	//So there's also nothing to restore
 	void restoreState(Map<String, String> metadata) {}
