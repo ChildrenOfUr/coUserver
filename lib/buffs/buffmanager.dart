@@ -54,7 +54,7 @@ class BuffManager {
 	/// Remove a buff from a user
 	static Future removeFromUser(String buffId, String email, WebSocket userSocket) async {
 		List<Map<String, dynamic>> matching = (await getPlayerBuffs(email: email))
-			.where((Map<String, dynamic> buff) => buff["id"] == buffId);
+			.where((Map<String, dynamic> buff) => buff["id"] == buffId).toList();
 		if (matching.length > 0) {
 			PlayerBuff oldBuff = new PlayerBuff.fromMap(matching.single);
 			userSocket.add(JSON.encode({"buff_remove": oldBuff.id}));
@@ -120,8 +120,8 @@ class BuffManager {
 
 		PostgreSql dbConn = await dbManager.getConnection();
 
-		Map<String, int> playerBuffsData = new Map();
-		List<Map<String, dynamic>> playerBuffsList = new List();
+		Map<String, int> playerBuffsData = {};
+		List<Map<String, dynamic>> playerBuffsList = [];
 
 		// Get data from database
 		try {

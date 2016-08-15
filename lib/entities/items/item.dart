@@ -214,8 +214,15 @@ class Item extends Object
 	// Getters
 
 	List<Map> get actionList {
+		List<Map> result = [];
 		if (onGround) {
-			return [encode(pickupAction)];
+			actions.forEach((Action action) {
+				if (action.groundAction) {
+					result.add(encode(action));
+				}
+			});
+			result.add(encode(pickupAction));
+			return result;
 		} else {
 			List<Map> result = encode(actions);
 			bool found = false;

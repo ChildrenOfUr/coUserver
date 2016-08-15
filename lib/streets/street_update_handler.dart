@@ -353,6 +353,16 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 						try {
 							var entity = entityMap[map['id']];
 							InstanceMirror entityMirror = reflect(entity);
+
+							//ground items can sometimes perform item actions so we need to prepare the arguments
+							if (type == 'groundItem') {
+								(entityMirror.reflectee as Item).actions.forEach((Action action) {
+									if (normalizeMethodName(action.actionName) == methodName && action.groundAction) {
+										map['arguments']['map'] = {'id' : map['id'], 'streetName': map['streetName']};
+									}
+								});
+							}
+
 							Map<Symbol, dynamic> arguments = {#userSocket:ws, #email:email};
 							if (map['arguments'] != null) {
 								(map['arguments'] as Map).forEach((key, value) => arguments[new Symbol(key)] = value);
@@ -395,6 +405,8 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 
 			newName += parts[i];
 		}
+
+		newName = newName.substring(0,1).toLowerCase() + newName.substring(1);
 
 		return newName;
 	}
