@@ -152,9 +152,15 @@ class StreetUpdateHandler {
 							&& !(await BuffManager.playerHasBuff('nostalgia', email))
 						) {
 							// Kick them out
+							toast(
+								'The nostalgia is overwhelming. You need to take a break',
+								socket);
 							String outTsid = MapData.savannaEscapeTo(streetName);
-							teleport(userSocket: socket, email: email,
-								tsid: outTsid, energyFree: true);
+							teleport(
+								userSocket: socket,
+								email: email,
+								tsid: outTsid,
+								energyFree: true);
 
 							// Prevent reentry
 							BuffManager.addToUser('nostalgia_over', email, socket);
@@ -265,15 +271,28 @@ class StreetUpdateHandler {
 					}
 
 					// SAVANNA: Start tracking time
-					if (
-						MapData.isSavannaStreet(streetName)
-						&& !(await BuffManager.playerHasBuff('nostalgia', email))
-					) {
-						BuffManager.addToUser('nostalgia', email, ws);
+					if (MapData.isSavannaStreet(streetName)) {
+						// Entering Savanna
+						if (!(await BuffManager.playerHasBuff('nostalgia_over', email))) {
+							// Allow
+							BuffManager.addToUser('nostalgia', email, ws);
+						} else {
+							// Disallow
+							toast('You are still too overwhelmed by nostalgia', ws);
+							String outTsid = MapData.savannaEscapeTo(streetName);
+							teleport(
+								userSocket: ws,
+								email: email,
+								tsid: outTsid,
+								energyFree: true);
+						}
 
 						// TODO: quest https://github.com/tinyspeck/glitch-GameServerJS/blob/f4cf3e3ed540227b0f1fec26dd5273c03b0f9ead/quests/baqala_nostalgia.js
 
 						// TODO: rock https://github.com/tinyspeck/glitch-GameServerJS/blob/f4cf3e3ed540227b0f1fec26dd5273c03b0f9ead/locations/savanna.js
+					} else {
+						// Leaving Savanna
+						BuffManager.removeFromUser('nostalgia', email, ws);
 					}
 
 					return;
