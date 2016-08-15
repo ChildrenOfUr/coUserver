@@ -93,12 +93,16 @@ class RecipeBook extends Object with MetabolicsChange {
 		@app.QueryParam("email") String email,
 		@app.QueryParam("username") String username) async {
 
+		Log.verbose('<username=$username> is making <id=$id>');
+
 		if (token != redstoneToken) {
+			Log.verbose('<username=$username> has an unauthorized client');
 			return "the client is unauthorized";
 		}
 
 		// Stop if the tool breaks
 		if (!(await InventoryV2.hasUnbrokenItem(email, findRecipe(id).tool, 1))) {
+			Log.verbose('<username=$username> just broke their <tool=${findRecipe(id).tool}>');
 			return "it broke";
 		}
 
@@ -106,15 +110,19 @@ class RecipeBook extends Object with MetabolicsChange {
 		Recipe recipe;
 		List<Recipe> rList = recipes.where((Recipe recipe) => recipe.id == id).toList();
 		if (rList.length != 1) {
+			Log.verbose('<username=$username> tried to make nonexistent recipe <id=$id>');
 			return "the recipe is missing";
 		} else {
 			recipe = rList.first;
 		}
 
+		Log.verbose('recipe makes ${recipe.output_amt} ${recipe.output}');
+
 		if (items[recipe.tool].durability != null) {
 			//take away tool durability
 			bool durabilitySuccess = await InventoryV2.decreaseDurability(email, recipe.tool);
 			if (!durabilitySuccess) {
+				Log.verbose('<username=$username> is missing their <recipe.tool=${recipe.tool}>');
 				return "it's missing";
 			}
 		}
@@ -123,6 +131,7 @@ class RecipeBook extends Object with MetabolicsChange {
 		bool takeEnergySuccess = await trySetMetabolics(email, energy: recipe.energy);
 		if (!takeEnergySuccess) {
 			// If they don't have enough energy, they're not frying an egg
+			Log.verbose('<username=$username> ran out of energy');
 			return "you are out of energy";
 		}
 
@@ -147,6 +156,7 @@ class RecipeBook extends Object with MetabolicsChange {
 		});
 
 		if (missingItem != null) {
+			Log.verbose('<username=$username> ran out of $missingItem');
 			return "you ran out of ${missingItem}s";
 		}
 
@@ -157,6 +167,7 @@ class RecipeBook extends Object with MetabolicsChange {
 			int got = (await InventoryV2.takeAnyItemsFromUser(email, itemType, qty));
 			if (got != qty) {
 				// If they didn't have a required item, they're not making a smoothie
+				Log.verbose('<username=$username> threw an error because an item ran out');
 				throw "Not enough $itemType. Took $got but wanted $qty";
 			}
 		});

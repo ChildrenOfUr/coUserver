@@ -114,7 +114,7 @@ class QuestService extends Object with MetabolicsChange {
 		}
 	}
 
-	static loadQuests() async {
+	static Future<int> loadQuests() async {
 		// Ignore messages about quest requirements being completed when not on the quest
 		messageBus.undeliverableHandler = (_) {};
 
@@ -129,8 +129,12 @@ class QuestService extends Object with MetabolicsChange {
 					quests[q.id] = q;
 				}
 			}
+
+			Log.verbose('[QuestService] Loaded ${quests.length} quests');
 		} catch (e, st) {
 			Log.error('Problem loading quests', e, st);
 		}
+
+		return quests.length;
 	}
 }

@@ -67,12 +67,16 @@ class Piggy extends NPC {
 
 	@override
 	void restoreState(Map<String, String> metadata) {
+		super.restoreState(metadata);
+
 		if (metadata.containsKey('petList')) {
 			petList = JSON.decode(metadata['petList']);
 		}
+
 		if (metadata.containsKey('nibbleList')) {
 			nibbleList = JSON.decode(metadata['nibbleList']);
 		}
+
 		if (metadata.containsKey('lastReset')) {
 			lastReset = new DateTime.fromMillisecondsSinceEpoch(int.parse(metadata['lastReset']));
 			Clock lastResetClock = new Clock.stoppedAtDate(lastReset);
@@ -85,15 +89,10 @@ class Piggy extends NPC {
 	}
 
 	@override
-	Map<String, String> getPersistMetadata() {
-		Map<String, String> map = {
-			'petList': JSON.encode(petList),
-			'nibbleList': JSON.encode(nibbleList),
-			'lastReset': lastReset.millisecondsSinceEpoch.toString()
-		};
-
-		return map;
-	}
+	Map<String, String> getPersistMetadata() => super.getPersistMetadata()
+		..['petList'] = JSON.encode(petList)
+		..['nibbleList'] = JSON.encode(nibbleList)
+		..['lastReset'] = lastReset.millisecondsSinceEpoch.toString();
 
 	Future<bool> _setLevelBasedMetabolics(int level, String action, String email) async {
 		int mood = 2;

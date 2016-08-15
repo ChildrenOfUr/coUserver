@@ -12,7 +12,7 @@ class StatAchvManager {
 		"fruit_changing_machine": convertFruit,
 		"frying_pan": fry,
 		"gassifier": gassify,
-		"grill": grill,
+		"famous_pugilist_grill": grill,
 		"knife_and_board": chop,
 		"saucepan": simmer,
 		"smelter": smelt,
@@ -30,22 +30,22 @@ class StatAchvManager {
 		}
 	}
 
-	static void cook(String email) {
-		StatManager.add(email, Stat.awesome_pot_uses).then((int uses) {
-			if (uses >= 11) {
-				Achievement.find("1star_cuisinartist").awardTo(email);
-			} else if (uses >= 23) {
-				Achievement.find("2star_cuisinartist").awardTo(email);
-			} else if (uses >= 41) {
-				Achievement.find("3star_cuisinartist").awardTo(email);
-			} else if (uses >= 79) {
-				Achievement.find("4star_cuisinartist").awardTo(email);
-			} else if (uses >= 101) {
-				Achievement.find("5star_cuisinartist").awardTo(email);
-			} else if (uses >= 137) {
-				Achievement.find("golden_ladle_award").awardTo(email);
-			}
-		});
+    static void cook(String email) {
+        StatManager.add(email, Stat.awesome_pot_uses).then((int uses) {
+                if (uses >= 137) {
+                    Achievement.find("golden_ladle_award").awardTo(email);
+                } else if (uses >= 101) {
+                    Achievement.find("5star_cuisinartist").awardTo(email);
+                } else if (uses >= 79) {
+                    Achievement.find("4star_cuisinartist").awardTo(email); 
+                } else if (uses >= 41) {
+                    Achievement.find("3star_cuisinartist").awardTo(email);
+                } else if (uses >= 23) {
+                    Achievement.find("2star_cuisinartist").awardTo(email);
+                } else if (uses >= 11) {
+                    Achievement.find("1star_cuisinartist").awardTo(email);
+                }
+                });
 	}
 
 	static void stir(String email) {
@@ -54,15 +54,15 @@ class StatAchvManager {
 
 	static void seasonBeans(String email) {
 		StatManager.add(email, Stat.beans_seasoned).then((int seasoned) {
-			if (seasoned >= 53) {
+            if (seasoned >= 2003) {
+                Achievement.find("generalissimo_beanorator").awardTo(email);
+            } else if (seasoned >= 503) {
+                Achievement.find("beanorator_1st_class").awardTo(email);
+            } else if (seasoned >= 53) {
 				Achievement.find("beanorator_2nd_class").awardTo(email);
-			} else if (seasoned >= 503) {
-				Achievement.find("beanorator_1st_class").awardTo(email);
-			} else if (seasoned >= 2003) {
-				Achievement.find("generalissimo_beanorator").awardTo(email);
 			}
-		});
-	}
+	    });
+    }
 
 	static void blend(String email) {
 		StatManager.add(email, Stat.blender_uses).then((int uses) {
@@ -154,7 +154,7 @@ class StatAchvManager {
 	}
 
 	static void grill(String email) {
-		StatManager.add(email, Stat.grill_uses).then((int uses) {
+		StatManager.add(email, Stat.famous_pugilist_grill_uses).then((int uses) {
 			if (uses >= 137) {
 				Achievement.find("broil_king").awardTo(email);
 			} else if (uses >= 79) {
@@ -172,15 +172,15 @@ class StatAchvManager {
 	static void chop(String email) {
 		StatManager.add(email, Stat.knife_board_uses).then((int uses) {
 			if (uses >= 137) {
-				Achievement.find("broil_king").awardTo(email);
+				Achievement.find("master_whacker").awardTo(email);
 			} else if (uses >= 79) {
-				Achievement.find("killer_griller").awardTo(email);
+				Achievement.find("silver_cleaver_award").awardTo(email);
 			} else if (uses >= 41) {
-				Achievement.find("master_carbonifier").awardTo(email);
+				Achievement.find("nice_dicer").awardTo(email);
 			} else if (uses >= 23) {
-				Achievement.find("grill_jockey").awardTo(email);
+				Achievement.find("fine_mincer").awardTo(email);
 			} else if (uses >= 11) {
-				Achievement.find("brazier_apprentice").awardTo(email);
+				Achievement.find("able_chopper").awardTo(email);
 			}
 		});
 	}
@@ -230,6 +230,7 @@ class StatAchvManager {
 	}
 
 	static void tinker(email) {
+		SkillManager.learn('tinkering', email);
 		StatManager.add(email, Stat.tinkertool_uses, increment: 50).then((int tinkered) {
 			if (tinkered >= 25013) {
 				Achievement.find("grand_poobah_tinkering_ops").awardTo(email);

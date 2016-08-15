@@ -10,7 +10,7 @@ class StreetEntity {
 		this.x: 0,
 		this.y: 0,
 		this.metadata_json,
-		username
+		String username
 	}) {
 		assert(id != null);
 		assert(type != null);

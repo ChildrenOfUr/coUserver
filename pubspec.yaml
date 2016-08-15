@@ -5,7 +5,7 @@ description: The sourcecode/tools needed to hack/compile the Children of Ur serv
 dependencies:
   intl: "^0.12.6"
   http: "^0.11.3+3"
-  redstone: "^0.6.5"
+  redstone: "^0.6.7"
   redstone_mapper_pg: "^0.2.0-beta.2+2"
   slack: "^1.2.2"
   image: "^1.1.25"
@@ -18,10 +18,4 @@ dev_dependencies:
   dart_dev: "^1.0.0"
   dart_style: ">=0.1.8 <0.3.0"
   dartdoc: "^0.9.0"
-  test: "^0.12.0"
-
-dependency_overrides:
-  redstone:
-    git: https://github.com/redstone-dart/redstone.git
-  redstone_mapper_pg:
-    git: https://github.com/RobertMcDermot/redstone_mapper_pg.git
+  test: "^0.12.15+3"

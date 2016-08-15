@@ -11,8 +11,16 @@ import 'package:coUserver/endpoints/inventory_new.dart';
 import 'package:coUserver/endpoints/status.dart';
 import 'package:coUserver/entities/items/item.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
+import 'package:coUserver/endpoints/weather/weather.dart';
 
 class Console {
+	static final Map<String, Function> _MIGRATES = {
+		'energy': () async => await MetabolicsEndpoint.upgradeEnergy(),
+		'entities': () async => await StreetEntityMigrations.migrateEntities(),
+		'entityIds': () async => await StreetEntityMigrations.reIdEntities(),
+		'locationhistories': () async => await MetabolicsEndpoint.convertLocationHistories()
+	};
+
 	static void _registerCommands() {
 		new Command.register('help', () {
 			Log.command('List of commands & arguments:');
@@ -35,14 +43,9 @@ class Console {
 		new Command.register('global', (String message) async {
 			ChatHandler.superMessage(message);
 			Log.command('Sent message to Global Chat (${ChatHandler.users.length} online)');
-		}, ['"message to post in global chat"']);
+		}, ['"message" to post in global chat']);
 
 		new Command.register('migrate', (String object) async {
-			final Map<String, Function> _MIGRATES = {
-				'entities': () async => await StreetEntityMigrations.migrateEntities(),
-				'entityIds': () async => await StreetEntityMigrations.reIdEntities()
-			};
-
 			if (_MIGRATES.keys.contains(object)) {
 				Log.command('Migrating $object...');
 				int migrated = await _MIGRATES[object]();
@@ -50,11 +53,7 @@ class Console {
 			} else {
 				Log.command('No migrateable object "$object"');
 			}
-		}, ['object to migrate']);
-
-		new Command.register('upgradeenergy', () async {
-			await MetabolicsEndpoint.upgradeEnergy();
-		});
+		}, [_MIGRATES.keys.join(' | ')]);
 
 		new Command.register('giveitem', (String email, String itemType, String qty) async {
 			if (!items.containsKey(itemType)) {
@@ -114,6 +113,18 @@ class Console {
 					.split('\n').forEach((String ln) => Log.command(ln));
 			}
 		}, ['tsid to find']);
+
+		new Command.register('weather', (String tsid) async {
+			Map<String, dynamic> weather = await WeatherService.getConditionsMap(tsid);
+			if (weather['error'] == null) {
+				Log.command('Current Conditions\n' + formatMap(weather['current']));
+				weather['forecast'].forEach((Map<String, dynamic> day) {
+					Log.command('5-day forecast\n' + formatMap(day));
+				});
+			} else {
+				Log.command('No weather in $tsid');
+			}
+		}, ['tsid for which to get weather']);
 	}
 
 	static final String ARG_GROUP = '"';
@@ -125,7 +136,9 @@ class Console {
 	static void init() {
 		// Graceful shutdown
 		ProcessSignal.SIGINT.watch().listen((ProcessSignal sig) async => await cleanup());
-		ProcessSignal.SIGTERM.watch().listen((ProcessSignal sig) async => await cleanup());
+		if (!Platform.isWindows) {
+			ProcessSignal.SIGTERM.watch().listen((ProcessSignal sig) async => await cleanup());
+		}
 
 		stdin.echoMode = true;
 		stdin.lineMode = true;
@@ -144,6 +157,8 @@ class Console {
 		});
 
 		_registerCommands();
+
+		Log.verbose('[Console] Console initialized');
 	}
 
 	static String formatMap(Map input) {

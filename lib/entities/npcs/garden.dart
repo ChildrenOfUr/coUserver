@@ -8,73 +8,104 @@ enum GardenStates {
 }
 
 class Garden extends NPC {
-	static final String SKILL = "croppery";
+	static final String SKILL = 'croppery';
 	static bool sentMap = false;
-	static final int ACTION_ENERGY = 0;
-	static final int HOE_ENERGY = -5;
-	static final int WATER_ENERGY = -2;
-	static final int HARVEST_ENERGY = -3;
-	bool restored = false;
+
+	static final List<String> CROPS = ['broccoli', 'cabbage', 'carrot', 'corn', 'cucumber', 'onion', 'parsnip', 'potato', 'pumpkin', 'rice', 'spinach', 'tomato', 'zucchini'];
+
+	static final ItemRequirements
+		ITEM_REQ_HOE = new ItemRequirements()
+			..any = ['hoe', 'high_class_hoe']
+			..error = "You don't want to get your fingers dirty.",
+		ITEM_REQ_WATER = new ItemRequirements()
+			..any = ['watering_can', 'irrigator_9000']
+			..error = "Gardens don't like to be peed on. Go find some clean water, please.",
+		ITEM_REQ_PLANT = new ItemRequirements()
+			..any = [
+				'broccoli_seed',
+				'cabbage_seed',
+				'carrot_seed',
+				'corn_seed',
+				'cucumber_seed',
+				'onion_seed',
+				'parsnip_seed',
+				'potato_seed',
+				'pumpkin_seed',
+				'rice_seed',
+				'spinach_seed',
+				'tomato_seed',
+				'zucchini_seed'
+			]
+			..error = 'You need some crops to plant';
+
+	static final EnergyRequirements
+		ENERGY_REQ_HOE = new EnergyRequirements(energyAmount: -5),
+		ENERGY_REQ_WATER = new EnergyRequirements(energyAmount: -2),
+		ENERGY_REQ_HARVEST = new EnergyRequirements(energyAmount: -3);
+
+	static final Map<String, Spritesheet> STATES = {
+		'new': new Spritesheet('new',
+			'http://childrenofur.com/assets/entityImages/garden_plot_new.png',
+			100, 90, 100, 90, 1, false),
+		'hoed': new Spritesheet('hoed',
+			'http://childrenofur.com/assets/entityImages/garden_plot_hoed.png',
+			100, 90, 100, 90, 1, false),
+		'watered': new Spritesheet('watered',
+			'http://childrenofur.com/assets/entityImages/garden_plot_watered.png',
+			100, 90, 100, 90, 1, false),
+		'planted_baby': new Spritesheet('planted_baby',
+			'http://childrenofur.com/assets/entityImages/garden_plot_planted_baby.png',
+			100, 90, 100, 90, 1, false),
+	};
 
 	GardenStates gardenState = GardenStates.NEW;
 	String plantedWith = 'none';
 	int plantedState = -1;
 	DateTime plantedAt, stage1Time, stage2Time, stage3Time;
 	Action hoeAction, waterAction, plantAction, viewAction, harvestAction;
+	bool restored = false;
 
 	Garden(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
-		ItemRequirements hoeReq = new ItemRequirements()
-			..any = ['hoe', 'high_class_hoe']
-			..error = "You don't want to get your fingers dirty.";
-		ItemRequirements waterReq = new ItemRequirements()
-			..any = ['watering_can', 'irrigator_9000']
-			..error = "Gardens don't like to be peed on. Go find some clean water, please.";
-		ItemRequirements plantReq = new ItemRequirements()
-			..any = ['Seed_Broccoli','Seed_Cabbage','Seed_Carrot','Seed_Corn',
-			'Seed_Cucumber','Seed_Onion','Seed_Parsnip','Seed_Potato',
-			'Seed_Pumpkin','Seed_Rice','Seed_Spinach','Seed_Tomato','Seed_Zucchini']
-			..error = 'You need some crops to plant';
+		type = 'Crop Garden';
 
 		hoeAction = new Action.withName('hoe')
 			..actionWord = 'hoeing'
 			..timeRequired = 2000
-			..energyRequirements = new EnergyRequirements(energyAmount: HOE_ENERGY)
-			..itemRequirements = hoeReq
+			..energyRequirements = ENERGY_REQ_HOE
+			..itemRequirements = ITEM_REQ_HOE
 			..associatedSkill = SKILL;
+
 		waterAction = new Action.withName('water')
 			..actionWord = 'watering'
 			..timeRequired = 2000
-			..energyRequirements = new EnergyRequirements(energyAmount: WATER_ENERGY)
-			..itemRequirements = waterReq
+			..energyRequirements = ENERGY_REQ_WATER
+			..itemRequirements = ITEM_REQ_WATER
 			..associatedSkill = SKILL;
+
 		plantAction = new Action.withName('plant')
-			..itemRequirements = plantReq
+			..itemRequirements = ITEM_REQ_PLANT
 			..associatedSkill = SKILL;
+
 		viewAction = new Action.withName('view');
+
 		harvestAction = new Action.withName('harvest')
 			..actionWord = 'harvesting'
 			..timeRequired = 5000
-			..energyRequirements = new EnergyRequirements(energyAmount: HARVEST_ENERGY)
+			..energyRequirements = ENERGY_REQ_HARVEST
 			..associatedSkill = SKILL;
-		type = "Crop Garden";
-		states =
-		{
-			'new' : new Spritesheet('new', "http://childrenofur.com/assets/entityImages/garden_plot_new.png", 100, 90, 100, 90, 1, false),
-			'hoed' : new Spritesheet('hoed', "http://childrenofur.com/assets/entityImages/garden_plot_hoed.png", 100, 90, 100, 90, 1, false),
-			'watered' : new Spritesheet('watered', "http://childrenofur.com/assets/entityImages/garden_plot_watered.png", 100, 90, 100, 90, 1, false),
-			'planted_baby' : new Spritesheet('planted_baby', "http://childrenofur.com/assets/entityImages/garden_plot_planted_baby.png", 100, 90, 100, 90, 1, false),
-		};
+
+		states = STATES;
 		_createCropStates();
 		setState('new');
+
 		actions = [hoeAction];
 	}
 
 	///This will add all of the crop states to the [states] array so that it doesn't
 	///take up so much room and is easier to edit. Just add to the [crops] list to edit it
 	void _createCropStates() {
-		List<String> crops = ['broccoli', 'cabbage', 'carrot', 'corn', 'cucumber', 'onion',
-		'parsnip', 'potato', 'pumpkin', 'rice', 'spinach', 'tomato', 'zucchini'];
-		for (String crop in crops) {
+
+		for (String crop in CROPS) {
 			for (int i=1; i<4; i++) {
 				String cropState = '${crop}_${i}';
 				states[cropState] = new Spritesheet(cropState, 'http://childrenofur.com/assets/entityImages/$cropState.png', 100, 90, 100, 90, 1, false);
@@ -83,6 +114,8 @@ class Garden extends NPC {
 	}
 
 	void restoreState(Map<String, String> metadata) {
+		super.restoreState(metadata);
+
 		if (metadata.containsKey('gardenState')) {
 			gardenState = GardenStates.values[int.parse(metadata['gardenState'])];
 			if (gardenState == GardenStates.NEW) {
@@ -123,12 +156,11 @@ class Garden extends NPC {
 	}
 
 	Map<String, String> getPersistMetadata() {
-		Map<String, String> map = {
-			'gardenState': gardenState.index.toString(),
-			'currentState': currentState.stateName,
-			'plantedWith': plantedWith,
-			'plantedState': plantedState.toString(),
-		};
+		Map<String, String> map = super.getPersistMetadata()
+			..['gardenState'] = gardenState.index.toString()
+			..['currentState'] = currentState.stateName
+			..['plantedWith'] = plantedWith
+			..['plantedState'] = plantedState.toString();
 
 		if (plantedAt != null) {
 			map['plantedAt'] = plantedAt.millisecondsSinceEpoch.toString();
@@ -176,14 +208,14 @@ class Garden extends NPC {
 	Future<bool> _setLevelBasedMetabolics(int level, String action, String email) async {
 		int mood = 2;
 		int imgMin = 5;
-		int energy = ACTION_ENERGY;
+		int energy = 0;
 
 		if (action == 'hoe') {
-			energy = HOE_ENERGY;
+			energy = ENERGY_REQ_HOE.energyAmount;
 		} else if (action == 'water') {
-			energy = WATER_ENERGY;
+			energy = ENERGY_REQ_WATER.energyAmount;
 		} else if (action == 'harvest') {
-			energy = HARVEST_ENERGY;
+			energy = ENERGY_REQ_HARVEST.energyAmount;
 		}
 
 		if (level > 0) {
@@ -209,7 +241,7 @@ class Garden extends NPC {
 		StatManager.add(email, Stat.crops_hoed);
 		SkillManager.learn(SKILL, email);
 
-		say(''); // display gains
+		say(); // display gains
 
 		gardenState = GardenStates.HOED;
 		actions = [waterAction];
@@ -231,7 +263,7 @@ class Garden extends NPC {
 		StatManager.add(email, Stat.crops_watered);
 		SkillManager.learn(SKILL, email);
 
-		say(''); // display gains
+		say(); // display gains
 
 		gardenState = GardenStates.WATERED;
 		actions = [plantAction];
@@ -244,13 +276,13 @@ class Garden extends NPC {
 			return false;
 		}
 
-		Map map = {};
-		map["action"] = "plantSeed";
-		map['id'] = id;
-		map['openWindow'] = 'itemChooser';
-		map['filter'] = 'category=Seeds';
-		map['windowTitle'] = 'Plant What?';
-		userSocket.add(JSON.encode(map));
+		userSocket.add(JSON.encode({
+			'action': 'plantSeed',
+			'id': id,
+			'openWindow': 'itemChooser',
+			'filter': 'category=Croppery & Gardening Supplies|||itemType=.*_seed',
+			'windowTitle': 'Plant What?'
+		}));
 
 		return true;
 	}
@@ -260,7 +292,7 @@ class Garden extends NPC {
 			return false;
 		}
 
-		bool success = (await InventoryV2.takeItemFromUser(email, slot, subSlot, count)) != null;
+		bool success = (await InventoryV2.takeItemFromUser(email, slot, subSlot, 1)) != null;
 		if(!success) {
 			return false;
 		}
@@ -268,7 +300,7 @@ class Garden extends NPC {
 		StatManager.add(email, Stat.crops_planted);
 		SkillManager.learn(SKILL, email);
 
-		plantedWith = itemType.replaceAll('Seed_', '').toLowerCase();
+		plantedWith = itemType.replaceAll('Seed_', '').replaceAll('_seed', '').toLowerCase();
 		gardenState = GardenStates.PLANTED;
 		plantedAt = new DateTime.now();
 		_createStageTimes();
@@ -317,8 +349,8 @@ class Garden extends NPC {
 				Item musicblock = items[Crab.randomMusicblock()];
 				await InventoryV2.addItemToUser(email, musicblock.getMap(), 1, id);
 				toast(
-					"You got a ${musicblock.name}!", userSocket,
-					onClick: "iteminfo|${musicblock.name}"
+					'You got a ${musicblock.name}!', userSocket,
+					onClick: 'iteminfo|${musicblock.name}'
 					);
 			}
 		}
@@ -329,7 +361,7 @@ class Garden extends NPC {
 			}
 		}
 		await InventoryV2.addItemToUser(email, items[plantedWith].getMap(), count, id);
-		say('');
+		say();
 
 		plantedWith = '';
 		gardenState = GardenStates.NEW;
@@ -340,4 +372,8 @@ class Garden extends NPC {
 
 		return true;
 	}
+}
+
+class HerbGarden extends Garden {
+	HerbGarden(String id, num x, num y, String streetName) : super(id, x, y, streetName);
 }

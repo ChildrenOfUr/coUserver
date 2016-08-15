@@ -68,4 +68,36 @@ class BubbleTree extends Tree {
 
 		return success;
 	}
+
+	Future<bool> pet({WebSocket userSocket, String email}) async {
+		bool success = await super.pet(userSocket: userSocket, email: email);
+
+		if (success) {
+			StatManager.add(email, Stat.bubble_trees_petted).then((int stat) {
+				if (stat >= 127) {
+					Achievement.find("chief_bubble_tree_cuddler").awardTo(email);
+				} else if (stat >= 41) {
+					Achievement.find("midlevel_bubble_tree_cuddler").awardTo(email);
+				} else if (stat >= 11) {
+					Achievement.find("rookie_bubble_tree_cuddler").awardTo(email);
+				}
+			});
+		}
+
+		return success;
+	}
+
+	Future<bool> water({WebSocket userSocket, String email}) async {
+		bool success = await super.water(userSocket: userSocket, email: email);
+
+		if (success) {
+			StatManager.add(email, Stat.bubble_trees_watered).then((int stat) {
+				if (stat >= 41) {
+					Achievement.find("senor_sprinkles").awardTo(email);
+				}
+			});
+		}
+
+		return success;
+	}
 }

@@ -7,7 +7,7 @@ class VisitingStone extends NPC {
 		speed = 0;
 		actions = [
 			{
-				"action": "visit a street",
+				"actionName": "visit a street",
 				"timeRequired": actionTime,
 				"enabled": true,
 				"actionWord": "visiting"

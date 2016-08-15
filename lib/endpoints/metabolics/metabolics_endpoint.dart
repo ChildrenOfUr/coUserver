@@ -8,9 +8,10 @@ class MetabolicsEndpoint {
 	static Timer simulateTimer = new Timer.periodic(new Duration(seconds: 5), (Timer timer) => simulate());
 	static Map<String, WebSocket> userSockets = {};
 
-	static Future upgradeEnergy() async {
+	static Future<int> upgradeEnergy() async {
 		String query = 'SELECT * FROM metabolics';
 		PostgreSql dbConn = await dbManager.getConnection();
+		int upgraded = 0;
 		try {
 			List<Metabolics> playerMetabolics = await dbConn.query(query, Metabolics);
 			await Future.forEach(playerMetabolics, (Metabolics m) async {
@@ -18,14 +19,49 @@ class MetabolicsEndpoint {
 					int newEnergy = energyLevels[getLevel(m.lifetime_img)];
 					m.energy = newEnergy;
 					m.max_energy = newEnergy;
-					print('player ${m.user_id} now has $newEnergy energy');
+					Log.verbose('player ${m.user_id} now has $newEnergy energy');
 					await setMetabolics(m);
+					upgraded++;
 				}
 			});
 		} catch (e, st) {
 			Log.error('Could not upgrade energy', e, st);
 		} finally {
 			dbManager.closeConnection(dbConn);
+			return upgraded;
+		}
+	}
+
+	static Future<int> convertLocationHistories() async {
+		String query = 'SELECT * FROM metabolics';
+		PostgreSql dbConn = await dbManager.getConnection();
+		int converted = 0;
+
+		try {
+			await Future.forEach(await dbConn.query(query, Metabolics), (Metabolics m) async {
+				List<String> oldTsids = JSON.decode(m.location_history);
+				if (oldTsids.length == 0) {
+					return;
+				}
+
+				List<String> newTsids = [];
+
+				oldTsids.forEach((String tsid) {
+					tsid = tsidL(tsid);
+					if (!newTsids.contains(tsid)) {
+						newTsids.add(tsid);
+					}
+				});
+
+				m.location_history = JSON.encode(newTsids);
+				await setMetabolics(m);
+				converted++;
+			});
+		} catch (e, st) {
+			Log.error('Could not convert location history', e, st);
+		} finally {
+			dbManager.closeConnection(dbConn);
+			return converted;
 		}
 	}
 
@@ -33,6 +69,8 @@ class MetabolicsEndpoint {
 		// Refill everyone's energy on the start of a new day
 		Clock clock = new Clock();
 		clock.onNewDay.listen((_) => MetabolicsEndpoint.refillAllEnergy());
+
+		Log.verbose('[Init] Tracking new days');
 	}
 
 	static Future refillAllEnergy() async {
@@ -104,8 +142,7 @@ class MetabolicsEndpoint {
 					m.current_street_y = userIdentifier.currentY;
 
 					//store the metabolics back to the database
-					int result = await setMetabolics(m);
-					if (result > 0) {
+					if (await setMetabolics(m)) {
 						//send the metabolics back to the user
 						ws.add(JSON.encode(encode(m)));
 					}
@@ -158,26 +195,26 @@ class MetabolicsEndpoint {
 		}
 	}
 
-	static Future<bool> addToLocationHistory(String username, String email, String TSID) async {
+	static Future<bool> addToLocationHistory(String username, String email, String tsid) async {
 		Metabolics m = await getMetabolics(username: username);
 		List<String> locations = JSON.decode(m.location_history);
+		tsid = tsidL(tsid);
 
 		try {
 			bool finalResult;
 
 			// If it's not already in the history
-			if (!locations.contains(TSID)) {
-				locations.add(TSID);
+			if (!locations.contains(tsid)) {
+				locations.add(tsid);
 				m.location_history = JSON.encode(locations);
-				int result = await setMetabolics(m);
-				finalResult = (result > 0);
+				finalResult = await setMetabolics(m);
 			} else {
 				// Already in history
 				finalResult = false;
 			}
 
 			// Award achievment?
-			AchievementCheckers.hubCompletion(locations, email, TSID);
+			AchievementCheckers.hubCompletion(locations, email, tsid);
 
 			try {
 				if (locations.length >= 5) {
@@ -217,7 +254,7 @@ class MetabolicsEndpoint {
 
 			return finalResult;
 		} catch (e, st) {
-			Log.error('Error marking location $TSID as visited for player $username', e, st);
+			Log.error('Error marking location $tsid as visited for player $username', e, st);
 		}
 
 		return false;
@@ -236,9 +273,6 @@ class MetabolicsEndpoint {
 
 	static Future addQuoin(Quoin q, String username) async {
 		Metabolics m = await getMetabolics(username: username);
-
-		// Store "before" img
-		int oldImg = m.lifetime_img;
 
 		if (m.quoins_collected >= constants.quoinLimit) {
 			// Daily quoin limit
@@ -355,21 +389,8 @@ class MetabolicsEndpoint {
 			m.quoins_collected++;
 		}
 
-		// Compare "after" and "before" img
-		if (getLevel(m.lifetime_img) > getLevel(oldImg)) {
-			// let's give people more energy as they level
-			int newEnergy = energyLevels[getLevel(m.lifetime_img)];
-			m.energy = m.max_energy = newEnergy;
-
-			// send level up to client
-			MetabolicsEndpoint.userSockets[username]?.add(JSON.encode({
-				                                                          "levelUp": getLevel(m.lifetime_img)
-			                                                          }));
-		}
-
 		try {
-			int result = await setMetabolics(m);
-			if (result > 0) {
+			if (await setMetabolics(m)) {
 				Map map = {'collectQuoin': 'true', 'id': q.id, 'amt': amt, 'quoinType': q.type};
 
 				q.setCollected(username);
@@ -452,8 +473,8 @@ Future<Metabolics> getMetabolics(
 }
 
 @app.Route('/setMetabolics', methods: const [app.POST])
-Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
-	int result = 0;
+Future<bool> setMetabolics(@Decode() Metabolics metabolics) async {
+	bool result;
 
 	// Check for level increase
 
@@ -466,8 +487,18 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 
 	// Compare
 	if (levelEnd > levelStart) {
-		// Refill energy if level increased (client handles popup checking)
+		// Expand energy tank if level increased
+		metabolics.max_energy = energyLevels[levelEnd];
+
+		// Refill energy to new tank size
 		metabolics.energy = metabolics.max_energy;
+
+		// Send level up event to client
+		String username = await User.getUsernameFromId(metabolics.user_id);
+
+		MetabolicsEndpoint.userSockets[username]?.add(JSON.encode({
+			"levelUp": levelEnd
+		}));
 	}
 
 	// Do not overset the metabolics that have maxes
@@ -605,7 +636,7 @@ Future<int> setMetabolics(@Decode() Metabolics metabolics) async {
 				"@quoins_collected)";
 		}
 
-		result = await dbConn.execute(query, metabolics);
+		result = (await dbConn.execute(query, metabolics)) == 1;
 
 		//send the new metabolics to the user right away
 		WebSocket ws = MetabolicsEndpoint.userSockets[await User.getUsernameFromId(metabolics.user_id)];

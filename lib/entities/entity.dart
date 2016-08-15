@@ -17,20 +17,22 @@ import 'package:coUserver/endpoints/inventory_new.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
 import 'package:coUserver/endpoints/time.dart';
 import 'package:coUserver/endpoints/visited.dart';
-import 'package:coUserver/endpoints/weather.dart';
+import 'package:coUserver/endpoints/weather/weather.dart';
 import 'package:coUserver/entities/items/item.dart';
 import 'package:coUserver/quests/quest.dart';
 import 'package:coUserver/skills/skillsmanager.dart';
 import 'package:coUserver/streets/street.dart';
 import 'package:coUserver/streets/street_update_handler.dart';
+
 import 'package:inflection/inflection.dart';
 import 'package:jsonx/jsonx.dart' as jsonx;
 import 'package:message_bus/message_bus.dart';
+import 'package:path/path.dart' as path;
 import 'package:postgresql/postgresql.dart';
-import 'package:redstone/redstone.dart' as app;
+import 'package:redstone_mapper_pg/manager.dart';
 import 'package:redstone_mapper/mapper.dart';
 import 'package:redstone_mapper/plugin.dart';
-import 'package:redstone_mapper_pg/manager.dart';
+import 'package:redstone/redstone.dart' as app;
 
 part 'doors/bureaucratic_hall_door.dart';
 part 'doors/door.dart';
@@ -69,6 +71,7 @@ part 'npcs/vendors/fakevendors.dart';
 part 'npcs/vendors/jabba_helga.dart';
 part 'npcs/vendors/jabba_unclefriendly.dart';
 part 'npcs/vendors/mealvendor.dart';
+part 'npcs/vendors/scarecrow.dart';
 part 'npcs/vendors/snoconevendingmachine.dart';
 part 'npcs/vendors/street_spirit.dart';
 part 'npcs/vendors/streetspiritfirebog.dart';
@@ -122,7 +125,14 @@ abstract class Persistable {
 	Map<String, String> getPersistMetadata();
 }
 
-abstract class Entity extends Object with MetabolicsChange implements Persistable {
+abstract class Actionable {
+	///This will be called when sending the npc's state to the client
+	///In order to display accurate energy costs etc., we need to take the
+	///players skills into account
+	Future<List<Action>> customizeActions(String email);
+}
+
+abstract class Entity extends Object with MetabolicsChange implements Persistable, Actionable {
 	List<Action> actions = [];
 	int actionTime = 2500, x, y;
 	String bubbleText, streetName, type, id;
@@ -184,16 +194,12 @@ abstract class Entity extends Object with MetabolicsChange implements Persistabl
 		return map;
 	}
 
-	///This will be called when sending the npc's state to the client
-	///In order to display accurate energy costs etc., we need to take the
-	///players skills into account
 	Future<List<Action>> customizeActions(String email) async {
 		return actions;
 	}
 
-	void say(String message) {
-		if(message == null || message.trim() == '')
-			return;
+	void say([String message]) {
+		message = (message ?? '').trim();
 
 		DateTime now = new DateTime.now();
 		if(sayTimeout == null || sayTimeout.compareTo(now) < 0) {

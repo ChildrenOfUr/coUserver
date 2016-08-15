@@ -6,27 +6,23 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:mirrors';
 
+import 'package:coUserver/API_KEYS.dart';
+import 'package:coUserver/buffs/buffmanager.dart';
+import 'package:coUserver/common/identifier.dart';
+import 'package:coUserver/common/mapdata/mapdata.dart';
+import 'package:coUserver/common/user.dart';
 import 'package:coUserver/common/util.dart';
-import 'package:coUserver/achievements/achievements.dart';
-import 'package:coUserver/streets/player_update_handler.dart';
-import 'package:coUserver/streets/street.dart';
-import 'package:coUserver/entities/entity.dart';
+import 'package:coUserver/endpoints/changeusername.dart';
 import 'package:coUserver/endpoints/inventory_new.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
+import 'package:coUserver/entities/entity.dart';
 import 'package:coUserver/entities/items/item.dart';
-import 'package:coUserver/common/identifier.dart';
-import 'package:coUserver/endpoints/changeusername.dart';
-import 'package:coUserver/skills/skillsmanager.dart';
-import 'package:coUserver/buffs/buffmanager.dart';
-import 'package:coUserver/entities/items/actions/recipes/recipe.dart';
-import 'package:coUserver/API_KEYS.dart';
-import 'package:coUserver/common/user.dart';
-import 'package:coUserver/common/mapdata/mapdata.dart';
+import 'package:coUserver/streets/player_update_handler.dart';
+import 'package:coUserver/streets/street.dart';
 
-import 'package:path/path.dart' as path;
-import 'package:redstone_mapper/mapper.dart';
-import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper_pg/manager.dart';
+import 'package:redstone_mapper/plugin.dart';
+import 'package:redstone/redstone.dart' as app;
 
 //handle player update events
 class StreetUpdateHandler {
@@ -37,58 +33,13 @@ class StreetUpdateHandler {
 	static Timer simulateTimer = new Timer.periodic(simulateDuration, (Timer timer) => simulateStreets());
 	static Timer updateTimer = new Timer.periodic(npcUpdateDuration, (Timer timer) => updateNpcs());
 
-	static loadItems() async {
-		String dir = serverDir.path;
-
+	static Future loadItems() async {
 		try {
-			// load items
-			String filePath = path.join(dir, 'lib', 'entities', 'items', 'json');
-			await new Directory(filePath).list().forEach((File category) async {
-				JSON.decode(await category.readAsString()).forEach((String name, Map itemMap) {
-					itemMap['itemType'] = name;
-					items[name] = decode(itemMap, Item);
-				});
-			});
-
-			// load recipes
-			filePath = path.join(
-				dir,
-				'lib',
-				'entities',
-				'items',
-				'actions',
-				'recipes',
-				'json');
-			await new Directory(filePath).list().forEach((File tool) async {
-				JSON.decode(await tool.readAsString()).forEach((Map recipeMap) {
-					RecipeBook.recipes.add(decode(recipeMap, Recipe));
-				});
-			});
-
-			// load vendor types
-			filePath = path.join(dir, 'lib', 'entities', 'npcs', 'vendors', 'vendors.json');
-			String fileText = await new File(filePath).readAsString();
-			JSON.decode(fileText).forEach((String street, String type) {
-				vendorTypes[street] = type;
-			});
-
-			// load stats given for eating/drinking
-			filePath = path.join(dir, 'lib', 'entities', 'items', 'actions', 'consume.json');
-			fileText = await new File(filePath).readAsString();
-			JSON.decode(fileText).forEach((String item, Map award) {
-				items[item].consumeValues = award;
-			});
-
-			// Load achievements
-			Achievement.load();
-
-			// Load skills
-			SkillManager.loadSkills();
-
-			// Load buffs
-			BuffManager.loadBuffs();
+			await Item.loadItems();
+			await Item.loadConsumeValues();
+			await Vendor.loadVendorTypes();
 		} catch (e, st) {
-			Log.error('Problem loading items', e, st);
+			Log.error('[StreetUpdateHandler] Problem loading objects from JSON', e, st);
 		}
 	}
 
@@ -126,15 +77,10 @@ class StreetUpdateHandler {
 				moveMap['npcs'] = [];
 
 				// Add queued NPCs
-				street.npcs.addAll(_pendingNpcs[streetName] ?? {});
-				_pendingNpcs[streetName]?.clear();
-
-				// Remove queued NPCs
-				new Map.from(street.npcs).forEach((String id, NPC npc) {
-					if (npc.removing) {
-						street.npcs.remove(id);
-					}
-				});
+				if (_pendingNpcs.length > 0) {
+					street.npcs.addAll(_pendingNpcs[streetName] ?? {});
+					_pendingNpcs[streetName]?.clear();
+				}
 
 				street.npcs.forEach((String id, NPC npc) {
 					npc.update();
@@ -144,19 +90,11 @@ class StreetUpdateHandler {
 					}
 				});
 
-				street.occupants.forEach((String username, WebSocket socket) async {
+				String moveMapString = JSON.encode(moveMap);
+				street.occupants.forEach((String username, WebSocket socket) {
 					if (socket != null) {
-						String email = await User.getEmailFromUsername(username);
-						//we need to modify the actions list for the npcs and plants
-						//to take into account the players skills so that the costs are right
-						await Future.forEach(moveMap['npcs'], (Map npcMove) async {
-							NPC npc = street.npcs[npcMove['id']];
-							if (npc != null) {
-								npcMove['actions'] = encode(await npc.customizeActions(email));
-							}
-						});
 						try {
-							socket.add(JSON.encode(moveMap));
+							socket.add(moveMapString);
 						} catch (e, st) {
 							Log.error('Error sending moveMap $moveMap to $username', e, st);
 						}
@@ -205,27 +143,25 @@ class StreetUpdateHandler {
 
 				street.occupants.forEach((String username, WebSocket socket) async {
 					if (socket != null) {
-						String email = await User.getEmailFromUsername(username);
-						//we need to modify the actions list for the npcs and plants
-						//to take into account the players skills so that the costs are right
-						await Future.forEach(updates['npcs'], (Map npcMap) async {
-							NPC npc = street.npcs[npcMap['id']];
-							if (npc != null) {
-								npcMap['actions'] = encode(await npc.customizeActions(email));
-							}
-						});
-						await Future.forEach(updates['plants'], (Map plantMap) async {
-							Plant plant = street.plants[plantMap['id']];
-							if (plant != null) {
-								plantMap['actions'] = encode(await plant.customizeActions(email));
-							}
-						});
-
 						socket.add(JSON.encode(updates));
+						String email = await User.getEmailFromUsername(username);
+
+						// SAVANNA: Player buff expired?
+						if (
+							MapData.isSavannaStreet(streetName)
+							&& !(await BuffManager.playerHasBuff('nostalgia', email))
+						) {
+							// Kick them out
+							String outTsid = MapData.savannaEscapeTo(streetName);
+							teleport(userSocket: socket, email: email,
+								tsid: outTsid, energyFree: true);
+
+							// Prevent reentry
+							BuffManager.addToUser('nostalgia_over', email, socket);
+						}
 					}
 				});
-			}
-			else {
+			} else {
 				toRemove.add(street.label);
 			}
 		});
@@ -327,6 +263,19 @@ class StreetUpdateHandler {
 						MetabolicsEndpoint.updateDeath(PlayerUpdateHandler.users[username], null, true);
 						BuffManager.startUpdatingUser(email);
 					}
+
+					// SAVANNA: Start tracking time
+					if (
+						MapData.isSavannaStreet(streetName)
+						&& !(await BuffManager.playerHasBuff('nostalgia', email))
+					) {
+						BuffManager.addToUser('nostalgia', email, ws);
+
+						// TODO: quest https://github.com/tinyspeck/glitch-GameServerJS/blob/f4cf3e3ed540227b0f1fec26dd5273c03b0f9ead/quests/baqala_nostalgia.js
+
+						// TODO: rock https://github.com/tinyspeck/glitch-GameServerJS/blob/f4cf3e3ed540227b0f1fec26dd5273c03b0f9ead/locations/savanna.js
+					}
+
 					return;
 				}
 			}
@@ -488,8 +437,7 @@ class StreetUpdateHandler {
 				return false;
 			} else {
 				m.energy -= 50;
-				int result = await setMetabolics(m);
-				if (result < 1) {
+				if (!(await setMetabolics(m))) {
 					return false;
 				}
 			}
@@ -540,6 +488,40 @@ class StreetUpdateHandler {
 			'follow': player
 		}));
 	}
+}
+
+@app.Route('/getActions')
+@Encode()
+Future<List<Action>> getActions(@app.QueryParam() String email,
+                  @app.QueryParam() String id,
+                  @app.QueryParam() String label) async {
+	if (email == null || id == null || label == null) {
+		Log.verbose('<email=$email> tried to get actions for <id=$id> on <label=$label>');
+		return [];
+	}
+	if (StreetUpdateHandler.streets[label] == null) {
+		Log.verbose('<label=$label> is not a currently loaded street');
+		return [];
+	}
+
+	Actionable entity;
+	entity = StreetUpdateHandler.streets[label].npcs[id];
+	if (entity == null) {
+		entity = StreetUpdateHandler.streets[label].plants[id];
+	}
+	if (entity == null) {
+		entity = StreetUpdateHandler.streets[label].doors[id];
+	}
+	if (entity == null) {
+		entity = StreetUpdateHandler.streets[label].groundItems[id];
+	}
+
+	if (entity == null) {
+		Log.verbose('<id=$id> is not a valid entity on <label=$label>');
+		return [];
+	}
+
+	return entity.customizeActions(email);
 }
 
 @app.Route('/teleport', methods: const[app.POST])

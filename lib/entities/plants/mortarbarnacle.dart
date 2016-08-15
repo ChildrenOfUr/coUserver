@@ -46,7 +46,7 @@ class MortarBarnacle extends Plant {
 
 		int numToGive = 1;
 		// 1 in 15 chance to get an extra
-		if(new Random().nextInt(14) == 14) {
+		if(new Random().nextInt(15) == 14) {
 			numToGive = 2;
 		}
 
@@ -65,6 +65,8 @@ class MortarBarnacle extends Plant {
 		});
 
 		await InventoryV2.addItemToUser(email, items['barnacle'].getMap(), numToGive, id);
+
+		say();
 
 		return true;
 	}

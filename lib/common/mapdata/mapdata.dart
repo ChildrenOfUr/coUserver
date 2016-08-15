@@ -1,5 +1,6 @@
 library map_data;
 
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -20,22 +21,35 @@ abstract class MapData {
 	static Map<String, Map<String, dynamic>> get streets => new Map.from(_streets);
 
 	/// Load from JSON
-	static void load() {
+	static Future load() async {
+		Future _loadHubs(String parent) async {
+			File hubdata = new File(path.join(parent, 'hubdata.json'));
+			_hubs = JSON.decode(await hubdata.readAsString());
+			Log.verbose('[MapData] Loaded ${_hubs.length} hub files');
+		}
+
+		Future _loadStreets(String parent) async {
+			File streetdata = new File(path.join(parent, 'streetdata.json'));
+			_streets = JSON.decode(await streetdata.readAsString());
+			Log.verbose('[MapData] Loaded ${_streets.length} street files');
+		}
+
+		Future _loadRender(String parent) async {
+			File renderdata = new File(path.join(parent, 'renderdata.json'));
+			_render = JSON.decode(await renderdata.readAsString());
+			Log.verbose('[MapData] Loaded ${_render.length} hub render files');
+		}
+
 		try {
 			// Find mapdata directory
 			String parent = path.joinAll([serverDir.path, 'lib', 'common', 'mapdata', 'json']);
 
-			// Load hubs
-			File hubdata = new File(path.join(parent, 'hubdata.json'));
-			_hubs = JSON.decode(hubdata.readAsStringSync());
-
-			// Load streets
-			File streetdata = new File(path.join(parent, 'streetdata.json'));
-			_streets = JSON.decode(streetdata.readAsStringSync());
-
-			// Load map positions
-			File renderdata = new File(path.join(parent, 'renderdata.json'));
-			_render = JSON.decode(renderdata.readAsStringSync());
+			// Wait for all loads to complete
+			await Future.wait([
+				_loadHubs(parent),
+				_loadStreets(parent),
+				_loadRender(parent)
+			], eagerError: true);
 
 			// Compile into API data
 			MapdataEndpoint.init(_hubs, _streets, _render);
@@ -62,12 +76,12 @@ abstract class MapData {
 	}
 
 	/// List all streets in a hub
-	static List<Map<String, dynamic>> getStreetsInHub(String hubId) {
+	static List<Map<String, dynamic>> getStreetsInHub(dynamic hubId) {
 		return _streets.values.where((Map<String, dynamic> street) {
 			if (street["hub_id"] == null) {
 				return false;
 			} else {
-				return street["hub_id"] == hubId;
+				return street["hub_id"].toString() == hubId.toString();
 			}
 		}).toList();
 	}
@@ -93,5 +107,40 @@ abstract class MapData {
 		}
 
 		return streetData;
+	}
+
+	/// Whether a street is in the savanna
+	static bool isSavannaStreet(String streetName) {
+		try {
+			Map<String, dynamic> street = getStreetByName(streetName);
+			assert(street != null);
+			Map<String, dynamic> hub = hubs[street['hub_id'].toString()];
+			assert(hub != null && hub['savanna'] != null);
+			return hub['savanna'];
+		} catch (_) {
+			return false;
+		}
+	}
+
+	/// Get the "nearest" non-savanna street
+	static String savannaEscapeTo(String currentStreetName) {
+		final Map<String, String> HUB_TO_TSID = {
+			'86': 'LIF18V95I972R96', // Baqala to Tamila
+			'90': 'LIFF6BQE33H26JC', // Choru to Vantalu
+			'95': 'LDO8NGHIFTQ21CQ', // Xalanga to Folivoria
+			'91': 'LHF4QVGL7NI269C', // Zhambu to Tahli
+		};
+
+		try {
+			String currentTsid = getStreetByName(currentStreetName)['tsid'];
+			assert(currentTsid != null);
+
+			String hubId = getStreetByTsid(currentTsid)['hub_id'].toString();
+			assert(hubId != 'null');
+			assert(HUB_TO_TSID[hubId] != null);
+			return HUB_TO_TSID[hubId];
+		} catch (_) {
+			return 'LIF12PMQ5121D68'; // Default to Cebarkul
+		}
 	}
 }

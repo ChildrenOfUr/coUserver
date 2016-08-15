@@ -68,4 +68,34 @@ class GasPlant extends Tree {
 
 		return success;
 	}
+
+	Future<bool> pet({WebSocket userSocket, String email}) async {
+		bool success = await super.pet(userSocket: userSocket, email: email);
+
+		if (success) {
+			StatManager.add(email, Stat.gas_plants_petted).then((int stat) {
+				if (stat >= 41) {
+					Achievement.find("bush_whacker").awardTo(email);
+				}
+			});
+		}
+
+		return success;
+	}
+
+	Future<bool> water({WebSocket userSocket, String email}) async {
+		bool success = await super.water(userSocket: userSocket, email: email);
+
+		if (success) {
+			StatManager.add(email, Stat.gas_plants_watered).then((int stat) {
+				if (stat >= 127) {
+					Achievement.find("mayor_of_sprayerville").awardTo(email);
+				} else if (stat >= 11) {
+					Achievement.find("little_squirt").awardTo(email);
+				}
+			});
+		}
+
+		return success;
+	}
 }

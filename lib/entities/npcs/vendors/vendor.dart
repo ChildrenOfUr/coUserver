@@ -3,6 +3,16 @@ part of entity;
 Map<String, String> vendorTypes = {};
 
 abstract class Vendor extends NPC {
+	static Future<int> loadVendorTypes() async {
+		String filePath = path.join(
+			serverDir.path, 'lib', 'entities', 'npcs', 'vendors', 'vendors.json');
+		JSON.decode(await new File(filePath).readAsString()).forEach((String street, String type) {
+			vendorTypes[street] = type;
+		});
+		Log.verbose('[Vendor] Loaded ${vendorTypes.length} vendor types');
+		return vendorTypes.length;
+	}
+
 	List<Map> itemsForSale = new List();
 	String vendorType;
 	List<Item> itemsToSell;
@@ -78,9 +88,21 @@ abstract class Vendor extends NPC {
 						items["hatchet"].getMap(),
 						items["bean_seasoner"].getMap(),
 						items["shovel"].getMap(),
-						items["garden_gnome"].getMap()
+						items["garden_gnome"].getMap(),
+						items['broccoli_seed'].getMap(),
+						items['cabbage_seed'].getMap(),
+						items['carrot_seed'].getMap(),
+						items['corn_seed'].getMap(),
+						items['cucumber_seed'].getMap(),
+						items['onion_seed'].getMap(),
+						items['parsnip_seed'].getMap(),
+						items['potato_seed'].getMap(),
+						items['pumpkin_seed'].getMap(),
+						items['rice_seed'].getMap(),
+						items['spinach_seed'].getMap(),
+						items['tomato_seed'].getMap(),
+						items['zucchini_seed'].getMap()
 					];
-					itemsForSale.addAll(pickItems(["Seeds"]));
 					break;
 
 				case 'groceries':
@@ -166,6 +188,7 @@ abstract class Vendor extends NPC {
 						items["pick"].getMap(),
 						items["fancy_pick"].getMap(),
 						items["grinder"].getMap(),
+                        items["grand_ol_grinder"].getMap(),
 						items["smelter"].getMap(),
 						items["tinkertool"].getMap(),
 						items["elemental_pouch"].getMap(),

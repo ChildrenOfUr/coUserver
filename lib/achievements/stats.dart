@@ -22,11 +22,26 @@ class BufferedStat {
 class StatManager {
 	static String _statToString(Stat stat) => stat.toString().split('.')[1];
 
+	static Stat _stringToStat(String stat) {
+		for (Stat value in Stat.values) {
+			if (_statToString(value) == stat) {
+				return value;
+			}
+		}
+
+		return null;
+	}
+
 	static Map<String, BufferedStat> statBuffer = {};
 
 	/// Returns the value of stat `stat` for user with email `email`
 	static Future<int> get(String email, Stat stat) async {
 		String statName = _statToString(stat);
+		return (await getAll(email))[statName];
+	}
+
+	/// Returns the value of all stats for user with email `email`
+	static Future<Map<Stat, int>> getAll(String email) async {
 		PostgreSql dbConn = await dbManager.getConnection();
 		try {
 			String query =
@@ -40,12 +55,17 @@ class StatManager {
 			};
 			List rows = await dbConn.innerConn.query(query, values).toList();
 			if (rows.length == 0) {
-				return 0;
+				return {};
 			} else {
-				return rows.single.toMap()[statName];
+				// Index by Stat instead of String
+				Map<Stat, int> statKeys = {};
+				rows.single.toMap().forEach((String statName, int value) {
+					statKeys[_stringToStat(statName)] = value;
+				});
+				return statKeys;
 			}
 		} catch (e, st) {
-			Log.error('Error reading stat $statName for <email=$email>', e, st);
+			Log.error('Error reading stats for <email=$email>', e, st);
 			return null;
 		} finally {
 			dbManager.closeConnection(dbConn);
@@ -175,7 +195,7 @@ enum Stat {
 	gas_plants_petted,
 	gas_plants_watered,
 	grapes_squished,
-	grill_uses,
+	famous_pugilist_grill_uses,
 	heli_kitties_petted,
 	ice_scraped,
 	icons_collected,

@@ -6,7 +6,7 @@ class Jellisac extends Plant {
 		type = "Jellisac Growth";
 
 		EnergyRequirements energyReq = new EnergyRequirements(energyAmount: 4)
-			..error = 'You need at least 4 energy to even this about touching this';
+			..error = 'You need at least 4 energy to even think about touching this';
 		actions.add(
 			new Action.withName('grab')
 				..actionWord = 'squishing'
@@ -36,7 +36,7 @@ class Jellisac extends Plant {
 
 		int numToGive = 1;
 		// 1 in 15 chance to get an extra
-		if(new Random().nextInt(14) == 14) {
+		if(new Random().nextInt(15) == 14) {
 			numToGive = 2;
 		}
 
@@ -55,6 +55,8 @@ class Jellisac extends Plant {
 		});
 
 		await InventoryV2.addItemToUser(email, items['jellisac'].getMap(), numToGive, id);
+
+		say();
 
 		return true;
 	}

@@ -27,15 +27,15 @@ class BuffManager {
 	static bool get loaded => _loading.isCompleted;
 	static final Completer _loading = new Completer();
 
-	static void loadBuffs() {
-		JSON.decode(
-			new File(path.join(serverDir.path, "lib", "buffs", "buffdata.json"))
-				.readAsStringSync()
-		).forEach((String id, Map data) {
+	static Future<int> loadBuffs() async {
+		File file = new File(path.join(serverDir.path, "lib", "buffs", "buffdata.json"));
+		JSON.decode(await file.readAsStringSync()).forEach((String id, Map data) {
 			buffs[id] = new Buff.fromMap(data, id);;
 		});
 
 		_loading.complete();
+		Log.verbose('[BuffManager] Loaded ${buffs.length} buffs');
+		return buffs.length;
 	}
 
 	/// Give a user a buff
@@ -74,9 +74,10 @@ class BuffManager {
 	static Future stopUpdatingUser(String email) async {
 		if (email != null) {
 			try {
-				(await getPlayerBuffs(email: email)).forEach((Map<String, dynamic> buffMap) {
+				List<Map<String, dynamic>> playerBuffs = await getPlayerBuffs(email: email);
+				await Future.forEach(playerBuffs, (Map<String, dynamic> buffMap) async {
 					PlayerBuff buff = new PlayerBuff.fromMap(buffMap);
-					buff.stopUpdating();
+					await buff.stopUpdating();
 				});
 
 				PlayerBuff.cache.remove(email);

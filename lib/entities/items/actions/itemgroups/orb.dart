@@ -8,12 +8,12 @@ abstract class FocusingOrb extends Object with MetabolicsChange {
 
 	Future<bool> focusEnergy({WebSocket userSocket, String username, String email, Map map, String streetName}) async {
 		toast("+10 energy focused", userSocket);
-		return await trySetMetabolics(username, energy:10);
+		return await trySetMetabolics(email, energy:10);
 	}
 
 	Future<bool> focusMood({WebSocket userSocket, String username, String email, Map map, String streetName}) async {
 		toast("+10 mood focused", userSocket);
-		return await trySetMetabolics(username, mood:10);
+		return await trySetMetabolics(email, mood:10);
 	}
 
 	Future<bool> radiate({WebSocket userSocket, String username, String email, Map map, String streetName}) async {
@@ -34,7 +34,7 @@ abstract class FocusingOrb extends Object with MetabolicsChange {
 			}
 
 			amt = (amt / numUsersOnStreet).ceil();
-			users.forEach((String username) => trySetMetabolics(username, mood: amt, energy: amt, imgMin: amt));
+			users.forEach((String username) => trySetMetabolics(email, mood: amt, energy: amt, imgMin: amt));
 			StreetUpdateHandler.streets[streetName].occupants.forEach((String username, WebSocket ws) => toast("$username is radiating. Everyone here got $amt energy, mood, and iMG", ws));
 			return true;
 		}
@@ -42,6 +42,6 @@ abstract class FocusingOrb extends Object with MetabolicsChange {
 
 	Future<bool> meditate({WebSocket userSocket, String username, String email, Map map, String streetName}) async {
 		toast("+5 energy, mood, and iMG", userSocket);
-		return await trySetMetabolics(username, energy:5, mood:5, imgMin: 5);
+		return await trySetMetabolics(email, energy:5, mood:5, imgMin: 5);
 	}
 }

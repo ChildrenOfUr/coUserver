@@ -286,7 +286,7 @@ class FoxBait extends NPC {
 	Future eat() async {
 		await new Future.delayed(EAT_TIME);
 		setState('_hidden');
-		removing = true;
+		StreetUpdateHandler.streets[streetName].npcs.remove(id);
 		attractedFox = null;
 	}
 

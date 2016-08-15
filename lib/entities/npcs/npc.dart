@@ -14,26 +14,28 @@ abstract class NPC extends Entity {
 		'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
 		1, 1, 1, 1, 1, true);
 
-	static int updateFps = 20;
+	static int updateFps = 15;
 
 	String id, type, streetName;
 	num x, y, previousX, previousY, speed = 0, ySpeed = 0, yAccel = -2400;
-	bool facingRight = true, grounded = false, removing = false;
+	bool facingRight = true, grounded = false;
 	MutableRectangle _collisionsRect;
+	Map<String, String> metadata;
 
 	NPC(this.id, this.x, this.y, this.streetName) {
 		respawn = new DateTime.now();
 	}
 
 	void restoreState(Map<String, String> metadata) {
+		this.metadata = metadata;
+		
 		if (metadata['facingRight'] == 'false') {
 			facingRight = false;
 		}
 	}
 
-	Map<String,String> getPersistMetadata() {
-		return {'facingRight': facingRight.toString()};
-	}
+	Map<String,String> getPersistMetadata() => this.metadata
+		..['facingRight'] = facingRight.toString();
 
 	int get width => currentState.frameWidth;
 

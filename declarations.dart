@@ -4,7 +4,9 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:coUserver/achievements/achievements.dart';
 import 'package:coUserver/API_KEYS.dart';
+import 'package:coUserver/buffs/buffmanager.dart';
 import 'package:coUserver/common/console.dart';
 import 'package:coUserver/common/identifier.dart';
 import 'package:coUserver/common/keep_alive.dart';
@@ -15,15 +17,17 @@ import 'package:coUserver/common/util.dart';
 import 'package:coUserver/endpoints/chat_handler.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
 import 'package:coUserver/endpoints/status.dart';
-import 'package:coUserver/endpoints/weather.dart';
+import 'package:coUserver/endpoints/weather/weather.dart';
+import 'package:coUserver/entities/items/actions/recipes/recipe.dart';
 import 'package:coUserver/entities/items/item.dart';
 import 'package:coUserver/quests/quest.dart';
+import 'package:coUserver/skills/skillsmanager.dart';
 import 'package:coUserver/streets/player_update_handler.dart';
 import 'package:coUserver/streets/street_update_handler.dart';
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart' as rsLog;
-import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper/plugin.dart';
+import 'package:redstone/redstone.dart' as app;
 
 part 'package:coUserver/endpoints/elevation.dart';
 part 'package:coUserver/endpoints/getitems.dart';
@@ -31,6 +35,7 @@ part 'package:coUserver/endpoints/report.dart';
 part 'package:coUserver/endpoints/slack.dart';
 part 'package:coUserver/endpoints/usernamecolors.dart';
 part 'package:coUserver/endpoints/users.dart';
+part 'package:coUserver/prerender_hack.dart';
 
 // Port for app (redstone routing)
 final int REDSTONE_PORT = 8181;
@@ -41,8 +46,12 @@ final int WEBSOCKET_PORT = 8282;
 // Start the server
 Future main() async {
 	try {
+		// Start logging
+		Log.init();
+
 		// Keep track of when the server was started
 		ServerStatus.serverStart = new DateTime.now();
+		Log.verbose('[Init] Server starting up');
 
 		// Start listening on REDSTONE_PORT
 		await _initRedstone();
@@ -53,25 +62,40 @@ Future main() async {
 		// Refill energy on new day
 		MetabolicsEndpoint.trackNewDays();
 
-		// Load image caches
-		FileCache.loadCaches();
+		// Run all of the loading functions at the same time for faster startup!
+		// This function will not return until all calls have finished, or an error is thrown.
+		await Future.wait([
+			// Load streets & hubs from JSON
+			MapData.load(),
 
-		// Load map data from JSON
-		MapData.load();
+			// Load image caches
+			FileCache.loadCaches(),
 
-		// Load items from JSON
-		await StreetUpdateHandler.loadItems();
+			// Load items, consume values, and vendor types from JSON
+			StreetUpdateHandler.loadItems(),
 
-		// Load quests from JSON
-		await QuestService.loadQuests();
+			// Load quests from JSON
+			QuestService.loadQuests(),
+
+			// Load achievements from JSON
+			Achievement.load(),
+
+			// Load buffs from JSON
+			BuffManager.loadBuffs(),
+
+			// Load recipes from JSON
+			Recipe.load(),
+
+			// Load skills from JSON
+			SkillManager.loadSkills()
+		], eagerError: true);
 
 		// Enable interactive console
 		Console.init();
 
-		Log.init();
-		Log.info('Server started successfully, took ${ServerStatus.uptime}');
+		Log.info('[Init] Server started successfully, took ${ServerStatus.uptime}');
 	} catch (e, st) {
-		Log.error('Server startup failed', e, st);
+		Log.error('[Init] Server startup failed', e, st);
 		cleanup(1);
 	}
 }
@@ -104,6 +128,8 @@ Future _initRedstone() async {
 	app.addPlugin(getMapperPlugin(dbManager));
 	app.setupConsoleLog(rsLog.Level.SEVERE);
 	await app.start(port: port, autoCompress: true);
+
+	Log.verbose('[Init] Redstone initialized');
 }
 
 ///This will serve up the needed files to animate the player characters
@@ -141,4 +167,6 @@ void _initWebSockets() {
 	});
 
 	KeepAlive.start();
+
+	Log.verbose('[Init] WebSockets initialized');
 }

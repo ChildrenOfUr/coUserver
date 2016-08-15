@@ -64,30 +64,36 @@ class PlayerBuff extends Buff {
 		}
 	}
 
-	void startUpdating() {
+	Future startUpdating() async {
 		// Subtract 1 second from the remaining time every second
-		_updateTimer = new Timer.periodic((new Duration(seconds: 1)), (_) {
+		_updateTimer = new Timer.periodic((new Duration(seconds: 1)), (_) async {
 			remaining = new Duration(seconds: remaining.inSeconds - 1);
 
-			// Buff is over
 			if (remaining.inSeconds <= 0) {
-				stopUpdating();
+				// Buff is over
+				await stopUpdating();
+			} else if (remaining.inSeconds % 10 == 0) {
+				// Write every 10 seconds
+				await _write();
 			}
 		});
+
+		// Save the current status to the database
+		await _write();
 	}
 
-	void stopUpdating() {
+	Future stopUpdating({bool write: true}) async {
 		// Pause the counter
 		_updateTimer?.cancel();
 
 		// Save the current status to the database
-		_write();
+		await _write();
 	}
 
-	void remove() {
-		stopUpdating();
+	Future remove() async {
+		await stopUpdating(write: false);
 		remaining = new Duration(milliseconds: 0);
-		_write();
+		await _write();
 		cache.remove(this);
 	}
 

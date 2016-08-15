@@ -68,4 +68,38 @@ class SpicePlant extends Tree {
 
 		return success;
 	}
+
+	Future<bool> pet({WebSocket userSocket, String email}) async {
+		bool success = await super.pet(userSocket: userSocket, email: email);
+
+		if (success) {
+			StatManager.add(email, Stat.spice_plants_petted).then((int stat) {
+				if (stat >= 127) {
+					Achievement.find("heavy_petter").awardTo(email);
+				} else if (stat >= 41) {
+					Achievement.find("confident_petter").awardTo(email);
+				} else if (stat >= 11) {
+					Achievement.find("tentative_petter").awardTo(email);
+				}
+			});
+		}
+
+		return success;
+	}
+
+	Future<bool> water({WebSocket userSocket, String email}) async {
+		bool success = await super.water(userSocket: userSocket, email: email);
+
+		if (success) {
+			StatManager.add(email, Stat.spice_plants_watered).then((int stat) {
+				if (stat >= 41) {
+					Achievement.find("big_splasher").awardTo(email);
+				} else if (stat >= 11) {
+					Achievement.find("beginner_drizzler").awardTo(email);
+				}
+			});
+		}
+
+		return success;
+	}
 }
