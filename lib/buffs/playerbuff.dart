@@ -65,7 +65,6 @@ class PlayerBuff extends Buff {
 	}
 
 	Future startUpdating() async {
-		print('started updating');
 		// Subtract 1 second from the remaining time every second
 		_updateTimer = new Timer.periodic((new Duration(seconds: 1)), (_) async {
 			remaining = new Duration(seconds: remaining.inSeconds - 1);
@@ -84,7 +83,6 @@ class PlayerBuff extends Buff {
 	}
 
 	Future stopUpdating({bool write: true}) async {
-		print('stopUpdating, write: $write');
 		// Pause the counter
 		_updateTimer?.cancel();
 
@@ -100,7 +98,6 @@ class PlayerBuff extends Buff {
 	}
 
 	Future<bool> _write() async {
-		print('writing ${remaining.inSeconds}');
 		PostgreSql dbConn = await dbManager.getConnection();
 		try {
 			// Get existing data
