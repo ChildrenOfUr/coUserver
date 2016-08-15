@@ -25,7 +25,7 @@ import 'package:redstone_mapper/plugin.dart';
 import 'package:redstone/redstone.dart' as app;
 
 //handle player update events
-class StreetUpdateHandler {
+class StreetUpdateHandler extends Object with MetabolicsChange {
 	static Duration simulateDuration = new Duration(seconds: 1);
 	static Duration npcUpdateDuration = new Duration(milliseconds: 1000~/NPC.updateFps);
 	static Map<String, Street> streets = new Map();
@@ -142,6 +142,14 @@ class StreetUpdateHandler {
 				pickedUpItems.forEach((String id) => street.groundItems.remove(id));
 
 				street.occupants.forEach((String username, WebSocket socket) async {
+					if (street.label == 'Wintry Place') {
+						// Degrade energy
+						getMetabolics(username: username).then((Metabolics metabolics) async {
+							metabolics.energy -= 1;
+							await setMetabolics(metabolics);
+						});
+					}
+
 					if (socket != null) {
 						socket.add(JSON.encode(updates));
 						String email = await User.getEmailFromUsername(username);
