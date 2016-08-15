@@ -8,6 +8,8 @@ class Elevation {
 	/// Used by client applications (game, forums, site, etc)
 	@app.Route("/get/:username")
 	Future<String> get(String username) async {
+		username = Uri.decodeComponent(username);
+
 		if (_cache[username] != null) {
 			return _cache[username];
 		} else {
