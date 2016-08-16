@@ -24,6 +24,8 @@ import 'package:redstone_mapper_pg/manager.dart';
 import 'package:redstone_mapper/plugin.dart';
 import 'package:redstone/redstone.dart' as app;
 
+part 'special_handlers.dart';
+
 //handle player update events
 class StreetUpdateHandler extends Object with MetabolicsChange {
 	static Duration simulateDuration = new Duration(seconds: 1);
@@ -52,12 +54,12 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 		ws.listen((message) {
 			processMessage(ws, message);
 		},
-			          onError: (error) {
-				          cleanupList(ws);
-			          },
-			          onDone: () {
-				          cleanupList(ws);
-			          });
+		onError: (error) {
+			cleanupList(ws);
+		},
+		onDone: () {
+			cleanupList(ws);
+		});
 	}
 
 	static Map<String, Map<String, NPC>> _pendingNpcs = {};
@@ -141,38 +143,15 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 
 				pickedUpItems.forEach((String id) => street.groundItems.remove(id));
 
-				street.occupants.forEach((String username, WebSocket socket) async {
-					if (street.label == 'Wintry Place' && new DateTime.now().second % 5 == 0) {
-						// WINTRY PLACE: Degrade energy every 5 seconds
-						getMetabolics(username: username).then((Metabolics metabolics) async {
-							metabolics.energy -= 5;
-							await setMetabolics(metabolics);
-						});
-					}
+				street.occupants.forEach((String username, WebSocket userSocket) async {
+					String email = await User.getEmailFromUsername(username);
 
-					if (socket != null) {
-						socket.add(JSON.encode(updates));
-						String email = await User.getEmailFromUsername(username);
+					WintryPlaceHandler.update(streetName, email);
 
-						// SAVANNA: Player buff expired?
-						if (
-							MapData.isSavannaStreet(streetName)
-							&& !(await BuffManager.playerHasBuff('nostalgia', email))
-						) {
-							// Kick them out
-							toast(
-								'The nostalgia is overwhelming. You need to take a break',
-								socket);
-							String outTsid = MapData.savannaEscapeTo(streetName);
-							teleport(
-								userSocket: socket,
-								email: email,
-								tsid: outTsid,
-								energyFree: true);
+					if (userSocket != null) {
+						userSocket.add(JSON.encode(updates));
 
-							// Prevent reentry
-							BuffManager.addToUser('nostalgia_over', email, socket);
-						}
+						SavannaHandler.update(streetName, email, userSocket);
 					}
 				});
 			} else {
@@ -237,7 +216,7 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 			Map map = JSON.decode(message);
 			String streetName = map["streetName"]?.trim();
 			String username = map["username"]?.trim();
-			String email = map['email']?.trim();
+			String email = map['email']?.trim() ?? (await User.getEmailFromUsername(username));
 
 			//if the street doesn't yet exist, create it (maybe it got stored back to the datastore)
 			if (!streets.containsKey(streetName)) {
@@ -269,9 +248,11 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 							}
 						});
 					}
+
 					getMetabolics(username: username, email: email).then((Metabolics m) {
 						MetabolicsEndpoint.addToLocationHistory(username, email, map["tsid"]);
 					});
+
 					if (map['firstConnect']) {
 						await InventoryV2.fireInventoryAtUser(ws, email);
 						MetabolicsEndpoint.updateDeath(
@@ -279,45 +260,19 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 						BuffManager.startUpdatingUser(email);
 					}
 
-					// WINTRY PLACE: A Cold Place
-					if (streetName == 'Wintry Place') {
-						// Add warning buff
-						BuffManager.addToUser('cold_place', email, ws);
-					} else {
-						// Leaving, remove warning buff
-						BuffManager.removeFromUser('cold_place', email, ws);
-					}
-
-					// SAVANNA: Start tracking time
-					if (MapData.isSavannaStreet(streetName)) {
-						// Entering Savanna
-						if (!(await BuffManager.playerHasBuff('nostalgia_over', email))) {
-							// Allow
-							BuffManager.addToUser('nostalgia', email, ws);
-						} else {
-							// Disallow
-							toast('You are still too overwhelmed by nostalgia', ws);
-							String outTsid = MapData.savannaEscapeTo(streetName);
-							teleport(
-								userSocket: ws,
-								email: email,
-								tsid: outTsid,
-								energyFree: true);
-						}
-
-						// TODO: quest https://github.com/tinyspeck/glitch-GameServerJS/blob/f4cf3e3ed540227b0f1fec26dd5273c03b0f9ead/quests/baqala_nostalgia.js
-
-						// TODO: rock https://github.com/tinyspeck/glitch-GameServerJS/blob/f4cf3e3ed540227b0f1fec26dd5273c03b0f9ead/locations/savanna.js
-					} else {
-						// Leaving Savanna
-						BuffManager.removeFromUser('nostalgia', email, ws);
-					}
+					// These will automatically disregard false calls, so call both every time
+					WintryPlaceHandler.enter(streetName, email, ws);
+					SavannaHandler.enter(streetName, email, ws);
 
 					return;
 				}
-			}
-			else if (map["message"] == "left") {
+			} else if (map["message"] == "left") {
 				cleanupList(ws);
+
+				// These will automatically disregard false calls, so call both every time
+				WintryPlaceHandler.exit(streetName, email, ws);
+				SavannaHandler.exit(streetName, email, ws);
+
 				return;
 			}
 

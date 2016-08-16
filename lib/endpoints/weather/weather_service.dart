@@ -68,7 +68,7 @@ class WeatherService {
 	/// or not to refresh the entire cache (and return true)
 	static Future download([int cityId]) async {
 		/// Decode and return the result of calling either the 'weather' or 'forecast/daily' endpoint
-		Future<Map> _download(String endpoint, int cityId) async {
+		Future<Map> _owmDownload(String endpoint, int cityId) async {
 			// Download from OpenWeatherMap
 			String url = OWM_API + endpoint + OWM_PARAMS + cityId.toString();
 			String json = (await http.get(url)).body;
@@ -77,7 +77,7 @@ class WeatherService {
 			// Verify result
 			var responseCode = owm['cod']; // 'cod' is not a typo (unless it's OWM's)
 			if (int.parse(responseCode.toString()) != 200) {
-				throw new HttpException('OWM API call returned $responseCode');
+				throw new HttpException('OWM API call returned $responseCode for $url');
 			}
 
 			return owm;
@@ -91,11 +91,11 @@ class WeatherService {
 		} else {
 			try {
 				// Get current conditions
-				WeatherData current = new WeatherData(await _download('weather', cityId));
+				WeatherData current = new WeatherData(await _owmDownload('weather', cityId));
 
 				// Get forecast conditions
 				List<WeatherData> forecast = [];
-				List<Map> days = ((await _download('forecast/daily', cityId))['list']);
+				List<Map> days = ((await _owmDownload('forecast/daily', cityId))['list']);
 				days.sublist(1, 5).forEach((Map day) {
 					forecast.add(new WeatherData(day));
 				});
