@@ -502,14 +502,8 @@ Future<bool> setMetabolics(@Decode() Metabolics metabolics) async {
 	}
 
 	// Do not overset the metabolics that have maxes
-
-	if (metabolics.mood > metabolics.max_mood) {
-		metabolics.mood = metabolics.max_mood;
-	}
-
-	if (metabolics.energy > metabolics.max_energy) {
-		metabolics.energy = metabolics.max_energy;
-	}
+	metabolics.mood = metabolics.mood.clamp(0, metabolics.max_mood);
+	metabolics.energy = metabolics.energy.clamp(0, metabolics.max_energy);
 
 	// Write to database
 	PostgreSql dbConn = await dbManager.getConnection();
