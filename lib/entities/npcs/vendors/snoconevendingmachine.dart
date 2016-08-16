@@ -3,6 +3,10 @@ part of entity;
 class SnoConeVendingMachine extends Vendor {
 	int openCount = 0;
 
+	// Should always be facingRight to prevent seeing SNO becoming ONS,
+	// so this is used for walking direction tracking.
+	bool facingRightInSpirit;
+
 	SnoConeVendingMachine(String id, String streetName, String tsid, num x, num y) : super(id, streetName, tsid, x, y) {
 		type = 'Sno Cone Vending Machine';
 		itemsForSale = [
@@ -81,7 +85,7 @@ class SnoConeVendingMachine extends Vendor {
 		if (currentState.stateName == "walk_left" || currentState.stateName == "walk_right") {
 			moveXY(wallAction: (Wall wall) {
 				setState('walk_end');
-				facingRight = !facingRight;
+				facingRightInSpirit = !facingRightInSpirit;
 			});
 		}
 
@@ -89,22 +93,24 @@ class SnoConeVendingMachine extends Vendor {
 			int roll = rand.nextInt(5);
 			switch (roll) {
 				case 0:
-				// try to attract buyers
+					// try to attract buyers
 					setState('attract');
 					break;
 
 				case 1:
-					if(!facingRight) {
-						setState('walk_left', repeat: rand.nextInt(5));
+					if(!facingRightInSpirit) {
+						setState('walk_right', repeat: rand.nextInt(5) + 5);
+						speed = 40;
 					} else {
-						setState('walk_right', repeat: rand.nextInt(5));
+						setState('walk_left', repeat: rand.nextInt(5) + 5);
+						speed = -40;
 					}
 					break;
 
 				case 2:
 				case 3:
 				case 4:
-				// do nothing
+					// do nothing
 					setState('idle_stand');
 					break;
 			}
