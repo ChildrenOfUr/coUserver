@@ -3,6 +3,7 @@ part of entity;
 class Crab extends NPC {
 	static final Map HEADPHONES = items["crabpod_headphones"].getMap();
 	static final Map CRABATO = items["crabato_juice"].getMap();
+	static final Map JUKEBOX = items["musicblock_bag"].getMap();
 
 	static final String ERROR_NO_MUSIC = "You're musicblock-broke, yo.";
 	static final String ERROR_BUSY = "Go away, I'm busy right now!";
@@ -47,11 +48,13 @@ class Crab extends NPC {
 		ItemRequirements itemReq = new ItemRequirements()
 			..any = ALL_MUSICBLOCK_TYPES
 			..error = ERROR_NO_MUSIC;
-		actions.add(
+		actions.addAll([
 			new Action.withName('play for')
 				..actionWord = 'crabbing'
-				..itemRequirements = itemReq
-		);
+				..itemRequirements = itemReq,
+			new Action.withName('buy jukebox')
+				..actionWord = 'buying'
+		]);
 
 		states = {
 			"dislike_off": new Spritesheet(
@@ -127,6 +130,17 @@ class Crab extends NPC {
 			"filter": "itemType=musicblock_.*",
 			"windowTitle": "Play what for Crab?"
 		}));
+	}
+
+	Future buyJukebox({WebSocket userSocket, String email}) async {
+		Metabolics metabolics = await getMetabolics(email: email);
+		if (metabolics.currants >= JUKEBOX['price']) {
+			metabolics.currants -= JUKEBOX['price'];
+			await setMetabolics(metabolics);
+			await InventoryV2.addItemToUser(email, JUKEBOX, 1, id);
+		} else {
+			toast("You can't afford to do that", userSocket);
+		}
 	}
 
 	/// Adds a song to the history of the crab.
