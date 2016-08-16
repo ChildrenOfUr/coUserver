@@ -114,6 +114,20 @@ class Console {
 			}
 		}, ['tsid to find']);
 
+		new Command.register('setmetabolics', (String email, String metabolic, String value) async {
+			metabolic = metabolic.trim();
+			int valueInt = int.parse(value);
+			Metabolics metabolics = await getMetabolics(email: email);
+
+			if (metabolic == 'energy') {
+				metabolics.energy = valueInt;
+			} else if (metabolic == 'mood') {
+				metabolics.mood = valueInt;
+			}
+
+			await setMetabolics(metabolics);
+		}, ['email', 'energy | mood', 'value']);
+
 		new Command.register('weather', (String tsid) async {
 			Map<String, dynamic> weather = await WeatherService.getConditionsMap(tsid);
 			if (weather['error'] == null) {
