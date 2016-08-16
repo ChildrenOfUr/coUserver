@@ -116,7 +116,7 @@ String createId(num x, num y, String type, String tsid) {
 abstract class Persistable {
 	///This will be called when the [Street] that the [Entity] is on
 	///is persisted to the database
-	Future persist();
+	StreetEntity persist();
 
 	///This will be called when the [Entity] is loaded from the db
 	void restoreState(Map<String,String> metadata);
@@ -157,34 +157,23 @@ abstract class Entity extends Object with MetabolicsChange implements Persistabl
 
 	Map<String, String> getPersistMetadata() => {};
 
-	Future persist() async {
+	StreetEntity persist() {
 		Map streetDataMap = MapData.getStreetByName(streetName);
 		if (streetDataMap == null) {
 			Log.warning('Cannot persist entity <type=$type> <id=$id> because streetDataMap'
 						' was null for this entity (type=$type) <streetName=$streetName>');
+			return null;
 		}
 
 		String tsid = streetDataMap['tsid'];
 		if (tsid == null) {
 			Log.warning('Cannot persist entity <type=$type> <id=$id> because tsid is null'
 							'for <streetName=$streetName>');
-			return;
+			return null;
 		}
 
-		StreetEntity dbEntity = new StreetEntity.create(id: id, type: type, tsid: tsid, x: x, y: y,
+		return new StreetEntity.create(id: id, type: type, tsid: tsid, x: x, y: y,
 															metadata_json: JSON.encode(getPersistMetadata()));
-
-		PostgreSql dbConn;
-		try {
-			dbConn = await dbManager.getConnection();
-			String query = 'UPDATE street_entities SET x = @x, y = @y, metadata_json = @metadata_json'
-				' WHERE id = @id';
-			await dbConn.execute(query, dbEntity);
-		} catch (e, st) {
-			Log.error('Cannot persist entity <type=$type> <id=$id>', e, st);
-		} finally {
-			dbManager.closeConnection(dbConn);
-		}
 	}
 
 	Map<String, dynamic> getMap() {

@@ -241,11 +241,24 @@ class Street {
 			await dbConn.execute(query, dbStreet);
 
 			//persist the entities
-			await Future.forEach(npcs.values, (NPC npc) async {
-				await npc.persist();
+			List<StreetEntity> persistEntities = [];
+			npcs.forEach((String id, NPC npc) {
+				StreetEntity persistEntity = npc.persist();
+				if (persistEntity != null) {
+					persistEntities.add(persistEntity);
+				}
 			});
-			await Future.forEach(plants.values, (Plant plant) async {
-				await plant.persist();
+			plants.forEach((String id, Plant plant) {
+				StreetEntity persistEntity = plant.persist();
+				if (persistEntity != null) {
+					persistEntities.add(persistEntity);
+				}
+			});
+
+			await Future.forEach(persistEntities, (StreetEntity dbEntity) async {
+				String query = 'UPDATE street_entities SET x = @x, y = @y, metadata_json = @metadata_json'
+					' WHERE id = @id';
+				await dbConn.execute(query, dbEntity);
 			});
 
 		} catch (e, st) {
@@ -257,7 +270,7 @@ class Street {
 	}
 
 	// Find the y of the nearest platform
-	int getYFromGround(num currentX, num currentY, num width, num height) {
+	num getYFromGround(num currentX, num currentY, num width, num height) {
 		num returnY = currentY;
 
 		CollisionPlatform platform = _getBestPlatform(currentX, currentY, width, height);
@@ -273,7 +286,7 @@ class Street {
 			}
 		}
 
-		return returnY ~/ 1;
+		return returnY;
 	}
 
 	//ONLY WORKS IF PLATFORMS ARE SORTED WITH

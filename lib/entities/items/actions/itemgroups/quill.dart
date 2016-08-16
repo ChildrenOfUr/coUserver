@@ -3,7 +3,7 @@ part of item;
 abstract class Quill {
 	static void openNote(WebSocket userSocket, int noteId) {
 		userSocket.add(JSON.encode({
-			"note_read": noteId
+			"note_read": noteId.toString() //client is expecting to parse an int from a string
 		}));
 	}
 
@@ -20,7 +20,18 @@ abstract class Quill {
 	}
 
 	Future readNote({WebSocket userSocket, Map map, String streetName, String email, String username}) async {
-		openNote(userSocket, map["itemdata"]["note_id"]);
+		int noteId;
+
+		//if this action is coming from a ground item
+		if (map['id'] != null && map['streetName'] != null &&
+			StreetUpdateHandler.streets[map['streetName']].entityMaps['groundItem'][map['id']] != null) {
+			Item note = StreetUpdateHandler.streets[map['streetName']].entityMaps['groundItem'][map['id']];
+			noteId = int.parse(note.metadata['note_id']);
+		} else {
+			noteId = int.parse(map['itemdata']['note_id'].toString());
+		}
+
+		openNote(userSocket, noteId);
 	}
 
 	// Fortune

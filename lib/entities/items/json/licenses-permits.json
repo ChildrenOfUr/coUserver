@@ -45,9 +45,10 @@
     "price": 4,
     "description": "A note is the kind of thing you write on.",
     "actions": [
-	    {
-		    "actionName": "Read Note"
-	    }
+      {
+        "actionName": "Read Note",
+        "groundAction": true
+      }
     ]
   },
   "teleportation_script": {

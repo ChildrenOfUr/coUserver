@@ -4,7 +4,7 @@ class Action {
 	@Field()
 	String actionName, _actionWord, error;
 	@Field()
-	bool enabled = true, multiEnabled = false;
+	bool enabled = true, multiEnabled = false, groundAction = false;
 	@Field()
 	String description = '';
 	@Field()
@@ -27,6 +27,7 @@ class Action {
 		_actionWord = action._actionWord;
 		enabled = action.enabled;
 		multiEnabled = action.multiEnabled;
+		groundAction = action.groundAction;
 		description = action.description;
 		timeRequired = action.timeRequired;
 		itemRequirements = new ItemRequirements.clone(action.itemRequirements);
@@ -88,7 +89,7 @@ class EnergyRequirements {
 	String error;
 
 	EnergyRequirements({this.energyAmount: 0}) {
-		error = 'You need at least $energyAmount to perform this action';
+		error = 'You need at least $energyAmount energy to perform this action';
 	}
 	EnergyRequirements.clone(EnergyRequirements req) {
 		energyAmount = req.energyAmount;
