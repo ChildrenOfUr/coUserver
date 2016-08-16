@@ -35,7 +35,7 @@ abstract class FocusingOrb extends Object with MetabolicsChange {
 
 			amt = (amt / numUsersOnStreet).ceil();
 			users.forEach((String username) => trySetMetabolics(email, mood: amt, energy: amt, imgMin: amt));
-			StreetUpdateHandler.streets[streetName].occupants.forEach((String username, WebSocket ws) => toast("$username is radiating. Everyone here got $amt energy, mood, and iMG", ws));
+			StreetUpdateHandler.streets[streetName].occupants.values.forEach((WebSocket ws) => toast("$username is radiating. Everyone here got $amt energy, mood, and iMG", ws));
 			return true;
 		}
 	}
