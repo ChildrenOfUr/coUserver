@@ -143,7 +143,7 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 
 				street.occupants.forEach((String username, WebSocket socket) async {
 					if (street.label == 'Wintry Place') {
-						// Degrade energy
+						// WINTRY PLACE: Degrade energy
 						getMetabolics(username: username).then((Metabolics metabolics) async {
 							metabolics.energy -= 1;
 							await setMetabolics(metabolics);
@@ -274,8 +274,18 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 					});
 					if (map['firstConnect']) {
 						await InventoryV2.fireInventoryAtUser(ws, email);
-						MetabolicsEndpoint.updateDeath(PlayerUpdateHandler.users[username], null, true);
+						MetabolicsEndpoint.updateDeath(
+							PlayerUpdateHandler.users[username], null, true);
 						BuffManager.startUpdatingUser(email);
+					}
+
+					// WINTRY PLACE: A Cold Place
+					if (streetName == 'Wintry Place') {
+						// Add warning buff
+						BuffManager.addToUser('cold_place', email, ws);
+					} else {
+						// Leaving, remove warning buff
+						BuffManager.removeFromUser('cold_place', email, ws);
 					}
 
 					// SAVANNA: Start tracking time

@@ -1,23 +1,23 @@
 {
+	"cold_place": {
+		"name": "A Cold Place",
+		"description": "Eat something hearty",
+		"length": -1
+	},
 	"double_quoins": {
 		"name": "Double Quoins",
 		"description": "Quoin values doubled",
 		"length": 10
 	},
-	"shrink": {
-		"name": "De-Embiggened",
-		"description": "How cute!",
-		"length": 60
+	"full_of_pie": {
+		"name": "Full of Pie",
+		"description": "Jump height decreased",
+		"length": 120
 	},
 	"grow": {
 		"name": "Embiggenified",
 		"description": "You're feeling large",
 		"length": 60
-	},
-	"full_of_pie": {
-		"name": "Full of Pie",
-		"description": "Jump height decreased",
-		"length": 120
 	},
 	"nostalgia": {
 		"name": "Nostalgia",
@@ -28,6 +28,11 @@
 		"name": "Nostalgia",
 		"description": "Too much savanna",
 		"length": 1800
+	},
+	"shrink": {
+		"name": "De-Embiggened",
+		"description": "How cute!",
+		"length": 60
 	},
 	"spinach": {
 		"name": "Spinach",
