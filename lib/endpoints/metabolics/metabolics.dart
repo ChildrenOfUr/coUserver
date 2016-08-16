@@ -233,6 +233,11 @@ class Metabolics {
 
 	@Field()
 	String buffs_json = "{}";
+
+	void addImg(int amount) {
+		img += amount;
+		lifetime_img += amount;
+	}
 }
 
 // LEVELS
