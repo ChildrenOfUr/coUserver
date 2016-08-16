@@ -178,9 +178,14 @@ class Metabolics {
 	set dead(bool value) {
 		if (value) {
 			// Die
-			undead_street = current_street;
+			undead_street = tsidL(current_street);
 			energy = 0;
 			mood = 0;
+
+			// Don't revive to the Wintry Place, energy will deplete too soon
+			if (undead_street == tsidL(MapData.getStreetByName('Wintry Place')['tsid'])) {
+				undead_street = tsidL(MapData.getStreetByName('Northwest Passage')['tsid']);
+			}
 		} else {
 			// Revive
 			undead_street = null;
