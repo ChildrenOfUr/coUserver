@@ -142,10 +142,10 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 				pickedUpItems.forEach((String id) => street.groundItems.remove(id));
 
 				street.occupants.forEach((String username, WebSocket socket) async {
-					if (street.label == 'Wintry Place') {
-						// WINTRY PLACE: Degrade energy
+					if (street.label == 'Wintry Place' && new DateTime.now().second % 5 == 0) {
+						// WINTRY PLACE: Degrade energy every 5 seconds
 						getMetabolics(username: username).then((Metabolics metabolics) async {
-							metabolics.energy -= 1;
+							metabolics.energy -= 5;
 							await setMetabolics(metabolics);
 						});
 					}
