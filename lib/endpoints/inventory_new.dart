@@ -1074,6 +1074,55 @@ class InventoryV2 {
 		return success;
 	}
 
+	/**
+	 * Adds [amount] fireflies to a jar in [email]'s inventory.
+	 * Returns the number that couldn't fit.
+	 */
+	static Future<int> addFireflyToJar(String email, WebSocket userSocket, {int amount: 1}) async {
+		int toAdd = amount;
+
+		void _addToJar(Slot jar) {
+			int inJar = int.parse(jar.metadata['fireflies'] ?? '0');
+			while (inJar < 7 && toAdd > 0) {
+				inJar++;
+				toAdd--;
+			}
+			jar.metadata['fireflies'] = inJar.toString();
+		}
+
+		if(!(await _aquireLock(email, 'addFireflyToJar'))) {
+			return toAdd;
+		}
+
+		InventoryV2 inv = await getInventory(email);
+		for (Slot slot in inv.slots) {
+			// Skip empty slots
+			if (slot.itemType.isEmpty) {
+				continue;
+			}
+
+			// Jars in top-level slots
+			if (slot.itemType == 'firefly_jar') {
+				_addToJar(slot);
+			}
+
+			// Jars in bag slots
+			if (items[slot.itemType].isContainer && items[slot.itemType].subSlots != null) {
+				List<Slot> bagSlots = jsonx.decode((slot.metadata['slots'] ?? '[]'), type: listOfSlots) ?? [];
+				bagSlots = bagSlots.where((Slot s) => s.itemType != null && s.itemType == 'firefly_jar').toList();
+				for (Slot bagSlot in bagSlots) {
+					_addToJar(bagSlot);
+				}
+			}
+		}
+
+		inv.updateJson();
+		await inv._updateDatabase(email);
+		await fireInventoryAtUser(userSocket, email, update: true);
+		_releaseLock(email, 'addFireflyToJar');
+		return toAdd;
+	}
+
 	static Future<bool> moveItem(String email, {int fromIndex: -1,
 								int fromBagIndex: -1,
 								int toIndex: -1,
