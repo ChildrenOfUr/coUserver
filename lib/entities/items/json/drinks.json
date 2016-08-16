@@ -1,538 +1,538 @@
 {
-  "beer": {
-    "name": "Beer",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/beer__x1_iconic_png_1354829708.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/beer__x1_1_x1_2_x1_3_x1_4_png_1354829709.png",
-    "stacksTo": 24,
-    "price": 10,
-    "description": "A shiny can of mmm... beer.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Pour this liquid into your mouth and hope for the best.",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "bubble_tea": {
-    "name": "Bubble Tea",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/bubble_tea__x1_iconic_png_1354829726.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/bubble_tea__x1_1_x1_2_x1_3_x1_4_png_1354829727.png",
-    "stacksTo": 24,
-    "price": 172,
-    "description": "A super-frothy bubble tea.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Pour this liquid into your mouth and hope for the best.",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "butterfly_milk": {
-    "name": "Butterfly Milk",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/milk_butterfly__x1_iconic_png_1354829507.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/milk_butterfly__x1_1_x1_2_x1_3_x1_4_png_1354829507.png",
-    "iconNum": 4,
-    "stacksTo": 80,
-    "price": 8,
-    "description": "A vial of butterfly milk. It has the tingly effervescence of a thousand tiny butterfly farts.",
-    "actions": [
-      {
-        "actionName": "Sniff Milk",
-        "description": "Advised for curing the blues",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      },
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Think of the butterfly you got this from while you're at it",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      },
-      {
-        "actionName": "Shake Bottle",
-        "multiEnabled": true,
-        "description": "Makes butter. Costs 2 energy.",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "carrot_margarita": {
-    "name": "Carrot Margarita",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/carrot_margarita__x1_iconic_png_1354829742.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/carrot_margarita__x1_1_x1_2_x1_3_x1_4_png_1354829743.png",
-    "stacksTo": 24,
-    "price": 90,
-    "description": "A thick, warm carrot margarita.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Pour this liquid into your mouth and hope for the best.",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "cloud_11_smoothie": {
-    "name": "Cloud 11 Smoothie",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/cloud_11_smoothie__x1_iconic_png_1354829690.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/cloud_11_smoothie__x1_1_x1_2_x1_3_x1_4_png_1354829691.png",
-    "stacksTo": 24,
-    "price": 69,
-    "description": "A Cloud 11 smoothie. Pretty much the best smoothie ever invented in the history of smoothies.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Pour this liquid into your mouth and hope for the best.",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "cloudberry_daiquiri": {
-    "name": "Cloudberry Daiquiri",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/cloudberry_daiquiri__x1_iconic_png_1354829771.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/cloudberry_daiquiri__x1_1_x1_2_x1_3_x1_4_png_1354829774.png",
-    "stacksTo": 24,
-    "price": 142,
-    "description": "A nourishing cloudberry daiquiri. It goes down smooth.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Pour this liquid into your mouth and hope for the best.",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "coffee": {
-    "name": "Coffee",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/coffee__x1_iconic_png_1354829779.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/coffee__x1_1_x1_2_x1_3_x1_4_png_1354829780.png",
-    "stacksTo": 24,
-    "price": 5,
-    "description": "A steaming mug of strong, life-affirming coffee.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Feeling tired?",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "cosma_politan": {
-    "name": "Cosma-politan",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/cosmapolitan__x1_iconic_png_1354829788.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/cosmapolitan__x1_1_x1_2_x1_3_x1_4_png_1354829789.png",
-    "stacksTo": 24,
-    "price": 131,
-    "description": "An urbane, sophistimicated cosma-politan.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Pour this liquid into your mouth and hope for the best.",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "crabato_juice": {
-    "name": "Crabato Juice",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/crabato_juice__x1_iconic_png_1354831176.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/crabato_juice__x1_1_x1_2_x1_3_x1_4_png_1354831176.png",
-    "stacksTo": 24,
-    "price": 50,
-    "description": "Mmm... all the goodness of crab juice, plus tomatoes!",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Pour this liquid into your mouth and hope for the best.",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "creamy_martini": {
-    "name": "Creamy Martini",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/creamy_martini__x1_iconic_png_1354829793.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/creamy_martini__x1_1_x1_2_x1_3_x1_4_png_1354829793.png",
-    "stacksTo": 24,
-    "price": 60,
-    "description": "A shaken-and-stirred-and-shaken-again creamy martini.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Pour this liquid into your mouth and hope for the best.",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "cup_of_water": {
-    "name": "Cup of Water",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/cup_of_water__x1_1_png_1354833112.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/cup_of_water__x1_1_png_1354833112.png",
-    "stacksTo": 1,
-    "price": 1,
-    "description": "This water is so plain, it has no Brownian motion, but Beigien motion instead. Drink at own risk.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "How can a simple cup of water look so boring?",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "earthshaker": {
-    "name": "Earthshaker",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/earthshaker__x1_iconic_png_1354829805.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/earthshaker__x1_1_x1_2_x1_3_x1_4_png_1354829806.png",
-    "stacksTo": 24,
-    "price": 152,
-    "description": "A seismically upgraded earthshaker.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "It might rock your world.",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "exotic_juice": {
-    "name": "Exotic Juice",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/exotic_juice__x1_iconic_png_1354829808.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/exotic_juice__x1_1_x1_2_x1_3_x1_4_png_1354829809.png",
-    "stacksTo": 24,
-    "price": 54,
-    "description": "A goblet of mysteriously yummy exotic juice.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "The label reads, \"Imported from somewhere\".",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "face_smelter": {
-    "name": "Face Smelter",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/face_smelter__x1_iconic_png_1354839793.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/face_smelter__x1_1_x1_2_x1_3_x1_4_png_1354839794.png",
-    "stacksTo": 24,
-    "price": 141,
-    "description": "A powerful brew with a scent acrid enough to perm your nostril hairs.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Smelt yo' face off!",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "flaming_humbaba": {
-    "name": "Flaming Humbaba",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/flaming_humbaba__x1_iconic_png_1354829817.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/flaming_humbaba__x1_1_x1_2_x1_3_x1_4_png_1354829817.png",
-    "stacksTo": 24,
-    "price": 168,
-    "description": "A 5-alarm flaming Humbaba.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Pour this liquid into your mouth and hope for the best.",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "fruity_juice": {
-    "name": "Fruity Juice",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/fruity_juice__x1_iconic_png_1354829844.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/fruity_juice__x1_1_x1_2_x1_3_x1_4_png_1354829845.png",
-    "stacksTo": 24,
-    "price": 24,
-    "description": "A glass of nigh-ambrosial fruit juice.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Pour this liquid into your mouth and hope for the best.",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "gurly_drink": {
-    "name": "Gurly Drink",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/gurly_drink__x1_iconic_png_1354829865.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/gurly_drink__x1_1_x1_2_x1_3_x1_4_png_1354829865.png",
-    "stacksTo": 24,
-    "price": 160,
-    "description": "A sweet, innocent gurly drink.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Pour this liquid into your mouth and hope for the best.",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "hooch": {
-    "name": "Hooch",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/hooch__x1_iconic_png_1354829881.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/hooch__x1_1_x1_2_x1_3_x1_4_png_1354829882.png",
-    "stacksTo": 24,
-    "price": 15,
-    "description": "One jug of premium high-octane hooch.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Pour this liquid into your mouth and hope for the best.",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "lemon_juice": {
-    "name": "Lemon Juice",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/lemon_juice__x1_iconic_png_1354829899.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/lemon_juice__x1_1_x1_2_x1_3_x1_4_png_1354829900.png",
-    "stacksTo": 24,
-    "price": 39,
-    "description": "A tall glass of exquisitely sour lemon juice.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "You're not afraid of sour, are you?",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "mabbish_coffee": {
-    "name": "Mabbish Coffee",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/mabbish_coffee__x1_iconic_png_1354829697.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/mabbish_coffee__x1_1_x1_2_x1_3_x1_4_png_1354829698.png",
-    "stacksTo": 24,
-    "price": 54,
-    "description": "A Mabbish coffee has all the goodness of regular coffee, but gooder.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Pour this liquid into your mouth and hope for the best.",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "mega_healthy_veggie_juice": {
-    "name": "Mega Healthy Veggie Juice",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/mega_healthy_veggie_juice__x1_iconic_png_1354829910.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/mega_healthy_veggie_juice__x1_1_x1_2_x1_3_x1_4_png_1354829911.png",
-    "stacksTo": 24,
-    "price": 46,
-    "description": "A bracing tumbler of mega-healthy veggie juice.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Pour this liquid into your mouth and hope for the best.",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "orange_juice": {
-    "name": "Orange Juice",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/orange_juice__x1_iconic_png_1354829944.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/orange_juice__x1_1_x1_2_x1_3_x1_4_png_1354829944.png",
-    "stacksTo": 24,
-    "price": 39,
-    "description": "A surprising glass of orange juice.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Pour this liquid into your mouth and hope for the best.",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "pumpkin_ale": {
-    "name": "Pumpkin Ale",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/pumpkin_ale__x1_iconic_png_1354836548.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_ale__x1_1_x1_2_x1_3_x1_4_png_1354836548.png",
-    "stacksTo": 10,
-    "price": 83,
-    "description": "All the refreshment of beer combined with the autumnal savoury heft of pumpkin. Then combined with cinnamon. For no reason anyone can decipher.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Pour this liquid into your mouth and hope for the best.",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "pungent_sunrise": {
-    "name": "Pungent Sunrise",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/pungent_sunrise__x1_iconic_png_1354829980.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/pungent_sunrise__x1_1_x1_2_x1_3_x1_4_png_1354829981.png",
-    "stacksTo": 24,
-    "price": 197,
-    "description": "A refreshingly pungent sunrise.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Pour this liquid into your mouth and hope for the best.",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "savory_smoothie": {
-    "name": "Savory Smoothie",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/savory_smoothie__x1_iconic_png_1354829997.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/savory_smoothie__x1_1_x1_2_x1_3_x1_4_png_1354829998.png",
-    "stacksTo": 24,
-    "price": 96,
-    "description": "A savory smoothie. It sticks to your ribs and doesn't let go.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Pour this liquid into your mouth and hope for the best.",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "slow_gin_fizz": {
-    "name": "Slow Gin Fizz",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/slow_gin_fizz__x1_iconic_png_1354830016.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/slow_gin_fizz__x1_1_x1_2_x1_3_x1_4_png_1354830017.png",
-    "stacksTo": 24,
-    "price": 76,
-    "description": "A low and lazy slow gin fizz.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Pour this liquid into your mouth and hope for the best.",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "spicy_grog": {
-    "name": "Spicy Grog",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/spicy_grog__x1_iconic_png_1354830019.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/spicy_grog__x1_1_x1_2_x1_3_x1_4_png_1354830019.png",
-    "stacksTo": 24,
-    "price": 51,
-    "description": "A tall glass of exceedingly spicy grog.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Pour this liquid into your mouth and hope for the best.",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "tooberry_shake": {
-    "name": "Too-Berry Shake",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/tooberry_shake__x1_iconic_png_1354830046.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/tooberry_shake__x1_1_x1_2_x1_3_x1_4_png_1354830047.png",
-    "stacksTo": 24,
-    "price": 76,
-    "description": "A berry tasty too-berry shake.",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Pour this liquid into your mouth and hope for the best.",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "wine_of_the_dead": {
-    "name": "Wine of the Dead",
-    "category": "Drink",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/wine_of_the_dead__x1_iconic_png_1354830988.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/wine_of_the_dead__x1_1_x1_2_x1_3_x1_4_png_1354830994.png",
-    "stacksTo": 13,
-    "price": 66,
-    "description": "A forbidding decanter filled with wine of the dead, made from grapes crushed in Purgatory. This Hade-licious drink will revive even the most pooped of hellions... but will kill all who drink it aboveground. Pour it on cultivated items in your home street or yard to unreap what you've sown. Beware its cursed powers!",
-    "actions": [
-      {
-        "actionName": "Drink",
-        "multiEnabled": true,
-        "description": "Just because it has \"dead\" in the name doesn't mean it will kill you.",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  }
+	"beer": {
+		"name": "Beer",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/beer__x1_iconic_png_1354829708.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/beer__x1_1_x1_2_x1_3_x1_4_png_1354829709.png",
+		"stacksTo": 24,
+		"price": 10,
+		"description": "A shiny can of mmm... beer.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Pour this liquid into your mouth and hope for the best.",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"bubble_tea": {
+		"name": "Bubble Tea",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/bubble_tea__x1_iconic_png_1354829726.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/bubble_tea__x1_1_x1_2_x1_3_x1_4_png_1354829727.png",
+		"stacksTo": 24,
+		"price": 172,
+		"description": "A super-frothy bubble tea.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Pour this liquid into your mouth and hope for the best.",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"butterfly_milk": {
+		"name": "Butterfly Milk",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/milk_butterfly__x1_iconic_png_1354829507.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/milk_butterfly__x1_1_x1_2_x1_3_x1_4_png_1354829507.png",
+		"iconNum": 4,
+		"stacksTo": 80,
+		"price": 8,
+		"description": "A vial of butterfly milk. It has the tingly effervescence of a thousand tiny butterfly farts.",
+		"actions": [
+			{
+				"actionName": "Sniff Milk",
+				"description": "Advised for curing the blues",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			},
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Think of the butterfly you got this from while you're at it",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			},
+			{
+				"actionName": "Shake Bottle",
+				"multiEnabled": true,
+				"description": "Makes butter. Costs 2 energy.",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"carrot_margarita": {
+		"name": "Carrot Margarita",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/carrot_margarita__x1_iconic_png_1354829742.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/carrot_margarita__x1_1_x1_2_x1_3_x1_4_png_1354829743.png",
+		"stacksTo": 24,
+		"price": 90,
+		"description": "A thick, warm carrot margarita.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Pour this liquid into your mouth and hope for the best.",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"cloud_11_smoothie": {
+		"name": "Cloud 11 Smoothie",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/cloud_11_smoothie__x1_iconic_png_1354829690.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/cloud_11_smoothie__x1_1_x1_2_x1_3_x1_4_png_1354829691.png",
+		"stacksTo": 24,
+		"price": 69,
+		"description": "A Cloud 11 smoothie. Pretty much the best smoothie ever invented in the history of smoothies.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Pour this liquid into your mouth and hope for the best.",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"cloudberry_daiquiri": {
+		"name": "Cloudberry Daiquiri",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/cloudberry_daiquiri__x1_iconic_png_1354829771.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/cloudberry_daiquiri__x1_1_x1_2_x1_3_x1_4_png_1354829774.png",
+		"stacksTo": 24,
+		"price": 142,
+		"description": "A nourishing cloudberry daiquiri. It goes down smooth.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Pour this liquid into your mouth and hope for the best.",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"coffee": {
+		"name": "Coffee",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/coffee__x1_iconic_png_1354829779.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/coffee__x1_1_x1_2_x1_3_x1_4_png_1354829780.png",
+		"stacksTo": 24,
+		"price": 5,
+		"description": "A steaming mug of strong, life-affirming coffee.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Feeling tired?",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"cosma_politan": {
+		"name": "Cosma-politan",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/cosmapolitan__x1_iconic_png_1354829788.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/cosmapolitan__x1_1_x1_2_x1_3_x1_4_png_1354829789.png",
+		"stacksTo": 24,
+		"price": 131,
+		"description": "An urbane, sophistimicated cosma-politan.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Pour this liquid into your mouth and hope for the best.",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"crabato_juice": {
+		"name": "Crabato Juice",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/crabato_juice__x1_iconic_png_1354831176.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/crabato_juice__x1_1_x1_2_x1_3_x1_4_png_1354831176.png",
+		"stacksTo": 24,
+		"price": 50,
+		"description": "Mmm... all the goodness of crab juice, plus tomatoes!",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Pour this liquid into your mouth and hope for the best.",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"creamy_martini": {
+		"name": "Creamy Martini",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/creamy_martini__x1_iconic_png_1354829793.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/creamy_martini__x1_1_x1_2_x1_3_x1_4_png_1354829793.png",
+		"stacksTo": 24,
+		"price": 60,
+		"description": "A shaken-and-stirred-and-shaken-again creamy martini.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Pour this liquid into your mouth and hope for the best.",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"cup_of_water": {
+		"name": "Cup of Water",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/cup_of_water__x1_1_png_1354833112.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/cup_of_water__x1_1_png_1354833112.png",
+		"stacksTo": 1,
+		"price": 1,
+		"description": "This water is so plain, it has no Brownian motion, but Beigien motion instead. Drink at own risk.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "How can a simple cup of water look so boring?",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"earthshaker": {
+		"name": "Earthshaker",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/earthshaker__x1_iconic_png_1354829805.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/earthshaker__x1_1_x1_2_x1_3_x1_4_png_1354829806.png",
+		"stacksTo": 24,
+		"price": 152,
+		"description": "A seismically upgraded earthshaker.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "It might rock your world.",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"exotic_juice": {
+		"name": "Exotic Juice",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/exotic_juice__x1_iconic_png_1354829808.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/exotic_juice__x1_1_x1_2_x1_3_x1_4_png_1354829809.png",
+		"stacksTo": 24,
+		"price": 54,
+		"description": "A goblet of mysteriously yummy exotic juice.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "The label reads, \"Imported from somewhere\".",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"face_smelter": {
+		"name": "Face Smelter",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/face_smelter__x1_iconic_png_1354839793.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/face_smelter__x1_1_x1_2_x1_3_x1_4_png_1354839794.png",
+		"stacksTo": 24,
+		"price": 141,
+		"description": "A powerful brew with a scent acrid enough to perm your nostril hairs.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Smelt yo' face off!",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"flaming_humbaba": {
+		"name": "Flaming Humbaba",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/flaming_humbaba__x1_iconic_png_1354829817.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/flaming_humbaba__x1_1_x1_2_x1_3_x1_4_png_1354829817.png",
+		"stacksTo": 24,
+		"price": 168,
+		"description": "A 5-alarm flaming Humbaba.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Pour this liquid into your mouth and hope for the best.",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"fruity_juice": {
+		"name": "Fruity Juice",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/fruity_juice__x1_iconic_png_1354829844.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/fruity_juice__x1_1_x1_2_x1_3_x1_4_png_1354829845.png",
+		"stacksTo": 24,
+		"price": 24,
+		"description": "A glass of nigh-ambrosial fruit juice.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Pour this liquid into your mouth and hope for the best.",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"gurly_drink": {
+		"name": "Gurly Drink",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/gurly_drink__x1_iconic_png_1354829865.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/gurly_drink__x1_1_x1_2_x1_3_x1_4_png_1354829865.png",
+		"stacksTo": 24,
+		"price": 160,
+		"description": "A sweet, innocent gurly drink.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Pour this liquid into your mouth and hope for the best.",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"hooch": {
+		"name": "Hooch",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/hooch__x1_iconic_png_1354829881.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/hooch__x1_1_x1_2_x1_3_x1_4_png_1354829882.png",
+		"stacksTo": 24,
+		"price": 15,
+		"description": "One jug of premium high-octane hooch.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Pour this liquid into your mouth and hope for the best.",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"lemon_juice": {
+		"name": "Lemon Juice",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/lemon_juice__x1_iconic_png_1354829899.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/lemon_juice__x1_1_x1_2_x1_3_x1_4_png_1354829900.png",
+		"stacksTo": 24,
+		"price": 39,
+		"description": "A tall glass of exquisitely sour lemon juice.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "You're not afraid of sour, are you?",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"mabbish_coffee": {
+		"name": "Mabbish Coffee",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/mabbish_coffee__x1_iconic_png_1354829697.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/mabbish_coffee__x1_1_x1_2_x1_3_x1_4_png_1354829698.png",
+		"stacksTo": 24,
+		"price": 54,
+		"description": "A Mabbish coffee has all the goodness of regular coffee, but gooder.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Pour this liquid into your mouth and hope for the best.",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"mega_healthy_veggie_juice": {
+		"name": "Mega Healthy Veggie Juice",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/mega_healthy_veggie_juice__x1_iconic_png_1354829910.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/mega_healthy_veggie_juice__x1_1_x1_2_x1_3_x1_4_png_1354829911.png",
+		"stacksTo": 24,
+		"price": 46,
+		"description": "A bracing tumbler of mega-healthy veggie juice.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Pour this liquid into your mouth and hope for the best.",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"orange_juice": {
+		"name": "Orange Juice",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/orange_juice__x1_iconic_png_1354829944.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/orange_juice__x1_1_x1_2_x1_3_x1_4_png_1354829944.png",
+		"stacksTo": 24,
+		"price": 39,
+		"description": "A surprising glass of orange juice.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Pour this liquid into your mouth and hope for the best.",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"pumpkin_ale": {
+		"name": "Pumpkin Ale",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/pumpkin_ale__x1_iconic_png_1354836548.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_ale__x1_1_x1_2_x1_3_x1_4_png_1354836548.png",
+		"stacksTo": 10,
+		"price": 83,
+		"description": "All the refreshment of beer combined with the autumnal savoury heft of pumpkin. Then combined with cinnamon. For no reason anyone can decipher.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Pour this liquid into your mouth and hope for the best.",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"pungent_sunrise": {
+		"name": "Pungent Sunrise",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/pungent_sunrise__x1_iconic_png_1354829980.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/pungent_sunrise__x1_1_x1_2_x1_3_x1_4_png_1354829981.png",
+		"stacksTo": 24,
+		"price": 197,
+		"description": "A refreshingly pungent sunrise.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Pour this liquid into your mouth and hope for the best.",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"savory_smoothie": {
+		"name": "Savory Smoothie",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/savory_smoothie__x1_iconic_png_1354829997.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/savory_smoothie__x1_1_x1_2_x1_3_x1_4_png_1354829998.png",
+		"stacksTo": 24,
+		"price": 96,
+		"description": "A savory smoothie. It sticks to your ribs and doesn't let go.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Pour this liquid into your mouth and hope for the best.",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"slow_gin_fizz": {
+		"name": "Slow Gin Fizz",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/slow_gin_fizz__x1_iconic_png_1354830016.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/slow_gin_fizz__x1_1_x1_2_x1_3_x1_4_png_1354830017.png",
+		"stacksTo": 24,
+		"price": 76,
+		"description": "A low and lazy slow gin fizz.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Pour this liquid into your mouth and hope for the best.",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"spicy_grog": {
+		"name": "Spicy Grog",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/spicy_grog__x1_iconic_png_1354830019.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/spicy_grog__x1_1_x1_2_x1_3_x1_4_png_1354830019.png",
+		"stacksTo": 24,
+		"price": 51,
+		"description": "A tall glass of exceedingly spicy grog.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Pour this liquid into your mouth and hope for the best.",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"tooberry_shake": {
+		"name": "Too-Berry Shake",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/tooberry_shake__x1_iconic_png_1354830046.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/tooberry_shake__x1_1_x1_2_x1_3_x1_4_png_1354830047.png",
+		"stacksTo": 24,
+		"price": 76,
+		"description": "A berry tasty too-berry shake.",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Pour this liquid into your mouth and hope for the best.",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"wine_of_the_dead": {
+		"name": "Wine of the Dead",
+		"category": "Drink",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/wine_of_the_dead__x1_iconic_png_1354830988.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/wine_of_the_dead__x1_1_x1_2_x1_3_x1_4_png_1354830994.png",
+		"stacksTo": 13,
+		"price": 66,
+		"description": "A forbidding decanter filled with wine of the dead, made from grapes crushed in Purgatory. This Hade-licious drink will revive even the most pooped of hellions... but will kill all who drink it aboveground. Pour it on cultivated items in your home street or yard to unreap what you've sown. Beware its cursed powers!",
+		"actions": [
+			{
+				"actionName": "Drink",
+				"multiEnabled": true,
+				"description": "Just because it has \"dead\" in the name doesn't mean it will kill you.",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	}
 }

@@ -1,66 +1,66 @@
 {
-  "juju_paperweight": {
-    "name": "Ancestral Paperweight",
-    "category": "Quest Items",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/juju_paperweight__x1_1_png_1354837859.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/juju_paperweight__x1_1_png_1354837859.png",
-    "stacksTo": 1,
-    "price": 0,
-    "description": "An ancient decorative weight of uncanny beauty and density, this relic is used by the Juju Bandits to secure the bounty of their traditional paper hunts."
-  },
-  "contraband": {
-    "name": "Contraband",
-    "category": "Quest Items",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/contraband__x1_1_png_1354836014.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/contraband__x1_1_png_1354836014.png",
-    "stacksTo": 1,
-    "price": 0,
-    "description": "This is a surprisingly light package of *something* given to you by a smuggler who might ask you to take it from one place to another for reasons you cannot fully grasp. Still, a job's a job, right? What business is it of yours what's in the package. It DOES smell familiar, though…"
-  },
-  "juju_trowel": {
-    "name": "Juju Trowel",
-    "category": "Quest Items",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/juju_trowel__x1_1_png_1354837840.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/juju_trowel__x1_1_png_1354837840.png",
-    "stacksTo": 1,
-    "price": 0,
-    "description": "A rustic trowel fashioned by Juju Bandits for delicate digging in the dense savanna dirt."
-  },
-  "note_hint": {
-    "name": "Secret Juju Hint",
-    "category": "Quest Items",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/note_hint__x1_1_png_1354837810.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/note_hint__x1_1_png_1354837810.png",
-    "stacksTo": 1,
-    "price": 0,
-    "description": "If you can decipher this clue, it might lead you somewhere interesting."
-  },
-  "small_worthless": {
-    "name": "Small shiny object with no intrinsic value",
-    "category": "Quest Items",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/small_worthless__x1_iconic_png_1354829516.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/small_worthless__x1_1_x1_2_png_1354829517.png",
-    "iconNum": 2,
-    "stacksTo": 1,
-    "price": 0,
-    "description": "Shiny, but you can barely see the shine so it ends up a little dull. Totally worthless: it has no purpose. Holding on to this little object simply cannot be recommended."
-  },
-  "user_made_quest": {
-    "name": "A quest made by a user",
-    "category": "Quest Items",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/user_made_quest.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/user_made_quest.png",
-    "iconNum": 1,
-    "stacksTo": 1,
-    "price": 0,
-    "description": "Someone needs a job done and you look like just the person to do it. Get it done for them and you'll be rewarded.",
-    "actions": [
-      {
-        "actionName": "Open Quest",
-        "description": "Let's see what needs done",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  }
+	"juju_paperweight": {
+		"name": "Ancestral Paperweight",
+		"category": "Quest Items",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/juju_paperweight__x1_1_png_1354837859.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/juju_paperweight__x1_1_png_1354837859.png",
+		"stacksTo": 1,
+		"price": 0,
+		"description": "An ancient decorative weight of uncanny beauty and density, this relic is used by the Juju Bandits to secure the bounty of their traditional paper hunts."
+	},
+	"contraband": {
+		"name": "Contraband",
+		"category": "Quest Items",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/contraband__x1_1_png_1354836014.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/contraband__x1_1_png_1354836014.png",
+		"stacksTo": 1,
+		"price": 0,
+		"description": "This is a surprisingly light package of *something* given to you by a smuggler who might ask you to take it from one place to another for reasons you cannot fully grasp. Still, a job's a job, right? What business is it of yours what's in the package. It DOES smell familiar, though…"
+	},
+	"juju_trowel": {
+		"name": "Juju Trowel",
+		"category": "Quest Items",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/juju_trowel__x1_1_png_1354837840.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/juju_trowel__x1_1_png_1354837840.png",
+		"stacksTo": 1,
+		"price": 0,
+		"description": "A rustic trowel fashioned by Juju Bandits for delicate digging in the dense savanna dirt."
+	},
+	"note_hint": {
+		"name": "Secret Juju Hint",
+		"category": "Quest Items",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/note_hint__x1_1_png_1354837810.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/note_hint__x1_1_png_1354837810.png",
+		"stacksTo": 1,
+		"price": 0,
+		"description": "If you can decipher this clue, it might lead you somewhere interesting."
+	},
+	"small_worthless": {
+		"name": "Small shiny object with no intrinsic value",
+		"category": "Quest Items",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/small_worthless__x1_iconic_png_1354829516.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/small_worthless__x1_1_x1_2_png_1354829517.png",
+		"iconNum": 2,
+		"stacksTo": 1,
+		"price": 0,
+		"description": "Shiny, but you can barely see the shine so it ends up a little dull. Totally worthless: it has no purpose. Holding on to this little object simply cannot be recommended."
+	},
+	"user_made_quest": {
+		"name": "A quest made by a user",
+		"category": "Quest Items",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/user_made_quest.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/user_made_quest.png",
+		"iconNum": 1,
+		"stacksTo": 1,
+		"price": 0,
+		"description": "Someone needs a job done and you look like just the person to do it. Get it done for them and you'll be rewarded.",
+		"actions": [
+			{
+				"actionName": "Open Quest",
+				"description": "Let's see what needs done",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	}
 }

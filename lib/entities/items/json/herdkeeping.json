@@ -1,198 +1,198 @@
 {
-  "butterfly_egg": {
-    "name": "Butterfly Egg",
-    "category": "Herdkeeping Supplies",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/butterfly_egg__x1_iconic_png_1354830696.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/butterfly_egg__x1_1_x1_2_x1_3_x1_4_png_1354830697.png",
-    "stacksTo": 10,
-    "price": 400,
-    "description": "An egg seasoned with the specific mix of lepidopteral herbs and spices to hatch a Caterpillar."
-  },
-  "butterfly_lotion": {
-    "name": "Butterfly Lotion",
-    "category": "Herdkeeping Supplies",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/butterfly_lotion__x1_iconic_png_1354829593.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/butterfly_lotion__x1_1_x1_2_png_1354829597.png",
-    "iconNum": 2,
-    "stacksTo": 1,
-    "price": 10,
-    "description": "A tiny tube of butterfly lotion, without which a butterfly cannot be massaged. Remember: butterflies chafe easily, but they still like it pretty hard.",
-    "actions": [
-      {
-        "actionName": "Taste",
-        "description": "It does smell pretty good...",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "butterfly_milker": {
-    "name": "Butterfly Milker",
-    "category": "Herdkeeping Supplies",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/butterfly_milker__x1_1_png_1354830981.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/butterfly_milker__x1_1_png_1354830981.png",
-    "stacksTo": 1,
-    "price": 400,
-    "description": "A mechanized butterfly milker. It will gently milk your butterflies in your absence. Good for busy farmers or those with chapped hands."
-  },
-  "butterfly_stick": {
-    "name": "Butterfly Stick",
-    "category": "Herdkeeping Supplies",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/magic_butterfly_stick__x1_1_png_1354837677.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/magic_butterfly_stick__x1_1_png_1354837677.png",
-    "stacksTo": 1,
-    "price": 400,
-    "description": "One stick imbued with purest butterfly attractant. Placed in a house or on your land, any Butterflies close enough that their wings tingle with the frequency of buttervibes the stick resonates at (a very precise range) will be irresistibly attracted to it."
-  },
-  "caterpillar": {
-	"name": "Caterpillar",
-	"category": "Herdkeeping Supplies",
-	"iconUrl": "http://childrenofur.com/assets/entityImages/Caterpillar.png",
-	"iconNum": 1,
-	"spriteUrl": "http://childrenofur.com/assets/entityImages/Caterpillar.png",
-	"animSpriteUrl": "http://c2.glitch.bz/items/2012-12-06/caterpillar__x1_sit_png_1354831021.png",
-	"stacksTo": 1,
-	"price": 500,
-	"description": "A proto-Butterfly.",
-	"actions": [
-      {
-        "actionName": "Feed",
-        "multiEnabled": true,
-        "description": "Help this little one grow up",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "chick": {
- 	"name": "Chick",
- 	"category": "Herdkeeping Supplies",
-	"iconUrl": "http://childrenofur.com/assets/entityImages/Chick.png",
-	"iconNum": 1,
-	"spriteUrl": "http://childrenofur.com/assets/entityImages/Chick.png",
-	"animSpriteUrl": "http://c2.glitch.bz/items/2012-12-06/chick__x1_sit_png_1354830412.png",
-	"stacksTo": 1,
-	"price": 300,
-	"description": "A wide-eyed chick, fresh from the egg. It needs grain in order to reach full chickenhood.",
-	"actions": [
-      {
-        "actionName": "Feed",
-        "multiEnabled": true,
-        "description": "Help this little one grow up",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  },
-  "chicken_egg": {
-    "name": "Chicken Egg",
-    "category": "Herdkeeping Supplies",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/chicken_egg__x1_iconic_png_1354830693.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/chicken_egg__x1_1_x1_2_x1_3_x1_4_png_1354830694.png",
-    "stacksTo": 10,
-    "price": 200,
-    "description": "An egg treated with special poultry seasoning to hatch a Chick."
-  },
-  "chicken_stick": {
-    "name": "Chicken Stick",
-    "category": "Herdkeeping Supplies",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/magic_chicken_stick__x1_1_png_1354837681.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/magic_chicken_stick__x1_1_png_1354837681.png",
-    "stacksTo": 1,
-    "price": 400,
-    "description": "A stick for summoning and containing poultry in a happy feathery cabal. When placed in a house or on your land, chickens within walking, flapping or climbing range will feel an irresistible physical draw to this chick magnet."
-  },
-  "fox_bait": {
-    "name": "Fox Bait",
-    "category": "Herdkeeping Supplies",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/fox_bait__x1_1_png_1354839628.png",
-	"iconNum": 1,
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/fox_bait__x1_1_png_1354839628.png",
-    "stacksTo": 100,
-    "price": 30,
-    "description": "A nugget of fox-pleasing goodness, filled with every fox's favourite flavours. Proof positive that you catch more foxes with Fox Bait than you do with vinegar (just in case anyone suggested the alternative, which on reflection seems unlikely).",
-	"actions": [
-		{
-        	"actionName": "Place Bait",
-			"description": "Drop the bait on the ground to attract a fox",
-        	"itemRequirements": {},
-        	"skillRequirements": {}
-        }
-	]
-  },
-  "hogtied_piggy": {
-    "name": "Hog-tied Piggy",
-    "category": "Herdkeeping Supplies",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/hogtied_piggy__x1_1_png_1354830331.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/hogtied_piggy__x1_1_png_1354830331.png",
-    "stacksTo": 1,
-    "price": 500,
-    "description": "One wiggly wild piggy, bound and gagged. Better pen him up fast. Drop this piggy in your home before he gets away."
-  },
-  "meat_collector": {
-    "name": "Meat Collector",
-    "category": "Herdkeeping Supplies",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/meat_collector__x1_1_png_1354831017.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/meat_collector__x1_1_png_1354831017.png",
-    "iconNum": 1,
-    "stacksTo": 1,
-    "price": 500,
-    "description": "A farm-grade meat collector. It works around the clock to collect meat from your piggies when you can't."
-  },
-  "pig_bait": {
-    "name": "Pig Bait",
-    "category": "Herdkeeping Supplies",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/pig_bait__x1_iconic_png_1354830334.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/pig_bait__x1_1_x1_2_x1_3_x1_4_png_1354830335.png",
-    "stacksTo": 10,
-    "price": 25,
-    "description": "A sack of tempting pig bait. It can be used to try to capture wild piggies."
-  },
-  "pig_stick": {
-    "name": "Pig Stick",
-    "category": "Herdkeeping Supplies",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/magic_pig_stick__x1_1_png_1354837674.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/magic_pig_stick__x1_1_png_1354837674.png",
-    "stacksTo": 1,
-    "price": 400,
-    "description": "The saying \"Speak softly and carry a Pig Stick\" is wise but misleading, as the Pig Stick is not effective when carried, only once placed somewhere in your home or on your land. There, Piggies within trotting distance will feel irresistibly drawn to the precious Pig Stick, and want to stay near it."
-  },
-  "piggy_egg": {
-    "name": "Piggy Egg",
-    "category": "Herdkeeping Supplies",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/piggy_egg__x1_iconic_png_1354830690.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/piggy_egg__x1_1_x1_2_x1_3_x1_4_png_1354830691.png",
-    "stacksTo": 10,
-    "price": 300,
-    "description": "An egg seasoned with special porcine spices to hatch a Piglet."
-  },
-  "piggy_feeder": {
-    "name": "Piggy Feeder",
-    "category": "Herdkeeping Supplies",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/piggy_feeder__x1_1_png_1354830984.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/piggy_feeder__x1_1_png_1354830984.png",
-    "stacksTo": 1,
-    "price": 200,
-    "description": "A piggy feeder is a must-have device for lazy farmers. It will feed your pigs while you are away."
-  },
-  "piglet": {
-	"name": "Piglet",
-	"category": "Herdkeeping Supplies",
-	"iconUrl": "http://childrenofur.com/assets/entityImages/Piglet.png",
-	"iconNum": 1,
-	"spriteUrl": "http://childrenofur.com/assets/entityImages/Piglet.png",
-	"animSpriteUrl": "http://c2.glitch.bz/items/2012-12-06/piglet__x1_sit_png_1354830978.png",
-	"stacksTo": 1,
-	"price": 400,
-	"description": "One wiggly little piggly. He wants to turn into a big pig. Feed him nourishing plant-y food to help him grow.",
-	"actions": [
-      {
-        "actionName": "Feed",
-        "multiEnabled": true,
-        "description": "Help this little one grow up",
-        "itemRequirements": {},
-        "skillRequirements": {}
-      }
-    ]
-  }
+	"butterfly_egg": {
+		"name": "Butterfly Egg",
+		"category": "Herdkeeping Supplies",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/butterfly_egg__x1_iconic_png_1354830696.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/butterfly_egg__x1_1_x1_2_x1_3_x1_4_png_1354830697.png",
+		"stacksTo": 10,
+		"price": 400,
+		"description": "An egg seasoned with the specific mix of lepidopteral herbs and spices to hatch a Caterpillar."
+	},
+	"butterfly_lotion": {
+		"name": "Butterfly Lotion",
+		"category": "Herdkeeping Supplies",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/butterfly_lotion__x1_iconic_png_1354829593.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/butterfly_lotion__x1_1_x1_2_png_1354829597.png",
+		"iconNum": 2,
+		"stacksTo": 1,
+		"price": 10,
+		"description": "A tiny tube of butterfly lotion, without which a butterfly cannot be massaged. Remember: butterflies chafe easily, but they still like it pretty hard.",
+		"actions": [
+			{
+				"actionName": "Taste",
+				"description": "It does smell pretty good...",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"butterfly_milker": {
+		"name": "Butterfly Milker",
+		"category": "Herdkeeping Supplies",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/butterfly_milker__x1_1_png_1354830981.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/butterfly_milker__x1_1_png_1354830981.png",
+		"stacksTo": 1,
+		"price": 400,
+		"description": "A mechanized butterfly milker. It will gently milk your butterflies in your absence. Good for busy farmers or those with chapped hands."
+	},
+	"butterfly_stick": {
+		"name": "Butterfly Stick",
+		"category": "Herdkeeping Supplies",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/magic_butterfly_stick__x1_1_png_1354837677.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/magic_butterfly_stick__x1_1_png_1354837677.png",
+		"stacksTo": 1,
+		"price": 400,
+		"description": "One stick imbued with purest butterfly attractant. Placed in a house or on your land, any Butterflies close enough that their wings tingle with the frequency of buttervibes the stick resonates at (a very precise range) will be irresistibly attracted to it."
+	},
+	"caterpillar": {
+		"name": "Caterpillar",
+		"category": "Herdkeeping Supplies",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/Caterpillar.png",
+		"iconNum": 1,
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/Caterpillar.png",
+		"animSpriteUrl": "http://c2.glitch.bz/items/2012-12-06/caterpillar__x1_sit_png_1354831021.png",
+		"stacksTo": 1,
+		"price": 500,
+		"description": "A proto-Butterfly.",
+		"actions": [
+			{
+				"actionName": "Feed",
+				"multiEnabled": true,
+				"description": "Help this little one grow up",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"chick": {
+		"name": "Chick",
+		"category": "Herdkeeping Supplies",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/Chick.png",
+		"iconNum": 1,
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/Chick.png",
+		"animSpriteUrl": "http://c2.glitch.bz/items/2012-12-06/chick__x1_sit_png_1354830412.png",
+		"stacksTo": 1,
+		"price": 300,
+		"description": "A wide-eyed chick, fresh from the egg. It needs grain in order to reach full chickenhood.",
+		"actions": [
+			{
+				"actionName": "Feed",
+				"multiEnabled": true,
+				"description": "Help this little one grow up",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"chicken_egg": {
+		"name": "Chicken Egg",
+		"category": "Herdkeeping Supplies",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/chicken_egg__x1_iconic_png_1354830693.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/chicken_egg__x1_1_x1_2_x1_3_x1_4_png_1354830694.png",
+		"stacksTo": 10,
+		"price": 200,
+		"description": "An egg treated with special poultry seasoning to hatch a Chick."
+	},
+	"chicken_stick": {
+		"name": "Chicken Stick",
+		"category": "Herdkeeping Supplies",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/magic_chicken_stick__x1_1_png_1354837681.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/magic_chicken_stick__x1_1_png_1354837681.png",
+		"stacksTo": 1,
+		"price": 400,
+		"description": "A stick for summoning and containing poultry in a happy feathery cabal. When placed in a house or on your land, chickens within walking, flapping or climbing range will feel an irresistible physical draw to this chick magnet."
+	},
+	"fox_bait": {
+		"name": "Fox Bait",
+		"category": "Herdkeeping Supplies",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/fox_bait__x1_1_png_1354839628.png",
+		"iconNum": 1,
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/fox_bait__x1_1_png_1354839628.png",
+		"stacksTo": 100,
+		"price": 30,
+		"description": "A nugget of fox-pleasing goodness, filled with every fox's favourite flavours. Proof positive that you catch more foxes with Fox Bait than you do with vinegar (just in case anyone suggested the alternative, which on reflection seems unlikely).",
+		"actions": [
+			{
+				"actionName": "Place Bait",
+				"description": "Drop the bait on the ground to attract a fox",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"hogtied_piggy": {
+		"name": "Hog-tied Piggy",
+		"category": "Herdkeeping Supplies",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/hogtied_piggy__x1_1_png_1354830331.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/hogtied_piggy__x1_1_png_1354830331.png",
+		"stacksTo": 1,
+		"price": 500,
+		"description": "One wiggly wild piggy, bound and gagged. Better pen him up fast. Drop this piggy in your home before he gets away."
+	},
+	"meat_collector": {
+		"name": "Meat Collector",
+		"category": "Herdkeeping Supplies",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/meat_collector__x1_1_png_1354831017.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/meat_collector__x1_1_png_1354831017.png",
+		"iconNum": 1,
+		"stacksTo": 1,
+		"price": 500,
+		"description": "A farm-grade meat collector. It works around the clock to collect meat from your piggies when you can't."
+	},
+	"pig_bait": {
+		"name": "Pig Bait",
+		"category": "Herdkeeping Supplies",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/pig_bait__x1_iconic_png_1354830334.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/pig_bait__x1_1_x1_2_x1_3_x1_4_png_1354830335.png",
+		"stacksTo": 10,
+		"price": 25,
+		"description": "A sack of tempting pig bait. It can be used to try to capture wild piggies."
+	},
+	"pig_stick": {
+		"name": "Pig Stick",
+		"category": "Herdkeeping Supplies",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/magic_pig_stick__x1_1_png_1354837674.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/magic_pig_stick__x1_1_png_1354837674.png",
+		"stacksTo": 1,
+		"price": 400,
+		"description": "The saying \"Speak softly and carry a Pig Stick\" is wise but misleading, as the Pig Stick is not effective when carried, only once placed somewhere in your home or on your land. There, Piggies within trotting distance will feel irresistibly drawn to the precious Pig Stick, and want to stay near it."
+	},
+	"piggy_egg": {
+		"name": "Piggy Egg",
+		"category": "Herdkeeping Supplies",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/piggy_egg__x1_iconic_png_1354830690.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/piggy_egg__x1_1_x1_2_x1_3_x1_4_png_1354830691.png",
+		"stacksTo": 10,
+		"price": 300,
+		"description": "An egg seasoned with special porcine spices to hatch a Piglet."
+	},
+	"piggy_feeder": {
+		"name": "Piggy Feeder",
+		"category": "Herdkeeping Supplies",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/piggy_feeder__x1_1_png_1354830984.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/piggy_feeder__x1_1_png_1354830984.png",
+		"stacksTo": 1,
+		"price": 200,
+		"description": "A piggy feeder is a must-have device for lazy farmers. It will feed your pigs while you are away."
+	},
+	"piglet": {
+		"name": "Piglet",
+		"category": "Herdkeeping Supplies",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/Piglet.png",
+		"iconNum": 1,
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/Piglet.png",
+		"animSpriteUrl": "http://c2.glitch.bz/items/2012-12-06/piglet__x1_sit_png_1354830978.png",
+		"stacksTo": 1,
+		"price": 400,
+		"description": "One wiggly little piggly. He wants to turn into a big pig. Feed him nourishing plant-y food to help him grow.",
+		"actions": [
+			{
+				"actionName": "Feed",
+				"multiEnabled": true,
+				"description": "Help this little one grow up",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	}
 }

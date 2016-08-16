@@ -1,110 +1,110 @@
 {
-  "blue_white_hexagon_key": {
-    "name": "Blue-White Hexagon Key",
-    "category": "Keys",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/door_key_8__x1_1_png_1354832253.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/door_key_8__x1_1_png_1354832253.png",
-    "stacksTo": 10,
-    "price": 50,
-    "description": "It's been said that hexagonal keys have more fun. Usually this is the case, except when said key is blue and white. These are serious keys for serious door openings."
-  },
-  "blue_yellow_circle_key": {
-    "name": "Blue-Yellow Circle Key",
-    "category": "Keys",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/door_key_x1_10__1_png_1354832258.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/door_key_x1_10__1_png_1354832258.png",
-    "stacksTo": 10,
-    "price": 50,
-    "description": "POW! Right in the keyhole! That's what this blue and yellow circular key would say if it could speak. Which it can't."
-  },
-  "green_orange_hexagon_key": {
-    "name": "Green-Orange Hexagon Key",
-    "category": "Keys",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/door_key_x1_12__1_png_1354832262.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/door_key_x1_12__1_png_1354832262.png",
-    "stacksTo": 10,
-    "price": 50,
-    "description": "This key's greenness and orangeosity is matched only by its hexagonaliciousness."
-  },
-  "green_white_circle_key": {
-    "name": "Green-White Circle Key",
-    "category": "Keys",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/door_key_2__x1_1_png_1354832241.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/door_key_2__x1_1_png_1354832241.png",
-    "stacksTo": 10,
-    "price": 50,
-    "description": "Green and white and shaped like your melon, this little key will take you to the other side. Well, the other side of a door, anyway."
-  },
-  "orange_blue_square_key": {
-    "name": "Orange-Blue Square Key",
-    "category": "Keys",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/door_key_3__x1_1_png_1354832243.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/door_key_3__x1_1_png_1354832243.png",
-    "stacksTo": 10,
-    "price": 50,
-    "description": "Does this orange and blue square key smell funny to you? This probably won't affect its door-opening abilities. Though you might want to wash your hands later."
-  },
-  "purple_orange_circle_key": {
-    "name": "Purple-Orange Circle Key",
-    "category": "Keys",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/door_key_6__x1_1_png_1354832249.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/door_key_6__x1_1_png_1354832249.png",
-    "stacksTo": 10,
-    "price": 50,
-    "description": "Purple, orange and circular, this key has everything you could want in a key. Especially since it actually opens doors."
-  },
-  "purple_red_square_key": {
-    "name": "Purple-Red Square Key",
-    "category": "Keys",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/door_key_x1_11__1_png_1354832259.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/door_key_x1_11__1_png_1354832259.png",
-    "stacksTo": 10,
-    "price": 50,
-    "description": "Purple, red and square, this key is a door's best friend. A friend with benefits. Door-opening benefits."
-  },
-  "red_green_triangle_key": {
-    "name": "Red-Green Triangle Key",
-    "category": "Keys",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/door_key_5__x1_1_png_1354832247.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/door_key_5__x1_1_png_1354832247.png",
-    "stacksTo": 10,
-    "price": 50,
-    "description": "There's nothing a red-green triangle key loves more than a good door-opening. Nothing."
-  },
-  "teal_red_hexagon_key": {
-    "name": "Teal-Red Hexagon Key",
-    "category": "Keys",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/door_key_4__x1_1_png_1354832245.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/door_key_4__x1_1_png_1354832245.png",
-    "stacksTo": 10,
-    "price": 50,
-    "description": "Hexagonally shaped keys have more fun. Especially the teal and red ones, which seem to glide into keyholes with more eagerness than one would expect from an average key."
-  },
-  "teal_white_triangle_key": {
-    "name": "Teal-White Triangle Key",
-    "category": "Keys",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/door_key_9__x1_1_png_1354832256.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/door_key_9__x1_1_png_1354832256.png",
-    "stacksTo": 10,
-    "price": 50,
-    "description": "Some say teal and white keys are nothing but trouble. They've never tried one of the triangular variety."
-  },
-  "yellow_purple_triangle_key": {
-    "name": "Yellow-Purple Triangle Key",
-    "category": "Keys",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/door_key_x1_1__1_png_1354832239.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/door_key_x1_1__1_png_1354832239.png",
-    "stacksTo": 10,
-    "price": 50,
-    "description": "As purple as it is yellow, this tri-pointed key has never met a door it didn't like."
-  },
-  "yellow_teal_square_key": {
-    "name": "Yellow-Teal Square Key",
-    "category": "Keys",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/door_key_7__x1_1_png_1354832251.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/door_key_7__x1_1_png_1354832251.png",
-    "stacksTo": 10,
-    "price": 50,
-    "description": "Yellow, teal and square are good qualities in a key with door-opening aspirations."
-  }
+	"blue_white_hexagon_key": {
+		"name": "Blue-White Hexagon Key",
+		"category": "Keys",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/door_key_8__x1_1_png_1354832253.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/door_key_8__x1_1_png_1354832253.png",
+		"stacksTo": 10,
+		"price": 50,
+		"description": "It's been said that hexagonal keys have more fun. Usually this is the case, except when said key is blue and white. These are serious keys for serious door openings."
+	},
+	"blue_yellow_circle_key": {
+		"name": "Blue-Yellow Circle Key",
+		"category": "Keys",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/door_key_x1_10__1_png_1354832258.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/door_key_x1_10__1_png_1354832258.png",
+		"stacksTo": 10,
+		"price": 50,
+		"description": "POW! Right in the keyhole! That's what this blue and yellow circular key would say if it could speak. Which it can't."
+	},
+	"green_orange_hexagon_key": {
+		"name": "Green-Orange Hexagon Key",
+		"category": "Keys",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/door_key_x1_12__1_png_1354832262.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/door_key_x1_12__1_png_1354832262.png",
+		"stacksTo": 10,
+		"price": 50,
+		"description": "This key's greenness and orangeosity is matched only by its hexagonaliciousness."
+	},
+	"green_white_circle_key": {
+		"name": "Green-White Circle Key",
+		"category": "Keys",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/door_key_2__x1_1_png_1354832241.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/door_key_2__x1_1_png_1354832241.png",
+		"stacksTo": 10,
+		"price": 50,
+		"description": "Green and white and shaped like your melon, this little key will take you to the other side. Well, the other side of a door, anyway."
+	},
+	"orange_blue_square_key": {
+		"name": "Orange-Blue Square Key",
+		"category": "Keys",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/door_key_3__x1_1_png_1354832243.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/door_key_3__x1_1_png_1354832243.png",
+		"stacksTo": 10,
+		"price": 50,
+		"description": "Does this orange and blue square key smell funny to you? This probably won't affect its door-opening abilities. Though you might want to wash your hands later."
+	},
+	"purple_orange_circle_key": {
+		"name": "Purple-Orange Circle Key",
+		"category": "Keys",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/door_key_6__x1_1_png_1354832249.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/door_key_6__x1_1_png_1354832249.png",
+		"stacksTo": 10,
+		"price": 50,
+		"description": "Purple, orange and circular, this key has everything you could want in a key. Especially since it actually opens doors."
+	},
+	"purple_red_square_key": {
+		"name": "Purple-Red Square Key",
+		"category": "Keys",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/door_key_x1_11__1_png_1354832259.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/door_key_x1_11__1_png_1354832259.png",
+		"stacksTo": 10,
+		"price": 50,
+		"description": "Purple, red and square, this key is a door's best friend. A friend with benefits. Door-opening benefits."
+	},
+	"red_green_triangle_key": {
+		"name": "Red-Green Triangle Key",
+		"category": "Keys",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/door_key_5__x1_1_png_1354832247.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/door_key_5__x1_1_png_1354832247.png",
+		"stacksTo": 10,
+		"price": 50,
+		"description": "There's nothing a red-green triangle key loves more than a good door-opening. Nothing."
+	},
+	"teal_red_hexagon_key": {
+		"name": "Teal-Red Hexagon Key",
+		"category": "Keys",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/door_key_4__x1_1_png_1354832245.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/door_key_4__x1_1_png_1354832245.png",
+		"stacksTo": 10,
+		"price": 50,
+		"description": "Hexagonally shaped keys have more fun. Especially the teal and red ones, which seem to glide into keyholes with more eagerness than one would expect from an average key."
+	},
+	"teal_white_triangle_key": {
+		"name": "Teal-White Triangle Key",
+		"category": "Keys",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/door_key_9__x1_1_png_1354832256.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/door_key_9__x1_1_png_1354832256.png",
+		"stacksTo": 10,
+		"price": 50,
+		"description": "Some say teal and white keys are nothing but trouble. They've never tried one of the triangular variety."
+	},
+	"yellow_purple_triangle_key": {
+		"name": "Yellow-Purple Triangle Key",
+		"category": "Keys",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/door_key_x1_1__1_png_1354832239.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/door_key_x1_1__1_png_1354832239.png",
+		"stacksTo": 10,
+		"price": 50,
+		"description": "As purple as it is yellow, this tri-pointed key has never met a door it didn't like."
+	},
+	"yellow_teal_square_key": {
+		"name": "Yellow-Teal Square Key",
+		"category": "Keys",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/door_key_7__x1_1_png_1354832251.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/door_key_7__x1_1_png_1354832251.png",
+		"stacksTo": 10,
+		"price": 50,
+		"description": "Yellow, teal and square are good qualities in a key with door-opening aspirations."
+	}
 }

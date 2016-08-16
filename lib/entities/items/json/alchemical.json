@@ -1,306 +1,306 @@
 {
-  "abbasidose": {
-    "name": "Abbasidose",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/abbasidose__x1_1_png_1354832197.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/abbasidose__x1_1_png_1354832197.png",
-    "stacksTo": 500,
-    "price": 6,
-    "description": "A compound made out of red, green and blue elements."
-  },
-  "alphose": {
-    "name": "Alphose",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/alphose__x1_1_png_1354832203.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/alphose__x1_1_png_1354832203.png",
-    "stacksTo": 500,
-    "price": 8,
-    "description": "A compound made out of red, green and blue."
-  },
-  "blue_element": {
-    "name": "Blue Element",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/element_blue__x1_1_png_1354832189.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/element_blue__x1_1_png_1354832189.png",
-    "stacksTo": 5000,
-    "price": 1,
-    "description": "An element is the basic building block of all stuff. This one is blue."
-  },
-  "cosmox": {
-    "name": "Cosmox",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/cosmox__x1_1_png_1354832213.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/cosmox__x1_1_png_1354832213.png",
-    "stacksTo": 500,
-    "price": 8,
-    "description": "A compound made out of red, blue and shiny."
-  },
-  "diabolic_acid": {
-    "name": "Diabolic Acid",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/diabolic_acid__x1_1_png_1354832222.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/diabolic_acid__x1_1_png_1354832222.png",
-    "stacksTo": 500,
-    "price": 1,
-    "description": "A compound made out of red, green and blue."
-  },
-  "extremely_hallowed_shrine_powder": {
-    "name": "Extremely Hallowed Shrine Powder",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/extremely_hallowed_shrine_powder.png",
-    "toolAnimation": "http://childrenofur.com/assets/entityImages/extremely_hallowed_shrine_powder__x1_tool_animation_png_1354832136.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/extremely_hallowed_shrine_powder__x1_5_x1_4_x1_3_x1_2_x1_1_png_1354832137.png",
-    "stacksTo": 1,
-    "price": 2000,
-    "durability": 5,
-    "description": "A jar of extremely hallowed shrine powder. It lets the giants know that, when it comes to currying favor, you really mean business."
-  },
-  "fairly_hallowed_shrine_powder": {
-    "name": "Fairly Hallowed Shrine Powder",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/fairly_hallowed_shrine_powder.png",
-    "toolAnimation": "http://childrenofur.com/assets/entityImages/fairly_hallowed_shrine_powder__x1_tool_animation_png_1354832141.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/fairly_hallowed_shrine_powder__x1_5_x1_4_x1_3_x1_2_x1_1_png_1354832141.png",
-    "stacksTo": 1,
-    "price": 1000,
-    "durability": 5,
-    "description": "Curry a moderate amount of favor with the giants with a jar of fairly hallowed shrine powder."
-  },
-  "fertilidust": {
-    "name": "Fertilidust",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/fertilidust.png",
-    "toolAnimation": "http://childrenofur.com/assets/entityImages/fertilidust__x1_tool_animation_png_1354832151.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/fertilidust__x1_5_x1_4_x1_3_x1_2_x1_1_png_1354832152.png",
-    "stacksTo": 1,
-    "price": 500,
-    "durability": 5,
-    "description": "A jar of chokingly musty fertilidust, effective in promoting the health of trees."
-  },
-  "fertilidust_lite": {
-    "name": "Fertilidust Lite",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/fertilidust_lite.png",
-    "toolAnimation": "http://childrenofur.com/assets/entityImages/fertilidust_lite__x1_tool_animation_png_1354832146.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/fertilidust_lite__x1_5_x1_4_x1_3_x1_2_x1_1_png_1354832147.png",
-    "stacksTo": 1,
-    "price": 200,
-    "durability": 5,
-    "description": "A jar of somewhat musty fertilidust lite, effective in improving the health of individual trees."
-  },
-  "friendly_acid": {
-    "name": "Friendly Acid",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/friendly_acid__x1_1_png_1354832195.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/friendly_acid__x1_1_png_1354832195.png",
-    "stacksTo": 500,
-    "price": 6,
-    "description": "A compound made out of red and blue."
-  },
-  "green_element": {
-    "name": "Green Element",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/element_green__x1_1_png_1354832187.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/element_green__x1_1_png_1354832187.png",
-    "stacksTo": 5000,
-    "price": 1,
-    "description": "An element is the basic building block of all stuff. This one is green."
-  },
-  "grendalinunin": {
-    "name": "Grendalinunin",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/grendalinunin__x1_1_png_1354832218.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/grendalinunin__x1_1_png_1354832218.png",
-    "stacksTo": 500,
-    "price": 12,
-    "description": "A compound made out of red, green, blue and shiny."
-  },
-  "groddlene": {
-    "name": "Groddlene",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/groddlene__x1_1_png_1354832193.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/groddlene__x1_1_png_1354832193.png",
-    "stacksTo": 500,
-    "price": 3,
-    "description": "A compound made out of red and green."
-  },
-  "humbabol": {
-    "name": "Humbabol",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/humbabol__x1_1_png_1354832211.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/humbabol__x1_1_png_1354832211.png",
-    "stacksTo": 500,
-    "price": 6,
-    "description": "A compound made out of blue and shiny."
-  },
-  "ixite": {
-    "name": "Ixite",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/ixite__x1_1_png_1354832208.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/ixite__x1_1_png_1354832208.png",
-    "stacksTo": 500,
-    "price": 4,
-    "description": "A compound made out of red, green, blue and shiny."
-  },
-  "krazy_salts": {
-    "name": "Krazy Salts",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/krazy_salts__x1_iconic_png_1354837025.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/krazy_salts__x1_1_x1_2_x1_3_x1_4_png_1354837026.png",
-    "stacksTo": 33,
-    "price": 111,
-    "description": "A vital magical ingredient, Krazy Salts should never be mistaken for normal, run of the spice-mill Pinch of Salt. For one thing, you need to save it for Potions. For the other, this Salt be KRAZY! Seriously: keep it away from sharp objects."
-  },
-  "lemene": {
-    "name": "Lemene",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/lemene__x1_1_png_1354832217.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/lemene__x1_1_png_1354832217.png",
-    "stacksTo": 500,
-    "price": 5,
-    "description": "A compound made out of red, green, blue and shiny."
-  },
-  "mabon": {
-    "name": "Mabon",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/mabon__x1_1_png_1354832220.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/mabon__x1_1_png_1354832220.png",
-    "stacksTo": 500,
-    "price": 15,
-    "description": "A compound made out of green, blue and shiny."
-  },
-  "no_no_powder": {
-    "name": "No-No Powder",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/no_no_powder__x1_iconic_png_1354832159.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/no_no_powder__x1_1_x1_2_x1_3_x1_4_png_1354832159.png",
-    "stacksTo": 10,
-    "price": 100,
-    "description": "Some tempting no-no powder. You know you shouldn't, but maybe just this once …"
-  },
-  "potoxin": {
-    "name": "Potoxin",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/potoxin__x1_1_png_1354832201.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/potoxin__x1_1_png_1354832201.png",
-    "stacksTo": 500,
-    "price": 10,
-    "description": "A compound made out of red, green and blue."
-  },
-  "powder_of_mild_fecundity": {
-    "name": "Powder of Mild Fecundity",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/powder_of_mild_fecundity.png",
-    "toolAnimation": "http://childrenofur.com/assets/entityImages/powder_of_mild_fecundity__x1_tool_animation_png_1354832165.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/powder_of_mild_fecundity__x1_5_x1_4_x1_3_x1_2_x1_1_png_1354832166.png",
-    "stacksTo": 1,
-    "price": 500,
-    "durability": 5,
-    "description": "The dust in this jar of reasonably fecund powder gets up the noses of piggies, butterflies and chickens (up to a point, there is only so much dust) and causes them to shed small amounts of their edibles everywhere."
-  },
-  "powder_of_startling_fecundity": {
-    "name": "Powder of Startling Fecundity",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/powder_of_startling_fecundity.png",
-    "toolAnimation": "http://childrenofur.com/assets/entityImages/powder_of_startling_fecundity__x1_tool_animation_png_1354832171.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/powder_of_startling_fecundity__x1_5_x1_4_x1_3_x1_2_x1_1_png_1354832171.png",
-    "stacksTo": 1,
-    "price": 1500,
-    "durability": 5,
-    "description": "This jar of high-potency powder gets under the skin of piggies, chickens and butterflies (up to a limit, one dose can only irritate a certain number of animals) and causes them to fecund their edibles all OVER the place."
-  },
-  "red_element": {
-    "name": "Red Element",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/element_red__x1_1_png_1354832185.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/element_red__x1_1_png_1354832185.png",
-    "stacksTo": 5000,
-    "price": 0,
-    "description": "An element is the basic building block of all stuff. This one is red."
-  },
-  "rubemycin": {
-    "name": "Rubemycin",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/rubemycin__x1_1_png_1354832205.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/rubemycin__x1_1_png_1354832205.png",
-    "stacksTo": 500,
-    "price": 5,
-    "description": "A compound made out of red, green, blue and shiny."
-  },
-  "shiny_element": {
-    "name": "Shiny Element",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/element_shiny__x1_1_png_1354832191.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/element_shiny__x1_1_png_1354832191.png",
-    "stacksTo": 5000,
-    "price": 1,
-    "description": "An element is the basic building block of all stuff. This one is shiny."
-  },
-  "sneezing_powder": {
-    "name": "Sneezing Powder",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/sneezing_powder.png",
-    "toolAnimation": "http://childrenofur.com/assets/entityImages/sneezing_powder__x1_tool_animation_png_1354832175.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/sneezing_powder__x1_5_x1_4_x1_3_x1_2_x1_1_png_1354832176.png",
-    "stacksTo": 1,
-    "price": 150,
-    "durability": 5,
-    "description": "A potentially troublesome jar of sneezing powder."
-  },
-  "sparkle_powder": {
-    "name": "Sparkle Powder",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/sparkle_powder.png",
-    "toolAnimation": "http://childrenofur.com/assets/entityImages/sparkle_powder__x1_tool_animation_png_1354832182.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/sparkle_powder__x1_5_x1_4_x1_3_x1_2_x1_1_png_1354832183.png",
-    "stacksTo": 1,
-    "price": 450,
-    "durability": 5,
-    "description": "A shimmery jar of sparkle powder."
-  },
-  "spriggase": {
-    "name": "Spriggase",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/spriggase__x1_1_png_1354832199.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/spriggase__x1_1_png_1354832199.png",
-    "stacksTo": 500,
-    "price": 9,
-    "description": "A compound made out of red, green and blue."
-  },
-  "tiite": {
-    "name": "Tiite",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/tiite__x1_1_png_1354832209.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/tiite__x1_1_png_1354832209.png",
-    "stacksTo": 500,
-    "price": 1,
-    "description": "A compound made out of red and blue."
-  },
-  "old_tree_poison": {
-    "name": "Tree Poison",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/tree_poison__x1_1_png_1354833126.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/tree_poison__x1_tool_animation_png_1354833125.png",
-    "stacksTo": 1,
-    "price": 100,
-    "description": "A lethal concoction, if you're a tree."
-  },
-  "old_tree_poison_antidote": {
-    "name": "Tree Poison Antidote",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/tree_poison_antidote__x1_1_png_1354833129.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/tree_poison_antidote__x1_tool_animation_png_1354833129.png",
-    "stacksTo": 1,
-    "price": 25,
-    "description": "A powerful remedy for recently poisoned trees."
-  },
-  "zillene": {
-    "name": "Zillene",
-    "category": "Alchemical Compounds & Powders",
-    "iconUrl": "http://childrenofur.com/assets/entityImages/zillene__x1_1_png_1354832215.png",
-    "spriteUrl": "http://childrenofur.com/assets/entityImages/zillene__x1_1_png_1354832215.png",
-    "stacksTo": 500,
-    "price": 6,
-    "description": "A compound made out of green, blue and shiny."
-  }
+	"abbasidose": {
+		"name": "Abbasidose",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/abbasidose__x1_1_png_1354832197.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/abbasidose__x1_1_png_1354832197.png",
+		"stacksTo": 500,
+		"price": 6,
+		"description": "A compound made out of red, green and blue elements."
+	},
+	"alphose": {
+		"name": "Alphose",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/alphose__x1_1_png_1354832203.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/alphose__x1_1_png_1354832203.png",
+		"stacksTo": 500,
+		"price": 8,
+		"description": "A compound made out of red, green and blue."
+	},
+	"blue_element": {
+		"name": "Blue Element",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/element_blue__x1_1_png_1354832189.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/element_blue__x1_1_png_1354832189.png",
+		"stacksTo": 5000,
+		"price": 1,
+		"description": "An element is the basic building block of all stuff. This one is blue."
+	},
+	"cosmox": {
+		"name": "Cosmox",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/cosmox__x1_1_png_1354832213.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/cosmox__x1_1_png_1354832213.png",
+		"stacksTo": 500,
+		"price": 8,
+		"description": "A compound made out of red, blue and shiny."
+	},
+	"diabolic_acid": {
+		"name": "Diabolic Acid",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/diabolic_acid__x1_1_png_1354832222.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/diabolic_acid__x1_1_png_1354832222.png",
+		"stacksTo": 500,
+		"price": 1,
+		"description": "A compound made out of red, green and blue."
+	},
+	"extremely_hallowed_shrine_powder": {
+		"name": "Extremely Hallowed Shrine Powder",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/extremely_hallowed_shrine_powder.png",
+		"toolAnimation": "http://childrenofur.com/assets/entityImages/extremely_hallowed_shrine_powder__x1_tool_animation_png_1354832136.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/extremely_hallowed_shrine_powder__x1_5_x1_4_x1_3_x1_2_x1_1_png_1354832137.png",
+		"stacksTo": 1,
+		"price": 2000,
+		"durability": 5,
+		"description": "A jar of extremely hallowed shrine powder. It lets the giants know that, when it comes to currying favor, you really mean business."
+	},
+	"fairly_hallowed_shrine_powder": {
+		"name": "Fairly Hallowed Shrine Powder",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/fairly_hallowed_shrine_powder.png",
+		"toolAnimation": "http://childrenofur.com/assets/entityImages/fairly_hallowed_shrine_powder__x1_tool_animation_png_1354832141.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/fairly_hallowed_shrine_powder__x1_5_x1_4_x1_3_x1_2_x1_1_png_1354832141.png",
+		"stacksTo": 1,
+		"price": 1000,
+		"durability": 5,
+		"description": "Curry a moderate amount of favor with the giants with a jar of fairly hallowed shrine powder."
+	},
+	"fertilidust": {
+		"name": "Fertilidust",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/fertilidust.png",
+		"toolAnimation": "http://childrenofur.com/assets/entityImages/fertilidust__x1_tool_animation_png_1354832151.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/fertilidust__x1_5_x1_4_x1_3_x1_2_x1_1_png_1354832152.png",
+		"stacksTo": 1,
+		"price": 500,
+		"durability": 5,
+		"description": "A jar of chokingly musty fertilidust, effective in promoting the health of trees."
+	},
+	"fertilidust_lite": {
+		"name": "Fertilidust Lite",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/fertilidust_lite.png",
+		"toolAnimation": "http://childrenofur.com/assets/entityImages/fertilidust_lite__x1_tool_animation_png_1354832146.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/fertilidust_lite__x1_5_x1_4_x1_3_x1_2_x1_1_png_1354832147.png",
+		"stacksTo": 1,
+		"price": 200,
+		"durability": 5,
+		"description": "A jar of somewhat musty fertilidust lite, effective in improving the health of individual trees."
+	},
+	"friendly_acid": {
+		"name": "Friendly Acid",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/friendly_acid__x1_1_png_1354832195.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/friendly_acid__x1_1_png_1354832195.png",
+		"stacksTo": 500,
+		"price": 6,
+		"description": "A compound made out of red and blue."
+	},
+	"green_element": {
+		"name": "Green Element",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/element_green__x1_1_png_1354832187.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/element_green__x1_1_png_1354832187.png",
+		"stacksTo": 5000,
+		"price": 1,
+		"description": "An element is the basic building block of all stuff. This one is green."
+	},
+	"grendalinunin": {
+		"name": "Grendalinunin",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/grendalinunin__x1_1_png_1354832218.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/grendalinunin__x1_1_png_1354832218.png",
+		"stacksTo": 500,
+		"price": 12,
+		"description": "A compound made out of red, green, blue and shiny."
+	},
+	"groddlene": {
+		"name": "Groddlene",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/groddlene__x1_1_png_1354832193.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/groddlene__x1_1_png_1354832193.png",
+		"stacksTo": 500,
+		"price": 3,
+		"description": "A compound made out of red and green."
+	},
+	"humbabol": {
+		"name": "Humbabol",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/humbabol__x1_1_png_1354832211.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/humbabol__x1_1_png_1354832211.png",
+		"stacksTo": 500,
+		"price": 6,
+		"description": "A compound made out of blue and shiny."
+	},
+	"ixite": {
+		"name": "Ixite",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/ixite__x1_1_png_1354832208.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/ixite__x1_1_png_1354832208.png",
+		"stacksTo": 500,
+		"price": 4,
+		"description": "A compound made out of red, green, blue and shiny."
+	},
+	"krazy_salts": {
+		"name": "Krazy Salts",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/krazy_salts__x1_iconic_png_1354837025.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/krazy_salts__x1_1_x1_2_x1_3_x1_4_png_1354837026.png",
+		"stacksTo": 33,
+		"price": 111,
+		"description": "A vital magical ingredient, Krazy Salts should never be mistaken for normal, run of the spice-mill Pinch of Salt. For one thing, you need to save it for Potions. For the other, this Salt be KRAZY! Seriously: keep it away from sharp objects."
+	},
+	"lemene": {
+		"name": "Lemene",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/lemene__x1_1_png_1354832217.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/lemene__x1_1_png_1354832217.png",
+		"stacksTo": 500,
+		"price": 5,
+		"description": "A compound made out of red, green, blue and shiny."
+	},
+	"mabon": {
+		"name": "Mabon",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/mabon__x1_1_png_1354832220.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/mabon__x1_1_png_1354832220.png",
+		"stacksTo": 500,
+		"price": 15,
+		"description": "A compound made out of green, blue and shiny."
+	},
+	"no_no_powder": {
+		"name": "No-No Powder",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/no_no_powder__x1_iconic_png_1354832159.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/no_no_powder__x1_1_x1_2_x1_3_x1_4_png_1354832159.png",
+		"stacksTo": 10,
+		"price": 100,
+		"description": "Some tempting no-no powder. You know you shouldn't, but maybe just this once …"
+	},
+	"potoxin": {
+		"name": "Potoxin",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/potoxin__x1_1_png_1354832201.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/potoxin__x1_1_png_1354832201.png",
+		"stacksTo": 500,
+		"price": 10,
+		"description": "A compound made out of red, green and blue."
+	},
+	"powder_of_mild_fecundity": {
+		"name": "Powder of Mild Fecundity",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/powder_of_mild_fecundity.png",
+		"toolAnimation": "http://childrenofur.com/assets/entityImages/powder_of_mild_fecundity__x1_tool_animation_png_1354832165.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/powder_of_mild_fecundity__x1_5_x1_4_x1_3_x1_2_x1_1_png_1354832166.png",
+		"stacksTo": 1,
+		"price": 500,
+		"durability": 5,
+		"description": "The dust in this jar of reasonably fecund powder gets up the noses of piggies, butterflies and chickens (up to a point, there is only so much dust) and causes them to shed small amounts of their edibles everywhere."
+	},
+	"powder_of_startling_fecundity": {
+		"name": "Powder of Startling Fecundity",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/powder_of_startling_fecundity.png",
+		"toolAnimation": "http://childrenofur.com/assets/entityImages/powder_of_startling_fecundity__x1_tool_animation_png_1354832171.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/powder_of_startling_fecundity__x1_5_x1_4_x1_3_x1_2_x1_1_png_1354832171.png",
+		"stacksTo": 1,
+		"price": 1500,
+		"durability": 5,
+		"description": "This jar of high-potency powder gets under the skin of piggies, chickens and butterflies (up to a limit, one dose can only irritate a certain number of animals) and causes them to fecund their edibles all OVER the place."
+	},
+	"red_element": {
+		"name": "Red Element",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/element_red__x1_1_png_1354832185.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/element_red__x1_1_png_1354832185.png",
+		"stacksTo": 5000,
+		"price": 0,
+		"description": "An element is the basic building block of all stuff. This one is red."
+	},
+	"rubemycin": {
+		"name": "Rubemycin",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/rubemycin__x1_1_png_1354832205.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/rubemycin__x1_1_png_1354832205.png",
+		"stacksTo": 500,
+		"price": 5,
+		"description": "A compound made out of red, green, blue and shiny."
+	},
+	"shiny_element": {
+		"name": "Shiny Element",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/element_shiny__x1_1_png_1354832191.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/element_shiny__x1_1_png_1354832191.png",
+		"stacksTo": 5000,
+		"price": 1,
+		"description": "An element is the basic building block of all stuff. This one is shiny."
+	},
+	"sneezing_powder": {
+		"name": "Sneezing Powder",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/sneezing_powder.png",
+		"toolAnimation": "http://childrenofur.com/assets/entityImages/sneezing_powder__x1_tool_animation_png_1354832175.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/sneezing_powder__x1_5_x1_4_x1_3_x1_2_x1_1_png_1354832176.png",
+		"stacksTo": 1,
+		"price": 150,
+		"durability": 5,
+		"description": "A potentially troublesome jar of sneezing powder."
+	},
+	"sparkle_powder": {
+		"name": "Sparkle Powder",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/sparkle_powder.png",
+		"toolAnimation": "http://childrenofur.com/assets/entityImages/sparkle_powder__x1_tool_animation_png_1354832182.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/sparkle_powder__x1_5_x1_4_x1_3_x1_2_x1_1_png_1354832183.png",
+		"stacksTo": 1,
+		"price": 450,
+		"durability": 5,
+		"description": "A shimmery jar of sparkle powder."
+	},
+	"spriggase": {
+		"name": "Spriggase",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/spriggase__x1_1_png_1354832199.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/spriggase__x1_1_png_1354832199.png",
+		"stacksTo": 500,
+		"price": 9,
+		"description": "A compound made out of red, green and blue."
+	},
+	"tiite": {
+		"name": "Tiite",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/tiite__x1_1_png_1354832209.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/tiite__x1_1_png_1354832209.png",
+		"stacksTo": 500,
+		"price": 1,
+		"description": "A compound made out of red and blue."
+	},
+	"old_tree_poison": {
+		"name": "Tree Poison",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/tree_poison__x1_1_png_1354833126.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/tree_poison__x1_tool_animation_png_1354833125.png",
+		"stacksTo": 1,
+		"price": 100,
+		"description": "A lethal concoction, if you're a tree."
+	},
+	"old_tree_poison_antidote": {
+		"name": "Tree Poison Antidote",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/tree_poison_antidote__x1_1_png_1354833129.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/tree_poison_antidote__x1_tool_animation_png_1354833129.png",
+		"stacksTo": 1,
+		"price": 25,
+		"description": "A powerful remedy for recently poisoned trees."
+	},
+	"zillene": {
+		"name": "Zillene",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/zillene__x1_1_png_1354832215.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/zillene__x1_1_png_1354832215.png",
+		"stacksTo": 500,
+		"price": 6,
+		"description": "A compound made out of green, blue and shiny."
+	}
 }
