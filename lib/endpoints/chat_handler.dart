@@ -69,7 +69,8 @@ class ChatHandler {
 
 	static void slackSend(String username, String text) {
 		try {
-			String icon_url = "http://childrenofur.com/data/heads/$username.head.png";
+			String url_username = username.replaceAll(' ', '_');
+			String icon_url = "http://childrenofur.com/data/heads/$url_username.head.png";
 			http.get(icon_url).then((response) {
 				//if the head picture doesn't already exist, try to make one
 				if (response.statusCode != 200) {
@@ -89,10 +90,10 @@ class ChatHandler {
 									                                                Uri.parse(
 										                                                "http://childrenofur.com/data/heads/uploadhead.php"));
 								request.files.add(new MultipartFile.fromBytes(
-									'file', bytes, filename: '$username.head.png'));
+									'file', bytes, filename: '$url_username.head.png'));
 								request.send().then((StreamedResponse response) {
 									icon_url =
-									'http://childrenofur.com/data/heads/$username.head.png';
+									'http://childrenofur.com/data/heads/$url_username.head.png';
 									_sendMessage(text, username, icon_url);
 								});
 							});
