@@ -52,7 +52,8 @@ class Crab extends NPC {
 			new Action.withName('play for')
 				..actionWord = 'crabbing'
 				..itemRequirements = itemReq,
-			new Action.withName('buy jukebox')
+			new Action.withName('buy crabpack')
+				..description = 'A 3,000-currant bag for 18 musicblocks'
 				..actionWord = 'buying'
 		]);
 
@@ -132,7 +133,7 @@ class Crab extends NPC {
 		}));
 	}
 
-	Future buyJukebox({WebSocket userSocket, String email}) async {
+	Future buyCrabpack({WebSocket userSocket, String email}) async {
 		Metabolics metabolics = await getMetabolics(email: email);
 		if (metabolics.currants >= JUKEBOX['price']) {
 			metabolics.currants -= JUKEBOX['price'];

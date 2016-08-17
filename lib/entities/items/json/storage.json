@@ -361,11 +361,11 @@
 		]
 	},
 	"musicblock_bag": {
-		"name": "Jukebox",
+		"name": "Crabpack",
 		"category": "Storage",
 		"isContainer": true,
-		"iconUrl": "http://placehold.it/50x50",
-		"spriteUrl": "http://placehold.it/50x50",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/crabjukebox.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/crabjukebox.png",
 		"iconNum": 1,
 		"stacksTo": 1,
 		"price": 3000,
