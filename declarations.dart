@@ -30,6 +30,7 @@ import 'package:redstone_mapper/plugin.dart';
 import 'package:redstone/redstone.dart' as app;
 
 part 'package:coUserver/endpoints/elevation.dart';
+part 'package:coUserver/endpoints/friends.dart';
 part 'package:coUserver/endpoints/getitems.dart';
 part 'package:coUserver/endpoints/report.dart';
 part 'package:coUserver/endpoints/slack.dart';
