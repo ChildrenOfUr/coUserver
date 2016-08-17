@@ -13,6 +13,13 @@ class FriendsEndpoint {
 			return false;
 		}
 
+		// Can't friend yourself
+		username = username.trim();
+		friendUsername = friendUsername.trim();
+		if (username == friendUsername) {
+			return false;
+		}
+
 		// Get existing friends list
 		String json = (await User.findByUsername(username)).friends;
 		List<int> ids = JSON.decode(json);
@@ -57,6 +64,9 @@ class FriendsEndpoint {
 			return false;
 		}
 
+		username = username.trim();
+		friendUsername = friendUsername.trim();
+
 		// Get existing friends list
 		String json = (await User.findByUsername(username)).friends;
 		List<int> ids = JSON.decode(json);
@@ -91,8 +101,31 @@ class FriendsEndpoint {
 	}
 
 	@app.Route('/list/:username')
-	Future<List<String>> list(String username) async {
-		String json = (await User.findByUsername(username)).friends;
-		return JSON.decode(json);
+	Future<Map<String, bool>> list(String username) async {
+		// Get ids
+		username = username.trim();
+		List<int> ids = JSON.decode((await User.findByUsername(username)).friends);
+
+		// Convert to usernames
+		List<String> usernames = [];
+		await Future.forEach(ids, (int id) async => usernames.add(await User.getUsernameFromId(id)));
+		usernames.sort();
+
+		// Check whether they are online
+		List<String> onlineUsers = [];
+		List<String> offlineUsers = [];
+		usernames.forEach((String username) {
+			if (ServerStatus.onlinePlayers.contains(username)) {
+				onlineUsers.add(username);
+			} else {
+				offlineUsers.add(username);
+			}
+		});
+
+		// Sort with online first
+		Map<String, bool> statuses = {};
+		onlineUsers.forEach((String username) => statuses.addAll({username: true}));
+		offlineUsers.forEach((String username) => statuses.addAll({username: false}));
+		return statuses;
 	}
 }
