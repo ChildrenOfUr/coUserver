@@ -99,6 +99,15 @@ class PlayerBuff extends Buff {
 		cache.remove(this);
 	}
 
+	Future extend(Duration additional) async {
+		remaining += additional;
+		await _write();
+		StreetUpdateHandler.userSockets[email].add(JSON.encode({
+			'buff_extend': id,
+			'buff_extend_secs': additional.inSeconds
+		}));
+	}
+
 	Future<bool> _write() async {
 		PostgreSql dbConn = await dbManager.getConnection();
 		try {

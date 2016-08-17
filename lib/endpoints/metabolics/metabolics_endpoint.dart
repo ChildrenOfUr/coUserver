@@ -272,6 +272,7 @@ class MetabolicsEndpoint {
 	}
 
 	static Future addQuoin(Quoin q, String username) async {
+		String email = await User.getEmailFromUsername(username);
 		Metabolics m = await getMetabolics(username: username);
 
 		if (m.quoins_collected >= constants.quoinLimit) {
@@ -299,89 +300,77 @@ class MetabolicsEndpoint {
 			// Limit QM
 			if (m.quoin_multiplier > constants.quoinMultiplierLimit) {
 				m.quoin_multiplier = constants.quoinMultiplierLimit;
-				String email = await User.getEmailFromUsername(username);
 				// Add double quoins buff instead
 				BuffManager.addToUser("double_quoins", email, StreetUpdateHandler.userSockets[email]);
 			}
 		}
 
-		if (q.type == "quarazy") {
+		if (q.type == 'quarazy') {
 			amt *= 7;
 		}
 
 		if (q.type == 'currant') {
 			m.currants += amt;
 		}
+
 		if (q.type == 'img' || q.type == 'quarazy') {
 			m.img += amt;
 			m.lifetime_img += amt;
 		}
+
 		if (q.type == 'mood') {
 			if ((m.mood + amt) > m.max_mood) {
 				amt = m.max_mood - m.mood;
 			}
 			m.mood += amt;
 		}
+
 		if (q.type == 'energy') {
 			if ((m.energy + amt) > m.max_energy) {
 				amt = m.max_energy - m.energy;
 			}
 			m.energy += amt;
 		}
-		if (q.type == "favor") {
+
+		if (q.type == 'favor') {
 			m.alphfavor += amt;
-			if (m.alphfavor >= m.alphfavor_max) {
-				m.alphfavor = m.alphfavor_max - 1;
-			}
+			m.alphfavor = m.alphfavor.clamp(0, m.alphfavor_max - 1);
 
 			m.cosmafavor += amt;
-			if (m.cosmafavor >= m.cosmafavor_max) {
-				m.cosmafavor = m.cosmafavor_max - 1;
-			}
+			m.cosmafavor = m.cosmafavor.clamp(0, m.cosmafavor_max - 1);
 
 			m.friendlyfavor += amt;
-			if (m.friendlyfavor >= m.friendlyfavor_max) {
-				m.friendlyfavor = m.friendlyfavor_max - 1;
-			}
+			m.friendlyfavor = m.friendlyfavor.clamp(0, m.friendlyfavor_max - 1);
 
 			m.grendalinefavor += amt;
-			if (m.grendalinefavor >= m.grendalinefavor_max) {
-				m.grendalinefavor = m.grendalinefavor_max - 1;
-			}
+			m.grendalinefavor = m.grendalinefavor.clamp(0, m.grendalinefavor_max - 1);
 
 			m.humbabafavor += amt;
-			if (m.humbabafavor >= m.humbabafavor_max) {
-				m.humbabafavor = m.humbabafavor_max - 1;
-			}
+			m.humbabafavor = m.humbabafavor.clamp(0, m.humbabafavor_max - 1);
 
 			m.lemfavor += amt;
-			if (m.lemfavor >= m.lemfavor_max) {
-				m.lemfavor = m.lemfavor_max - 1;
-			}
+			m.lemfavor = m.lemfavor.clamp(0, m.lemfavor_max - 1);
 
 			m.mabfavor += amt;
-			if (m.mabfavor >= m.mabfavor_max) {
-				m.mabfavor = m.mabfavor_max - 1;
-			}
+			m.mabfavor = m.mabfavor.clamp(0, m.mabfavor_max - 1);
 
 			m.potfavor += amt;
-			if (m.potfavor >= m.potfavor_max) {
-				m.potfavor = m.potfavor_max - 1;
-			}
+			m.potfavor = m.potfavor.clamp(0, m.potfavor_max - 1);
 
 			m.sprigganfavor += amt;
-			if (m.sprigganfavor >= m.sprigganfavor_max) {
-				m.sprigganfavor = m.sprigganfavor_max - 1;
-			}
+			m.sprigganfavor = m.sprigganfavor.clamp(0, m.sprigganfavor_max - 1);
 
 			m.tiifavor += amt;
-			if (m.tiifavor >= m.tiifavor_max) {
-				m.tiifavor = m.tiifavor_max - 1;
-			}
+			m.tiifavor = m.tiifavor.clamp(0, m.tiifavor_max - 1);
 
 			m.zillefavor += amt;
-			if (m.zillefavor >= m.zillefavor_max) {
-				m.zillefavor = m.zillefavor_max - 1;
+			m.zillefavor = m.zillefavor.clamp(0, m.zillefavor_max - 1);
+		}
+
+		if (q.type == 'time') {
+			if (await BuffManager.playerHasBuff('nostalgia', email)) {
+				PlayerBuff buff = await BuffManager.buffs['nostalgia'].getForPlayer(email);
+				await buff.extend(new Duration(seconds: amt));
 			}
 		}
 
