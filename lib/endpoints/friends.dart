@@ -42,6 +42,12 @@ class FriendsEndpoint {
 		// Save new friends list
 		json = JSON.encode(ids);
 
+		// Notify new friend
+		WebSocket friendSocket = StreetUpdateHandler.userSockets[await User.getEmailFromUsername(friendUsername)];
+		if (friendSocket != null) {
+			toast('$username added you to their friends!', friendSocket, onClick: 'addFriend|$username');
+		}
+
 		try {
 			User.uncache(username: username);
 			return await (dbConn.execute(
