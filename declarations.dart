@@ -107,13 +107,13 @@ Future main() async {
 Future crossOriginInterceptor() async {
 	Map<String, String> _createCorsHeader() => {
 		'Access-Control-Allow-Origin': '*',
-		'Access-Control-Allow-Headers':
-			'Origin, X-Requested-With, Content-Type, Accept'
+		'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
 	};
 
 	if (app.request.method != 'OPTIONS') {
 		await app.chain.next();
 	}
+
 	return app.response.change(headers: _createCorsHeader());
 }
 
@@ -128,10 +128,10 @@ Future _initRedstone() async {
 
 	// Initialize redstone
 	app.addPlugin(getMapperPlugin(dbManager));
-	app.setupConsoleLog(rsLog.Level.SEVERE);
+	app.setupConsoleLog(rsLog.Level.OFF);
 	await app.start(port: port, autoCompress: true);
 
-	Log.verbose('[Init] Redstone initialized');
+	Log.verbose('[Init] Redstone initialized. REDSTONE LOGGING IS OFF.');
 }
 
 ///This will serve up the needed files to animate the player characters
