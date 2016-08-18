@@ -17,25 +17,27 @@ abstract class FocusingOrb extends Object with MetabolicsChange {
 	}
 
 	Future<bool> radiate({WebSocket userSocket, String username, String email, Map map, String streetName}) async {
+		// Get users on this street
+		List<Identifier> ids = ChatHandler.users.values.where((Identifier id) =>
+			id.channelList.contains(streetName)).toList();
 		List<String> users = [];
-		List<Identifier> ids = ChatHandler.users.values.where((Identifier id) => id.channelList.contains(streetName)).toList();
 		ids.forEach((Identifier id) => users.add(id.username));
-		int numUsersOnStreet = users.length;
-		if (numUsersOnStreet == 1) {
+
+		if (users.length == 1) {
+			toast("There's nobody else here!", userSocket);
 			return false;
 		} else {
-			int amt;
-			if (numUsersOnStreet < 10) {
-				amt = 20;
-			} else if (numUsersOnStreet > 10 && numUsersOnStreet < 20) {
-				amt = 40;
-			} else {
-				amt = 60;
-			}
+			// Decide how much to award
+			int amt = (50 / users.length).ceil().clamp(1, 10);
 
-			amt = (amt / numUsersOnStreet).ceil();
-			users.forEach((String username) => trySetMetabolics(email, mood: amt, energy: amt, imgMin: amt));
-			StreetUpdateHandler.streets[streetName].occupants.values.forEach((WebSocket ws) => toast("$username is radiating. Everyone here got $amt energy, mood, and iMG", ws));
+			// Add gains to everyone
+			users.forEach((String username) async =>
+				trySetMetabolics(await User.getEmailFromUsername(username), mood: amt, energy: amt, imgMin: amt));
+
+			// Notify everyone
+			StreetUpdateHandler.streets[streetName].occupants.values.forEach((WebSocket ws) =>
+				toast("$username is radiating. Everyone here got $amt energy, mood, and iMG", ws));
+
 			return true;
 		}
 	}
