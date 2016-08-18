@@ -23,8 +23,8 @@ class SavannaHandler {
 	}
 
 	static Future exit(String streetName, String email, WebSocket userSocket) async {
-		// Only when exiting a Savanna street
-		if (!MapData.isSavannaStreet(streetName)) {
+		// Only when exiting a Savanna street, not entering
+		if (MapData.isSavannaStreet(streetName)) {
 			return;
 		}
 
@@ -86,8 +86,8 @@ class WintryPlaceHandler {
 	}
 
 	static Future exit(String streetName, String email, WebSocket userSocket) async {
-		// Only when exiting the Wintry Place
-		if (streetName != 'Wintry Place') {
+		// Only when exiting the Wintry Place, not entering
+		if (streetName == 'Wintry Place') {
 			return;
 		}
 
