@@ -1,86 +1,86 @@
 [
-  {
-    "id": "essence_of_gandlevery",
-    "tool": "tincturing_kit",
-    "input": {
-      "gandlevery": 2,
-      "hooch": 1
-    },
-    "output": "essence_of_gandlevery",
-    "output_amt": 2,
-    "time": 1,
-    "energy": -2
-  },
-  {
-    "id": "essence_of_hairball",
-    "tool": "tincturing_kit",
-    "input": {
-      "hairball_flower": 2,
-      "hooch": 1
-    },
-    "output": "essence_of_hairball",
-    "output_amt": 2,
-    "time": 1,
-    "energy": -2
-  },
-  {
-    "id": "essence_of_purple",
-    "tool": "tincturing_kit",
-    "input": {
-      "purple_flower": 2,
-      "hooch": 1
-    },
-    "output": "essence_of_purple",
-    "output_amt": 2,
-    "time": 1,
-    "energy": -2
-  },
-  {
-    "id": "essence_of_rookswort",
-    "tool": "tincturing_kit",
-    "input": {
-      "rookswort": 2,
-      "hooch": 1
-    },
-    "output": "essence_of_rookswort",
-    "output_amt": 2,
-    "time": 1,
-    "energy": -2
-  },
-  {
-    "id": "essence_of_rubeweed",
-    "tool": "tincturing_kit",
-    "input": {
-      "rubeweed": 2,
-      "hooch": 1
-    },
-    "output": "essence_of_rubeweed",
-    "output_amt": 2,
-    "time": 1,
-    "energy": -2
-  },
-  {
-    "id": "essence_of_silvertongue",
-    "tool": "tincturing_kit",
-    "input": {
-      "silvertongue": 2,
-      "hooch": 1
-    },
-    "output": "essence_of_silvertongue",
-    "output_amt": 2,
-    "time": 1,
-    "energy": -2
-  },
-  {
-    "id": "essence_of_yellow_crumb",
-    "tool": "tincturing_kit",
-    "input": {
-      "yellow_crumb_flower": 2,
-      "hooch": 1
-    },
-    "output": "essence_of_yellow_crumb",
-    "output_amt": 2,
-    "time": 1,
-    "energy": -2
-  }
+	{
+		"id": "essence_of_gandlevery",
+		"tool": "tincturing_kit",
+		"input": {
+			"gandlevery": 2,
+			"hooch": 1
+		},
+		"output": "essence_of_gandlevery",
+		"output_amt": 2,
+		"time": 1,
+		"energy": -2
+	},
+	{
+		"id": "essence_of_hairball",
+		"tool": "tincturing_kit",
+		"input": {
+			"hairball_flower": 2,
+			"hooch": 1
+		},
+		"output": "essence_of_hairball",
+		"output_amt": 2,
+		"time": 1,
+		"energy": -2
+	},
+	{
+		"id": "essence_of_purple",
+		"tool": "tincturing_kit",
+		"input": {
+			"purple_flower": 2,
+			"hooch": 1
+		},
+		"output": "essence_of_purple",
+		"output_amt": 2,
+		"time": 1,
+		"energy": -2
+	},
+	{
+		"id": "essence_of_rookswort",
+		"tool": "tincturing_kit",
+		"input": {
+			"rookswort": 2,
+			"hooch": 1
+		},
+		"output": "essence_of_rookswort",
+		"output_amt": 2,
+		"time": 1,
+		"energy": -2
+	},
+	{
+		"id": "essence_of_rubeweed",
+		"tool": "tincturing_kit",
+		"input": {
+			"rubeweed": 2,
+			"hooch": 1
+		},
+		"output": "essence_of_rubeweed",
+		"output_amt": 2,
+		"time": 1,
+		"energy": -2
+	},
+	{
+		"id": "essence_of_silvertongue",
+		"tool": "tincturing_kit",
+		"input": {
+			"silvertongue": 2,
+			"hooch": 1
+		},
+		"output": "essence_of_silvertongue",
+		"output_amt": 2,
+		"time": 1,
+		"energy": -2
+	},
+	{
+		"id": "essence_of_yellow_crumb",
+		"tool": "tincturing_kit",
+		"input": {
+			"yellow_crumb_flower": 2,
+			"hooch": 1
+		},
+		"output": "essence_of_yellow_crumb",
+		"output_amt": 2,
+		"time": 1,
+		"energy": -2
+	}
 ]

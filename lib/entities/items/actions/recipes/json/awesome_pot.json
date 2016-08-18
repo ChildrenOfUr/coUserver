@@ -1,215 +1,215 @@
 [
-    {
-        "id": "awesome_stew",
-        "tool": "awesome_pot",
-        "input": {
-            "potato": 3,
-            "cabbage": 2,
-            "meat": 2,
-            "onion": 2,
-            "parsnip": 2,
-            "saffron": 1,
-            "bean": 20
-        },
-        "output": "awesome_stew",
-        "output_amt": 1,
-        "energy": -18,
-        "time": 3
-    },
-    {
-        "id": "chillybusting_chili",
-        "tool": "awesome_pot",
-        "input": {
-            "beer": 1,
-            "meat": 2,
-            "bean": 30,
-            "hot_pepper": 1,
-            "cumin": 1,
-            "onion": 1
-        },
-        "output": "chillybusting_chili",
-        "output_amt": 1,
-        "energy": -13,
-        "time": 3
-    },
-    {
-        "id": "flummery",
-        "tool": "awesome_pot",
-        "input": {
-            "honey": 1,
-            "butterfly_milk": 2,
-            "oats": 2,
-            "whortleberry": 6
-        },
-        "output": "flummery",
-        "output_amt": 1,
-        "energy": -11,
-        "time": 3
-    },
-    {
-        "id": "fortifying_gruel",
-        "tool": "awesome_pot",
-        "input": {
-            "oats": 1,
-            "pinch_of_salt": 1,
-            "bubble_tiny": 5,
-            "hot_n_fizzy_sauce": 1
-        },
-        "output": "fortifying_gruel",
-        "output_amt": 1,
-        "energy": -17,
-        "time": 3
-    },
-    {
-        "id": "corn_syrup_squares",
-        "tool": "awesome_pot",
-        "input": {
-            "bubble_tiny": 1,
-            "corn": 1,
-            "honey": 1,
-            "roasted_pepitas": 1
-        },
-        "output": "corn_syrup_squares",
-        "output_amt": 2,
-        "energy": -7,
-        "time": 3
-    },
-    {
-        "id": "ixstyle_braised_meat",
-        "tool": "awesome_pot",
-        "input": {
-            "black_pepper": 2,
-            "bubble_blue": 4,
-            "meat": 5,
-            "olive_oil": 1,
-            "pinch_of_salt": 2
-        },
-        "output": "ixstyle_braised_meat",
-        "output_amt": 1,
-        "energy": -15,
-        "time": 3
-    },
-    {
-        "id": "meat_gumbo",
-        "tool": "awesome_pot",
-        "input": {
-            "meat": 2,
-            "tomato": 1,
-            "olive_oil": 1,
-            "hot_pepper": 1,
-            "onion": 1,
-            "saffron": 1
-        },
-        "output": "meat_gumbo",
-        "output_amt": 1,
-        "energy": -8,
-        "time": 3
-    },
-    {
-        "id": "meat_tetrazzini",
-        "tool": "awesome_pot",
-        "input": {
-            "meat": 2,
-            "mushroom": 1,
-            "plain_noodles": 1,
-            "tangy_sauce": 1
-        },
-        "output": "meat_tetrazzini",
-        "output_amt": 1,
-        "energy": -17,
-        "time": 3
-    },
-    {
-        "id": "oaty_cake",
-        "tool": "awesome_pot",
-        "input": {
-            "birch_syrup": 1,
-            "oats": 1,
-            "egg": 1
-        },
-        "output": "oaty_cake",
-        "output_amt": 1,
-        "energy": -4,
-        "time": 3
-    },
-    {
-        "id": "pickle",
-        "tool": "awesome_pot",
-        "input": {
-            "cucumber": 1,
-            "olive_oil": 1,
-            "pinch_of_salt": 1
-        },
-        "output": "pickle",
-        "output_amt": 1,
-        "energy": -2,
-        "time": 6
-    },
-    {
-        "id": "proper_rice",
-        "tool": "awesome_pot",
-        "input": {
-            "pinch_of_salt": 1,
-            "rice": 3
-        },
-        "output": "proper_rice",
-        "output_amt": 1,
-        "energy": -2,
-        "time": 3
-    },
-    {
-        "id": "rich_tagine",
-        "tool": "awesome_pot",
-        "input": {
-            "turmeric": 1,
-            "meat": 3,
-            "hot_pepper": 1,
-            "onion": 1,
-            "mustard": 1
-        },
-        "output": "rich_tagine",
-        "output_amt": 1,
-        "energy": -9,
-        "time": 3
-    },
-    {
-        "id": "tangy_noodles",
-        "tool": "awesome_pot",
-        "input": {
-            "plain_noodles": 1,
-            "butterfly_butter": 1,
-            "lemon": 1
-        },
-        "output": "tangy_noodles",
-        "output_amt": 1,
-        "energy": -1,
-        "time": 3
-    },
-    {
-        "id": "tasty_pasta",
-        "tool": "awesome_pot",
-        "input": {
-            "plain_noodles": 1,
-            "wicked_bolognese_sauce": 1
-        },
-        "output": "tasty_pasta",
-        "output_amt": 1,
-        "energy": -12,
-        "time": 3
-    },
-    {
-        "id": "yummy_gruel",
-        "tool": "awesome_pot",
-        "input": {
-            "oats": 1,
-            "pinch_of_salt": 1,
-            "bubble_tiny": 5,
-            "cinnamon": 1,
-            "birch_syrup": 1
-        },
-        "output": "yummy_gruel",
-        "output_amt": 1,
-        "energy": -12,
-        "time": 3
-    }
+	{
+		"id": "awesome_stew",
+		"tool": "awesome_pot",
+		"input": {
+			"potato": 3,
+			"cabbage": 2,
+			"meat": 2,
+			"onion": 2,
+			"parsnip": 2,
+			"saffron": 1,
+			"bean": 20
+		},
+		"output": "awesome_stew",
+		"output_amt": 1,
+		"energy": -18,
+		"time": 3
+	},
+	{
+		"id": "chillybusting_chili",
+		"tool": "awesome_pot",
+		"input": {
+			"beer": 1,
+			"meat": 2,
+			"bean": 30,
+			"hot_pepper": 1,
+			"cumin": 1,
+			"onion": 1
+		},
+		"output": "chillybusting_chili",
+		"output_amt": 1,
+		"energy": -13,
+		"time": 3
+	},
+	{
+		"id": "flummery",
+		"tool": "awesome_pot",
+		"input": {
+			"honey": 1,
+			"butterfly_milk": 2,
+			"oats": 2,
+			"whortleberry": 6
+		},
+		"output": "flummery",
+		"output_amt": 1,
+		"energy": -11,
+		"time": 3
+	},
+	{
+		"id": "fortifying_gruel",
+		"tool": "awesome_pot",
+		"input": {
+			"oats": 1,
+			"pinch_of_salt": 1,
+			"bubble_tiny": 5,
+			"hot_n_fizzy_sauce": 1
+		},
+		"output": "fortifying_gruel",
+		"output_amt": 1,
+		"energy": -17,
+		"time": 3
+	},
+	{
+		"id": "corn_syrup_squares",
+		"tool": "awesome_pot",
+		"input": {
+			"bubble_tiny": 1,
+			"corn": 1,
+			"honey": 1,
+			"roasted_pepitas": 1
+		},
+		"output": "corn_syrup_squares",
+		"output_amt": 2,
+		"energy": -7,
+		"time": 3
+	},
+	{
+		"id": "ixstyle_braised_meat",
+		"tool": "awesome_pot",
+		"input": {
+			"black_pepper": 2,
+			"bubble_blue": 4,
+			"meat": 5,
+			"olive_oil": 1,
+			"pinch_of_salt": 2
+		},
+		"output": "ixstyle_braised_meat",
+		"output_amt": 1,
+		"energy": -15,
+		"time": 3
+	},
+	{
+		"id": "meat_gumbo",
+		"tool": "awesome_pot",
+		"input": {
+			"meat": 2,
+			"tomato": 1,
+			"olive_oil": 1,
+			"hot_pepper": 1,
+			"onion": 1,
+			"saffron": 1
+		},
+		"output": "meat_gumbo",
+		"output_amt": 1,
+		"energy": -8,
+		"time": 3
+	},
+	{
+		"id": "meat_tetrazzini",
+		"tool": "awesome_pot",
+		"input": {
+			"meat": 2,
+			"mushroom": 1,
+			"plain_noodles": 1,
+			"tangy_sauce": 1
+		},
+		"output": "meat_tetrazzini",
+		"output_amt": 1,
+		"energy": -17,
+		"time": 3
+	},
+	{
+		"id": "oaty_cake",
+		"tool": "awesome_pot",
+		"input": {
+			"birch_syrup": 1,
+			"oats": 1,
+			"egg": 1
+		},
+		"output": "oaty_cake",
+		"output_amt": 1,
+		"energy": -4,
+		"time": 3
+	},
+	{
+		"id": "pickle",
+		"tool": "awesome_pot",
+		"input": {
+			"cucumber": 1,
+			"olive_oil": 1,
+			"pinch_of_salt": 1
+		},
+		"output": "pickle",
+		"output_amt": 1,
+		"energy": -2,
+		"time": 6
+	},
+	{
+		"id": "proper_rice",
+		"tool": "awesome_pot",
+		"input": {
+			"pinch_of_salt": 1,
+			"rice": 3
+		},
+		"output": "proper_rice",
+		"output_amt": 1,
+		"energy": -2,
+		"time": 3
+	},
+	{
+		"id": "rich_tagine",
+		"tool": "awesome_pot",
+		"input": {
+			"turmeric": 1,
+			"meat": 3,
+			"hot_pepper": 1,
+			"onion": 1,
+			"mustard": 1
+		},
+		"output": "rich_tagine",
+		"output_amt": 1,
+		"energy": -9,
+		"time": 3
+	},
+	{
+		"id": "tangy_noodles",
+		"tool": "awesome_pot",
+		"input": {
+			"plain_noodles": 1,
+			"butterfly_butter": 1,
+			"lemon": 1
+		},
+		"output": "tangy_noodles",
+		"output_amt": 1,
+		"energy": -1,
+		"time": 3
+	},
+	{
+		"id": "tasty_pasta",
+		"tool": "awesome_pot",
+		"input": {
+			"plain_noodles": 1,
+			"wicked_bolognese_sauce": 1
+		},
+		"output": "tasty_pasta",
+		"output_amt": 1,
+		"energy": -12,
+		"time": 3
+	},
+	{
+		"id": "yummy_gruel",
+		"tool": "awesome_pot",
+		"input": {
+			"oats": 1,
+			"pinch_of_salt": 1,
+			"bubble_tiny": 5,
+			"cinnamon": 1,
+			"birch_syrup": 1
+		},
+		"output": "yummy_gruel",
+		"output_amt": 1,
+		"energy": -12,
+		"time": 3
+	}
 ]

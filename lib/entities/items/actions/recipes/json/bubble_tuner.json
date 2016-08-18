@@ -1,35 +1,35 @@
 [
-    {
-        "id": "bubble_blue",
-        "tool": "bubble_tuner",
-        "input": {
-            "plain_bubble": 1
-        },
-        "output": "bubble_blue",
-        "output_amt": 1,
-        "time": 1,
-        "energy": -5
-    },
-    {
-        "id": "bubble_hard",
-        "tool": "bubble_tuner",
-        "input": {
-            "plain_bubble": 5
-        },
-        "output": "bubble_hard",
-        "output_amt": 1,
-        "time": 1,
-        "energy": -8
-    },
-    {
-        "id": "bubble_tiny",
-        "tool": "bubble_tuner",
-        "input": {
-            "plain_bubble": 3
-        },
-        "output": "bubble_tiny",
-        "output_amt": 2,
-        "time": 1,
-        "energy": -6
-    }
+	{
+		"id": "bubble_blue",
+		"tool": "bubble_tuner",
+		"input": {
+			"plain_bubble": 1
+		},
+		"output": "bubble_blue",
+		"output_amt": 1,
+		"time": 1,
+		"energy": -5
+	},
+	{
+		"id": "bubble_hard",
+		"tool": "bubble_tuner",
+		"input": {
+			"plain_bubble": 5
+		},
+		"output": "bubble_hard",
+		"output_amt": 1,
+		"time": 1,
+		"energy": -8
+	},
+	{
+		"id": "bubble_tiny",
+		"tool": "bubble_tuner",
+		"input": {
+			"plain_bubble": 3
+		},
+		"output": "bubble_tiny",
+		"output_amt": 2,
+		"time": 1,
+		"energy": -6
+	}
 ]

@@ -1,13 +1,13 @@
 [
-  {
-    "id": "ingot",
-    "tool": "smelter",
-    "input": {
-      "chunk_metal": 1
-    },
-    "output": "ingot",
-    "output_amt": 1,
-    "energy": -1,
-    "time": 3
-  }
+	{
+		"id": "ingot",
+		"tool": "smelter",
+		"input": {
+			"chunk_metal": 1
+		},
+		"output": "ingot",
+		"output_amt": 1,
+		"energy": -1,
+		"time": 3
+	}
 ]

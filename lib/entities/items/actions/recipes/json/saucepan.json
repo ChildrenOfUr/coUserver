@@ -1,163 +1,163 @@
 [
-    {
-        "id": "birch_candy",
-        "tool": "saucepan",
-        "input": {
-            "paper": 1,
-            "roasted_pepitas": 1,
-            "birch_syrup": 1
-        },
-        "output": "birch_candy",
-        "output_amt": 1,
-        "time": 2
-    },
-    {
-        "id": "cheezy_sauce",
-        "tool": "saucepan",
-        "input": {
-            "cheese": 1,
-            "pinch_of_salt": 1,
-            "butterfly_milk": 1
-        },
-        "output": "cheezy_sauce",
-        "output_amt": 1,
-        "time": 2
-    },
-    {
-        "id": "cloudberry_jam",
-        "tool": "saucepan",
-        "input": {
-            "cloudberry": 4,
-            "ginger": 1
-        },
-        "output": "cloudberry_jam",
-        "output_amt": 1,
-        "time": 2
-    },
-    {
-        "id": "creamy_catsup",
-        "tool": "saucepan",
-        "input": {
-            "tomato": 5,
-            "honey": 1,
-            "pinch_of_salt": 1,
-            "butterfly_milk": 1
-        },
-        "output": "creamy_catsup",
-        "output_amt": 1,
-        "time": 2
-    },
-    {
-        "id": "hot_n_fizzy_sauce",
-        "tool": "saucepan",
-        "input": {
-            "bubble_tiny": 1,
-            "cumin": 1,
-            "hot_pepper": 1,
-            "mustard": 1
-        },
-        "output": "hot_n_fizzy_sauce",
-        "output_amt": 1,
-        "time": 2
-    },
-    {
-        "id": "mild_sauce",
-        "tool": "saucepan",
-        "input": {
-            "allspice": 1,
-            "olive_oil": 1,
-            "butterfly_milk": 1
-        },
-        "output": "mild_sauce",
-        "output_amt": 1,
-        "time": 2
-    },
-    {
-        "id": "onion_sauce",
-        "tool": "saucepan",
-        "input": {
-            "butterfly_butter": 1,
-            "onion": 4,
-            "nutmeg": 1
-        },
-        "output": "onion_sauce",
-        "output_amt": 1,
-        "time": 2
-    },
-    {
-        "id": "secret_sauce",
-        "tool": "saucepan",
-        "input": {
-            "egg": 1,
-            "black_pepper": 1,
-            "butterfly_milk": 1
-        },
-        "output": "secret_sauce",
-        "output_amt": 1,
-        "time": 2
-    },
-    {
-        "id": "sweet_n_sour_sauce",
-        "tool": "saucepan",
-        "input": {
-            "honey": 1,
-            "ginger": 1,
-            "lemon": 1,
-            "tomato": 1
-        },
-        "output": "sweet_n_sour_sauce",
-        "output_amt": 1,
-        "time": 2
-    },
-    {
-        "id": "tangy_sauce",
-        "tool": "saucepan",
-        "input": {
-            "sweet_n_sour_sauce": 1,
-            "secret_sauce": 1
-        },
-        "output": "tangy_sauce",
-        "output_amt": 1,
-        "time": 2
-    },
-    {
-        "id": "wavy_gravy",
-        "tool": "saucepan",
-        "input": {
-            "camphor": 1,
-            "flour": 1,
-            "butterfly_milk": 1,
-            "meat": 1
-        },
-        "output": "wavy_gravy",
-        "output_amt": 1,
-        "time": 2
-    },
-    {
-        "id": "whortleberry_jelly",
-        "tool": "saucepan",
-        "input": {
-            "cardamom": 1,
-            "whortleberry": 6,
-            "honey": 1
-        },
-        "output": "whortleberry_jelly",
-        "output_amt": 1,
-        "time": 2
-    },
-    {
-        "id": "wicked_bolognese_sauce",
-        "tool": "saucepan",
-        "input": {
-            "tomato": 1,
-            "meat": 2,
-            "garlic": 2,
-            "black_pepper": 1,
-            "onion": 1,
-            "hot_pepper": 1
-        },
-        "output": "wicked_bolognese_sauce",
-        "output_amt": 1,
-        "time": 2
-    }
+	{
+		"id": "birch_candy",
+		"tool": "saucepan",
+		"input": {
+			"paper": 1,
+			"roasted_pepitas": 1,
+			"birch_syrup": 1
+		},
+		"output": "birch_candy",
+		"output_amt": 1,
+		"time": 2
+	},
+	{
+		"id": "cheezy_sauce",
+		"tool": "saucepan",
+		"input": {
+			"cheese": 1,
+			"pinch_of_salt": 1,
+			"butterfly_milk": 1
+		},
+		"output": "cheezy_sauce",
+		"output_amt": 1,
+		"time": 2
+	},
+	{
+		"id": "cloudberry_jam",
+		"tool": "saucepan",
+		"input": {
+			"cloudberry": 4,
+			"ginger": 1
+		},
+		"output": "cloudberry_jam",
+		"output_amt": 1,
+		"time": 2
+	},
+	{
+		"id": "creamy_catsup",
+		"tool": "saucepan",
+		"input": {
+			"tomato": 5,
+			"honey": 1,
+			"pinch_of_salt": 1,
+			"butterfly_milk": 1
+		},
+		"output": "creamy_catsup",
+		"output_amt": 1,
+		"time": 2
+	},
+	{
+		"id": "hot_n_fizzy_sauce",
+		"tool": "saucepan",
+		"input": {
+			"bubble_tiny": 1,
+			"cumin": 1,
+			"hot_pepper": 1,
+			"mustard": 1
+		},
+		"output": "hot_n_fizzy_sauce",
+		"output_amt": 1,
+		"time": 2
+	},
+	{
+		"id": "mild_sauce",
+		"tool": "saucepan",
+		"input": {
+			"allspice": 1,
+			"olive_oil": 1,
+			"butterfly_milk": 1
+		},
+		"output": "mild_sauce",
+		"output_amt": 1,
+		"time": 2
+	},
+	{
+		"id": "onion_sauce",
+		"tool": "saucepan",
+		"input": {
+			"butterfly_butter": 1,
+			"onion": 4,
+			"nutmeg": 1
+		},
+		"output": "onion_sauce",
+		"output_amt": 1,
+		"time": 2
+	},
+	{
+		"id": "secret_sauce",
+		"tool": "saucepan",
+		"input": {
+			"egg": 1,
+			"black_pepper": 1,
+			"butterfly_milk": 1
+		},
+		"output": "secret_sauce",
+		"output_amt": 1,
+		"time": 2
+	},
+	{
+		"id": "sweet_n_sour_sauce",
+		"tool": "saucepan",
+		"input": {
+			"honey": 1,
+			"ginger": 1,
+			"lemon": 1,
+			"tomato": 1
+		},
+		"output": "sweet_n_sour_sauce",
+		"output_amt": 1,
+		"time": 2
+	},
+	{
+		"id": "tangy_sauce",
+		"tool": "saucepan",
+		"input": {
+			"sweet_n_sour_sauce": 1,
+			"secret_sauce": 1
+		},
+		"output": "tangy_sauce",
+		"output_amt": 1,
+		"time": 2
+	},
+	{
+		"id": "wavy_gravy",
+		"tool": "saucepan",
+		"input": {
+			"camphor": 1,
+			"flour": 1,
+			"butterfly_milk": 1,
+			"meat": 1
+		},
+		"output": "wavy_gravy",
+		"output_amt": 1,
+		"time": 2
+	},
+	{
+		"id": "whortleberry_jelly",
+		"tool": "saucepan",
+		"input": {
+			"cardamom": 1,
+			"whortleberry": 6,
+			"honey": 1
+		},
+		"output": "whortleberry_jelly",
+		"output_amt": 1,
+		"time": 2
+	},
+	{
+		"id": "wicked_bolognese_sauce",
+		"tool": "saucepan",
+		"input": {
+			"tomato": 1,
+			"meat": 2,
+			"garlic": 2,
+			"black_pepper": 1,
+			"onion": 1,
+			"hot_pepper": 1
+		},
+		"output": "wicked_bolognese_sauce",
+		"output_amt": 1,
+		"time": 2
+	}
 ]

@@ -1,160 +1,160 @@
 [
-    {
-        "id": "carrot_margarita",
-        "tool": "cocktail_shaker",
-        "input": {
-            "hooch": 1,
-            "ice": 2,
-            "lemon": 1,
-            "orange_juice": 1,
-            "pinch_of_salt": 1
-        },
-        "output": "carrot_margarita",
-        "output_amt": 1,
-        "time": 2
-    },
-    {
-        "id": "cloudberry_daiquiri",
-        "tool": "cocktail_shaker",
-        "input": {
-            "cloud_11_smoothie": 1,
-            "hooch": 1,
-            "ice": 1,
-            "nutmeg": 1
-        },
-        "output": "cloudberry_daiquiri",
-        "output_amt": 1,
-        "time": 2
-    },
-    {
-        "id": "cosma_politan",
-        "tool": "cocktail_shaker",
-        "input": {
-            "fruity_juice": 1,
-            "hooch": 1,
-            "ice": 1,
-            "lemon_juice": 1
-        },
-        "output": "cosma_politan",
-        "output_amt": 1,
-        "time": 2
-    },
-    {
-        "id": "creamy_martini",
-        "tool": "cocktail_shaker",
-        "input": {
-            "butterfly_milk": 2,
-            "hooch": 1,
-            "ice": 2,
-            "lemon": 1,
-            "onion": 1
-        },
-        "output": "creamy_martini",
-        "output_amt": 1,
-        "time": 2
-    },
-    {
-        "id": "face_smelter",
-        "tool": "cocktail_shaker",
-        "input": {
-            "hooch": 1,
-            "onion_sauce": 1,
-            "gas_crying": 1,
-            "parsnip": 2
-        },
-        "output": "face_smelter",
-        "output_amt": 1,
-        "time": 2
-    },
-    {
-        "id": "flaming_humbaba",
-        "tool": "cocktail_shaker",
-        "input": {
-            "fruity_juice": 1,
-            "hooch": 1,
-            "hot_n_fizzy_sauce": 1,
-            "gas_laughing": 1
-        },
-        "output": "flaming_humbaba",
-        "output_amt": 1,
-        "time": 2
-    },
-    {
-        "id": "gurly_drink",
-        "tool": "cocktail_shaker",
-        "input": {
-            "fruity_juice": 1,
-            "ginger": 1,
-            "honey": 1,
-            "hooch": 1,
-            "bubble_tiny": 5
-        },
-        "output": "gurly_drink",
-        "output_amt": 1,
-        "time": 2
-    },
-    {
-        "id": "mabbish_coffee",
-        "tool": "cocktail_shaker",
-        "input": {
-            "butterfly_milk": 1,
-            "cinnamon": 1,
-            "coffee": 1,
-            "hooch": 1
-        },
-        "output": "mabbish_coffee",
-        "output_amt": 1,
-        "time": 2
-    },
-    {
-        "id": "pumpkin_ale",
-        "tool": "cocktail_shaker",
-        "input": {
-            "beer": 1,
-            "cinnamon": 1,
-            "pumpkin": 1
-        },
-        "output": "pumpkin_ale",
-        "output_amt": 1,
-        "time": 2
-    },
-    {
-        "id": "pungent_sunrise",
-        "tool": "cocktail_shaker",
-        "input": {
-            "camphor": 1,
-            "exotic_juice": 1,
-            "fruit_salad": 1,
-            "hooch": 1
-        },
-        "output": "pungent_sunrise",
-        "output_amt": 1,
-        "time": 2
-    },
-    {
-        "id": "slow_gin_fizz",
-        "tool": "cocktail_shaker",
-        "input": {
-            "bubble_blue": 2,
-            "fruity_juice": 1,
-            "hooch": 1
-        },
-        "output": "slow_gin_fizz",
-        "output_amt": 1,
-        "time": 2
-    },
-    {
-        "id": "spicy_grog",
-        "tool": "cocktail_shaker",
-        "input": {
-            "allspice": 1,
-            "hooch": 1,
-            "hot_pepper": 1,
-            "licorice": 1,
-            "mustard": 1
-        },
-        "output": "spicy_grog",
-        "output_amt": 1,
-        "time": 2
-    }
+	{
+		"id": "carrot_margarita",
+		"tool": "cocktail_shaker",
+		"input": {
+			"hooch": 1,
+			"ice": 2,
+			"lemon": 1,
+			"orange_juice": 1,
+			"pinch_of_salt": 1
+		},
+		"output": "carrot_margarita",
+		"output_amt": 1,
+		"time": 2
+	},
+	{
+		"id": "cloudberry_daiquiri",
+		"tool": "cocktail_shaker",
+		"input": {
+			"cloud_11_smoothie": 1,
+			"hooch": 1,
+			"ice": 1,
+			"nutmeg": 1
+		},
+		"output": "cloudberry_daiquiri",
+		"output_amt": 1,
+		"time": 2
+	},
+	{
+		"id": "cosma_politan",
+		"tool": "cocktail_shaker",
+		"input": {
+			"fruity_juice": 1,
+			"hooch": 1,
+			"ice": 1,
+			"lemon_juice": 1
+		},
+		"output": "cosma_politan",
+		"output_amt": 1,
+		"time": 2
+	},
+	{
+		"id": "creamy_martini",
+		"tool": "cocktail_shaker",
+		"input": {
+			"butterfly_milk": 2,
+			"hooch": 1,
+			"ice": 2,
+			"lemon": 1,
+			"onion": 1
+		},
+		"output": "creamy_martini",
+		"output_amt": 1,
+		"time": 2
+	},
+	{
+		"id": "face_smelter",
+		"tool": "cocktail_shaker",
+		"input": {
+			"hooch": 1,
+			"onion_sauce": 1,
+			"gas_crying": 1,
+			"parsnip": 2
+		},
+		"output": "face_smelter",
+		"output_amt": 1,
+		"time": 2
+	},
+	{
+		"id": "flaming_humbaba",
+		"tool": "cocktail_shaker",
+		"input": {
+			"fruity_juice": 1,
+			"hooch": 1,
+			"hot_n_fizzy_sauce": 1,
+			"gas_laughing": 1
+		},
+		"output": "flaming_humbaba",
+		"output_amt": 1,
+		"time": 2
+	},
+	{
+		"id": "gurly_drink",
+		"tool": "cocktail_shaker",
+		"input": {
+			"fruity_juice": 1,
+			"ginger": 1,
+			"honey": 1,
+			"hooch": 1,
+			"bubble_tiny": 5
+		},
+		"output": "gurly_drink",
+		"output_amt": 1,
+		"time": 2
+	},
+	{
+		"id": "mabbish_coffee",
+		"tool": "cocktail_shaker",
+		"input": {
+			"butterfly_milk": 1,
+			"cinnamon": 1,
+			"coffee": 1,
+			"hooch": 1
+		},
+		"output": "mabbish_coffee",
+		"output_amt": 1,
+		"time": 2
+	},
+	{
+		"id": "pumpkin_ale",
+		"tool": "cocktail_shaker",
+		"input": {
+			"beer": 1,
+			"cinnamon": 1,
+			"pumpkin": 1
+		},
+		"output": "pumpkin_ale",
+		"output_amt": 1,
+		"time": 2
+	},
+	{
+		"id": "pungent_sunrise",
+		"tool": "cocktail_shaker",
+		"input": {
+			"camphor": 1,
+			"exotic_juice": 1,
+			"fruit_salad": 1,
+			"hooch": 1
+		},
+		"output": "pungent_sunrise",
+		"output_amt": 1,
+		"time": 2
+	},
+	{
+		"id": "slow_gin_fizz",
+		"tool": "cocktail_shaker",
+		"input": {
+			"bubble_blue": 2,
+			"fruity_juice": 1,
+			"hooch": 1
+		},
+		"output": "slow_gin_fizz",
+		"output_amt": 1,
+		"time": 2
+	},
+	{
+		"id": "spicy_grog",
+		"tool": "cocktail_shaker",
+		"input": {
+			"allspice": 1,
+			"hooch": 1,
+			"hot_pepper": 1,
+			"licorice": 1,
+			"mustard": 1
+		},
+		"output": "spicy_grog",
+		"output_amt": 1,
+		"time": 2
+	}
 ]
