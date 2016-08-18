@@ -14,8 +14,8 @@ class FriendsEndpoint {
 		}
 
 		// Can't friend yourself
-		username = username.trim();
-		friendUsername = friendUsername.trim();
+		username = Uri.decodeComponent(username.trim());
+		friendUsername = Uri.decodeComponent(friendUsername.trim());
 		if (username == friendUsername) {
 			return false;
 		}
@@ -70,8 +70,8 @@ class FriendsEndpoint {
 			return false;
 		}
 
-		username = username.trim();
-		friendUsername = friendUsername.trim();
+		username = Uri.decodeComponent(username.trim());
+		friendUsername = Uri.decodeComponent(friendUsername.trim());
 
 		// Get existing friends list
 		String json = (await User.findByUsername(username)).friends;
@@ -109,7 +109,7 @@ class FriendsEndpoint {
 	@app.Route('/list/:username')
 	Future<Map<String, bool>> list(String username) async {
 		// Get ids
-		username = username.trim();
+		username = Uri.decodeComponent(username.trim());
 		List<int> ids = JSON.decode((await User.findByUsername(username)).friends);
 
 		// Convert to usernames
