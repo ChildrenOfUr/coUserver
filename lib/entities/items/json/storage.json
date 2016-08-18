@@ -37,9 +37,9 @@
 		"spriteUrl": "http://childrenofur.com/assets/entityImages/bag_bigger__x1_1_png_1354832599.png",
 		"iconNum": 1,
 		"stacksTo": 1,
-		"price": 2999,
+		"price": 1999,
 		"description": "A big, big bag for putting things in. Bigger than 15 slots, but not as big as 17.",
-		"subSlots": 18,
+		"subSlots": 16,
 		"subSlotFilter": []
 	},
 	"bigger_blue_bag": {
