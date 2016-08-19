@@ -52,10 +52,12 @@ class SavannaHandler {
 
 	static Future _tempBan(String email, WebSocket userSocket) async {
 		// Switch buffs to prevent reentry
-		await Future.wait([
-			BuffManager.removeFromUser('nostalgia', email, userSocket),
-			BuffManager.addToUser('nostalgia_over', email, userSocket)
-		]);
+		if (await BuffManager.playerHasBuff('nostalgia', email)) {
+			await Future.wait([
+				BuffManager.removeFromUser('nostalgia', email, userSocket),
+				BuffManager.addToUser('nostalgia_over', email, userSocket)
+			]);
+		}
 	}
 
 	static void _kick(String currentStreetName, String email, WebSocket userSocket) {
