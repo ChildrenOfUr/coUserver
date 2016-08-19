@@ -26,7 +26,7 @@ class FriendsEndpoint {
 			List<int> ids = JSON.decode(json);
 
 			// Get new friend info
-			int friendId = await User.getIdFromUsername(friendUsername);
+			int friendId = (await User.findByUsername(friendUsername, false, false)).id;
 			if (friendId == null) {
 				return false;
 			}
@@ -84,7 +84,7 @@ class FriendsEndpoint {
 			List<int> ids = JSON.decode(json);
 
 			// Get new friend info
-			int friendId = await User.getIdFromUsername(friendUsername);
+			int friendId = (await User.findByUsername(friendUsername, false, false)).id;
 			if (friendId == null) {
 				return false;
 			}
