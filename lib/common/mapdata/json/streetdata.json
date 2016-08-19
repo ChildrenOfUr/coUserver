@@ -860,15 +860,18 @@
 	},
 	"AKR 05": {
 		"tsid": "LIFD63N03P2287O",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"AKR 05a": {
 		"tsid": "LIFF87MIOT22U6F",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"AKR 06": {
 		"tsid": "LIF19ABVFR22N3P",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"AM_Large_01": {
 		"tsid": "LHV4QHQRG0H2R7S",
@@ -967,7 +970,8 @@
 	},
 	"ASummer's Day CLONE2": {
 		"tsid": "LIFPHJQ0NS23OGV",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Aava Plies": {
 		"shrine": "Alph",
@@ -1338,19 +1342,23 @@
 	},
 	"Alakol Large POL": {
 		"tsid": "LIFE3C0NLA32547",
-		"hub_id": 83
+		"hub_id": 83,
+		"map_hidden": true
 	},
 	"Alakol Large POL BU": {
 		"tsid": "LIF19D27OD32A27",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Alakol Medium POL": {
 		"tsid": "LIFE42L6PA32MUJ",
-		"hub_id": 83
+		"hub_id": 83,
+		"map_hidden": true
 	},
 	"Alakol Medium POL BU": {
 		"tsid": "LIF19SRURD3209C",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Alakol Quarter 01": {
 		"tsid": "LIF1C7LAUF32C8K",
@@ -1358,7 +1366,8 @@
 	},
 	"Alakol Quarter 01 BU": {
 		"tsid": "LIF1CVF30G32AEB",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Alakol Quarter 02": {
 		"tsid": "LIF1C8HBUF32FEA",
@@ -1366,7 +1375,8 @@
 	},
 	"Alakol Quarter 02 BU": {
 		"tsid": "LIF1D0540G32J4U",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Alakol Quarter 03": {
 		"tsid": "LIF11NOK3F42L46",
@@ -1402,7 +1412,8 @@
 	},
 	"Altered Physics Test": {
 		"tsid": "LA912HFS7S82TNG",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Amant Kudos": {
 		"shrine": "Lem",
@@ -1462,7 +1473,8 @@
 	},
 	"And so it beings BACKUP": {
 		"tsid": "LIF1QBVU5M027LK",
-		"hub_id": 52
+		"hub_id": 52,
+		"map_hidden": true
 	},
 	"Andaya Park": {
 		"tsid": "LHVC7554ADT2VA1",
@@ -1480,11 +1492,13 @@
 	},
 	"Andra Large POL 01": {
 		"tsid": "LHVPFH43LS62345",
-		"hub_id": 94
+		"hub_id": 94,
+		"map_hidden": true
 	},
 	"Andra MED POL 01": {
 		"tsid": "LHV38U7BAS62F3N",
-		"hub_id": 94
+		"hub_id": 94,
+		"map_hidden": true
 	},
 	"Andra Quarter 01": {
 		"tsid": "LHV9S6FA7672LCC",
@@ -1496,7 +1510,8 @@
 	},
 	"Andra SMALL POL 01": {
 		"tsid": "LHVCIQTACS62VLN",
-		"hub_id": 94
+		"hub_id": 94,
+		"map_hidden": true
 	},
 	"Angla Mangle": {
 		"vendor": "Alchemical Goods",
@@ -1615,7 +1630,8 @@
 	},
 	"Apt Suite BU": {
 		"tsid": "LCR1JPTQI2M1SO3",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"Apt Tree Basement": {
 		"tsid": "LA9QE7H9V4F345H",
@@ -1645,11 +1661,13 @@
 	},
 	"Aranna Large POL 01": {
 		"tsid": "LA5BHS0TKEB2L5R",
-		"hub_id": 103
+		"hub_id": 103,
+		"map_hidden": true
 	},
 	"Aranna Medium POL 01": {
 		"tsid": "LA5D0U360NB2LJB",
-		"hub_id": 103
+		"hub_id": 103,
+		"map_hidden": true
 	},
 	"Aranna Quarter 01": {
 		"tsid": "LA5DCJ9TLEB249N",
@@ -1661,7 +1679,8 @@
 	},
 	"Aranna Small POL 01": {
 		"tsid": "LA55GIHG9MB21JH",
-		"hub_id": 103
+		"hub_id": 103,
+		"map_hidden": true
 	},
 	"Aratikaya Kaya": {
 		"vendor": "Animal Goods",
@@ -1989,11 +2008,13 @@
 	},
 	"Balcony Test": {
 		"tsid": "LUVF1U6E6H33QOQ",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Balcony Test 02": {
 		"tsid": "LUVEJ3MUFH33O16",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Balin Bastion": {
 		"vendor": "Hardware",
@@ -2047,27 +2068,33 @@
 	},
 	"Baqala Concept Level 01": {
 		"tsid": "LA912NIMM142OHF",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Baqala Concept Level 02": {
 		"tsid": "LA910JHBB242P4F",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Baqala Concept Level 02B": {
 		"tsid": "LA914RRDE442TOR",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Baqala Concept Level 03": {
 		"tsid": "LA914DGRC442ICS",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Baqala Concept Level 04": {
 		"tsid": "LA911T4OHC42EDT",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Baqala Spirit Tests": {
 		"tsid": "LA91D7BF9352QO6",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Bar Bara": {
 		"vendor": "Animal Goods",
@@ -2366,35 +2393,43 @@
 	},
 	"Bonus Level 01": {
 		"tsid": "LUVDGLL599U20A7",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Bonus Level (Spiral Quoins)": {
 		"tsid": "LUVLOBIRFO13939",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Bonus Level (Spiral Stars QuoinsTest)": {
 		"tsid": "LUVG7PCITH23QIV",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Bonus Level (Spiral Stars and Quoins at Night)": {
 		"tsid": "LUVQ0U556R13GE5",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Bonus Level (Spiral Stars and Quoins)": {
 		"tsid": "LUV1JJC7GQ1315T",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Bonus Level Hollow Tree": {
 		"tsid": "LUVCP72R0SU2ENC",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Bonus Quoin Level": {
 		"tsid": "LUV4GIAH59U28SI",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Bonus room for newbie island": {
 		"tsid": "LIFFUTIP3C536QB",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Bonus_Classic": {
 		"tsid": "LTJ176O1QB22J7J",
@@ -2525,11 +2560,13 @@
 	},
 	"Bottletree Test": {
 		"tsid": "LA9KDL4GA38229E",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Breezy EZ Cookin'": {
 		"tsid": "LIFII3UBRFB3KBE",
-		"hub_id": 61
+		"hub_id": 61,
+		"map_hidden": true
 	},
 	"Brhaspati Bay": {
 		"hub_id": 136,
@@ -2692,19 +2729,23 @@
 	},
 	"CRASH": {
 		"tsid": "LIF17RR9P422OTU",
-		"hub_id": 67
+		"hub_id": 67,
+		"map_hidden": true
 	},
 	"CRASHME": {
 		"tsid": "LIF12EUU2T12844",
-		"hub_id": 67
+		"hub_id": 67,
+		"map_hidden": true
 	},
 	"CRASHT": {
 		"tsid": "LIFMPAKNBM226G5",
-		"hub_id": 77
+		"hub_id": 77,
+		"map_hidden": true
 	},
 	"Cal sizing test": {
 		"tsid": "LM41EQLKB06UQ",
-		"hub_id": 26
+		"hub_id": 26,
+		"map_hidden": true
 	},
 	"Calta Habitat": {
 		"tsid": "LA5NV05NFJS2NIF",
@@ -3000,47 +3041,58 @@
 	},
 	"Clone Test": {
 		"tsid": "LUV26VPMKKD2V5T",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Clone Test 2": {
 		"tsid": "LUV9TKDTLKD2QS4",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Clone Test 3": {
 		"tsid": "LUVI0MGANKD207Q",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Clone Test 4": {
 		"tsid": "LUVRVDTSOKD2R8R",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Clone Test 5": {
 		"tsid": "LUVSDARUOKD2PU3",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Clone Test 6": {
 		"tsid": "LUVU0S36PKD231K",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Cloud Flight": {
 		"tsid": "LHFOLH3T7I23A8M",
-		"hub_id": 130
+		"hub_id": 130,
+		"map_hidden": true
 	},
 	"Cloud Intro": {
 		"tsid": "LIFBFC7TDJ535UL",
-		"hub_id": 134
+		"hub_id": 134,
+		"map_hidden": true
 	},
 	"Cloud Rings": {
 		"tsid": "LHFVPPKQSR53T1L",
-		"hub_id": 130
+		"hub_id": 130,
+		"map_hidden": true
 	},
 	"Cloud items": {
 		"tsid": "LDO21VCRL7P2U8L",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Cloud launcher level": {
 		"tsid": "LDOEH4QPK9U22BU",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Cloud_coins_1": {
 		"tsid": "LDON3OH6RH031UC",
@@ -3344,7 +3396,8 @@
 	},
 	"Crystine OLD": {
 		"tsid": "LIF1164UB012HL4",
-		"hub_id": 77
+		"hub_id": 77,
+		"map_hidden": true
 	},
 	"Curling Lake": {
 		"vendor": "Alchemical Goods",
@@ -3374,7 +3427,8 @@
 	},
 	"DONTCRASHME": {
 		"tsid": "LIF12PBP4T12C8A",
-		"hub_id": 67
+		"hub_id": 67,
+		"map_hidden": true
 	},
 	"Daksina Tom": {
 		"tsid": "LUV270LMU8A3UCB",
@@ -3628,7 +3682,8 @@
 	},
 	"Door Puzzle Test": {
 		"tsid": "LUVBGHB1H723E7F",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Doora Dooms": {
 		"vendor": "Hardware",
@@ -3807,27 +3862,33 @@
 	},
 	"Eesti Life Catalog Page 17": {
 		"tsid": "LIF10RQLPLBYV7",
-		"hub_id": 49
+		"hub_id": 49,
+		"map_hidden": true
 	},
 	"Eesti Life Catalog Page 17 Clone": {
 		"tsid": "LHFCL2R6A273FUK",
-		"hub_id": 49
+		"hub_id": 49,
+		"map_hidden": true
 	},
 	"Eesti Life Test 01": {
 		"tsid": "LHFNI7H7B273I78",
-		"hub_id": 49
+		"hub_id": 49,
+		"map_hidden": true
 	},
 	"Eesti Life Test 02": {
 		"tsid": "LHFHS8C7FA73308",
-		"hub_id": 49
+		"hub_id": 49,
+		"map_hidden": true
 	},
 	"Eesti Life Test 03": {
 		"tsid": "LHFD89042F7359H",
-		"hub_id": 49
+		"hub_id": 49,
+		"map_hidden": true
 	},
 	"Eesti Life Test 04": {
 		"tsid": "LHFHH3QG9F734DK",
-		"hub_id": 49
+		"hub_id": 49,
+		"map_hidden": true
 	},
 	"Eglesgown Wanks": {
 		"vendor": "Produce",
@@ -3901,39 +3962,48 @@
 	},
 	"Enchanted Forest Exterior Test": {
 		"tsid": "LUV1KSDCHIR2BUB",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Enchanted Wood Forest (Inner Tree 1)": {
 		"tsid": "LUVL1RP94TQ21FU",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Enchanted Wood Forest (Inner Tree 2)": {
 		"tsid": "LUVIIFPSMTQ28B1",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Enchanted Wood Forest (Inner Tree 3)": {
 		"tsid": "LUV2K98IRTQ216U",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Enchanted Wood Forest (Inner Tree 4)": {
 		"tsid": "LUV1G0KPJVQ2HBS",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Enchanted Wood Forest (Mangled 1)": {
 		"tsid": "LUV7G4GJVSQ2FJ8",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Enchanted Wood Forest (Mangled 2)": {
 		"tsid": "LUV9OQAUJTQ2LF0",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Enchanted Wood Forest Short": {
 		"tsid": "LUVNRVH2AKR2HJN",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Enchanted Wood Forest Tall": {
 		"tsid": "LUVH39OC0FR267K",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Enchanted_Wood_Forest_01": {
 		"tsid": "LDOLN0A14IR27H4",
@@ -4019,15 +4089,18 @@
 	},
 	"Expedition Puzzle Test Part 1": {
 		"tsid": "LUV52RICMDO20V7",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Expedition Puzzle Test Part 2": {
 		"tsid": "LUVQTTG3SDO2UID",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Expedition Puzzle Test Part 3": {
 		"tsid": "LUV4ADPRUDO27B3",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"FB_01": {
 		"tsid": "LA952QUH90A2P22",
@@ -4175,7 +4248,8 @@
 	},
 	"Firebog Locked Door Test": {
 		"tsid": "LUVPJM8I04E2TCP",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Firebog Screen Capture": {
 		"tsid": "LA9AGDKKHAA2G5F",
@@ -4416,199 +4490,248 @@
 	},
 	"G010.J": {
 		"tsid": "LLI2V8CKHRD1JKQ",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"G030": {
 		"tsid": "LLIE6I2MVSG1J94",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"G040": {
 		"tsid": "LLIE6JAV0TG1UUL",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"G040.A": {
 		"tsid": "LTJ102N23IJ12Q1",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"G040.A.A": {
 		"tsid": "LTJ1018D8IJ1ALK",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"G040.A.A.A": {
 		"tsid": "LTJ102E8DIJ1774",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"G040.A.A.B": {
 		"tsid": "LTJ1291BHKJ175F",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"G040.A.B": {
 		"tsid": "LTJ1164J8LJ1TGC",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"G040.A.B.A": {
 		"tsid": "LTJ103OF9IJ1985",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"G040.A.B.B": {
 		"tsid": "LTJ11B2B9LJ14CR",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"G040.B": {
 		"tsid": "LTJ104377IJ1DMI",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"G040.B.A": {
 		"tsid": "LTJ105GH7IJ1D1P",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"G040.B.A.A": {
 		"tsid": "LTJ143752LJ1AR1",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"G040.B.A.B": {
 		"tsid": "LTJ146D83LJ1IEQ",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"G040.B.B": {
 		"tsid": "LTJ1322UQKJ1FJ9",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"G040.B.B.A": {
 		"tsid": "LTJ13BO8VKJ1Q5I",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"G040.B.B.B": {
 		"tsid": "LTJ139KHRKJ1OC8",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"G050.B.A": {
 		"tsid": "LLI4I0JJA8J1HST",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"G060": {
 		"tsid": "LLI101G9THH18B0",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF010": {
 		"tsid": "LLI29VDV9JD1H6B",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF010.A": {
 		"tsid": "LLI19PO9JMF1QT1",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF010.A.A": {
 		"tsid": "LLI1A0DPQMF1GH8",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF010.A.A.A": {
 		"tsid": "LLI1A7TT2NF1BV7",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF010.A.A.B": {
 		"tsid": "LLI1A87I4NF1HK3",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF010.A.B": {
 		"tsid": "LLI1A3GD2NF1D3C",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF010.A.B.A": {
 		"tsid": "LLI1A9M09NF1IDB",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF010.A.B.B": {
 		"tsid": "LLI1BKRRVOF19KU",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF010.B": {
 		"tsid": "LLIFAOVKN5G171M",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF010.B.A": {
 		"tsid": "LLI1BG4UTOF1S3I",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF010.B.A.A": {
 		"tsid": "LLIFAPSAS5G136I",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF010.B.A.B": {
 		"tsid": "LLIFB57K36G1N16",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF010.B.B": {
 		"tsid": "LLI1AFI2CNF12BE",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF010.B.B.A": {
 		"tsid": "LLI1A49E2NF13UF",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF010.B.B.B": {
 		"tsid": "LLI1BNFR3PF1BLH",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF020": {
 		"tsid": "LLI29MM19JD1O18",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF020.A": {
 		"tsid": "LLI101MIQVG175S",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF020.A.A": {
 		"tsid": "LLI104BJTVG1R46",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF020.A.A.A": {
 		"tsid": "LLI16D4GMPH1F4C",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF020.A.A.B": {
 		"tsid": "LLICG249UTI19GA",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF020.A.B": {
 		"tsid": "LLI10HD177H1LM1",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF020.A.B.A": {
 		"tsid": "LLI10G8IE0J1U2S",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF020.A.B.B": {
 		"tsid": "LLI104EPE2J1KSA",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF020.B": {
 		"tsid": "LLI103PBRVG1EL5",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF020.B.A": {
 		"tsid": "LLI135G25IH1EJT",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF020.B.A.A": {
 		"tsid": "LLI16AIACPH1HR7",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF020.B.A.B": {
 		"tsid": "LLI169ET6PH1ICD",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF020.B.B": {
 		"tsid": "LLI13SQL7IH1CEK",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF020.B.B.A": {
 		"tsid": "LLI102OI70J1R8N",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF020.B.B.B": {
 		"tsid": "LLICHU5ASVI1HB4",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GF Middlecave 01": {
 		"tsid": "LIFK72HLP3N1JSN",
@@ -4627,7 +4750,8 @@
 	},
 	"GFJ Subway Station": {
 		"tsid": "LCRC6VC9MAO1Q7F",
-		"hub_id": 56
+		"hub_id": 56,
+		"map_hidden": true
 	},
 	"GF_POL": {
 		"tsid": "LLI1811ADFH1232",
@@ -4636,11 +4760,13 @@
 	},
 	"GForest Quarter 01": {
 		"tsid": "LCR113BML8L149L",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"GForest Quarter 02": {
 		"tsid": "LCR114BNL8L178R",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"GH Middlecave 01": {
 		"tsid": "LIFD3HGQ93N1EDN",
@@ -4654,15 +4780,18 @@
 	},
 	"GHeights Interior POL Template": {
 		"tsid": "LCR16D52TSL1BSH",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"GHeights Quarter 01": {
 		"tsid": "LCR103BDPFL1984",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"GHeights Quarter 02": {
 		"tsid": "LCR10PO6QFL1TAI",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"GI Clone - Diversionary Path Firebog Style": {
 		"tsid": "LUVGSVUERAB386N",
@@ -4696,123 +4825,153 @@
 	},
 	"GM110": {
 		"tsid": "LLI10JQH87H1VAA",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM110.A": {
 		"tsid": "LLI10MH4A7H15LO",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM110.A.A": {
 		"tsid": "LLI19J6T3AH1S1G",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM110.A.A.A": {
 		"tsid": "LLI1018G6AH1A8O",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM110.A.A.B": {
 		"tsid": "LLI106JR9AH1TVA",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM110.A.B": {
 		"tsid": "LLI1AEN72DH1EF1",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM110.A.B.A": {
 		"tsid": "LLI1AFVT3DH1C23",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM110.A.B.B": {
 		"tsid": "LLI16GNHQPH1H0R",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM110.B": {
 		"tsid": "LLI10NELB7H1NM9",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM110.B.A": {
 		"tsid": "LLI10V9OT7H19QU",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM110.B.A.A": {
 		"tsid": "LLI18SVUS9H1Q32",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM110.B.A.B": {
 		"tsid": "LLI120BH7FH17NH",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM110.B.B": {
 		"tsid": "LLI10OPAI7H1FJE",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM110.B.B.A": {
 		"tsid": "LLI1AC1ORCH1FJC",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM110.B.B.B": {
 		"tsid": "LLI10PNJJ7H1BJ3",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM150": {
 		"tsid": "LLIE6RV7ATG1RLQ",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM150.A": {
 		"tsid": "LLI3ANOI43J1IBE",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM150.A.A": {
 		"tsid": "LLI3AQ9M63J1C5T",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM150.A.A.A": {
 		"tsid": "LLI3AVOF45J1U0S",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM150.A.A.B": {
 		"tsid": "LLI3B3TB55J1J3P",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM150.A.B": {
 		"tsid": "LLI3AR3673J1F8G",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM150.A.B.A": {
 		"tsid": "LLI104V0Q7J1CMF",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM150.A.B.B": {
 		"tsid": "LLI102P0R7J1KNJ",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM150.B": {
 		"tsid": "LLI3AOI653J14K1",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM150.B.A": {
 		"tsid": "LLI5IMGEC8J1RR5",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM150.B.A.A": {
 		"tsid": "LLI16PL3GFJ15VP",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM150.B.A.B": {
 		"tsid": "LLI17C09LFJ1U28",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM150.B.B": {
 		"tsid": "LLI5V0U3D8J1B14",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM150.B.B.A": {
 		"tsid": "LLI16DIMBFJ1FDG",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM150.B.B.B": {
 		"tsid": "LLI6ABEMD8J174H",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"GM Greeter": {
 		"tsid": "LIF1028Q4QS1E3K",
@@ -4826,83 +4985,103 @@
 	},
 	"GMeadow Quarter 01": {
 		"tsid": "LCR1060O19L1VD3",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"GMeadow Quarter 02": {
 		"tsid": "LCR114MQ19L16VN",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"GMeadow Quarter 03": {
 		"tsid": "LCR188CPHAL1NVO",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"GMeadow Quarter 04": {
 		"tsid": "LCR18Q2IJAL1DK4",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"GOL Meadow Forest Transition A": {
 		"tsid": "LUVKE0N6BPG22GP",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"GOL Meadow Forest Transition B": {
 		"tsid": "LUV1453HMRG2LQL",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"GOL Meadow Parent 1A": {
 		"tsid": "LUVSGU7VU2F2N7Q",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"GOL Meadow Parent 1B": {
 		"tsid": "LUV91E076RE20PI",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"GOL Meadow Parent 2A": {
 		"tsid": "LUVG1K0MSPF2L44",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"GOL Meadow Parent 2B": {
 		"tsid": "LUV1CTG1TSF2A9E",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"GOL Meadow Secondary 1A": {
 		"tsid": "LUVT30R1O5F2SK0",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"GOL Meadow Secondary 1B": {
 		"tsid": "LUVJDER2E8F2KAI",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"GOL Meadow Secondary 2A": {
 		"tsid": "LUV64VI8PCF25FE",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"GOL Meadow Secondary 2B": {
 		"tsid": "LUVEVIPB9AF2ISE",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"GOL Meadow Secondary 3A": {
 		"tsid": "LUV6OU95VUF2UOV",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"GOL Meadow Secondary 3B": {
 		"tsid": "LUVB7MRD6PG2MBB",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"GOL Mining Secondary 1A": {
 		"tsid": "LUVPAJ3UNKF2RQH",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"GOL Mining Secondary 1B": {
 		"tsid": "LUV531S46DF26V9",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"GOL Mining Secondary 2A": {
 		"tsid": "LUVMHIU0LNF2AOU",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"GOL Mining Secondary 2B": {
 		"tsid": "LUV6KQS8NPF29F0",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"GOL_concept_forest_sec": {
 		"tsid": "LDOQVG5BK7F2V5M",
@@ -4996,11 +5175,13 @@
 	},
 	"Game Concept": {
 		"tsid": "LA9L1K1T1M92D8B",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Game of Crowns": {
 		"tsid": "LHV2H026E492IAF",
-		"hub_id": 67
+		"hub_id": 67,
+		"map_hidden": true
 	},
 	"Game_lobby_01": {
 		"tsid": "LDO34L8NVAQ29F4",
@@ -5158,7 +5339,8 @@
 	},
 	"Glitch HQ Test Level": {
 		"tsid": "LA91AK9CC1526RS",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Gloomy_basement": {
 		"tsid": "LUVMM8IE9RU2PLV",
@@ -5476,7 +5658,8 @@
 	},
 	"Gwendolyn's Chamber OLD": {
 		"tsid": "LTJ6TDF7TC12MJD",
-		"hub_id": 77
+		"hub_id": 77,
+		"map_hidden": true
 	},
 	"Gyerean Park": {
 		"tsid": "LA53N05IG9S2BLR",
@@ -5548,7 +5731,8 @@
 	},
 	"Hall of Rejected Concepts": {
 		"tsid": "LA9L33D5CNE3I0J",
-		"hub_id": 77
+		"hub_id": 77,
+		"map_hidden": true
 	},
 	"Hall of Tools": {
 		"tsid": "LLI103SLDDC1709",
@@ -5573,15 +5757,18 @@
 	},
 	"Haoma II": {
 		"tsid": "LUVD5II2VV33DLP",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Haoma II B": {
 		"tsid": "LUV83SB5U243J16",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Haoma II C": {
 		"tsid": "LUVPM3KC6543BH0",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Haqiq Cedony": {
 		"vendor": "Kitchen Tools",
@@ -5716,11 +5903,13 @@
 	},
 	"Heights Concept": {
 		"tsid": "LA953F0HD0A2SQA",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Heights Concept 2": {
 		"tsid": "LA9O3H7VT5A2A2D",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Heights Start": {
 		"tsid": "LIFPFIBGJ2D25KC",
@@ -5728,39 +5917,48 @@
 	},
 	"Hell 01": {
 		"tsid": "LUVLCU0E4ND2TTT",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Hell 02": {
 		"tsid": "LUVQLQTH31E29N0",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Hell 03": {
 		"tsid": "LUVVP6Q7D1E28VJ",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Hell 03a": {
 		"tsid": "LUVAASN02JE2FD9",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Hell 04": {
 		"tsid": "LUVP6T1H04E251E",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Hell 05": {
 		"tsid": "LUVGOQHG76E2RCN",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Hell 06": {
 		"tsid": "LUV7J7GON6E2JJ7",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Hell 07": {
 		"tsid": "LUVF83J579E2UFF",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Hell 08": {
 		"tsid": "LUV8BE1HBJE2KGG",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Hell 09 - WhiteHell clone": {
 		"tsid": "LUVHSTLFCJE2ORT",
@@ -5773,7 +5971,8 @@
 	},
 	"Hell Bar Door Test": {
 		"tsid": "LUVJFCE3T7P2458",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Hell One": {
 		"hub_id": 40,
@@ -5781,7 +5980,8 @@
 	},
 	"Hell One OLD": {
 		"tsid": "LM4107R9OLUTA",
-		"hub_id": 40
+		"hub_id": 40,
+		"map_hidden": true
 	},
 	"Hell one Clone": {
 		"tsid": "LDOB1BBD53F2EJ7",
@@ -5895,7 +6095,8 @@
 	},
 	"Hub Concept 01": {
 		"tsid": "LUV5D62MQ863N5G",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Hullis Dalb": {
 		"vendor": "Animal Goods",
@@ -6059,11 +6260,13 @@
 	},
 	"Institute of Ocular Testing": {
 		"tsid": "LNVUCOIA1MJ2M54",
-		"hub_id": 61
+		"hub_id": 61,
+		"map_hidden": true
 	},
 	"Institute of Ocular Testing NOT USED": {
 		"tsid": "LDONM2BB89J2EHN",
-		"hub_id": 69
+		"hub_id": 69,
+		"map_hidden": true
 	},
 	"Insula Silva": {
 		"tsid": "LDOG0IIC2S03H1R",
@@ -6201,7 +6404,8 @@
 	},
 	"Jethimadh Concept": {
 		"tsid": "LA94IKQGPM92935",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Jethimadh Herb Gardens": {
 		"tsid": "LA97L62229522GS",
@@ -6337,11 +6541,13 @@
 	},
 	"Kajuu Large POL": {
 		"tsid": "LIFCH1JF8K42GUU",
-		"hub_id": 87
+		"hub_id": 87,
+		"map_hidden": true
 	},
 	"Kajuu Medium POL": {
 		"tsid": "LIF1737DK0526F5",
-		"hub_id": 87
+		"hub_id": 87,
+		"map_hidden": true
 	},
 	"Kajuu Quarter Street 01": {
 		"tsid": "LIF128JF2U42NSU",
@@ -7008,19 +7214,23 @@
 	},
 	"Level Quest Test 01": {
 		"tsid": "LUV38DLOR813IRQ",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Level Quest Test 02": {
 		"tsid": "LUVIGHEH091397B",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Level Quest Tree House": {
 		"tsid": "LUV56022QT13GV5",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Level Quest Tree House Copy": {
 		"tsid": "LUVNK8GOU3837BF",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Level Quest Tree House Copy 2": {
 		"tsid": "LUVUURPFE4A3A8F",
@@ -7737,7 +7947,8 @@
 	},
 	"Miniature POL Test": {
 		"tsid": "LUVGSA0VUDV22G1",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Minichii Chia": {
 		"vendor": "Produce",
@@ -8075,7 +8286,8 @@
 	},
 	"NEWSTuFF": {
 		"tsid": "LIFPS30A98Q1I26",
-		"hub_id": 67
+		"hub_id": 67,
+		"map_hidden": true
 	},
 	"NFB_01": {
 		"tsid": "LA9467JV16A2KT9",
@@ -8282,35 +8494,43 @@
 	},
 	"New XP Cavern 01": {
 		"tsid": "LUV6HHDD0703VM9",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"New XP Cavern 02": {
 		"tsid": "LUVHRCUDD703L5Q",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"New XP Cavern 03 (Colours)": {
 		"tsid": "LUVN1141O70343K",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"New XP Cavern (Bridge Test)": {
 		"tsid": "LUVUP5LNVH03018",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"New XP T1 01": {
 		"tsid": "LUVQV5AO3K033KN",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"New XP T1 02": {
 		"tsid": "LUVONKCS1S03AF3",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"New XP T1 03": {
 		"tsid": "LUVFU4QBF3137Q8",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"New XP Uralia": {
 		"tsid": "LUVLEJ1S0S039U6",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"NewImg_1": {
 		"tsid": "LDOQBR0ED4036RH",
@@ -8440,7 +8660,8 @@
 	},
 	"Newbie Island Street 4 Test": {
 		"tsid": "LUVS89G2S653SP5",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Newcot Close": {
 		"vendor": "Grocery",
@@ -8450,7 +8671,8 @@
 	},
 	"NewerXP": {
 		"tsid": "LA9MR0DFNUB205M",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"Nex_XP_proto_04": {
 		"tsid": "LUVOOIP5F703M1L",
@@ -8575,15 +8797,18 @@
 	},
 	"Oasis Concept 01": {
 		"tsid": "LA910TNF4U4276N",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Oasis Concept 02": {
 		"tsid": "LA9110SO5U42TI9",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Odd POL": {
 		"tsid": "LUVSOBTMTMR215A",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Odena Odes": {
 		"shrine": "Friendly",
@@ -8839,15 +9064,18 @@
 	},
 	"POL 1200px": {
 		"tsid": "LM4182PI5MOGI",
-		"hub_id": 37
+		"hub_id": 37,
+		"map_hidden": true
 	},
 	"POL 1600px": {
 		"tsid": "LM417EPGPAD4J",
-		"hub_id": 37
+		"hub_id": 37,
+		"map_hidden": true
 	},
 	"POL 2000px": {
 		"tsid": "LM416NPGGD3AN",
-		"hub_id": 37
+		"hub_id": 37,
+		"map_hidden": true
 	},
 	"POL - 02/23/12 Groddle Ext Plat Change": {
 		"tsid": "LUV5S32FUSO2ODT",
@@ -8871,11 +9099,13 @@
 	},
 	"POL Center Expansion Test 01": {
 		"tsid": "LUV7DQ062RL2TU9",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"POL Center Expansion Test 02": {
 		"tsid": "LUVL4I5K4RL23HF",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"POL Concept 1A - Mountain Forest": {
 		"tsid": "LUV9GK3J7JJ2QFF",
@@ -8924,11 +9154,13 @@
 	},
 	"POL Interior Test": {
 		"tsid": "LUVKJNODTLJ2PSN",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"POL June 23": {
 		"tsid": "LLI1071GRS71MPC",
-		"hub_id": 37
+		"hub_id": 37,
+		"map_hidden": true
 	},
 	"POL Placement (small-center-right)": {
 		"tsid": "LNV3MHS739O2LA3",
@@ -8937,11 +9169,13 @@
 	},
 	"POL Plat Template": {
 		"tsid": "LUV5MVF72JJ2C4V",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"POL Plat Template 02": {
 		"tsid": "LUVNEJIFVQL2CIE",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"POL Plat Test - New Into Old": {
 		"tsid": "LUV83SR3C8O2Q0R",
@@ -8954,11 +9188,13 @@
 	},
 	"POL Test": {
 		"tsid": "LUV5M48HCRL28EA",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"POL placement (left)": {
 		"tsid": "LNVT6VLDPKM2DN7",
-		"hub_id": 115
+		"hub_id": 115,
+		"map_hidden": true
 	},
 	"POL placement (lrg-center-right)": {
 		"tsid": "LNVF5FC2QVM29VK",
@@ -9799,15 +10035,18 @@
 	},
 	"Physics FUN Test": {
 		"tsid": "LUVPVIPCFPI2AMI",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Physics Test": {
 		"tsid": "LUVKLL4UIPI2KNV",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Physics Test 2": {
 		"tsid": "LUVD838NG1J2K8U",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Piano Party": {
 		"tsid": "LA96OS42D6F3M9P",
@@ -9947,15 +10186,18 @@
 	},
 	"Platlinetest": {
 		"tsid": "LIF4GT6140Q1S9R",
-		"hub_id": 67
+		"hub_id": 67,
+		"map_hidden": true
 	},
 	"Player Enter Test Level A": {
 		"tsid": "LUVOER3PRJC3HMT",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Player Enter Test Level B": {
 		"tsid": "LUVOIPFPRJC3KOH",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Plexus": {
 		"hub_id": 66,
@@ -10134,51 +10376,63 @@
 	},
 	"Puzzle Concept 01": {
 		"tsid": "LUVAIG45RF63O8C",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Puzzle Concept 01 Copy": {
 		"tsid": "LUVL6LIQ9O63KTS",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Puzzle Concept 01 Copy 2": {
 		"tsid": "LUV6BTL0MQ63GD9",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Puzzle Concept 01 Copy 3": {
 		"tsid": "LUVM7P71NV634NV",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Puzzle Concept 01 Copy 4": {
 		"tsid": "LUV608PQK973FBH",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Puzzle Concept 01B": {
 		"tsid": "LUV13BHKKG63M00",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Puzzle Concept 01b": {
 		"tsid": "LUV193LTQN63MAV",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Puzzle Concept 02": {
 		"tsid": "LUV8UQ73IF734SB",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Puzzle Concept 03": {
 		"tsid": "LUVOQ0C45183442",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Puzzle Concept Geometric Shapes": {
 		"tsid": "LUV86EK8C0D3FK1",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Puzzle Concept Geometric Shapes B": {
 		"tsid": "LUVE7476N0D3FGG",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"QRCode 01": {
 		"tsid": "LUVEP7NV8ST20O4",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Qaado Barrus": {
 		"vendor": "Alchemical Goods",
@@ -10198,15 +10452,18 @@
 	},
 	"Quarter 1": {
 		"tsid": "LLIF7HTN53G1LCE",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"Quarter 2": {
 		"tsid": "LLIFBS6E86G1E1G",
-		"hub_id": 57
+		"hub_id": 57,
+		"map_hidden": true
 	},
 	"Quiet hill": {
 		"tsid": "LIF1ECSKHLP1967",
-		"hub_id": 67
+		"hub_id": 67,
+		"map_hidden": true
 	},
 	"Quinmchary": {
 		"vendor": "Animal Goods",
@@ -10221,7 +10478,8 @@
 	},
 	"Quoin Test": {
 		"tsid": "LUV5RFE32133099",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Quozee Quanta": {
 		"vendor": "Alchemical Goods",
@@ -10621,27 +10879,33 @@
 	},
 	"Room 4": {
 		"tsid": "LIF1Q6PMN7123NQ",
-		"hub_id": 77
+		"hub_id": 77,
+		"map_hidden": true
 	},
 	"Room 8": {
 		"tsid": "LIF1FHA10312KLV",
-		"hub_id": 77
+		"hub_id": 77,
+		"map_hidden": true
 	},
 	"Room 15": {
 		"tsid": "LIF1G7Q75312T8B",
-		"hub_id": 77
+		"hub_id": 77,
+		"map_hidden": true
 	},
 	"Room 16": {
 		"tsid": "LTJ11V9DK812UNL",
-		"hub_id": 77
+		"hub_id": 77,
+		"map_hidden": true
 	},
 	"Room 23": {
 		"tsid": "LCR8MORFJI12IR4",
-		"hub_id": 79
+		"hub_id": 79,
+		"map_hidden": true
 	},
 	"Room 23 OLD": {
 		"tsid": "LIF11B84G0120CQ",
-		"hub_id": 77
+		"hub_id": 77,
+		"map_hidden": true
 	},
 	"Rube's Way 1": {
 		"tsid": "LA513RIT0J52F6P",
@@ -11027,15 +11291,18 @@
 	},
 	"Seam Street Test 01": {
 		"tsid": "LA9NTLLJLP62SON",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Seam Street Test 02": {
 		"tsid": "LA9VQMHSPP62K1B",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Seam Street Test 03": {
 		"tsid": "LA92DMAQQP62NG5",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Seela Latta": {
 		"shrine": "Mab",
@@ -11428,7 +11695,8 @@
 	},
 	"Spinach Height Test": {
 		"tsid": "LA9PEO33EQ52RL6",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Spitze Summit": {
 		"vendor": "Animal Goods",
@@ -11578,47 +11846,58 @@
 	},
 	"Street Style Concept 01": {
 		"tsid": "LUV5409NDM53V3S",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Street Style Concept 02": {
 		"tsid": "LUVFGKTLNM53D24",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Street Style Concept 02 wipB": {
 		"tsid": "LUVIGVMD6R531NJ",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Street Style Concept 02 wipC": {
 		"tsid": "LUVVNKLTTT53115",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Street Style Concept 03": {
 		"tsid": "LUVUPQVNMR532A8",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Street Style Concept 03 with may decos": {
 		"tsid": "LUV7RL4Q5093990",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Street Style Concept 04": {
 		"tsid": "LUVI4B1VQT53U0G",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Street Style Concept 05": {
 		"tsid": "LUVR3QUM7U5343A",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Street Style Concept 06": {
 		"tsid": "LUV3KGFM586367A",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Street Style Concept 07": {
 		"tsid": "LUV3A1LDI863H9A",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Street Style Concept 08": {
 		"tsid": "LUV5Q4F7N863UBM",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Strucote Stacks": {
 		"vendor": "Animal Goods",
@@ -11793,19 +12072,23 @@
 	},
 	"T2P concept 1": {
 		"tsid": "LIF4SF4M20438LH",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"T2P rand": {
 		"tsid": "LIF6A9Q47M53R8Q",
-		"hub_id": 81
+		"hub_id": 81,
+		"map_hidden": true
 	},
 	"TEST DUPE": {
 		"tsid": "LIFV3GOI7N42PHN",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"TR1": {
 		"tsid": "LIFBLMAVDJ53NP1",
-		"hub_id": 134
+		"hub_id": 134,
+		"map_hidden": true
 	},
 	"TR1 Clone 1 - Keita Assets": {
 		"tsid": "LUVI0GLE7QD319Q",
@@ -11814,15 +12097,18 @@
 	},
 	"TR1 Clone 2": {
 		"tsid": "LUVOOGCKF4E395V",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"TR2": {
 		"tsid": "LIFD0KCDEJ53L7K",
-		"hub_id": 134
+		"hub_id": 134,
+		"map_hidden": true
 	},
 	"TR2 Clone (Don't Use)": {
 		"tsid": "LIF5IF4JMD63MRE",
-		"hub_id": 134
+		"hub_id": 134,
+		"map_hidden": true
 	},
 	"Taboon Tribute": {
 		"vendor": "Alchemical Goods",
@@ -11971,11 +12257,13 @@
 	},
 	"Teleport Physics Test 01": {
 		"tsid": "LUVRG0BH1B63HUT",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Teleport Physics Test 02": {
 		"tsid": "LUVRJERH1B637LS",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Tella Hella": {
 		"vendor": "Hardware",
@@ -12034,11 +12322,13 @@
 	},
 	"Texture Hflip Test": {
 		"tsid": "LA9K16OIHD821QU",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Texture Hflip Test Single Asset": {
 		"tsid": "LA9RT9VVLD82GN5",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Tharon Spelunk": {
 		"vendor": "Mining",
@@ -12048,23 +12338,28 @@
 	},
 	"The Amazing Race": {
 		"tsid": "LIF10A4HV3P17BU",
-		"hub_id": 67
+		"hub_id": 67,
+		"map_hidden": true
 	},
 	"The Back Alley": {
 		"tsid": "LIF177DTS6T1KFG",
-		"hub_id": 67
+		"hub_id": 67,
+		"map_hidden": true
 	},
 	"The Bonus Room": {
 		"tsid": "LM410OS4SHUH2",
-		"hub_id": 41
+		"hub_id": 41,
+		"map_hidden": true
 	},
 	"The Desert OLD": {
 		"tsid": "LM1GLPFHBI122JP",
-		"hub_id": 61
+		"hub_id": 61,
+		"map_hidden": true
 	},
 	"The Desert REFERENCE": {
 		"tsid": "LM1G8DQELD12I3G",
-		"hub_id": 61
+		"hub_id": 61,
+		"map_hidden": true
 	},
 	"The Drop": {
 		"tsid": "LHH12E1QP611OPA",
@@ -12100,7 +12395,8 @@
 	},
 	"The Inner Mind OLD": {
 		"tsid": "LM1G8E24MD12ANU",
-		"hub_id": 61
+		"hub_id": 61,
+		"map_hidden": true
 	},
 	"The Kid's Room": {
 		"tsid": "LIF149EVS2A22H1",
@@ -12355,7 +12651,8 @@
 	"Timtim Timm": {
 		"vendor": "Mining",
 		"tsid": "LHFTBK54M4D2JQA",
-		"hub_id": 106
+		"hub_id": 106,
+		"map_hidden": true
 	},
 	"Tint Test - Kajuu - Appam Almost": {
 		"tsid": "LIFOGTJFQCB2M9K",
@@ -12439,51 +12736,63 @@
 	},
 	"Tower Inverted Stairs Test": {
 		"tsid": "LA96HTOSBP62CG0",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Tower Level 2 Concept 01": {
 		"tsid": "LA9102C42Q323RE",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Tower Level 2 Concept 02": {
 		"tsid": "LA914D58MS32AQO",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Tower Level 2 Concept 03": {
 		"tsid": "LA916PNAET328RU",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Tower Level 2 Concept 04": {
 		"tsid": "LA912D8TFV32P2A",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Tower New Stairs Test": {
 		"tsid": "LA98ELNK0U72PKU",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Tower Normal Stairs Test": {
 		"tsid": "LA93OP0R9P625PJ",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Tower POL": {
 		"tsid": "LUV93K3P2823OE1",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Tower POL (7 Floors 1500 wide)": {
 		"tsid": "LUVS2BMO7823IBQ",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Tower POL (9 Floors 1200 wide)": {
 		"tsid": "LUV1B3PEAA23DB4",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Tower POL (9 Floors 1350 wide)": {
 		"tsid": "LUVS4I3P7823OAV",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Tower POL (11 Floors 1050 wide)": {
 		"tsid": "LUVL99B97A23Q3O",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Tower St East": {
 		"vendor": "Hardware",
@@ -12714,11 +13023,13 @@
 	},
 	"Undu Unders BU": {
 		"tsid": "LIFGIAVDH282OCT",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Unique POL 2": {
 		"tsid": "LUVM306E13R2KO1",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Unnu Slight": {
 		"mailbox": true,
@@ -12912,7 +13223,8 @@
 	},
 	"Venkate Kate CLONE": {
 		"tsid": "LUVD47OTBSB36SH",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Ventilation Room": {
 		"tsid": "LIF102JCHL027DO",
@@ -13054,11 +13366,13 @@
 	},
 	"Warehouse Sound Test": {
 		"tsid": "LUVJ2COPMS23B5Q",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Waterfall 03 TEST": {
 		"tsid": "LUV16D491093OJ1",
-		"hub_id": 82
+		"hub_id": 82,
+		"map_hidden": true
 	},
 	"Waterfall A": {
 		"tsid": "LUVMOOJ7VH23G5C",
@@ -13154,7 +13468,8 @@
 	},
 	"Width Test": {
 		"tsid": "LUVQRE6RNH23RQE",
-		"hub_id": 84
+		"hub_id": 84,
+		"map_hidden": true
 	},
 	"Wieser Wedge": {
 		"vendor": "Alchemical Goods",

@@ -40,9 +40,15 @@ class VisitingStone extends NPC {
 	Future visitAStreet({String email, WebSocket userSocket}) async {
 		String tsid = await randomUnvisitedTsid(email, inclHidden: false);
 
-		userSocket.add(JSON.encode({
-			"gotoStreet": "true",
-			"tsid": tsid
-		}));
+		if (tsid == 'ALL_VISITED') {
+			toast("You've visited every street in the game!", userSocket);
+		} else if (tsid != null) {
+			userSocket.add(JSON.encode({
+				"gotoStreet": "true",
+				"tsid": tsid
+			}));
+		} else {
+			toast('Something went wrong :(', userSocket);
+		}
 	}
 }

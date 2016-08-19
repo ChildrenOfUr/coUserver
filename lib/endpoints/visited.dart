@@ -3,11 +3,11 @@ library visited;
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:redstone/redstone.dart' as app;
+
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
 import 'package:coUserver/common/mapdata/mapdata.dart';
-
-import 'package:redstone/redstone.dart' as app;
 
 @app.Route("/getLocationHistory/:email")
 Future<List<String>> getLocationHistory(String email) async {
@@ -21,7 +21,14 @@ Future<List<String>> getLocationHistory(String email) async {
 Future<List<String>> getLocationHistoryInverse(
 	String email, [@app.QueryParam("skipHidden") bool skipHidden = false]
 ) async {
-	List<String> history = await getLocationHistory(email);
+	List<String> history = [];
+
+	try {
+		history = await getLocationHistory(email);
+	} catch (e) {
+		Log.warning('Error getting location history for <email=$email>', e);
+	}
+
 	List<String> allTsids = new List();
 	MapData.streets.values.forEach((Map<String, dynamic> streetData) {
 		if (
@@ -37,34 +44,33 @@ Future<List<String>> getLocationHistoryInverse(
 }
 
 Future<String> randomUnvisitedTsid(String email, {bool inclHidden: true}) async {
-	List<String> unvisited = await getLocationHistoryInverse(email, true);
-	if (unvisited.length > 0) {
-		return unvisited[rand.nextInt(unvisited.length)];
-	} else {
-		List<Map> allWithData = MapData.streets.values.where((Map data) {
-			if (data["tsid"] == null) {
-				// Don't include streets without TSIDs
-				return false;
-			}
+	try {
+		List<String> unvisited = await getLocationHistoryInverse(email, true);
 
-			if (inclHidden) {
-				// Include hidden streets
-				return true;
-			} else {
-				// Don't include hidden streets
-				// Streets with a null value are not hidden (false)
-				return ((data["map_hidden"] ?? false) != true);
-			}
-		}).toList();
-		return allWithData[rand.nextInt(allWithData.length)]["tsid"];
+		if (unvisited.length > 0) {
+			return unvisited[rand.nextInt(unvisited.length)];
+		} else {
+			return 'ALL_VISITED';
+		}
+	} catch (e) {
+		Log.warning('Could not find unvisited TSID for <email=$email>', e);
+		return null;
 	}
 }
 
 bool streetIsHidden(Map streetData) {
 	try {
-		bool streetLevel = (streetData["map_hidden"] ?? false);
-		bool hubLevel = (MapData.hubs[streetData["hub_id"]]["map_hidden"] ?? false);
-		return (streetLevel || hubLevel);
+		// Street level
+		if (streetData['map_hidden']) {
+			return true;
+		}
+
+		// Hub level
+		if (MapData.hubs[streetData['hub_id']]['map_hidden']) {
+			return true;
+		}
+
+		return false;
 	} catch(_) {
 		// Missing data
 		return false;
