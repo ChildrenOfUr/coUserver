@@ -64,7 +64,7 @@ class User {
 		}
 	}
 
-	static Future<User> findByUsername(String username, [bool cacheOnly = false]) async {
+	static Future<User> findByUsername(String username, [bool cacheOnly = false, bool caseSensitive = true]) async {
 		try {
 			return _cache.singleWhere((User u) => u.username != null && u.username == username);
 		} catch (_) {
@@ -74,8 +74,13 @@ class User {
 
 			PostgreSql dbConn = await dbManager.getConnection();
 			try {
+				String usernameQuery = 'username = @username';
+				if (!caseSensitive) {
+					usernameQuery = 'LOWER(username) = LOWER(@username)';
+				}
+
 				User user = (await dbConn.query(
-					'SELECT * FROM users WHERE username = @username',
+					'SELECT * FROM users WHERE $usernameQuery',
 					User, {'username': username})).single;
 
 				_addToCache(user);

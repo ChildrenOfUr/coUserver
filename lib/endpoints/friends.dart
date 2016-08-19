@@ -22,7 +22,7 @@ class FriendsEndpoint {
 			}
 
 			// Get existing friends list
-			String json = (await User.findByUsername(username)).friends;
+			String json = (await User.findByUsername(username, false, false)).friends;
 			List<int> ids = JSON.decode(json);
 
 			// Get new friend info
@@ -80,7 +80,7 @@ class FriendsEndpoint {
 			friendUsername = Uri.decodeComponent(friendUsername.trim());
 
 			// Get existing friends list
-			String json = (await User.findByUsername(username)).friends;
+			String json = (await User.findByUsername(username, false, false)).friends;
 			List<int> ids = JSON.decode(json);
 
 			// Get new friend info
@@ -121,7 +121,7 @@ class FriendsEndpoint {
 		try {
 			// Get ids
 			username = Uri.decodeComponent(username.trim());
-			List<int> ids = JSON.decode((await User.findByUsername(username)).friends);
+			List<int> ids = JSON.decode((await User.findByUsername(username, false, false)).friends);
 
 			// Convert to usernames
 			List<String> usernames = [];
