@@ -21,6 +21,15 @@ class VisitingStone extends NPC {
 			)
 		};
 		setState("_");
+
+		// Automatically face the correct direction
+		if (x <= 500) {
+			// Probably on the left end of the street, face right
+			facingRight = true;
+		} else {
+			// Probably on the right end of the street, face left
+			facingRight = false;
+		}
 	}
 
 	@override
@@ -28,12 +37,12 @@ class VisitingStone extends NPC {
 		// Remain a visiting stone (the status is set in stone)
 	}
 
-	visitAStreet({String email, WebSocket userSocket}) {
-		randomUnvisitedTsid(email, inclHidden: false).then((String tsid) {
-			userSocket.add(JSON.encode({
-				"gotoStreet": "true",
-				"tsid": tsid
-			}));
-		});
+	Future visitAStreet({String email, WebSocket userSocket}) async {
+		String tsid = await randomUnvisitedTsid(email, inclHidden: false);
+
+		userSocket.add(JSON.encode({
+			"gotoStreet": "true",
+			"tsid": tsid
+		}));
 	}
 }
