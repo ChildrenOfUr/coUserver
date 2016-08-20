@@ -55,6 +55,7 @@ part 'npcs/animals/salmon.dart';
 part 'npcs/auctioneer.dart';
 part 'npcs/crab.dart';
 part 'npcs/dust_trap.dart';
+part 'npcs/items/cubimal.dart';
 part 'npcs/items/entity_item.dart';
 part 'npcs/items/still.dart';
 part 'npcs/mailbox.dart';

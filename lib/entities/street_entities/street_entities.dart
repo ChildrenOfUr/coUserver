@@ -69,7 +69,7 @@ class StreetEntities {
 		}
 	}
 
-	static Future<bool> setEntity(StreetEntity entity, {bool loadNow: true}) async {
+	static Future<bool> setEntity(StreetEntity entity, {bool loadNow: true, bool loadDb: true}) async {
 		Future<bool> _setInDb(StreetEntity entity) async {
 			PostgreSql dbConn = await dbManager.getConnection();
 
@@ -105,6 +105,7 @@ class StreetEntities {
 					ClassMirror mirror = findClassMirror(entity.type);
 					NPC npc = mirror.newInstance(new Symbol(''),
 						[entity.id, entity.x, entity.y, street['label']]).reflectee;
+					npc.restoreState(entity.metadata);
 
 					// Load onto street
 					StreetUpdateHandler.queueNpcAdd(npc);
@@ -117,24 +118,26 @@ class StreetEntities {
 			}
 		}
 
-		if (!(await _setInDb(entity))) {
+		if (loadDb && !(await _setInDb(entity))) {
 			return false;
-		} else if (loadNow) {
-			return _setInMemory(entity);
-		} else {
-			return true;
 		}
+
+		if (loadNow && !(await _setInMemory(entity))) {
+			return false;
+		}
+
+		return true;
 	}
 
-	static Future<bool> deleteEntity(StreetEntity entity) async {
+	static Future<bool> deleteEntity(String entityId) async {
 		Future<bool> _deleteFromDb() async {
 			PostgreSql dbConn = await dbManager.getConnection();
 			try {
 				String query = 'DELETE FROM $TABLE WHERE id = @id';
-				int result = await dbConn.execute(query, {'id': entity.id});
+				int result = await dbConn.execute(query, {'id': entityId});
 				return (result == 1);
 			} catch (e, st) {
-				Log.error('Could not delete entity ${entity.id} from database', e, st);
+				Log.error('Could not delete entity ${entityId} from database', e, st);
 				return false;
 			} finally {
 				dbManager.closeConnection(dbConn);
@@ -143,11 +146,10 @@ class StreetEntities {
 
 		Future<bool> _deleteFromMemory() async {
 			try {
-				String streetName = MapData.getStreetByTsid(entity.tsid)['label'];
-				StreetUpdateHandler.queueNpcRemove(entity.id);
+				StreetUpdateHandler.queueNpcRemove(entityId);
 				return true;
 			} catch (e, st) {
-				Log.error('Could not delete entity ${entity.id} from memory', e, st);
+				Log.error('Could not delete entity ${entityId} from memory', e, st);
 				return false;
 			}
 		}

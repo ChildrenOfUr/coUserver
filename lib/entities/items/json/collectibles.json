@@ -1685,11 +1685,12 @@
 		"price": 700,
 		"description": "If you played a butterfly song backward, this is roughly what it would sound like. You can barely hear the demons."
 	},
-	"npc_cubimal_factorydefect_chick": {
+	"cubimal_factorydefect_chick": {
 		"name": "Factory Defect Chick Cubimal",
 		"category": "Collectibles",
 		"iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_factorydefect_chick__x1_1_png_1354840104.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_factorydefect_chick__x1_race_png_1354840105.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_factorydefect_chick__x1_1_png_1354840104.png",
+		"iconNum": 1,
 		"stacksTo": 1,
 		"price": 1511000,
 		"description": "This Factory Defect Chick Cubimal was hand-picked straight out of the garbage bin by an assembly line worker.",
@@ -1708,11 +1709,12 @@
 			}
 		]
 	},
-	"npc_cubimal_gardeningtoolsvendor": {
+	"cubimal_gardeningtoolsvendor": {
 		"name": "Gardening Tools Vendor Cubimal",
 		"category": "Collectibles",
 		"iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_gardeningtoolsvendor__x1_1_png_1354839863.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_gardeningtoolsvendor__x1_race_png_1354839863.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_gardeningtoolsvendor__x1_1_png_1354839863.png",
+		"iconNum": 1,
 		"stacksTo": 1,
 		"price": 0,
 		"description": "It's a Gardening Tools Vendor Cubimal! Collect all Series 2 Cubimals!",
@@ -1731,11 +1733,12 @@
 			}
 		]
 	},
-	"npc_cubimal_maintenancebot": {
+	"cubimal_maintenancebot": {
 		"name": "Maintenance Bot Cubimal",
 		"category": "Collectibles",
 		"iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_maintenancebot__x1_1_png_1354839965.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_maintenancebot__x1_race_png_1354839966.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_maintenancebot__x1_1_png_1354839965.png",
+		"iconNum": 1,
 		"stacksTo": 1,
 		"price": 0,
 		"description": "It's a Mai,ntenance Bot Cubimal! Collect all Series 2 Cubimals!",

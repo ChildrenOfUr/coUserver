@@ -162,6 +162,10 @@ class User {
 		User merged = new User();
 
 		for (User user in users) {
+			if (user == null) {
+				continue;
+			}
+
 			merged
 				..id = merged.id ?? user.id
 				..username = merged.username ?? user.username

@@ -5,42 +5,22 @@ part of item;
 // /////// //
 
 abstract class Cubimal extends Object with MetabolicsChange {
-	Future<bool> race({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
-		InventoryV2 inv = await getInventory(email);
-		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
+	Future race({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
+		// Take item
+		Item itemInSlot = await InventoryV2.takeItemFromUser(email, map['slot'], map['subSlot'], 1);
 
-		// number 1 to 50
-		int base = rand.nextInt(49) + 1;
-		// number 0.0 (incl) to 1.0 (excl)
-		double multiplier = rand.nextDouble();
-		// multiply them for more variety
-		num result = base * multiplier;
-		// 80% chance to cut numbers at least 17 in half
-		if (result >= 17 && rand.nextInt(4) <= 3) result /= 2;
-		// cut to two decimal places (and a string)
-		String twoPlaces = result.toStringAsFixed(2);
-		// back to number format
-		num distance = num.parse(twoPlaces);
-
-		String plural;
-		if (distance == 1) {
-			plural = "";
-		} else {
-			plural = "s";
-		}
-
-		String message;
-
-		if (itemInSlot.itemType == 'npc_cubimal_factorydefect_chick') {
-			distance = -(distance / 2);
-			message = "$username's defective chick cubimal travelled ${distance.toString()} plank$plural, and broke";
-		} else {
-			message = "$username's ${itemInSlot.name} travelled ${distance.toString()} plank$plural before stopping";
-		}
-
-		StreetUpdateHandler.streets[streetName].occupants.forEach((String username, WebSocket ws) => toast(message, ws));
-
-		return true;
+		// Create cubimal entity
+		Identifier user = PlayerUpdateHandler.users[username];
+		String tsid = MapData.getStreetByName(streetName)['tsid'];
+		String entityType = EntityItem.ITEM_ENTITIES[itemInSlot.itemType];
+		String id = createId(user.currentX, user.currentY, entityType, tsid);
+		String metadata = JSON.encode({
+			'ownerId': await User.getIdFromUsername(username),
+			'itemType': itemInSlot.itemType
+		});
+		StreetEntity entity = new StreetEntity.create(
+			id: id, type: entityType, tsid: tsid, x: user.currentX, y: user.currentY, metadata_json: metadata);
+		StreetEntities.setEntity(entity);
 	}
 
 	Future<bool> setFree({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
