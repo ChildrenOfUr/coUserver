@@ -491,7 +491,8 @@
 		"color": "005182",
 		"color_btm": "7b898c",
 		"color_top": "91a4ae",
-		"owm_city_id": 1926004
+		"owm_city_id": 1926004,
+		"disable_weather": true
 	},
 	"71": {
 		"name": "Jethimadh",
@@ -913,7 +914,8 @@
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
-		"owm_city_id": 1796556
+		"owm_city_id": 1796556,
+		"disable_weather": true
 	},
 	"63": {
 		"name": "Shimla Mirch",
