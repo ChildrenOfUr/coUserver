@@ -38,6 +38,7 @@ class User {
 	static Future<String> getUsernameFromId(int id) async               => (await findById(id)).username;
 	static Future<String> getUsernameFromEmail(String email) async      => (await findByEmail(email)).username;
 	static Future<String> getEmailFromUsername(String username) async   => (await findByUsername(username)).email;
+	static Future<String> getEmailFromId(int id) async                  => (await findById(id)).email;
 
 	static Future<User> findById(int id, [bool cacheOnly = false]) async {
 		try {

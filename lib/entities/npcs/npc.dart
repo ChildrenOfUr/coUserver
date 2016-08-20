@@ -20,7 +20,7 @@ abstract class NPC extends Entity {
 	num x, y, previousX, previousY, speed = 0, ySpeed = 0, yAccel = -2400;
 	bool facingRight = true, grounded = false;
 	MutableRectangle _collisionsRect;
-	Map<String, String> metadata;
+	Map<String, String> metadata = {};
 
 	NPC(this.id, this.x, this.y, this.streetName) {
 		respawn = new DateTime.now();
@@ -34,7 +34,7 @@ abstract class NPC extends Entity {
 		}
 	}
 
-	Map<String,String> getPersistMetadata() => this.metadata
+	Map<String, String> getPersistMetadata() => this.metadata
 		..['facingRight'] = facingRight.toString();
 
 	int get width => currentState.frameWidth;

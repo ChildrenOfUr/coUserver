@@ -309,6 +309,21 @@ class Item extends Object
 		StatManager.add(email, Stat.items_dropped, increment: map['count']);
 	}
 
+	// Item -> EntityItem
+	Future place({WebSocket userSocket, Map map, String streetName, String email, String username}) async {
+		String tsid = MapData.getStreetByName(streetName)['tsid'];
+		if (tsid == null) {
+			toast('Something went wrong! Try another street?', userSocket);
+			Log.warning('Street <label=$streetName> has no TSID');
+			return;
+		}
+
+		Item placedItem = await InventoryV2.takeItemFromUser(email, map['slot'], map['subSlot'], map['count']);
+		if (placedItem != null) {
+			EntityItem.place(email, placedItem.itemType, tsid);
+		}
+	}
+
 	// Place the item in the street
 	void putItemOnGround(num x, num y, String streetName, {String id, int count: 1}) {
 		Street street = StreetUpdateHandler.streets[streetName];

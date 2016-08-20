@@ -96,18 +96,18 @@ class StreetEntities {
 			if (street != null) {
 				//if the street isn't currently loaded, then just return
 				if (StreetUpdateHandler.streets[street["label"]] == null) {
+					Log.warning('Tried to set entity <id=${entity.id}> on unloaded street <tsid=${entity.tsid}>');
 					return true;
 				}
 
 				try {
 					// Create NPC
-					String id = 'n' + createId(entity.x, entity.x, entity.type, entity.tsid);
 					ClassMirror mirror = findClassMirror(entity.type);
 					NPC npc = mirror.newInstance(new Symbol(''),
 						[entity.id, entity.x, entity.y, street['label']]).reflectee;
 
 					// Load onto street
-					StreetUpdateHandler.streets[street["label"]].npcs.addAll({id: npc});
+					StreetUpdateHandler.queueNpcAdd(npc);
 				} catch (e, st) {
 					Log.error('Error loading new entity $entity', e, st);
 				}
@@ -123,6 +123,39 @@ class StreetEntities {
 			return _setInMemory(entity);
 		} else {
 			return true;
+		}
+	}
+
+	static Future<bool> deleteEntity(StreetEntity entity) async {
+		Future<bool> _deleteFromDb() async {
+			PostgreSql dbConn = await dbManager.getConnection();
+			try {
+				String query = 'DELETE FROM $TABLE WHERE id = @id';
+				int result = await dbConn.execute(query, {'id': entity.id});
+				return (result == 1);
+			} catch (e, st) {
+				Log.error('Could not delete entity ${entity.id} from database', e, st);
+				return false;
+			} finally {
+				dbManager.closeConnection(dbConn);
+			}
+		}
+
+		Future<bool> _deleteFromMemory() async {
+			try {
+				String streetName = MapData.getStreetByTsid(entity.tsid)['label'];
+				StreetUpdateHandler.queueNpcRemove(entity.id);
+				return true;
+			} catch (e, st) {
+				Log.error('Could not delete entity ${entity.id} from memory', e, st);
+				return false;
+			}
+		}
+
+		if (!(await _deleteFromDb())) {
+			return false;
+		} else {
+			return _deleteFromMemory();
 		}
 	}
 }

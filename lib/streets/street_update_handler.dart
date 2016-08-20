@@ -63,12 +63,17 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 	}
 
 	static Map<String, Map<String, NPC>> _pendingNpcs = {};
+	static List<String> _pendingNpcsRemove = [];
 
-	static void queueNpcAdd(NPC npc, String action) {
+	static void queueNpcAdd(NPC npc) {
 		if (_pendingNpcs[npc.streetName] == null) {
 			_pendingNpcs[npc.streetName] = {};
 		}
 		_pendingNpcs[npc.streetName].addAll({npc.id: npc});
+	}
+
+	static void queueNpcRemove(String id) {
+		_pendingNpcsRemove.add(id);
 	}
 
 	static void updateNpcs() {
@@ -77,12 +82,21 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 				Map<String, dynamic> moveMap = {};
 				moveMap['npcMove'] = 'true';
 				moveMap['npcs'] = [];
+				moveMap['removeNpcs'] = [];
 
 				// Add queued NPCs
-				if (_pendingNpcs.length > 0) {
-					street.npcs.addAll(_pendingNpcs[streetName] ?? {});
-					_pendingNpcs[streetName]?.clear();
+				if (_pendingNpcs[streetName] != null) {
+					street.npcs.addAll(_pendingNpcs[streetName]);
+					_pendingNpcs[streetName].clear();
 				}
+
+				// Remove queued NPCs
+				_pendingNpcsRemove.where((String id) => street.npcs.containsKey(id))
+				.toList().forEach((String id) {
+					moveMap['removeNpcs'].add(id);
+					street.npcs.remove(id);
+				});
+				_pendingNpcsRemove.removeWhere((String id) => street.npcs.containsKey(id));
 
 				street.npcs.forEach((String id, NPC npc) {
 					npc.update();

@@ -722,7 +722,15 @@
 		"iconNum": 1,
 		"stacksTo": 1,
 		"price": 2000,
-		"description": "A basic Still for converting Grain, Corn, or the humble Potato into versatile, potent (if not smooth) Hooch."
+		"description": "A basic Still for converting Grain, Corn, or the humble Potato into versatile, potent (if not smooth) Hooch.",
+		"actions": [
+			{
+				"actionName": "Place",
+				"description": "Set it up!",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
 	},
 	"super_scraper": {
 		"name": "Super Scraper",
