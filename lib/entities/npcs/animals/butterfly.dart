@@ -271,7 +271,7 @@ class Butterfly extends NPC {
 	}
 
 	Future<bool> milk({WebSocket userSocket, String email}) async {
-		if (massaged) {
+		if (massaged || await SkillManager.getLevel('animal_kinship', email) >= 6) {
 			bool success = await super.trySetMetabolics(email, energy: -5, mood: 5, imgMin: 5, imgRange: 6);
 			if (!success) {
 				return false;
