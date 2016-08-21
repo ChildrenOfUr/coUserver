@@ -75,11 +75,14 @@ class ItemRequirements {
 	String error = "You don't have the required item(s)";
 
 	ItemRequirements();
+
 	ItemRequirements.clone(ItemRequirements req) {
 		any = new List.from(req.any);
 		all = new Map.from(req.all);
 		error = req.error;
 	}
+
+	ItemRequirements.set({this.any, this.all});
 }
 
 class EnergyRequirements {
