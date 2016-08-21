@@ -3834,7 +3834,8 @@
 	},
 	"Eastern Approach Subway Station": {
 		"tsid": "LHV1U3M48M22D54",
-		"hub_id": 51
+		"hub_id": 51,
+		"map_hidden": true
 	},
 	"Eastern Grotto": {
 		"tsid": "LIFQUHITQ583FKK",
@@ -12058,7 +12059,8 @@
 	},
 	"Symphonious Maximus": {
 		"tsid": "LUVR3SGQ6EF3400",
-		"hub_id": 51
+		"hub_id": 51,
+		"map_hidden": true
 	},
 	"Sysma Link": {
 		"vendor": "Alchemical Goods",
@@ -12458,7 +12460,8 @@
 	},
 	"The missing floor": {
 		"tsid": "LUV1CSSE49J2P2C",
-		"hub_id": 51
+		"hub_id": 51,
+		"map_hidden": true
 	},
 	"There bee forest": {
 		"tsid": "LIF1HCC3P9P190B",
