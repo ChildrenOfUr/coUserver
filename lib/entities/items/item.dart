@@ -168,16 +168,9 @@ class Item extends Object
 		actions = model.actions;
 		consumeValues = model.consumeValues;
 
-		bool found = false;
-		actions.forEach((Action action) {
-			if (action.actionName == 'drop') {
-				found = true;
-			}
-		});
-
-		if (!found) {
-			actions.insert(0, dropAction);
-		}
+		//make sure the drop action is last
+		actions.removeWhere((Action action) => action.actionName == 'drop');
+		actions.add(dropAction);
 	}
 
 	// Exporters
@@ -224,18 +217,10 @@ class Item extends Object
 			result.add(encode(pickupAction));
 			return result;
 		} else {
+			//make sure the drop action is last
+			actions.removeWhere((Action action) => action.actionName == 'drop');
 			List<Map> result = encode(actions);
-			bool found = false;
-			actions.forEach((Action action) {
-				if (action.actionName == 'drop') {
-					found = true;
-				}
-			});
-
-			if (!found) {
-				result.insert(0, encode(dropAction));
-			}
-
+			result.add(encode(dropAction));
 			return result;
 		}
 	}
