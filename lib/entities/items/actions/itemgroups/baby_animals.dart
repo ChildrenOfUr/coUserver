@@ -55,12 +55,13 @@ abstract class BabyAnimals {
 			return false;
 		}
 
+		List<String> foods = items[itemInSlot.itemType].actions[0].itemRequirements.any;
 		userSocket.add(JSON.encode({
 			'id': 'global_action_monster',
 			'openWindow': 'itemChooser',
 			'action': 'feed2',
 			'windowTitle': 'Feed ${itemInSlot.name} what?',
-			'filter': 'category=Croppery & Gardening Supplies|||itemType=^(?!.+(?:_seed|_bean)).+\$'
+			'filter': 'itemType=(${foods.join('|')})\$'
 		}));
 
 		userActionCache[email] = {
