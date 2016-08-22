@@ -3331,30 +3331,37 @@
 		"tsid": "LA5GBQ27BUG2FF9"
 	},
 	"Corridor Five": {
+		"map_hidden": true,
 		"tsid": "LTJ10M515812V0C",
 		"hub_id": 77
 	},
 	"Corridor Four": {
+		"map_hidden": true,
 		"tsid": "LTJ10K7P3812R8F",
 		"hub_id": 77
 	},
 	"Corridor One": {
+		"map_hidden": true,
 		"tsid": "LIF1QBNPP7123J0",
 		"hub_id": 77
 	},
 	"Corridor Six": {
+		"map_hidden": true,
 		"tsid": "LTJ110817812KO4",
 		"hub_id": 77
 	},
 	"Corridor Template": {
+		"map_hidden": true,
 		"tsid": "LIF1NHRAS51299P",
 		"hub_id": 77
 	},
 	"Corridor Three": {
+		"map_hidden": true,
 		"tsid": "LIF1Q48RM712F87",
 		"hub_id": 77
 	},
 	"Corridor Two": {
+		"map_hidden": true,
 		"tsid": "LIF1Q3IQM7122SP",
 		"hub_id": 77
 	},
