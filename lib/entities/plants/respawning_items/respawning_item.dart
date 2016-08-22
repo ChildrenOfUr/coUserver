@@ -2,6 +2,7 @@ part of entity;
 
 abstract class RespawningItem extends Plant {
 	String itemType;
+	Duration respawnTime;
 
 	RespawningItem(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		actions.add(
@@ -31,6 +32,10 @@ abstract class RespawningItem extends Plant {
 	}
 
 	void hide([Duration respawnIn]) {
+		if (respawnIn == null && respawnTime != null) {
+			respawnIn = respawnTime;
+		}
+
 		state = maxState + 1;
 		setActionEnabled('pickUp', false);
 

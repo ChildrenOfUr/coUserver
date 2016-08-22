@@ -92,6 +92,8 @@ part 'plants/jellisacgrowth.dart';
 part 'plants/mortarbarnacle.dart';
 part 'plants/peatbog.dart';
 part 'plants/plant.dart';
+part 'plants/respawning_items/awesome_stew.dart';
+part 'plants/respawning_items/earthshaker.dart';
 part 'plants/respawning_items/hellgrapes.dart';
 part 'plants/respawning_items/helltomatoes.dart';
 part 'plants/respawning_items/respawning_item.dart';
