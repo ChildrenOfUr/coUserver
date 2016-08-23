@@ -5,6 +5,11 @@ import 'dart:async';
 import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper/mapper.dart';
 
+@app.Route('/time/utc')
+String utcTime() {
+	return new DateTime.now().toUtc().toString();
+}
+
 @app.Route('/getHolidays')
 Future<List<String>> getHolidays(@app.QueryParam('month') int month,
                                  @app.QueryParam('day') int day) async {
