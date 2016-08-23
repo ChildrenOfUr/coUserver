@@ -141,7 +141,7 @@ Future _initRedstone() async {
 	app.setupConsoleLog(rsLog.Level.OFF);
 	await app.start(port: port, autoCompress: true);
 
-	Log.verbose('[Init] Redstone initialized. REDSTONE LOGGING IS OFF.');
+	Log.verbose('[Init Redstone] Redstone initialized. REDSTONE LOGGING IS OFF.');
 }
 
 ///This will serve up the needed files to animate the player characters
@@ -173,6 +173,7 @@ Future _initWebSockets() async {
 			..usePrivateKey('$certPath/privkey.pem');
 		server = await HttpServer.bindSecure('0.0.0.0', WEBSOCKET_PORT, context);
 	} else {
+		Log.debug('[Init Websockets] Not loading cert');
 		server = await HttpServer.bind('0.0.0.0', WEBSOCKET_PORT);
 	}
 
@@ -188,5 +189,5 @@ Future _initWebSockets() async {
 
 	KeepAlive.start();
 
-	Log.verbose('[Init] WebSockets initialized');
+	Log.verbose('[Init Websockets] WebSockets initialized');
 }

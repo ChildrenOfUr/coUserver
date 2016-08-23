@@ -11,7 +11,7 @@ part 'colors.dart';
 part 'settings.dart';
 
 enum LogLevel {
-	ALL, VERBOSE, INFO, COMMAND, WARNING, ERROR, NONE
+	ALL, DEBUG, VERBOSE, INFO, COMMAND, WARNING, ERROR, NONE
 }
 
 abstract class Log {
@@ -33,6 +33,7 @@ abstract class Log {
 	/// Convert LogLevel to int
 	static int levelValue(LogLevel level) => {
 		LogLevel.ALL: 0,
+		LogLevel.DEBUG: 50,
 		LogLevel.VERBOSE: 100,
 		LogLevel.INFO: 200,
 		LogLevel.COMMAND: 300,
@@ -78,6 +79,11 @@ abstract class Log {
 
 		// Return formatted string
 		return message;
+	}
+
+	/// Log only if testing
+	static String debug(dynamic object, [dynamic error, StackTrace stackTrace]) {
+		return log(object, level: LogLevel.DEBUG, error: error, stackTrace: stackTrace);
 	}
 
 	/// Log spam or a fine status message to the console

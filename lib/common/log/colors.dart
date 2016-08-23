@@ -8,6 +8,7 @@ abstract class AnsiColors {
 
 	/// Get color by LogLevel
 	static String getColor(LogLevel level) => {
+		LogLevel.DEBUG: blue,
 		LogLevel.VERBOSE: green,
 		LogLevel.INFO: cyan,
 		LogLevel.COMMAND: purple,
@@ -17,6 +18,8 @@ abstract class AnsiColors {
 
 	/// Reset sequence
 	static String get clear => _esc(0);
+
+	static String get blue => _esc(34);
 
 	static String get green => _esc(32);
 

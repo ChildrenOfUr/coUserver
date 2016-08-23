@@ -13,7 +13,7 @@ class SavannaHandler {
 
 		if (!(await BuffManager.playerHasBuff('nostalgia_over', email))) {
 			// Allow
-			Log.verbose('<email=$email> entered $streetName in Savanna');
+			Log.debug('<email=$email> entered $streetName in Savanna');
 			BuffManager.addToUser('nostalgia', email, userSocket);
 		} else {
 			// Disallow
@@ -29,7 +29,7 @@ class SavannaHandler {
 		}
 
 		// Prevent entering again
-		Log.verbose('<email=$email> left Savanna');
+		Log.debug('<email=$email> left Savanna');
 		_tempBan(email, userSocket);
 	}
 
@@ -61,7 +61,7 @@ class SavannaHandler {
 	}
 
 	static void _kick(String currentStreetName, String email, WebSocket userSocket) {
-		Log.verbose('Kicking <email=$email> from $currentStreetName in Savanna');
+		Log.debug('Kicking <email=$email> from $currentStreetName in Savanna');
 
 		// Disallow entry
 		_tempBan(email, userSocket);
@@ -83,7 +83,7 @@ class WintryPlaceHandler {
 		}
 
 		// Add warning buff
-		Log.verbose('<email=$email> entered Wintry Place');
+		Log.debug('<email=$email> entered Wintry Place');
 		await BuffManager.addToUser('cold_place', email, userSocket);
 	}
 
@@ -94,7 +94,7 @@ class WintryPlaceHandler {
 		}
 
 		// Remove warning buff
-		Log.verbose('<email=$email> exited Wintry Place');
+		Log.debug('<email=$email> exited Wintry Place');
 		await BuffManager.removeFromUser('cold_place', email, userSocket);
 	}
 
@@ -106,7 +106,7 @@ class WintryPlaceHandler {
 
 		// Every 5 seconds, remove 4 energy (in addition to normal decay)
 		if (new DateTime.now().second % 5 == 0) {
-			Log.verbose('Removing energy from <email=$email> in Wintry Place');
+			Log.debug('Removing energy from <email=$email> in Wintry Place');
 
 			// Write to database and send to client
 			Metabolics metabolics = await getMetabolics(email: email);
