@@ -22,10 +22,30 @@ class IceNubbin extends Plant {
 		};
 		setState('1-2-3-4-5');
 		state = new Random().nextInt(currentState.numFrames);
-		maxState = 5;
+		maxState = 4; //cuz 0-4 = 5
+	}
+
+	@override
+	void update() {
+		if(respawn != null && new DateTime.now().isAfter(respawn)) {
+			setActionEnabled("collect", true);
+			state = maxState;
+			respawn = null;
+		}
+
+		if(state < 1 && respawn == null) {
+			setActionEnabled("collect", false);
+			respawn = new DateTime.now().add(new Duration(minutes:2));
+		}
 	}
 
 	Future<bool> collect ({WebSocket userSocket, String email}) async {
+		if(state < 1) {
+			say('Out of ice');
+			return false;
+		}
+		state--;
+
 		//make sure the player has a shovel that can scrape this ice
 		Action digAction = actions.singleWhere((Action a) => a.actionName == 'collect');
 		List<String> types = digAction.itemRequirements.any;
