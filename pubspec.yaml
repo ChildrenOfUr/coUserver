@@ -12,6 +12,7 @@ dependencies:
   message_bus: "^0.0.4"
   jsonx: "2.0.1"
   inflection: "^0.4.1"
+  args: "^0.13.5"
 
 dev_dependencies:
   coverage: "^0.7.2"

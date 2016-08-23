@@ -192,7 +192,7 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 					streets.remove(label);
 					Log.verbose('Unloaded street <label=$label> from memory');
 				} else if (street.expires == null) {
-					street.expires = now.add(new Duration(seconds:5));
+					street.expires = now.add(new Duration(seconds:10));
 				}
 			}
 		});

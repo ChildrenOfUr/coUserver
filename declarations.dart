@@ -9,6 +9,7 @@ import 'package:logging/logging.dart' as rsLog;
 import 'package:redstone_mapper/plugin.dart';
 import 'package:redstone/redstone.dart' as app;
 import 'package:path/path.dart';
+import 'package:args/args.dart';
 
 import 'package:coUserver/achievements/achievements.dart';
 import 'package:coUserver/API_KEYS.dart';
@@ -46,8 +47,16 @@ final int REDSTONE_PORT = 8181;
 // Port for websocket listeners/handlers
 final int WEBSOCKET_PORT = 8282;
 
+bool loadCert = true;
+
 // Start the server
-Future main() async {
+Future main(List<String> arguments) async {
+	final parser = new ArgParser()
+	//use --no-load-cert to ignore certification loading
+		..addFlag("load-cert", defaultsTo: true, help: "Enables certificate loading for certificate");
+	ArgResults argResults = parser.parse(arguments);
+	loadCert = argResults['load-cert'];
+
 	try {
 		// Start logging
 		Log.init();
@@ -147,7 +156,7 @@ Future<File> getSpine(@app.QueryParam() email, @app.QueryParam() filename) async
 }
 
 /// redstone.dart does not support websockets so we have to listen on a separate port for those connections :(
-void _initWebSockets() {
+Future _initWebSockets() async {
 	final Map<String, Function> _HANDLERS = {
 		'chat': ChatHandler.handle,
 		'metabolics': MetabolicsEndpoint.handle,
@@ -157,16 +166,24 @@ void _initWebSockets() {
 		'weather': WeatherEndpoint.handle
 	};
 
-	HttpServer.bind('0.0.0.0', WEBSOCKET_PORT).then((HttpServer server) {
-		server.listen((HttpRequest request) {
-			WebSocketTransformer.upgrade(request).then((WebSocket websocket) {
-				String handlerName = request.uri.path.replaceFirst('/', '');
-				_HANDLERS[handlerName](websocket);
-			}).catchError((error) {
-				Log.warning('Socket error', error);
-			}, test: (Exception e) => e is! WebSocketException)
-				.catchError((error) {}, test: (Exception e) => e is WebSocketException);
-		});
+	HttpServer server;
+	if (loadCert) {
+		SecurityContext context = new SecurityContext()
+			..useCertificateChain('$certPath/fullchain.pem')
+			..usePrivateKey('$certPath/privkey.pem');
+		server = await HttpServer.bindSecure('0.0.0.0', WEBSOCKET_PORT, context);
+	} else {
+		server = await HttpServer.bind('0.0.0.0', WEBSOCKET_PORT);
+	}
+
+	server.listen((HttpRequest request) {
+		WebSocketTransformer.upgrade(request).then((WebSocket websocket) {
+			String handlerName = request.uri.path.replaceFirst('/', '');
+			_HANDLERS[handlerName](websocket);
+		}).catchError((error) {
+			Log.warning('Socket error', error);
+		}, test: (Exception e) => e is! WebSocketException)
+			.catchError((error) {}, test: (Exception e) => e is WebSocketException);
 	});
 
 	KeepAlive.start();
