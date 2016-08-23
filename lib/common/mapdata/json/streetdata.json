@@ -5761,7 +5761,8 @@
 	"Hanmo Hiss": {
 		"shrine": "Humbaba",
 		"tsid": "LA9N5MTRTF828OT",
-		"hub_id": 97
+		"hub_id": 97,
+		"vendor": "Animal Goods"
 	},
 	"Haoma II": {
 		"tsid": "LUVD5II2VV33DLP",
@@ -7830,7 +7831,8 @@
 	"Melalu Mile": {
 		"shrine": "Pot",
 		"tsid": "LA9IHQQSCF820VN",
-		"hub_id": 97
+		"hub_id": 97,
+		"vendor": "Kitchen Tools"
 	},
 	"Mellai Nivelare": {
 		"tsid": "LIF77JBCJF43LC2",
@@ -8877,58 +8879,72 @@
 		"map_hidden": true
 	},
 	"Old Diversionary Path": {
+		"map_hidden": true,
 		"tsid": "LIFUS3T1NE332QL",
 		"hub_id": 129
 	},
 	"Old Doonboggle Trail": {
+		"map_hidden": true,
 		"tsid": "LIFOPS5QTG33GGK",
 		"hub_id": 129
 	},
 	"Old Egret Taun Towers": {
+		"map_hidden": true,
 		"tsid": "LA5A1KPKK3H2A5R",
 		"hub_id": 98
 	},
 	"Old Ethereal Endeavour": {
+		"map_hidden": true,
 		"tsid": "LIF41440AC53N1R",
 		"hub_id": 129
 	},
 	"Old Gentle Island Exit": {
+		"map_hidden": true,
 		"tsid": "LIF6T3IVB753669",
 		"hub_id": 129
 	},
 	"Old Gregarious Towers": {
+		"map_hidden": true,
 		"tsid": "LCR10281EUK11H0",
 		"hub_id": 58
 	},
 	"Old Groddle Forest Junction": {
+		"map_hidden": true,
 		"tsid": "LM410BL52JAAI",
 		"hub_id": 28
 	},
 	"Old Hakusan Heaps Towers": {
 		"tsid": "LDOMH1GUD5D2IQ4",
-		"hub_id": 97
+		"hub_id": 97,
+		"map_hidden": true
 	},
 	"Old Hauki Seeks Manor": {
+		"map_hidden": true,
 		"tsid": "LHVMSOGBUA32RPV",
 		"hub_id": 75
 	},
 	"Old High Jumper's Gully": {
+		"map_hidden": true,
 		"tsid": "LIFIKE5MCM33BMR",
 		"hub_id": 129
 	},
 	"Old Main Street": {
+		"map_hidden": true,
 		"tsid": "LM410AL52I0V3",
 		"hub_id": 26
 	},
 	"Old Progress Way": {
+		"map_hidden": true,
 		"tsid": "LIF8LHA3HT336O0",
 		"hub_id": 129
 	},
 	"Old Sabudana Drama Towers": {
+		"map_hidden": true,
 		"tsid": "LHVQ4NDEGMB23JQ",
 		"hub_id": 101
 	},
 	"Old Surveyor's Stroll": {
+		"map_hidden": true,
 		"tsid": "LIFGQ6CCN043R0V",
 		"hub_id": 129
 	},
@@ -9795,7 +9811,8 @@
 	},
 	"Panko Press Towers": {
 		"tsid": "LDORGE5P8ME2SJB",
-		"hub_id": 97
+		"hub_id": 97,
+		"map_hidden": true
 	},
 	"Panna Meral": {
 		"vendor": "Gardening Goods",
@@ -12153,7 +12170,8 @@
 	"Takeno Tides": {
 		"shrine": "Tii",
 		"tsid": "LA996D5KMF82E41",
-		"hub_id": 97
+		"hub_id": 97,
+		"vendor": "Alchemical Goods"
 	},
 	"Takioueen Ween": {
 		"shrine": "Spriggan",
