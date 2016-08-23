@@ -21,10 +21,30 @@ class MortarBarnacle extends Plant {
 		};
 		setState('1-2-3-4-5');
 		state = new Random().nextInt(currentState.numFrames);
-		maxState = 5;
+		maxState = 4; //cuz 0-4 = 5
+	}
+
+	@override
+	void update() {
+		if(respawn != null && new DateTime.now().isAfter(respawn)) {
+			setActionEnabled("scrape", true);
+			state = maxState;
+			respawn = null;
+		}
+
+		if(state < 1 && respawn == null) {
+			setActionEnabled("scrape", false);
+			respawn = new DateTime.now().add(new Duration(minutes:2));
+		}
 	}
 
 	Future<bool> scrape({WebSocket userSocket, String email}) async {
+		if(state < 1) {
+			say('No more barnacles');
+			return false;
+		}
+		state--;
+
 		//make sure the player has a shovel that can scrape this rock
 		Action digAction = actions.singleWhere((Action a) => a.actionName == 'scrape');
 		List<String> types = digAction.itemRequirements.any;
@@ -35,12 +55,6 @@ class MortarBarnacle extends Plant {
 
 		success = await super.trySetMetabolics(email,energy:-9,imgMin:10,imgRange:5);
 		if(!success) {
-			return false;
-		}
-
-		state--;
-		if(state < 1) {
-			respawn = new DateTime.now().add(new Duration(minutes:2));
 			return false;
 		}
 

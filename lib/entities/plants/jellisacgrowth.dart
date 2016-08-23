@@ -19,18 +19,32 @@ class Jellisac extends Plant {
 		};
 		setState('1-2-3-4-5');
 		state = new Random().nextInt(currentState.numFrames);
-		maxState = 5;
+		maxState = 4; //cuz 0-4 = 5
+	}
+
+	@override
+	void update() {
+		if(respawn != null && new DateTime.now().isAfter(respawn)) {
+			setActionEnabled("grab", true);
+			state = maxState;
+			respawn = null;
+		}
+
+		if(state < 1 && respawn == null) {
+			setActionEnabled("grab", false);
+			respawn = new DateTime.now().add(new Duration(minutes:2));
+		}
 	}
 
 	Future<bool> grab({WebSocket userSocket, String email}) async {
-		bool success = await super.trySetMetabolics(email,energy:-4,imgMin:2,imgRange:5);
-		if(!success) {
+		if(state < 1) {
+			say('No more goop');
 			return false;
 		}
-
 		state--;
-		if(state < 1) {
-			respawn = new DateTime.now().add(new Duration(minutes:2));
+
+		bool success = await super.trySetMetabolics(email,energy:-4,imgMin:2,imgRange:5);
+		if(!success) {
 			return false;
 		}
 

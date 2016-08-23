@@ -1015,7 +1015,11 @@ class InventoryV2 {
 
 	static Future<int> takeAnyItemsFromUser(String email, String itemType, int count, {simulate: false}) async {
 		if(count is! int || count < 1) {
-			throw new ArgumentError('Count must be greater than or equal to 1');
+			try {
+				throw new ArgumentError('Count must be greater than or equal to 1');
+			} catch (e, st) {
+				Log.error('Tried to take <count=$count> <itemType=$itemType>(s) from <email=$email>', e, st);
+			}
 		}
 
 		if (!(await _aquireLock(email, 'takeAnyItemsFromUser'))) {
