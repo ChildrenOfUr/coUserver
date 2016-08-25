@@ -214,9 +214,13 @@ abstract class Entity extends Object with MetabolicsChange implements Persistabl
 		}
 	}
 
-	void setState(String state, {int repeat: 1}) {
+	void setState(String state, {int repeat: 1, Duration repeatFor, String thenState}) {
 		if (!states.containsKey(state)) {
 			throw "You made a typo. $state does not exist in the states array for ${this.runtimeType}";
+		}
+
+		if (thenState != null && !states.containsKey(thenState)) {
+			throw "You made a typo. $thenState does not exist in the states array for ${this.runtimeType}";
 		}
 
 		//set their state and then set the respawn time that it needs
@@ -225,6 +229,15 @@ abstract class Entity extends Object with MetabolicsChange implements Persistabl
 		//if we want the animation to play more than once before respawn,
 		//then multiply the length by the repeat
 		int length = (currentState.numFrames / 30 * 1000).toInt() * repeat;
+		if (repeatFor != null) {
+			length = repeatFor.inMilliseconds;
+		}
+
+		if (thenState != null) {
+			new Timer(new Duration(milliseconds: length), () => setState(thenState));
+			length += (states[thenState].numFrames / 30 *1000).toInt();
+		}
+
 		respawn = new DateTime.now().add(new Duration(milliseconds: length));
 	}
 

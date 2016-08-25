@@ -1,6 +1,6 @@
 part of entity;
 
-class GardeningGoodsVendor extends Vendor {
+class GardeningGoodsVendor extends Vendor implements EventHandler<PlayerPosition> {
 	static final List<Map<String, dynamic>> SELL_ITEMS = [
 		items['hoe'].getMap(),
 		items['watering_can'].getMap(),
@@ -48,6 +48,25 @@ class GardeningGoodsVendor extends Vendor {
 
 		itemsPredefined = true;
 		itemsForSale = SELL_ITEMS;
+
+		messageBus.subscribe(PlayerPosition, this, whereFunc: (PlayerPosition position) {
+			return position.streetName == streetName;
+		});
+	}
+
+
+	@override
+	Map<String, dynamic> headers;
+
+	@override
+	void handleEvent(PlayerPosition event) {
+		if(event.email == specialScarecrowEmail && _approx(x,event.x) && _approx(y,event.y)) {
+			setState('walk', repeat: 10, thenState: currentState.stateName);
+		}
+	}
+
+	bool _approx(num compare, num to) {
+		return (compare - to).abs() < 150;
 	}
 
 	void update() {
@@ -67,15 +86,13 @@ class GardeningGoodsVendor extends Vendor {
 			);
 		}
 
-		if (respawn != null && respawn.compareTo(new DateTime.now()) <= 0) {
+		if (respawn != null && new DateTime.now().isAfter(respawn)) {
 			if (rand.nextInt(4) > 2) {
 				// 50% chance of trying to attract buyers for 5 seconds
-				setState('attract');
-				respawn = new DateTime.now().add(new Duration(seconds: 5));
+				setState('attract', repeatFor: new Duration(seconds: 5));
 			} else {
 				// Wait for 20 seconds
-				setState('idle_stand');
-				respawn = new DateTime.now().add(new Duration(seconds: 20));
+				setState('idle_stand', repeatFor: new Duration(seconds: 20));
 			}
 		}
 	}
