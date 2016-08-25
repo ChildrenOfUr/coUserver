@@ -2327,8 +2327,8 @@
 	"pleasing_amber": {
 		"name": "Pleasing Amber",
 		"category": "Collectibles",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/gem_amber__x1_1_png_1354831639.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/gem_amber__x1_1_png_1354831639.png",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/gem_amber.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/gem_amber.png",
 		"stacksTo": 10,
 		"price": 200,
 		"description": "A pleasing chunk of amber."
