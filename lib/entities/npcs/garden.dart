@@ -340,7 +340,7 @@ class Garden extends NPC {
 
 		//give the player the 'fruits' of their labor
 		int count = 1;
-		if (level == 1) {
+		if (level >= 1) {
 			count = 2;
 		}
 		if (level >= 2) {
