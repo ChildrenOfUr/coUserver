@@ -11,7 +11,7 @@
 	"broccoli": {
 		"name": "Broccoli",
 		"category": "Croppery & Gardening Supplies",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/broccoli__x1_iconic_png_1354829724.png",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/broccoli__x1_iconic_png_1354829724.svg",
 		"spriteUrl": "http://childrenofur.com/assets/entityImages/broccoli__x1_1_x1_2_x1_3_x1_4_png_1354829725.png",
 		"stacksTo": 80,
 		"price": 5,
@@ -29,7 +29,7 @@
 	"broccoli_seed": {
 		"name": "Broccoli Seed",
 		"category": "Croppery & Gardening Supplies",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/seed_broccoli__x1_iconic_png_1354830767.png",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/seed_broccoli__x1_iconic_png_1354830767.svg",
 		"spriteUrl": "http://childrenofur.com/assets/entityImages/seed_broccoli__x1_1_x1_2_x1_3_x1_4_png_1354830768.png",
 		"stacksTo": 50,
 		"price": 24,
