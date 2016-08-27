@@ -234,7 +234,7 @@
 		]
 	},
 	"new_player_pack_chicken": {
-		"name": "New Player Pack",
+		"name": "New Player Pack (Chicken)",
 		"category": "Other",
 		"iconUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped.png",
 		"spriteUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped.png",
@@ -251,7 +251,7 @@
 		]
 	},
 	"new_player_pack_piggy": {
-		"name": "New Player Pack",
+		"name": "New Player Pack (Piggy)",
 		"category": "Other",
 		"iconUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped.png",
 		"spriteUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped.png",
