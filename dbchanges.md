@@ -8,3 +8,4 @@ The following changes must be made when the affected streets are updated using t
 
 - UPDATE street_entities SET type = 'EarthshakerRespawningItem' WHERE tsid = 'LIF101NCNU112O2' AND type = 'BundleOfJoy';
 - UPDATE street_entities SET type = 'AwesomeStewRespawningItem' WHERE tsid = 'LIF12PMQ5121D68' AND type = 'BundleOfJoy';
+- UPDATE street_entities SET type = 'MealVendor' WHERE tsid = 'LLI101QQRA211SM' AND type = 'BundleOfJoy';
