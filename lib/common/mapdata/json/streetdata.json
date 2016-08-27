@@ -10226,7 +10226,8 @@
 	},
 	"Plexus": {
 		"hub_id": 66,
-		"tsid": "LHVDIELDQQ7228K"
+		"tsid": "LHVDIELDQQ7228K",
+		"physics": "water"
 	},
 	"Plexus Clone": {
 		"tsid": "LUV89CEL6IR270C",
