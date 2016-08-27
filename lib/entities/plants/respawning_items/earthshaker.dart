@@ -4,7 +4,7 @@ class EarthshakerRespawningItem extends RespawningItem {
 	EarthshakerRespawningItem(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		type = 'Earthshaker';
 		itemType = 'earthshaker';
-		respawnTime = new Duration(minutes: 5);
+		respawnTime = new Duration(hours: 1);
 
 		states = {
 			'1-2-3-4': new Spritesheet('1-2-3-4',

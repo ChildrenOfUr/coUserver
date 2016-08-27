@@ -17,10 +17,25 @@ abstract class RespawningItem extends Plant {
 
 	@override
 	void update() {
-		if (hidden && new DateTime.now().compareTo(respawn) >= 0) {
+		if (hidden && respawn.isBefore(new DateTime.now())) {
 			// Respawn now
 			show();
 			respawn = null;
+		}
+	}
+
+	@override
+	Map<String,String> getPersistMetadata() => super.getPersistMetadata()
+		..['respawn'] = respawn.toString();
+
+	@override
+	void restoreState(Map<String, String> metadata) {
+		super.restoreState(metadata);
+
+		try {
+			respawn = DateTime.parse(metadata["respawn"]);
+		} catch (_) {
+			respawn = new DateTime.now();
 		}
 	}
 
@@ -31,16 +46,17 @@ abstract class RespawningItem extends Plant {
 		setActionEnabled('pickUp', true);
 	}
 
-	void hide([Duration respawnIn]) {
-		if (respawnIn == null && respawnTime != null) {
-			respawnIn = respawnTime;
+	void hide([Duration respawnTime]) {
+		// Default to the class-defined respawn time if one is not set here
+		if (respawnTime == null && this.respawnTime != null) {
+			respawnTime = this.respawnTime;
 		}
 
 		state = maxState + 1;
 		setActionEnabled('pickUp', false);
 
-		if (respawnIn != null) {
-			respawn = new DateTime.now().add(respawnIn);
+		if (respawnTime != null) {
+			respawn = new DateTime.now().add(respawnTime);
 		}
 	}
 

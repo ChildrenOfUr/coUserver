@@ -4,7 +4,7 @@ class AwesomeStewRespawningItem extends RespawningItem {
 	AwesomeStewRespawningItem(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
 		type = 'Awesome Stew';
 		itemType = 'awesome_stew';
-		respawnTime = new Duration(minutes: 10);
+		respawnTime = new Duration(hours: 2);
 
 		states = {
 			'1-2-3-4': new Spritesheet('1-2-3-4',
