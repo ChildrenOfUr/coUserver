@@ -57,10 +57,17 @@ class RecipeBook extends Object with MetabolicsChange {
 					// For every skill it requires...
 					if (recipe.skills != null) {
 						await Future.forEach(recipe.skills.keys, (String skillId) async {
+							// Already missing a skill, skip checking the rest
 							if (skillTooLow) {
 								return;
 							}
 
+							// Skil skills that aren't possible to get in the game
+							if (SkillManager.SKILL_DATA[skillId] == null) {
+								return;
+							}
+
+							// Check player's skill level
 							int level = recipe.skills[skillId];
 							int playerLevel = skillCache[skillId] ?? await SkillManager.getLevel(skillId, email);
 							skillCache[skillId] = playerLevel;
