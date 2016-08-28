@@ -364,7 +364,7 @@
 		"name": "Crabpack",
 		"category": "Storage",
 		"isContainer": true,
-		"iconUrl": "http://childrenofur.com/assets/entityImages/crabjukebox.png",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/crabjukebox_1.png",
 		"spriteUrl": "http://childrenofur.com/assets/entityImages/crabjukebox.png",
 		"iconNum": 1,
 		"stacksTo": 1,
