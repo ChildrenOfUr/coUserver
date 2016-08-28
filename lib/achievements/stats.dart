@@ -156,6 +156,7 @@ class StatManager {
 enum Stat {
 	awesome_pot_uses,
 	barnacles_scraped,
+    beaker_uses,
 	bean_trees_petted,
 	bean_trees_watered,
 	beans_harvested,
@@ -225,6 +226,7 @@ enum Stat {
 	spice_plants_petted,
 	spice_plants_watered,
 	steps_taken,
+    test_tube_uses,
 	tinkertool_uses,
 	wood_trees_petted,
 	wood_trees_watered
