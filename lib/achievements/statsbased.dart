@@ -17,7 +17,8 @@ class StatAchvManager {
 		"saucepan": simmer,
 		"smelter": smelt,
 		"spice_mill": mill,
-		"tinkertool": tinker
+		"tinkertool": tinker,
+        "test_tube": concoct,
 	};
 
 	static void update(String email, String toolType) {
@@ -48,9 +49,32 @@ class StatAchvManager {
                 });
 	}
 
-	static void stir(String email) {
-		SkillManager.learn("alchemy", email);
-	}
+    static void stir(String email) {
+        SkillManager.learn("alchemy", email);
+        StatManager.add(email, Stat.beaker_uses).then((int uses) {
+                if (uses >= 41) {
+                Achievement.find("senior-admixificator").awardTo(email);
+                } else if (uses >= 11) {
+                Achievement.find("midlevel-admixificator").awardTo(email);
+                } else if (uses >= 3) {
+                Achievement.find("entrylevel-admixificator").awardTo(email);
+                }
+                });
+    }
+
+    static void concoct(String email) {
+        SkillManager.learn("alchemy", email);
+        StatManager.add(email, Stat.test_tube_uses).then((int uses) {
+                if (uses >= 5011) {
+                Achievement.find("loyal-alloyer").awardTo(email);
+                } else if (uses >= 503) {
+                Achievement.find("really-unconfounded-compounder").awardTo(email);
+                } else if (uses >= 41) {
+                Achievement.find("unconfounded-compounder").awardTo(email);
+                }
+                });
+    }
+
 
 	static void seasonBeans(String email) {
 		StatManager.add(email, Stat.beans_seasoned).then((int seasoned) {
