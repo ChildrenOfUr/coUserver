@@ -233,8 +233,15 @@ class StreetSpiritGroddle extends StreetSpirit {
 	}
 
 	Future _postConstruct(String tsid) async {
-		states = VARIANTS[await _getGiantName(tsid)][_dayNight];
-		setState('idle_hold');
+		String giant, light;
+		try {
+			giant = await _getGiantName(tsid);
+			light = _dayNight;
+			states = VARIANTS[giant][light];
+			setState('idle_hold');
+		} catch (e) {
+			Log.error('Could not get StreetSpiritGroddle state for <giant=$giant> and <light=$light>', e);
+		}
 	}
 
 	void update() {
@@ -307,9 +314,9 @@ class StreetSpiritGroddle extends StreetSpirit {
 			// Default to random
 			giantName = _randomGiant;
 			Log.warning('No giant defined for ${this.type} on <tsid=$tsid>, using $giantName randomly');
+		} finally {
+			return giantName;
 		}
-
-		return giantName;
 	}
 
 	String get _randomGiant {
