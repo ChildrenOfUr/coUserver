@@ -178,6 +178,8 @@ Future _initWebSockets() async {
 	}
 
 	server.listen((HttpRequest request) {
+		addToConnectionHistory(request.connectionInfo.remoteAddress);
+
 		WebSocketTransformer.upgrade(request).then((WebSocket websocket) {
 			String handlerName = request.uri.path.replaceFirst('/', '');
 			_HANDLERS[handlerName](websocket);

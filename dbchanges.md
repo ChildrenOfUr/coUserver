@@ -3,6 +3,7 @@ The following changes have been made to the dev database and will need to be add
 - ALTER TABLE users ADD COLUMN friends text NOT NULL DEFAULT '[]'::text;
 - UPDATE street_entities SET type = 'Jellisac' WHERE type = 'Jellasic';
 - ALTER TABLE street_entities ALTER COLUMN type TYPE character varying(60);
+- ALTER TABLE stats ADD COLUMN test_tube_uses integer NOT NULL DEFAULT 0;
 
 The following changes must be made when the affected streets are updated using the mapfiller.
 
