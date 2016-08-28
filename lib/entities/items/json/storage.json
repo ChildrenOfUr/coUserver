@@ -226,6 +226,17 @@
 			"red_element",
 			"shiny_element"
 		]
+	},	
+	"firefly_jar": {
+		"name": "Firefly Jar",
+		"category": "Storage",
+		"isContainer": false,
+		"iconUrl": "http://childrenofur.com/assets/entityImages/firefly_jar_empty.svg",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/firefly_jar_empty.svg",
+		"iconNum": 1,
+		"stacksTo": 1,
+		"price": 100,
+		"description": "This is no ordinary jar. Well, it IS, but once filled with fireflies (seven maximum: objects in space need room to fly) just looking at it gives you a great sense of serenity."
 	},
 	"generic_bag": {
 		"name": "Generic Bag",
@@ -239,17 +250,6 @@
 		"description": "An honest, unpretentious burlap sack. You could probably put things in it, perhaps 10 things, and give it a name. Just a thought.",
 		"subSlots": 10,
 		"subSlotFilter": []
-	},
-	"firefly_jar": {
-		"name": "Firefly Jar",
-		"category": "Storage",
-		"isContainer": false,
-		"iconUrl": "http://childrenofur.com/assets/entityImages/firefly_jar_empty.svg",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/firefly_jar_empty.svg",
-		"iconNum": 1,
-		"stacksTo": 1,
-		"price": 100,
-		"description": "This is no ordinary jar. Well, it IS, but once filled with fireflies (seven maximum: objects in space need room to fly) just looking at it gives you a great sense of serenity."
 	},
 	"generic_blue_bag": {
 		"name": "Generic Blue Bag",
