@@ -1419,7 +1419,8 @@
 		"shrine": "Lem",
 		"vendor": "Mining",
 		"tsid": "LA9ENT2CRE22NFB",
-		"hub_id": 78
+		"hub_id": 78,
+		"broken": true
 	},
 	"Amberlyza": {
 		"tsid": "LHVDKQ2O6S23LVJ",
