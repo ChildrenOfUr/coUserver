@@ -11861,7 +11861,8 @@
 		"shrine": "Humbaba",
 		"hub_id": 137,
 		"tsid": "LHVFCFD8FRA37T6",
-		"minimap_expand": true
+		"minimap_expand": true,
+		"broken": true
 	},
 	"Storyteller Woods": {
 		"tsid": "LIFPRVI5T7Q1RBI",
