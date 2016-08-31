@@ -1,7 +1,7 @@
 part of entity;
 
 class EarthshakerRespawningItem extends RespawningItem {
-	EarthshakerRespawningItem(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
+	EarthshakerRespawningItem(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
 		type = 'Earthshaker';
 		itemType = 'earthshaker';
 		respawnTime = new Duration(hours: 1);

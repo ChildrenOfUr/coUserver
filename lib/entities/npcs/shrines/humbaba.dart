@@ -2,7 +2,7 @@ part of entity;
 
 class Humbaba extends Shrine
 {
-	Humbaba(String id, num x, num y, String streetName) : super(id,x,y, streetName)
+	Humbaba(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
 	{
 		states =
 			{
@@ -19,7 +19,7 @@ class Humbaba extends Shrine
 
 class HumbabaFirebog extends Shrine
 {
-	HumbabaFirebog(String id, num x, num y, String streetName) : super(id,x,y, streetName)
+	HumbabaFirebog(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
 	{
 		states =
 		{
@@ -36,7 +36,7 @@ class HumbabaFirebog extends Shrine
 
 class HumbabaIx extends Shrine
 {
-	HumbabaIx(String id, num x, num y, String streetName) : super(id,x,y, streetName)
+	HumbabaIx(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
 	{
 		states =
 		{
@@ -53,7 +53,7 @@ class HumbabaIx extends Shrine
 
 class HumbabaUralia extends Shrine
 {
-	HumbabaUralia(String id, num x, num y, String streetName) : super(id,x,y, streetName)
+	HumbabaUralia(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
 	{
 		states =
 		{

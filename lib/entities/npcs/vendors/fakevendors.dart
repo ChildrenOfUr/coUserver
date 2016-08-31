@@ -8,7 +8,7 @@ part of entity;
  * The street names given are defined to have this type of vendor in vendors.json.
  */
 class FakeVendor extends Vendor {
-	FakeVendor(String streetName) : super(null, streetName, null, 0, 0) {
+	FakeVendor(String streetName) : super(null, streetName, null, 0, 0, 0) {
 		itemsPredefined = true;
 	}
 }

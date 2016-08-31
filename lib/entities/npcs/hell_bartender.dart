@@ -1,7 +1,7 @@
 part of entity;
 
 class HellBartender extends NPC {
-	HellBartender(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
+	HellBartender(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
 		type = "Hell Bartender";
 		actionTime = 0;
 		speed = 0;

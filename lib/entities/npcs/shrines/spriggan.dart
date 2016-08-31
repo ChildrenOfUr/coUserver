@@ -2,7 +2,7 @@ part of entity;
 
 class Spriggan extends Shrine
 {
-	Spriggan(String id, num x, num y, String streetName) : super(id,x,y, streetName)
+	Spriggan(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
 	{
 		states =
 		{
@@ -19,7 +19,7 @@ class Spriggan extends Shrine
 
 class SprigganFirebog extends Shrine
 {
-	SprigganFirebog(String id, num x, num y, String streetName) : super(id,x,y, streetName)
+	SprigganFirebog(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
 	{
 		states =
 		{
@@ -36,7 +36,7 @@ class SprigganFirebog extends Shrine
 
 class SprigganIx extends Shrine
 {
-	SprigganIx(String id, num x, num y, String streetName) : super(id,x,y, streetName)
+	SprigganIx(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
 	{
 		states =
 		{
@@ -53,7 +53,7 @@ class SprigganIx extends Shrine
 
 class SprigganUralia extends Shrine
 {
-	SprigganUralia(String id, num x, num y, String streetName) : super(id,x,y, streetName)
+	SprigganUralia(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
 	{
 		states =
 		{

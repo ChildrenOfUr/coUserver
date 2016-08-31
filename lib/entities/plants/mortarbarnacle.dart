@@ -1,7 +1,7 @@
 part of entity;
 
 class MortarBarnacle extends Plant {
-	MortarBarnacle(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
+	MortarBarnacle(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
 		actionTime = 2000;
 		type = "Mortar Barnacle";
 

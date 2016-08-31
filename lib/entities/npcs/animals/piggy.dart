@@ -7,7 +7,7 @@ class Piggy extends NPC {
 	List<String> petList = [], nibbleList = [];
 	DateTime lastReset = new DateTime.now();
 
-	Piggy(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
+	Piggy(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
 		ItemRequirements itemReq = new ItemRequirements()
 			..any = ['broccoli','cabbage','carrot','corn','cucumber','onion',
 							'parsnip','potato','pumpkin','rice','spinach','tomato','zucchini']

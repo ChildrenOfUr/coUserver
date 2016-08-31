@@ -136,6 +136,7 @@ class Street {
 			String type = entity.type;
 			int x = entity.x;
 			int y = entity.y;
+			int z = entity.z;
 			String id = entity.id;
 			Map<String, String> metadata = entity.metadata;
 
@@ -150,18 +151,18 @@ class Street {
 							classMirror == findClassMirror("DustTrap")) {
 							// Vendors and dust traps get a street name/TSID to check for collisions
 							npcs[id] = classMirror
-								.newInstance(new Symbol(""), [id, label, tsid, x, y])
+								.newInstance(new Symbol(""), [id, label, tsid, x, y, z])
 								.reflectee;
 						} else {
 							npcs[id] = classMirror
-								.newInstance(new Symbol(""), [id, x, y, label])
+								.newInstance(new Symbol(""), [id, x, y, z, label])
 								.reflectee;
 						}
 						npcs[id].restoreState(metadata);
 					}
 					if (classMirror.isSubclassOf(findClassMirror("Plant"))) {
 						plants[id] = classMirror
-							.newInstance(new Symbol(""), [id, x, y, label])
+							.newInstance(new Symbol(""), [id, x, y, z, label])
 							.reflectee;
 						plants[id].restoreState(metadata);
 					}

@@ -4,7 +4,7 @@ class HellGrapes extends RespawningItem {
 	static final int ENERGY_AWARD = 3;
 	static final int ENERGY_REQ = 9;
 
-	HellGrapes(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
+	HellGrapes(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
 		type = 'Hellish Grapes';
 		itemType = 'bunch_of_grapes';
 		actionTime = 3000;

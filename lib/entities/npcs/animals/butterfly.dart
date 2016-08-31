@@ -8,7 +8,7 @@ class Butterfly extends NPC {
 	bool bobbingUp = true;
 	Stopwatch massageExpires = new Stopwatch();
 
-	Butterfly(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
+	Butterfly(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
 		type = "Butterfly";
 		actions.addAll([
 			new Action.withName('massage')

@@ -74,13 +74,13 @@ class StreetEntities {
 			PostgreSql dbConn = await dbManager.getConnection();
 
 			try {
-				String query = 'INSERT INTO $TABLE (id, type, tsid, x, y, metadata_json) '
-					'VALUES (@id, @type, @tsid, @x, @y, @metadata_json) '
+				String query = 'INSERT INTO $TABLE (id, type, tsid, x, y, z, metadata_json) '
+					'VALUES (@id, @type, @tsid, @x, @y, @z, @metadata_json) '
 					'ON CONFLICT (id) DO UPDATE '
-					'SET tsid = @tsid, x = @x, y = @y, metadata_json = @metadata_json';
+					'SET tsid = @tsid, x = @x, y = @y, z = @z, metadata_json = @metadata_json';
 
 				int result = await dbConn.execute(
-					query, encode(entity));
+					query, entity);
 
 				return (result == 1);
 			} catch (e, st) {
@@ -104,7 +104,7 @@ class StreetEntities {
 					// Create NPC
 					ClassMirror mirror = findClassMirror(entity.type);
 					NPC npc = mirror.newInstance(new Symbol(''),
-						[entity.id, entity.x, entity.y, street['label']]).reflectee;
+						[entity.id, entity.x, entity.y, entity.z, street['label']]).reflectee;
 					npc.restoreState(entity.metadata);
 
 					// Load onto street

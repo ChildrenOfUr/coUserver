@@ -1,7 +1,7 @@
 part of entity;
 
 class PaperTree extends Tree {
-	PaperTree(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
+	PaperTree(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
 		type = "Paper Tree";
 		rewardItemType = "paper";
 
