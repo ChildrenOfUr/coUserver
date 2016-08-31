@@ -14,6 +14,8 @@ import 'package:jsonx/jsonx.dart' as jsonx;
 import 'package:redstone_mapper_pg/manager.dart';
 import 'package:redstone_mapper/mapper.dart';
 
+part 'instancing.dart';
+
 class Wall {
 	String id;
 	int x, y, width, height;
@@ -118,55 +120,61 @@ class Street {
 		entityMaps = {"quoin":quoins, "plant":plants, "npc":npcs, "door":doors, "groundItem":groundItems};
 
 		//attempt to load street occupants from database
-		if (tsid != null) {
-			StreetEntities.getEntities(tsid).then((List<StreetEntity> entities) {
-				if (entities.length > 0) {
-					for (StreetEntity entity in entities) {
-						String type = entity.type;
-						int x = entity.x;
-						int y = entity.y;
-						String id = entity.id;
-						Map<String, String> metadata = entity.metadata;
+		if (tsid != null && this is! StreetInstance) {
+			loadEntities(tsid);
+		}
+	}
 
-						if (type == "Img" || type == "Mood" || type == "Energy" || type == "Currant"
-							|| type == "Mystery" || type == "Favor" || type == "Time" || type == "Quarazy") {
-							quoins[id] = new Quoin(id, x, y, type.toLowerCase());
+	Future loadEntities(String tsid) async {
+		List<StreetEntity> entities = await StreetEntities.getEntities(tsid);
+
+		if (entities.length == 0) {
+			return;
+		}
+
+		for (StreetEntity entity in entities) {
+			String type = entity.type;
+			int x = entity.x;
+			int y = entity.y;
+			String id = entity.id;
+			Map<String, String> metadata = entity.metadata;
+
+			if (type == "Img" || type == "Mood" || type == "Energy" || type == "Currant"
+				|| type == "Mystery" || type == "Favor" || type == "Time" || type == "Quarazy") {
+				quoins[id] = new Quoin(id, x, y, type.toLowerCase());
+			} else {
+				try {
+					ClassMirror classMirror = findClassMirror(type.replaceAll(" ", ""));
+					if (classMirror.isSubclassOf(findClassMirror("NPC"))) {
+						if (classMirror.isSubclassOf(findClassMirror("Vendor")) ||
+							classMirror == findClassMirror("DustTrap")) {
+							// Vendors and dust traps get a street name/TSID to check for collisions
+							npcs[id] = classMirror
+								.newInstance(new Symbol(""), [id, label, tsid, x, y])
+								.reflectee;
 						} else {
-							try {
-								ClassMirror classMirror = findClassMirror(type.replaceAll(" ", ""));
-								if (classMirror.isSubclassOf(findClassMirror("NPC"))) {
-									if (classMirror.isSubclassOf(findClassMirror("Vendor")) ||
-										classMirror == findClassMirror("DustTrap")) {
-										// Vendors and dust traps get a street name/TSID to check for collisions
-										npcs[id] = classMirror
-											.newInstance(new Symbol(""), [id, label, tsid, x, y])
-											.reflectee;
-									} else {
-										npcs[id] = classMirror
-											.newInstance(new Symbol(""), [id, x, y, label])
-											.reflectee;
-									}
-									npcs[id].restoreState(metadata);
-								}
-								if (classMirror.isSubclassOf(findClassMirror("Plant"))) {
-									plants[id] = classMirror
-										.newInstance(new Symbol(""), [id, x, y, label])
-										.reflectee;
-									plants[id].restoreState(metadata);
-								}
-								if (classMirror.isSubclassOf(findClassMirror("Door"))) {
-									doors[id] = classMirror
-										.newInstance(new Symbol(""), [id, label, x, y])
-										.reflectee;
-									doors[id].restoreState(metadata);
-								}
-							} catch (e) {
-								Log.warning('Unable to instantiate a class for $type: $e');
-							}
+							npcs[id] = classMirror
+								.newInstance(new Symbol(""), [id, x, y, label])
+								.reflectee;
 						}
+						npcs[id].restoreState(metadata);
 					}
+					if (classMirror.isSubclassOf(findClassMirror("Plant"))) {
+						plants[id] = classMirror
+							.newInstance(new Symbol(""), [id, x, y, label])
+							.reflectee;
+						plants[id].restoreState(metadata);
+					}
+					if (classMirror.isSubclassOf(findClassMirror("Door"))) {
+						doors[id] = classMirror
+							.newInstance(new Symbol(""), [id, label, x, y])
+							.reflectee;
+						doors[id].restoreState(metadata);
+					}
+				} catch (e) {
+					Log.warning('Unable to instantiate a class for $type: $e');
 				}
-			});
+			}
 		}
 	}
 
