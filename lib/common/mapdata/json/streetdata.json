@@ -3545,7 +3545,8 @@
 		"vendor": "Mining",
 		"shrine": "Friendly",
 		"tsid": "LM112V6OCA126K1",
-		"hub_id": 78
+		"hub_id": 78,
+		"broken": true
 	},
 	"Dhab Habit": {
 		"vendor": "Kitchen Tools",
