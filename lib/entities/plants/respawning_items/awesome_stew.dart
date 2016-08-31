@@ -1,7 +1,7 @@
 part of entity;
 
 class AwesomeStewRespawningItem extends RespawningItem {
-	AwesomeStewRespawningItem(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
+	AwesomeStewRespawningItem(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
 		type = 'Awesome Stew';
 		itemType = 'awesome_stew';
 		respawnTime = new Duration(hours: 2);

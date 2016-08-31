@@ -1,7 +1,7 @@
 part of entity;
 
 class PeatBog extends Plant {
-	PeatBog(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
+	PeatBog(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
 		actionTime = 5000;
 		type = "Peat Bog";
 

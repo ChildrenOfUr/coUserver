@@ -1,7 +1,7 @@
 part of entity;
 
 class StreetSpiritZutto extends StreetSpirit {
-	StreetSpiritZutto(String id, String streetName, String tsid, num x, num y) : super(id, streetName, tsid, x, y) {
+	StreetSpiritZutto(String id, String streetName, String tsid, num x, num y, num z) : super(id, streetName, tsid, x, y, z) {
 		speed = 0;
 		itemsPredefined = false;
 		states = {

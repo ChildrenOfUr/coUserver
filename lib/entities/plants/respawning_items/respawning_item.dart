@@ -4,7 +4,7 @@ abstract class RespawningItem extends Plant {
 	String itemType;
 	Duration respawnTime;
 
-	RespawningItem(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
+	RespawningItem(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
 		actions.add(
 			new Action.withName('pick up')
 				..actionWord = 'picking up'

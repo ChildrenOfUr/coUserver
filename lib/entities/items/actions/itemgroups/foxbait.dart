@@ -14,7 +14,7 @@ class FoxBaitItem {
 			num x = player.currentX + 60;
 			num y = player.currentY;
 			String id = createId(x, y, 'FoxBait', streetName);
-			new FoxBait(id, x, y, streetName);
+			new FoxBait(id, x, y, 0, streetName);
 			return true;
 		} catch (e) {
 			Log.warning('placeBait failed to create entity', e);

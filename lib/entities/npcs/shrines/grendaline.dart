@@ -2,7 +2,7 @@ part of entity;
 
 class Grendaline extends Shrine
 {
-	Grendaline(String id, num x, num y, String streetName) : super(id,x,y, streetName)
+	Grendaline(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
 	{
 		states =
 			{
@@ -19,7 +19,7 @@ class Grendaline extends Shrine
 
 class GrendalineFirebog extends Shrine
 {
-	GrendalineFirebog(String id, num x, num y, String streetName) : super(id,x,y, streetName)
+	GrendalineFirebog(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
 	{
 		states =
 		{
@@ -36,7 +36,7 @@ class GrendalineFirebog extends Shrine
 
 class GrendalineIx extends Shrine
 {
-	GrendalineIx(String id, num x, num y, String streetName) : super(id,x,y, streetName)
+	GrendalineIx(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
 	{
 		states =
 		{
@@ -53,7 +53,7 @@ class GrendalineIx extends Shrine
 
 class GrendalineUralia extends Shrine
 {
-	GrendalineUralia(String id, num x, num y, String streetName) : super(id,x,y, streetName)
+	GrendalineUralia(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
 	{
 		states =
 		{

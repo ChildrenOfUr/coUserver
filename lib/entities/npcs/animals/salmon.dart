@@ -1,7 +1,7 @@
 part of entity;
 
 class Salmon extends NPC {
-	Salmon(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
+	Salmon(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
 		actions.add(
 			new Action.withName('pocket')
 				..actionWord = 'pocketing'

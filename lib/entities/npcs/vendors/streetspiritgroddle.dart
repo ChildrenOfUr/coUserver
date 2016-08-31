@@ -224,7 +224,7 @@ class StreetSpiritGroddle extends StreetSpirit {
 		},
 	};
 
-	StreetSpiritGroddle(String id, String streetName, String tsid, num x, num y) : super(id, streetName, tsid, x, y) {
+	StreetSpiritGroddle(String id, String streetName, String tsid, num x, num y, num z) : super(id, streetName, tsid, x, y, z) {
 		speed = -75;
 		itemsPredefined = false;
 		states = VARIANTS[_randomGiant][_dayNight];

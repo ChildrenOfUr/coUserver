@@ -1,7 +1,7 @@
 part of entity;
 
 class GasPlant extends Tree {
-	GasPlant(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
+	GasPlant(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
 		type = "Gas Plant";
 		rewardItemType = "general_vapour";
 

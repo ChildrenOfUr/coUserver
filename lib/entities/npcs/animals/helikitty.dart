@@ -3,7 +3,7 @@ part of entity;
 class HeliKitty extends NPC {
 	int age;
 
-	HeliKitty(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
+	HeliKitty(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
 		type = "Heli Kitty";
 		actions.add(
 			new Action.withName('pet')

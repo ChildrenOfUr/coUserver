@@ -1,7 +1,7 @@
 part of entity;
 
 class BubbleTree extends Tree {
-	BubbleTree(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
+	BubbleTree(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
 		type = "Bubble Tree";
 		rewardItemType = "plain_bubble";
 

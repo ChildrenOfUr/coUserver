@@ -3,7 +3,7 @@ part of entity;
 class ToolVendor extends Vendor {
 	int openCount = 0;
 
-	ToolVendor(String id, String streetName, String tsid, num x, num y) : super(id, streetName, tsid, x, y) {
+	ToolVendor(String id, String streetName, String tsid, num x, num y, num z) : super(id, streetName, tsid, x, y, z) {
 		type = 'Tool Vendor';
 		itemsForSale = [
 			items["pig_bait"].getMap(),

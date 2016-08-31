@@ -9,6 +9,7 @@ class StreetEntity {
 		this.tsid,
 		this.x: 0,
 		this.y: 0,
+		this.z: 0,
 		this.metadata_json,
 		String username
 	}) {
@@ -29,7 +30,7 @@ class StreetEntity {
 	/// Must start with L
 	@Field() String tsid;
 
-	@Field() num x, y;
+	@Field() num x, y, z;
 
 	@Field() String metadata_json;
 
@@ -37,5 +38,5 @@ class StreetEntity {
 
 	set metadata(Map<String, String> map) => metadata_json = JSON.encode(map);
 
-	@override String toString() => "<StreetEntity $id ($type) on $tsid at ($x, $y) with metadata $metadata>";
+	@override String toString() => "<StreetEntity $id ($type) on $tsid at ($x, $y, $z) with metadata $metadata>";
 }

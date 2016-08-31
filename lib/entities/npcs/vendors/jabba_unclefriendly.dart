@@ -2,7 +2,7 @@ part of entity;
 
 class UncleFriendly extends Vendor {
 	int openCount = 0;
-	UncleFriendly(String id, String streetName, String tsid, num x, num y) : super(id, streetName, tsid, x, y) {
+	UncleFriendly(String id, String streetName, String tsid, num x, num y, num z) : super(id, streetName, tsid, x, y, z) {
 		type = "Uncle Friendly";
 		itemsPredefined = true;
 		itemsForSale = [

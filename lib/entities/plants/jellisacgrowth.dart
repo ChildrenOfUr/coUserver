@@ -1,7 +1,7 @@
 part of entity;
 
 class Jellisac extends Plant {
-	Jellisac(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
+	Jellisac(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
 		actionTime = 2000;
 		type = "Jellisac Growth";
 

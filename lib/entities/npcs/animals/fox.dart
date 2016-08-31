@@ -23,7 +23,7 @@ class Fox extends NPC {
 	Point<num> movingTo, home;
 	FoxDestinationType destinationType;
 
-	Fox(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
+	Fox(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
 		// Client rendering
 		type = 'Fox';
 		speed = 0; // px/sec
@@ -210,7 +210,7 @@ class Fox extends NPC {
 }
 
 class SilverFox extends Fox {
-	SilverFox(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
+	SilverFox(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
 		states = {
 			'brushed': new Spritesheet('brushed',
 				'http://childrenofur.com/assets/entityImages/silver_fox_brushed.png', 306, 139, 153, 139, 2, true),
@@ -247,7 +247,7 @@ class FoxBait extends NPC {
 	// 1 fox per bait
 	Fox attractedFox = null;
 
-	FoxBait(String id, num x, num y, String streetName) : super(id, x, y, streetName) {
+	FoxBait(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
 		type = 'Fox Bait';
 		speed = 0;
 
