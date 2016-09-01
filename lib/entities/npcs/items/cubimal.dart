@@ -188,9 +188,9 @@ class RacingCubimal extends EntityItem {
 		speed = 0;
 		await new Future.delayed(new Duration(seconds: 1));
 
-		// Move at 1 plank per second
+		// Move at 5 planks per second
 		speed = rand.nextInt(100) + 20;
-		await new Future.delayed(new Duration(seconds: distance ~/ 1));
+		await new Future.delayed(new Duration(seconds: distance ~/ 5));
 
 		// Stop and sit for 1 second
 		speed = 0;
