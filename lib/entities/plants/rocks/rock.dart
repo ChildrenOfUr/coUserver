@@ -110,10 +110,10 @@ abstract class Rock extends Plant {
 		}
 
 		//chances to get gems:
-		//amber = 1 in 5
-		//sapphire = 1 in 7
-		//ruby = 1 in 10
-		//moonstone = 1 in 15
+		//amber = 1 in 7
+		//sapphire = 1 in 9
+		//ruby = 1 in 11
+		//moonstone = 1 in 17
 		//diamond = 1 in 20
 
 		int chanceIncreaser = 0;
@@ -124,16 +124,16 @@ abstract class Rock extends Plant {
 			chanceIncreaser = 3;
 		}
 
-		if (rand.nextInt(5 - chanceIncreaser) == 5 - chanceIncreaser) {
+		if (rand.nextInt(7 - chanceIncreaser) == 5 - chanceIncreaser) {
 			await InventoryV2.addItemToUser(email, items['pleasing_amber'].getMap(), 1, id);
 		}
-		if (rand.nextInt(7 - chanceIncreaser) == 5 - chanceIncreaser) {
+		if (rand.nextInt(11 - chanceIncreaser) == 5 - chanceIncreaser) {
 			await InventoryV2.addItemToUser(email, items['showy_sapphire'].getMap(), 1, id);
 		}
-		if (rand.nextInt(10 - chanceIncreaser) == 5 - chanceIncreaser) {
+		if (rand.nextInt(13 - chanceIncreaser) == 5 - chanceIncreaser) {
 			await InventoryV2.addItemToUser(email, items['modestly_sized_ruby'].getMap(), 1, id);
 		}
-		if (rand.nextInt(15 - chanceIncreaser) == 5 - chanceIncreaser) {
+		if (rand.nextInt(17 - chanceIncreaser) == 5 - chanceIncreaser) {
 			await InventoryV2.addItemToUser(email, items['luminous_moonstone'].getMap(), 1, id);
 		}
 		if (rand.nextInt(20 - chanceIncreaser) == 5 - chanceIncreaser) {
