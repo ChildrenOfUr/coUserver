@@ -182,8 +182,16 @@ class RacingCubimal extends EntityItem {
 
 	Future<String> race() async {
 		// How far to go, from 00.01 to 99.99 planks
-		int max = (rand.nextBool() ? 100 : 50);
-		num distance = double.parse('${rand.nextInt(max)}.${rand.nextInt(99) + 1}');
+		num key = rand.nextDouble() * 9 + 1;
+		num value = pow(key, 2);
+
+		// Round to 2 decimal places for display
+		String str = value.toString();
+		if (!str.contains('.')) {
+			str += '.00';
+		}
+		str = str.substring(0, str.indexOf('.') + 3);
+		num distance = num.parse(str);
 
 		// Sit for 1 second
 		speed = 0;
