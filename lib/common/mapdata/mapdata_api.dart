@@ -24,3 +24,8 @@ String getMapData(@app.QueryParam('token') String token) {
 		return 'Invalid token';
 	}
 }
+
+@app.Route('/getStreet')
+Map<String, dynamic> getStreet(@app.QueryParam('tsid') String tsid) {
+	return MapData.getStreetFile(tsid);
+}
