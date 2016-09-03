@@ -12,11 +12,11 @@ abstract class Tree extends Plant {
 			..any = ['watering_can', 'irrigator_9000']
 			..error = "Trees don't like to be peed on. Go find some clean water, please.";
 		actions.addAll([
-			new Action.withName('harvest')
-				..actionWord = 'harvesting'
-				..description = 'Harvest this tree'
+			new Action.withName('pet')
+				..actionWord = 'petting'
+				..description = 'Pet this tree'
 				..timeRequired = actionTime
-				..energyRequirements = new EnergyRequirements(energyAmount: 5)
+				..energyRequirements = new EnergyRequirements(energyAmount: 2)
 				..associatedSkill = SKILL,
 			new Action.withName('water')
 				..actionWord = 'watering'
@@ -25,13 +25,13 @@ abstract class Tree extends Plant {
 				..energyRequirements = new EnergyRequirements(energyAmount: 2)
 				..itemRequirements = itemReq
 				..associatedSkill = SKILL,
-			new Action.withName('pet')
-				..actionWord = 'petting'
-				..description = 'Pet this tree'
+			new Action.withName('harvest')
+				..actionWord = 'harvesting'
+				..description = 'Harvest this tree'
 				..timeRequired = actionTime
-				..energyRequirements = new EnergyRequirements(energyAmount: 2)
+				..energyRequirements = new EnergyRequirements(energyAmount: 5)
 				..associatedSkill = SKILL
-					   ]);
+		]);
 	}
 
 	@override
@@ -60,8 +60,10 @@ abstract class Tree extends Plant {
 		super.update();
 
 		if (
-			(await WeatherEndpoint.rainingIn(MapData.getStreetByName(streetName)['tsid'])) &&
-			new DateTime.now().difference(lastWeatherUpdate).inSeconds > 23
+		(await WeatherEndpoint.rainingIn(MapData.getStreetByName(streetName)['tsid'])) &&
+			new DateTime.now()
+				.difference(lastWeatherUpdate)
+				.inSeconds > 23
 		) {
 			// Every 23 seconds while raining
 			state = (state + 1).clamp(0, maxState);
