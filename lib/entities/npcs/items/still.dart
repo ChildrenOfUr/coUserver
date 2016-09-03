@@ -35,8 +35,6 @@ class Still extends EntityItem {
 
 	bool collecting = false;
 
-	Timer brewTimer;
-
 	Still(String id, int x, int y, int z, String streetName) : super(id, x, y, z, streetName) {
 		type = 'Still';
 		itemType = 'still';
@@ -46,22 +44,18 @@ class Still extends EntityItem {
 		actions
 			..add(ACTION_ADD)
 			..add(ACTION_COLLECT);
-
-		brewTimer = new Timer.periodic(new Duration(minutes: 1), (_) {
-			if (pending <= 0) {
-				pending = 0;
-				brewTimer.cancel();
-				return;
-			}
-
-			pending--;
-			processed++;
-		});
 	}
 
 	@override
 	void update() {
 		super.update();
+		
+		if (pending <= 0) {
+			pending = 0;
+		} else {
+			pending--;
+			processed++;
+		}
 
 		if (collecting) {
 			setState('collect');
