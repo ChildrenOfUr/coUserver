@@ -56,8 +56,8 @@ class User {
 
 				_addToCache(user);
 				return user;
-			} catch (_) {
-				Log.warning('User <id=$id> not found');
+			} catch (e) {
+				Log.warning('User <id=$id> not found', e);
 				return new User();
 			} finally {
 				dbManager.closeConnection(dbConn);
@@ -86,8 +86,8 @@ class User {
 
 				_addToCache(user);
 				return user;
-			} catch (_) {
-				Log.warning('User <username=$username> not found');
+			} catch (e) {
+				Log.warning('User <username=$username> not found', e);
 				return new User();
 			} finally {
 				dbManager.closeConnection(dbConn);
@@ -111,8 +111,8 @@ class User {
 
 				_addToCache(user);
 				return user;
-			} catch (_) {
-				Log.warning('User <email=$email> not found');
+			} catch (e) {
+				Log.warning('User <email=$email> not found', e);
 				return new User();
 			} finally {
 				dbManager.closeConnection(dbConn);
