@@ -70,8 +70,6 @@ class Still extends EntityItem {
 
 	@override
 	Map<String,String> getPersistMetadata() {
-		brewTimer.cancel();
-
 		return super.getPersistMetadata()
 			..['pending'] = pending.toString()
 			..['processed'] = processed.toString();
