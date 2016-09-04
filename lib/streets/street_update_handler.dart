@@ -96,7 +96,7 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 					moveMap['removeNpcs'].add(id);
 					street.npcs.remove(id);
 				});
-				_pendingNpcsRemove.removeWhere((String id) => street.npcs.containsKey(id));
+				_pendingNpcsRemove = [];
 
 				street.npcs.forEach((String id, NPC npc) {
 					npc.update();

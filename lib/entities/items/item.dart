@@ -303,7 +303,7 @@ class Item extends Object
 			return;
 		}
 
-		Item placedItem = await InventoryV2.takeItemFromUser(email, map['slot'], map['subSlot'], map['count']);
+		Item placedItem = await InventoryV2.takeItemFromUser(email, map['slot'], map['subSlot'], 1);
 		if (placedItem != null) {
 			EntityItem.place(email, placedItem.itemType, tsid);
 		}
