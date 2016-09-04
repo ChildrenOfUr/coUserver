@@ -410,11 +410,11 @@ class InventoryV2 {
 		inventory_json = jsonx.encode(tmpSlots);
 
 		if (toMerge > 0) {
-			Log.warning('[InventoryV2] Cannot give ${item.itemType} x $count because <email=$email> ran out of slots before all items were added.');
+			Log.verbose('[InventoryV2] Cannot give ${item.itemType} x $count because <email=$email> ran out of slots before all items were added.');
 			Identifier playerId = PlayerUpdateHandler.users[await User.getUsernameFromEmail(email)];
 			if(playerId != null) {
 				item.putItemOnGround(playerId.currentX+40, playerId.currentY, playerId.currentStreet, count: toMerge);
-				Log.info('$toMerge ${item.itemType}(s) dropped.');
+				Log.verbose('[InventoryV2] $toMerge ${item.itemType}(s) dropped.');
 			}
 		}
 

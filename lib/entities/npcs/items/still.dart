@@ -22,12 +22,11 @@ class Still extends EntityItem {
 
 	static final Action ACTION_ADD = new Action.withName('add grain')
 		..itemRequirements = new ItemRequirements.set(all: {GRAIN: 1})
-		..timeRequired = 2
+		..timeRequired = 500
 		..multiEnabled = true
 		..actionWord = 'hopping';
 
 	static final Action ACTION_COLLECT = new Action.withName('collect')
-		..timeRequired = 5
 		..actionWord = 'collecting';
 
 	int pending = 0;
@@ -49,31 +48,33 @@ class Still extends EntityItem {
 	@override
 	void update() {
 		super.update();
-		
-		if (pending <= 0) {
-			pending = 0;
-		} else {
-			pending--;
-			processed++;
+
+		// Update appearance
+		if (!collecting) {
+			if (pending > 0) {
+				setState('active');
+			} else if (processed > 0) {
+				setState('ready');
+			} else {
+				setState('empty');
+			}
 		}
 
-		if (collecting) {
-			setState('collect');
-		} else if (pending > 0) {
-			setState('active');
-		} else if (processed > 0) {
-			setState('ready');
-		} else {
-			setState('empty');
+		// Make hooch from grain every few ticks
+		if (new DateTime.now().second % 5 == 0) {
+			if (pending <= 0) {
+				pending = 0;
+			} else {
+				pending--;
+				processed++;
+			}
 		}
 	}
 
 	@override
-	Map<String,String> getPersistMetadata() {
-		return super.getPersistMetadata()
-			..['pending'] = pending.toString()
-			..['processed'] = processed.toString();
-	}
+	Map<String, String> getPersistMetadata() => super.getPersistMetadata()
+		..['pending'] = pending.toString()
+		..['processed'] = processed.toString();
 
 	@override
 	void restoreState(Map<String, String> metadata) {
@@ -108,19 +109,25 @@ class Still extends EntityItem {
 			toast("There's nothing to collect!", userSocket);
 			return false;
 		} else {
+			setState('collect');
 			collecting = true;
 
-			while (processed > 0) {
-				int collected = await InventoryV2.addItemToUser(email, HOOCH, 1, id);
+			await Future.doWhile(() async {
+				await Future.wait([
+					// Play the animation
+					new Future.delayed(new Duration(seconds: 1)),
 
-				if (collected == 0) {
-					break;
-				} else {
-					processed--;
-					await new Future.delayed(new Duration(seconds: 1));
-				}
-			}
+					// Give hooch to player
+					InventoryV2.addItemToUser(email, HOOCH, 1, id)
+				]);
 
+				// Keep going as long as there is more to collect
+				processed--;
+				return (processed > 0);
+			});
+
+			// Done
+			collecting = false;
 			return true;
 		}
 	}
