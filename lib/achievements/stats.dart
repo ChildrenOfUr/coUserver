@@ -45,9 +45,9 @@ class StatManager {
 		PostgreSql dbConn = await dbManager.getConnection();
 		try {
 			String query =
-				'SELECT * '
-				'FROM stats '
-				'JOIN users u ON u.id = user_id '
+				'SELECT s.* '
+				'FROM stats s '
+				'JOIN users u ON u.id = s.user_id '
 				'WHERE u.email = @email'
 			;
 			Map<String, dynamic> values = {
