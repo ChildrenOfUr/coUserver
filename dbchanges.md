@@ -23,3 +23,7 @@ Add new stats:
 
 - ALTER TABLE stats ADD COLUMN test_tube_uses integer NOT NULL DEFAULT 0;
 - ALTER TABLE stats ADD COLUMN beaker_uses integer NOT NULL DEFAULT 0;
+
+Map Filler:
+
+save LCR199KIJRK1I2B to the live server (load from dev server)

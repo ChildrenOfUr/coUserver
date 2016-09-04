@@ -35,7 +35,7 @@ class Still extends EntityItem {
 
 	bool collecting = false;
 
-	Still(String id, int x, int y, int z, String streetName) : super(id, x, y, z, streetName) {
+	Still(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
 		type = 'Still';
 		itemType = 'still';
 		states = SPRITESHEETS;
