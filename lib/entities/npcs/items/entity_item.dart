@@ -76,7 +76,7 @@ class EntityItem extends NPC {
 	String itemType;
 	int ownerId = -1; // TODO: fix where this sometimes gets persisted as null
 
-	EntityItem(String id, int x, int y, int z, String streetName) : super(id, x, y, z, streetName) {
+	EntityItem(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
 		speed = 0;
 		facingRight = true;
 	}
