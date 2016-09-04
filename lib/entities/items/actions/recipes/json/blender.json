@@ -96,6 +96,31 @@
 		"output_amt": 1,
 		"time": 3
 	},
+
+	{
+		"id": "snocone_rainbo",
+		"tool": "blender",
+		"input": {
+			"snocone_red": 1,
+            "snocone_orange": 1,
+            "snocone_green": 1,
+            "snocone_blue": 1,
+            "snocone_purple": 1,
+            "ice": 1,
+            "paper": 1,
+            "red_element": 10,
+            "blue_element": 10,
+            "green_element": 10,
+            "bunch_of_grapes": 1,
+            "orange": 1
+		},
+		"output": "snocone_rainbo",
+		"output_amt": 1,
+		"time": 3
+	},
+
+
+
 	{
 		"id": "savory_smoothie",
 		"tool": "blender",
