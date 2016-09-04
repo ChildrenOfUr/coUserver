@@ -140,7 +140,7 @@ class RacingCubimal extends EntityItem {
 	String email;
 	String itemType;
 
-	RacingCubimal(String id, int x, int y, int z, String streetName) : super(id, x, y, z, streetName) {
+	RacingCubimal(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
 		type = 'Cubimal';
 		states = SPRITESHEETS;
 		actions = [];
@@ -213,84 +213,84 @@ class RacingCubimal extends EntityItem {
 }
 
 class RacingCubimal_batterfly extends RacingCubimal {
-	RacingCubimal_batterfly(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_batterfly(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Batterfly Cubimal';
 		setState('race_batterfly');
 	}
 }
 
 class RacingCubimal_bureaucrat extends RacingCubimal {
-	RacingCubimal_bureaucrat(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_bureaucrat(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Bureaucrat Cubimal';
 		setState('race_bureaucrat');
 	}
 }
 
 class RacingCubimal_butler extends RacingCubimal {
-	RacingCubimal_butler(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_butler(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Butler Cubimal';
 		setState('race_butler');
 	}
 }
 
 class RacingCubimal_butterfly extends RacingCubimal {
-	RacingCubimal_butterfly(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_butterfly(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Butterfly Cubimal';
 		setState('race_butterfly');
 	}
 }
 
 class RacingCubimal_cactus extends RacingCubimal {
-	RacingCubimal_cactus(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_cactus(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Cactus Cubimal';
 		setState('race_cactus');
 	}
 }
 
 class RacingCubimal_chick extends RacingCubimal {
-	RacingCubimal_chick(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_chick(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Chick Cubimal';
 		setState('race_chick');
 	}
 }
 
 class RacingCubimal_crab extends RacingCubimal {
-	RacingCubimal_crab(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_crab(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Crab Cubimal';
 		setState('race_crab');
 	}
 }
 
 class RacingCubimal_craftybot extends RacingCubimal {
-	RacingCubimal_craftybot(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_craftybot(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Craftybot Cubimal';
 		setState('race_craftybot');
 	}
 }
 
 class RacingCubimal_deimaginator extends RacingCubimal {
-	RacingCubimal_deimaginator(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_deimaginator(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Deimaginator Cubimal';
 		setState('race_deimaginator');
 	}
 }
 
 class RacingCubimal_dustbunny extends RacingCubimal {
-	RacingCubimal_dustbunny(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_dustbunny(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Dustbunny Cubimal';
 		setState('race_dustbunny');
 	}
 }
 
 class RacingCubimal_emobear extends RacingCubimal {
-	RacingCubimal_emobear(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_emobear(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Emobear Cubimal';
 		setState('race_emobear');
 	}
 }
 
 class RacingCubimal_factorydefect_chick extends RacingCubimal {
-	RacingCubimal_factorydefect_chick(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_factorydefect_chick(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Factory Defect Chick Cubimal';
 		setState('race_factorydefect_chick');
 	}
@@ -320,224 +320,224 @@ class RacingCubimal_factorydefect_chick extends RacingCubimal {
 }
 
 class RacingCubimal_firebogstreetspirit extends RacingCubimal {
-	RacingCubimal_firebogstreetspirit(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_firebogstreetspirit(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Firebog Street Spirit Cubimal';
 		setState('race_firebogstreetspirit');
 	}
 }
 
 class RacingCubimal_firefly extends RacingCubimal {
-	RacingCubimal_firefly(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_firefly(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Firefly Cubimal';
 		setState('race_firefly');
 	}
 }
 
 class RacingCubimal_fox extends RacingCubimal {
-	RacingCubimal_fox(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_fox(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Fox Cubimal';
 		setState('race_fox');
 	}
 }
 
 class RacingCubimal_foxranger extends RacingCubimal {
-	RacingCubimal_foxranger(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_foxranger(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Fox Ranger Cubimal';
 		setState('race_foxranger');
 	}
 }
 
 class RacingCubimal_frog extends RacingCubimal {
-	RacingCubimal_frog(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_frog(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Frog Cubimal';
 		setState('race_frog');
 	}
 }
 
 class RacingCubimal_gardeningtoolsvendor extends RacingCubimal {
-	RacingCubimal_gardeningtoolsvendor(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_gardeningtoolsvendor(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Gardening Tools Vendor Cubimal';
 		setState('race_gardeningtoolsvendor');
 	}
 }
 
 class RacingCubimal_gnome extends RacingCubimal {
-	RacingCubimal_gnome(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_gnome(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Gnome Cubimal';
 		setState('race_gnome');
 	}
 }
 
 class RacingCubimal_greeterbot extends RacingCubimal {
-	RacingCubimal_greeterbot(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_greeterbot(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Greeterbot Cubimal';
 		setState('race_greeterbot');
 	}
 }
 
 class RacingCubimal_groddlestreetspirit extends RacingCubimal {
-	RacingCubimal_groddlestreetspirit(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_groddlestreetspirit(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Groddle Street Spirit Cubimal';
 		setState('race_groddlestreetspirit');
 	}
 }
 
 class RacingCubimal_gwendolyn extends RacingCubimal {
-	RacingCubimal_gwendolyn(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_gwendolyn(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Gwendolyn Cubimal';
 		setState('race_gwendolyn');
 	}
 }
 
 class RacingCubimal_helga extends RacingCubimal {
-	RacingCubimal_helga(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_helga(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Helga Cubimal';
 		setState('race_helga');
 	}
 }
 
 class RacingCubimal_hellbartender extends RacingCubimal {
-	RacingCubimal_hellbartender(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_hellbartender(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Hell Bartender Cubimal';
 		setState('race_hellbartender');
 	}
 }
 
 class RacingCubimal_ilmenskiejones extends RacingCubimal {
-	RacingCubimal_ilmenskiejones(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_ilmenskiejones(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Ilmenskie Jones Cubimal';
 		setState('race_ilmenskiejones');
 	}
 }
 
 class RacingCubimal_juju extends RacingCubimal {
-	RacingCubimal_juju(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_juju(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Juju Cubimal';
 		setState('race_juju');
 	}
 }
 
 class RacingCubimal_magicrock extends RacingCubimal {
-	RacingCubimal_magicrock(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_magicrock(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Magic Rock Cubimal';
 		setState('race_magicrock');
 	}
 }
 
 class RacingCubimal_maintenancebot extends RacingCubimal {
-	RacingCubimal_maintenancebot(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_maintenancebot(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Maintenance Bot Cubimal';
 		setState('race_maintenancebot');
 	}
 }
 
 class RacingCubimal_mealvendor extends RacingCubimal {
-	RacingCubimal_mealvendor(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_mealvendor(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Meal Vendor Cubimal';
 		setState('race_mealvendor');
 	}
 }
 
 class RacingCubimal_phantom extends RacingCubimal {
-	RacingCubimal_phantom(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_phantom(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Phantom Cubimal';
 		setState('race_phantom');
 	}
 }
 
 class RacingCubimal_piggy extends RacingCubimal {
-	RacingCubimal_piggy(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_piggy(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Piggy Cubimal';
 		setState('race_piggy');
 	}
 }
 
 class RacingCubimal_rook extends RacingCubimal {
-	RacingCubimal_rook(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_rook(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Rook Cubimal';
 		setState('race_rook');
 	}
 }
 
 class RacingCubimal_rube extends RacingCubimal {
-	RacingCubimal_rube(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_rube(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Rube Cubimal';
 		setState('race_rube');
 	}
 }
 
 class RacingCubimal_scionofpurple extends RacingCubimal {
-	RacingCubimal_scionofpurple(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_scionofpurple(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Scionofpurple Cubimal';
 		setState('race_scionofpurple');
 	}
 }
 
 class RacingCubimal_senorfunpickle extends RacingCubimal {
-	RacingCubimal_senorfunpickle(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_senorfunpickle(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Señor Funpickle Cubimal';
 		setState('race_senorfunpickle');
 	}
 }
 
 class RacingCubimal_sloth extends RacingCubimal {
-	RacingCubimal_sloth(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_sloth(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Sloth Cubimal';
 		setState('race_sloth');
 	}
 }
 
 class RacingCubimal_smuggler extends RacingCubimal {
-	RacingCubimal_smuggler(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_smuggler(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Smuggler Cubimal';
 		setState('race_smuggler');
 	}
 }
 
 class RacingCubimal_snoconevendor extends RacingCubimal {
-	RacingCubimal_snoconevendor(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_snoconevendor(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Sno Cone Vendor Cubimal';
 		setState('race_snoconevendor');
 	}
 }
 
 class RacingCubimal_squid extends RacingCubimal {
-	RacingCubimal_squid(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_squid(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Squid Cubimal';
 		setState('race_squid');
 	}
 }
 
 class RacingCubimal_toolvendor extends RacingCubimal {
-	RacingCubimal_toolvendor(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_toolvendor(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Tool Vendor Cubimal';
 		setState('race_toolvendor');
 	}
 }
 
 class RacingCubimal_trisor extends RacingCubimal {
-	RacingCubimal_trisor(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_trisor(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Trisor Cubimal';
 		setState('race_trisor');
 	}
 }
 
 class RacingCubimal_unclefriendly extends RacingCubimal {
-	RacingCubimal_unclefriendly(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_unclefriendly(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Uncle Friendly Cubimal';
 		setState('race_unclefriendly');
 	}
 }
 
 class RacingCubimal_uraliastreetspirit extends RacingCubimal {
-	RacingCubimal_uraliastreetspirit(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_uraliastreetspirit(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Uralia Street Spirit Cubimal';
 		setState('race_uraliastreetspirit');
 	}
 }
 
 class RacingCubimal_yeti extends RacingCubimal {
-	RacingCubimal_yeti(String id, int x, int y, int z, String streetName) : super (id, x, y, z, streetName) {
+	RacingCubimal_yeti(String id, num x, num y, num z, String streetName) : super (id, x, y, z, streetName) {
 		type = 'Yeti Cubimal';
 		setState('race_yeti');
 	}
