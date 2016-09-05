@@ -139,6 +139,52 @@ Future<Map<String, StreetEntity>> getEntities(@app.QueryParam('tsid') String tsi
 	return {"entities": encode(await StreetEntities.getEntities(tsid))};
 }
 
+@app.Route('/previewStreetEntities')
+Future previewStreetEntities(@app.QueryParam('tsid') String tsid) async {
+	Map<String, int> numEntities = {};
+
+	List<StreetEntity> entities = await StreetEntities.getEntities(tsid);
+
+	//convert types into readable names and tally them up
+	for (StreetEntity entity in entities) {
+		String type = entity.type;
+		//ignore quoins
+		if (['Img', 'Mood', 'Currant', 'Mystery', 'Favor', 'Energy', 'Time', 'Quarazy'].contains(type)) {
+			continue;
+		}
+
+		//This takes a string like GardeningGoodsVendor and changes it to Gardening Goods Vendor
+		String newType = type.replaceAllMapped(new RegExp(r'([A-Z])([A-Z])([a-z])|([a-z])([A-Z])'), (Match m) {
+			return '${m[1] ?? ''}${m[4] ?? ''} ${m[2] ?? ''}${m[3] ?? ''}${m[5] ?? ''}';
+		});
+
+		if (StreetSpiritGroddle.VARIANTS.containsKey(newType.toLowerCase())) {
+			newType = 'Shrine to $newType';
+		}
+
+		if (newType.contains('Street Spirit')) {
+			newType = 'Street Spirit';
+		}
+
+		if (numEntities.containsKey(newType)) {
+			numEntities[newType]++;
+		} else {
+			numEntities[newType] = 1;
+		}
+	}
+
+	Map<String, int> pluralizedEntities = {};
+	numEntities.forEach((String type, int count) {
+		if (count > 1) {
+			pluralizedEntities[pluralize(type)] = count;
+		} else {
+			pluralizedEntities[type] = count;
+		}
+	});
+
+	return pluralizedEntities;
+}
+
 class EntitySet {
 	@Field() String tsid;
 	@Field() List<StreetEntity> entities;

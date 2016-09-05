@@ -2,6 +2,7 @@ part of entity;
 
 class HeliKitty extends NPC {
 	int age;
+    static final String SKILL = 'animal_kinship';
 
 	HeliKitty(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
 		type = "Heli Kitty";
@@ -109,6 +110,7 @@ class HeliKitty extends NPC {
 		}
 		setState(sheetName("hitBall"));
 		StatManager.add(email, Stat.heli_kitties_petted);
+        SkillManager.learn(SKILL, email);
 		playSound('purr', userSocket);
 		say(responses['pet'].elementAt(rand.nextInt(responses['pet'].length)));
 		return true;
