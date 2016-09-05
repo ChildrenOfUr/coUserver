@@ -31,6 +31,7 @@ class Chicken extends NPC {
 
 		type = "Chicken";
 		speed = 75; //pixels per second
+		renameable = true;
 
 		states =
 		{
@@ -324,7 +325,7 @@ class Chicken extends NPC {
 	Future<List<Action>> customizeActions(String email) async {
 		int akLevel = await SkillManager.getLevel(SKILL, email);
 		List<Action> personalActions = [];
-		await Future.forEach(actions, (Action action) async {
+		await Future.forEach(await super.customizeActions(email), (Action action) async {
 			Action personalAction = new Action.clone(action);
 			if (action.actionName == 'squeeze') {
 				//chickens can only be squeezed once per day unless AK > 0

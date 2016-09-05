@@ -13,6 +13,7 @@ class HeliKitty extends NPC {
 				..energyRequirements = new EnergyRequirements(energyAmount: 5)
 		);
 		speed = 75; //pixels per second
+		renameable = true;
 		age = 3; //TODO: make them get older
 		states = {
 			// newborn (variation 1)

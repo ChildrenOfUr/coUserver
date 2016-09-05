@@ -9,6 +9,7 @@ class Batterfly extends NPC {
 	Batterfly(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
 		type = "Batterfly";
 		speed = 75; //pixels per second
+		renameable = true;
 		actions.add(
 			new Action.withName('feed')
 				..actionWord = 'feeding'

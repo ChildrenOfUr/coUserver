@@ -114,6 +114,23 @@ void playSound(String sound, WebSocket userSocket) {
 	}));
 }
 
+Map<String, Function> promptCallbacks = {};
+
+/// Ask a user for a string
+/// Pass a unique value for `reference` so that the response is routed correctly.
+/// `callback` will be called with the following positional args:
+///     1. reference
+///     2. user's response
+void promptString(String prompt, WebSocket userSocket, String reference, Function callback) {
+	promptCallbacks[reference] = callback;
+
+	userSocket.add(JSON.encode({
+		'promptString': true,
+		'promptText': prompt,
+		'promptRef': reference
+	}));
+}
+
 /**
 	Anything that should run here as cleanup before exit
 	This will also shut down the server unless exitCode is negative

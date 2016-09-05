@@ -9,6 +9,7 @@ class Salmon extends NPC {
 				..energyRequirements = new EnergyRequirements(energyAmount: 4)
 		);
 		type = "Salmon";
+		renameable = true;
 		speed = 35;
 		ySpeed = 0;
 		states = {

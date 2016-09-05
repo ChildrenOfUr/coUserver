@@ -228,6 +228,13 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 		//everything else will be outgoing
 		try {
 			Map map = JSON.decode(message);
+
+			if (map['promptRef'] != null) {
+				// Send reference and response to callback
+				Function.apply(promptCallbacks[map['promptRef']], [map['promptRef'], map['promptResponse']]);
+				return;
+			}
+
 			String streetName = map["streetName"]?.trim();
 			String username = map["username"]?.trim();
 			String email = map['email']?.trim() ?? (await User.getEmailFromUsername(username));

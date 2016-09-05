@@ -21,6 +21,7 @@ class Butterfly extends NPC {
 				..energyRequirements = new EnergyRequirements(energyAmount: 5)
 					   ]);
 		speed = 75; //pixels per second
+		renameable = true;
 		states = {
 			"fly-angle1": new Spritesheet(
 				"fly-angle1",
