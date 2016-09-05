@@ -533,6 +533,16 @@ Future<List<Action>> getActions(@app.QueryParam() String email,
 	if (entity == null) {
 		entity = StreetUpdateHandler.streets[label].groundItems[id];
 	}
+	if (entity == null) {
+		//Are they a player?
+		if (PlayerUpdateHandler.users[id] != null) {
+			return [
+				new Action.withName('follow')
+					..description = "We already know it's buggy, but we thought you'd have fun with it.",
+				new Action.withName('profile')
+			];
+		}
+	}
 
 	if (entity == null) {
 		Log.verbose('<id=$id> is not a valid entity on <label=$label>');
