@@ -109,6 +109,7 @@ class HeliKitty extends NPC {
 		}
 		setState(sheetName("hitBall"));
 		StatManager.add(email, Stat.heli_kitties_petted);
+		playSound('purr', userSocket);
 		say(responses['pet'].elementAt(rand.nextInt(responses['pet'].length)));
 		return true;
 	}

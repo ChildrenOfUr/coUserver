@@ -40,7 +40,7 @@ Random rand = new Random();
 
 /// Get a TSID in 'G...' (CAT422) form
 String tsidG(String tsid) {
-	return tsidL(tsid).replaceFirst("L", "G");
+	return tsidL(tsid).replaceFirst('L', 'G');
 }
 
 /// Get a TSID in 'L...' (TS) form
@@ -49,9 +49,9 @@ String tsidL(String tsid) {
 		return tsid;
 	}
 
-	if (tsid.startsWith("G")) {
+	if (tsid.startsWith('G')) {
 		// In CAT422 form
-		return tsid.replaceFirst("G", "L");
+		return tsid.replaceFirst('G', 'L');
 	} else {
 		// Assume in TS form
 		return tsid;
@@ -74,7 +74,7 @@ String splitCamelCase(String camelCase) {
 			// next letter is uppercase
 			camelCase[c + 1].toUpperCase() == camelCase[c + 1]
 		) {
-			spaceCase += " ";
+			spaceCase += ' ';
 		}
 	}
 	return spaceCase;
@@ -93,16 +93,24 @@ ClassMirror findClassMirror(String name) {
 		if (mirror != null)
 			return mirror;
 	}
-	throw new ArgumentError("Class $name does not exist");
+	throw new ArgumentError('Class $name does not exist');
 }
 
 /// Tell a client to display a toast
 void toast(String message, WebSocket userSocket, {bool skipChat, String onClick}) {
 	userSocket.add(JSON.encode({
-       "toast": true,
-       "message": message,
-       "skipChat": skipChat,
-       "onClick": onClick
+       'toast': true,
+       'message': message,
+       'skipChat': skipChat,
+       'onClick': onClick
+	}));
+}
+
+/// Tell a client to play a sound
+void playSound(String sound, WebSocket userSocket) {
+	userSocket.add(JSON.encode({
+		'playSound': true,
+		'sound': sound
 	}));
 }
 
