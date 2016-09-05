@@ -65,7 +65,7 @@ class User {
 		}
 	}
 
-	static Future<User> findByUsername(String username, [bool cacheOnly = false, bool caseSensitive = true]) async {
+	static Future<User> findByUsername(String username, {bool cacheOnly: false, bool caseSensitive: true}) async {
 		try {
 			return _cache.singleWhere((User u) => u.username != null && u.username == username);
 		} catch (_) {
@@ -143,7 +143,7 @@ class User {
 	static Future _addToCache(User user) async {
 		// Find any possible duplicates
 		User byId = await findById(user.id, true);
-		User byUsername = await findByUsername(user.username, true);
+		User byUsername = await findByUsername(user.username, cacheOnly: true);
 		User byEmail = await findByEmail(user.email, true);
 
 		// Use them to fill in any missing fields
