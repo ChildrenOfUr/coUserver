@@ -2946,7 +2946,8 @@
 		"vendor": "Kitchen Tools",
 		"shrine": "Pot",
 		"tsid": "LHFATC8M4RD3E61",
-		"hub_id": 141
+		"hub_id": 141,
+		"broken": true
 	},
 	"Chima Chore": {
 		"shrine": "Pot",
