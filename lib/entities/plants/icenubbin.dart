@@ -26,7 +26,7 @@ class IceNubbin extends Plant {
 	}
 
 	@override
-	void update() {
+	void update({bool simulateTick: false}) {
 		if(respawn != null && new DateTime.now().isAfter(respawn)) {
 			setActionEnabled("collect", true);
 			state = maxState;

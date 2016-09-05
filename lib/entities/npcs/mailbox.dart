@@ -62,7 +62,7 @@ class Mailbox extends NPC {
 		respawn = new DateTime.now();
 	}
 
-	void update() {
+	void update({bool simulateTick: false}) {
 		DateTime now = new DateTime.now();
 		if (respawn != null && respawn.compareTo(now) < 0) {
 			//check for new mail

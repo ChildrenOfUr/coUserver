@@ -128,9 +128,9 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 				//reset the street's expiry if it has one
 				street.expires = null;
 
-				street.plants.forEach((String id, Plant plant) => plant.update());
-				street.quoins.forEach((String id, Quoin quoin) => quoin.update());
-				street.npcs.forEach((String id, NPC npc) => npc.update());
+				street.plants.forEach((String id, Plant plant) => plant.update(simulateTick: true));
+				street.quoins.forEach((String id, Quoin quoin) => quoin.update(simulateTick: true));
+				street.npcs.forEach((String id, NPC npc) => npc.update(simulateTick: true));
 
 				Map<String, dynamic> updates = {
 					"label":streetName,

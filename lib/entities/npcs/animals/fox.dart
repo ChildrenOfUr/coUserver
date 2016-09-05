@@ -130,7 +130,7 @@ class Fox extends NPC {
 	}
 
 	@override
-	void update() {
+	void update({bool simulateTick: false}) {
 		super.update();
 
 		if (waiting) {
@@ -276,7 +276,7 @@ class FoxBait extends NPC {
 	}
 
 	@override
-	void update() {
+	void update({bool simulateTick: false}) {
 		super.update();
 
 		// Fall to platforms

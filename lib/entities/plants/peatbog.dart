@@ -25,7 +25,7 @@ class PeatBog extends Plant {
 	}
 
 	@override
-	void update() {
+	void update({bool simulateTick: false}) {
 		if(state >= currentState.numFrames) {
 			setActionEnabled("dig", false);
 		}

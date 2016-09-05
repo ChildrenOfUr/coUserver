@@ -81,7 +81,7 @@ class Salmon extends NPC {
 		facingRight = rand.nextInt(2) == 1;
 	}
 
-	void update() {
+	void update({bool simulateTick: false}) {
 		super.update();
 
 		moveXY(yAction: () {

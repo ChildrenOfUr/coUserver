@@ -15,7 +15,7 @@ class StreetSpiritZutto extends StreetSpirit {
 	}
 
 	@override
-	void update() {
+	void update({bool simulateTick: false}) {
 		super.update();
 
 		if(respawn != null && respawn.compareTo(new DateTime.now()) <= 0) {

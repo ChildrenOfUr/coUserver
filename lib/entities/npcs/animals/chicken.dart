@@ -275,7 +275,7 @@ class Chicken extends NPC {
 		}
 	}
 
-	void update() {
+	void update({bool simulateTick: false}) {
 		super.update();
 
 		//update x and y

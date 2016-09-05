@@ -13,7 +13,7 @@ class Quoin
 	/**
 	 * Will check for quoin collection/spawn and send updates to clients if needed
 	 */
-	update() {
+	update({bool simulateTick: false}) {
 		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0) {
 			collected = false;
 		}

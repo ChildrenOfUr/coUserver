@@ -42,7 +42,7 @@ class DustTrap extends NPC implements EventHandler<PlayerPosition> {
 	}
 
 	@override
-	void update() {
+	void update({bool simulateTick: false}) {
 		// Update clock
 		now = new DateTime.now();
 

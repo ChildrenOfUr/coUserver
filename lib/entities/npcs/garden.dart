@@ -170,7 +170,7 @@ class Garden extends NPC {
 	}
 
 	@override
-	void update() {
+	void update({bool simulateTick: false}) {
 		if (!restored) {
 			return;
 		}

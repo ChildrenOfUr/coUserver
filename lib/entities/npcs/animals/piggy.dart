@@ -199,7 +199,7 @@ class Piggy extends NPC {
 	/**
 	 * Will simulate piggy movement and send updates to clients if needed
 	 */
-	update() {
+	update({bool simulateTick: false}) {
 		super.update();
 
 		//update x and y

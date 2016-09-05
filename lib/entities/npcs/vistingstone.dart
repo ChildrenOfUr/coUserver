@@ -33,7 +33,7 @@ class VisitingStone extends NPC {
 	}
 
 	@override
-	update() {
+	update({bool simulateTick: false}) {
 		// Remain a visiting stone (the status is set in stone)
 	}
 

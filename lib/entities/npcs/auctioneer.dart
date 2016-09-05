@@ -18,7 +18,7 @@ class Auctioneer extends NPC {
 		setState('idle');
 	}
 
-	void update() {
+	void update({bool simulateTick: false}) {
 
 	}
 

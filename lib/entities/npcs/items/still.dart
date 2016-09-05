@@ -46,7 +46,7 @@ class Still extends EntityItem {
 	}
 
 	@override
-	void update() {
+	void update({bool simulateTick: false}) {
 		super.update();
 
 		// Update appearance
@@ -60,13 +60,15 @@ class Still extends EntityItem {
 			}
 		}
 
-		// Make hooch from grain every few ticks
-		if (new DateTime.now().second % 5 == 0) {
-			if (pending <= 0) {
-				pending = 0;
-			} else {
-				pending--;
-				processed++;
+		if (simulateTick) {
+			// Make hooch from grain every few ticks
+			if (new DateTime.now().second % 5 == 0) {
+				if (pending <= 0) {
+					pending = 0;
+				} else {
+					pending--;
+					processed++;
+				}
 			}
 		}
 	}

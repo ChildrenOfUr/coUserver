@@ -69,7 +69,7 @@ class GardeningGoodsVendor extends Vendor implements EventHandler<PlayerPosition
 		return (compare - to).abs() < 150;
 	}
 
-	void update() {
+	void update({bool simulateTick: false}) {
 		super.update();
 
 		// update x and y

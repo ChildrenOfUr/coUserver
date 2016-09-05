@@ -56,7 +56,7 @@ abstract class Tree extends Plant {
 		return map;
 	}
 
-	Future update() async {
+	Future update({bool simulateTick: false}) async {
 		super.update();
 
 		if (

@@ -35,7 +35,7 @@ abstract class Rock extends Plant {
 		};
 	}
 
-	void update() {
+	void update({bool simulateTick: false}) {
 		DateTime now = new DateTime.now();
 
 		if ( state >= currentState.numFrames ) {

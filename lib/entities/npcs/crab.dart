@@ -97,7 +97,7 @@ class Crab extends NPC {
 	void goIdle() => setState("idle$IDLE_TYPE");
 
 	/// Walk around the street
-	void update() {
+	void update({bool simulateTick: false}) {
 		if (!busy) {
 			super.update();
 			bool walking = (currentState.stateName == "walk");

@@ -55,7 +55,7 @@ class Firefly extends NPC {
 		}
 	}
 
-	update() {
+	update({bool simulateTick: false}) {
 		bool am = ffClock.time.contains('am');
 		int hour = int.parse(ffClock.time.split(':')[0]);
 		int minute = int.parse(ffClock.time.split(':')[1].substring(0, 2));

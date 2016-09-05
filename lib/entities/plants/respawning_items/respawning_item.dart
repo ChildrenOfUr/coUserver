@@ -16,7 +16,7 @@ abstract class RespawningItem extends Plant {
 	}
 
 	@override
-	void update() {
+	void update({bool simulateTick: false}) {
 		if (hidden && respawn.isBefore(new DateTime.now())) {
 			// Respawn now
 			show();

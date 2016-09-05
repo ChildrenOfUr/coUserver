@@ -48,7 +48,7 @@ class UncleFriendly extends Vendor {
 		setState('idle_stand');
 	}
 
-	void update() {
+	void update({bool simulateTick: false}) {
 		super.update();
 
 		//update x and y

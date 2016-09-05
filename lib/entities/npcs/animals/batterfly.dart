@@ -99,7 +99,7 @@ class Batterfly extends NPC {
 		return true;
 	}
 
-	update() {
+	update({bool simulateTick: false}) {
 		super.update();
 
 		if (currentState.stateName.contains("fly")) {

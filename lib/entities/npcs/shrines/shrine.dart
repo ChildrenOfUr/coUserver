@@ -14,7 +14,7 @@ class Shrine extends NPC {
 	}
 
 	@override
-	void update() {}
+	void update({bool simulateTick: false}) {}
 
 	void close({WebSocket userSocket, String email}) {
 		communeCount -= 1;

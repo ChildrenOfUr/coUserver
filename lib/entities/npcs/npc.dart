@@ -56,7 +56,9 @@ abstract class NPC extends Entity {
 		return _collisionsRect;
 	}
 
-	void update() {
+	///update() will be called [NPC.updateFps] times per second. This is usually intended to setState and update the
+	///x,y coordinates. If you want do something more expensive, probably it should only be done when [simualteTick] is true
+	void update({bool simulateTick: false}) {
 		previousX = x;
 		previousY = y;
 	}

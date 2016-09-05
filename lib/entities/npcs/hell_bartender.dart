@@ -50,7 +50,7 @@ class HellBartender extends NPC {
 	}
 
 	@override
-	update() {
+	update({bool simulateTick: false}) {
 		if (respawn != null && new DateTime.now().isAfter(respawn)) {
 			if (rand.nextInt(3) == 1) {
 				setState('idle2');

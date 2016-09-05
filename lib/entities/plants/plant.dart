@@ -34,7 +34,7 @@ abstract class Plant extends Entity {
 		return {'state': state.toString(), 'currentState': currentState.stateName};
 	}
 
-	void update() {
+	void update({bool simulateTick: false}) {
 //		if(respawn != null && new DateTime.now().compareTo(respawn) >= 0) {
 //			state++;
 //			respawn = new DateTime.now().add(new Duration(seconds:30));

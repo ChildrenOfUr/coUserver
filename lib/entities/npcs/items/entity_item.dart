@@ -82,7 +82,7 @@ class EntityItem extends NPC {
 	}
 
 	@override
-	void update() {
+	void update({bool simulateTick: false}) {
 		// Fall to platforms
 		super.update();
 		moveXY();

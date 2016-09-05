@@ -11,7 +11,7 @@ class StreetSpirit extends Vendor {
 	}
 
 	@override
-	void update() {
+	void update({bool simulateTick: false}) {
 		super.update();
 
 		Function yAction = () {
