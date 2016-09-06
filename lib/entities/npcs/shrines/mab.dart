@@ -2,7 +2,7 @@ part of entity;
 
 class Mab extends Shrine
 {
-	Mab(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
+	Mab(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName)
 	{
 		states =
 			{
@@ -19,7 +19,7 @@ class Mab extends Shrine
 
 class MabFirebog extends Shrine
 {
-	MabFirebog(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
+	MabFirebog(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName)
 	{
 		states =
 		{
@@ -36,7 +36,7 @@ class MabFirebog extends Shrine
 
 class MabIx extends Shrine
 {
-	MabIx(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
+	MabIx(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName)
 	{
 		states =
 		{
@@ -53,7 +53,7 @@ class MabIx extends Shrine
 
 class MabUralia extends Shrine
 {
-	MabUralia(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
+	MabUralia(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName)
 	{
 		states =
 		{

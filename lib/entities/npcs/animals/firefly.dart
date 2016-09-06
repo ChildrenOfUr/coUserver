@@ -12,7 +12,7 @@ class Firefly extends NPC {
 
 	Clock ffClock = new Clock();
 
-	Firefly(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
+	Firefly(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Firefly';
 
 		actionTime = 4000;

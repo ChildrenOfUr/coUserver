@@ -1,7 +1,7 @@
 part of entity;
 
 class HellTomato extends RespawningItem {
-	HellTomato(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
+	HellTomato(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Tomato';
 		itemType = 'tomato';
 

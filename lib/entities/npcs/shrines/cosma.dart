@@ -2,7 +2,7 @@ part of entity;
 
 class Cosma extends Shrine
 {
-	Cosma(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
+	Cosma(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName)
 	{
 		states =
 			{
@@ -19,7 +19,7 @@ class Cosma extends Shrine
 
 class CosmaFirebog extends Shrine
 {
-	CosmaFirebog(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
+	CosmaFirebog(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName)
 	{
 		states =
 		{
@@ -36,7 +36,7 @@ class CosmaFirebog extends Shrine
 
 class CosmaIx extends Shrine
 {
-	CosmaIx(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
+	CosmaIx(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName)
 	{
 		states =
 		{
@@ -53,7 +53,7 @@ class CosmaIx extends Shrine
 
 class CosmaUralia extends Shrine
 {
-	CosmaUralia(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
+	CosmaUralia(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName)
 	{
 		states =
 		{

@@ -1,7 +1,7 @@
 part of entity;
 
 class EggPlant extends Tree {
-	EggPlant(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
+	EggPlant(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		type = "Egg Plant";
 		rewardItemType = "egg";
 

@@ -3,7 +3,7 @@ part of entity;
 class MealVendor extends Vendor {
 	int openCount = 0;
 
-	MealVendor(String id, String streetName, String tsid, num x, num y, num z) : super(id, streetName, tsid, x, y, z) {
+	MealVendor(String id, String streetName, String tsid, num x, num y, num z, num rotation, bool h_flip) : super(id, streetName, tsid, x, y, z, rotation, h_flip) {
 		type = 'Meal Vendor';
 		itemsForSale = [
 			items["earthshaker"].getMap(),

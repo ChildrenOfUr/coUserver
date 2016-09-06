@@ -10,13 +10,14 @@ abstract class Plant extends Entity {
 	 */
 
 	String id, type, streetName;
-	int state, maxState, x, y, z, actionTime = 3000;
+	int state, maxState, x, y, z, rotation = 0, actionTime = 3000;
+	bool h_flip = false;
 	DateTime respawn;
 	List<Action> actions = [];
 	Map<String, Spritesheet> states;
 	Spritesheet currentState;
 
-	Plant(this.id, this.x, this.y, this.z, this.streetName) {
+	Plant(this.id, this.x, this.y, this.z, this.rotation, this.h_flip, this.streetName) {
 		respawn = new DateTime.now();
 	}
 
@@ -58,6 +59,8 @@ abstract class Plant extends Entity {
 		map['x'] = x;
 		map['y'] = y;
 		map['z'] = z;
+		map['rotation'] = rotation;
+		map['h_flip'] = h_flip;
 		return map;
 	}
 }

@@ -65,7 +65,7 @@ class Garden extends NPC {
 	Action hoeAction, waterAction, plantAction, viewAction, harvestAction;
 	bool restored = false;
 
-	Garden(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
+	Garden(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Crop Garden';
 
 		hoeAction = new Action.withName('hoe')
@@ -375,5 +375,5 @@ class Garden extends NPC {
 }
 
 class HerbGarden extends Garden {
-	HerbGarden(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName);
+	HerbGarden(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName);
 }

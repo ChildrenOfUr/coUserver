@@ -73,11 +73,13 @@ class StreetEntities {
 		Future<bool> _setInDb(StreetEntity entity) async {
 			PostgreSql dbConn = await dbManager.getConnection();
 
+			print(entity);
+
 			try {
-				String query = 'INSERT INTO $TABLE (id, type, tsid, x, y, z, metadata_json) '
-					'VALUES (@id, @type, @tsid, @x, @y, @z, @metadata_json) '
+				String query = 'INSERT INTO $TABLE (id, type, tsid, x, y, z, h_flip, rotation, metadata_json) '
+					'VALUES (@id, @type, @tsid, @x, @y, @z, @h_flip, @rotation, @metadata_json) '
 					'ON CONFLICT (id) DO UPDATE '
-					'SET tsid = @tsid, x = @x, y = @y, z = @z, metadata_json = @metadata_json';
+					'SET tsid = @tsid, x = @x, y = @y, z = @z, h_flip = @h_flip, rotation = @rotation, metadata_json = @metadata_json';
 
 				int result = await dbConn.execute(
 					query, entity);
@@ -100,22 +102,10 @@ class StreetEntities {
 					return true;
 				}
 
-				try {
-					// Create NPC
-					ClassMirror mirror = findClassMirror(entity.type);
-					NPC npc = mirror.newInstance(new Symbol(''),
-						[entity.id, entity.x, entity.y, entity.z, street['label']]).reflectee;
-					npc.restoreState(entity.metadata);
-
-					// Load onto street
-					StreetUpdateHandler.queueNpcAdd(npc);
-				} catch (e, st) {
-					Log.error('Error loading new entity $entity', e, st);
-				}
-				return true;
-			} else {
-				return false;
+				return StreetUpdateHandler.streets[street['label']].putEntitiesInMemory([entity]);
 			}
+
+			return false;
 		}
 
 		if (loadDb && !(await _setInDb(entity))) {

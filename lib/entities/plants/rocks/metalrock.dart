@@ -1,7 +1,7 @@
 part of entity;
 
 class MetalRock extends Rock {
-	MetalRock(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
+	MetalRock(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		type = "Metal Rock";
 
 		ItemRequirements itemReq = new ItemRequirements()

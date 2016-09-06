@@ -142,7 +142,8 @@ abstract class Actionable {
 
 abstract class Entity extends Object with MetabolicsChange implements Persistable, Actionable {
 	List<Action> actions = [];
-	int actionTime = 2500, x, y, z;
+	num actionTime = 2500, x, y, z, rotation;
+	bool h_flip;
 	String bubbleText, streetName, type, id;
 	DateTime sayTimeout = null;
 	Map<String, List<String>> responses = {};
@@ -180,7 +181,7 @@ abstract class Entity extends Object with MetabolicsChange implements Persistabl
 			return null;
 		}
 
-		return new StreetEntity.create(id: id, type: type, tsid: tsid, x: x, y: y, z: z,
+		return new StreetEntity.create(id: id, type: type, tsid: tsid, x: x, y: y, z: z, rotation: rotation, h_flip: h_flip,
 															metadata_json: JSON.encode(getPersistMetadata()));
 	}
 

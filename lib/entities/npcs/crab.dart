@@ -40,7 +40,7 @@ class Crab extends NPC {
 	/// Most recently heard songs, with more recent items at higher indices
 	List<String> listenHistory = new List();
 
-	Crab(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
+	Crab(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		type = "Crab";
 		speed = 60; // pixels per second
 

@@ -132,11 +132,17 @@ class Street {
 			return;
 		}
 
+		putEntitiesInMemory(entities);
+	}
+
+	bool putEntitiesInMemory(List<StreetEntity> entities) {
 		for (StreetEntity entity in entities) {
 			String type = entity.type;
 			int x = entity.x;
 			int y = entity.y;
 			int z = entity.z;
+			int rotation = entity.rotation;
+			bool h_flip = entity.h_flip;
 			String id = entity.id;
 			Map<String, String> metadata = entity.metadata;
 
@@ -151,18 +157,18 @@ class Street {
 							classMirror == findClassMirror("DustTrap")) {
 							// Vendors and dust traps get a street name/TSID to check for collisions
 							npcs[id] = classMirror
-								.newInstance(new Symbol(""), [id, label, tsid, x, y, z])
+								.newInstance(new Symbol(""), [id, label, tsid, x, y, z, rotation, h_flip])
 								.reflectee;
 						} else {
 							npcs[id] = classMirror
-								.newInstance(new Symbol(""), [id, x, y, z, label])
+								.newInstance(new Symbol(""), [id, x, y, z, rotation, h_flip, label])
 								.reflectee;
 						}
 						npcs[id].restoreState(metadata);
 					}
 					if (classMirror.isSubclassOf(findClassMirror("Plant"))) {
 						plants[id] = classMirror
-							.newInstance(new Symbol(""), [id, x, y, z, label])
+							.newInstance(new Symbol(""), [id, x, y, z, rotation, h_flip, label])
 							.reflectee;
 						plants[id].restoreState(metadata);
 					}
@@ -174,9 +180,12 @@ class Street {
 					}
 				} catch (e) {
 					Log.warning('Unable to instantiate a class for $type: $e');
+					return false;
 				}
 			}
 		}
+
+		return true;
 	}
 
 	Future loadItems() async {

@@ -17,16 +17,14 @@ abstract class NPC extends Entity {
 	static int updateFps = 12;
 
 	String id, type, streetName;
-	num x, y, z, previousX, previousY, speed = 0, ySpeed = 0, yAccel = -2400;
-	bool facingRight = true, grounded = false;
-
+	num x, y, z, rotation = 0, previousX, previousY, speed = 0, ySpeed = 0, yAccel = -2400;
+	bool facingRight = true, grounded = false, h_flip = false;
 	bool renameable = false;
 	String nameOverride;
-
 	MutableRectangle _collisionsRect;
 	Map<String, String> metadata = {};
 
-	NPC(this.id, this.x, this.y, this.z, this.streetName) {
+	NPC(this.id, this.x, this.y, this.z, this.rotation, this.h_flip, this.streetName) {
 		respawn = new DateTime.now();
 	}
 
@@ -191,6 +189,8 @@ abstract class NPC extends Entity {
 			"x": x,
 			"y": y,
 			"z": z,
+			"rotation": rotation,
+			"h_flip": h_flip,
 			'speed': speed,
 			'ySpeed': ySpeed,
 			'animation_name': currentState.stateName,

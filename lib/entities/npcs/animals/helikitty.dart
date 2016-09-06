@@ -4,7 +4,7 @@ class HeliKitty extends NPC {
 	int age;
     static final String SKILL = 'animal_kinship';
 
-	HeliKitty(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
+	HeliKitty(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		type = "Heli Kitty";
 		actions.add(
 			new Action.withName('pet')

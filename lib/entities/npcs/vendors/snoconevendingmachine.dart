@@ -7,7 +7,7 @@ class SnoConeVendingMachine extends Vendor {
 	// so this is used for walking direction tracking.
 	bool facingRightInSpirit;
 
-	SnoConeVendingMachine(String id, String streetName, String tsid, num x, num y, num z) : super(id, streetName, tsid, x, y, z) {
+	SnoConeVendingMachine(String id, String streetName, String tsid, num x, num y, num z, num rotation, bool h_flip) : super(id, streetName, tsid, x, y, z, rotation, h_flip) {
 		type = 'Sno Cone Vending Machine';
 		itemsForSale = [
 			items["snocone_blue"].getMap(),

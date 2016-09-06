@@ -1,7 +1,7 @@
 part of entity;
 
 class BeanTree extends Tree {
-	BeanTree(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
+	BeanTree(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		type = "Bean Tree";
 		rewardItemType = "bean";
 

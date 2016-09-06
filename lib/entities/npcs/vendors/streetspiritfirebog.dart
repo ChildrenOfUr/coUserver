@@ -1,7 +1,7 @@
 part of entity;
 
 class StreetSpiritFirebog extends StreetSpirit {
-	StreetSpiritFirebog(String id, String streetName, String tsid, num x, num y, num z) : super(id, streetName, tsid, x, y, z) {
+	StreetSpiritFirebog(String id, String streetName, String tsid, num x, num y, num z, num rotation, bool h_flip) : super(id, streetName, tsid, x, y, z, rotation, h_flip) {
 		itemsPredefined = false;
 		states = {
 			"idle_cry":new Spritesheet("idle_cry", 'http://childrenofur.com/assets/entityImages/street_spirit_firebog_size_large_x1_idle_cry_png_1354832895.png', 856, 732, 107, 244, 24, false),

@@ -38,8 +38,8 @@ class GardeningGoodsVendor extends Vendor implements EventHandler<PlayerPosition
 
 	int openCount = 0;
 
-	GardeningGoodsVendor(String id, String streetName, String tsid, num x, num y, num z)
-	: super(id, streetName, tsid, x, y, z) {
+	GardeningGoodsVendor(String id, String streetName, String tsid, num x, num y, num z, num rotation, bool h_flip)
+	: super(id, streetName, tsid, x, y, z, rotation, h_flip) {
 		type = 'Gardening Goods Vendor';
 		speed = 0;
 
