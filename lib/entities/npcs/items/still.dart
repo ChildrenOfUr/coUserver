@@ -18,7 +18,7 @@ class Still extends EntityItem {
 
 	static final int BREW_SECONDS = 3;
 
-	static final int INPUT_PER_HOOCH = 4;
+	static final int INPUT_PER_HOOCH = 14;
 
 	static final String HOOCH = 'hooch';
 
