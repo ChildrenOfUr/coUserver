@@ -180,6 +180,13 @@ class RacingCubimal extends EntityItem {
 		itemType = metadata['itemType'];
 	}
 
+
+	@override
+	Future<bool> pickUp({WebSocket userSocket, String email}) async {
+		toast('Wait for me to finish!', userSocket);
+		return false;
+	}
+
 	Future<String> race() async {
 		// How far to go, from 00.01 to 99.99 planks
 		num key = rand.nextDouble() * 9 + 1;
