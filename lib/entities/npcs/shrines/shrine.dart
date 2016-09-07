@@ -61,7 +61,7 @@ class Shrine extends NPC {
 			Metabolics m = await trySetFavor(email, giantName, favAmt);
 
 			// Add iMG
-			int imgAmt = (favAmt ~/ 2).clamp(1, item.price);
+			int imgAmt = (favAmt ~/ 2).clamp(1, max(item.price, 1));
 			await setMetabolics(m..addImg(imgAmt));
 
 			InstanceMirror instanceMirror = reflect(m);
