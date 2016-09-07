@@ -4186,7 +4186,8 @@
 	},
 	"Fernucopia": {
 		"tsid": "LHVQMS17V813FN7",
-		"hub_id": 125
+		"hub_id": 125,
+		"map_hidden": true
 	},
 	"Fernucopia Clone": {
 		"tsid": "LUVGJEBBAB13FG5",
