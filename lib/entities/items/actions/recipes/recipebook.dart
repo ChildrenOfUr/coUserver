@@ -192,7 +192,7 @@ class RecipeBook extends Object with MetabolicsChange {
 			messageBus.publish(new RequirementProgress('makeRecipe_${recipe.output}',email));
 
 			// Count stat for achievements
-			StatAchvManager.update(email, recipe.tool);
+			StatAchvManager.update(email, recipe.tool, recipe.output);
 		});
 
 		return "OK";

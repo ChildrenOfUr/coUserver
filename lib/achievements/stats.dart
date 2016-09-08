@@ -216,6 +216,7 @@ enum Stat {
 	piggies_fed,
 	planks_harvested,
 	quoins_collected,
+	rainbo_snocones_blended,
 	rocks_mined,
 	salmon_pocketed,
 	sauce_pan_uses,
