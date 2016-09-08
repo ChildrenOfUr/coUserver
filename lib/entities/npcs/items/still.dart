@@ -56,6 +56,7 @@ class Still extends EntityItem {
 	Still(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Still';
 		itemType = 'still';
+		strictPickup = true;
 		states = SPRITESHEETS;
 		setState('empty');
 
