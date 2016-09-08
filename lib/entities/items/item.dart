@@ -33,6 +33,7 @@ part 'actions/itemgroups/consume.dart';
 part 'actions/itemgroups/cubimals.dart';
 part 'actions/itemgroups/emblems-icons.dart';
 part 'actions/itemgroups/foxbait.dart';
+part 'actions/itemgroups/grain_bushel.dart';
 part 'actions/itemgroups/milk-butter-cheese.dart';
 part 'actions/itemgroups/misc.dart';
 part 'actions/itemgroups/orb.dart';
@@ -55,6 +56,7 @@ class Item extends Object
 		Emblem,
 		FocusingOrb,
 		FoxBaitItem,
+		GrainBushel,
 		Icon,
 		MilkButterCheese,
 		NewPlayerPack,
