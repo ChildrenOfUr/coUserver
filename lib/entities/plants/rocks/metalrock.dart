@@ -27,7 +27,8 @@ class MetalRock extends Rock {
 			"YEAH, man! You SHOOK me!",
 			"All hail the mighty metal power of the axe!",
 			"Metal, man! METAL!",
-			"Wield that axe like a metal-lover, man!"
+			"Wield that axe like a metal-lover, man!",
+			"I Wanna Rock!"
 		];
 	}
 

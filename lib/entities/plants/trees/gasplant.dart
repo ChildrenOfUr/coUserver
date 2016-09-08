@@ -20,6 +20,7 @@ class GasPlant extends Tree {
 				"Petting gives me a sweet, sweet buzz, friend",
 				"Good times, man, good times.",
 				"Such good energy, man",
+				"Oops, pardon me"
 			],
 			"water": [
 				"Woah. That's wet.",
