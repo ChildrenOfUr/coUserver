@@ -72,7 +72,8 @@ class WeatherEndpoint {
 	static Future<bool> rainingIn(String tsid) async {
 		WeatherLocation weather = await WeatherService.getConditions(tsid);
 		if (weather != null) {
-			return weather.current.weatherMain.toLowerCase().contains('rain');
+			return weather.current.weatherMain.toLowerCase().contains('rain')
+				|| weather.current.weatherDesc.toLowerCase().contains('rain');
 		} else {
 			return false;
 		}
