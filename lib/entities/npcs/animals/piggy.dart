@@ -4,7 +4,8 @@ class Piggy extends NPC {
 	static final String SKILL = 'animal_kinship';
 	static final int NIBBLE_ENERGY = -5;
 	static final int PET_ENERGY = -4;
-	List<String> petList = [], nibbleList = [];
+	Map<String, int> petCounts = {};
+	Map<String, int> nibbleCounts = {};
 	DateTime lastReset = new DateTime.now();
 
 	Piggy(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
@@ -34,8 +35,7 @@ class Piggy extends NPC {
 		speed = 75; //pixels per second
 		renameable = true;
 
-		states =
-		{
+		states = {
 			"chew" : new Spritesheet("chew", "http://childrenofur.com/assets/entityImages/npc_piggy__x1_chew_png_1354829433.png", 968, 310, 88, 62, 53, true),
 			"look_screen" : new Spritesheet("look_screen", "http://childrenofur.com/assets/entityImages/npc_piggy__x1_look_screen_png_1354829434.png", 880, 310, 88, 62, 48, false),
 			"nibble" : new Spritesheet("nibble", "http://childrenofur.com/assets/entityImages/npc_piggy__x1_nibble_png_1354829441.png", 880, 372, 88, 62, 60, false),
@@ -46,8 +46,7 @@ class Piggy extends NPC {
 		};
 		setState('walk');
 
-		responses =
-		{
+		responses = {
 			"nibble": [
 				"Ya bacon me crazy!"
 			],
@@ -61,8 +60,8 @@ class Piggy extends NPC {
 	}
 
 	void _resetLists() {
-		petList.clear();
-		nibbleList.clear();
+		petCounts.clear();
+		nibbleCounts.clear();
 		lastReset = new DateTime.now();
 	}
 
@@ -70,12 +69,12 @@ class Piggy extends NPC {
 	void restoreState(Map<String, String> metadata) {
 		super.restoreState(metadata);
 
-		if (metadata.containsKey('petList')) {
-			petList = JSON.decode(metadata['petList']);
+		if (metadata.containsKey('petCounts')) {
+			petCounts = JSON.decode(metadata['petCounts']);
 		}
 
-		if (metadata.containsKey('nibbleList')) {
-			nibbleList = JSON.decode(metadata['nibbleList']);
+		if (metadata.containsKey('nibbleCounts')) {
+			nibbleCounts = JSON.decode(metadata['nibbleCounts']);
 		}
 
 		if (metadata.containsKey('lastReset')) {
@@ -91,8 +90,8 @@ class Piggy extends NPC {
 
 	@override
 	Map<String, String> getPersistMetadata() => super.getPersistMetadata()
-		..['petList'] = JSON.encode(petList)
-		..['nibbleList'] = JSON.encode(nibbleList)
+		..['petCounts'] = JSON.encode(petCounts)
+		..['nibbleCounts'] = JSON.encode(nibbleCounts)
 		..['lastReset'] = lastReset.millisecondsSinceEpoch.toString();
 
 	Future<bool> _setLevelBasedMetabolics(int level, String action, String email) async {
@@ -124,7 +123,7 @@ class Piggy extends NPC {
 
 		StatManager.add(email, Stat.piggies_nibbled);
 		SkillManager.learn(SKILL, email);
-		nibbleList.add(email);
+		nibbleCounts[email] = (nibbleCounts[email] ?? 0) + 1;
 
 		//give the player the 'fruits' of their labor
 		int odds = 100000;
@@ -161,7 +160,7 @@ class Piggy extends NPC {
 
 		StatManager.add(email, Stat.piggies_petted);
 		SkillManager.learn(SKILL, email);
-		petList.add(email);
+		petCounts[email] = (petCounts[email] ?? 0) + 1;
 
 		say(responses['pet'].elementAt(rand.nextInt(responses['pet'].length)));
 
@@ -231,22 +230,15 @@ class Piggy extends NPC {
 		await Future.forEach(await super.customizeActions(email), (Action action) async {
 			Action personalAction = new Action.clone(action);
 			if (action.actionName == 'nibble') {
-				//player must have petted first unless their level is > 5
-				//also they can only nibble once per day
-				if (akLevel > 5) {
-					int times = _countNibbles(email);
-					if (times >= 2) {
-						personalAction.enabled = false;
-						personalAction.error = 'You can only nibble this piggy twice per day';
-					}
-				} else {
-					if (!petList.contains(email)) {
-						personalAction.enabled = false;
-						personalAction.error = 'Try petting first';
-					} else if (nibbleList.contains(email)) {
-						personalAction.enabled = false;
-						personalAction.error = 'You can only nibble this piggy once per day';
-					}
+				int maxNibbles = (akLevel >= 6 ? 2 : 1); // AK 6 gives 2 nibbles per day, otherwise 1
+
+				// Player must have petted first unless their AK level is at least 6
+				if ((nibbleCounts[email] ?? 0) >= maxNibbles) {
+					personalAction.enabled = false;
+					personalAction.error = 'You can only nibble this piggy ${maxNibbles == 2 ? 'twice' : 'once'} per day';
+				} else if (akLevel < 6 && (petCounts[email] ?? 0) == 0) {
+					personalAction.enabled = false;
+					personalAction.error = 'Try petting first';
 				}
 
 				if (akLevel > 5) {
@@ -258,15 +250,5 @@ class Piggy extends NPC {
 			personalActions.add(personalAction);
 		});
 		return personalActions;
-	}
-
-	int _countNibbles(String email) {
-		int times = 0;
-		for (String e in nibbleList) {
-			if (e == email) {
-				times++;
-			}
-		}
-		return times;
 	}
 }
