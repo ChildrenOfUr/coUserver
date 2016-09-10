@@ -18,7 +18,7 @@ class BeanTree extends Tree {
 			],
 			"pet": [
 				"The petting is unbeleafable. Ha ha. Tree made joke. Laugh.",
-				"Tiny Glitch is very poplar with us. Ha ha.",
+				"Tiny Urling is very poplar with us. Ha ha.",
 				"Your petting's never bean better. Hee!",
 				"I wooden have thought you'd be so good. Now laugh.",
 				"Tree arbors strong feelings to you. Chuckle now, please.",
