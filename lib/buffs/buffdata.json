@@ -19,13 +19,18 @@
 		"description": "You're feeling large",
 		"length": 60
 	},
+	"hungover": {
+		"name": "Hungover",
+		"description": "Ugh. This is a mood-killer",
+		"length": 300
+	},
 	"nostalgia": {
 		"name": "Nostalgia",
 		"description": "Exploring the savanna",
 		"length": 600
 	},
 	"nostalgia_over": {
-		"name": "Nostalgia",
+		"name": "Nostalgia Over",
 		"description": "Too much savanna",
 		"length": 1800
 	},
@@ -33,6 +38,11 @@
 		"name": "De-Embiggened",
 		"description": "How cute!",
 		"length": 60
+	},
+	"smashed": {
+		"name": "Smashed",
+		"description": "Lose energy, gain mood",
+		"length": 240
 	},
 	"spinach": {
 		"name": "Spinach",

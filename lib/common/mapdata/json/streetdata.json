@@ -4186,7 +4186,8 @@
 	},
 	"Fernucopia": {
 		"tsid": "LHVQMS17V813FN7",
-		"hub_id": 125
+		"hub_id": 125,
+		"map_hidden": true
 	},
 	"Fernucopia Clone": {
 		"tsid": "LUVGJEBBAB13FG5",
@@ -11370,7 +11371,8 @@
 		"vendor": "Animal Goods",
 		"shrine": "Humbaba",
 		"tsid": "LCR105E77812AEF",
-		"hub_id": 76
+		"hub_id": 76,
+		"broken": true
 	},
 	"Senaga Siren": {
 		"vendor": "Hardware",
@@ -13283,7 +13285,8 @@
 		"vendor": "Hardware",
 		"shrine": "Zille",
 		"tsid": "LUVUKCOSE793PHI",
-		"hub_id": 76
+		"hub_id": 76,
+		"broken": true
 	},
 	"Via Velaya": {
 		"vendor": "Produce",

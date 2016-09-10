@@ -74,7 +74,8 @@ class EntityItem extends NPC {
 	static final Action ACTION_PICKUP = new Action.withName('pick up');
 
 	String itemType;
-	int ownerId = -1; // TODO: fix where this sometimes gets persisted as null
+	bool strictPickup = false;
+	int ownerId = -1;
 
 	EntityItem(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		speed = 0;
@@ -115,11 +116,18 @@ class EntityItem extends NPC {
 		}
 
 		try {
-			if (await InventoryV2.addItemToUser(email, itemType, 1) == 1) {
-				return await StreetEntities.deleteEntity(id);
+			if (strictPickup) {
+				// Delete from street, then add to inventory
+				if (await StreetEntities.deleteEntity(id)) {
+					return await InventoryV2.addItemToUser(email, itemType, 1) == 1;
+				}
 			} else {
-				return false;
+				// Add to inventory, then delete from street
+				if (await InventoryV2.addItemToUser(email, itemType, 1) == 1) {
+					return await StreetEntities.deleteEntity(id);
+				}
 			}
+			return false;
 		} catch (e) {
 			Log.warning('Could not pick up <ownerId=$ownerId> entity for item $itemType', e);
 			return false;
