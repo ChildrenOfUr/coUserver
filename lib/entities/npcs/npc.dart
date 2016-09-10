@@ -32,7 +32,7 @@ abstract class NPC extends Entity {
 	Future<List<Action>> customizeActions(String email) async {
 		List<Action> customActions = new List.from(actions);
 
-		if (renameable && await SkillManager.getLevel('animal_kinship', email) >= 2) {
+		if (renameable && await SkillManager.getLevel('animal_kinship', email) >= 5) {
 			customActions.add(new Action.withName('rename'));
 		}
 
