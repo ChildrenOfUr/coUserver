@@ -25,7 +25,8 @@ class Still extends EntityItem {
 	static final String
 		CORN = 'corn',
 		GRAIN = 'grain',
-		POTATO = 'potato';
+		POTATO = 'potato',
+		RICE = 'rice';
 
 	static final Action ACTION_ADD = new Action()
 		..timeRequired = 500
@@ -44,6 +45,10 @@ class Still extends EntityItem {
 	static final Action ACTION_ADD_POTATO = new Action.clone(ACTION_ADD)
 		..actionName = 'add potato'
 		..itemRequirements = new ItemRequirements.set(all: {POTATO: 1});
+
+	static final Action ACTION_ADD_RICE = new Action.clone(ACTION_ADD)
+		..actionName = 'add rice'
+		..itemRequirements = new ItemRequirements.set(all: {RICE: 1});
 
 	static final Action ACTION_COLLECT = new Action.withName('collect')
 		..actionWord = 'collecting';
@@ -130,6 +135,7 @@ class Still extends EntityItem {
 	Future<bool> addCorn({WebSocket userSocket, String email, int count: 1}) async => addHops(CORN, email, count);
 	Future<bool> addGrain({WebSocket userSocket, String email, int count: 1}) async => addHops(GRAIN, email, count);
 	Future<bool> addPotato({WebSocket userSocket, String email, int count: 1}) async => addHops(POTATO, email, count);
+	Future<bool> addRice({WebSocket userSocket, String email, int count: 1}) async => addHops(RICE, email, count);
 
 	Future<bool> collect({WebSocket userSocket, String email}) async {
 		if (processed == 0) {
