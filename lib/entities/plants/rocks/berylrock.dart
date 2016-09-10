@@ -17,7 +17,7 @@ class BerylRock extends Rock {
 			"Not in the face! Oh. Wait. No face.",
 			"If you need any tips on technique, just axe.",
 			"Pick on someone else, will you?",
-			"You're on rocky ground, Glitch.",
+			"You're on rocky ground, Urchin.",
 			"I feel like you're taking me for granite.",
 			"Well, at least that's a weight off me mined.",
 			"You sure have one big axe to grind."

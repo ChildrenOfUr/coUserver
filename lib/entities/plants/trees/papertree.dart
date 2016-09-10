@@ -40,7 +40,7 @@ class PaperTree extends Tree {
 				"You made my roots wet.  / It's not that I'm complaining  / I'm just a bit damp.",
 				"All this way you came.  / To seek me out and sprinkle.  / I think that you're nice.",
 				"Watering paper? / Nice, thanks, but watch out there or / You'll make me soggy.",
-				"The gentle patter / Of sprinkled Glitchy water / Brings joy to my roots.",
+				"The gentle patter / Of sprinkled Urland water / Brings joy to my roots.",
 				"It's enjoyable, / But watch I don't turn into / Papier Mache.",
 			]
 		};
