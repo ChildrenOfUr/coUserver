@@ -22,14 +22,14 @@ class SavannaHandler {
 		}
 	}
 
-	static Future exit(String streetName, String email, WebSocket userSocket) async {
+	static Future exit(String streetName, String username, String email, WebSocket userSocket) async {
 		// Only when exiting a Savanna street, not entering
-		if (MapData.isSavannaStreet(streetName)) {
+		if (MapData.isSavannaStreet(ChatHandler.users[username].currentStreet)) {
 			return;
 		}
 
 		// Prevent entering again
-		Log.debug('<email=$email> left Savanna');
+		Log.debug('<username=$username> left Savanna');
 		_tempBan(email, userSocket);
 	}
 
@@ -87,14 +87,14 @@ class WintryPlaceHandler {
 		await BuffManager.addToUser('cold_place', email, userSocket);
 	}
 
-	static Future exit(String streetName, String email, WebSocket userSocket) async {
+	static Future exit(String streetName, String username, String email, WebSocket userSocket) async {
 		// Only when exiting the Wintry Place, not entering
-		if (streetName == 'Wintry Place') {
+		if (ChatHandler.users[username].currentStreet == 'Wintry Place') {
 			return;
 		}
 
 		// Remove warning buff
-		Log.debug('<email=$email> exited Wintry Place');
+		Log.debug('<username=$username> exited Wintry Place');
 		await BuffManager.removeFromUser('cold_place', email, userSocket);
 	}
 
