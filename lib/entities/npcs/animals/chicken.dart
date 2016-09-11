@@ -213,6 +213,20 @@ class Chicken extends NPC {
 		}
 
 		StatManager.add(email, Stat.chickens_squeezed);
+        
+        // Check achievement
+        int totalSqueezed= await StatManager.get(email, Stat.chickens_squeezed);
+       
+        if (totalSqueezed >= 503) {
+            Achievement.find("the_hugginator").awardTo(email);
+        } else if (totalSqueezed >= 137) {
+            Achievement.find("hen_hugger_supremalicious").awardTo(email);
+        } else if (totalSqueezed >= 41) {
+            Achievement.find("hen_hugger_deluxe").awardTo(email);
+        } else if (totalSqueezed >= 11) {
+            Achievement.find("hen_hugger").awardTo(email);
+        }
+
 		return true;
 	}
 
