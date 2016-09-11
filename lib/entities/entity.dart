@@ -14,6 +14,7 @@ import 'package:coUserver/common/identifier.dart';
 import 'package:coUserver/common/mapdata/mapdata.dart';
 import 'package:coUserver/common/user.dart';
 import 'package:coUserver/common/util.dart';
+import 'package:coUserver/endpoints/chat_handler.dart';
 import 'package:coUserver/endpoints/inventory_new.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
 import 'package:coUserver/endpoints/time.dart';

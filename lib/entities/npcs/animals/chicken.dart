@@ -1,6 +1,6 @@
 part of entity;
 
-class Chicken extends NPC {
+class Chicken extends NPC implements EventHandler {
 	static final String SKILL = 'animal_kinship';
 	static final Map<String, String> EGG_ANIMALS = {
 		"butterfly_egg": "caterpillar",
@@ -11,6 +11,8 @@ class Chicken extends NPC {
 	bool incubating = false;
 	List<String> squeezeList = [];
 	DateTime lastReset = new DateTime.now();
+
+	DateTime kfcEnd;
 
 	Chicken(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		ItemRequirements itemReq = new ItemRequirements()
@@ -33,8 +35,7 @@ class Chicken extends NPC {
 		speed = 75; //pixels per second
 		renameable = true;
 
-		states =
-		{
+		states = {
 			"fall" : new Spritesheet("fall", "http://childrenofur.com/assets/entityImages/npc_chicken__x1_fall_png_1354830392.png", 740, 550, 148, 110, 25, true),
 			"flying_back" : new Spritesheet("flying_back", "http://childrenofur.com/assets/entityImages/npc_chicken__x1_flying_back_png_1354830391.png", 888, 330, 148, 110, 17, true),
 			"flying_no_feathers" : new Spritesheet("flying_no_feathers", "http://childrenofur.com/assets/entityImages/npc_chicken__x1_flying_no_feathers_png_1354830388.png", 888, 770, 148, 110, 42, true),
@@ -138,6 +139,10 @@ class Chicken extends NPC {
 
 		Clock clock = new Clock();
 		clock.onNewDay.listen((_) => _resetLists());
+
+		messageBus.subscribe(ChatEvent, this, whereFunc: (ChatEvent event) {
+			return (event.streetName == this.streetName) && (event.message.toLowerCase().contains('kfc'));
+		});
 	}
 
 	void _resetLists() {
@@ -151,7 +156,7 @@ class Chicken extends NPC {
 		if (metadata.containsKey('squeezeList')) {
 			squeezeList = JSON.decode(metadata['squeezeList']);
 		}
-		
+
 		if (metadata.containsKey('lastReset')) {
 			lastReset = new DateTime.fromMillisecondsSinceEpoch(int.parse(metadata['lastReset']));
 			Clock lastResetClock = new Clock.stoppedAtDate(lastReset);
@@ -166,7 +171,6 @@ class Chicken extends NPC {
 	Map<String, String> getPersistMetadata() => super.getPersistMetadata()
 		..['squeezeList'] = JSON.encode(squeezeList)
 		..['lastReset'] = lastReset.millisecondsSinceEpoch.toString();
-
 
 	Future<bool> squeeze({WebSocket userSocket, String email}) async {
 		int level = await SkillManager.getLevel(SKILL, email);
@@ -213,10 +217,10 @@ class Chicken extends NPC {
 		}
 
 		StatManager.add(email, Stat.chickens_squeezed);
-        
+
         // Check achievement
         int totalSqueezed= await StatManager.get(email, Stat.chickens_squeezed);
-       
+
         if (totalSqueezed >= 503) {
             Achievement.find("the_hugginator").awardTo(email);
         } else if (totalSqueezed >= 137) {
@@ -298,11 +302,22 @@ class Chicken extends NPC {
 			moveXY();
 		}
 
-		//if respawn is in the past, it is time to choose a new animation
-		if(respawn != null && new DateTime.now().compareTo(respawn) > 0) {
+		if (kfcEnd != null) {
+			if (kfcEnd.isBefore(new DateTime.now())) {
+				// Done flipping out
+				kfcEnd = null;
+				moveXY();
+			} else {
+				// Not done flipping out
+				setState('flying');
+				y -= 5;
+			}
+		} else if (respawn != null && new DateTime.now().compareTo(respawn) > 0) {
+			//if respawn is in the past, it is time to choose a new animation
 			//1 in 8 chance to change direction
-			if(rand.nextInt(8) == 1)
+			if(rand.nextInt(8) == 1) {
 				facingRight = !facingRight;
+			}
 
 			if (!incubating) {
 				int num = rand.nextInt(20);
@@ -395,5 +410,13 @@ class Chicken extends NPC {
 			}
 		}
 		return times;
+	}
+
+	@override
+	Map<String, dynamic> headers;
+
+	@override
+	void handleEvent(ChatEvent event) {
+		kfcEnd = (kfcEnd ?? new DateTime.now()).add(new Duration(seconds: 3));
 	}
 }
