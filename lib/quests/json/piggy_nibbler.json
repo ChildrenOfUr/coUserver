@@ -1,0 +1,104 @@
+{
+  "id": "Q11",
+  "title": "Meat Galore",
+  "description": "Go nibble 6 pigs",
+  "requirements": [
+    {
+      "id": "Q11R2",
+      "type": "counter_unique",
+      "numRequired": 6,
+      "eventType": "PiggyNibble.*",
+      "text": "piggys nibbled",
+      "iconUrl": "http://childrenofur.com/assets/staticEntityImages/Piggy.png"
+    }
+  ],
+  "rewards": {
+    "energy": 0,
+    "mood": 100,
+    "img": 100,
+    "currants": 0,
+    "favor": [
+      {
+        "giantName": "humbaba",
+        "favAmt": 10
+  },
+  "conversation_start": {
+    "id": "Q11-CS",
+    "screens": [
+      {
+        "paragraphs": [
+          "Hey kid, you look like you need some protein in that diet."
+        ],
+        "choices": [
+          {
+            "text": "I do?",
+            "gotoScreen": 3
+          },
+          {
+            "text": "Not really",
+            "gotoScreen": 2
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "Why don't you wander Ur and collect some meat?"
+        ],
+        "choices": [
+          {
+            "text": "I can do that",
+            "gotoScreen": 3
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "Go and nibble 6 piggys, be sure to thank them!"
+        ],
+        "choices": [
+          {
+            "text": "Sure thing",
+            "gotoScreen": 4,
+            "isQuestAccept": true
+          },
+          {
+            "text": "No thanks",
+            "gotoScreen": 4,
+            "isQuestReject": true
+          }
+        ]
+      }
+    ]
+  },
+  "conversation_end": {
+    "id": "Q11-CE",
+    "screens": [
+      {
+        "paragraphs": [
+          "Well that wasn't too hard to do, was it?"
+        ],
+        "choices": [
+          {
+            "text": "Nope",
+            "gotoScreen": 2
+          },
+          {
+            "text": "It was for me",
+            "gotoScreen": 2
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "Enjoy the harvest."
+        ],
+        "choices": [
+          {
+            "text": "Thanks!",
+            "gotoScreen": 3
+          }
+        ]
+      }
+    ]
+  }
+}
