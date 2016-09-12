@@ -148,6 +148,19 @@ class Piggy extends NPC {
 		setState('nibble');
 		say(responses['nibble'].elementAt(rand.nextInt(responses['nibble'].length)));
 
+       // Award achievements
+           int totalNibbled= await StatManager.get(email, Stat.piggies_nibbled);
+
+       if (totalNibbled >= 503) {
+           Achievement.find("transrational_meat_aficionado").awardTo(email);
+       } else if (totalNibbled >= 137) { 
+           Achievement.find("ham_hocker").awardTo(email);      
+       } else if (totalNibbled >= 41) {
+           Achievement.find("bacon_biter").awardTo(email); 
+       } else if (totalNibbled >= 17) {
+           Achievement.find("piggy_nibbler").awardTo(email);       
+       }
+
 		return true;
 	}
 
@@ -165,6 +178,20 @@ class Piggy extends NPC {
 		say(responses['pet'].elementAt(rand.nextInt(responses['pet'].length)));
 
 		QuestEndpoint.questLogCache[email].offerQuest('Q9');
+
+        // Award achievements
+        int totalPetted= await StatManager.get(email, Stat.piggies_petted); 
+        
+       if (totalPetted>= 137) {
+           Achievement.find("pork_petter_extraordinaire").awardTo(email);
+       } else if (totalPetted>= 41) {
+           Achievement.find("swine_snuggler").awardTo(email); 
+       } else if (totalPetted>= 17) {
+           Achievement.find("pork_fondler").awardTo(email);       
+       }
+
+
+
 
 		return true;
 	}
