@@ -68,6 +68,7 @@ class Batterfly extends NPC {
 	Future<bool> feed({WebSocket userSocket, String email}) async {
 		Map map = {};
 		map['id'] = id;
+        map['action'] = "feedItem";
 		map['openWindow'] = 'itemChooser';
 		map['filter'] = 'consumeValues={.*energy:.*}';
 		map['windowTitle'] = 'Feed Batterfly What?';
@@ -75,11 +76,12 @@ class Batterfly extends NPC {
 		return true;
 	}
 
-	Future<bool> feedItem({WebSocket userSocket, String itemType, int count, String email}) async {
-		bool success = (await InventoryV2.takeAnyItemsFromUser(email,itemType,count)) == count;
+	Future<bool> feedItem({WebSocket userSocket, String itemType, int count, String email, int slot, int subSlot}) async {
+		bool success = (await InventoryV2.takeAnyItemsFromUser(email, itemType, count)) != null;
 		if(!success) {
 			return false;
 		}
+
 
 		int energyWorth = (items[itemType].consumeValues['energy'] ?? 0) * count;
 		int guanoCount = 0;
