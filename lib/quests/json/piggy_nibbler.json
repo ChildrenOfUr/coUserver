@@ -1,6 +1,6 @@
 {
   "id": "Q11",
-  "title": "Meat Galor",
+  "title": "Meat Galore",
   "description": "Go nibble 6 pigs",
   "requirements": [
     {
@@ -8,7 +8,7 @@
       "type": "counter_unique",
       "numRequired": 6,
       "eventType": "PiggyNibble.*",
-      "text": "piggys snibbled",
+      "text": "piggys nibbled",
       "iconUrl": "http://childrenofur.com/assets/staticEntityImages/Piggy.png"
     }
   ],
@@ -42,7 +42,7 @@
       },
       {
         "paragraphs": [
-          "Why dont you wander Ur and collect some meat?"
+          "Why don't you wander Ur and collect some meat?"
         ],
         "choices": [
           {

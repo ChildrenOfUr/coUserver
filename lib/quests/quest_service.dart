@@ -54,6 +54,7 @@ class QuestService extends Object with MetabolicsChange {
 			'getItem_<Item>' : 'Aquire Item',
 			'makeRecipe_<Item>' : 'Make Recipe',
 			'treePet<Tree>' : 'Pet Tree',
+			'PiggyNibble<Pig>' : 'Nibble Pig',
 			'location_<Location>' : 'Goto Location',
 			'sendMail_<Player>_containingItems_<List_Item>_currants_<int>' : 'Send Mail',
 		};
