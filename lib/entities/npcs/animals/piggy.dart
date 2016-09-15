@@ -125,6 +125,8 @@ class Piggy extends NPC {
 		SkillManager.learn(SKILL, email);
 		nibbleCounts[email] = (nibbleCounts[email] ?? 0) + 1;
 
+		QuestEndpoint.questLogCache[email].offerQuest('Q11');
+
 		//give the player the 'fruits' of their labor
 		int odds = 100000;
 		int count = 1;
