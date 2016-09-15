@@ -7753,7 +7753,8 @@
 	},
 	"Mazza'la Gala": {
 		"tsid": "LDOE67MFL6E2FBR",
-		"hub_id": 108
+		"hub_id": 108,
+		"map_hidden": true
 	},
 	"Meade Weeds": {
 		"vendor": "Animal Goods",
