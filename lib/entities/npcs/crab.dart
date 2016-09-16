@@ -128,7 +128,7 @@ class Crab extends NPC {
 			"action": "playMusic",
 			"id": id,
 			"openWindow": "itemChooser",
-			"filter": "itemType=musicblock_.*",
+			"filter": "itemType=${ALL_MUSICBLOCK_TYPES.join('|')}",
 			"windowTitle": "Play what for Crab?"
 		}));
 	}
