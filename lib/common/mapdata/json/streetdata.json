@@ -10646,7 +10646,8 @@
 		"vendor": "Alchemical Goods",
 		"shrine": "Zille",
 		"tsid": "LUVO4MCSNPK2P6J",
-		"hub_id": 114
+		"hub_id": 114,
+		"depth": 500
 	},
 	"Ramble Way 1": {
 		"tsid": "LIFF8OI1BO72KC1",
