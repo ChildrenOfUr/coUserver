@@ -6501,7 +6501,8 @@
 	},
 	"Jutuan Central Subway Station": {
 		"tsid": "LTJ102S2J102N7O",
-		"hub_id": 72
+		"hub_id": 72,
+		"map_hidden": true
 	},
 	"Jyotiba": {
 		"hub_id": 140,
