@@ -4,10 +4,10 @@
   "description": "Go nibble 6 pigs",
   "requirements": [
     {
-      "id": "Q11R2",
-      "type": "counter_unique",
+      "id": "Q11R1",
+      "type": "counter",
       "numRequired": 6,
-      "eventType": "PiggyNibble.*",
+      "eventType": "piggyNibble",
       "text": "piggys nibbled",
       "iconUrl": "http://childrenofur.com/assets/staticEntityImages/Piggy.png"
     }
