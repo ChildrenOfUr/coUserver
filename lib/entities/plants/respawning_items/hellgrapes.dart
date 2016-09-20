@@ -4,7 +4,8 @@ class HellGrapes extends RespawningItem {
 	static final int ENERGY_AWARD = 3;
 	static final int ENERGY_REQ = 9;
 
-	HellGrapes(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
+	HellGrapes(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super(id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Hellish Grapes';
 		itemType = 'bunch_of_grapes';
 		actionTime = 3000;
@@ -18,7 +19,7 @@ class HellGrapes extends RespawningItem {
 		states = {
 			'1-2-3-4': new Spritesheet('1-2-3-4',
 				'http://childrenofur.com/assets/entityImages/bunch_of_grapes__x1_1_x1_2_x1_3_x1_4_png_1354829730.png',
-				228, 30, 57, 30, 4, true)
+				228, 30, 57, 30, 4, false)
 		};
 
 		setState('1-2-3-4');

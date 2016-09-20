@@ -3,7 +3,6 @@ library street_entities;
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'dart:mirrors';
 import 'package:coUserver/entities/entity.dart';
 import 'package:coUserver/common/mapdata/mapdata.dart';
 import 'package:coUserver/common/util.dart';
