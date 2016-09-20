@@ -1,0 +1,91 @@
+{
+  "id": "Q12R1",
+  "title": "Make Me Some Drinks",
+  "description": "Make three cocktails",
+  "requirements": [
+    {
+      "id": "Q12R2",
+      "text": "Face Smelter made",
+      "type": "counter",
+      "numRequired": 1,
+      "eventType": "makeRecipe_face_smelter",
+      "iconUrl": "http://childrenofur.com/assets/entityImages/face_smelter__x1_iconic_png_1354839793.png"
+    },
+    {
+      "id": "Q12R3",
+      "text": "Pungent Sunrise made",
+      "type": "counter",
+      "numRequired": 1,
+      "eventType": "makeRecipe_pungent_sunrise",
+      "iconUrl": "http://childrenofur.com/assets/entityImages/pungent_sunrise__x1_iconic_png_1354829980.png"
+    },
+    {
+      "id": "Q12R4",
+      "text": "Flaming Humbaba made",
+      "type": "counter",
+      "numRequired": 1,
+      "eventType": "makeRecipe_flaming_humbaba",
+      "iconUrl": "http://childrenofur.com/assets/entityImages/flaming_humbaba__x1_iconic_png_1354829817.png"
+    }
+  ],
+  "rewards": {
+    "energy": 30,
+    "mood": 30,
+    "img": 200,
+    "currants": 300
+  },
+  "conversation_start": {
+    "id": "Q1-CS",
+    "screens": [
+      {
+        "paragraphs": [
+          "Hey kid. You know I could really use a drink... or three."
+        ],
+        "choices": [
+          {
+            "text": "Sounds like a party.",
+            "gotoScreen": 2
+          },
+          {
+            "text": "Eh, I think I'm busy",
+            "gotoScreen": 2,
+            "isQuestReject": true
+          }
+        ]
+      },
+      {
+        "paragraphs": [
+          "If you could make me a Face Smelter, a Pungent Sunrise, and a Flaming Humbaba, I think that would quench my thirst."
+        ],
+        "choices": [
+          {
+            "text": "Wow, you weren't kidding. I'll get to it.",
+            "gotoScreen": 3,
+            "isQuestAccept": true
+          },
+          {
+            "text": "No thanks.",
+            "gotoScreen": 3,
+            "isQuestReject": true
+          }
+        ]
+      }
+    ]
+  },
+  "conversation_end": {
+    "id": "Q12-CE",
+    "screens": [
+      {
+        "paragraphs": [
+          "Now if only I was on a beach. Not bad for an amateur!"
+        ],
+        "choices": [
+          {
+            "text": "Uhh, thanks?",
+            "gotoScreen": 2
+          }
+        ]
+      }
+    ]
+  }
+}
