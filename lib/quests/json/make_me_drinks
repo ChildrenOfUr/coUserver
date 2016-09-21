@@ -1,10 +1,10 @@
 {
-  "id": "Q12R1",
+  "id": "Q12",
   "title": "Make Me Some Drinks",
   "description": "Make three cocktails",
   "requirements": [
     {
-      "id": "Q12R2",
+      "id": "Q12R1",
       "text": "Face Smelter made",
       "type": "counter",
       "numRequired": 1,
@@ -12,7 +12,7 @@
       "iconUrl": "http://childrenofur.com/assets/entityImages/face_smelter__x1_iconic_png_1354839793.png"
     },
     {
-      "id": "Q12R3",
+      "id": "Q12R2",
       "text": "Pungent Sunrise made",
       "type": "counter",
       "numRequired": 1,
@@ -20,7 +20,7 @@
       "iconUrl": "http://childrenofur.com/assets/entityImages/pungent_sunrise__x1_iconic_png_1354829980.png"
     },
     {
-      "id": "Q12R4",
+      "id": "Q12R3",
       "text": "Flaming Humbaba made",
       "type": "counter",
       "numRequired": 1,
@@ -35,7 +35,7 @@
     "currants": 300
   },
   "conversation_start": {
-    "id": "Q1-CS",
+    "id": "Q12-CS",
     "screens": [
       {
         "paragraphs": [
@@ -48,7 +48,7 @@
           },
           {
             "text": "Eh, I think I'm busy",
-            "gotoScreen": 2,
+            "gotoScreen": 3,
             "isQuestReject": true
           }
         ]
