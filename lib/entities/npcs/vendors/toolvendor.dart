@@ -86,14 +86,7 @@ class ToolVendor extends Vendor {
 
 		//update x and y
 		if (currentState.stateName == "walk") {
-			moveXY(wallAction: (Wall wall) {
-				if(facingRight) {
-					setState('turn_left');
-				} else {
-					setState('turn_right');
-				}
-				facingRight = !facingRight;
-			});
+			moveXY();
 		}
 
 		if(respawn != null && respawn.compareTo(new DateTime.now()) <= 0) {
