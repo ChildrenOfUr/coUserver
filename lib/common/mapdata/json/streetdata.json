@@ -1623,7 +1623,8 @@
 	},
 	"Apt Lobby": {
 		"tsid": "LCR131GMJOK1GSP",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"Apt Suite": {
 		"tsid": "LCR13BOJ0PK1E46",
