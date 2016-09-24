@@ -986,7 +986,9 @@ class InventoryV2 {
 			String itemType = item['itemType'];
 			messageBus.publish(new RequirementProgress('getItem_$itemType', email, count: count));
 			if (itemType == 'pick' || itemType == 'fancy_pick') {
-				QuestEndpoint.questLogCache[email]?.offerQuest('Q6');
+			if (itemType == 'cocktail_shaker') {
+				QuestEndpoint.questLogCache[email]?.offerQuest('Q6');	
+				QuestEndpoint.questLogCache[email]?.offerQuest('Q12');
 			}
 		}
 
