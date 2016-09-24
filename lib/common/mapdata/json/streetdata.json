@@ -1628,7 +1628,8 @@
 	},
 	"Apt Suite": {
 		"tsid": "LCR13BOJ0PK1E46",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"Apt Suite BU": {
 		"tsid": "LCR1JPTQI2M1SO3",
@@ -1637,19 +1638,23 @@
 	},
 	"Apt Tree Basement": {
 		"tsid": "LA9QE7H9V4F345H",
-		"hub_id": 143
+		"hub_id": 143,
+		"map_hidden": true
 	},
 	"Apt Tree Floor 1": {
 		"tsid": "LA9QFNQAV4F3HM0",
-		"hub_id": 143
+		"hub_id": 143,
+		"map_hidden": true
 	},
 	"Apt Tree Floor 2": {
 		"tsid": "LA9QGB6CV4F3454",
-		"hub_id": 143
+		"hub_id": 143,
+		"map_hidden": true
 	},
 	"Apt Tree Lobby": {
 		"tsid": "LA9QH59DV4F3MGT",
-		"hub_id": 143
+		"hub_id": 143,
+		"map_hidden": true
 	},
 	"Aquarius": {
 		"tsid": "LUVU11R1HP9341R",
