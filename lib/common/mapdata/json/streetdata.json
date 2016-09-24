@@ -5505,7 +5505,8 @@
 	},
 	"Gregarious Grange Subway Station": {
 		"tsid": "LCR177QO65T1EON",
-		"hub_id": 58
+		"hub_id": 58,
+		"map_hidden": true
 	},
 	"Gregarious Towers": {
 		"tsid": "LA5134UPLRU29OH",
@@ -6881,7 +6882,8 @@
 	},
 	"Kongu Hop Subway Station": {
 		"tsid": "LA59OB99RE92267",
-		"hub_id": 89
+		"hub_id": 89,
+		"map_hidden": true
 	},
 	"Konka Brink": {
 		"mailbox": true,
@@ -7572,7 +7574,8 @@
 	},
 	"Mallos Means Subway Station": {
 		"tsid": "LHV2CQPL1E32QM8",
-		"hub_id": 75
+		"hub_id": 75,
+		"map_hidden": true
 	},
 	"Manak Ruba": {
 		"vendor": "Hardware",
@@ -9004,7 +9007,8 @@
 	},
 	"Onto Parada Subway Station": {
 		"tsid": "LIF6CR9OO302G5V",
-		"hub_id": 71
+		"hub_id": 71,
+		"map_hidden": true
 	},
 	"Operation Grow": {
 		"tsid": "LIFI8QG9A093USI",
@@ -10177,7 +10181,8 @@
 	},
 	"Pitika Parse Subway Station": {
 		"tsid": "LHVEBJCBRG52LSB",
-		"hub_id": 85
+		"hub_id": 85,
+		"map_hidden": true
 	},
 	"Pitonia Lood": {
 		"vendor": "Alchemical Goods",
@@ -11687,7 +11692,8 @@
 	},
 	"Somewhat Sump Subway Station": {
 		"tsid": "LTJJSECBMAO13RH",
-		"hub_id": 63
+		"hub_id": 63,
+		"map_hidden": true
 	},
 	"Sorrel Snag": {
 		"vendor": "Grocery",
@@ -11960,7 +11966,8 @@
 	},
 	"Subway Station": {
 		"tsid": "LTJ102ANR9O1LQL",
-		"hub_id": 66
+		"hub_id": 66,
+		"map_hidden": true
 	},
 	"Subway Train": {
 		"tsid": "LTJ101M7R9O1HTT",
@@ -12219,7 +12226,8 @@
 	},
 	"Tallish Crest Subway Station": {
 		"tsid": "LM11D0VDR9229EC",
-		"hub_id": 64
+		"hub_id": 64,
+		"map_hidden": true
 	},
 	"Tallus Gardens": {
 		"mailbox": true,
@@ -12523,7 +12531,8 @@
 	},
 	"Thiruvan Thrive Subway Station": {
 		"tsid": "LIF63N5UTE92SVD",
-		"hub_id": 93
+		"hub_id": 93,
+		"map_hidden": true
 	},
 	"This Feeling of …": {
 		"tsid": "LIFPA6H4UAB381E",
@@ -12771,7 +12780,8 @@
 	},
 	"Torpan Cleft Subway Station": {
 		"tsid": "LHV6B54D0F22B95",
-		"hub_id": 76
+		"hub_id": 76,
+		"map_hidden": true
 	},
 	"Totakuru Trample": {
 		"vendor": "Gardening Goods",
