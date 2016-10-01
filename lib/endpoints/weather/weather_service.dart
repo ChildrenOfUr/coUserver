@@ -19,6 +19,12 @@ class WeatherService {
 	/// Key is OWM city ID
 	static Map<int, WeatherLocation> cache = {};
 
+	/// How long to wait in case of error for OWM service to recover
+	static int deferredMins = 0;
+
+	/// Time of last download (used to decrement deferredMins)
+	static DateTime lastCheck;
+
 	/// Return the weather data for a TSID, or null if the TSID does not have weather
 	static Future<WeatherLocation> getConditions(String tsid) async {
 		int cityId = getCityId(tsid);
@@ -67,6 +73,21 @@ class WeatherService {
 	/// Pass cityId to download for one city (and return the data),
 	/// or not to refresh the entire cache (and return true)
 	static Future download([int cityId]) async {
+		/// Waiting for recovery?
+		if (deferredMins > 0) {
+			if (lastCheck == null) {
+				lastCheck = new DateTime.now();
+			}
+
+			/// Decrement each minute
+			if (lastCheck.minute < new DateTime.now().minute) {
+				deferredMins--;
+			}
+			return null;
+		} else {
+			lastCheck = new DateTime.now();
+		}
+
 		/// Decode and return the result of calling either the 'weather' or 'forecast/daily' endpoint
 		Future<Map> _owmDownload(String endpoint, int cityId) async {
 			// Download from OpenWeatherMap
@@ -109,6 +130,7 @@ class WeatherService {
 				return weather;
 			} catch (e) {
 				Log.error('Error downloading weather for <cityId=$cityId>', e);
+				deferredMins++;
 				return null;
 			}
 		}
