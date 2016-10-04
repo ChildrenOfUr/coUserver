@@ -987,11 +987,10 @@ class InventoryV2 {
 			messageBus.publish(new RequirementProgress('getItem_$itemType', email, count: count));
 			if (itemType == 'pick' || itemType == 'fancy_pick') {
     			//Dullite, Beryl and Sparkly
-   			 QuestEndpoint.questLogCache[email]?.offerQuest('Q6');
-				} else if (itemType == 'cocktail_shaker') {
-   			 //Make Me Some Drinks
-   			 QuestEndpoint.questLogCache[email]?.offerQuest('Q12');
-				}
+   			 	QuestEndpoint.questLogCache[email]?.offerQuest('Q6');
+			} else if (itemType == 'cocktail_shaker') {
+   			 	//Make Me Some Drinks
+   			 	QuestEndpoint.questLogCache[email]?.offerQuest('Q12');
 			}
 		}
 
