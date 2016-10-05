@@ -76,7 +76,7 @@ class MetabolicsEndpoint {
 	static Future refillAllEnergy() async {
 		PostgreSql dbConn = await dbManager.getConnection();
 		String query = "UPDATE metabolics SET energy = max_energy, quoins_collected = 0";
-		dbConn.execute(query);
+		await dbConn.execute(query);
 		dbManager.closeConnection(dbConn);
 	}
 
