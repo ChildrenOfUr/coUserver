@@ -138,10 +138,10 @@ class Street {
 	bool putEntitiesInMemory(List<StreetEntity> entities) {
 		for (StreetEntity entity in entities) {
 			String type = entity.type;
-			int x = entity.x;
-			int y = entity.y;
-			int z = entity.z;
-			int rotation = entity.rotation;
+			num x = entity.x;
+			num y = entity.y;
+			num z = entity.z;
+			num rotation = entity.rotation;
 			bool h_flip = entity.h_flip;
 			String id = entity.id;
 			Map<String, String> metadata = entity.metadata;

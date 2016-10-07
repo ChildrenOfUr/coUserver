@@ -113,9 +113,12 @@ class Still extends EntityItem {
 
 	@override
 	Future<bool> pickUp({WebSocket userSocket, String email}) async {
-		if (pending > 0) {
+		if (pending >= INPUT_PER_HOOCH) {
 			toast('Wait for me to finish!', userSocket);
 			return false;
+		} else if (pending > 0) {
+			await InventoryV2.addItemToUser(email, '', pending);
+			return await super.pickUp(userSocket: userSocket, email: email);
 		} else {
 			return await super.pickUp(userSocket: userSocket, email: email);
 		}
@@ -139,7 +142,11 @@ class Still extends EntityItem {
 
 	Future<bool> collect({WebSocket userSocket, String email}) async {
 		if (processed == 0) {
-			toast("There's nothing to collect!", userSocket);
+			if (pending == 0) {
+				toast("There's nothing to collect!", userSocket);
+			} else {
+				toast("There's not enough in here to make any hooch worth collecting!", userSocket);
+			}
 			return false;
 		} else {
 			setState('collect');
