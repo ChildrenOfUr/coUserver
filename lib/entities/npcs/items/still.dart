@@ -22,6 +22,8 @@ class Still extends EntityItem {
 
 	static final String HOOCH = 'hooch';
 
+	static final String SKILL = 'distilling';
+
 	static final String
 		CORN = 'corn',
 		GRAIN = 'grain',
@@ -128,6 +130,8 @@ class Still extends EntityItem {
 		try {
 			int taken = await InventoryV2.takeAnyItemsFromUser(email, itemType, count);
 			pending += taken;
+
+			SkillManager.learn(SKILL, email, (count / 3).ceil());
 			return true;
 		} catch (e) {
 			Log.warning('Could not add <count=$count> <itemType=$itemType> from <email=$email> to still <entity=$id>', e);
@@ -149,6 +153,7 @@ class Still extends EntityItem {
 			}
 			return false;
 		} else {
+			int collected = 0;
 			setState('collect');
 			collecting = true;
 
@@ -163,11 +168,14 @@ class Still extends EntityItem {
 
 				// Keep going as long as there is more to collect
 				processed--;
+				collected++;
 				return (processed > 0);
 			});
 
 			// Done
 			collecting = false;
+
+			SkillManager.learn(SKILL, email, (collected / 4).ceil());
 			return true;
 		}
 	}

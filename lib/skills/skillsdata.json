@@ -108,6 +108,22 @@
 		"giants": ["Mab", "Grendaline", "Humbaba"],
 		"color": "#......"
 	},
+	"distilling": {
+		"name": "Distilling",
+		"category": "Alchemy",
+		"levels": [124],
+		"descriptions": [
+			"The clandestine art of distillation enables the amateur moonshiner to create home-brewed hooch from grain or potatoes in mere minutes, using only a Still and the desire to extract booze from the most innocent of ingredients."
+		],
+		"iconUrls": [
+			"http://www.glitchthegame.com/img/skills-460/distilling_1.v1428362783.png"
+		],
+		"requirements": {
+			"level": 5
+		},
+		"giants": ["Friendly", "Mab", "Pot"],
+		"color": "#DAA962"
+	},
 	"element_handling": {
 		"name": "Element Handling",
 		"category": "Alchemy",
