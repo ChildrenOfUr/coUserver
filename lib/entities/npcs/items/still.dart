@@ -57,6 +57,7 @@ class Still extends EntityItem {
 
 	int pending = 0;
 	int processed = 0;
+	Map<String, int> itemsAdded = {};
 
 	bool collecting = false;
 
@@ -104,13 +105,17 @@ class Still extends EntityItem {
 	@override
 	Map<String, String> getPersistMetadata() => super.getPersistMetadata()
 		..['pending'] = pending.toString()
-		..['processed'] = processed.toString();
+		..['processed'] = processed.toString()
+		..['itemsAdded'] = JSON.encode(itemsAdded);
 
 	@override
 	void restoreState(Map<String, String> metadata) {
 		super.restoreState(metadata);
 		pending = int.parse((metadata['pending'] ?? 0).toString());
 		processed = int.parse((metadata['processed'] ?? 0).toString());
+		if (metadata.containsKey('itemsAdded')) {
+			itemsAdded = JSON.decode(metadata['itemsAdded']);
+		}
 	}
 
 	@override
@@ -119,7 +124,10 @@ class Still extends EntityItem {
 			toast('Wait for me to finish!', userSocket);
 			return false;
 		} else if (pending > 0) {
-			await InventoryV2.addItemToUser(email, '', pending);
+			await Future.forEach(itemsAdded.keys, (String itemType) async {
+				await InventoryV2.addItemToUser(email, itemType, itemsAdded[itemType]);
+			});
+			itemsAdded = {};
 			return await super.pickUp(userSocket: userSocket, email: email);
 		} else {
 			return await super.pickUp(userSocket: userSocket, email: email);
@@ -130,6 +138,11 @@ class Still extends EntityItem {
 		try {
 			int taken = await InventoryV2.takeAnyItemsFromUser(email, itemType, count);
 			pending += taken;
+			if (itemsAdded.containsKey(itemType)) {
+				itemsAdded[itemType] += taken;
+			} else {
+				itemsAdded[itemType] = taken;
+			}
 
 			SkillManager.learn(SKILL, email, (count / 3).ceil());
 			return true;
@@ -174,6 +187,7 @@ class Still extends EntityItem {
 
 			// Done
 			collecting = false;
+			itemsAdded = {};
 
 			SkillManager.learn(SKILL, email, (collected / 4).ceil());
 			return true;
