@@ -315,6 +315,8 @@ class Garden extends NPC {
 
 	@override
 	void update({bool simulateTick: false}) {
+		super.update();
+
 		if (!restored) {
 			return;
 		}
