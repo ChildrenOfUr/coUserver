@@ -177,13 +177,25 @@
 		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_carved_x1_1__1_png_1354836500.png",
 		"stacksTo": 1,
 		"price": 41,
-		"description": "Part-vegetable, part-sprite, this is Jack. He makes you feel a little autumnal, a little festive, and a little like your soul might get dragged, screaming, from your sleeping body."
+		"description": "Part-vegetable, part-sprite, this is Jack. He makes you feel a little autumnal, a little festive, and a little like your soul might get dragged, screaming, from your sleeping body.",
+		"actions": [
+			{
+				"actionName": "Illuminate Pumpkin",
+				"description": "Light it up",
+				"itemRequirements": {
+					"any": [
+						"firefly_jar"
+					]
+				},
+				"skillRequirements": {}
+			}
+		]
 	},
 	"jack_o_lantern": {
 		"name": "Jack-O-Lantern",
 		"category": "Other",
 		"iconUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_x1_1__1_png_1354836521.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_1__x1_talk_png_1354836521.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_x1_1__1_png_1354836521.png",
 		"stacksTo": 1,
 		"price": 151,
 		"description": "A carved pumpkin lit from the inside with the power of fireflies. You'd think this would make it look more warm and comforting. But no, still terrifying (for a vegetable)."
@@ -195,13 +207,25 @@
 		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_carved_5__x1_1_png_1354836630.png",
 		"stacksTo": 1,
 		"price": 41,
-		"description": "To mark the special relationship between the Lemmites and the Zillots, the Lem Pumpkin was created by a particularly talented Lemmite carver named Myuki. Zille, apparently, was unimpressed at this sharing of her holiday. But Lem loved it."
+		"description": "To mark the special relationship between the Lemmites and the Zillots, the Lem Pumpkin was created by a particularly talented Lemmite carver named Myuki. Zille, apparently, was unimpressed at this sharing of her holiday. But Lem loved it.",
+		"actions": [
+			{
+				"actionName": "Illuminate Pumpkin",
+				"description": "Light it up",
+				"itemRequirements": {
+					"any": [
+						"firefly_jar"
+					]
+				},
+				"skillRequirements": {}
+			}
+		]
 	},
 	"lem_o_lantern": {
 		"name": "Lem-O-Lantern",
 		"category": "Other",
 		"iconUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_5__x1_1_png_1354836632.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_5__x1_talk_png_1354836633.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_5__x1_1_png_1354836632.png",
 		"stacksTo": 1,
 		"price": 151,
 		"description": "An unusual addition to Zilloween, the Lem-O-Lantern, marking the special relationship between Zillots and Lemmites, has long been created for the festival by vegetablartistes. It is especially prized, as it uses a special flick of the pick known as \"The Myuki Technique\"."
@@ -348,13 +372,25 @@
 		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_carved_2__x1_1_png_1354836502.png",
 		"stacksTo": 1,
 		"price": 41,
-		"description": "A widely-grinning pumpkin, ready to party (with the addition of fireflies). Could be accessorised with a pile of pepitas to make a puking pumpkin, but that's a matter of taste. Or lack of taste. Whatever."
+		"description": "A widely-grinning pumpkin, ready to party (with the addition of fireflies). Could be accessorised with a pile of pepitas to make a puking pumpkin, but that's a matter of taste. Or lack of taste. Whatever.",
+		"actions": [
+			{
+				"actionName": "Illuminate Pumpkin",
+				"description": "Light it up",
+				"itemRequirements": {
+					"any": [
+						"firefly_jar"
+					]
+				},
+				"skillRequirements": {}
+			}
+		]
 	},
 	"steve_o_lantern": {
 		"name": "Steve-O-Lantern",
 		"category": "Other",
 		"iconUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_2__x1_1_png_1354836524.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_2__x1_talk_png_1354836530.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_2__x1_1_png_1354836524.png",
 		"stacksTo": 1,
 		"price": 151,
 		"description": "A gurning, gape-mouthed, firefly-filled glowing pumpkin, smelling of decomposing root, and overcooked vegetables. How very seasonal."
@@ -411,13 +447,25 @@
 		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_carved_4__x1_1_png_1354836518.png",
 		"stacksTo": 1,
 		"price": 41,
-		"description": "A traditional Zilloween decoration, this is a common-or-garden pumpkin carved into a representation of Zille, giant of mountains and mining. Already pretty magical, it will become more magical with the addition of fireflies."
+		"description": "A traditional Zilloween decoration, this is a common-or-garden pumpkin carved into a representation of Zille, giant of mountains and mining. Already pretty magical, it will become more magical with the addition of fireflies.",
+		"actions": [
+			{
+				"actionName": "Illuminate Pumpkin",
+				"description": "Light it up",
+				"itemRequirements": {
+					"any": [
+						"firefly_jar"
+					]
+				},
+				"skillRequirements": {}
+			}
+		]
 	},
 	"zille_o_lantern": {
 		"name": "Zille-O-Lantern",
 		"category": "Other",
 		"iconUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_4__x1_1_png_1354836535.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_4__x1_talk_png_1354836535.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_4__x1_1_png_1354836535.png",
 		"stacksTo": 1,
 		"price": 151,
 		"description": "A common seasonal vegetable carved into a representation of Zille, and filled with fireflies to create an eerie glow. And it IS eerie. If you squint, it's like her eyes (and the burny pumpkin smell) are following you around the room."

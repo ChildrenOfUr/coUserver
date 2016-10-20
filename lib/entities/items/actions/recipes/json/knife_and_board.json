@@ -1,5 +1,61 @@
 [
 	{
+		"id": "jack_the_pumpkin",
+		"tool": "knife_and_board",
+		"input": {
+			"pumpkin": 1
+		},
+		"output": "jack_the_pumpkin",
+		"output_amt": 1,
+		"energy": -10,
+		"time": 5,
+		"holidays": [
+			"Zilloween"
+		]
+	},
+	{
+		"id": "lem_the_pumpkin",
+		"tool": "knife_and_board",
+		"input": {
+			"pumpkin": 1
+		},
+		"output": "lem_the_pumpkin",
+		"output_amt": 1,
+		"energy": -10,
+		"time": 5,
+		"holidays": [
+			"Zilloween"
+		]
+	},
+	{
+		"id": "steve_the_pumpkin",
+		"tool": "knife_and_board",
+		"input": {
+			"pumpkin": 1
+		},
+		"output": "steve_the_pumpkin",
+		"output_amt": 1,
+		"energy": -10,
+		"time": 5,
+		"holidays": [
+			"Zilloween"
+		]
+	},
+	{
+		"id": "zille_the_pumpkin",
+		"tool": "knife_and_board",
+		"input": {
+			"pumpkin": 1
+		},
+		"output": "zille_the_pumpkin",
+		"output_amt": 1,
+		"energy": -10,
+		"time": 5,
+		"holidays": [
+			"Zilloween"
+		]
+	},
+	{
 		"id": "berry_bowl",
 		"tool": "knife_and_board",
 		"input": {
@@ -27,6 +83,19 @@
 		"energy": -2,
 		"time": 2,
 		"achievement_req": "master_whacker"
+	},
+	{
+		"id": "carobish_treats",
+		"tool": "knife_and_board",
+		"input": {
+			"jellisac": 1,
+			"guano": 1,
+			"roasted_pepitas": 1
+		},
+		"output": "carobish_treats",
+		"output_amt": 1,
+		"energy": -15,
+		"time": 4
 	},
 	{
 		"id": "cheese_plate",
@@ -232,19 +301,6 @@
 		"time": 2,
 		"skill": "ez_cooking",
 		"skill_level": 2
-	},
-	{
-		"id": "carobish_treats",
-		"tool": "knife_and_board",
-		"input": {
-			"jellisac": 1,
-			"guano": 1,
-			"roasted_pepitas": 1
-		},
-		"output": "carobish_treats",
-		"output_amt": 1,
-		"energy": -2,
-		"time": 2
 	},
 	{
 		"id": "sammich",

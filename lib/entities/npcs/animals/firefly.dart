@@ -32,7 +32,7 @@ class Firefly extends NPC {
 	}
 
 	Future<bool> collect({WebSocket userSocket, String email}) async {
-		int adding = rand.nextInt(3);
+		int adding = rand.nextInt(3)+1;
 		int skipped = adding;
 		try {
 			skipped = await InventoryV2.addFireflyToJar(email, userSocket, amount: adding);

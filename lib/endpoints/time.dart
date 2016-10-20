@@ -11,8 +11,8 @@ String utcTime() {
 }
 
 @app.Route('/getHolidays')
-Future<List<String>> getHolidays(@app.QueryParam('month') int month,
-                                 @app.QueryParam('day') int day) async {
+List<String> getHolidays(@app.QueryParam('month') int month,
+                         @app.QueryParam('day') int day) {
 	List<String> holidays = [];
 
 	String monthName = monthNames[month];

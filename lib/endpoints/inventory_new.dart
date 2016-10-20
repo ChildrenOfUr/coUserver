@@ -1091,9 +1091,14 @@ class InventoryV2 {
 
 		void _addToJar(Slot jar) {
 			int inJar = int.parse(jar.metadata['fireflies'] ?? '0');
-			while (inJar < 7 && toAdd > 0) {
-				inJar++;
-				toAdd--;
+			if (toAdd < 0 && inJar >= toAdd.abs()) {
+				inJar += toAdd;
+				toAdd = 0;
+			} else {
+				while (inJar < 7 && toAdd > 0) {
+					inJar++;
+					toAdd--;
+				}
 			}
 			jar.metadata['fireflies'] = inJar.toString();
 		}
@@ -1103,7 +1108,8 @@ class InventoryV2 {
 		}
 
 		InventoryV2 inv = await getInventory(email);
-		for (Slot slot in inv.slots) {
+		List<Slot> tmpSlots = inv.slots;
+		for (Slot slot in tmpSlots) {
 			// Skip empty slots
 			if (slot.itemType.isEmpty) {
 				continue;
@@ -1124,7 +1130,7 @@ class InventoryV2 {
 			}
 		}
 
-		inv.updateJson();
+		inv.inventory_json = jsonx.encode(tmpSlots);
 		await inv._updateDatabase(email);
 		await fireInventoryAtUser(userSocket, email, update: true);
 		_releaseLock(email, 'addFireflyToJar');

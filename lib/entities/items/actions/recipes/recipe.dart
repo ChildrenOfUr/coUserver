@@ -12,6 +12,7 @@ import 'package:coUserver/endpoints/metabolics/metabolics.dart';
 import 'package:coUserver/entities/items/item.dart';
 import 'package:coUserver/quests/quest.dart';
 import 'package:coUserver/skills/skillsmanager.dart';
+import 'package:coUserver/endpoints/time.dart';
 
 import 'package:path/path.dart' as path;
 import 'package:redstone_mapper/mapper.dart';
@@ -42,6 +43,7 @@ class Recipe {
 	@Field() int energy = 0;
 	@Field() int img = 0;
 	@Field() Map<String, int> skills;
+	@Field() List<String> holidays;
 
 	// Items are initialized in street_update_handler.dart after all of the items are loaded
 	Recipe();

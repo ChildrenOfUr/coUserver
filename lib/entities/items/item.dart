@@ -39,6 +39,7 @@ part 'actions/itemgroups/misc.dart';
 part 'actions/itemgroups/orb.dart';
 part 'actions/itemgroups/piggy_plop.dart';
 part 'actions/itemgroups/potions.dart';
+part 'actions/itemgroups/pumpkins.dart';
 part 'actions/itemgroups/quill.dart';
 part 'actions/itemgroups/recipe-tool.dart';
 part 'actions/note.dart';
@@ -62,6 +63,7 @@ class Item extends Object
 		NewPlayerPack,
 		PiggyPlop,
 		Potions,
+		Pumpkins,
 		Quill,
 		RecipeTool implements Actionable {
 
