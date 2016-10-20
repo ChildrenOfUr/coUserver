@@ -40,7 +40,7 @@ class RecipeBook extends Object with MetabolicsChange {
 
 				if (recipe.holidays != null) {
 					Clock clock = new Clock.stoppedAtDate(new DateTime.now());
-					List<String> currentHolidays = getHolidays(clock.monthInt,clock.dayInt);
+					List<String> currentHolidays = getHolidays(clock.monthInt, clock.dayInt);
 					for (String holiday in recipe.holidays) {
 						if (currentHolidays.contains(holiday)) {
 							inSeason = true;

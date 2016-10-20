@@ -211,7 +211,7 @@ class Clock {
 		for(int i = 0; i < (daysinMonths); i++) {
 			cd += daysPerMonth[i];
 			if(cd > id) {
-				int m = i + 1;
+				int m = i;
 				int d = id + 1 - (cd - daysPerMonth[i]);
 				return [m, d];
 			}
