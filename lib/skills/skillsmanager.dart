@@ -70,7 +70,7 @@ class SkillManager extends Object {
 		return success["writing"];
 	}
 
-	/// Get a player's level of a certain skil
+	/// Get a player's level of a certain skill
 	static Future<int> getLevel(String skillId, String email) async {
 		PlayerSkill skill = await PlayerSkill.find(skillId, email);
 		return skill?.level ?? 0;

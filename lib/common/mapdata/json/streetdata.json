@@ -1424,7 +1424,8 @@
 	},
 	"Amberlyza": {
 		"tsid": "LHVDKQ2O6S23LVJ",
-		"hub_id": 125
+		"hub_id": 125,
+		"map_hidden": true
 	},
 	"Ambo Aims": {
 		"vendor": "Kitchen Tools",
@@ -2301,7 +2302,8 @@
 	},
 	"Blooian": {
 		"tsid": "LHVP8TCLT40336S",
-		"hub_id": 125
+		"hub_id": 125,
+		"map_hidden": true
 	},
 	"Blottnass": {
 		"vendor": "Produce",
@@ -5524,7 +5526,8 @@
 	},
 	"Griinolyza": {
 		"tsid": "LHVOD0F3T403694",
-		"hub_id": 125
+		"hub_id": 125,
+		"map_hidden": true
 	},
 	"Grimssea Bottom": {
 		"mailbox": true,
@@ -9040,7 +9043,8 @@
 	},
 	"Orangian": {
 		"tsid": "LHVCKEPHO403BN5",
-		"hub_id": 125
+		"hub_id": 125,
+		"map_hidden": true
 	},
 	"Orchard Street": {
 		"tsid": "LUVV679F9OE2KQF",
@@ -10167,7 +10171,8 @@
 	},
 	"Piryan": {
 		"tsid": "LHVP6H0KT403N8A",
-		"hub_id": 125
+		"hub_id": 125,
+		"map_hidden": true
 	},
 	"Pitchen Lilliputt": {
 		"tsid": "LDOGNQICG1E2PNI",
@@ -10384,7 +10389,8 @@
 	},
 	"Purplysa": {
 		"tsid": "LHVP7QOKT403F5Q",
-		"hub_id": 125
+		"hub_id": 125,
+		"map_hidden": true
 	},
 	"Pusan Fathom": {
 		"hub_id": 136,
