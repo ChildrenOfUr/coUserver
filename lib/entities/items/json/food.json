@@ -1745,7 +1745,7 @@
 	"plum": {
 		"name": "Plum",
 		"category": "Food",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/plum__x1_iconic_png_1354829973.png",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/plum__x1_iconic_png_1354829973.svg",
 		"spriteUrl": "http://childrenofur.com/assets/entityImages/plum__x1_1_x1_2_x1_3_x1_4_png_1354829974.png",
 		"stacksTo": 100,
 		"price": 3,
