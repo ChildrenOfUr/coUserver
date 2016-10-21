@@ -1123,10 +1123,10 @@ class InventoryV2 {
 			// Jars in bag slots
 			if (items[slot.itemType].isContainer && items[slot.itemType].subSlots != null) {
 				List<Slot> bagSlots = jsonx.decode((slot.metadata['slots'] ?? '[]'), type: listOfSlots) ?? [];
-				bagSlots = bagSlots.where((Slot s) => s.itemType != null && s.itemType == 'firefly_jar').toList();
-				for (Slot bagSlot in bagSlots) {
+				for (Slot bagSlot in bagSlots.where((Slot s) => s.itemType != null && s.itemType == 'firefly_jar')) {
 					_addToJar(bagSlot);
 				}
+				slot.metadata['slots'] = jsonx.encode(bagSlots);
 			}
 		}
 
