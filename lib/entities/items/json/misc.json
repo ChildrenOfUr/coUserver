@@ -168,7 +168,19 @@
 		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_carved_3__x1_1_png_1354836506.png",
 		"stacksTo": 1,
 		"price": 41,
-		"description": "The only hollowed out vegetable so cute you'd happily put it in your pocket and carry it around all day. Or at least, you would if it didn't weigh 50lb and smell of decomposing food. Hello Pumpkin!"
+		"description": "The only hollowed out vegetable so cute you'd happily put it in your pocket and carry it around all day. Or at least, you would if it didn't weigh 50lb and smell of decomposing food. Hello Pumpkin!",
+		"actions": [
+			{
+				"actionName": "Illuminate Pumpkin",
+				"description": "Light it up",
+				"itemRequirements": {
+					"any": [
+						"firefly_jar"
+					]
+				},
+				"skillRequirements": {}
+			}
+		]
 	},
 	"jack_the_pumpkin": {
 		"name": "Jack the Pumpkin",
@@ -198,7 +210,15 @@
 		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_x1_1__1_png_1354836521.png",
 		"stacksTo": 1,
 		"price": 151,
-		"description": "A carved pumpkin lit from the inside with the power of fireflies. You'd think this would make it look more warm and comforting. But no, still terrifying (for a vegetable)."
+		"description": "A carved pumpkin lit from the inside with the power of fireflies. You'd think this would make it look more warm and comforting. But no, still terrifying (for a vegetable).",
+		"actions": [
+			{
+				"actionName": "Smash",
+				"description": "Pumpkin Smash!",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
 	},
 	"lem_the_pumpkin": {
 		"name": "Lem the Pumpkin",
@@ -228,7 +248,15 @@
 		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_5__x1_1_png_1354836632.png",
 		"stacksTo": 1,
 		"price": 151,
-		"description": "An unusual addition to Zilloween, the Lem-O-Lantern, marking the special relationship between Zillots and Lemmites, has long been created for the festival by vegetablartistes. It is especially prized, as it uses a special flick of the pick known as \"The Myuki Technique\"."
+		"description": "An unusual addition to Zilloween, the Lem-O-Lantern, marking the special relationship between Zillots and Lemmites, has long been created for the festival by vegetablartistes. It is especially prized, as it uses a special flick of the pick known as \"The Myuki Technique\".",
+		"actions": [
+			{
+				"actionName": "Smash",
+				"description": "Pumpkin Smash!",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
 	},
 	"moving_box": {
 		"name": "Moving Box",
@@ -342,10 +370,18 @@
 		"name": "Shiny Hello Pumpkin!",
 		"category": "Other",
 		"iconUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_3__x1_1_png_1354836532.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_3__x1_talk_png_1354836533.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_3__x1_1_png_1354836532.png",
 		"stacksTo": 1,
 		"price": 151,
-		"description": "A brightly-lit cute kitty pumpkin lantern. As cute as a vegetable that has been set about with a knife until it resembles an animal and then set on fire with a face full of insects can be. Pretty cute then!"
+		"description": "A brightly-lit cute kitty pumpkin lantern. As cute as a vegetable that has been set about with a knife until it resembles an animal and then set on fire with a face full of insects can be. Pretty cute then!",
+		"actions": [
+			{
+				"actionName": "Smash",
+				"description": "Pumpkin Smash!",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
 	},
 	"spice_trophy": {
 		"name": "Spice Trophy",
@@ -393,7 +429,15 @@
 		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_2__x1_1_png_1354836524.png",
 		"stacksTo": 1,
 		"price": 151,
-		"description": "A gurning, gape-mouthed, firefly-filled glowing pumpkin, smelling of decomposing root, and overcooked vegetables. How very seasonal."
+		"description": "A gurning, gape-mouthed, firefly-filled glowing pumpkin, smelling of decomposing root, and overcooked vegetables. How very seasonal.",
+		"actions": [
+			{
+				"actionName": "Smash",
+				"description": "Pumpkin Smash!",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
 	},
 	"street_creator_dirt_trophy": {
 		"name": "Street Creator Dirt Trophy",
@@ -468,6 +512,14 @@
 		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_4__x1_1_png_1354836535.png",
 		"stacksTo": 1,
 		"price": 151,
-		"description": "A common seasonal vegetable carved into a representation of Zille, and filled with fireflies to create an eerie glow. And it IS eerie. If you squint, it's like her eyes (and the burny pumpkin smell) are following you around the room."
+		"description": "A common seasonal vegetable carved into a representation of Zille, and filled with fireflies to create an eerie glow. And it IS eerie. If you squint, it's like her eyes (and the burny pumpkin smell) are following you around the room.",
+		"actions": [
+			{
+				"actionName": "Smash",
+				"description": "Pumpkin Smash!",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
 	}
 }

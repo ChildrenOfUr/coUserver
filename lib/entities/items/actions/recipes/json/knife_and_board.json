@@ -28,6 +28,20 @@
 		]
 	},
 	{
+		"id": "shiny_hello_pumpkin",
+		"tool": "knife_and_board",
+		"input": {
+			"pumpkin": 1
+		},
+		"output": "shiny_hello_pumpkin",
+		"output_amt": 1,
+		"energy": -10,
+		"time": 5,
+		"holidays": [
+			"Zilloween"
+		]
+	},
+	{
 		"id": "steve_the_pumpkin",
 		"tool": "knife_and_board",
 		"input": {
