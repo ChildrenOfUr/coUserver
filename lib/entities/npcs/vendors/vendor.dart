@@ -59,6 +59,7 @@ abstract class Vendor extends NPC {
 						items["grinder"].getMap(),
 						items["smelter"].getMap(),
 						items["crystalmalizing_chamber"].getMap()
+						items["firefly_jar"].getMap(),
 					];
 					break;
 
