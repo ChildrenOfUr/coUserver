@@ -1,5 +1,6 @@
 part of quests;
 
+@app.Group('/quests')
 class QuestEndpoint {
 	static Map<String, WebSocket> userSockets = {};
 	static Map<String, UserQuestLog> questLogCache = {};
@@ -53,5 +54,28 @@ class QuestEndpoint {
 				Log.error('Rejecting quest <id=${map['id']}> for <email=${map['email']}>', e, st);
 			}
 		}
+	}
+
+	@app.Route('/requirementTypes')
+	Map<String, List<String>> requirementTypes() {
+		List<String> types = [];
+		List<String> events = [];
+
+		quests.values.forEach((Quest quest) {
+			quest.requirements.forEach((Requirement requirement) {
+				if (!types.contains(requirement.type)) {
+					types.add(requirement.type);
+				}
+
+				if (!events.contains(requirement.eventType)) {
+					events.add(requirement.eventType);
+				}
+			});
+		});
+
+		return {
+			'types': types,
+			'events': events
+		};
 	}
 }
