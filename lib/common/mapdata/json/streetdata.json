@@ -5999,7 +5999,8 @@
 	},
 	"Hell One": {
 		"hub_id": 40,
-		"tsid": "LA5PPFP86NF2FOS"
+		"tsid": "LA5PPFP86NF2FOS",
+		"broken": true
 	},
 	"Hell One OLD": {
 		"tsid": "LM4107R9OLUTA",
