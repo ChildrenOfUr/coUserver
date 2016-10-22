@@ -214,15 +214,10 @@ abstract class NPC extends Entity {
 				return;
 			}
 
-			// Limit names to 10 characters
-			if (name.length > 10) {
-				name = name.substring(0, 10);
-			}
-
 			this.nameOverride = name;
 		};
 
-		promptString('Choose a name', userSocket, JSON.encode({'id': id, 'email': email}), renameCallback);
+		promptString('Choose a name', userSocket, JSON.encode({'id': id, 'email': email}), renameCallback, charLimit: 10);
 		return true;
 	}
 }

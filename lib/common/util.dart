@@ -121,13 +121,14 @@ Map<String, Function> promptCallbacks = {};
 /// `callback` will be called with the following positional args:
 ///     1. reference
 ///     2. user's response
-void promptString(String prompt, WebSocket userSocket, String reference, Function callback) {
+void promptString(String prompt, WebSocket userSocket, String reference, Function callback, {int charLimit: 0}) {
 	promptCallbacks[reference] = callback;
 
 	userSocket.add(JSON.encode({
 		'promptString': true,
 		'promptText': prompt,
-		'promptRef': reference
+		'promptRef': reference,
+		'charLimit': charLimit
 	}));
 }
 
