@@ -1,506 +1,425 @@
 {
-	"12_sided_die": {
-		"name": "12-sided Die",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/dice_12sided__x1_iconic_png_1354836223.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/dice_12sided__x1_spin_png_1354836226.png",
-		"stacksTo": 1,
-		"price": 1100,
-		"description": "This die has 12 sides. One for every Giant, plus a mystery guest.",
-		"actions": [
-			{
-				"actionName": "Roll",
-				"itemRequirements": {},
-				"skillRequirements": {}
-			}
-		]
-	},
-	"ayn_rand_doll": {
-		"name": "Ayn Rand Doll",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/doll_ayn_rand__x1_1_png_1354832572.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/doll_ayn_rand__x1_1_png_1354832572.png",
-		"stacksTo": 1,
-		"price": 1009,
-		"description": "Contradictions do not exist: but this doll does. Every time you cuddle your doll, you feel like it was the doll's idea, and you had no choice but to submit. Weird."
-	},
-	"camera": {
-		"name": "Camera",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/camera__x1_1_png_1354836386.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/camera__x1_1_png_1354836386.png",
-		"stacksTo": 1,
-		"price": 1000,
-		"description": "A useful handheld gizmo with a lens, a button, and lots of complex intricate technical gubbins on the inside. Depending on who you ask, cameras are either for taking pretty pictures, or for stealing the soul of whoever they point at. This one is mainly for pictures though. You'd need a much bigger memory card for souls."
-	},
-	"cubimal_series_1_box": {
-		"name": "Cubimal Series 1 Box",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/cubimal_package__x1_1_png_1354836217.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/cubimal_package__x1_1_png_1354836217.png",
-		"stacksTo": 1,
-		"price": 5000,
-		"description": "Contains one (1) Series 1 Cubimal. Open it up to find out which one is inside. Collect them all!",
-		"actions": [
-			{
-				"actionName": "Take Out Cubimal",
-				"itemRequirements": {},
-				"skillRequirements": {}
-			}
-		]
-	},
-	"cubimal_series_2_box": {
-		"name": "Cubimal Series 2 Box",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/cubimal_package_2__x1_1_png_1354839815.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/cubimal_package_2__x1_1_png_1354839815.png",
-		"stacksTo": 1,
-		"price": 5000,
-		"description": "Contains one (1) Series 2 Cubimal. Open it up to find out which one is inside. Collect 'em all!",
-		"actions": [
-			{
-				"actionName": "Take Out Cubimal",
-				"itemRequirements": {},
-				"skillRequirements": {}
-			}
-		]
-	},
-	"dice": {
-		"name": "Pair of Dice",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/dice__x1_1_png_1354836215.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/dice__x1_1_png_1354836215.png",
-		"stacksTo": 1,
-		"price": 500,
-		"description": "Roll up!",
-		"actions": [
-			{
-				"actionName": "Roll",
-				"itemRequirements": {},
-				"skillRequirements": {}
-			}
-		]
-	},
-	"emotional_bear": {
-		"name": "Emotional Bear",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/emotional_bear__x1_iconic_png_1354831946.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/emotional_bear__x1_1_plain_png_1354831949.png",
-		"iconNum": 1,
-		"stacksTo": 1,
-		"price": 300,
-		"description": "When you can't express how you're feeling, this furry companion will emote on your behalf. Particularly when equipped with Lips for kissing or a Moon for you-know-whatting…"
-	},
-	"fortune": {
-		"name": "Fortune",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/fortune__x1_1_png_1354836235.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/fortune__x1_1_png_1354836235.png",
+	"bb_music_trophy": {
+		"name": "BB Music Trophy",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/trophy_music_b_brown__x1_1_png_1354835978.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_music_b_brown__x1_1_png_1354835978.png",
 		"stacksTo": 1,
 		"price": 0,
-		"description": "For those who believe their fate is predetermined, this fortune holds your destiny. Plus, your lucky lottery numbers!",
-		"actions": [
-			{
-				"actionName": "Read Fortune"
-			}
-		]
+		"description": "Brilliantly Bodacious are two words often used to describe the bearer of the BB Music Trophy. Also, \"Brutally Beardy\", or \"Big and Bouncy\". Anything celebrating the finding of all five BB Music Blocks, basically."
 	},
-	"fortune_cookie": {
-		"name": "Fortune Cookie",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/fortune_cookie__x1_1_png_1354836221.png",
-		"iconNum": 1,
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/fortune_cookie__x1_1_png_1354836221.png",
-		"stacksTo": 1,
-		"price": 200,
-		"description": "Comes without a note inside. Add your own and give it to a friend!",
-		"actions": [
-			{
-				"actionName": "Insert Note",
-				"itemRequirements": {
-					"all": {
-						"note": 1
-					}
-				}
-			}
-		]
-	},
-	"fortune_cookie_withfortune": {
-		"name": "Fortuned Cookie",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/fortune_cookie__x1_withnote_iconic_png_1354836220.png",
-		"iconNum": 1,
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/fortune_cookie__x1_withnote_png_1354836220.png",
+	"bubble_trophy": {
+		"name": "Bubble Trophy",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/trophy_bubble__x1_1_png_1354832337.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_bubble__x1_1_png_1354832337.png",
 		"stacksTo": 1,
 		"price": 0,
-		"description": "Comes with a note inside.",
-		"actions": [
-			{
-				"actionName": "Break Cookie"
-			}
-		]
+		"description": "This trophy is awarded for the plucky collection of all 4 bubbles."
 	},
-	"friedrich_nietzsche_doll": {
-		"name": "Friedrich Nietzsche Doll",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/doll_nietzsche__x1_1_png_1354832575.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/doll_nietzsche__x1_1_png_1354832575.png",
+	"conch": {
+		"name": "Conch",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/conch__x1_1_png_1354840278.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/conch__x1_1_png_1354840278.png",
 		"stacksTo": 1,
-		"price": 1009,
-		"description": "He sure is talky, but this moustachioed little chap isn't very comforting to cuddle. But then how cuddly, exactly, were you expecting your My Little Nietzsche to be?"
+		"price": 700,
+		"description": "A Conch!"
 	},
-	"garden_gnome": {
-		"name": "Garden Gnome",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/npc_garden_gnome__x1_idle0_png_1354832661.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/npc_garden_gnome__x1_idle0_png_1354832661.png",
-		"iconNum": 1,
-		"stacksTo": 1,
-		"price": 2000,
-		"description": "Hey, it's that weird old tiny bearded life-companion you've been hoping for! When placed in your yard, house or on your home street, your new little chum will reveal his hidden (or \"creepy\") talents…",
-		"entity": "GardenGnome"
-	},
-	"gift_box_wrapped": {
-		"name": "Gift Box",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped.png",
+	"crabpod_headphones": {
+		"name": "CrabPod Headphones",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/crabphones__x1_1_png_1354831597.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/crabphones__x1_1_png_1354831597.png",
 		"stacksTo": 1,
 		"price": 0,
-		"description": "One mystery surprise gift box, filled with… well, filled with gifts. But what gifts? There's only one way to find out… No, not asking the person who gave it to you. The OTHER, non-spoilerific way. Open it!"
+		"description": "These appear to be the kind of headphones only a crab could love. The sound quality is fabulous, but they really pinch your earlobes."
 	},
-	"glitchmas_card": {
-		"name": "Glitchmas Card",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/glitchmas_card__x1_1_png_1354837525.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/glitchmas_card__x1_1_png_1354837525.png",
-		"stacksTo": 1,
-		"price": 200,
-		"description": "A holiday greeting card, containing a heart-warming poem."
-	},
-	"glitchmas_cracker": {
-		"name": "Glitchmas Cracker",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/glitchmas_cracker__x1_1_png_1354837361.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/glitchmas_cracker__x1_1_png_1354837361.png",
-		"stacksTo": 1,
-		"price": 500,
-		"description": "Ostensibly a seasonal cardboard tube wrapped in colored paper. But so much more than that too. Once opened, it looks like it may contain a surprise, a gift, and curious lack of party hat. You probably need somebody else to help you pull it open to find out, though."
-	},
-	"glitchmas_cracker_factoid": {
-		"name": "Glitchmas Cracker Fun Fact",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/glitchmas_cracker_factoid__x1_1_png_1354837533.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/glitchmas_cracker_factoid__x1_1_png_1354837533.png",
-		"stacksTo": 1,
-		"price": 1,
-		"description": "A piece of fun and useful trivia. This would be a good conversation starter at holiday parties. Or not."
-	},
-	"glitchmas_cracker_joke": {
-		"name": "Glitchmas Cracker Joke",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/glitchmas_cracker_joke__x1_1_png_1354837344.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/glitchmas_cracker_joke__x1_1_png_1354837344.png",
-		"stacksTo": 1,
-		"price": 1,
-		"description": "A joke of dubious quality found in a Glitchmas Cracker. Who writes these things, anyway?"
-	},
-	"lips": {
-		"name": "Lips",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/lips__x1_1_png_1354831835.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/lips__x1_1_png_1354831835.png",
-		"iconNum": 1,
-		"stacksTo": 1,
-		"price": 10,
-		"description": "Pre-pursed, super-soft and infused with an antibacterial salve, these lips can be attached to whatever might help you kiss people better. Like, say, an Emotional Bear."
-	},
-	"ludwig_wittgenstein_doll": {
-		"name": "Ludwig Wittgenstein Doll",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/doll_wittgenstein__x1_1_png_1354832578.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/doll_wittgenstein__x1_1_png_1354832578.png",
-		"stacksTo": 1,
-		"price": 1009,
-		"description": "A depressed, closeted, singularly-focused Anglicized Austrian: student, schoolteacher, professor, maniac ... genius?"
-	},
-	"moon": {
-		"name": "Moon",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/moon__x1_1_png_1354830862.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/moon__x1_1_png_1354830862.png",
-		"stacksTo": 1,
-		"price": 99,
-		"description": "One full, craterous moon, without which mooning cannot happen. Most useful if attached to an Emotional Bear."
-	},
-	"party_aquarius": {
-		"name": "Aquarius Party Pack",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_aquarius__x1_1_png_1354840298.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_aquarius__x1_1_png_1354840298.png",
-		"stacksTo": 1,
-		"price": 1000,
-		"description": "Swim, float & drift your way around this quoin-laden party space. And, remember … quoining is always more fun with friends!"
-	},
-	"party_double_rainbow": {
-		"name": "Double Rainbow Party Pack",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_double_rainbow__x1_1_png_1354836450.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_double_rainbow__x1_1_png_1354836450.png",
-		"stacksTo": 1,
-		"price": 1000,
-		"description": "One ephemeral cute-as-a-button party space, perfect for private events. When activated, temporary party location includes complimentary mineables, munchables and mixables, sparkles and lollipops and glee."
-	},
-	"party_mazzala_gala": {
-		"name": "Mazza'la Gala Party Pack",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_mazzala_gala__x1_1_png_1354836474.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_mazzala_gala__x1_1_png_1354836474.png",
-		"stacksTo": 1,
-		"price": 1000,
-		"description": "One private and transient five-room wooden party lodge. When activated, temporary party location includes DIY hearty party feast, beer, booze, and one very dark make-out room."
-	},
-	"party_nylon_phool": {
-		"name": "Nylon Phool Party Pack",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_nylon_phool__x1_1_png_1354836447.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_nylon_phool__x1_1_png_1354836447.png",
-		"stacksTo": 1,
-		"price": 1000,
-		"description": "One temporary underwater pool-party spot. When activated, this ephemeral party place includes a complimentary DIY juice bar, smoothie-zone and Spicy Grog spot, replenishing nibbles and unlimited floatiness."
-	},
-	"party_pitchen_lilliputt": {
-		"name": "Pitchen Lilliputt Party Pack",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_pitchen_lilliputt__x1_1_png_1354836440.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_pitchen_lilliputt__x1_1_png_1354836440.png",
-		"stacksTo": 1,
-		"price": 1000,
-		"description": "Miniature Ur for Glitchean giants in one small but perfectly formed temporary party location. When activated, this ephemeral party spot includes minables, nibbles, snacks and sammiches, and one DIY fancy-cocktail bar."
-	},
-	"party_taster_aquarius": {
-		"name": "Aquarius Party Pack Taster",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_aquarius__x1_1_png_1354840303.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_aquarius__x1_1_png_1354840303.png",
-		"stacksTo": 1,
-		"price": 200,
-		"description": "Swim, float & drift your way around this quoin-laden party space. And, remember … quoining is always more fun with friends!"
-	},
-	"party_taster_double_rainbow": {
-		"name": "Double Rainbow Party Pack Taster",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_double_rainbow__x1_1_png_1354836477.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_double_rainbow__x1_1_png_1354836477.png",
-		"stacksTo": 1,
-		"price": 200,
-		"description": "One ephemeral cute-as-a-button party space, perfect for private events. When activated, temporary party location includes complimentary mineables, munchables and mixables, sparkles and lollipops and glee."
-	},
-	"party_taster_mazzala_gala": {
-		"name": "Mazza'la Gala Party Pack Taster",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_mazzala_gala__x1_1_png_1354836486.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_mazzala_gala__x1_1_png_1354836486.png",
-		"stacksTo": 1,
-		"price": 200,
-		"description": "One private and transient five-room wooden party lodge. When activated, temporary party location includes DIY hearty party feast, beer, booze, and one very dark make-out room."
-	},
-	"party_taster_nylon_phool": {
-		"name": "Nylon Phool Party Pack Taster",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_nylon_phool__x1_1_png_1354836488.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_nylon_phool__x1_1_png_1354836488.png",
-		"stacksTo": 1,
-		"price": 200,
-		"description": "One temporary underwater pool-party spot. When activated, this ephemeral party place includes a complimentary DIY juice bar, smoothie-zone and Spicy Grog spot, replenishing nibbles and unlimited floatiness."
-	},
-	"party_taster_pitchen_lilliputt": {
-		"name": "Pitchen Lilliputt Party Pack Taster",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_pitchen_lilliputt__x1_1_png_1354836491.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_pitchen_lilliputt__x1_1_png_1354836491.png",
-		"stacksTo": 1,
-		"price": 200,
-		"description": "Miniature Ur for Glitchean giants in one small but perfectly formed temporary party location. When activated, this ephemeral party spot includes minables, nibbles, snacks and sammiches, and one DIY fancy-cocktail bar."
-	},
-	"party_taster_toxic_moon": {
-		"name": "Toxic Moon Party Pack Taster",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_toxic_moon__x1_1_png_1354836493.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_toxic_moon__x1_1_png_1354836493.png",
-		"stacksTo": 1,
-		"price": 200,
-		"description": "One secluded and totally transient lunar location. When activated, temporary party spot includes ingredients for cocktails, sparkly rocks for space-mining, and a notable lack of gravity, for super-awesome-space-jumpiness."
-	},
-	"party_taster_val_holla": {
-		"name": "Val Holla Party Pack Taster",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_val_holla__x1_1_png_1354840300.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_val_holla__x1_1_png_1354840300.png",
-		"stacksTo": 1,
-		"price": 200,
-		"description": "Soar to new heights in this quoin-heavy party space. Grab a bunch of your closest friends, and get ready to Party Shardy!"
-	},
-	"party_taster_winter_wingding": {
-		"name": "Winter Wingding Party Pack Taster",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_winter_wingding__x1_1_png_1354837530.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_winter_wingding__x1_1_png_1354837530.png",
-		"stacksTo": 1,
-		"price": 200,
-		"description": "One temporary wonderland, perfect for holiday get-togethers and winterly fun. When activated, this icy private party spot includes trees for decorating, ingredients for heart-warming drinkables and a DIY pie bar."
-	},
-	"party_toxic_moon": {
-		"name": "Toxic Moon Party Pack",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_toxic_moon__x1_1_png_1354836443.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_toxic_moon__x1_1_png_1354836443.png",
-		"stacksTo": 1,
-		"price": 1000,
-		"description": "One secluded and totally transient lunar location. When activated, temporary party spot includes ingredients for cocktails, sparkly rocks for space-mining, and a notable lack of gravity, for super-awesome-space-jumpiness."
-	},
-	"party_val_holla": {
-		"name": "Val Holla Party Pack",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_val_holla__x1_1_png_1354840295.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_val_holla__x1_1_png_1354840295.png",
-		"stacksTo": 1,
-		"price": 1000,
-		"description": "Soar to new heights in this quoin-heavy party space. Grab a bunch of your closest friends, and get ready to Party Shardy!"
-	},
-	"party_winter_wingding": {
-		"name": "Winter Wingding Party Pack",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_winter_wingding__x1_1_png_1354837527.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_winter_wingding__x1_1_png_1354837527.png",
-		"stacksTo": 1,
-		"price": 1000,
-		"description": "One temporary wonderland, perfect for holiday get-togethers and winterly fun. When activated, this icy private party spot includes trees for decorating, ingredients for heart-warming drinkables and a DIY pie bar."
-	},
-	"play_cube": {
-		"name": "Play Cube",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/play_cube__x1_1_png_1354840408.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/play_cube__x1_1_png_1354840408.png",
+	"crafty_bot": {
+		"name": "Crafty Bot",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/npc_crafty_bot__x1_idle0_png_1354839494.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/npc_crafty_bot__x1_back_png_1354839521.png",
 		"stacksTo": 1,
 		"price": 0,
-		"description": "Play Cubes are famous the world over. Re-live some of your favorite quest memories with one simple click. Don't waste another minute, play with your cube now!"
+		"description": "A robot that can make stuff for you."
 	},
-	"random_kindness": {
-		"name": "Random Kindness",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/random_kindness__x1_1_png_1354833524.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/random_kindness__x1_1_png_1354833524.png",
+	"trophy_cubimal": {
+		"name": "Cubimal Series 1 Trophy",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/trophy_cubimal__x1_1_png_1354836342.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_cubimal__x1_1_png_1354836342.png",
 		"stacksTo": 1,
 		"price": 0,
-		"description": "This priceless item dispenses random kindness."
+		"description": "This trophy is awarded for the cubular collection of all 23 cubimals of Cubimal Series 1."
 	},
-	"ticket_amazing_race": {
-		"name": "Amazing Race Ticket",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/race_ticket_amazing_race__x1_iconic_png_1354836471.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/race_ticket_amazing_race__x1_1_x1_2_x1_3_x1_4_png_1354836471.png",
+	"trophy_cubimal_2": {
+		"name": "Cubimal Series 2 Trophy",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/trophy_cubimal_2__x1_1_png_1354839876.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_cubimal_2__x1_1_png_1354839876.png",
+		"stacksTo": 1,
+		"price": 0,
+		"description": "This trophy is awarded for the cubuliscious collection of all 20 Cubimals of Cubimal Series 2."
+	},
+	"db_music_trophy": {
+		"name": "DB Music Trophy",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/trophy_music_d_blue__x1_1_png_1354832345.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_music_d_blue__x1_1_png_1354832345.png",
+		"stacksTo": 1,
+		"price": 0,
+		"description": "This plaque entitles the winner to bragging rights for collecting all five DB Music Blocks."
+	},
+	"dg_music_trophy": {
+		"name": "DG Music Trophy",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/trophy_music_d_green__x1_1_png_1354832347.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_music_d_green__x1_1_png_1354832347.png",
+		"stacksTo": 1,
+		"price": 0,
+		"description": "This plaque shouts out \"Look at me world! I collected all five DG Music Blocks!\" Metaphorically, that is."
+	},
+	"drink_ticket": {
+		"name": "Diabolical Drink Ticket",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/drink_ticket__x1_1_png_1354837724.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/drink_ticket__x1_1_png_1354837724.png",
 		"stacksTo": 5,
-		"price": 20,
-		"description": "Challenge another player to the Amazing Race."
+		"price": 0,
+		"description": "Printed in infernal inks on fire-resistant paper, a Diabolical Drink Ticket can be given to Hell's Bartender in exchange for the potent Wine of the Dead—a fermented beverage which revitalizes the devitalized. No one knows what the Bartender does with the tickets, but rumour has it that in sufficient numbers they can be redeemed for either an all-expenses-paid vacation to Ix or the apocalypse."
 	},
-	"ticket_canyon_run": {
-		"name": "Canyon Run Ticket",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/race_ticket_canyon_run__x1_iconic_png_1354836468.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/race_ticket_canyon_run__x1_1_x1_2_x1_3_x1_4_png_1354836468.png",
-		"stacksTo": 5,
-		"price": 20,
-		"description": "Challenge another player to Canyon Run."
+	"dr_music_trophy": {
+		"name": "DR Music Trophy",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/trophy_music_d_red__x1_1_png_1354832349.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_music_d_red__x1_1_png_1354832349.png",
+		"stacksTo": 1,
+		"price": 0,
+		"description": "Let it be known that this here plaque award thingummy honors the finding and collecting of all 5 DR Music Blocks."
 	},
-	"ticket_crystal_climb": {
-		"name": "Crystal Climb Ticket",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/race_ticket_crystal_climb__x1_iconic_png_1354836461.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/race_ticket_crystal_climb__x1_1_x1_2_x1_3_x1_4_png_1354836462.png",
-		"stacksTo": 5,
-		"price": 20,
-		"description": "Challenge another player to Crystal Climb."
+	"egg_hunter_trophy": {
+		"name": "Egg Hunter Trophy",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/trophy_egghunt__x1_1_png_1354833275.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_egghunt__x1_1_png_1354833275.png",
+		"stacksTo": 1,
+		"price": 0,
+		"description": "This trophy is awarded to the eager egg hunter who collects all five chocolate eggs."
 	},
-	"ticket_game_of_crowns": {
-		"name": "Game of Crowns Ticket",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/race_ticket_it_game__x1_iconic_png_1354836240.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/race_ticket_it_game__x1_1_x1_2_x1_3_x1_4_png_1354836240.png",
-		"stacksTo": 5,
-		"price": 20,
-		"description": "Challenge another player to Game of Crowns."
+	"emblem_trophy": {
+		"name": "Emblem Trophy",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/trophy_emblems__x1_1_png_1354832920.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_emblems__x1_1_png_1354832920.png",
+		"stacksTo": 1,
+		"price": 0,
+		"description": "This trophy is awarded for collecting all 11 Giant Emblems. Giantdamn, you are good at Glitch!"
 	},
-	"ticket_gameshow": {
-		"name": "Gameshow Ticket",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/gameshow_ticket__x1_iconic_png_1354830731.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/gameshow_ticket__x1_1_x1_2_x1_3_x1_4_x1_5_x1_6_x1_7_x1_8_x1_9_x1_10_x1_11_png_1354830731.png",
+	"faded_heart": {
+		"name": "Faded Heart",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/faded_heart__x1_1_png_1354836238.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/faded_heart__x1_1_png_1354836238.png",
+		"stacksTo": 1,
+		"price": 0,
+		"description": "This ghostly, Faded Heart is all that remains of a forgotten tragedy."
+	},
+	"fruit_trophy": {
+		"name": "Fruit Trophy",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/trophy_fruit__x1_1_png_1354832339.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_fruit__x1_1_png_1354832339.png",
+		"stacksTo": 1,
+		"price": 0,
+		"description": "This cup is awarded for superior efforts in the fruit collecting sciences."
+	},
+	"gas_trophy": {
+		"name": "Gas Trophy",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/trophy_gas__x1_1_png_1354832341.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_gas__x1_1_png_1354832341.png",
+		"stacksTo": 1,
+		"price": 0,
+		"description": "This trophy is awarded to those who demonstrate noble dedication to gas collecting."
+	},
+	"gem_trophy": {
+		"name": "Gem Trophy",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/trophy_gem__x1_1_png_1354832343.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_gem__x1_1_png_1354832343.png",
+		"stacksTo": 1,
+		"price": 0,
+		"description": "This trophy is awarded for a nigh-unnatural love of shiny things that doesn't involve putting them in one's mouth."
+	},
+	"greeter_twig": {
+		"name": "Greeter Twig",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/greeter_twig__x1_1_png_1354840099.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/greeter_twig__x1_available_png_1354840102.png",
+		"stacksTo": 1,
+		"price": 0,
+		"description": "This twig vibrates in the frequency of Greeters, the helpful humans inhabiting the world of Glitch."
+	},
+	"hello_pumpkin": {
+		"name": "Hello Pumpkin!",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/pumpkin_carved_3__x1_1_png_1354836506.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_carved_3__x1_1_png_1354836506.png",
+		"stacksTo": 1,
+		"price": 41,
+		"description": "The only hollowed out vegetable so cute you'd happily put it in your pocket and carry it around all day. Or at least, you would if it didn't weigh 50lb and smell of decomposing food. Hello Pumpkin!"
+	},
+	"jack_the_pumpkin": {
+		"name": "Jack the Pumpkin",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/pumpkin_carved_x1_1__1_png_1354836500.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_carved_x1_1__1_png_1354836500.png",
+		"stacksTo": 1,
+		"price": 41,
+		"description": "Part-vegetable, part-sprite, this is Jack. He makes you feel a little autumnal, a little festive, and a little like your soul might get dragged, screaming, from your sleeping body."
+	},
+	"jack_o_lantern": {
+		"name": "Jack-O-Lantern",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_x1_1__1_png_1354836521.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_1__x1_talk_png_1354836521.png",
+		"stacksTo": 1,
+		"price": 151,
+		"description": "A carved pumpkin lit from the inside with the power of fireflies. You'd think this would make it look more warm and comforting. But no, still terrifying (for a vegetable)."
+	},
+	"lem_the_pumpkin": {
+		"name": "Lem the Pumpkin",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/pumpkin_carved_5__x1_1_png_1354836630.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_carved_5__x1_1_png_1354836630.png",
+		"stacksTo": 1,
+		"price": 41,
+		"description": "To mark the special relationship between the Lemmites and the Zillots, the Lem Pumpkin was created by a particularly talented Lemmite carver named Myuki. Zille, apparently, was unimpressed at this sharing of her holiday. But Lem loved it."
+	},
+	"lem_o_lantern": {
+		"name": "Lem-O-Lantern",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_5__x1_1_png_1354836632.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_5__x1_talk_png_1354836633.png",
+		"stacksTo": 1,
+		"price": 151,
+		"description": "An unusual addition to Zilloween, the Lem-O-Lantern, marking the special relationship between Zillots and Lemmites, has long been created for the festival by vegetablartistes. It is especially prized, as it uses a special flick of the pick known as \"The Myuki Technique\"."
+	},
+	"moving_box": {
+		"name": "Moving Box",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/bag_moving_box__x1_1_png_1354837683.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/bag_moving_box__x1_1_png_1354837683.png",
+		"stacksTo": 1,
+		"price": 0,
+		"description": "The Glitch Advanced Moving Service (GAMS) will pack up your belongings and transfer them to your new home for you."
+	},
+	"new_player_pack_butterfly": {
+		"name": "New Player Pack",
+		"recipeName": "New Player Pack (Butterfly)",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/newplayerbutterflybox.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/newplayerbutterflybox.png",
 		"stacksTo": 11,
 		"price": 0,
-		"description": "One glittery, razzling, dazzling game show ticket. Ain't nothing you can do but USE it."
+		"description": "Welcome new players into the world of Ur. This pack contains a few items that should spark the imagination",
+		"actions": [
+			{
+				"actionName": "Open Pack",
+				"description": "Open to see what's inside",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
 	},
-	"ticket_grab_em_good": {
-		"name": "Grab 'Em Good Ticket",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/race_ticket_grab_em_good__x1_iconic_png_1354836466.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/race_ticket_grab_em_good__x1_1_x1_2_x1_3_x1_4_png_1354836466.png",
-		"stacksTo": 5,
-		"price": 20,
-		"description": "Challenge another player to Grab 'Em Good."
+	"new_player_pack_chicken": {
+		"name": "New Player Pack",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped.png",
+		"stacksTo": 11,
+		"price": 0,
+		"description": "Welcome new players into the world of Ur. This pack contains a few items that should spark the imagination",
+		"actions": [
+			{
+				"actionName": "Open Pack",
+				"description": "Open to see what's inside",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
 	},
-	"ticket_lava_leap": {
-		"name": "Lava Leap Ticket",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/race_ticket_lava_leap__x1_iconic_png_1354836463.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/race_ticket_lava_leap__x1_1_x1_2_x1_3_x1_4_png_1354836464.png",
-		"stacksTo": 5,
-		"price": 20,
-		"description": "Challenge another player to Lava Leap."
+	"new_player_pack_piggy": {
+		"name": "New Player Pack",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped.png",
+		"stacksTo": 11,
+		"price": 0,
+		"description": "Welcome new players into the world of Ur. This pack contains a few items that should spark the imagination",
+		"actions": [
+			{
+				"actionName": "Open Pack",
+				"description": "Open to see what's inside",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
 	},
-	"ticket_space_race": {
-		"name": "Space Race Ticket",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/race_ticket_space_race__x1_iconic_png_1354836459.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/race_ticket_space_race__x1_1_x1_2_x1_3_x1_4_png_1354836460.png",
-		"stacksTo": 5,
-		"price": 20,
-		"description": "Challenge another player to Space Race."
-	},
-	"ticket_star_sprint": {
-		"name": "Star Sprint Ticket",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/race_ticket_star_sprint__x1_iconic_png_1354836457.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/race_ticket_star_sprint__x1_1_x1_2_x1_3_x1_4_png_1354836457.png",
-		"stacksTo": 5,
-		"price": 20,
-		"description": "Challenge another player to Star Sprint."
-	},
-	"ticket_the_great_hog_haul": {
-		"name": "The Great Hog Haul Ticket",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/race_ticket_hogtie_piggy__x1_iconic_png_1354836452.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/race_ticket_hogtie_piggy__x1_1_x1_2_x1_3_x1_4_png_1354836452.png",
-		"stacksTo": 5,
-		"price": 20,
-		"description": "Challenge another player to The Great Hog Haul."
-	},
-	"ticket_time_warp": {
-		"name": "Time Warp Ticket",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/race_ticket_time_warp__x1_iconic_png_1354836454.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/race_ticket_time_warp__x1_1_x1_2_x1_3_x1_4_png_1354836455.png",
-		"stacksTo": 5,
-		"price": 20,
-		"description": "Challenge another player to Time Warp."
-	},
-	"wrappable_gift_box": {
-		"name": "Wrappable Gift Box",
-		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box__x1_1_png_1354837363.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box__x1_1_png_1354837363.png",
+	"note_pole": {
+		"name": "Note Pole",
+		"category": "Other",
+		"iconUrl": "",
+		"spriteUrl": "",
 		"stacksTo": 1,
-		"price": 400,
-		"description": "An empty box, filled with promise. Not really, it's filled with nothing, but once someone (the gifter) fills it with something (the gift), wraps it, and gives it to another (the giftee) it will be filled with joy. Each box can take three stacks of joy (or three stacks of anything, in fact)."
+		"price": 600,
+		"description": "I'm a little note pole which you can customize to your heart's desire and then place in your yard or your house. Post a note on me to amuse, astonish or edify your visitors."
+	},
+	"pareidolic_cosma_toast": {
+		"name": "Pareidolic Giant Image on Toast",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/pareidolic_cosma_toast__x1_1_png_1354840052.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/pareidolic_cosma_toast__x1_1_png_1354840052.png",
+		"stacksTo": 1,
+		"price": 0,
+		"description": "A piece of toast with what some people claim is an image of Cosma. Initially bought on GleBay."
+	},
+	"piggy_plop": {
+		"name": "Piggy Plop",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/plop__x1_1_png_1354831023.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/plop__x1_1_png_1354831023.png",
+		"stacksTo": 1,
+		"price": 0,
+		"description": "Piggy plop is the delicately scented excrescence of a healthy piggy. Round, brown, and mysterious, it may contain presents.",
+		"actions": [
+			{
+				"actionName": "Taste Plop",
+				"description": "You do you",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			},
+			{
+				"actionName": "Sniff Plop",
+				"description": "You're an odd one, aren't ya?",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			},
+			{
+				"actionName": "Examine Plop",
+				"description": "Take a closer look at this plop",
+				"itemRequirements": {},
+				"skillRequirements": {}
+			}
+		]
+	},
+	"shiny_hello_pumpkin": {
+		"name": "Shiny Hello Pumpkin!",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_3__x1_1_png_1354836532.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_3__x1_talk_png_1354836533.png",
+		"stacksTo": 1,
+		"price": 151,
+		"description": "A brightly-lit cute kitty pumpkin lantern. As cute as a vegetable that has been set about with a knife until it resembles an animal and then set on fire with a face full of insects can be. Pretty cute then!"
+	},
+	"spice_trophy": {
+		"name": "Spice Trophy",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/trophy_spice__x1_1_png_1354832353.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_spice__x1_1_png_1354832353.png",
+		"stacksTo": 1,
+		"price": 0,
+		"description": "The paws of the individual holding this award are deserving of your praise, if you consider the collection of all 16 spices praiseworthy. Which you should."
+	},
+	"spigot": {
+		"name": "Spigot",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/spigot__x1_iconic_png_1354830428.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/spigot__x1_1_x1_2_x1_3_x1_4_png_1354830429.png",
+		"stacksTo": 10,
+		"price": 350,
+		"description": "Technically, the Spigot is like a bung, but with a tap. A tapped bung, tapered to accurately fit a Still's bunghole, this spigot is carefully calibrated to control the flow of moonshine from a fresh distilled batch. It's also, for the record, a very fun word to say. Spigot. Spigot."
+	},
+	"steve_the_pumpkin": {
+		"name": "Steve the Pumpkin",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/pumpkin_carved_2__x1_1_png_1354836502.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_carved_2__x1_1_png_1354836502.png",
+		"stacksTo": 1,
+		"price": 41,
+		"description": "A widely-grinning pumpkin, ready to party (with the addition of fireflies). Could be accessorised with a pile of pepitas to make a puking pumpkin, but that's a matter of taste. Or lack of taste. Whatever."
+	},
+	"steve_o_lantern": {
+		"name": "Steve-O-Lantern",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_2__x1_1_png_1354836524.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_2__x1_talk_png_1354836530.png",
+		"stacksTo": 1,
+		"price": 151,
+		"description": "A gurning, gape-mouthed, firefly-filled glowing pumpkin, smelling of decomposing root, and overcooked vegetables. How very seasonal."
+	},
+	"street_creator_dirt_trophy": {
+		"name": "Street Creator Dirt Trophy",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_dirt__x1_1_png_1354832940.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_dirt__x1_1_png_1354832940.png",
+		"stacksTo": 1,
+		"price": 0,
+		"description": "This Trophy, artfully depicting a master of dirt, marks a street-building career so great that the holder collected… well, all five parts of this trophy."
+	},
+	"street_creator_earth_trophy": {
+		"name": "Street Creator Earth Trophy",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_earth__x1_1_png_1354832945.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_earth__x1_1_png_1354832945.png",
+		"stacksTo": 1,
+		"price": 0,
+		"description": "This stunning bauble marks a remarkable amount of street-building by the holder. Enough to collect all five parts of this fine Earth Trophy, at least."
+	},
+	"street_creator_rock_trophy": {
+		"name": "Street Creator Rock Trophy",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_rock__x1_1_png_1354832944.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_rock__x1_1_png_1354832944.png",
+		"stacksTo": 1,
+		"price": 0,
+		"description": "The holder of this tchotchke has earned their reputation as a rock of the street-creation community. They also earned a patched-up trophy."
+	},
+	"street_creator_wood_trophy": {
+		"name": "Street Creator Wood Trophy",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_wood__x1_1_png_1354832942.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_street_creator_wood__x1_1_png_1354832942.png",
+		"stacksTo": 1,
+		"price": 0,
+		"description": "The holder of this trophy hard-earned each of its five fragments through assiduous street-creation activity. Hopefully it won't give splinters."
+	},
+	"xs_music_trophy": {
+		"name": "XS Music Trophy",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/trophy_music_x_shiny__x1_1_png_1354832351.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/trophy_music_x_shiny__x1_1_png_1354832351.png",
+		"stacksTo": 1,
+		"price": 0,
+		"description": "As shiny as the soul of its bearer, this plaque recognizes the meritorious Music Block collection skills of said bearer."
+	},
+	"zille_the_pumpkin": {
+		"name": "Zille the Pumpkin",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/pumpkin_carved_4__x1_1_png_1354836518.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_carved_4__x1_1_png_1354836518.png",
+		"stacksTo": 1,
+		"price": 41,
+		"description": "A traditional Zilloween decoration, this is a common-or-garden pumpkin carved into a representation of Zille, giant of mountains and mining. Already pretty magical, it will become more magical with the addition of fireflies."
+	},
+	"zille_o_lantern": {
+		"name": "Zille-O-Lantern",
+		"category": "Other",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_4__x1_1_png_1354836535.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/pumpkin_lit_4__x1_talk_png_1354836535.png",
+		"stacksTo": 1,
+		"price": 151,
+		"description": "A common seasonal vegetable carved into a representation of Zille, and filled with fireflies to create an eerie glow. And it IS eerie. If you squint, it's like her eyes (and the burny pumpkin smell) are following you around the room."
 	}
 }
