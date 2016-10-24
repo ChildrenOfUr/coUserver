@@ -203,6 +203,8 @@ abstract class NPC extends Entity {
 		});
 
 	Future<bool> rename({WebSocket userSocket, String email}) async {
+		final int NAME_LEN_LIMIT = 10;
+
 		if (!renameable) {
 			return false;
 		}
@@ -214,10 +216,14 @@ abstract class NPC extends Entity {
 				return;
 			}
 
+			if (name.length > NAME_LEN_LIMIT) {
+				name = name.substring(0, NAME_LEN_LIMIT);
+			}
+
 			this.nameOverride = name;
 		};
 
-		promptString('Choose a name', userSocket, JSON.encode({'id': id, 'email': email}), renameCallback, charLimit: 10);
+		promptString('Choose a name', userSocket, JSON.encode({'id': id, 'email': email}), renameCallback, charLimit: NAME_LEN_LIMIT);
 		return true;
 	}
 }
