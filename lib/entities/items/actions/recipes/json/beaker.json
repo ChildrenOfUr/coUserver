@@ -1,19 +1,5 @@
 [
 	{
-		"id": "extremely_hallowed_shrine_powder",
-		"tool": "beaker",
-		"input": {
-			"zillene": 175,
-			"humbabol": 160,
-			"groddlene": 40
-		},
-		"output": "extremely_hallowed_shrine_powder",
-		"output_amt": 1,
-		"energy": -10,
-		"time": 4,
-		"img": 4
-	},
-	{
 		"id": "fairly_hallowed_shrine_powder",
 		"tool": "beaker",
 		"input": {
@@ -28,14 +14,14 @@
 		"img": 2
 	},
 	{
-		"id": "fertilidust",
+		"id": "extremely_hallowed_shrine_powder",
 		"tool": "beaker",
 		"input": {
-			"humbabol": 40,
-			"potoxin": 20,
-			"cosmox": 10
+			"zillene": 175,
+			"humbabol": 160,
+			"groddlene": 40
 		},
-		"output": "fertilidust",
+		"output": "extremely_hallowed_shrine_powder",
 		"output_amt": 1,
 		"energy": -10,
 		"time": 4,
@@ -55,31 +41,18 @@
 		"img": 2
 	},
 	{
-		"id": "krazy_salts",
+		"id": "fertilidust",
 		"tool": "beaker",
 		"input": {
-			"ixite": 11,
-			"lemene": 11,
-			"tiite": 11
+			"humbabol": 40,
+			"potoxin": 20,
+			"cosmox": 10
 		},
-		"output": "krazy_salts",
+		"output": "fertilidust",
 		"output_amt": 1,
-		"energy": -3,
-		"time": 1,
-		"img": 1
-	},
-	{
-		"id": "no_no_powder",
-		"tool": "beaker",
-		"input": {
-			"lemene": 4,
-			"cosmox": 1
-		},
-		"output": "no_no_powder",
-		"output_amt": 1,
-		"energy": -7,
-		"time": 3,
-		"img": 3
+		"energy": -10,
+		"time": 4,
+		"img": 4
 	},
 	{
 		"id": "powder_of_mild_fecundity",
@@ -131,6 +104,33 @@
 		"output": "sparkle_powder",
 		"output_amt": 1,
 		"energy": -3,
+		"time": 3,
+		"img": 3
+	},
+	{
+		"id": "krazy_salts",
+		"tool": "beaker",
+		"input": {
+			"ixite": 11,
+			"lemene": 11,
+			"tiite": 11
+		},
+		"output": "krazy_salts",
+		"output_amt": 1,
+		"energy": -3,
+		"time": 1,
+		"img": 1
+	},
+	{
+		"id": "no_no_powder",
+		"tool": "beaker",
+		"input": {
+			"lemene": 4,
+			"cosmox": 1
+		},
+		"output": "no_no_powder",
+		"output_amt": 1,
+		"energy": -7,
 		"time": 3,
 		"img": 3
 	}
