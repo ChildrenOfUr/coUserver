@@ -44,17 +44,6 @@
 		"price": 1,
 		"description": "A compound made out of red, green and blue."
 	},
-	"extremely_hallowed_shrine_powder": {
-		"name": "Extremely Hallowed Shrine Powder",
-		"category": "Alchemical Compounds & Powders",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/extremely_hallowed_shrine_powder.png",
-		"toolAnimation": "http://childrenofur.com/assets/entityImages/extremely_hallowed_shrine_powder__x1_tool_animation_png_1354832136.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/extremely_hallowed_shrine_powder__x1_5_x1_4_x1_3_x1_2_x1_1_png_1354832137.png",
-		"stacksTo": 1,
-		"price": 2000,
-		"durability": 5,
-		"description": "A jar of extremely hallowed shrine powder. It lets the giants know that, when it comes to currying favor, you really mean business."
-	},
 	"fairly_hallowed_shrine_powder": {
 		"name": "Fairly Hallowed Shrine Powder",
 		"category": "Alchemical Compounds & Powders",
@@ -66,16 +55,16 @@
 		"durability": 5,
 		"description": "Curry a moderate amount of favor with the giants with a jar of fairly hallowed shrine powder."
 	},
-	"fertilidust": {
-		"name": "Fertilidust",
+	"extremely_hallowed_shrine_powder": {
+		"name": "Extremely Hallowed Shrine Powder",
 		"category": "Alchemical Compounds & Powders",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/fertilidust.png",
-		"toolAnimation": "http://childrenofur.com/assets/entityImages/fertilidust__x1_tool_animation_png_1354832151.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/fertilidust__x1_5_x1_4_x1_3_x1_2_x1_1_png_1354832152.png",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/extremely_hallowed_shrine_powder.png",
+		"toolAnimation": "http://childrenofur.com/assets/entityImages/extremely_hallowed_shrine_powder__x1_tool_animation_png_1354832136.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/extremely_hallowed_shrine_powder__x1_5_x1_4_x1_3_x1_2_x1_1_png_1354832137.png",
 		"stacksTo": 1,
-		"price": 500,
+		"price": 2000,
 		"durability": 5,
-		"description": "A jar of chokingly musty fertilidust, effective in promoting the health of trees."
+		"description": "A jar of extremely hallowed shrine powder. It lets the giants know that, when it comes to currying favor, you really mean business."
 	},
 	"fertilidust_lite": {
 		"name": "Fertilidust Lite",
@@ -87,6 +76,17 @@
 		"price": 200,
 		"durability": 5,
 		"description": "A jar of somewhat musty fertilidust lite, effective in improving the health of individual trees."
+	},
+	"fertilidust": {
+		"name": "Fertilidust",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/fertilidust.png",
+		"toolAnimation": "http://childrenofur.com/assets/entityImages/fertilidust__x1_tool_animation_png_1354832151.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/fertilidust__x1_5_x1_4_x1_3_x1_2_x1_1_png_1354832152.png",
+		"stacksTo": 1,
+		"price": 500,
+		"durability": 5,
+		"description": "A jar of chokingly musty fertilidust, effective in promoting the health of trees."
 	},
 	"friendly_acid": {
 		"name": "Friendly Acid",
@@ -142,15 +142,6 @@
 		"price": 4,
 		"description": "A compound made out of red, green, blue and shiny."
 	},
-	"krazy_salts": {
-		"name": "Krazy Salts",
-		"category": "Alchemical Compounds & Powders",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/krazy_salts__x1_iconic_png_1354837025.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/krazy_salts__x1_1_x1_2_x1_3_x1_4_png_1354837026.png",
-		"stacksTo": 33,
-		"price": 111,
-		"description": "A vital magical ingredient, Krazy Salts should never be mistaken for normal, run of the spice-mill Pinch of Salt. For one thing, you need to save it for Potions. For the other, this Salt be KRAZY! Seriously: keep it away from sharp objects."
-	},
 	"lemene": {
 		"name": "Lemene",
 		"category": "Alchemical Compounds & Powders",
@@ -168,15 +159,6 @@
 		"stacksTo": 500,
 		"price": 15,
 		"description": "A compound made out of green, blue and shiny."
-	},
-	"no_no_powder": {
-		"name": "No-No Powder",
-		"category": "Alchemical Compounds & Powders",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/no_no_powder__x1_iconic_png_1354832159.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/no_no_powder__x1_1_x1_2_x1_3_x1_4_png_1354832159.png",
-		"stacksTo": 10,
-		"price": 100,
-		"description": "Some tempting no-no powder. You know you shouldn't, but maybe just this once …"
 	},
 	"potoxin": {
 		"name": "Potoxin",
@@ -302,5 +284,23 @@
 		"stacksTo": 500,
 		"price": 6,
 		"description": "A compound made out of green, blue and shiny."
+	},
+	"krazy_salts": {
+		"name": "Krazy Salts",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/krazy_salts__x1_iconic_png_1354837025.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/krazy_salts__x1_1_x1_2_x1_3_x1_4_png_1354837026.png",
+		"stacksTo": 33,
+		"price": 111,
+		"description": "A vital magical ingredient, Krazy Salts should never be mistaken for normal, run of the spice-mill Pinch of Salt. For one thing, you need to save it for Potions. For the other, this Salt be KRAZY! Seriously: keep it away from sharp objects."
+	},
+	"no_no_powder": {
+		"name": "No-No Powder",
+		"category": "Alchemical Compounds & Powders",
+		"iconUrl": "http://childrenofur.com/assets/entityImages/no_no_powder__x1_iconic_png_1354832159.png",
+		"spriteUrl": "http://childrenofur.com/assets/entityImages/no_no_powder__x1_1_x1_2_x1_3_x1_4_png_1354832159.png",
+		"stacksTo": 10,
+		"price": 100,
+		"description": "Some tempting no-no powder. You know you shouldn't, but maybe just this once …"
 	}
 }
