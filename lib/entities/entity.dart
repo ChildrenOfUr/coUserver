@@ -55,6 +55,7 @@ part 'npcs/garden.dart';
 part 'npcs/hell_bartender.dart';
 part 'npcs/mailbox.dart';
 part 'npcs/npc.dart';
+part 'npcs/rube.dart';
 part 'npcs/vistingstone.dart';
 
 part 'npcs/animals/batterfly.dart';

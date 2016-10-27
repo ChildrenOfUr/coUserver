@@ -159,6 +159,8 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 				pickedUpItems.forEach((String id) => street.groundItems.remove(id));
 
 				street.occupants.forEach((String username, WebSocket userSocket) async {
+					Rube.maybeSpawn(tsidL(street.tsid), username);
+
 					String email = await User.getEmailFromUsername(username);
 
 					WintryPlaceHandler.update(streetName, email);
