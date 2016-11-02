@@ -18,9 +18,9 @@ class Elevation {
 				User, {"username": username}
 			);
 
-			String elevationStr = "";
+			String elevationStr = "_";
 			if (rows.length > 0) {
-				elevationStr = rows.first.elevation ?? "";
+				elevationStr = rows.first.elevation ?? elevationStr;
 			}
 
 			_cache[username] = elevationStr;
