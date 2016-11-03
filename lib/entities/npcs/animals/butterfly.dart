@@ -8,7 +8,7 @@ class Butterfly extends NPC {
 	bool bobbingUp = true;
 	Stopwatch massageExpires = new Stopwatch();
 
-	Butterfly(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
+	Butterfly(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		type = "Butterfly";
 		actions.addAll([
 			new Action.withName('massage')
@@ -21,6 +21,7 @@ class Butterfly extends NPC {
 				..energyRequirements = new EnergyRequirements(energyAmount: 5)
 					   ]);
 		speed = 75; //pixels per second
+		renameable = true;
 		states = {
 			"fly-angle1": new Spritesheet(
 				"fly-angle1",
@@ -260,11 +261,32 @@ class Butterfly extends NPC {
 		if (!(await InventoryV2.hasItem(email, 'butterfly_lotion', 1))) {
 			say(responses['massageFail'].elementAt(rand.nextInt(responses['massageFail'].length)));
 		} else {
-			StatManager.add(email, Stat.butterflies_massaged);
+
+            // increment stat
+			StatManager.add(email, await Stat.butterflies_massaged);
+
+            // say a witty thing
 			say(responses['massage'].elementAt(rand.nextInt(responses['massage'].length)));
 			massaged = true;
 			numMilks = 0;
+
+            // Award achievements
+            int totalMassaged = await StatManager.get(email, Stat.butterflies_massaged);
+
+
+            if (totalMassaged >= 503) {
+               Achievement.find("nighmystical_lepidopteral_manipulator").awardTo(email);
+            } else if (totalMassaged >= 137) {
+               Achievement.find("master_lepidopteral_manipulator").awardTo(email);
+            } else if (totalMassaged >= 41) {
+               Achievement.find("practical_lepidopteral_manipulator").awardTo(email);
+            } else if (totalMassaged >= 23) {
+               Achievement.find("apprentice_lepidopteral_manipulator").awardTo(email); 
+            } else if (totalMassaged >= 3) {
+               Achievement.find("butterfly_whisperer").awardTo(email);
+            }
 		}
+
 		interacting = false;
 		massageExpires.start();
 		return true;

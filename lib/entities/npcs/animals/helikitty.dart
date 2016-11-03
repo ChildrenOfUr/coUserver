@@ -4,7 +4,7 @@ class HeliKitty extends NPC {
 	int age;
     static final String SKILL = 'animal_kinship';
 
-	HeliKitty(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
+	HeliKitty(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		type = "Heli Kitty";
 		actions.add(
 			new Action.withName('pet')
@@ -13,6 +13,7 @@ class HeliKitty extends NPC {
 				..energyRequirements = new EnergyRequirements(energyAmount: 5)
 		);
 		speed = 75; //pixels per second
+		renameable = true;
 		age = 3; //TODO: make them get older
 		states = {
 			// newborn (variation 1)

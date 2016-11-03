@@ -1,7 +1,7 @@
 part of entity;
 
 class VisitingStone extends NPC {
-	VisitingStone(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
+	VisitingStone(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		type = "Visting Stone";
 		actionTime = 0;
 		speed = 0;

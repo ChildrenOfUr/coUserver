@@ -2,12 +2,14 @@ part of item;
 
 class Note {
 	@Field() int id;
-	@Field() String username;
+	@Field() int author_id;
+	String username;
 	@Field() String title;
 	@Field() String body;
 	@Field() DateTime timestamp;
 
 	Note();
+
 	Note.create(this.username, String title, this.body, [this.id]) {
 		title = title.trim();
 		if (title.length > NoteManager.title_length_max) {
@@ -16,9 +18,9 @@ class Note {
 		this.title = title;
 	}
 
-	Map<String, dynamic> toMap() => {
+	Future<Map<String, dynamic>> toMap() async => {
 		"id": id,
-		"username": username,
+		"username": username ?? (await User.getUsernameFromId(author_id)),
 		"title": title,
 		"body": body,
 		"timestamp": timestamp.toString()
@@ -61,10 +63,11 @@ class NoteManager {
 		if (note.id == null || note.id == -1) {
 			// Adding a new note
 			try {
+				int userId = await User.getIdFromUsername(note.username.trim());
 				return (await dbConn.query(
-					"INSERT INTO notes (username, title, body) "
-						"VALUES (@username, @title, @body) RETURNING *",
-					Note, {"username": note.username.trim(), "title": note.title.trim(), "body": note.body}
+					"INSERT INTO notes (author_id, title, body) "
+						"VALUES (@author_id, @title, @body) RETURNING *",
+					Note, {"author_id": userId, "title": note.title.trim(), "body": note.body}
 				)).single;
 			} catch (e, st) {
 				Log.error('Could not add note $note', e, st);
@@ -124,7 +127,7 @@ class NoteManager {
 			}
 
 			// Send OK to client
-			return added.toMap();
+			return await added.toMap();
 		} catch (e, st) {
 			Log.error("Couldn't create note with $noteData", e, st);
 			return ({"error": "Something went wrong :("});
@@ -138,5 +141,5 @@ class NoteManager {
 	}
 
 	@app.Route("/find/:id")
-	Future<String> appFind(int id) async => JSON.encode((await find(id)).toMap());
+	Future<String> appFind(int id) async => JSON.encode(await (await find(id)).toMap());
 }

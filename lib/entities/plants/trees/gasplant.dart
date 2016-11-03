@@ -1,7 +1,7 @@
 part of entity;
 
 class GasPlant extends Tree {
-	GasPlant(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
+	GasPlant(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		type = "Gas Plant";
 		rewardItemType = "general_vapour";
 
@@ -20,6 +20,7 @@ class GasPlant extends Tree {
 				"Petting gives me a sweet, sweet buzz, friend",
 				"Good times, man, good times.",
 				"Such good energy, man",
+				"Oops, pardon me"
 			],
 			"water": [
 				"Woah. That's wet.",

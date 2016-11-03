@@ -1,7 +1,7 @@
 part of entity;
 
 class BeanTree extends Tree {
-	BeanTree(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
+	BeanTree(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		type = "Bean Tree";
 		rewardItemType = "bean";
 
@@ -13,15 +13,17 @@ class BeanTree extends Tree {
 				"Two bean, or not two bean?…",
 				"You favored us. Now, we fava you. Ha ha. Like \"fava bean\".",
 				"Wassssss-sap! Ha ha ha. Oh just take bean then.",
-				"Have you seen Jack? I think I gave him the wrong seeds…"
+				"Have you seen Jack? I think I gave him the wrong seeds…",
+				"I've bean watching you."
 			],
 			"pet": [
 				"The petting is unbeleafable. Ha ha. Tree made joke. Laugh.",
-				"Tiny Glitch is very poplar with us. Ha ha.",
+				"Tiny Urling is very poplar with us. Ha ha.",
 				"Your petting's never bean better. Hee!",
 				"I wooden have thought you'd be so good. Now laugh.",
 				"Tree arbors strong feelings to you. Chuckle now, please.",
-				"Well it’s bean fun! See you later."
+				"Well it’s bean fun! See you later.",
+				"We've all bean here before"
 			],
 			"water": [
 				"Water nice thing to do. Ha! Ha ha?",
@@ -29,6 +31,7 @@ class BeanTree extends Tree {
 				"Thought you'd never pull the twigger. Joke.",
 				"Cheers, bud.",
 				"How kind you're bean. Ha ha. \"Bean\".",
+				"Where have you bean all my life?"
 			]
 		};
 

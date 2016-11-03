@@ -21,7 +21,7 @@ class Buff {
 
 	Buff get copy => new Buff.fromMap(this.toMap());
 
-	bool get indefinite => length == -1; // buffs with a length of -1 will stay until removed
+	bool get indefinite => length.inSeconds == -1; // buffs with a length of -1 will stay until removed
 
 	@override
 	String toString() => "<Buff $id>";

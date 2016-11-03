@@ -2,7 +2,7 @@ part of entity;
 
 class Lem extends Shrine
 {
-	Lem(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
+	Lem(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName)
 	{
 		states =
 			{
@@ -19,7 +19,7 @@ class Lem extends Shrine
 
 class LemFirebog extends Shrine
 {
-	LemFirebog(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
+	LemFirebog(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName)
 	{
 		states =
 		{
@@ -36,7 +36,7 @@ class LemFirebog extends Shrine
 
 class LemIx extends Shrine
 {
-	LemIx(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
+	LemIx(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName)
 	{
 		states =
 		{
@@ -53,7 +53,7 @@ class LemIx extends Shrine
 
 class LemUralia extends Shrine
 {
-	LemUralia(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
+	LemUralia(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName)
 	{
 		states =
 		{

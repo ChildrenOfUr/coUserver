@@ -2,14 +2,16 @@
 	"alchemy": {
 		"name": "Alchemy",
 		"category": "Alchemy",
-		"levels": [15, 151, 1551],
+		"levels": [15, 551, 5515],
 		"descriptions": [
 			"Ah, the transformational power of transformation. Alchemy puts that Element Handling to good use and teaches you how to use a Test Tube to craft loose elements into marginally more valuable compounds. Further down this path, compounds can become powders and soon enough you are making potions and recycling even the most complex items down to their components.",
-			"With Alchemy II, you can harness your love of shiny things and use Alchemical Tongs to transform everyday Plain Metal into fancy metals such as Copper, Tin, and Molybdenum."
+			"With Alchemy II, you can harness your love of shiny things and use Alchemical Tongs to transform everyday Plain Metal into fancy metals such as Copper, Tin, and Molybdenum.",
+			"With Alchemy III, who knows what's possible?"
 		],
 		"iconUrls": [
-			"http://www.glitchthegame.com/img/skills-460/alchemy_1.v1429808924.png",
-			"http://www.glitchthegame.com/img/skills-460/alchemy_2.v1428362783.png"
+			"http://childrenofur.com/assets/skills/alchemy_1.png",
+			"http://childrenofur.com/assets/skills/alchemy_2.png",
+			"http://childrenofur.com/assets/skills/alchemy_3.png"
 		],
 		"requirements": {
 			"skills": {
@@ -17,7 +19,8 @@
 			}
 		},
 		"giants": ["Tii", "Alph", "Lem"],
-		"color": "#......"
+		"color": "#65E846",
+		"title": "Alchemist"
 	},
 	"animal_kinship": {
 		"name": "Animal Kinship",
@@ -43,7 +46,8 @@
 		],
 		"requirements": {},
 		"giants": ["Humbaba", "Friendly", "Mab"],
-		"color": "#......"
+		"color": "#",
+		"title": ""
 	},
 	"arborology": {
 		"name": "Arborology",
@@ -70,7 +74,8 @@
 			}
 		},
 		"giants": ["Spriggan", "Grendaline", "Mab"],
-		"color": "#......"
+		"color": "#",
+		"title": "Arborologist"
 	},
 	"bubble_tuning": {
 		"name": "Bubble Tuning",
@@ -86,7 +91,8 @@
 			"level": 3
 		},
 		"giants": ["Spriggan", "Grendaline", "Tii"],
-		"color": "#......"
+		"color": "#",
+		"title": ""
 	},
 	"croppery": {
 		"name": "Croppery",
@@ -106,7 +112,25 @@
 			"level": 3
 		},
 		"giants": ["Mab", "Grendaline", "Humbaba"],
-		"color": "#......"
+		"color": "#",
+		"title": ""
+	},
+	"distilling": {
+		"name": "Distilling",
+		"category": "Alchemy",
+		"levels": [124],
+		"descriptions": [
+			"The clandestine art of distillation enables the amateur moonshiner to create home-brewed hooch from grain or potatoes in mere minutes, using only a Still and the desire to extract booze from the most innocent of ingredients."
+		],
+		"iconUrls": [
+			"http://www.glitchthegame.com/img/skills-460/distilling_1.v1428362783.png"
+		],
+		"requirements": {
+			"level": 5
+		},
+		"giants": ["Friendly", "Mab", "Pot"],
+		"color": "#DAA962",
+		"title": "Distiller"
 	},
 	"element_handling": {
 		"name": "Element Handling",
@@ -122,7 +146,8 @@
 			"level": 3
 		},
 		"giants": ["Tii", "Alph", "Lem"],
-		"color": "#......"
+		"color": "#",
+		"title": ""
 	},
 	"mining": {
 		"name": "Mining",
@@ -144,7 +169,8 @@
 			"level": 3
 		},
 		"giants": ["Zille", "Alph", "Cosma"],
-		"color": "#......"
+		"color": "#",
+		"title": "Miner"
 	},
 	"penpersonship": {
 		"name": "Penpersonship",
@@ -160,7 +186,8 @@
 			"level": 7
 		},
 		"giants": ["Lem", "Friendly", "Spriggan"],
-		"color": "#......"
+		"color": "#",
+		"title": "Writer"
 	},
 	"tinkering": {
 		"name": "Tinkering",
@@ -184,6 +211,7 @@
 			"level": 3
 		},
 		"giants": ["Alph", "Friendly", "Tii"],
-		"color": "#......"
+		"color": "#",
+		"title": "Tinkerer"
 	}
 }

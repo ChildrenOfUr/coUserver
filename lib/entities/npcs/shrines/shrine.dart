@@ -4,7 +4,7 @@ class Shrine extends NPC {
 	String description;
 	int communeCount = 0;
 
-	Shrine(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
+	Shrine(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		actionTime = 0;
 
 		actions.add (
@@ -61,7 +61,7 @@ class Shrine extends NPC {
 			Metabolics m = await trySetFavor(email, giantName, favAmt);
 
 			// Add iMG
-			int imgAmt = (favAmt ~/ 2).clamp(1, item.price);
+			int imgAmt = (favAmt ~/ 2).clamp(1, max(item.price, 1));
 			await setMetabolics(m..addImg(imgAmt));
 
 			InstanceMirror instanceMirror = reflect(m);

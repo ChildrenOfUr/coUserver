@@ -6,7 +6,7 @@ class StreetSpirit extends Vendor {
 	int currentBob = 0, minBob = -15, maxBob = 15;
 	bool bobbingUp = true;
 
-	StreetSpirit(String id, String streetName, String tsid, num x, num y, num z) : super(id, streetName, tsid, x, y, z) {
+	StreetSpirit(String id, String streetName, String tsid, num x, num y, num z, num rotation, bool h_flip) : super(id, streetName, tsid, x, y, z, rotation, h_flip) {
 		speed = 75;
 	}
 

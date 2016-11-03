@@ -1,7 +1,7 @@
 part of entity;
 
 class IceNubbin extends Plant {
-	IceNubbin (String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
+	IceNubbin (String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		actionTime = 2000;
 		type = "Ice Nubbin";
 
@@ -99,5 +99,5 @@ class IceNubbin extends Plant {
 }
 
 class IceKnob extends IceNubbin {
-	IceKnob(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName);
+	IceKnob(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName);
 }

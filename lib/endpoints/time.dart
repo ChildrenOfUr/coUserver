@@ -11,8 +11,8 @@ String utcTime() {
 }
 
 @app.Route('/getHolidays')
-Future<List<String>> getHolidays(@app.QueryParam('month') int month,
-                                 @app.QueryParam('day') int day) async {
+List<String> getHolidays(@app.QueryParam('month') int month,
+                         @app.QueryParam('day') int day) {
 	List<String> holidays = [];
 
 	String monthName = monthNames[month];
@@ -117,6 +117,11 @@ class Clock {
 		_monthInt = data[6];
 	}
 
+	@override
+	String toString() {
+		return '${day} of ${month}, ${year}';
+	}
+
 	// timer has updated, send out required events and update interfaces.
 	void _sendEvents() {
 
@@ -199,7 +204,7 @@ class Clock {
 		if(h == '0') h = (12).toString();
 		String CurrentTime = (h + ':' + m + ampm);
 
-		return ['Year ' + year.toString(), _Months[MonthAndDay[0] - 1], MonthAndDay[1].toString() + suffix, _Days_of_Week[day_of_week], CurrentTime, MonthAndDay[1], MonthAndDay[0]];
+		return ['Year ' + year.toString(), _Months[MonthAndDay[0]], MonthAndDay[1].toString() + suffix, _Days_of_Week[day_of_week], CurrentTime, MonthAndDay[1], MonthAndDay[0]];
 	}
 
 	List _day_to_md(id) {
@@ -211,7 +216,7 @@ class Clock {
 		for(int i = 0; i < (daysinMonths); i++) {
 			cd += daysPerMonth[i];
 			if(cd > id) {
-				int m = i + 1;
+				int m = i;
 				int d = id + 1 - (cd - daysPerMonth[i]);
 				return [m, d];
 			}

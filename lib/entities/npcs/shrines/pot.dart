@@ -2,7 +2,7 @@ part of entity;
 
 class Pot extends Shrine
 {
-	Pot(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
+	Pot(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName)
 	{
 		states =
 			{
@@ -19,7 +19,7 @@ class Pot extends Shrine
 
 class PotFirebog extends Shrine
 {
-	PotFirebog(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
+	PotFirebog(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName)
 	{
 		states =
 		{
@@ -36,7 +36,7 @@ class PotFirebog extends Shrine
 
 class PotIx extends Shrine
 {
-	PotIx(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
+	PotIx(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName)
 	{
 		states =
 		{
@@ -53,7 +53,7 @@ class PotIx extends Shrine
 
 class PotUralia extends Shrine
 {
-	PotUralia(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
+	PotUralia(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName)
 	{
 		states =
 		{

@@ -35,6 +35,20 @@
 		"time": 2
 	},
 	{
+		"id": "coffee",
+		"tool": "saucepan",
+		"input": {
+			"bean": 2,
+			"cherry": 2,
+            "licorice": 1
+		},
+		"output": "coffee",
+		"output_amt": 1,
+		"time": 3
+	},
+
+
+	{
 		"id": "creamy_catsup",
 		"tool": "saucepan",
 		"input": {

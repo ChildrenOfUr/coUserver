@@ -53,13 +53,19 @@ class BuffManager {
 	}
 
 	/// Remove a buff from a user
-	static Future removeFromUser(String buffId, String email, WebSocket userSocket) async {
+	static Future<bool> removeFromUser(String buffId, String email, WebSocket userSocket) async {
 		List<Map<String, dynamic>> matching = (await getPlayerBuffs(email: email))
-			.where((Map<String, dynamic> buff) => buff["id"] == buffId).toList();
+			.where((Map<String, dynamic> buff) => buff["id"] == buffId)
+			.toList();
+
+		userSocket.add(JSON.encode({"buff_remove": buffId}));
+
 		if (matching.length > 0) {
 			PlayerBuff oldBuff = new PlayerBuff.fromMap(matching.single);
-			userSocket.add(JSON.encode({"buff_remove": oldBuff.id}));
 			oldBuff.remove();
+			return true;
+		} else {
+			return false;
 		}
 	}
 

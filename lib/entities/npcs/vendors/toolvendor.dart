@@ -3,7 +3,7 @@ part of entity;
 class ToolVendor extends Vendor {
 	int openCount = 0;
 
-	ToolVendor(String id, String streetName, String tsid, num x, num y, num z) : super(id, streetName, tsid, x, y, z) {
+	ToolVendor(String id, String streetName, String tsid, num x, num y, num z, num rotation, bool h_flip) : super(id, streetName, tsid, x, y, z, rotation, h_flip) {
 		type = 'Tool Vendor';
 		itemsForSale = [
 			items["pig_bait"].getMap(),
@@ -86,14 +86,7 @@ class ToolVendor extends Vendor {
 
 		//update x and y
 		if (currentState.stateName == "walk") {
-			moveXY(wallAction: (Wall wall) {
-				if(facingRight) {
-					setState('turn_left');
-				} else {
-					setState('turn_right');
-				}
-				facingRight = !facingRight;
-			});
+			moveXY();
 		}
 
 		if(respawn != null && respawn.compareTo(new DateTime.now()) <= 0) {

@@ -1,7 +1,7 @@
 part of entity;
 
 class Salmon extends NPC {
-	Salmon(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
+	Salmon(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		actions.add(
 			new Action.withName('pocket')
 				..actionWord = 'pocketing'
@@ -9,6 +9,7 @@ class Salmon extends NPC {
 				..energyRequirements = new EnergyRequirements(energyAmount: 4)
 		);
 		type = "Salmon";
+		renameable = true;
 		speed = 35;
 		ySpeed = 0;
 		states = {

@@ -17,13 +17,26 @@ abstract class NPC extends Entity {
 	static int updateFps = 12;
 
 	String id, type, streetName;
-	num x, y, z, previousX, previousY, speed = 0, ySpeed = 0, yAccel = -2400;
-	bool facingRight = true, grounded = false;
+	num x, y, z, rotation = 0, previousX, previousY, speed = 0, ySpeed = 0, yAccel = -2400;
+	bool facingRight = true, grounded = false, h_flip = false;
+	bool renameable = false;
+	String nameOverride;
 	MutableRectangle _collisionsRect;
 	Map<String, String> metadata = {};
 
-	NPC(this.id, this.x, this.y, this.z, this.streetName) {
+	NPC(this.id, this.x, this.y, this.z, this.rotation, this.h_flip, this.streetName) {
 		respawn = new DateTime.now();
+	}
+
+	@override
+	Future<List<Action>> customizeActions(String email) async {
+		List<Action> customActions = new List.from(actions);
+
+		if (renameable && await SkillManager.getLevel('animal_kinship', email) >= 5) {
+			customActions.add(new Action.withName('rename'));
+		}
+
+		return customActions;
 	}
 
 	void restoreState(Map<String, String> metadata) {
@@ -32,10 +45,22 @@ abstract class NPC extends Entity {
 		if (metadata['facingRight'] == 'false') {
 			facingRight = false;
 		}
+
+		if (metadata['nameOverride'] != null) {
+			nameOverride = metadata['nameOverride'];
+		}
 	}
 
-	Map<String, String> getPersistMetadata() => this.metadata
-		..['facingRight'] = facingRight.toString();
+	Map<String, String> getPersistMetadata() {
+		metadata
+			..['facingRight'] = facingRight.toString();
+
+		if (nameOverride != null && renameable) {
+			metadata['nameOverride'] = nameOverride;
+		}
+
+		return this.metadata;
+	}
 
 	int get width => currentState.frameWidth;
 
@@ -157,12 +182,15 @@ abstract class NPC extends Entity {
 			"id": id,
 			"url": currentState.url,
 			"type": type,
+			"nameOverride": nameOverride,
 			"numRows": currentState.numRows,
 			"numColumns": currentState.numColumns,
 			"numFrames": currentState.numFrames,
 			"x": x,
 			"y": y,
 			"z": z,
+			"rotation": rotation,
+			"h_flip": h_flip,
 			'speed': speed,
 			'ySpeed': ySpeed,
 			'animation_name': currentState.stateName,
@@ -173,4 +201,28 @@ abstract class NPC extends Entity {
 			"facingRight": facingRight,
 			"actions": encode(actions)
 		});
+
+	Future<bool> rename({WebSocket userSocket, String email}) async {
+		if (!renameable) {
+			return false;
+		}
+
+		Function renameCallback = (String ref, String name) {
+			Map<String, dynamic> data = JSON.decode(ref);
+
+			if (this.id != data['id']) {
+				return;
+			}
+
+			// Limit names to 10 characters
+			if (name.length > 10) {
+				name = name.substring(0, 10);
+			}
+
+			this.nameOverride = name;
+		};
+
+		promptString('Choose a name', userSocket, JSON.encode({'id': id, 'email': email}), renameCallback);
+		return true;
+	}
 }

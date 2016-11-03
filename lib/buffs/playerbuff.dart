@@ -114,11 +114,11 @@ class PlayerBuff extends Buff {
 			// Get existing data
 			Map<String, int> buffsData = JSON.decode(
 				(await dbConn.query(BuffManager.CELL_QUERY, Metabolics, {"email": email})
-				).first.buffs_json);
+			).first.buffs_json);
 
 			// Modify
 			buffsData[id] = remaining.inSeconds;
-			if (remaining.inSeconds <= 0) {
+			if (!indefinite && remaining.inSeconds <= 0) {
 				buffsData.remove(id);
 			}
 			String newJson = JSON.encode(buffsData);

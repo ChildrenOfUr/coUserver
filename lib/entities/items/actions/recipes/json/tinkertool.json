@@ -5,9 +5,8 @@
 		"input": {
 			"coffee": 10,
 			"spinach": 5,
-			"awesome_stew": 3,
-			"emotional_bear": 1,
-			"sneezing_powder": 1,
+			"cheezy_sammich": 3,
+            "butterfly_lotion": 1,
 			"butterfly_egg": 1
 		},
 		"output": "new_player_pack_butterfly",
@@ -24,9 +23,8 @@
 		"input": {
 			"coffee": 10,
 			"spinach": 5,
-			"awesome_stew": 3,
-			"emotional_bear": 1,
-			"sneezing_powder": 1,
+			"eggy_scramble": 3,
+            "watering_can": 1,
 			"chicken_egg": 1
 		},
 		"output": "new_player_pack_chicken",
@@ -43,9 +41,8 @@
 		"input": {
 			"coffee": 10,
 			"spinach": 5,
-			"awesome_stew": 3,
-			"emotional_bear": 1,
-			"sneezing_powder": 1,
+			"sammich": 3,
+            "knife_and_board": 1,
 			"piggy_egg": 1
 		},
 		"output": "new_player_pack_piggy",
@@ -619,7 +616,7 @@
 		"time": 10,
 		"energy": -10,
 		"skills": {
-			"tinkering": 4
+			"tinkering": 2
 		}
 	},
 	{
@@ -633,7 +630,7 @@
 		"time": 10,
 		"energy": -10,
 		"skills": {
-			"tinkering": 4
+			"tinkering": 2
 		}
 	},
 	{
@@ -713,7 +710,7 @@
 		"time": 10,
 		"energy": -15,
 		"skills": {
-			"tinkering": 4,
+			"tinkering": 2,
 			"engineering": 1
 		}
 	},

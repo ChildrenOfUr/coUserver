@@ -1,7 +1,7 @@
 part of entity;
 
 class BerylRock extends Rock {
-	BerylRock(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
+	BerylRock(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		type = "Beryl Rock";
 
 		states =
@@ -17,7 +17,7 @@ class BerylRock extends Rock {
 			"Not in the face! Oh. Wait. No face.",
 			"If you need any tips on technique, just axe.",
 			"Pick on someone else, will you?",
-			"You're on rocky ground, Glitch.",
+			"You're on rocky ground, Urchin.",
 			"I feel like you're taking me for granite.",
 			"Well, at least that's a weight off me mined.",
 			"You sure have one big axe to grind."

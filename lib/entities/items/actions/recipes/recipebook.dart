@@ -22,6 +22,7 @@ class RecipeBook extends Object with MetabolicsChange {
 		Map<String, int> skillCache = {};
 		await Future.forEach(recipes, (Recipe recipe) async {
 			bool skillTooLow = false;
+			bool inSeason = false;
 
 			// If the recipe is made with the requested tool (if requested)
 			if ((tool == "" || tool == null) || tool == items[recipe.tool].itemType) {
@@ -36,6 +37,19 @@ class RecipeBook extends Object with MetabolicsChange {
 					..["time"] = recipe.time
 					..["energy"] = recipe.energy
 					..["img"] = recipe.img;
+
+				if (recipe.holidays != null) {
+					Clock clock = new Clock.stoppedAtDate(new DateTime.now());
+					List<String> currentHolidays = getHolidays(clock.monthInt, clock.dayInt);
+					for (String holiday in recipe.holidays) {
+						if (currentHolidays.contains(holiday)) {
+							inSeason = true;
+							break;
+						}
+					}
+				} else {
+					inSeason = true;
+				}
 
 				// Provide user-specific data if an email is provided
 				if (email != null && email != "") {
@@ -62,7 +76,7 @@ class RecipeBook extends Object with MetabolicsChange {
 								return;
 							}
 
-							// Skil skills that aren't possible to get in the game
+							// Skip skills that aren't possible to get in the game
 							if (SkillManager.SKILL_DATA[skillId] == null) {
 								return;
 							}
@@ -80,7 +94,7 @@ class RecipeBook extends Object with MetabolicsChange {
 				}
 				// End user-specific data
 
-				if (!skillTooLow) {
+				if (!skillTooLow && inSeason) {
 					toolRecipes.add(toolRecipe);
 				}
 
@@ -192,7 +206,7 @@ class RecipeBook extends Object with MetabolicsChange {
 			messageBus.publish(new RequirementProgress('makeRecipe_${recipe.output}',email));
 
 			// Count stat for achievements
-			StatAchvManager.update(email, recipe.tool);
+			StatAchvManager.update(email, recipe.tool, recipe.output);
 		});
 
 		return "OK";

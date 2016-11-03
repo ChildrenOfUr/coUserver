@@ -1,7 +1,7 @@
 part of entity;
 
 class Jellisac extends Plant {
-	Jellisac(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
+	Jellisac(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		actionTime = 2000;
 		type = "Jellisac Growth";
 
@@ -13,6 +13,23 @@ class Jellisac extends Plant {
 				..timeRequired = actionTime
 				..energyRequirements = energyReq
 		);
+
+		responses =
+		{
+			"grab": [
+				"Forsooth. I am slain.",
+				"Verily, you have scooped my innards.",
+				"And thusly I perish. Floop. Floop.",
+				"Flobalobalob.",
+				"Fie upon you. My innards are now outards.",
+				"Begone, thou lily-livered jellisacker.",
+				"Floop.",
+				"Thou paunchy jelliscooping hedge-pig!",
+				"Hark, the sound of scooping. Erk.",
+				"Alas, I am scooped. The rest is silence.",
+				"Hoist my precious jelly, will you? Eh?!? Oh you did."
+			],
+		};
 
 		states = {
 			"1-2-3-4-5" : new Spritesheet("1-2-3-4-5", "http://childrenofur.com/assets/entityImages/jellisac.png", 210, 49, 42, 49, 5, false),
@@ -70,7 +87,7 @@ class Jellisac extends Plant {
 
 		await InventoryV2.addItemToUser(email, items['jellisac'].getMap(), numToGive, id);
 
-		say();
+		say(responses['grab'].elementAt(rand.nextInt(responses['grab'].length)));
 
 		return true;
 	}

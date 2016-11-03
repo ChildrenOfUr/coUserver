@@ -2,7 +2,7 @@ part of entity;
 
 class Tii extends Shrine
 {
-	Tii(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
+	Tii(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName)
 	{
 		states =
 			{
@@ -19,7 +19,7 @@ class Tii extends Shrine
 
 class TiiFirebog extends Shrine
 {
-	TiiFirebog(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
+	TiiFirebog(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName)
 	{
 		states =
 		{
@@ -36,7 +36,7 @@ class TiiFirebog extends Shrine
 
 class TiiIx extends Shrine
 {
-	TiiIx(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
+	TiiIx(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName)
 	{
 		states =
 		{
@@ -53,7 +53,7 @@ class TiiIx extends Shrine
 
 class TiiUralia extends Shrine
 {
-	TiiUralia(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName)
+	TiiUralia(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName)
 	{
 		states =
 		{

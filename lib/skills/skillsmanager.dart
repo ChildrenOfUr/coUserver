@@ -36,7 +36,7 @@ class SkillManager extends Object {
 	static Future<int> loadSkills() async {
 		File file = new File(path.join(serverDir.path, 'lib', 'skills', 'skillsdata.json'));
 		JSON.decode(await file.readAsString()).forEach((String id, Map data) {
-			SKILL_DATA[id] = new Skill.fromMap(data, id);;
+			SKILL_DATA[id] = new Skill.fromMap(data, id);
 		});
 
 		_loading.complete();
@@ -70,7 +70,7 @@ class SkillManager extends Object {
 		return success["writing"];
 	}
 
-	/// Get a player's level of a certain skil
+	/// Get a player's level of a certain skill
 	static Future<int> getLevel(String skillId, String email) async {
 		PlayerSkill skill = await PlayerSkill.find(skillId, email);
 		return skill?.level ?? 0;

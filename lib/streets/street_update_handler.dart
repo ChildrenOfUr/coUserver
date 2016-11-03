@@ -13,6 +13,7 @@ import 'package:coUserver/common/mapdata/mapdata.dart';
 import 'package:coUserver/common/user.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/endpoints/changeusername.dart';
+import 'package:coUserver/endpoints/chat_handler.dart';
 import 'package:coUserver/endpoints/inventory_new.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';
 import 'package:coUserver/entities/entity.dart';
@@ -228,6 +229,13 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 		//everything else will be outgoing
 		try {
 			Map map = JSON.decode(message);
+
+			if (map['promptRef'] != null) {
+				// Send reference and response to callback
+				Function.apply(promptCallbacks[map['promptRef']], [map['promptRef'], map['promptResponse']]);
+				return;
+			}
+
 			String streetName = map["streetName"]?.trim();
 			String username = map["username"]?.trim();
 			String email = map['email']?.trim() ?? (await User.getEmailFromUsername(username));
@@ -284,8 +292,8 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 				cleanupList(ws);
 
 				// These will automatically disregard false calls, so call both every time
-				WintryPlaceHandler.exit(streetName, email, ws);
-				SavannaHandler.exit(streetName, email, ws);
+				WintryPlaceHandler.exit(streetName, username, email, ws);
+				SavannaHandler.exit(streetName, username, email, ws);
 
 				return;
 			}

@@ -76,7 +76,7 @@ class MetabolicsEndpoint {
 	static Future refillAllEnergy() async {
 		PostgreSql dbConn = await dbManager.getConnection();
 		String query = "UPDATE metabolics SET energy = max_energy, quoins_collected = 0";
-		dbConn.execute(query);
+		await dbConn.execute(query);
 		dbManager.closeConnection(dbConn);
 	}
 
@@ -111,17 +111,39 @@ class MetabolicsEndpoint {
 		}
 	}
 
+	static DateTime lastSimulation;
+
 	static void simulate() {
 		userSockets.forEach((String username, WebSocket ws) async {
 			try {
 				Metabolics m = await getMetabolics(username: username);
+				String email = await User.getEmailFromUsername(username);
+
+				/* Effects from smashed/hungover buffs */ {
+					final int SMASHED_RATE = 3; // - energy, + mood
+					final int SMASHED_TIME = 30; // seconds
+
+					final int HUNGOVER_RATE = 17; // - mood
+					final int HUNGOVER_TIME = 5; // seconds
+
+					if (new DateTime.now().difference(lastSimulation).abs().inSeconds >= SMASHED_TIME
+						&& await BuffManager.playerHasBuff('smashed', email)) {
+						// Smashed converts energy into mood
+						// Energy will never go below HOOCH_RATE with this buff
+						m.energy = (m.energy - SMASHED_RATE).clamp(SMASHED_RATE, m.max_energy);
+						m.mood += SMASHED_RATE;
+					} else if (new DateTime.now().difference(lastSimulation).abs().inSeconds >= HUNGOVER_TIME
+						&& await BuffManager.playerHasBuff('hungover', email)) {
+						// Hungover is a mood killer
+						m.mood -= HUNGOVER_RATE;
+					}
+				}
 
 				if (simulateMood) {
 					_calcAndSetMood(m);
 				}
 
 				if (m.mood < m.max_mood ~/ 10) {
-					String email = await User.getEmailFromUsername(username);
 					QuestEndpoint.questLogCache[email]?.offerQuest('Q10');
 				}
 
@@ -151,6 +173,8 @@ class MetabolicsEndpoint {
 				Log.error('Metabolics simulation failed', e, st);
 			}
 		});
+
+		lastSimulation = new DateTime.now();
 	}
 
 	/// Supply m to speed it up, and init to only check energy (in case they left the game while in Hell)
@@ -398,15 +422,16 @@ class MetabolicsEndpoint {
 
 		//determine how much mood they should lose based on current percentage of max
 		//https://web.archive.org/web/20130106191352/http://www.glitch-strategy.com/wiki/Mood
-		if (moodRatio < .5)
+		if (moodRatio < .5) {
 			m.mood -= (max_mood * .005).ceil();
-		else if (moodRatio >= .5 && moodRatio < .81)
+		} else if (moodRatio >= .5 && moodRatio < .81) {
 			m.mood -= (max_mood * .01).ceil();
-		else
+		} else {
 			m.mood -= (max_mood * .015).ceil();
+		}
 
-		if (m.mood < 0) m.mood = 0;
-
+		// Keep between 0 and max (both inclusive)<
+		m.mood = m.mood.clamp(0, m.max_mood);
 		simulateMood = false;
 	}
 
@@ -415,10 +440,8 @@ class MetabolicsEndpoint {
 		//https://web.archive.org/web/20120805062536/http://www.glitch-strategy.com/wiki/Energy
 		m.energy -= (m.max_energy * .008).ceil();
 
-		if (m.energy < 0) {
-			m.energy = 0;
-		}
-
+		// Keep between 0 and max (both inclusive)<
+		m.energy = m.energy.clamp(0, m.max_energy);
 		simulateEnergy = false;
 	}
 }

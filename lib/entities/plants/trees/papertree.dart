@@ -1,7 +1,7 @@
 part of entity;
 
 class PaperTree extends Tree {
-	PaperTree(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
+	PaperTree(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		type = "Paper Tree";
 		rewardItemType = "paper";
 
@@ -40,7 +40,7 @@ class PaperTree extends Tree {
 				"You made my roots wet.  / It's not that I'm complaining  / I'm just a bit damp.",
 				"All this way you came.  / To seek me out and sprinkle.  / I think that you're nice.",
 				"Watering paper? / Nice, thanks, but watch out there or / You'll make me soggy.",
-				"The gentle patter / Of sprinkled Glitchy water / Brings joy to my roots.",
+				"The gentle patter / Of sprinkled Urland water / Brings joy to my roots.",
 				"It's enjoyable, / But watch I don't turn into / Papier Mache.",
 			]
 		};

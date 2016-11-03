@@ -18,7 +18,8 @@ class Skill {
 		this.iconUrls,
 		this.requirements,
 		this.giants,
-		this.color
+		this.color,
+		this.title
 	) {
 		_verifyZeroState();
 	}
@@ -33,6 +34,7 @@ class Skill {
 		this.requirements = map["requirements"];
 		this.giants = map["giants"];
 		this.color = map["color"];
+		this.title = map["title"];
 
 		_verifyZeroState();
 	}
@@ -48,7 +50,8 @@ class Skill {
 		"requirements": requirements,
 		"giants": giants,
 		"primary_giant": primaryGiant,
-		"color": color
+		"color": color,
+		"title": title
 	};
 
 	/// Copy (new object, not reference)
@@ -61,6 +64,7 @@ class Skill {
 	String category;
 	List<String> descriptions;
 	String color; // #123456, used for client progress bars
+	String title; // Badge after fully complete
 
 	// Levels
 
@@ -74,6 +78,14 @@ class Skill {
 	void _verifyZeroState() {
 		if (levels[0] != 0) {
 			levels.insert(0, 0);
+		}
+
+		if (levels.length - 1 != descriptions.length) {
+			throw new Exception('Levels and descriptions for <Skill=$id> do not match!');
+		}
+
+		if (levels.length - 1 != iconUrls.length) {
+			throw new Exception('Levels and icons for <Skill=$id> do not match!');
 		}
 	}
 

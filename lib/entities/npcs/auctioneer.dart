@@ -1,7 +1,7 @@
 part of entity;
 
 class Auctioneer extends NPC {
-	Auctioneer(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
+	Auctioneer(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		actionTime = 0;
 		actions.add(
 			new Action.withName('Talk To')

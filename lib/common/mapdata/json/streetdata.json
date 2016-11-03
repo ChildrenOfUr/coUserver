@@ -1424,7 +1424,8 @@
 	},
 	"Amberlyza": {
 		"tsid": "LHVDKQ2O6S23LVJ",
-		"hub_id": 125
+		"hub_id": 125,
+		"map_hidden": true
 	},
 	"Ambo Aims": {
 		"vendor": "Kitchen Tools",
@@ -1623,11 +1624,13 @@
 	},
 	"Apt Lobby": {
 		"tsid": "LCR131GMJOK1GSP",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"Apt Suite": {
 		"tsid": "LCR13BOJ0PK1E46",
-		"hub_id": 55
+		"hub_id": 55,
+		"map_hidden": true
 	},
 	"Apt Suite BU": {
 		"tsid": "LCR1JPTQI2M1SO3",
@@ -1636,19 +1639,23 @@
 	},
 	"Apt Tree Basement": {
 		"tsid": "LA9QE7H9V4F345H",
-		"hub_id": 143
+		"hub_id": 143,
+		"map_hidden": true
 	},
 	"Apt Tree Floor 1": {
 		"tsid": "LA9QFNQAV4F3HM0",
-		"hub_id": 143
+		"hub_id": 143,
+		"map_hidden": true
 	},
 	"Apt Tree Floor 2": {
 		"tsid": "LA9QGB6CV4F3454",
-		"hub_id": 143
+		"hub_id": 143,
+		"map_hidden": true
 	},
 	"Apt Tree Lobby": {
 		"tsid": "LA9QH59DV4F3MGT",
-		"hub_id": 143
+		"hub_id": 143,
+		"map_hidden": true
 	},
 	"Aquarius": {
 		"tsid": "LUVU11R1HP9341R",
@@ -2295,7 +2302,8 @@
 	},
 	"Blooian": {
 		"tsid": "LHVP8TCLT40336S",
-		"hub_id": 125
+		"hub_id": 125,
+		"map_hidden": true
 	},
 	"Blottnass": {
 		"vendor": "Produce",
@@ -4186,7 +4194,8 @@
 	},
 	"Fernucopia": {
 		"tsid": "LHVQMS17V813FN7",
-		"hub_id": 125
+		"hub_id": 125,
+		"map_hidden": true
 	},
 	"Fernucopia Clone": {
 		"tsid": "LUVGJEBBAB13FG5",
@@ -5498,7 +5507,8 @@
 	},
 	"Gregarious Grange Subway Station": {
 		"tsid": "LCR177QO65T1EON",
-		"hub_id": 58
+		"hub_id": 58,
+		"map_hidden": true
 	},
 	"Gregarious Towers": {
 		"tsid": "LA5134UPLRU29OH",
@@ -5516,7 +5526,8 @@
 	},
 	"Griinolyza": {
 		"tsid": "LHVOD0F3T403694",
-		"hub_id": 125
+		"hub_id": 125,
+		"map_hidden": true
 	},
 	"Grimssea Bottom": {
 		"mailbox": true,
@@ -5988,7 +5999,8 @@
 	},
 	"Hell One": {
 		"hub_id": 40,
-		"tsid": "LA5PPFP86NF2FOS"
+		"tsid": "LA5PPFP86NF2FOS",
+		"broken": true
 	},
 	"Hell One OLD": {
 		"tsid": "LM4107R9OLUTA",
@@ -6500,7 +6512,8 @@
 	},
 	"Jutuan Central Subway Station": {
 		"tsid": "LTJ102S2J102N7O",
-		"hub_id": 72
+		"hub_id": 72,
+		"map_hidden": true
 	},
 	"Jyotiba": {
 		"hub_id": 140,
@@ -6873,7 +6886,8 @@
 	},
 	"Kongu Hop Subway Station": {
 		"tsid": "LA59OB99RE92267",
-		"hub_id": 89
+		"hub_id": 89,
+		"map_hidden": true
 	},
 	"Konka Brink": {
 		"mailbox": true,
@@ -7077,8 +7091,7 @@
 		"vendor": "Alchemical Goods",
 		"shrine": "Zille",
 		"tsid": "LCR12SD8J4K1PCV",
-		"hub_id": 64,
-		"broken": true
+		"hub_id": 64
 	},
 	"Large Alakol Model Home": {
 		"tsid": "LHV38BSD7G32CMQ",
@@ -7564,7 +7577,8 @@
 	},
 	"Mallos Means Subway Station": {
 		"tsid": "LHV2CQPL1E32QM8",
-		"hub_id": 75
+		"hub_id": 75,
+		"map_hidden": true
 	},
 	"Manak Ruba": {
 		"vendor": "Hardware",
@@ -7752,7 +7766,8 @@
 	},
 	"Mazza'la Gala": {
 		"tsid": "LDOE67MFL6E2FBR",
-		"hub_id": 108
+		"hub_id": 108,
+		"map_hidden": true
 	},
 	"Meade Weeds": {
 		"vendor": "Animal Goods",
@@ -8995,7 +9010,8 @@
 	},
 	"Onto Parada Subway Station": {
 		"tsid": "LIF6CR9OO302G5V",
-		"hub_id": 71
+		"hub_id": 71,
+		"map_hidden": true
 	},
 	"Operation Grow": {
 		"tsid": "LIFI8QG9A093USI",
@@ -9027,7 +9043,8 @@
 	},
 	"Orangian": {
 		"tsid": "LHVCKEPHO403BN5",
-		"hub_id": 125
+		"hub_id": 125,
+		"map_hidden": true
 	},
 	"Orchard Street": {
 		"tsid": "LUVV679F9OE2KQF",
@@ -10154,7 +10171,8 @@
 	},
 	"Piryan": {
 		"tsid": "LHVP6H0KT403N8A",
-		"hub_id": 125
+		"hub_id": 125,
+		"map_hidden": true
 	},
 	"Pitchen Lilliputt": {
 		"tsid": "LDOGNQICG1E2PNI",
@@ -10168,7 +10186,8 @@
 	},
 	"Pitika Parse Subway Station": {
 		"tsid": "LHVEBJCBRG52LSB",
-		"hub_id": 85
+		"hub_id": 85,
+		"map_hidden": true
 	},
 	"Pitonia Lood": {
 		"vendor": "Alchemical Goods",
@@ -10230,7 +10249,7 @@
 	"Plexus": {
 		"hub_id": 66,
 		"tsid": "LHVDIELDQQ7228K",
-		"physics": "water"
+		"physics": "plexus"
 	},
 	"Plexus Clone": {
 		"tsid": "LUV89CEL6IR270C",
@@ -10370,7 +10389,8 @@
 	},
 	"Purplysa": {
 		"tsid": "LHVP7QOKT403F5Q",
-		"hub_id": 125
+		"hub_id": 125,
+		"map_hidden": true
 	},
 	"Pusan Fathom": {
 		"hub_id": 136,
@@ -10643,7 +10663,8 @@
 		"vendor": "Alchemical Goods",
 		"shrine": "Zille",
 		"tsid": "LUVO4MCSNPK2P6J",
-		"hub_id": 114
+		"hub_id": 114,
+		"depth": 500
 	},
 	"Ramble Way 1": {
 		"tsid": "LIFF8OI1BO72KC1",
@@ -11370,7 +11391,8 @@
 		"vendor": "Animal Goods",
 		"shrine": "Humbaba",
 		"tsid": "LCR105E77812AEF",
-		"hub_id": 76
+		"hub_id": 76,
+		"broken": true
 	},
 	"Senaga Siren": {
 		"vendor": "Hardware",
@@ -11676,7 +11698,8 @@
 	},
 	"Somewhat Sump Subway Station": {
 		"tsid": "LTJJSECBMAO13RH",
-		"hub_id": 63
+		"hub_id": 63,
+		"map_hidden": true
 	},
 	"Sorrel Snag": {
 		"vendor": "Grocery",
@@ -11773,7 +11796,8 @@
 		"vendor": "Produce",
 		"shrine": "Grendaline",
 		"tsid": "LHV894HP4MA3ME7",
-		"hub_id": 137
+		"hub_id": 137,
+		"broken": true
 	},
 	"Stairs": {
 		"tsid": "LIFFUV4ATQ72I6D",
@@ -11948,7 +11972,8 @@
 	},
 	"Subway Station": {
 		"tsid": "LTJ102ANR9O1LQL",
-		"hub_id": 66
+		"hub_id": 66,
+		"map_hidden": true
 	},
 	"Subway Train": {
 		"tsid": "LTJ101M7R9O1HTT",
@@ -12207,7 +12232,8 @@
 	},
 	"Tallish Crest Subway Station": {
 		"tsid": "LM11D0VDR9229EC",
-		"hub_id": 64
+		"hub_id": 64,
+		"map_hidden": true
 	},
 	"Tallus Gardens": {
 		"mailbox": true,
@@ -12511,7 +12537,8 @@
 	},
 	"Thiruvan Thrive Subway Station": {
 		"tsid": "LIF63N5UTE92SVD",
-		"hub_id": 93
+		"hub_id": 93,
+		"map_hidden": true
 	},
 	"This Feeling of …": {
 		"tsid": "LIFPA6H4UAB381E",
@@ -12759,7 +12786,8 @@
 	},
 	"Torpan Cleft Subway Station": {
 		"tsid": "LHV6B54D0F22B95",
-		"hub_id": 76
+		"hub_id": 76,
+		"map_hidden": true
 	},
 	"Totakuru Trample": {
 		"vendor": "Gardening Goods",
@@ -13283,7 +13311,8 @@
 		"vendor": "Hardware",
 		"shrine": "Zille",
 		"tsid": "LUVUKCOSE793PHI",
-		"hub_id": 76
+		"hub_id": 76,
+		"broken": true
 	},
 	"Via Velaya": {
 		"vendor": "Produce",

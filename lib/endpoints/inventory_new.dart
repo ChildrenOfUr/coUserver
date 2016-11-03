@@ -986,7 +986,11 @@ class InventoryV2 {
 			String itemType = item['itemType'];
 			messageBus.publish(new RequirementProgress('getItem_$itemType', email, count: count));
 			if (itemType == 'pick' || itemType == 'fancy_pick') {
-				QuestEndpoint.questLogCache[email]?.offerQuest('Q6');
+    			//Dullite, Beryl and Sparkly
+   			 	QuestEndpoint.questLogCache[email]?.offerQuest('Q6');
+			} else if (itemType == 'cocktail_shaker') {
+   			 	//Make Me Some Drinks
+   			 	QuestEndpoint.questLogCache[email]?.offerQuest('Q12');
 			}
 		}
 
@@ -1087,9 +1091,14 @@ class InventoryV2 {
 
 		void _addToJar(Slot jar) {
 			int inJar = int.parse(jar.metadata['fireflies'] ?? '0');
-			while (inJar < 7 && toAdd > 0) {
-				inJar++;
-				toAdd--;
+			if (toAdd < 0 && inJar >= toAdd.abs()) {
+				inJar += toAdd;
+				toAdd = 0;
+			} else {
+				while (inJar < 7 && toAdd > 0) {
+					inJar++;
+					toAdd--;
+				}
 			}
 			jar.metadata['fireflies'] = inJar.toString();
 		}
@@ -1099,7 +1108,8 @@ class InventoryV2 {
 		}
 
 		InventoryV2 inv = await getInventory(email);
-		for (Slot slot in inv.slots) {
+		List<Slot> tmpSlots = inv.slots;
+		for (Slot slot in tmpSlots) {
 			// Skip empty slots
 			if (slot.itemType.isEmpty) {
 				continue;
@@ -1113,14 +1123,14 @@ class InventoryV2 {
 			// Jars in bag slots
 			if (items[slot.itemType].isContainer && items[slot.itemType].subSlots != null) {
 				List<Slot> bagSlots = jsonx.decode((slot.metadata['slots'] ?? '[]'), type: listOfSlots) ?? [];
-				bagSlots = bagSlots.where((Slot s) => s.itemType != null && s.itemType == 'firefly_jar').toList();
-				for (Slot bagSlot in bagSlots) {
+				for (Slot bagSlot in bagSlots.where((Slot s) => s.itemType != null && s.itemType == 'firefly_jar')) {
 					_addToJar(bagSlot);
 				}
+				slot.metadata['slots'] = jsonx.encode(bagSlots);
 			}
 		}
 
-		inv.updateJson();
+		inv.inventory_json = jsonx.encode(tmpSlots);
 		await inv._updateDatabase(email);
 		await fireInventoryAtUser(userSocket, email, update: true);
 		_releaseLock(email, 'addFireflyToJar');

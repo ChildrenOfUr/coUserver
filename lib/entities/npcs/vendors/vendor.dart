@@ -24,7 +24,7 @@ abstract class Vendor extends NPC {
 		'vendorType' decides which items to sell, and is never displayed to the user
 	 **/
 
-	Vendor(String id, String streetName, String tsid, num x, num y, num z) : super(id, x, y, z, streetName) {
+	Vendor(String id, String streetName, String tsid, num x, num y, num z, num rotation, bool h_flip) : super(id, x, y, z, rotation, h_flip, streetName) {
 		//vendor actions are instant
 		actionTime = 0;
 		type = "Street Spirit";
@@ -58,7 +58,8 @@ abstract class Vendor extends NPC {
 						items["scraper"].getMap(),
 						items["grinder"].getMap(),
 						items["smelter"].getMap(),
-						items["crystalmalizing_chamber"].getMap()
+						items["crystalmalizing_chamber"].getMap(),
+						items["firefly_jar"].getMap(),
 					];
 					break;
 

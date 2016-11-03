@@ -3,7 +3,7 @@ part of entity;
 abstract class Rock extends Plant {
 	static final String SKILL = "mining";
 
-	Rock(String id, num x, num y, num z, String streetName) : super(id, x, y, z, streetName) {
+	Rock(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		maxState = 0;
 		actionTime = 5000;
 

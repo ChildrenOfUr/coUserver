@@ -36,8 +36,8 @@ class StatManager {
 
 	/// Returns the value of stat `stat` for user with email `email`
 	static Future<int> get(String email, Stat stat) async {
-		String statName = _statToString(stat);
-		return (await getAll(email))[statName];
+//		String statName = _statToString(stat);
+		return (await getAll(email))[stat];
 	}
 
 	/// Returns the value of all stats for user with email `email`
@@ -216,6 +216,7 @@ enum Stat {
 	piggies_fed,
 	planks_harvested,
 	quoins_collected,
+	rainbo_snocones_blended,
 	rocks_mined,
 	salmon_pocketed,
 	sauce_pan_uses,

@@ -22,7 +22,7 @@ class DustTrap extends NPC implements EventHandler<PlayerPosition> {
 		return (compare - to).abs() < 30;
 	}
 
-	DustTrap(String id, String streetName, this.tsid, num x, num y, num z) : super(id, x, y, z, streetName) {
+	DustTrap(String id, String streetName, this.tsid, num x, num y, num z, num rotation, bool h_flip) : super(id, x, y, z, rotation, h_flip, streetName) {
 		messageBus.subscribe(PlayerPosition, this, whereFunc: (PlayerPosition position) {
 			return position.streetName == streetName;
 		});
