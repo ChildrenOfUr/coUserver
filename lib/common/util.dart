@@ -40,12 +40,24 @@ Random rand = new Random();
 
 /// Get a TSID in 'G...' (CAT422) form
 String tsidG(String tsid) {
-	return tsidL(tsid).replaceFirst('L', 'G');
+	if (tsid == null) {
+		Log.warning('Cannot convert <TSID=$tsid> to G/CAT422 form');
+		return tsid;
+	}
+
+	if (tsid.startsWith('L')) {
+		// In TS form
+		return tsid.replaceFirst('L', 'G');
+	} else {
+		// Assume in CAT422 form
+		return tsid;
+	}
 }
 
 /// Get a TSID in 'L...' (TS) form
 String tsidL(String tsid) {
 	if (tsid == null) {
+		Log.warning('Cannot convert <TSID=$tsid> to L/TS form');
 		return tsid;
 	}
 
