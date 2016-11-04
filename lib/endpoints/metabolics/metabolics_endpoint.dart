@@ -450,7 +450,10 @@ class MetabolicsEndpoint {
 @app.Route('/getMetabolics')
 @Encode()
 Future<Metabolics> getMetabolics(
-	{@app.QueryParam() String username, @app.QueryParam() String email, @app.QueryParam() int userId}) async {
+	{@app.QueryParam() String username,
+	@app.QueryParam() String email,
+	@app.QueryParam() int userId,
+	@app.QueryParam() bool caseSensitive}) async {
 	Metabolics metabolic = new Metabolics();
 
 	PostgreSql dbConn = await dbManager.getConnection();
@@ -459,12 +462,14 @@ Future<Metabolics> getMetabolics(
 		if (email != null) {
 			whereClause = "WHERE users.email = @email";
 		}
+		if (caseSensitive ?? false) {
+			whereClause = "WHERE users.username = @username";
+		}
 		if (userId != null) {
 			whereClause = "WHERE users.id = @userId";
 		}
 		String query = "SELECT * FROM metabolics JOIN users ON users.id = metabolics.user_id " + whereClause;
-		List<Metabolics> metabolics =
-		await dbConn.query(query, Metabolics, {'username': username, 'email': email, 'userId': userId});
+		List<Metabolics> metabolics = await dbConn.query(query, Metabolics, {'username': username, 'email': email, 'userId': userId});
 
 		if (metabolics.length > 0) {
 			metabolic = metabolics[0];
