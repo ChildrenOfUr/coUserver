@@ -10,15 +10,14 @@ class Piggy extends NPC {
 
 	Piggy(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		ItemRequirements itemReq = new ItemRequirements()
-			..any = ['broccoli','cabbage','carrot','corn','cucumber','onion',
-							'parsnip','potato','pumpkin','rice','spinach','tomato','zucchini']
+			..any = ['broccoli','cabbage','carrot','corn','cucumber','onion', 'parsnip','potato','pumpkin','rice','spinach','tomato','zucchini']
 			..error = "You don't have anything that looks good right now";
 		actions.addAll([
-			 new Action.withName('nibble')
-				 ..timeRequired = actionTime
-				 ..actionWord = 'nibbling'
-				 ..description = 'Have a little nibble'
-				 ..energyRequirements = new EnergyRequirements(energyAmount: NIBBLE_ENERGY)
+			new Action.withName('nibble')
+				..timeRequired = actionTime
+				..actionWord = 'nibbling'
+				..description = 'Have a little nibble'
+				..energyRequirements = new EnergyRequirements(energyAmount: NIBBLE_ENERGY)
 				..associatedSkill = SKILL,
 			new Action.withName('pet')
 				..timeRequired = actionTime
@@ -30,7 +29,7 @@ class Piggy extends NPC {
 				..description = 'Feed the piggy some produce and see what it produces'
 				..itemRequirements = itemReq
 				..associatedSkill = SKILL
-				  ]);
+		]);
 		type = "Piggy";
 		speed = 75; //pixels per second
 		renameable = true;
@@ -82,17 +81,18 @@ class Piggy extends NPC {
 			Clock lastResetClock = new Clock.stoppedAtDate(lastReset);
 			Clock currentClock = new Clock.stoppedAtDate(new DateTime.now());
 			if (lastResetClock.dayInt < currentClock.dayInt ||
-			    lastResetClock.hourInt < 6 && currentClock.hourInt >= 6) {
+				lastResetClock.hourInt < 6 && currentClock.hourInt >= 6) {
 				_resetLists();
 			}
 		}
 	}
 
 	@override
-	Map<String, String> getPersistMetadata() => super.getPersistMetadata()
-		..['petCounts'] = JSON.encode(petCounts)
-		..['nibbleCounts'] = JSON.encode(nibbleCounts)
-		..['lastReset'] = lastReset.millisecondsSinceEpoch.toString();
+	Map<String, String> getPersistMetadata() =>
+		super.getPersistMetadata()
+			..['petCounts'] = JSON.encode(petCounts)
+			..['nibbleCounts'] = JSON.encode(nibbleCounts)
+			..['lastReset'] = lastReset.millisecondsSinceEpoch.toString();
 
 	Future<bool> _setLevelBasedMetabolics(int level, String action, String email) async {
 		int mood = 2;
@@ -106,8 +106,8 @@ class Piggy extends NPC {
 		}
 
 		if (level > 0) {
-			mood *= level+1;
-			imgMin *= level+1;
+			mood *= level + 1;
+			imgMin *= level + 1;
 			energy ~/= level;
 		}
 
@@ -117,7 +117,7 @@ class Piggy extends NPC {
 	Future<bool> nibble({WebSocket userSocket, String email}) async {
 		int level = await SkillManager.getLevel(SKILL, email);
 		bool success = await _setLevelBasedMetabolics(level, 'nibble', email);
-		if(!success) {
+		if (!success) {
 			return false;
 		}
 
@@ -127,7 +127,7 @@ class Piggy extends NPC {
 		messageBus.publish(new RequirementProgress('piggyNibble', email));
 		QuestEndpoint.questLogCache[email].offerQuest('Q11');
 		//Piggy Nibbler Quest
-		
+
 		//give the player the 'fruits' of their labor
 		int odds = 100000;
 		int count = 1;
@@ -151,18 +151,18 @@ class Piggy extends NPC {
 		setState('nibble');
 		say(responses['nibble'].elementAt(rand.nextInt(responses['nibble'].length)));
 
-       // Award achievements
-           int totalNibbled= await StatManager.get(email, Stat.piggies_nibbled);
+		// Award achievements
+		int totalNibbled = await StatManager.get(email, Stat.piggies_nibbled);
 
-       if (totalNibbled >= 503) {
-           Achievement.find("transrational_meat_aficionado").awardTo(email);
-       } else if (totalNibbled >= 137) { 
-           Achievement.find("ham_hocker").awardTo(email);      
-       } else if (totalNibbled >= 41) {
-           Achievement.find("bacon_biter").awardTo(email); 
-       } else if (totalNibbled >= 17) {
-           Achievement.find("piggy_nibbler").awardTo(email);       
-       }
+		if (totalNibbled >= 503) {
+			Achievement.find("transrational_meat_aficionado").awardTo(email);
+		} else if (totalNibbled >= 137) {
+			Achievement.find("ham_hocker").awardTo(email);
+		} else if (totalNibbled >= 41) {
+			Achievement.find("bacon_biter").awardTo(email);
+		} else if (totalNibbled >= 17) {
+			Achievement.find("piggy_nibbler").awardTo(email);
+		}
 
 		return true;
 	}
@@ -170,7 +170,7 @@ class Piggy extends NPC {
 	Future<bool> pet({WebSocket userSocket, String email}) async {
 		int level = await SkillManager.getLevel(SKILL, email);
 		bool success = await _setLevelBasedMetabolics(level, 'pet', email);
-		if(!success) {
+		if (!success) {
 			return false;
 		}
 
@@ -187,18 +187,16 @@ class Piggy extends NPC {
 
 		QuestEndpoint.questLogCache[email].offerQuest('Q9');
 
-        // Award achievements
-        int totalPetted= await StatManager.get(email, Stat.piggies_petted); 
-        
-       if (totalPetted>= 137) {
-           Achievement.find("pork_petter_extraordinaire").awardTo(email);
-       } else if (totalPetted>= 41) {
-           Achievement.find("swine_snuggler").awardTo(email); 
-       } else if (totalPetted>= 17) {
-           Achievement.find("pork_fondler").awardTo(email);       
-       }
+		// Award achievements
+		int totalPetted = await StatManager.get(email, Stat.piggies_petted);
 
-
+		if (totalPetted >= 137) {
+			Achievement.find("pork_petter_extraordinaire").awardTo(email);
+		} else if (totalPetted >= 41) {
+			Achievement.find("swine_snuggler").awardTo(email);
+		} else if (totalPetted >= 17) {
+			Achievement.find("pork_fondler").awardTo(email);
+		}
 
 
 		return true;
@@ -217,7 +215,7 @@ class Piggy extends NPC {
 
 	Future<bool> feedItem({WebSocket userSocket, String itemType, int count, String email, int slot, int subSlot}) async {
 		bool success = (await InventoryV2.takeItemFromUser(email, slot, subSlot, count)) != null;
-		if(!success) {
+		if (!success) {
 			return false;
 		}
 
@@ -226,8 +224,8 @@ class Piggy extends NPC {
 
 		Item item = new Item.clone('piggy_plop');
 		item.metadata['seedType'] = itemType;
-		item.putItemOnGround(x,y,streetName);
-		setState('chew', repeat:2);
+		item.putItemOnGround(x, y, streetName);
+		setState('chew', repeat: 2);
 		return true;
 	}
 
@@ -238,19 +236,19 @@ class Piggy extends NPC {
 		super.update();
 
 		//update x and y
-		if(currentState.stateName == "walk") {
+		if (currentState.stateName == "walk") {
 			moveXY();
 		}
 
 		//if respawn is in the past, it is time to choose a new animation
-		if(respawn != null && new DateTime.now().compareTo(respawn) > 0) {
+		if (respawn != null && new DateTime.now().compareTo(respawn) > 0) {
 			//1 in 8 chance to change direction
-			if(rand.nextInt(8) == 1) {
+			if (rand.nextInt(8) == 1) {
 				facingRight = !facingRight;
 			}
 
 			int num = rand.nextInt(20);
-			if(num == 6) {
+			if (num == 6) {
 				setState('look_screen');
 			} else {
 				setState('walk');
