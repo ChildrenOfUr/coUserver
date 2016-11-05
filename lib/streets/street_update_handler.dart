@@ -101,17 +101,20 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 
 				street.npcs.forEach((String id, NPC npc) {
 					npc.update();
-					if(npc.previousX != npc.x ||
-					   npc.previousY != npc.y) {
-						moveMap['npcs'].add(npc.getMap());
-					}
 				});
 
-				String moveMapString = JSON.encode(moveMap);
 				street.occupants.forEach((String username, WebSocket socket) {
 					if (socket != null) {
 						try {
-							socket.add(moveMapString);
+							moveMap['npcs'] = [];
+
+							for (NPC npc in street.npcs.values) {
+								if (npc.hasMoved) {
+									moveMap['npcs'].add(npc.getMap(username));
+								}
+							}
+
+							socket.add(JSON.encode(moveMap));
 						} catch (e, st) {
 							Log.error('Error sending moveMap $moveMap to $username', e, st);
 						}
@@ -142,7 +145,6 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 					"groundItems":[]
 				};
 				street.quoins.forEach((String id, Quoin quoin) => updates["quoins"].add(quoin.getMap()));
-				street.npcs.forEach((String id, NPC npc) => updates["npcs"].add(npc.getMap()));
 				street.plants.forEach((String id, Plant plant) => updates["plants"].add(plant.getMap()));
 				street.doors.forEach((String id, Door door) => updates["doors"].add(door.getMap()));
 
@@ -166,7 +168,11 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 					WintryPlaceHandler.update(streetName, email);
 
 					if (userSocket != null) {
-						userSocket.add(JSON.encode(updates));
+						Map customUpdates = new Map()
+							..addAll(updates)
+							..['npcs'] = [];
+						street.npcs.values.forEach((NPC npc) => customUpdates['npcs'].add(npc.getMap(username)));
+						userSocket.add(JSON.encode(customUpdates));
 
 						SavannaHandler.update(streetName, email, userSocket);
 					}
@@ -232,9 +238,26 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 		try {
 			Map map = JSON.decode(message);
 
+			// Chat bubbles: button clicked, call callback
+			if (map['bubbleButton'] != null) {
+				try {
+					int btnId = int.parse(map['bubbleButton']);
+					NPC.pendingBubbleCallbacks[btnId]();
+				} catch (err) {
+					Log.warning('Could not call callback for chat bubble button <id=${map['bubbleButton']}>', err);
+				}
+				return;
+			}
+
+			// String prompt window: send reference and response to callback
 			if (map['promptRef'] != null) {
-				// Send reference and response to callback
-				Function.apply(promptCallbacks[map['promptRef']], [map['promptRef'], map['promptResponse']]);
+				try {
+					String ref = map['promptRef'];
+					String response = map['promptResponse'] ?? '';
+					promptCallbacks[ref](ref, response);
+				} catch (err) {
+					Log.warning('Could not call callback for string prompt <ref=${map['promptRef']}', err);
+				}
 				return;
 			}
 
@@ -377,17 +400,7 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 					return;
 				}
 			}
-
-			// Chat bubble button clicked
-			if (map['bubbleButton'] != null) {
-				try {
-					NPC.pendingBubbleCallbacks[int.parse(map['bubbleButton'])]();
-				} catch (err) {
-					Log.warning('Could not find callback for chat bubble button', err);
-				}
-			}
-		}
-		catch (error, st) {
+		} catch (error, st) {
 			Log.error('Error processing street update', error, st);
 		}
 	}

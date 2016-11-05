@@ -26,6 +26,9 @@ abstract class NPC extends Entity {
 	MutableRectangle _collisionsRect;
 	Map<String, String> metadata = {};
 
+	/// Username and chat bubble text
+	Map<String, String> personalBubbles = {};
+
 	NPC(this.id, this.x, this.y, this.z, this.rotation, this.h_flip, this.streetName) {
 		respawn = new DateTime.now();
 	}
@@ -43,7 +46,7 @@ abstract class NPC extends Entity {
 
 	void restoreState(Map<String, String> metadata) {
 		this.metadata = metadata;
-		
+
 		if (metadata['facingRight'] == 'false') {
 			facingRight = false;
 		}
@@ -67,6 +70,8 @@ abstract class NPC extends Entity {
 	int get width => currentState.frameWidth;
 
 	int get height => currentState.frameHeight;
+
+	bool get hasMoved => x != previousX || y != previousY;
 
 	Street get street => StreetUpdateHandler.streets[streetName];
 
@@ -93,7 +98,7 @@ abstract class NPC extends Entity {
 	void defaultWallAction(Wall wall) {
 		facingRight = !facingRight;
 
-		if(wall == null) {
+		if (wall == null) {
 			return;
 		}
 
@@ -131,7 +136,7 @@ abstract class NPC extends Entity {
 	///conditions (such as walls and ledges etc.) then pass those as function  pointers
 	///else the default action will be taken
 	void moveXY({Function xAction, Function yAction, Function wallAction, Function ledgeAction}) {
-		if(previousY == null) {
+		if (previousY == null) {
 			throw "Did you forget to call super.update()?";
 		}
 
@@ -179,30 +184,39 @@ abstract class NPC extends Entity {
 	}
 
 	@override
-	Map getMap() => super.getMap()
-		..addAll({
-			"id": id,
-			"url": currentState.url,
-			"type": type,
-			"nameOverride": nameOverride,
-			"numRows": currentState.numRows,
-			"numColumns": currentState.numColumns,
-			"numFrames": currentState.numFrames,
-			"x": x,
-			"y": y,
-			"z": z,
-			"rotation": rotation,
-			"h_flip": h_flip,
-			'speed': speed,
-			'ySpeed': ySpeed,
-			'animation_name': currentState.stateName,
-			"width": width,
-			"height": height,
-			'loops': currentState.loops,
-			'loopDelay': currentState.loopDelay,
-			"facingRight": facingRight,
-			"actions": encode(actions)
-		});
+	Map getMap([String username]) {
+		Map entity = super.getMap()
+			..addAll({
+				"id": id,
+				"url": currentState.url,
+				"type": type,
+				"nameOverride": nameOverride,
+				"numRows": currentState.numRows,
+				"numColumns": currentState.numColumns,
+				"numFrames": currentState.numFrames,
+				"x": x,
+				"y": y,
+				"z": z,
+				"rotation": rotation,
+				"h_flip": h_flip,
+				'speed': speed,
+				'ySpeed': ySpeed,
+				'animation_name': currentState.stateName,
+				"width": width,
+				"height": height,
+				'loops': currentState.loops,
+				'loopDelay': currentState.loopDelay,
+				"facingRight": facingRight,
+				"actions": encode(actions)
+			});
+
+		if (username != null) {
+			// Customize bubble text for player
+			entity['bubbleText'] = personalBubbles[username] ?? bubbleText;
+		}
+
+		return entity;
+	}
 
 	Future<bool> rename({WebSocket userSocket, String email}) async {
 		final int NAME_LEN_LIMIT = 10;
@@ -230,12 +244,39 @@ abstract class NPC extends Entity {
 	}
 
 	@override
-	void say([String message, Map<String, Function> buttons]) {
+	void say([String message, String toUsername, Map<String, Function> buttons]) {
 		message = (message ?? '').trim();
 
 		if (buttons == null || buttons.length == 0) {
 			// No interaction needed, use normal bubble
-			super.say(message);
+			message = (message ?? '').trim();
+
+			DateTime now = new DateTime.now();
+			if (sayTimeout == null || sayTimeout.compareTo(now) < 0) {
+				if (toUsername == null) {
+					bubbleText = message;
+				} else {
+					personalBubbles[toUsername] = message;
+				}
+
+				int timeToLive = message.length * 30 + 3000; // Minimum 3s plus 0.3s per character
+				if (timeToLive > 10000) {
+					// Messages over 10s will only display for 10s
+					timeToLive = 10000;
+				}
+
+				Duration messageDuration = new Duration(milliseconds: timeToLive);
+				sayTimeout = now.add(messageDuration);
+
+				new Timer(messageDuration, () {
+					if (toUsername == null) {
+						bubbleText = null;
+					} else {
+						personalBubbles[toUsername] = null;
+					}
+					resetGains();
+				});
+			}
 		} else {
 			/// Message format:
 			/// message|||id1,text1|id2,text2
@@ -252,7 +293,11 @@ abstract class NPC extends Entity {
 					callback();
 
 					// Close bubble
-					bubbleText = null;
+					if (toUsername == null) {
+						bubbleText = null;
+					} else {
+						personalBubbles[toUsername] = null;
+					}
 					resetGains();
 
 					// Remove handler
@@ -266,7 +311,11 @@ abstract class NPC extends Entity {
 			}
 
 			// Send buttons to the client and wait for a response
-			bubbleText = message;
+			if (toUsername == null) {
+				bubbleText = message;
+			} else {
+				personalBubbles[toUsername] = message;
+			}
 		}
 	}
 }

@@ -180,9 +180,11 @@ class Piggy extends NPC {
 
 		//TODO: remove test buttons
 		say(responses['pet'].elementAt(rand.nextInt(responses['pet'].length)),
+			'Klikini',
 			{
 				'#Yolo!': () => print('yolo'),
-				'test': () => print('test')
+				'test': () => print('test'),
+				'piggy': () => print('it is a piggy!')
 			});
 
 		QuestEndpoint.questLogCache[email].offerQuest('Q9');
