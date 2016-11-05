@@ -89,7 +89,7 @@ class WintryPlaceHandler {
 
 	static Future exit(String streetName, String username, String email, WebSocket userSocket) async {
 		// Only when exiting the Wintry Place, not entering
-		if (ChatHandler.users[username].currentStreet == MapData.getStreetByName('Wintry Place')['tsid']) {
+		if (ChatHandler.users[username].currentStreet == 'Wintry Place') {
 			return;
 		}
 
