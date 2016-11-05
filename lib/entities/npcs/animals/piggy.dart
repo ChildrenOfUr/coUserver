@@ -178,7 +178,12 @@ class Piggy extends NPC {
 		SkillManager.learn(SKILL, email);
 		petCounts[email] = (petCounts[email] ?? 0) + 1;
 
-		say(responses['pet'].elementAt(rand.nextInt(responses['pet'].length)));
+		//TODO: remove test buttons
+		say(responses['pet'].elementAt(rand.nextInt(responses['pet'].length)),
+			{
+				'#Yolo!': () => print('yolo'),
+				'test': () => print('test')
+			});
 
 		QuestEndpoint.questLogCache[email].offerQuest('Q9');
 

@@ -8,13 +8,15 @@ abstract class NPC extends Entity {
 	 * */
 
 	/// 1px x 1px transparent gif.
-	/// The client will not enable interaction on this state by checking the url string,
+	/// The client will disable interaction on this state by checking the url string,
 	/// so update it in the client as well as the server if you change it.
 	static final Spritesheet TRANSPARENT_SPRITE = new Spritesheet('_hidden',
 		'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
 		1, 1, 1, 1, 1, true);
 
 	static int updateFps = 12;
+
+	static Map<int, Function> pendingBubbleCallbacks = {};
 
 	String id, type, streetName;
 	num x, y, z, rotation = 0, previousX, previousY, speed = 0, ySpeed = 0, yAccel = -2400;
@@ -225,5 +227,46 @@ abstract class NPC extends Entity {
 
 		promptString('Choose a name', userSocket, JSON.encode({'id': id, 'email': email}), renameCallback, charLimit: NAME_LEN_LIMIT);
 		return true;
+	}
+
+	@override
+	void say([String message, Map<String, Function> buttons]) {
+		message = (message ?? '').trim();
+
+		if (buttons == null || buttons.length == 0) {
+			// No interaction needed, use normal bubble
+			super.say(message);
+		} else {
+			/// Message format:
+			/// message|||id1,text1|id2,text2
+			message += '|||';
+
+			// Add buttons to message
+			buttons.forEach((String name, Function callback) {
+				int id = rand.nextInt(999999);
+				message += '$id,$name|';
+
+				// Register handler
+				pendingBubbleCallbacks[id] = () {
+					// Call callback
+					callback();
+
+					// Close bubble
+					bubbleText = null;
+					resetGains();
+
+					// Remove handler
+					pendingBubbleCallbacks.remove(id);
+				};
+			});
+
+			// Remove trailing pipes
+			if (message.endsWith('|')) {
+				message = message.substring(0, message.length - 1);
+			}
+
+			// Send buttons to the client and wait for a response
+			bubbleText = message;
+		}
 	}
 }

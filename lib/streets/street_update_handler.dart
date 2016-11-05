@@ -377,6 +377,15 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 					return;
 				}
 			}
+
+			// Chat bubble button clicked
+			if (map['bubbleButton'] != null) {
+				try {
+					NPC.pendingBubbleCallbacks[int.parse(map['bubbleButton'])]();
+				} catch (err) {
+					Log.warning('Could not find callback for chat bubble button', err);
+				}
+			}
 		}
 		catch (error, st) {
 			Log.error('Error processing street update', error, st);
