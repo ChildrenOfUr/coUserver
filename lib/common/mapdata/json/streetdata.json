@@ -3425,7 +3425,8 @@
 	},
 	"Curlingwood": {
 		"tsid": "LLI12K8HL87171B",
-		"hub_id": 28
+		"hub_id": 28,
+		"map_hidden": true
 	},
 	"Curving Clusters": {
 		"vendor": "Kitchen Tools",
