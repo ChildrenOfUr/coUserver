@@ -2270,7 +2270,8 @@
 	},
 	"Bilicious Blues": {
 		"tsid": "LA9TCL1H7LD37DC",
-		"hub_id": 142
+		"hub_id": 142,
+		"map_hidden": true
 	},
 	"Billore Crys": {
 		"vendor": "Alchemical Goods",
