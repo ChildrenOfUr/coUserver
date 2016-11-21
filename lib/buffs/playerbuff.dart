@@ -89,13 +89,15 @@ class PlayerBuff extends Buff {
 		_updateTimer?.cancel();
 
 		// Save the current status to the database
-		await _write();
+		if (write) {
+			await _write();
+		}
 	}
 
 	Future remove() async {
 		await stopUpdating(write: false);
 		remaining = new Duration(milliseconds: 0);
-		await _write();
+		await _write(remove: true);
 		cache.remove(this);
 	}
 
@@ -108,7 +110,7 @@ class PlayerBuff extends Buff {
 		}));
 	}
 
-	Future<bool> _write() async {
+	Future<bool> _write({remove: false}) async {
 		PostgreSql dbConn = await dbManager.getConnection();
 		try {
 			// Get existing data
@@ -118,7 +120,7 @@ class PlayerBuff extends Buff {
 
 			// Modify
 			buffsData[id] = remaining.inSeconds;
-			if (!indefinite && remaining.inSeconds <= 0) {
+			if ((!indefinite || remove) && remaining.inSeconds <= 0) {
 				buffsData.remove(id);
 			}
 			String newJson = JSON.encode(buffsData);

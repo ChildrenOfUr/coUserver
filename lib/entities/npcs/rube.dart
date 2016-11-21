@@ -72,8 +72,7 @@ class Rube extends NPC with MetabolicsChange {
 
 	static Future<bool> maybeSpawn(String tsid, String username) async {
 		// 1% chance of spawn when the minute is the number of players online
-		// TODO: remove nextBool() call (it's for testing)
-		if (rand.nextBool() || rand.nextInt(100) == 0 && new DateTime.now().minute == PlayerUpdateHandler.users.length.clamp(0, 59)) {
+		if (rand.nextInt(100) == 0 && new DateTime.now().minute == PlayerUpdateHandler.users.length.clamp(0, 59)) {
 			Identifier target = PlayerUpdateHandler.users[username];
 			if (target == null) {
 				return false;
@@ -169,9 +168,10 @@ class Rube extends NPC with MetabolicsChange {
 			}
 		} else {
 			// Walk toward the player
-			facingRight = (target?.currentX ?? 0 > this.x);
+			num distFromTarget = this.x - (target?.currentX ?? 0);
+			facingRight = distFromTarget < 0;
 
-			if ((target?.currentX ?? 0 - this.x).abs() > 100) {
+			if (distFromTarget.abs() > 100) {
 				setState('walk');
 				speed = FOLLOW_SPEED;
 			} else {
