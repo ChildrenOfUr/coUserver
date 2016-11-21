@@ -20,7 +20,7 @@ abstract class NPC extends Entity {
 
 	String id, type, streetName;
 	num x, y, z, rotation = 0, previousX, previousY, speed = 0, ySpeed = 0, yAccel = -2400;
-	bool facingRight = true, grounded = false, h_flip = false;
+	bool facingRight = true, grounded = false, h_flip = false, dontFlip = false;
 	bool renameable = false;
 	String nameOverride;
 	MutableRectangle _collisionsRect;
@@ -133,7 +133,7 @@ abstract class NPC extends Entity {
 	///and based on the platform lines available on the street
 	///
 	///If the entity should perform actions other than the defaults at certain
-	///conditions (such as walls and ledges etc.) then pass those as function  pointers
+	///conditions (such as walls and ledges etc.) then pass those as function pointers
 	///else the default action will be taken
 	void moveXY({Function xAction, Function yAction, Function wallAction, Function ledgeAction}) {
 		if (previousY == null) {
@@ -199,6 +199,7 @@ abstract class NPC extends Entity {
 				"z": z,
 				"rotation": rotation,
 				"h_flip": h_flip,
+				"dontFlip": dontFlip,
 				'speed': speed,
 				'ySpeed': ySpeed,
 				'animation_name': currentState.stateName,

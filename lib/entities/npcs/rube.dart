@@ -354,7 +354,7 @@ class Rube extends NPC with MetabolicsChange {
 			}
 
 			Item obj = items[playerItem['itemType']];
-			if (obj.price >= minCost) {
+			if (obj != null && obj.price >= minCost) {
 				candidates.add(obj);
 			}
 		}
