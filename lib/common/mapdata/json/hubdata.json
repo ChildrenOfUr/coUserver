@@ -2,6 +2,7 @@
 	"124": {
 		"name": "Abandoned Apartments",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -13,6 +14,7 @@
 		"name": "Abbasid",
 		"map_hidden": true,
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -36,6 +38,7 @@
 	"83": {
 		"name": "Alakol POLs",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -60,6 +63,7 @@
 	"94": {
 		"name": "Andra POLs",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -83,6 +87,7 @@
 	"103": {
 		"name": "Aranna POLs",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -93,6 +98,7 @@
 	"41": {
 		"name": "arbito bonus room",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -103,6 +109,7 @@
 	"60": {
 		"name": "Backups",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -183,6 +190,7 @@
 	"69": {
 		"name": "Bureaucratic Hall",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -264,6 +272,7 @@
 	"49": {
 		"name": "Eesti Life Catalog",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -288,6 +297,7 @@
 	"82": {
 		"name": "Fernando",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -298,6 +308,7 @@
 	"139": {
 		"name": "Fireflex 3000 Lab",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -308,6 +319,7 @@
 	"138": {
 		"name": "Fireflex 3000 Labs",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -423,6 +435,7 @@
 	"117": {
 		"name": "Homes",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -433,6 +446,7 @@
 	"84": {
 		"name": "Ian",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -523,6 +537,7 @@
 	"96": {
 		"name": "Jethimadh Tower: Mid",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -533,6 +548,7 @@
 	"55": {
 		"name": "June 2010 POLs",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -543,6 +559,7 @@
 	"115": {
 		"name": "Justin",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -567,6 +584,7 @@
 	"87": {
 		"name": "Kajuu POLs",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -605,6 +623,7 @@
 	"118": {
 		"name": "Keita",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -628,6 +647,7 @@
 	"57": {
 		"name": "Levelup Templates",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -651,6 +671,7 @@
 	"111": {
 		"name": "Lida POLs",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -661,6 +682,7 @@
 	"80": {
 		"name": "Lisa",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -695,6 +717,7 @@
 	"67": {
 		"name": "Multiplayer Quests",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -732,6 +755,7 @@
 	"134": {
 		"name": "NewXP",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -756,6 +780,7 @@
 	"28": {
 		"name": "Old Groddle Forest",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -780,6 +805,7 @@
 	"108": {
 		"name": "Party Locations",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -790,6 +816,7 @@
 	"73": {
 		"name": "Penalty",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -814,6 +841,7 @@
 	"37": {
 		"name": "POLs",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -824,6 +852,7 @@
 	"135": {
 		"name": "Puzzles",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -834,6 +863,7 @@
 	"33": {
 		"name": "Quoin Paradise",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -858,6 +888,7 @@
 	"127": {
 		"name": "Robin",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -881,6 +912,7 @@
 	"81": {
 		"name": "Ryan",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -934,6 +966,7 @@
 	"70": {
 		"name": "Shimla Mirch POLs",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -944,6 +977,7 @@
 	"61": {
 		"name": "Simple Level Quests",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -954,6 +988,7 @@
 	"132": {
 		"name": "Skill Quests",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -964,6 +999,7 @@
 	"45": {
 		"name": "Start",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -1016,6 +1052,7 @@
 	"52": {
 		"name": "The New Start - May 2010",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -1036,6 +1073,7 @@
 	"130": {
 		"name": "Ticket To Paradise",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -1046,6 +1084,7 @@
 	"79": {
 		"name": "Tower Quest",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
@@ -1056,6 +1095,7 @@
 	"125": {
 		"name": "Underground Puzzles",
 		"img_bg": "http://c1.glitch.bz/img/maps/map_fake_island_45490.jpg",
+		"in_game": false,
 		"color": "#ff0000",
 		"color_btm": "#606669",
 		"color_top": "#8a9297",
