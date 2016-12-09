@@ -49,6 +49,7 @@ part 'doors/machine_room_door.dart';
 part 'doors/shoppe_door.dart';
 
 part 'npcs/auctioneer.dart';
+part 'npcs/blob.dart';
 part 'npcs/crab.dart';
 part 'npcs/dust_trap.dart';
 part 'npcs/garden.dart';
