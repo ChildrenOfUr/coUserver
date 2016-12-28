@@ -577,7 +577,9 @@
 			{
 				"actionName": "Write Note",
 				"itemRequirements": {
-					"paper": 1
+					"all": {
+						"paper": 1
+					}
 				},
 				"skillRequirements": {
 					"penpersonship": 1
