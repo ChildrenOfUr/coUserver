@@ -938,7 +938,7 @@ class InventoryV2 {
 				numTriesLeft--;
 			}
 
-			if ((inventoryLocked[email] ?? []).length > 0) {
+			if (((inventoryLocked[email] ?? []) as List).length > 0) {
 				Log.warning("Could not acquire a lock for inventory of <email=$email> for $reason because ${inventoryLocked[email]}");
 				return false;
 			}
@@ -1045,9 +1045,16 @@ class InventoryV2 {
 		return (await takeAnyItemsFromUser(email, itemType, count, simulate:true)) >= count;
 	}
 
-	static Future<bool> hasUnbrokenItem(String email, String itemType, int count) async {
+	static Future<bool> hasUnbrokenItem(String email, String itemType, int count, {bool notifyIfBroken: false}) async {
 		InventoryV2 inv = await getInventory(email);
-		return (await inv.countItem(itemType, includeBroken: false)) >= count;
+		bool result = (await inv.countItem(itemType, includeBroken: false)) >= count;
+
+		if (notifyIfBroken && !result && (await hasItem(email, itemType, count))) {
+			// Player has a broken item of the same type
+			toast("Your ${items[itemType].name} is broken", StreetUpdateHandler.userSockets[email]);
+		}
+
+		return result;
 	}
 
 	/**

@@ -305,7 +305,7 @@ abstract class Entity extends Object with MetabolicsChange implements Persistabl
 				if (includeBroken) {
 					hasAtLeastOne = await InventoryV2.hasItem(email, itemType, 1);
 				} else {
-					hasAtLeastOne = await InventoryV2.hasUnbrokenItem(email, itemType, 1);
+					hasAtLeastOne = await InventoryV2.hasUnbrokenItem(email, itemType, 1, notifyIfBroken: true);
 				}
 			}
 		});
@@ -320,7 +320,7 @@ abstract class Entity extends Object with MetabolicsChange implements Persistabl
 			if (includeBroken) {
 				hasRequirements = await InventoryV2.hasItem(email, itemType, numNeeded);
 			} else {
-				hasRequirements = await InventoryV2.hasUnbrokenItem(email, itemType, numNeeded);
+				hasRequirements = await InventoryV2.hasUnbrokenItem(email, itemType, numNeeded, notifyIfBroken: true);
 			}
 		});
 
