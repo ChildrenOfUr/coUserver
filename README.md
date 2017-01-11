@@ -1,6 +1,6 @@
 [ ![Codeship Status for ChildrenOfUr/coUserver](https://www.codeship.io/projects/161f1540-0eea-0132-5580-469557c864a2/status)](https://www.codeship.io/projects/32531) [![codecov.io](https://codecov.io/github/ChildrenOfUr/coUserver/coverage.svg?branch=dev)](https://codecov.io/github/ChildrenOfUr/coUserver?branch=dev)
 
-#Children of Ur Web Server#
+#Children of Ur Web Server#x
 
 ##What is this?##
 This repository contains the source code for Children of Ur's Dart-based application server.
@@ -17,7 +17,7 @@ any of these, try selecting a file in the project, and then running Tools > Pub 
 
 ##Running##
 1. To run the server, you will have to create an 'API_KEYS.dart' file in the lib directory.
-Directions can be found in the developer docs 
+Directions can be found in the developer docs
 <a href="https://github.com/ChildrenOfUr/coUclient/blob/master/doc/api.md" target="_blank">here.</a>
 2. After that, right-click on the `declarations.dart` file and select Run to start the server on your
 local machine.
