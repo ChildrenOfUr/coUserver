@@ -1,6 +1,6 @@
 [ ![Codeship Status for ChildrenOfUr/coUserver](https://www.codeship.io/projects/161f1540-0eea-0132-5580-469557c864a2/status)](https://www.codeship.io/projects/32531) [![codecov.io](https://codecov.io/github/ChildrenOfUr/coUserver/coverage.svg?branch=dev)](https://codecov.io/github/ChildrenOfUr/coUserver?branch=dev)
 
-#Children of Ur Web Server#x
+#Children of Ur Web Server#
 
 ##What is this?##
 This repository contains the source code for Children of Ur's Dart-based application server.
