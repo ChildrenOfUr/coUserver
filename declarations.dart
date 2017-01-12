@@ -47,7 +47,11 @@ final int REDSTONE_PORT = 8181;
 // Port for websocket listeners/handlers
 final int WEBSOCKET_PORT = 8282;
 
-bool loadCert = true;
+// TODO REPLACE ME with a per-client token Andy.
+// currently hard coded on the client.
+String clientToken = 'ud6He9TXcpyOEByE944g';
+
+bool loadCert = false;
 
 // Start the server
 Future main(List<String> arguments) async {
@@ -168,6 +172,9 @@ Future _initWebSockets() async {
 
 	HttpServer server;
 	if (loadCert) {
+		if (certPath == '') {
+			throw("Please provide a `certPath` in the API_KEYS");
+		}
 		SecurityContext context = new SecurityContext()
 			..useCertificateChain('$certPath/fullchain.pem')
 			..usePrivateKey('$certPath/privkey.pem');

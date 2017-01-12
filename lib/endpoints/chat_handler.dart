@@ -72,6 +72,16 @@ class ChatHandler {
 	}
 
 	static void slackSend(String username, String text) {
+		// If we are missing any slack keys,
+		// then do not send slack messages.
+		if (
+			couWebhook == '' ||
+			couKey == '' ||
+			devKey == '' ||
+
+			glitchForeverWebhook == '' ||
+			glitchForeverKey == ''
+		) return;
 		try {
 			String url_username = username.replaceAll(' ', '_');
 			String icon_url = 'http://childrenofur.com/data/heads/$url_username.head.png';
