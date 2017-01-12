@@ -53,7 +53,7 @@ bool loadCert = true;
 Future main(List<String> arguments) async {
 	final parser = new ArgParser()
 	//use --no-load-cert to ignore certification loading
-		..addFlag("load-cert", defaultsTo: true, help: "Enables certificate loading for certificate");
+		..addFlag("load-cert", defaultsTo: false, help: "Enables certificate loading for certificate");
 	ArgResults argResults = parser.parse(arguments);
 	loadCert = argResults['load-cert'];
 

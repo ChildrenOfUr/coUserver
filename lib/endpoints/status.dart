@@ -130,7 +130,7 @@ Future<Map<String, dynamic>> getServerStatus() async => {
 // Get the server log
 @app.Route('/serverLog')
 Future<Map> getServerLog(@app.QueryParam('token') String token) async {
-	bool authed = (token != null && token == redstoneToken);
+	bool authed = (token != null && token == clientToken);
 	return {
 		'authed': authed,
 		'serverLog': (await ServerStatus.getServerLog(

@@ -14,7 +14,7 @@ class RecipeBook extends Object with MetabolicsChange {
 
 	@app.Route("/list")
 	Future<String> listRecipes(@app.QueryParam("email") String email, @app.QueryParam("tool") String tool, @app.QueryParam("token") String token) async {
-		if (token != redstoneToken) {
+		if (token != clientToken) {
 			return "Invalid token";
 		}
 
@@ -116,7 +116,7 @@ class RecipeBook extends Object with MetabolicsChange {
 
 		Log.verbose('<username=$username> is making <id=$id>');
 
-		if (token != redstoneToken) {
+		if (token != clientToken) {
 			Log.verbose('<username=$username> has an unauthorized client');
 			return "the client is unauthorized";
 		}

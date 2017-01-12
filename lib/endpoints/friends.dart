@@ -9,7 +9,7 @@ class FriendsEndpoint {
 		@app.QueryParam('rstoken') String rsToken
 	) async {
 		// Check authentication
-		if (rsToken != redstoneToken) {
+		if (rsToken != clientToken) {
 			return false;
 		}
 
@@ -71,7 +71,7 @@ class FriendsEndpoint {
 		@app.QueryParam('rstoken') String rsToken
 	) async {
 		// Check authentication
-		if (rsToken != redstoneToken) {
+		if (rsToken != clientToken) {
 			return false;
 		}
 

@@ -119,7 +119,7 @@ class SkillManager extends Object {
 	List<Map<String, dynamic>> cachedData;
 	@app.Route("/list")
 	List<Map<String, dynamic>> allSkills(@app.QueryParam("token") String token) {
-		if (token != redstoneToken) {
+		if (token != clientToken) {
 			return [{"error": "true"}, {"token": "invalid"}];
 		}
 

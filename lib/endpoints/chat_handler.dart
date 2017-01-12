@@ -280,7 +280,7 @@ class UserMutes {
 	@app.Route('/mute', methods: const [app.POST])
 	Future<bool> mute(@app.Body(app.JSON) Map data) async {
 		String username = data['username'];
-		if (username == null || data['token'] != redstoneToken) {
+		if (username == null || data['token'] != clientToken) {
 			return false;
 		}
 
@@ -302,7 +302,7 @@ class UserMutes {
 	@app.Route('/unmute', methods: const [app.POST])
 	Future<bool> unmute(@app.Body(app.JSON) Map data) async {
 		String username = data['username'];
-		if (username == null || data['token'] != redstoneToken) {
+		if (username == null || data['token'] != clientToken) {
 			return false;
 		}
 

@@ -4,7 +4,7 @@ part of entity;
 class EntityEndpoint {
 	@app.Route("/list")
 	List<Map<String, dynamic>> allEntities(@app.QueryParam("token") String token) {
-		if (token != redstoneToken) {
+		if (token != clientToken) {
 			return [{"error": "true"}, {"token": "invalid"}];
 		}
 

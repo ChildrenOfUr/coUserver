@@ -2,7 +2,7 @@ part of coUserver;
 
 @app.Route('/uploadNewSceneryImage', methods: const [app.POST], allowMultipartRequest: true)
 Future<String> uploadNewSceneryImage(@app.Body(app.FORM) form) async {
-	if (form['token'] != redstoneToken) {
+	if (form['token'] != clientToken) {
 		return 'authorization failed';
 	}
 
@@ -22,7 +22,7 @@ Future<String> uploadNewSceneryImage(@app.Body(app.FORM) form) async {
 
 @app.Route("/uploadStreetRender", methods: const [app.POST])
 Future<String> uploadStreetRender(@app.Body(app.JSON) Map street) async {
-	if (street['redstoneToken'] != redstoneToken) {
+	if (street['clientToken'] != clientToken) {
 		return 'authorization failed';
 	}
 
@@ -62,7 +62,7 @@ Future writeLayerToFile(String tsid, String layerName, String dataUri) async {
 
 @app.Route("/confirmStreetRender", methods: const [app.POST])
 Future confirmStreetRender(@app.Body(app.JSON) Map street) async {
-	if (street['redstoneToken'] != redstoneToken) {
+	if (street['clientToken'] != clientToken) {
 		return 'authorization failed';
 	}
 
@@ -83,7 +83,7 @@ Future confirmStreetRender(@app.Body(app.JSON) Map street) async {
 			request.files.add(multipartFile);
 			request.fields['tsid'] = tsid;
 			request.fields['filename'] = filename;
-			request.fields['redstoneToken'] = redstoneToken;
+			request.fields['clientToken'] = clientToken;
 			await request.send();
 			Log.verbose('uploaded $layerName for $tsid to http://childrenofur.com/assets/streetLayers/dev/$tsid/$layerName');
 		}
@@ -92,6 +92,6 @@ Future confirmStreetRender(@app.Body(app.JSON) Map street) async {
 	//now transfer the street from the dev folder to the live folder
 	String url = 'http://childrenofur.com/assets/make_street_layers_live.php';
 	http.Response response = await http.post(url, body:
-		{'redstoneToken': redstoneToken, 'tsid': tsid});
+		{'clientToken': clientToken, 'tsid': tsid});
 	print(response.body);
 }

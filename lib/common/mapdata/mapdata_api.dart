@@ -18,7 +18,7 @@ abstract class MapdataEndpoint {
 
 @app.Route('/getMapData')
 String getMapData(@app.QueryParam('token') String token) {
-	if (token == redstoneToken) {
+	if (token == clientToken) {
 		return MapdataEndpoint.getMapData();
 	} else {
 		return 'Invalid token';
