@@ -10,6 +10,7 @@ import 'package:coUserver/common/keep_alive.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/common/user.dart';
 import 'package:coUserver/API_KEYS.dart';
+import 'package:coUserver/globals.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:http/src/multipart_request.dart';

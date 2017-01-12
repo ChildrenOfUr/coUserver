@@ -4,7 +4,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:coUserver/API_KEYS.dart';
+import 'package:coUserver/globals.dart';
 import 'package:coUserver/common/user.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/endpoints/metabolics/metabolics.dart';

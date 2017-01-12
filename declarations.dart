@@ -13,6 +13,7 @@ import 'package:args/args.dart';
 
 import 'package:coUserver/achievements/achievements.dart';
 import 'package:coUserver/API_KEYS.dart';
+import 'package:coUserver/globals.dart';
 import 'package:coUserver/buffs/buffmanager.dart';
 import 'package:coUserver/common/console.dart';
 import 'package:coUserver/common/identifier.dart';
@@ -46,10 +47,6 @@ final int REDSTONE_PORT = 8181;
 
 // Port for websocket listeners/handlers
 final int WEBSOCKET_PORT = 8282;
-
-// TODO REPLACE ME with a per-client token Andy.
-// currently hard coded on the client.
-String clientToken = 'ud6He9TXcpyOEByE944g';
 
 bool loadCert = false;
 

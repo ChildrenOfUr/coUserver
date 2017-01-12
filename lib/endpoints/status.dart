@@ -6,7 +6,7 @@ import 'dart:io';
 import 'package:intl/intl.dart';
 import 'package:redstone/redstone.dart' as app;
 
-import 'package:coUserver/API_KEYS.dart';
+import 'package:coUserver/globals.dart';
 import 'package:coUserver/streets/street.dart';
 import 'package:coUserver/streets/street_update_handler.dart';
 import 'package:coUserver/common/util.dart';

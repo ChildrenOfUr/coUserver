@@ -7,6 +7,7 @@ import 'dart:math';
 import 'dart:mirrors';
 
 import 'package:coUserver/API_KEYS.dart';
+import 'package:coUserver/globals.dart';
 import 'package:coUserver/achievements/achievements.dart';
 import 'package:coUserver/achievements/stats.dart';
 import 'package:coUserver/common/harvest_messages.dart';
