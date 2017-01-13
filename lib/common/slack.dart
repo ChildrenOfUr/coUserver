@@ -1,11 +1,11 @@
 library slackreporter;
 
-import "package:coUserver/API_KEYS.dart";
+import "package:coUserver/globals.dart";
 import "package:slack/io/slack.dart";
 
 class SlackReporter {
 	/// userfeedback
-	static final Slack SLACK = new Slack(slackReportWebhook);
+	static final Slack SLACK = new Slack(KEYCHAIN.keys['slackReportWebhook']);
 
 	/// Send a text message
 	static void sendMessage({

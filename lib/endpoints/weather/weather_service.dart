@@ -9,7 +9,7 @@ class WeatherService {
 	static final String OWM_API = 'http://api.openweathermap.org/data/2.5/';
 
 	/// OpenWeatherMap endpoint parameters
-	static final String OWM_PARAMS = '?appid=$openWeatherMap&id=';
+	static final String OWM_PARAMS = '?appid=' + KEYCHAIN.keys['openWeatherMap'] + '&id=';
 
 	/// Refresh data from OpenWeatherMap every hour
 	static final Timer cacheTimer = new Timer.periodic(

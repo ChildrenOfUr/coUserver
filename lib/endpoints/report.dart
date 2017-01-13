@@ -6,7 +6,7 @@ class Report {
 
 	@app.Route("/add", methods: const [app.POST], allowMultipartRequest: true)
 	Future addReport(@app.Body(app.FORM) Map data) async {
-		if (githubToken == '') return;
+		if (KEYCHAIN.keys['githubToken'] == '') return;
 
 		// Build the body of the report
 
@@ -49,7 +49,7 @@ class Report {
 		// Send the data to GitHub
 
 		Map<String, String> headers = {
-			"Authorization": "token $githubToken"
+			"Authorization": "token " + KEYCHAIN.keys['githubToken']
 		};
 
 		http.Response ghReturn = await http.post(

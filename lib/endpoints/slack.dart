@@ -3,7 +3,7 @@ part of coUserver;
 @app.Route('/slack', methods: const [app.POST])
 String parseMessageFromSlack(@app.Body(app.FORM) Map form) {
 	String token = form['token'];
-	if (token != couKey && token != glitchForeverKey && token != devKey) {
+	if (token != KEYCHAIN.keys['couKey'] && token != KEYCHAIN.keys['glitchForeverKey'] && token != KEYCHAIN.keys['devKey']) {
 		return "NOT AUTHORIZED";
 	}
 
@@ -12,7 +12,7 @@ String parseMessageFromSlack(@app.Body(app.FORM) Map form) {
 	Map map = {};
 
 	if (username != "slackbot" && text != null && text.isNotEmpty) {
-		if (token == couKey) {
+		if (token == KEYCHAIN.keys['couKey']) {
 			map = {'username':username, 'message': text, 'channel':'Global Chat'};
 		} else {
 			map = {'username':'$username', 'message': text, 'channel':'Global Chat'};

@@ -58,7 +58,7 @@ class Elevation {
 		@app.QueryParam('channel_id') String channel,
 		@app.QueryParam('text') String text
 	) async {
-		if (token != slackPromoteToken) {
+		if (token != KEYCHAIN.keys['slackPromoteToken']) {
 			return 'Invalid token';
 		}
 

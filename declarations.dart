@@ -12,7 +12,6 @@ import 'package:path/path.dart';
 import 'package:args/args.dart';
 
 import 'package:coUserver/achievements/achievements.dart';
-import 'package:coUserver/API_KEYS.dart';
 import 'package:coUserver/globals.dart';
 import 'package:coUserver/buffs/buffmanager.dart';
 import 'package:coUserver/common/console.dart';
@@ -61,6 +60,9 @@ Future main(List<String> arguments) async {
 	try {
 		// Start logging
 		Log.init();
+
+		// Load our API_KEYS into memory.
+		await KEYCHAIN.load();
 
 		// Keep track of when the server was started
 		ServerStatus.serverStart = new DateTime.now();
@@ -169,12 +171,12 @@ Future _initWebSockets() async {
 
 	HttpServer server;
 	if (loadCert) {
-		if (certPath == '') {
+		if (KEYCHAIN.keys['certPath'] == '') {
 			throw("Please provide a `certPath` in the API_KEYS");
 		}
 		SecurityContext context = new SecurityContext()
-			..useCertificateChain('$certPath/fullchain.pem')
-			..usePrivateKey('$certPath/privkey.pem');
+			..useCertificateChain(KEYCHAIN.keys['certPath'] + '/fullchain.pem')
+			..usePrivateKey(KEYCHAIN.keys['certPath'] + '/privkey.pem');
 		server = await HttpServer.bindSecure('0.0.0.0', WEBSOCKET_PORT, context);
 	} else {
 		Log.debug('[Init Websockets] Not loading cert');

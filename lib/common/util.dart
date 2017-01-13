@@ -12,7 +12,7 @@ import 'package:image/image.dart';
 import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper_pg/manager.dart';
 
-import 'package:coUserver/API_KEYS.dart';
+import 'package:coUserver/globals.dart';
 import 'package:coUserver/common/log/log.dart';
 import 'package:coUserver/common/user.dart';
 import 'package:coUserver/streets/street_update_handler.dart';
@@ -24,7 +24,7 @@ part 'filecaching.dart';
 part '../endpoints/images.dart';
 
 /// Global PSQL manager
-PostgreSqlManager dbManager = new PostgreSqlManager(databaseUri);
+PostgreSqlManager dbManager = new PostgreSqlManager(KEYCHAIN.keys['databaseUri']);
 
 /// Database connection for redstone requests
 PostgreSql get dbConn => app.request.attributes.dbConn;

@@ -3,6 +3,7 @@ out
 pubspec.lock
 .buildlog
 API_KEYS.dart
+API_KEYS.json
 build
 streetEntities
 playerSpritesheets

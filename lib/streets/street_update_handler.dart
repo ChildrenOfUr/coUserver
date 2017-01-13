@@ -6,7 +6,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:mirrors';
 
-import 'package:coUserver/API_KEYS.dart';
+import 'package:coUserver/globals.dart';
 import 'package:coUserver/buffs/buffmanager.dart';
 import 'package:coUserver/common/identifier.dart';
 import 'package:coUserver/common/mapdata/mapdata.dart';
@@ -590,7 +590,7 @@ Future teleportUser(@app.Body(app.FORM) Map data) async {
 	String channel = data['channel_id'];
 	String text = data['text'];
 
-	if (token != slackTeleportToken) {
+	if (token != KEYCHAIN.keys['slackTeleportToken']) {
 		return 'YOU SHALL NOT PASS';
 	}
 

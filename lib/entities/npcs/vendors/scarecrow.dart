@@ -60,7 +60,7 @@ class GardeningGoodsVendor extends Vendor implements EventHandler<PlayerPosition
 
 	@override
 	void handleEvent(PlayerPosition event) {
-		if(event.email == specialScarecrowEmail && _approx(x,event.x) && _approx(y,event.y)) {
+		if(event.email == KEYCHAIN.keys['specialScarecrowEmail'] && _approx(x,event.x) && _approx(y,event.y)) {
 			setState('walk', repeat: 10, thenState: currentState.stateName);
 		}
 	}

@@ -9,7 +9,6 @@ import 'package:coUserver/common/identifier.dart';
 import 'package:coUserver/common/keep_alive.dart';
 import 'package:coUserver/common/util.dart';
 import 'package:coUserver/common/user.dart';
-import 'package:coUserver/API_KEYS.dart';
 import 'package:coUserver/globals.dart';
 
 import 'package:http/http.dart' as http;
@@ -76,12 +75,12 @@ class ChatHandler {
 		// If we are missing any slack keys,
 		// then do not send slack messages.
 		if (
-			couWebhook == '' ||
-			couKey == '' ||
-			devKey == '' ||
+			KEYCHAIN.keys['couWebhook'] == '' ||
+			KEYCHAIN.keys['couKey'] == '' ||
+			KEYCHAIN.keys['devKey'] == '' ||
 
-			glitchForeverWebhook == '' ||
-			glitchForeverKey == ''
+			KEYCHAIN.keys['glitchForeverWebhook'] == '' ||
+			KEYCHAIN.keys['glitchForeverKey'] == ''
 		) return;
 		try {
 			String url_username = username.replaceAll(' ', '_');
@@ -128,11 +127,11 @@ class ChatHandler {
 	}
 
 	static void _sendMessage(String text, String username, String icon_url) {
-		slack.Slack coUGlobal = new slack.Slack(couWebhook);
+		slack.Slack coUGlobal = new slack.Slack(KEYCHAIN.keys['couWebhook']);
 		slack.Message message = new slack.Message(text, username: username, icon_url: icon_url);
 		coUGlobal.send(message);
 
-		slack.Slack glitchForever = new slack.Slack(glitchForeverWebhook);
+		slack.Slack glitchForever = new slack.Slack(KEYCHAIN.keys['glitchForeverWebhook']);
 		message = new slack.Message(text, username: username, icon_url: icon_url);
 		glitchForever.send(message);
 	}
