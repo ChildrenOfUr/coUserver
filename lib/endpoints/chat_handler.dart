@@ -75,12 +75,12 @@ class ChatHandler {
 		// If we are missing any slack keys,
 		// then do not send slack messages.
 		if (
-			KEYCHAIN.keys['couWebhook'] == '' ||
-			KEYCHAIN.keys['couKey'] == '' ||
-			KEYCHAIN.keys['devKey'] == '' ||
+			KEYCHAIN.keys['couWebhook'] == null ||
+			KEYCHAIN.keys['couKey'] == null ||
+			KEYCHAIN.keys['devKey'] == null ||
 
-			KEYCHAIN.keys['glitchForeverWebhook'] == '' ||
-			KEYCHAIN.keys['glitchForeverKey'] == ''
+			KEYCHAIN.keys['glitchForeverWebhook'] == null ||
+			KEYCHAIN.keys['glitchForeverKey'] == null
 		) return;
 		try {
 			String url_username = username.replaceAll(' ', '_');

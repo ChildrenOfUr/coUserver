@@ -6,7 +6,7 @@ class Report {
 
 	@app.Route("/add", methods: const [app.POST], allowMultipartRequest: true)
 	Future addReport(@app.Body(app.FORM) Map data) async {
-		if (KEYCHAIN.keys['githubToken'] == '') return;
+		if (KEYCHAIN.keys['githubToken'] == null) return;
 
 		// Build the body of the report
 

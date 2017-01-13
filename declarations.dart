@@ -171,7 +171,7 @@ Future _initWebSockets() async {
 
 	HttpServer server;
 	if (loadCert) {
-		if (KEYCHAIN.keys['certPath'] == '') {
+		if (KEYCHAIN.keys['certPath'] == null) {
 			throw("Please provide a `certPath` in the API_KEYS");
 		}
 		SecurityContext context = new SecurityContext()
