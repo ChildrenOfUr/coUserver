@@ -125,6 +125,14 @@ class Report {
 			body += "\n### User Agent\n```\n${data["useragent"]}\n```";
 		}
 
+		if (data["ping"] != null && data["ping"] != "") {
+			body += "\n### Ping\n${data["ping"]}\n";
+		}
+
+		if (data["screen"] != null && data["screen"] != null) {
+			body += "\n### Window\n${data["screen"]}\n";
+		}
+
 		if (data["log"] != null && data["log"] != "") {
 			body += "\n### Log\n```\n${data["log"]}\n```";
 		}
