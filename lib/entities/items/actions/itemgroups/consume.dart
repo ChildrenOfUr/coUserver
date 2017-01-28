@@ -80,8 +80,8 @@ class Consumable extends Object with MetabolicsChange {
 
 		//cap the energy and mood as appropriate
 		Metabolics m = await getMetabolics(email: email);
-		energyAward = min(energyAward, m.max_energy - m.energy);
-		moodAward = min(moodAward, m.max_mood - m.mood);
+		energyAward = min(energyAward, m.maxEnergy - m.energy);
+		moodAward = min(moodAward, m.maxMood - m.mood);
 
 		String message = 'Consuming that ${consumed.name} gave you ';
 

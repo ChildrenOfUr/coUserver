@@ -483,7 +483,7 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 	static Future<bool> teleport({WebSocket userSocket, String email, String tsid, bool energyFree: false}) async {
 		if (!energyFree) {
 			Metabolics m = await getMetabolics(email: email);
-			if (m.user_id == -1 || m.energy < 50) {
+			if (m.userId == -1 || m.energy < 50) {
 				return false;
 			} else {
 				m.energy -= 50;

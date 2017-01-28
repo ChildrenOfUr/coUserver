@@ -67,7 +67,7 @@ class PlayerSkill extends Skill {
 			// Get existing data
 			Map<String, int> skillsData = JSON.decode(
 				(await dbConn.query(SkillManager.CELL_QUERY, Metabolics, {"email": email})
-			).first.skills_json);
+			).first.skillsJson);
 
 			// Modify
 			skillsData[id] = points;

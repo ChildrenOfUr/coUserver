@@ -44,7 +44,7 @@ class Buff {
 			List<Metabolics> rows = await dbConn.query(
 				BuffManager.CELL_QUERY, Metabolics, {"email": email}
 			);
-			int remaining = JSON.decode(rows.first.buffs_json)[id] ?? length.inSeconds;
+			int remaining = JSON.decode(rows.first.buffsJson)[id] ?? length.inSeconds;
 			return new PlayerBuff(copy, email, remaining);
 		} catch (e, st) {
 			Log.error('Error getting buff $id for <email=$email>', e, st);

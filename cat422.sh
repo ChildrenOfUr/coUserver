@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #clone the submodule
 cd CAT422
 if [ ! -d .git ]; then

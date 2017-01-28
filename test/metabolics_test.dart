@@ -30,7 +30,7 @@ Future main() async {
 			app.redstoneSetUp([#metabolics]);
 
 			Metabolics m = new Metabolics()
-				..user_id = ut_id;
+				..userId = ut_id;
 			await setMetabolics(m);
 		});
 		tearDown(() async {
@@ -45,21 +45,21 @@ Future main() async {
 
 		test('Metabolics object', () async {
 			Metabolics m = await getMetabolics(email: ut_email);
-			expect(m.energy, equals(m.max_energy ~/ 2));
-			expect(m.mood, equals(m.max_mood ~/ 2));
-			expect(m.undead_street, isNull);
-			String current_street = m.current_street;
+			expect(m.energy, equals(m.maxEnergy ~/ 2));
+			expect(m.mood, equals(m.maxMood ~/ 2));
+			expect(m.undeadStreet, isNull);
+			String current_street = m.currentStreet;
 
 			//kill the user
 			m.dead = true;
 			expect(m.energy, equals(0));
-			expect(m.undead_street, equals(current_street));
+			expect(m.undeadStreet, equals(current_street));
 
 			//revive player
 			m.dead = false;
-			expect(m.energy, equals(m.max_energy ~/ 10));
-			expect(m.mood, equals(m.max_mood ~/ 10));
-			expect(m.current_street, equals(current_street));
+			expect(m.energy, equals(m.maxEnergy ~/ 10));
+			expect(m.mood, equals(m.maxMood ~/ 10));
+			expect(m.currentStreet, equals(current_street));
 		});
 
 		test('trySetFavor', () async {
@@ -67,13 +67,13 @@ Future main() async {
 
 			//add 50 Alph favor
 			Metabolics m = await object.trySetFavor(ut_email, 'alph', 50);
-			expect(m.alphfavor, equals(50));
+			expect(m.alphFavor, equals(50));
 
 			//add more than max favor, expect 0 and expanded max
-			int maxBefore = m.alphfavor_max;
-			m = await object.trySetFavor(ut_email, 'alph', m.alphfavor_max + 1);
-			expect(m.alphfavor, equals(0));
-			expect(m.alphfavor_max, equals(maxBefore+100));
+			int maxBefore = m.alphFavorMax;
+			m = await object.trySetFavor(ut_email, 'alph', m.alphFavorMax + 1);
+			expect(m.alphFavor, equals(0));
+			expect(m.alphFavorMax, equals(maxBefore+100));
 
 			//add favor as if for a quest reward
 			List<QuestFavor> favors = [
@@ -85,14 +85,14 @@ Future main() async {
 					..favAmt = 100,
 				new QuestFavor()
 					..giantName = 'zille'
-					..favAmt = m.zillefavor_max + 1
+					..favAmt = m.zilleFavorMax + 1
 			];
-			maxBefore = m.zillefavor_max;
+			maxBefore = m.zilleFavorMax;
 			m = await object.trySetFavor(ut_email, null, null, favors: favors);
-			expect(m.humbabafavor, equals(50));
-			expect(m.lemfavor, equals(100));
-			expect(m.zillefavor, equals(0));
-			expect(m.zillefavor_max, equals(maxBefore+100));
+			expect(m.humbabaFavor, equals(50));
+			expect(m.lemFavor, equals(100));
+			expect(m.zilleFavor, equals(0));
+			expect(m.zilleFavorMax, equals(maxBefore+100));
 		});
 
 		test('trySetMetabolics', () async {
@@ -111,15 +111,15 @@ Future main() async {
 			expect((await getMetabolics(email: ut_email)).energy, equals(45));
 
 			//add a bunch of img and expect to gain a few levels
-			expect(getLevel(m.lifetime_img), equals(0));
+			expect(getLevel(m.lifetimeImg), equals(0));
 			expect(await object.trySetMetabolics(ut_email, imgMin: 100000, imgRange: 5), isTrue);
-			expect(getLevel((await getMetabolics(email: ut_email)).lifetime_img), greaterThan(0));
+			expect(getLevel((await getMetabolics(email: ut_email)).lifetimeImg), greaterThan(0));
 
 			//reset the metabolics
-			await setMetabolics(new Metabolics()..user_id = ut_id);
+			await setMetabolics(new Metabolics()..userId = ut_id);
 
 			m = await getMetabolics(email: ut_email);
-			int beforeMax = m.zillefavor_max;
+			int beforeMax = m.zilleFavorMax;
 			List<QuestFavor> favors = [
 				new QuestFavor()
 					..giantName = 'humbaba'
@@ -129,7 +129,7 @@ Future main() async {
 					..favAmt = 100,
 				new QuestFavor()
 					..giantName = 'zille'
-					..favAmt = m.zillefavor_max + 1
+					..favAmt = m.zilleFavorMax + 1
 			];
 			QuestRewards rewards = new QuestRewards()
 				..currants = 100
@@ -139,10 +139,10 @@ Future main() async {
 			m = await getMetabolics(email: ut_email);
 			expect(m.currants, equals(100));
 			expect(m.mood, equals(90));
-			expect(m.humbabafavor, equals(50));
-			expect(m.lemfavor, equals(100));
-			expect(m.zillefavor, equals(0));
-			expect(m.zillefavor_max, greaterThan(beforeMax));
+			expect(m.humbabaFavor, equals(50));
+			expect(m.lemFavor, equals(100));
+			expect(m.zilleFavor, equals(0));
+			expect(m.zilleFavorMax, greaterThan(beforeMax));
 		});
 
 		test('getLevel', () async {
