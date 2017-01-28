@@ -154,8 +154,10 @@ class Console {
 			ProcessSignal.SIGTERM.watch().listen((ProcessSignal sig) async => await cleanup());
 		}
 
-		stdin.echoMode = true;
-		stdin.lineMode = true;
+		if (!Platform.isWindows) {
+			stdin.echoMode = true;
+			stdin.lineMode = true;
+		}
 
 		_handler?.cancel();
 		_handler = stdin.listen((List<int> chars) async {
