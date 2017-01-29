@@ -566,7 +566,8 @@ Future<bool> setMetabolics(@Decode() Metabolics metabolics) async {
 				"zillefavor_max = @zillefavor_max, "
 				"quoin_multiplier = @quoin_multiplier, "
 				"quoins_collected = @quoins_collected, "
-				"location_history = @location_history "
+				"location_history = @location_history, "
+				"last_street = @last_street "
 				"WHERE user_id = @user_id";
 		} else {
 			query = "INSERT INTO metabolics ("
@@ -606,7 +607,8 @@ Future<bool> setMetabolics(@Decode() Metabolics metabolics) async {
 				"zillefavor_max, "
 				"location_history, "
 				"quoin_multiplier, "
-				"quoins_collected"
+				"quoins_collected, "
+				"last_street"
 				") VALUES("
 				"@img, "
 				"@currants, "
@@ -644,7 +646,8 @@ Future<bool> setMetabolics(@Decode() Metabolics metabolics) async {
 				"@zillefavor_max, "
 				"@location_history, "
 				"@quoin_multiplier, "
-				"@quoins_collected)";
+				"@quoins_collected, "
+				"@last_street)";
 		}
 
 		result = (await dbConn.execute(query, metabolics)) == 1;

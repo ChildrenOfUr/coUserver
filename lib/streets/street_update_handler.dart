@@ -481,8 +481,9 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 	}
 
 	static Future<bool> teleport({WebSocket userSocket, String email, String tsid, bool energyFree: false}) async {
+		Metabolics m = await getMetabolics(email: email);
+
 		if (!energyFree) {
-			Metabolics m = await getMetabolics(email: email);
 			if (m.userId == -1 || m.energy < 50) {
 				return false;
 			} else {
@@ -492,6 +493,8 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 				}
 			}
 		}
+
+		leaveStreet(email: email, street: m.currentStreet);
 
 		userSocket.add(JSON.encode({
 			"gotoStreet": "true",
@@ -537,6 +540,12 @@ class StreetUpdateHandler extends Object with MetabolicsChange {
 		userSocket.add(JSON.encode({
 			'follow': player
 		}));
+	}
+
+	static Future leaveStreet({WebSocket userSocket, String email, String username, String street}) async {
+		Metabolics metabolics = await getMetabolics(email: email);
+		metabolics.lastStreet = metabolics.currentStreet;
+		await setMetabolics(metabolics);
 	}
 }
 
