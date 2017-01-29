@@ -54,11 +54,13 @@ class ChatHandler {
 					relay.sendMessage(message);
 			}*/
 
-			if (map['channel'] == 'Global Chat'
-				&& (map['statusMessage'] == null && map['username'] != null && map['message'] != null)
-				&& !(await UserMutes.INSTANCE.userMuted(map['username']))
-			) {
-				slackSend(map['username'], map['message']);
+			if (map['exempt'] == null || map['exempt'] != true) {
+				if (map['channel'] == 'Global Chat'
+					&& (map['statusMessage'] == null && map['username'] != null && map['message'] != null)
+					&& !(await UserMutes.INSTANCE.userMuted(map['username']))
+				) {
+					slackSend(map['username'], map['message']);
+				}
 			}
 
 			processMessage(ws, message);
@@ -155,6 +157,8 @@ class ChatHandler {
 		try {
 			Map map = JSON.decode(receivedMessage);
 
+			print(map);
+
 			if (map['clientVersion'] != null) {
 				if (map['clientVersion'] < MIN_CLIENT_VER) {
 					ws.add(JSON.encode({'error':'Your client is outdated. Please reload the page.'}));
@@ -162,14 +166,16 @@ class ChatHandler {
 				return;
 			}
 
-			if (map['channel'] == 'Global Chat' && (await UserMutes.INSTANCE.userMuted(map['username']))) {
-				// User cannot use global chat
-				ws.add(JSON.encode({
-					'muted': 'true',
-					'toastText': 'You may not use Global Chat because you are a nuisance to Ur. Please click here to email us if you believe this is an error.',
-					'toastClick': '__EMAIL_COU__'
-				}));
-				return;
+			if (map['exempt'] == null || map['exempt'] != true) {
+				if (map['channel'] == 'Global Chat' && (await UserMutes.INSTANCE.userMuted(map['username']))) {
+					// User cannot use global chat
+					ws.add(JSON.encode({
+						'muted': 'true',
+						'toastText': 'You may not use Global Chat because you are a nuisance to Ur. Please click here to email us if you believe this is an error.',
+						'toastClick': '__EMAIL_COU__'
+					}));
+					return;
+				}
 			}
 
 			if (map['statusMessage'] == 'pong') {
