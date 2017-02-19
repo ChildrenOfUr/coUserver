@@ -34,188 +34,97 @@ import 'package:postgresql/postgresql.dart';
 import 'package:redstone_mapper_pg/manager.dart';
 import 'package:redstone_mapper/mapper.dart';
 import 'package:redstone_mapper/plugin.dart';
-import 'package:redstone/redstone.dart' as app;
-
-part 'entity_endpoint.dart';
+import 'package:redstone/redstone.dart' as app;part 'entity_endpoint.dart';
 
 part 'quoin.dart';
-
 part 'spritesheet.dart';
-
 part 'doors/bureaucratic_hall_door.dart';
-
 part 'doors/door.dart';
-
 part 'doors/hollow_door.dart';
-
 part 'doors/ld_teal-white-triangle.dart';
-
 part 'doors/locked_door.dart';
-
 part 'doors/machine_room_door.dart';
-
 part 'doors/shoppe_door.dart';
-
 part 'npcs/auctioneer.dart';
-
 part 'npcs/blob.dart';
-
 part 'npcs/crab.dart';
-
 part 'npcs/dust_trap.dart';
-
 part 'npcs/garden.dart';
-
 part 'npcs/hell_bartender.dart';
-
 part 'npcs/mailbox.dart';
-
 part 'npcs/npc.dart';
-
 part 'npcs/rube.dart';
-
 part 'npcs/vistingstone.dart';
-
 part 'npcs/animals/batterfly.dart';
-
 part 'npcs/animals/butterfly.dart';
-
 part 'npcs/animals/chicken.dart';
-
 part 'npcs/animals/firefly.dart';
-
 part 'npcs/animals/fox.dart';
-
 part 'npcs/animals/helikitty.dart';
-
 part 'npcs/animals/piggy.dart';
-
 part 'npcs/animals/salmon.dart';
-
 part 'npcs/items/cubimal.dart';
-
 part 'npcs/items/entity_item.dart';
-
 part 'npcs/items/still.dart';
-
 part 'npcs/shrines/alph.dart';
-
 part 'npcs/shrines/cosma.dart';
-
 part 'npcs/shrines/friendly.dart';
-
 part 'npcs/shrines/grendaline.dart';
-
 part 'npcs/shrines/humbaba.dart';
-
 part 'npcs/shrines/lem.dart';
-
 part 'npcs/shrines/mab.dart';
-
 part 'npcs/shrines/pot.dart';
-
 part 'npcs/shrines/shrine.dart';
-
 part 'npcs/shrines/spriggan.dart';
-
 part 'npcs/shrines/tii.dart';
-
 part 'npcs/shrines/zille.dart';
-
 part 'npcs/vendors/fakevendors.dart';
-
 part 'npcs/vendors/jabba_helga.dart';
-
 part 'npcs/vendors/jabba_unclefriendly.dart';
-
 part 'npcs/vendors/mealvendor.dart';
-
 part 'npcs/vendors/scarecrow.dart';
-
 part 'npcs/vendors/snoconevendingmachine.dart';
-
 part 'npcs/vendors/toolvendor.dart';
-
 part 'npcs/vendors/vendor.dart';
-
 part 'npcs/vendors/street_spirit.dart';
-
 part 'npcs/vendors/streetspiritfirebog.dart';
-
 part 'npcs/vendors/streetspiritgroddle.dart';
-
 part 'npcs/vendors/streetspiritzutto.dart';
-
 part 'plants/dirtpile.dart';
-
 part 'plants/icenubbin.dart';
-
 part 'plants/jellisacgrowth.dart';
-
 part 'plants/mortarbarnacle.dart';
-
 part 'plants/peatbog.dart';
-
 part 'plants/plant.dart';
-
 part 'plants/respawning_items/awesome_stew.dart';
-
 part 'plants/respawning_items/butterfly_milk.dart';
-
 part 'plants/respawning_items/cinnamon.dart';
-
 part 'plants/respawning_items/cocktail_shaker.dart';
-
 part 'plants/respawning_items/coffee.dart';
-
 part 'plants/respawning_items/earthshaker.dart';
-
 part 'plants/respawning_items/fruity_juice.dart';
-
 part 'plants/respawning_items/hellgrapes.dart';
-
 part 'plants/respawning_items/helltomatoes.dart';
-
 part 'plants/respawning_items/hooch.dart';
-
 part 'plants/respawning_items/hot_n_fizzy_sauce.dart';
-
 part 'plants/respawning_items/laughing_gas.dart';
-
 part 'plants/respawning_items/nonopowder.dart';
-
 part 'plants/respawning_items/plain_bubble.dart';
-
 part 'plants/respawning_items/purple_flower.dart';
-
 part 'plants/respawning_items/respawning_item.dart';
-
 part 'plants/rocks/berylrock.dart';
-
 part 'plants/rocks/dulliterock.dart';
-
 part 'plants/rocks/metalrock.dart';
-
 part 'plants/rocks/rock.dart';
-
 part 'plants/rocks/sparklyrock.dart';
-
 part 'plants/trees/beantree.dart';
-
 part 'plants/trees/bubbletree.dart';
-
 part 'plants/trees/eggplant.dart';
-
 part 'plants/trees/fruittree.dart';
-
 part 'plants/trees/gasplant.dart';
-
 part 'plants/trees/papertree.dart';
-
 part 'plants/trees/spiceplant.dart';
-
 part 'plants/trees/tree.dart';
-
 part 'plants/trees/woodtree.dart';
 
 /// Create an entity ID
