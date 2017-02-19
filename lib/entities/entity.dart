@@ -37,106 +37,185 @@ import 'package:redstone_mapper/plugin.dart';
 import 'package:redstone/redstone.dart' as app;
 
 part 'entity_endpoint.dart';
+
 part 'quoin.dart';
+
 part 'spritesheet.dart';
 
 part 'doors/bureaucratic_hall_door.dart';
+
 part 'doors/door.dart';
+
 part 'doors/hollow_door.dart';
+
 part 'doors/ld_teal-white-triangle.dart';
+
 part 'doors/locked_door.dart';
+
 part 'doors/machine_room_door.dart';
+
 part 'doors/shoppe_door.dart';
 
 part 'npcs/auctioneer.dart';
+
 part 'npcs/blob.dart';
+
 part 'npcs/crab.dart';
+
 part 'npcs/dust_trap.dart';
+
 part 'npcs/garden.dart';
+
 part 'npcs/hell_bartender.dart';
+
 part 'npcs/mailbox.dart';
+
 part 'npcs/npc.dart';
+
 part 'npcs/rube.dart';
+
 part 'npcs/vistingstone.dart';
 
 part 'npcs/animals/batterfly.dart';
+
 part 'npcs/animals/butterfly.dart';
+
 part 'npcs/animals/chicken.dart';
+
 part 'npcs/animals/firefly.dart';
+
 part 'npcs/animals/fox.dart';
+
 part 'npcs/animals/helikitty.dart';
+
 part 'npcs/animals/piggy.dart';
+
 part 'npcs/animals/salmon.dart';
 
 part 'npcs/items/cubimal.dart';
+
 part 'npcs/items/entity_item.dart';
+
 part 'npcs/items/still.dart';
 
 part 'npcs/shrines/alph.dart';
+
 part 'npcs/shrines/cosma.dart';
+
 part 'npcs/shrines/friendly.dart';
+
 part 'npcs/shrines/grendaline.dart';
+
 part 'npcs/shrines/humbaba.dart';
+
 part 'npcs/shrines/lem.dart';
+
 part 'npcs/shrines/mab.dart';
+
 part 'npcs/shrines/pot.dart';
+
 part 'npcs/shrines/shrine.dart';
+
 part 'npcs/shrines/spriggan.dart';
+
 part 'npcs/shrines/tii.dart';
+
 part 'npcs/shrines/zille.dart';
 
 part 'npcs/vendors/fakevendors.dart';
+
 part 'npcs/vendors/jabba_helga.dart';
+
 part 'npcs/vendors/jabba_unclefriendly.dart';
+
 part 'npcs/vendors/mealvendor.dart';
+
 part 'npcs/vendors/scarecrow.dart';
+
 part 'npcs/vendors/snoconevendingmachine.dart';
+
 part 'npcs/vendors/toolvendor.dart';
+
 part 'npcs/vendors/vendor.dart';
 
 part 'npcs/vendors/street_spirit.dart';
+
 part 'npcs/vendors/streetspiritfirebog.dart';
+
 part 'npcs/vendors/streetspiritgroddle.dart';
+
 part 'npcs/vendors/streetspiritzutto.dart';
 
 part 'plants/dirtpile.dart';
+
 part 'plants/icenubbin.dart';
+
 part 'plants/jellisacgrowth.dart';
+
 part 'plants/mortarbarnacle.dart';
+
 part 'plants/peatbog.dart';
+
 part 'plants/plant.dart';
 
 part 'plants/respawning_items/awesome_stew.dart';
+
 part 'plants/respawning_items/butterfly_milk.dart';
+
 part 'plants/respawning_items/cinnamon.dart';
+
 part 'plants/respawning_items/cocktail_shaker.dart';
+
 part 'plants/respawning_items/coffee.dart';
+
 part 'plants/respawning_items/earthshaker.dart';
+
 part 'plants/respawning_items/fruity_juice.dart';
+
 part 'plants/respawning_items/hellgrapes.dart';
+
 part 'plants/respawning_items/helltomatoes.dart';
+
 part 'plants/respawning_items/hooch.dart';
+
 part 'plants/respawning_items/hot_n_fizzy_sauce.dart';
+
 part 'plants/respawning_items/laughing_gas.dart';
+
 part 'plants/respawning_items/nonopowder.dart';
+
 part 'plants/respawning_items/plain_bubble.dart';
+
 part 'plants/respawning_items/purple_flower.dart';
+
 part 'plants/respawning_items/respawning_item.dart';
 
 part 'plants/rocks/berylrock.dart';
+
 part 'plants/rocks/dulliterock.dart';
+
 part 'plants/rocks/metalrock.dart';
+
 part 'plants/rocks/rock.dart';
+
 part 'plants/rocks/sparklyrock.dart';
 
 part 'plants/trees/beantree.dart';
+
 part 'plants/trees/bubbletree.dart';
+
 part 'plants/trees/eggplant.dart';
+
 part 'plants/trees/fruittree.dart';
+
 part 'plants/trees/gasplant.dart';
+
 part 'plants/trees/papertree.dart';
+
 part 'plants/trees/spiceplant.dart';
+
 part 'plants/trees/tree.dart';
+
 part 'plants/trees/woodtree.dart';
 
 /// Create an entity ID
@@ -151,7 +230,7 @@ abstract class Persistable {
 	StreetEntity persist();
 
 	///This will be called when the [Entity] is loaded from the db
-	void restoreState(Map<String,String> metadata);
+	void restoreState(Map<String, String> metadata);
 
 	///This method will be called to get a map of all data that should be saved to the db
 	Map<String, String> getPersistMetadata();
@@ -166,9 +245,11 @@ abstract class Actionable {
 
 abstract class Entity extends Object with MetabolicsChange implements Persistable, Actionable {
 	List<Action> actions = [];
-	num actionTime = 2500, x, y, z, rotation;
+	num actionTime = 2500;
+	num x, y, z, rotation;
 	bool h_flip;
-	String bubbleText, streetName, type, id;
+	String streetName, type, id;
+	String bubbleText;
 	DateTime sayTimeout = null;
 	Map<String, List<String>> responses = {};
 	Map<String, Spritesheet> states;
@@ -177,8 +258,8 @@ abstract class Entity extends Object with MetabolicsChange implements Persistabl
 
 	void setActionEnabled(String actionName, bool enabled) {
 		try {
-			for(Action action in actions) {
-				if(action.actionName == actionName) {
+			for (Action action in actions) {
+				if (action.actionName == actionName) {
 					action.enabled = enabled;
 					return;
 				}
@@ -193,20 +274,27 @@ abstract class Entity extends Object with MetabolicsChange implements Persistabl
 	StreetEntity persist() {
 		Map streetDataMap = MapData.getStreetByName(streetName);
 		if (streetDataMap == null) {
-			Log.warning('Cannot persist entity <type=$type> <id=$id> because streetDataMap'
-						' was null for this entity (type=$type) <streetName=$streetName>');
+			Log.warning('Cannot persist entity <type=$type> <id=$id> '
+				'because streetDataMap was null for this entity (type=$type) <streetName=$streetName>');
 			return null;
 		}
 
 		String tsid = streetDataMap['tsid'];
 		if (tsid == null) {
-			Log.warning('Cannot persist entity <type=$type> <id=$id> because tsid is null'
-							'for <streetName=$streetName>');
+			Log.warning('Cannot persist entity <type=$type> <id=$id> '
+				'because tsid is null for <streetName=$streetName>');
 			return null;
 		}
 
-		return new StreetEntity.create(id: id, type: type, tsid: tsid, x: x, y: y, z: z, rotation: rotation, h_flip: h_flip,
-															metadata_json: JSON.encode(getPersistMetadata()));
+		return new StreetEntity.create(id: id,
+			type: type,
+			tsid: tsid,
+			x: x,
+			y: y,
+			z: z,
+			rotation: rotation,
+			h_flip: h_flip,
+			metadata_json: JSON.encode(getPersistMetadata()));
 	}
 
 	Map<String, dynamic> getMap() {
@@ -224,14 +312,12 @@ abstract class Entity extends Object with MetabolicsChange implements Persistabl
 		message = (message ?? '').trim();
 
 		DateTime now = new DateTime.now();
-		if(sayTimeout == null || sayTimeout.compareTo(now) < 0) {
+		if (sayTimeout == null || sayTimeout.compareTo(now) < 0) {
 			bubbleText = message;
-			int timeToLive = message.length * 30 + 3000; //minimum 3s plus 0.3s per character
-			if(timeToLive > 10000) //max 10s
-				timeToLive = 10000;
-			//messages over 10s will only display for 10s
+			int timeToLive = message.length * 30 + 3000; // 0.3 sec per character plus 3 seconds minimum
+			timeToLive = min(timeToLive, 10000); // Cap at 10 seconds
 
-			Duration messageDuration = new Duration(milliseconds:timeToLive);
+			Duration messageDuration = new Duration(milliseconds: timeToLive);
 			sayTimeout = now.add(messageDuration);
 			new Timer(messageDuration, () {
 				bubbleText = null;
@@ -261,7 +347,7 @@ abstract class Entity extends Object with MetabolicsChange implements Persistabl
 
 		if (thenState != null) {
 			new Timer(new Duration(milliseconds: length), () => setState(thenState));
-			length += (states[thenState].numFrames / 30 *1000).toInt();
+			length += (states[thenState].numFrames / 30 * 1000).toInt();
 		}
 
 		respawn = new DateTime.now().add(new Duration(milliseconds: length));
@@ -301,7 +387,7 @@ abstract class Entity extends Object with MetabolicsChange implements Persistabl
 		//check that the player has the necessary item(s)
 		bool hasAtLeastOne = action.itemRequirements.any.length == 0;
 		await Future.forEach(action.itemRequirements.any, (String itemType) async {
-			if(!hasAtLeastOne) {
+			if (!hasAtLeastOne) {
 				if (includeBroken) {
 					hasAtLeastOne = await InventoryV2.hasItem(email, itemType, 1);
 				} else {
