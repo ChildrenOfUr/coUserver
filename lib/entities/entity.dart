@@ -34,8 +34,9 @@ import 'package:postgresql/postgresql.dart';
 import 'package:redstone_mapper_pg/manager.dart';
 import 'package:redstone_mapper/mapper.dart';
 import 'package:redstone_mapper/plugin.dart';
-import 'package:redstone/redstone.dart' as app;part 'entity_endpoint.dart';
+import 'package:redstone/redstone.dart' as app;
 
+part 'entity_endpoint.dart';
 part 'quoin.dart';
 part 'spritesheet.dart';
 part 'doors/bureaucratic_hall_door.dart';
