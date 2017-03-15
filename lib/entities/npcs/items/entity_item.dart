@@ -49,8 +49,29 @@ class EntityItem extends NPC {
 		'cubimal_unclefriendly': 'RacingCubimal_unclefriendly',
 		'cubimal_uraliastreetspirit': 'RacingCubimal_uraliastreetspirit',
 		'cubimal_yeti': 'RacingCubimal_yeti',
-		'still': 'Still'
+		'icon_of_alph': 'Icon_Alph',
+		'icon_of_cosma': 'Icon_Cosma',
+		'icon_of_friendly': 'Icon_Friendly',
+		'icon_of_grendaline': 'Icon_Grendaline',
+		'icon_of_humbaba': 'Icon_Humbaba',
+		'icon_of_lem': 'Icon_Lem',
+		'icon_of_mab': 'Icon_Mab',
+		'icon_of_pot': 'Icon_Pot',
+		'icon_of_spriggan': 'Icon_Spriggan',
+		'icon_of_tii': 'Icon_Tii',
+		'icon_of_zille': 'Icon_Zille',
+		'still': 'Still',
 	};
+
+	static String getClassForItem(String itemType) => ITEM_ENTITIES[itemType];
+
+	static String getItemForClass(String className) {
+		try {
+			return ITEM_ENTITIES.keys.singleWhere((String itemType) => ITEM_ENTITIES[itemType] == className);
+		} catch (_) {
+			return null;
+		}
+	}
 
 	static Future<bool> place(String email, String itemType, String tsid) async {
 		// Find entity type for this item type
@@ -101,12 +122,14 @@ class EntityItem extends NPC {
 
 	@override
 	Map<String,String> getPersistMetadata() => super.getPersistMetadata()
-		..['ownerId'] = ownerId.toString();
+		..['ownerId'] = ownerId.toString()
+		..['itemType'] = itemType;
 
 	@override
 	void restoreState(Map<String, String> metadata) {
 		super.restoreState(metadata);
 		ownerId = int.parse((metadata['ownerId'] ?? -1).toString());
+		itemType = metadata['itemType'] ?? itemType;
 	}
 
 	Future<bool> pickUp({WebSocket userSocket, String email}) async {
@@ -129,7 +152,7 @@ class EntityItem extends NPC {
 			}
 			return false;
 		} catch (e) {
-			Log.warning('Could not pick up <ownerId=$ownerId> entity for item $itemType', e);
+			Log.warning('Could not pick up <ownerId=$ownerId> entity for item <itemType=$itemType>', e);
 			return false;
 		}
 	}

@@ -66,6 +66,7 @@ part 'npcs/animals/piggy.dart';
 part 'npcs/animals/salmon.dart';
 part 'npcs/items/cubimal.dart';
 part 'npcs/items/entity_item.dart';
+part 'npcs/items/icon.dart';
 part 'npcs/items/still.dart';
 part 'npcs/shrines/alph.dart';
 part 'npcs/shrines/cosma.dart';

@@ -138,9 +138,9 @@ class RacingCubimal extends EntityItem {
 
 	String username;
 	String email;
-	String itemType;
 
-	RacingCubimal(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super(id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Cubimal';
 		states = SPRITESHEETS;
 		actions = [];
@@ -169,17 +169,6 @@ class RacingCubimal extends EntityItem {
 		// Return item
 		InventoryV2.addItemToUser(email, itemType, 1);
 	}
-
-	@override
-	Map<String,String> getPersistMetadata() => super.getPersistMetadata()
-		..['itemType'] = itemType;
-
-	@override
-	void restoreState(Map<String, String> metadata) {
-		super.restoreState(metadata);
-		itemType = metadata['itemType'];
-	}
-
 
 	@override
 	Future<bool> pickUp({WebSocket userSocket, String email}) async {
@@ -220,84 +209,96 @@ class RacingCubimal extends EntityItem {
 }
 
 class RacingCubimal_batterfly extends RacingCubimal {
-	RacingCubimal_batterfly(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_batterfly(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Batterfly Cubimal';
 		setState('race_batterfly');
 	}
 }
 
 class RacingCubimal_bureaucrat extends RacingCubimal {
-	RacingCubimal_bureaucrat(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_bureaucrat(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Bureaucrat Cubimal';
 		setState('race_bureaucrat');
 	}
 }
 
 class RacingCubimal_butler extends RacingCubimal {
-	RacingCubimal_butler(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_butler(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Butler Cubimal';
 		setState('race_butler');
 	}
 }
 
 class RacingCubimal_butterfly extends RacingCubimal {
-	RacingCubimal_butterfly(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_butterfly(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Butterfly Cubimal';
 		setState('race_butterfly');
 	}
 }
 
 class RacingCubimal_cactus extends RacingCubimal {
-	RacingCubimal_cactus(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_cactus(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Cactus Cubimal';
 		setState('race_cactus');
 	}
 }
 
 class RacingCubimal_chick extends RacingCubimal {
-	RacingCubimal_chick(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_chick(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Chick Cubimal';
 		setState('race_chick');
 	}
 }
 
 class RacingCubimal_crab extends RacingCubimal {
-	RacingCubimal_crab(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_crab(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Crab Cubimal';
 		setState('race_crab');
 	}
 }
 
 class RacingCubimal_craftybot extends RacingCubimal {
-	RacingCubimal_craftybot(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_craftybot(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Craftybot Cubimal';
 		setState('race_craftybot');
 	}
 }
 
 class RacingCubimal_deimaginator extends RacingCubimal {
-	RacingCubimal_deimaginator(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_deimaginator(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Deimaginator Cubimal';
 		setState('race_deimaginator');
 	}
 }
 
 class RacingCubimal_dustbunny extends RacingCubimal {
-	RacingCubimal_dustbunny(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_dustbunny(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Dustbunny Cubimal';
 		setState('race_dustbunny');
 	}
 }
 
 class RacingCubimal_emobear extends RacingCubimal {
-	RacingCubimal_emobear(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_emobear(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Emobear Cubimal';
 		setState('race_emobear');
 	}
 }
 
 class RacingCubimal_factorydefect_chick extends RacingCubimal {
-	RacingCubimal_factorydefect_chick(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_factorydefect_chick(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Factory Defect Chick Cubimal';
 		setState('race_factorydefect_chick');
 	}
@@ -327,224 +328,256 @@ class RacingCubimal_factorydefect_chick extends RacingCubimal {
 }
 
 class RacingCubimal_firebogstreetspirit extends RacingCubimal {
-	RacingCubimal_firebogstreetspirit(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_firebogstreetspirit(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Firebog Street Spirit Cubimal';
 		setState('race_firebogstreetspirit');
 	}
 }
 
 class RacingCubimal_firefly extends RacingCubimal {
-	RacingCubimal_firefly(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_firefly(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Firefly Cubimal';
 		setState('race_firefly');
 	}
 }
 
 class RacingCubimal_fox extends RacingCubimal {
-	RacingCubimal_fox(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_fox(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Fox Cubimal';
 		setState('race_fox');
 	}
 }
 
 class RacingCubimal_foxranger extends RacingCubimal {
-	RacingCubimal_foxranger(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_foxranger(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Fox Ranger Cubimal';
 		setState('race_foxranger');
 	}
 }
 
 class RacingCubimal_frog extends RacingCubimal {
-	RacingCubimal_frog(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_frog(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Frog Cubimal';
 		setState('race_frog');
 	}
 }
 
 class RacingCubimal_gardeningtoolsvendor extends RacingCubimal {
-	RacingCubimal_gardeningtoolsvendor(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_gardeningtoolsvendor(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Gardening Tools Vendor Cubimal';
 		setState('race_gardeningtoolsvendor');
 	}
 }
 
 class RacingCubimal_gnome extends RacingCubimal {
-	RacingCubimal_gnome(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_gnome(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Gnome Cubimal';
 		setState('race_gnome');
 	}
 }
 
 class RacingCubimal_greeterbot extends RacingCubimal {
-	RacingCubimal_greeterbot(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_greeterbot(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Greeterbot Cubimal';
 		setState('race_greeterbot');
 	}
 }
 
 class RacingCubimal_groddlestreetspirit extends RacingCubimal {
-	RacingCubimal_groddlestreetspirit(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_groddlestreetspirit(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Groddle Street Spirit Cubimal';
 		setState('race_groddlestreetspirit');
 	}
 }
 
 class RacingCubimal_gwendolyn extends RacingCubimal {
-	RacingCubimal_gwendolyn(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_gwendolyn(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Gwendolyn Cubimal';
 		setState('race_gwendolyn');
 	}
 }
 
 class RacingCubimal_helga extends RacingCubimal {
-	RacingCubimal_helga(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_helga(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Helga Cubimal';
 		setState('race_helga');
 	}
 }
 
 class RacingCubimal_hellbartender extends RacingCubimal {
-	RacingCubimal_hellbartender(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_hellbartender(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Hell Bartender Cubimal';
 		setState('race_hellbartender');
 	}
 }
 
 class RacingCubimal_ilmenskiejones extends RacingCubimal {
-	RacingCubimal_ilmenskiejones(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_ilmenskiejones(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Ilmenskie Jones Cubimal';
 		setState('race_ilmenskiejones');
 	}
 }
 
 class RacingCubimal_juju extends RacingCubimal {
-	RacingCubimal_juju(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_juju(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Juju Cubimal';
 		setState('race_juju');
 	}
 }
 
 class RacingCubimal_magicrock extends RacingCubimal {
-	RacingCubimal_magicrock(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_magicrock(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Magic Rock Cubimal';
 		setState('race_magicrock');
 	}
 }
 
 class RacingCubimal_maintenancebot extends RacingCubimal {
-	RacingCubimal_maintenancebot(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_maintenancebot(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Maintenance Bot Cubimal';
 		setState('race_maintenancebot');
 	}
 }
 
 class RacingCubimal_mealvendor extends RacingCubimal {
-	RacingCubimal_mealvendor(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_mealvendor(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Meal Vendor Cubimal';
 		setState('race_mealvendor');
 	}
 }
 
 class RacingCubimal_phantom extends RacingCubimal {
-	RacingCubimal_phantom(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_phantom(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Phantom Cubimal';
 		setState('race_phantom');
 	}
 }
 
 class RacingCubimal_piggy extends RacingCubimal {
-	RacingCubimal_piggy(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_piggy(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Piggy Cubimal';
 		setState('race_piggy');
 	}
 }
 
 class RacingCubimal_rook extends RacingCubimal {
-	RacingCubimal_rook(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_rook(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Rook Cubimal';
 		setState('race_rook');
 	}
 }
 
 class RacingCubimal_rube extends RacingCubimal {
-	RacingCubimal_rube(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_rube(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Rube Cubimal';
 		setState('race_rube');
 	}
 }
 
 class RacingCubimal_scionofpurple extends RacingCubimal {
-	RacingCubimal_scionofpurple(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_scionofpurple(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Scionofpurple Cubimal';
 		setState('race_scionofpurple');
 	}
 }
 
 class RacingCubimal_senorfunpickle extends RacingCubimal {
-	RacingCubimal_senorfunpickle(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_senorfunpickle(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Señor Funpickle Cubimal';
 		setState('race_senorfunpickle');
 	}
 }
 
 class RacingCubimal_sloth extends RacingCubimal {
-	RacingCubimal_sloth(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_sloth(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Sloth Cubimal';
 		setState('race_sloth');
 	}
 }
 
 class RacingCubimal_smuggler extends RacingCubimal {
-	RacingCubimal_smuggler(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_smuggler(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Smuggler Cubimal';
 		setState('race_smuggler');
 	}
 }
 
 class RacingCubimal_snoconevendor extends RacingCubimal {
-	RacingCubimal_snoconevendor(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_snoconevendor(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Sno Cone Vendor Cubimal';
 		setState('race_snoconevendor');
 	}
 }
 
 class RacingCubimal_squid extends RacingCubimal {
-	RacingCubimal_squid(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_squid(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Squid Cubimal';
 		setState('race_squid');
 	}
 }
 
 class RacingCubimal_toolvendor extends RacingCubimal {
-	RacingCubimal_toolvendor(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_toolvendor(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Tool Vendor Cubimal';
 		setState('race_toolvendor');
 	}
 }
 
 class RacingCubimal_trisor extends RacingCubimal {
-	RacingCubimal_trisor(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_trisor(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Trisor Cubimal';
 		setState('race_trisor');
 	}
 }
 
 class RacingCubimal_unclefriendly extends RacingCubimal {
-	RacingCubimal_unclefriendly(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_unclefriendly(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Uncle Friendly Cubimal';
 		setState('race_unclefriendly');
 	}
 }
 
 class RacingCubimal_uraliastreetspirit extends RacingCubimal {
-	RacingCubimal_uraliastreetspirit(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_uraliastreetspirit(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Uralia Street Spirit Cubimal';
 		setState('race_uraliastreetspirit');
 	}
 }
 
 class RacingCubimal_yeti extends RacingCubimal {
-	RacingCubimal_yeti(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super (id, x, y, z, rotation, h_flip, streetName) {
+	RacingCubimal_yeti(String id, num x, num y, num z, num rotation, bool h_flip, String streetName)
+	: super (id, x, y, z, rotation, h_flip, streetName) {
 		type = 'Yeti Cubimal';
 		setState('race_yeti');
 	}
