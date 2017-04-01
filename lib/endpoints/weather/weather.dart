@@ -52,6 +52,7 @@ class WeatherEndpoint {
 		Map map = JSON.decode(message);
 		String username = map['username'];
 		String tsid = map['tsid'].toString();
+		String hub = map['hub_id'].toString();
 
 		// Add reference to user if not already stored
 		if (!userSockets.containsKey(username)) {
@@ -62,6 +63,12 @@ class WeatherEndpoint {
 		if (tsid != 'null') {
 			// Get weather data for location
 			ws.add(JSON.encode(await WeatherService.getConditionsMap(tsid)));
+		} else if (hub != 'null') {
+			ws.add(JSON.encode({
+				'conditions': await WeatherService.getConditionsMap(hub, usingHubId: true),
+				'hub_id': hub,
+				'hub_label': MapData.hubs[hub]['name']
+			}));
 		} else {
 			// Client will retry when it is done loading
 			ws.close(null, 'Street not loaded');
@@ -84,7 +91,8 @@ class WeatherEndpoint {
 		await Future.forEach(userSockets.keys, (String username) async {
 			String tsid = PlayerUpdateHandler.users[username].tsid;
 			userSockets[username].add(JSON.encode({
-				'current': encode(await WeatherService.getConditions(tsid))
+				'current': encode(await WeatherService.getConditions(tsid)),
+				'tsid': tsid
 			}));
 		});
 	}

@@ -13,7 +13,9 @@ import 'package:args/args.dart';
 
 import 'package:coUserver/achievements/achievements.dart';
 import 'package:coUserver/API_KEYS.dart';
+import 'package:coUserver/auctions/auctions_service.dart';
 import 'package:coUserver/buffs/buffmanager.dart';
+import 'package:coUserver/common/api_helper.dart';
 import 'package:coUserver/common/console.dart';
 import 'package:coUserver/common/identifier.dart';
 import 'package:coUserver/common/keep_alive.dart';
@@ -105,6 +107,19 @@ Future main(List<String> arguments) async {
 		// Enable interactive console
 		Console.init();
 
+//		String query = "SELECT * from users";
+//		String apiKeyQuery = "INSERT INTO api_access (api_token, user_id) values (@apiKey, @user_id)";
+//		PostgreSql dbConn = await dbManager.getConnection();
+//		List<User> users = await dbConn.query(query, User);
+//		await Future.forEach(users, (User user) async {
+//			Uuid uuid = new Uuid();
+//			String apiKey = uuid.v1();
+//			await dbConn.execute(apiKeyQuery, {'apiKey': apiKey, 'user_id': user.id});
+//		});
+
+		//load api access cache from the db
+		await API.loadApiAccess();
+
 		Log.info('[Init] Server started successfully, took ${ServerStatus.uptime}');
 	} catch (e, st) {
 		Log.error('[Init] Server startup failed', e, st);
@@ -113,9 +128,9 @@ Future main(List<String> arguments) async {
 }
 
 // Add a CORS header to every request
-@app.Interceptor(r'/.*')
+@app.Interceptor(r'/.*', chainIdx: 0)
 Future crossOriginInterceptor() async {
-	Map<String, String> _createCorsHeader() => {
+	Map<String, String> header = {
 		'Access-Control-Allow-Origin': '*',
 		'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
 	};
@@ -124,7 +139,7 @@ Future crossOriginInterceptor() async {
 		await app.chain.next();
 	}
 
-	return app.response.change(headers: _createCorsHeader());
+	return app.response.change(headers: header);
 }
 
 Future _initRedstone() async {
@@ -137,6 +152,7 @@ Future _initRedstone() async {
 	}
 
 	// Initialize redstone
+	app.showErrorPage = false;
 	app.addPlugin(getMapperPlugin(dbManager));
 	app.setupConsoleLog(rsLog.Level.OFF);
 	await app.start(port: port, autoCompress: true);

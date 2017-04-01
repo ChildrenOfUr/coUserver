@@ -3,10 +3,10 @@ version: 0.0.0
 author: coU Development Team
 description: The sourcecode/tools needed to hack/compile the Children of Ur server
 dependencies:
-  intl: "^0.12.6"
-  http: "^0.11.3+3"
-  redstone: "^0.6.7"
+  redstone: "^0.6.4"
   redstone_mapper_pg: "^0.2.0-beta.2+2"
+  intl: "^0.14.0"
+  http: "^0.11.3+3"
   slack: "^1.2.2"
   image: "^1.1.25"
   message_bus: "^0.0.4"
@@ -18,5 +18,5 @@ dev_dependencies:
   coverage: "^0.7.2"
   dart_dev: "^1.0.0"
   dart_style: ">=0.1.8 <0.3.0"
-  dartdoc: "^0.9.0"
+  dartdoc: any
   test: "^0.12.15+3"

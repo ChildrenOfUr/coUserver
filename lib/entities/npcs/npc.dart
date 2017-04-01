@@ -8,7 +8,7 @@ abstract class NPC extends Entity {
 	 * */
 
 	/// 1px x 1px transparent gif.
-	/// The client will not enable interaction on this state by checking the url string,
+	/// The client will disable interaction on this state by checking the url string,
 	/// so update it in the client as well as the server if you change it.
 	static final Spritesheet TRANSPARENT_SPRITE = new Spritesheet('_hidden',
 		'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
@@ -16,13 +16,18 @@ abstract class NPC extends Entity {
 
 	static int updateFps = 12;
 
+	static Map<int, Function> pendingBubbleCallbacks = {};
+
 	String id, type, streetName;
 	num x, y, z, rotation = 0, previousX, previousY, speed = 0, ySpeed = 0, yAccel = -2400;
-	bool facingRight = true, grounded = false, h_flip = false;
+	bool facingRight = true, grounded = false, h_flip = false, dontFlip = false;
 	bool renameable = false;
 	String nameOverride;
 	MutableRectangle _collisionsRect;
 	Map<String, String> metadata = {};
+
+	/// Username and chat bubble text
+	Map<String, String> personalBubbles = {};
 
 	NPC(this.id, this.x, this.y, this.z, this.rotation, this.h_flip, this.streetName) {
 		respawn = new DateTime.now();
@@ -41,7 +46,7 @@ abstract class NPC extends Entity {
 
 	void restoreState(Map<String, String> metadata) {
 		this.metadata = metadata;
-		
+
 		if (metadata['facingRight'] == 'false') {
 			facingRight = false;
 		}
@@ -65,6 +70,8 @@ abstract class NPC extends Entity {
 	int get width => currentState.frameWidth;
 
 	int get height => currentState.frameHeight;
+
+	bool get hasMoved => x != previousX || y != previousY;
 
 	Street get street => StreetUpdateHandler.streets[streetName];
 
@@ -91,7 +98,7 @@ abstract class NPC extends Entity {
 	void defaultWallAction(Wall wall) {
 		facingRight = !facingRight;
 
-		if(wall == null) {
+		if (wall == null) {
 			return;
 		}
 
@@ -126,10 +133,10 @@ abstract class NPC extends Entity {
 	///and based on the platform lines available on the street
 	///
 	///If the entity should perform actions other than the defaults at certain
-	///conditions (such as walls and ledges etc.) then pass those as function  pointers
+	///conditions (such as walls and ledges etc.) then pass those as function pointers
 	///else the default action will be taken
 	void moveXY({Function xAction, Function yAction, Function wallAction, Function ledgeAction}) {
-		if(previousY == null) {
+		if (previousY == null) {
 			throw "Did you forget to call super.update()?";
 		}
 
@@ -177,32 +184,44 @@ abstract class NPC extends Entity {
 	}
 
 	@override
-	Map getMap() => super.getMap()
-		..addAll({
-			"id": id,
-			"url": currentState.url,
-			"type": type,
-			"nameOverride": nameOverride,
-			"numRows": currentState.numRows,
-			"numColumns": currentState.numColumns,
-			"numFrames": currentState.numFrames,
-			"x": x,
-			"y": y,
-			"z": z,
-			"rotation": rotation,
-			"h_flip": h_flip,
-			'speed': speed,
-			'ySpeed': ySpeed,
-			'animation_name': currentState.stateName,
-			"width": width,
-			"height": height,
-			'loops': currentState.loops,
-			'loopDelay': currentState.loopDelay,
-			"facingRight": facingRight,
-			"actions": encode(actions)
-		});
+	Map getMap([String username]) {
+		Map entity = super.getMap()
+			..addAll({
+				"id": id,
+				"url": currentState.url,
+				"type": type,
+				"nameOverride": nameOverride,
+				"numRows": currentState.numRows,
+				"numColumns": currentState.numColumns,
+				"numFrames": currentState.numFrames,
+				"x": x,
+				"y": y,
+				"z": z,
+				"rotation": rotation,
+				"h_flip": h_flip,
+				"dontFlip": dontFlip,
+				'speed': speed,
+				'ySpeed': ySpeed,
+				'animation_name': currentState.stateName,
+				"width": width,
+				"height": height,
+				'loops': currentState.loops,
+				'loopDelay': currentState.loopDelay,
+				"facingRight": facingRight,
+				"actions": encode(actions)
+			});
+
+		if (username != null) {
+			// Customize bubble text for player
+			entity['bubbleText'] = personalBubbles[username] ?? bubbleText;
+		}
+
+		return entity;
+	}
 
 	Future<bool> rename({WebSocket userSocket, String email}) async {
+		final int NAME_LEN_LIMIT = 10;
+
 		if (!renameable) {
 			return false;
 		}
@@ -214,15 +233,90 @@ abstract class NPC extends Entity {
 				return;
 			}
 
-			// Limit names to 10 characters
-			if (name.length > 10) {
-				name = name.substring(0, 10);
+			if (name.length > NAME_LEN_LIMIT) {
+				name = name.substring(0, NAME_LEN_LIMIT);
 			}
 
 			this.nameOverride = name;
 		};
 
-		promptString('Choose a name', userSocket, JSON.encode({'id': id, 'email': email}), renameCallback);
+		promptString('Choose a name', userSocket, JSON.encode({'id': id, 'email': email}), renameCallback, charLimit: NAME_LEN_LIMIT);
 		return true;
+	}
+
+	@override
+	void say([String message, String toUsername, Map<String, Function> buttons]) {
+		message = (message ?? '').trim();
+
+		if (buttons == null || buttons.length == 0) {
+			// No interaction needed, use normal bubble
+			message = (message ?? '').trim();
+
+			DateTime now = new DateTime.now();
+			if (sayTimeout == null || sayTimeout.compareTo(now) < 0) {
+				if (toUsername == null) {
+					bubbleText = message;
+				} else {
+					personalBubbles[toUsername] = message;
+				}
+
+				int timeToLive = message.length * 30 + 3000; // Minimum 3s plus 0.3s per character
+				if (timeToLive > 10000) {
+					// Messages over 10s will only display for 10s
+					timeToLive = 10000;
+				}
+
+				Duration messageDuration = new Duration(milliseconds: timeToLive);
+				sayTimeout = now.add(messageDuration);
+
+				new Timer(messageDuration, () {
+					if (toUsername == null) {
+						bubbleText = null;
+					} else {
+						personalBubbles[toUsername] = null;
+					}
+					resetGains();
+				});
+			}
+		} else {
+			/// Message format:
+			/// message|||id1,text1|id2,text2
+			message += '|||';
+
+			// Add buttons to message
+			buttons.forEach((String name, Function callback) {
+				int id = rand.nextInt(999999);
+				message += '$id,$name|';
+
+				// Register handler
+				pendingBubbleCallbacks[id] = () {
+					// Call callback
+					callback();
+
+					// Close bubble
+					if (toUsername == null) {
+						bubbleText = null;
+					} else {
+						personalBubbles[toUsername] = null;
+					}
+					resetGains();
+
+					// Remove handler
+					pendingBubbleCallbacks.remove(id);
+				};
+			});
+
+			// Remove trailing pipes
+			if (message.endsWith('|')) {
+				message = message.substring(0, message.length - 1);
+			}
+
+			// Send buttons to the client and wait for a response
+			if (toUsername == null) {
+				bubbleText = message;
+			} else {
+				personalBubbles[toUsername] = message;
+			}
+		}
 	}
 }

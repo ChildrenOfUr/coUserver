@@ -1,7 +1,17 @@
 part of auctions;
 
-class Auction
-{
+class AHStatus {
+	@Field()
+	int total_auctions;
+
+	@Field()
+	int total_value;
+}
+
+class Auction {
+	@Field()
+	int id;
+
 	@Field()
 	String item_name;
 
@@ -15,8 +25,8 @@ class Auction
 	String username;
 
 	@Field()
-	DateTime start_time;
+	DateTime start_time = new DateTime.now();
 
 	@Field()
-	DateTime end_time;
+	DateTime end_time = new DateTime.now().add(new Duration(days: 2));
 }

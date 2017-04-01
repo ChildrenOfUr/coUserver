@@ -142,4 +142,31 @@ class NoteManager {
 
 	@app.Route("/find/:id")
 	Future<String> appFind(int id) async => JSON.encode(await (await find(id)).toMap());
+
+	@app.Route("/dropped")
+	Future<List<Map>> dropped() async {
+		List<Map> notes = [];
+		List<Future> streetLookups = [];
+		List<DBStreet> streets = await dbConn.query("SELECT * FROM streets WHERE items LIKE '%note%'", DBStreet);
+
+		for (DBStreet street in streets) {
+			streetLookups.add(Future.forEach(street.groundItems, (Item item) async {
+				try {
+					if (item.itemType == "note") {
+						int noteId = int.parse(item.metadata["note_id"]);
+						Map<String, dynamic> note = await (await NoteManager.find(noteId)).toMap();
+						note["street_tsid"] = tsidL(street.id);
+						note["street_label"] = MapData.getStreetByTsid(street.id)["label"];
+						notes.add(note);
+					}
+				} catch (ex) {
+					Log.warning("Could not find dropped note for <item=$item>");
+				}
+			}));
+		}
+
+		await Future.wait(streetLookups);
+
+		return notes;
+	}
 }

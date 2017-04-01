@@ -26,8 +26,8 @@ class WeatherService {
 	static DateTime lastCheck;
 
 	/// Return the weather data for a TSID, or null if the TSID does not have weather
-	static Future<WeatherLocation> getConditions(String tsid) async {
-		int cityId = getCityId(tsid);
+	static Future<WeatherLocation> getConditions(String tsid, {bool usingHubId: false}) async {
+		int cityId = getCityId(tsid, usingHubId: usingHubId);
 		if (cityId != null) {
 			return (cache[cityId] ?? (await download(cityId)));
 		} else {
@@ -36,27 +36,33 @@ class WeatherService {
 	}
 
 	/// Return the weather data for a TSID as a Map
-	static Future<Map<String, dynamic>> getConditionsMap(String tsid) async {
-		WeatherLocation weather = await getConditions(tsid);
+	static Future<Map<String, dynamic>> getConditionsMap(String tsid, {bool usingHubId: false}) async {
+		WeatherLocation weather = await getConditions(tsid, usingHubId: usingHubId);
 		if (weather != null) {
 			return encode(weather);
 		} else {
-			return {'error': 'no_weather', 'tsid': tsid};
+			return {'error': 'no_weather', (usingHubId ? 'hub_id' : 'tsid'): tsid};
 		}
 	}
 
 	/// Get the city id for a TSID
-	static int getCityId(String tsid) {
+	static int getCityId(String tsid, {bool usingHubId: false}) {
 		try {
-			// Check street
-			Map<String, dynamic> street = MapData.getStreetByTsid(tsid);
-			int streetCityId = street['owm_city_id'];
-			if (streetCityId != null) {
-				return streetCityId;
+			Map<String, dynamic> street;
+
+			if (!usingHubId) {
+				street = MapData.getStreetByTsid(tsid);
+
+				// Check street
+				int streetCityId = street['owm_city_id'];
+				if (streetCityId != null) {
+					return streetCityId;
+				}
 			}
 
 			// Check hub
-			Map<String, dynamic> hub = MapData.hubs[street['hub_id'].toString()];
+			String hubId = usingHubId ? tsid : street['hub_id'].toString();
+			Map<String, dynamic> hub = MapData.hubs[hubId];
 			int hubCityId = hub['owm_city_id'];
 			if (hubCityId != null) {
 				return hubCityId;

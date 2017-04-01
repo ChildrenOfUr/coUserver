@@ -26,7 +26,7 @@ class MealVendor extends Vendor {
 			items["chillybusting_chili"].getMap()
 		];
 		itemsPredefined = true;
-		speed = 40;
+		speed = 60;
 		states = {
 			"attract": new Spritesheet(
 				"attract",
@@ -75,6 +75,7 @@ class MealVendor extends Vendor {
 				true)
 		};
 		facingRight = true;
+		dontFlip = true;
 		setState('idle_stand');
 	}
 
@@ -82,7 +83,7 @@ class MealVendor extends Vendor {
 		super.update();
 
 		//update x and y
-		if (currentState.stateName == "walk") {
+		if (currentState.stateName.contains('walk')) {
 			moveXY();
 		}
 
@@ -90,28 +91,22 @@ class MealVendor extends Vendor {
 			int roll = rand.nextInt(5);
 			switch (roll) {
 				case 0:
-				// try to attract buyers
+					// try to attract buyers
 					setState('attract');
 					break;
-
 				case 1:
-				// walk for 3 seconds
-					if (x >= 3800) {
-						speed = -40;
-						facingRight = false;
-						setState('walk_left');
+					// walk for 3 seconds
+					Duration walkDuration = new Duration(seconds: 3);
+					if (facingRight) {
+						setState('walk', repeatFor: walkDuration);
 					} else {
-						speed = 40;
-						facingRight = true;
-						setState('walk');
+						setState('walk_left', repeatFor: walkDuration);
 					}
-					x += speed;
 					break;
-
 				case 2:
 				case 3:
 				case 4:
-				// do nothing
+					// do nothing
 					setState('idle_stand');
 					break;
 			}

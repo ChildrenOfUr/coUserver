@@ -56,11 +56,11 @@ class MetabolicsChange {
 		} else {
 			// Set energy
 			m.energy += energy;
-			m.energy = m.energy.clamp(0, m.max_energy);
+			m.energy = m.energy.clamp(0, m.maxEnergy);
 
 			// Set mood
 			m.mood += mood;
-			m.mood = m.mood.clamp(0, m.max_mood);
+			m.mood = m.mood.clamp(0, m.maxMood);
 
 			// Set currants
 			m.currants += currants;
@@ -70,9 +70,9 @@ class MetabolicsChange {
 			if (imgRange > 0) {
 				baseImg = rand.nextInt(imgRange) + imgMin;
 			}
-			int resultImg = (baseImg * m.mood / m.max_mood) ~/ 1;
+			int resultImg = (baseImg * m.mood / m.maxMood) ~/ 1;
 			m.img += resultImg;
-			m.lifetime_img += resultImg;
+			m.lifetimeImg += resultImg;
 
 			// Send results to client
 			gains['energy'] = energy;
@@ -156,87 +156,75 @@ class MetabolicsChange {
 }
 
 class Metabolics {
-	@Field()
-	int id,
-		mood = 50,
-		max_mood = 100,
-		energy = 50,
-		max_energy = 100;
-	@Field()
-	int currants = 0,
-		img = 0,
-		lifetime_img = 0,
-		level = 1;
-	@Field()
-	String current_street = 'LA58KK7B9O522PC',
-		undead_street = null;
+	@Field() int id;
+	@Field(model: 'user_id') int userId = -1;
+	@Field() int mood = 50;
+	@Field(model: 'max_mood') int maxMood = 100;
+	@Field() int energy = 50;
+	@Field(model: 'max_energy') int maxEnergy = 100;
+	@Field() int currants = 0;
+	@Field() int img = 0;
+	@Field(model: 'lifetime_img') int lifetimeImg = 0;
+	@Field() int level = 1;
+	@Field(model: 'current_street') String currentStreet = 'LA58KK7B9O522PC';
+	@Field(model: 'last_street') String lastStreet = null;
+	@Field(model: 'undead_street') String undeadStreet = null;
+	@Field(model: 'current_street_x') num currentStreetX = 1.0;
+	@Field(model: 'current_street_y') num currentStreetY = 0.0;
+	@Field(model: 'quoin_multiplier') num quoinMultiplier = 1;
+	@Field(model: 'quoins_collected') int quoinsCollected = 0;
+	@Field(model: 'location_history') String locationHistory = '[]';
+	@Field(model: 'skills_json') String skillsJson = '{}';
+	@Field(model: 'buffs_json') String buffsJson = '{}';
+	@Field(model: 'alphfavor') int alphFavor = 0;
+	@Field(model: 'alphfavor_max') int alphFavorMax = 1000;
+	@Field(model: 'cosmafavor') int cosmaFavor = 0;
+	@Field(model: 'cosmafavor_max') int cosmaFavorMax = 1000;
+	@Field(model: 'friendlyfavor') int friendlyFavor = 0;
+	@Field(model: 'friendlyfavor_max') int friendlyFavorMax = 1000;
+	@Field(model: 'grendalinefavor') int grendalineFavor = 0;
+	@Field(model: 'grendalinefavor_max') int grendalineFavorMax = 1000;
+	@Field(model: 'humbabafavor') int humbabaFavor = 0;
+	@Field(model: 'humbabafavor_max') int humbabaFavorMax = 1000;
+	@Field(model: 'lemfavor') int lemFavor = 0;
+	@Field(model: 'lemfavor_max') int lemFavorMax = 1000;
+	@Field(model: 'mabfavor') int mabFavor = 0;
+	@Field(model: 'mabfavor_max') int mabFavorMax = 1000;
+	@Field(model: 'potfavor') int potFavor = 0;
+	@Field(model: 'potfavor_max') int potFavorMax = 1000;
+	@Field(model: 'sprigganfavor') int sprigganFavor = 0;
+	@Field(model: 'sprigganfavor_max') int sprigganFavorMax = 1000;
+	@Field(model: 'tiifavor') int tiiFavor = 0;
+	@Field(model: 'tiifavor_max') int tiiFavorMax = 1000;
+	@Field(model: 'zillefavor') int zilleFavor = 0;
+	@Field(model: 'zillefavor_max') int zilleFavorMax = 1000;
 
-	num get energyPercent => (100 * (energy / max_energy));
+	num get energyPercent => (100 * (energy / maxEnergy));
 
-	num get moodPercent => (100 * (mood / max_mood));
+	num get moodPercent => (100 * (mood / maxMood));
 
 	set dead(bool value) {
 		if (value) {
 			// Die
-			undead_street = tsidL(current_street);
+			undeadStreet = tsidL(currentStreet);
 			energy = 0;
 			mood = 0;
 
 			// Don't revive to the Wintry Place, energy will deplete too soon
-			if (undead_street == tsidL(MapData.getStreetByName('Wintry Place')['tsid'])) {
-				undead_street = tsidL(MapData.getStreetByName('Northwest Passage')['tsid']);
+			if (undeadStreet == tsidL(MapData.getStreetByName('Wintry Place')['tsid'])) {
+				undeadStreet = tsidL(MapData.getStreetByName('Northwest Passage')['tsid']);
 			}
 		} else {
 			// Revive
-			undead_street = null;
-			energy = max_energy ~/ 10;
-			mood = max_mood ~/ 10;
+			undeadStreet = null;
+			energy = maxEnergy ~/ 10;
+			mood = maxMood ~/ 10;
 		}
 	}
 
-	@Field()
-	num current_street_x = 1.0,
-		current_street_y = 0.0,
-		quoin_multiplier = 1;
-
-	@Field()
-	int user_id = -1,
-		alphfavor = 0,
-		alphfavor_max = 1000,
-		cosmafavor = 0,
-		cosmafavor_max = 1000,
-		friendlyfavor = 0,
-		friendlyfavor_max = 1000,
-		grendalinefavor = 0,
-		grendalinefavor_max = 1000,
-		humbabafavor = 0,
-		humbabafavor_max = 1000,
-		lemfavor = 0,
-		lemfavor_max = 1000,
-		mabfavor = 0,
-		mabfavor_max = 1000,
-		potfavor = 0,
-		potfavor_max = 1000,
-		sprigganfavor = 0,
-		sprigganfavor_max = 1000,
-		tiifavor = 0,
-		tiifavor_max = 1000,
-		zillefavor = 0,
-		zillefavor_max = 1000,
-		quoins_collected = 0;
-
-	@Field()
-	String location_history = '[]';
-
-	@Field()
-	String skills_json = "{}";
-
-	@Field()
-	String buffs_json = "{}";
-
 	void addImg(int amount) {
 		img += amount;
-		lifetime_img += amount;
+		lifetimeImg += amount;
 	}
 }
 
@@ -388,11 +376,11 @@ int getLevel(@app.QueryParam("img") int img) {
 	if (img >= imgLevels[60]) {
 		result = 60;
 	} else {
-		for (int data_lvl in imgLevels.keys) {
-			int data_lvl_img = imgLevels[data_lvl];
+		for (int level in imgLevels.keys) {
+			int levelImg = imgLevels[level];
 
-			if (img < data_lvl_img) {
-				result = data_lvl - 1;
+			if (img < levelImg) {
+				result = level - 1;
 				break;
 			}
 		}

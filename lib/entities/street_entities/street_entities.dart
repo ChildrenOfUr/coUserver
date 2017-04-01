@@ -72,8 +72,6 @@ class StreetEntities {
 		Future<bool> _setInDb(StreetEntity entity) async {
 			PostgreSql dbConn = await dbManager.getConnection();
 
-			print(entity);
-
 			try {
 				String query = 'INSERT INTO $TABLE (id, type, tsid, x, y, z, h_flip, rotation, metadata_json) '
 					'VALUES (@id, @type, @tsid, @x, @y, @z, @h_flip, @rotation, @metadata_json) '

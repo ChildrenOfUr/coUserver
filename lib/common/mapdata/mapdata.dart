@@ -143,4 +143,26 @@ abstract class MapData {
 			return 'LIF12PMQ5121D68'; // Default to Cebarkul
 		}
 	}
+
+	/// Whether a street is hidden
+	static bool streetIsHidden(String streetName) {
+		try {
+			Map<String, dynamic> streetData = streets[streetName];
+
+			// Street level
+			if (streetData['map_hidden']) {
+				return true;
+			}
+
+			// Hub level
+			if (MapData.hubs[streetData['hub_id']]['map_hidden']) {
+				return true;
+			}
+
+			return false;
+		} catch(_) {
+			// Missing data
+			return false;
+		}
+	}
 }

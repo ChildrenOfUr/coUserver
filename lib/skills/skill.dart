@@ -137,7 +137,7 @@ class Skill {
 			);
 			int points = 0;
 			if (rows.length > 0) {
-				points = JSON.decode(rows.first.skills_json)[id] ?? 0;
+				points = JSON.decode(rows.first.skillsJson)[id] ?? 0;
 			}
 			return new PlayerSkill(copy, email, points);
 		} catch (e, st) {

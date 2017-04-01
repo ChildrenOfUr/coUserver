@@ -1,5 +1,9 @@
 part of item;
 
+class ActionCallback {
+	const ActionCallback();
+}
+
 class Action {
 	@Field()
 	String actionName, _actionWord, error;

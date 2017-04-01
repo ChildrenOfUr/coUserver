@@ -29,3 +29,12 @@ String getMapData(@app.QueryParam('token') String token) {
 Map<String, dynamic> getStreet(@app.QueryParam('tsid') String tsid) {
 	return MapData.getStreetFile(tsid);
 }
+
+@app.Route('/listStreets')
+String listStreets([@app.QueryParam('all') bool all = false]) {
+	if (all) {
+		return MapData.streets.keys.toList().join("\n");
+	} else {
+		return MapData.streets.keys.where((String streetName) => !MapData.streetIsHidden(streetName)).toList().join("\n");
+	}
+}

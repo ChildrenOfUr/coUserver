@@ -132,7 +132,7 @@ class BuffManager {
 
 		// Get data from database
 		try {
-			playerBuffsData = JSON.decode((await getMetabolics(email: email)).buffs_json);
+			playerBuffsData = JSON.decode((await getMetabolics(email: email)).buffsJson);
 		} catch (e, st) {
 			Log.error('Error getting buffs from database for <email=$email>', e, st);
 		}

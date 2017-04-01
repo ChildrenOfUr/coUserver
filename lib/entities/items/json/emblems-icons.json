@@ -482,32 +482,10 @@
 		"description": "Containing the combined power of eleven already powerful emblems, this Icon of Alph can confer many blessings upon those who show it appropriate adoration.",
 		"actions": [
 			{
-				"actionName": "Tithe",
-				"description": "Insert 100 currants to support the Icon",
+				"actionName": "Place",
+				"description": "Set the Icon on the ground",
 				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 0
-			},
-			{
-				"actionName": "Ruminate",
-				"description": "Soak up the happysauce emanating from the Icon",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
-			},
-			{
-				"actionName": "Revere",
-				"description": "Let the Icon replenish you while you adore it",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
-			},
-			{
-				"actionName": "Reflect",
-				"description": "Dwell a while on the true meaning of the Icon",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
+				"skillRequirements": {}
 			}
 		]
 	},
@@ -521,32 +499,10 @@
 		"description": "Emitting a soft glow and a ethereal whistle only butterflies can hear, this Icon of Cosma, made of eleven glistening emblems, can grant many benedictions to those who treat it correctly.",
 		"actions": [
 			{
-				"actionName": "Tithe",
-				"description": "Insert 100 currants to support the Icon",
+				"actionName": "Place",
+				"description": "Set the Icon on the ground",
 				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 0
-			},
-			{
-				"actionName": "Ruminate",
-				"description": "Soak up the happysauce emanating from the Icon",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
-			},
-			{
-				"actionName": "Revere",
-				"description": "Let the Icon replenish you while you adore it",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
-			},
-			{
-				"actionName": "Reflect",
-				"description": "Dwell a while on the true meaning of the Icon",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
+				"skillRequirements": {}
 			}
 		]
 	},
@@ -560,32 +516,10 @@
 		"description": "More radiant than can be imagined by a mere mortal Glitch, this powerful Icon of Friendly, made up of eleven separately radiant Emblems of Friendly, confers glorious gifts upon those who use it correctly.",
 		"actions": [
 			{
-				"actionName": "Tithe",
-				"description": "Insert 100 currants to support the Icon",
+				"actionName": "Place",
+				"description": "Set the Icon on the ground",
 				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 0
-			},
-			{
-				"actionName": "Ruminate",
-				"description": "Soak up the happysauce emanating from the Icon",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
-			},
-			{
-				"actionName": "Revere",
-				"description": "Let the Icon replenish you while you adore it",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
-			},
-			{
-				"actionName": "Reflect",
-				"description": "Dwell a while on the true meaning of the Icon",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
+				"skillRequirements": {}
 			}
 		]
 	},
@@ -599,32 +533,10 @@
 		"description": "Shimmering like a bottomless pool, this supremely lustrous Icon of Grendaline, made up of eleven individual Emblems, floods with blessings the glitch who shows it proper respect.",
 		"actions": [
 			{
-				"actionName": "Tithe",
-				"description": "Insert 100 currants to support the Icon",
+				"actionName": "Place",
+				"description": "Set the Icon on the ground",
 				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 0
-			},
-			{
-				"actionName": "Ruminate",
-				"description": "Soak up the happysauce emanating from the Icon",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
-			},
-			{
-				"actionName": "Revere",
-				"description": "Let the Icon replenish you while you adore it",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
-			},
-			{
-				"actionName": "Reflect",
-				"description": "Dwell a while on the true meaning of the Icon",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
+				"skillRequirements": {}
 			}
 		]
 	},
@@ -638,32 +550,10 @@
 		"description": "As magnificent a sight as any glitch could imagine, this Icon of Humbaba (made from eleven of her dazzling Emblems) bestows blessings generously on those who show it appropriate respect.",
 		"actions": [
 			{
-				"actionName": "Tithe",
-				"description": "Insert 100 currants to support the Icon",
+				"actionName": "Place",
+				"description": "Set the Icon on the ground",
 				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 0
-			},
-			{
-				"actionName": "Ruminate",
-				"description": "Soak up the happysauce emanating from the Icon",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
-			},
-			{
-				"actionName": "Revere",
-				"description": "Let the Icon replenish you while you adore it",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
-			},
-			{
-				"actionName": "Reflect",
-				"description": "Dwell a while on the true meaning of the Icon",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
+				"skillRequirements": {}
 			}
 		]
 	},
@@ -677,32 +567,10 @@
 		"description": "Though looking too long at the Icon of Lem is rumoured to cause brain-melting, supplicants who adore it with due caution can expect many glorious benedictions of Lem. Or 'Blemedictions'.",
 		"actions": [
 			{
-				"actionName": "Tithe",
-				"description": "Insert 100 currants to support the Icon",
+				"actionName": "Place",
+				"description": "Set the Icon on the ground",
 				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 0
-			},
-			{
-				"actionName": "Ruminate",
-				"description": "Soak up the happysauce emanating from the Icon",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
-			},
-			{
-				"actionName": "Revere",
-				"description": "Let the Icon replenish you while you adore it",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
-			},
-			{
-				"actionName": "Reflect",
-				"description": "Dwell a while on the true meaning of the Icon",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
+				"skillRequirements": {}
 			}
 		]
 	},
@@ -716,32 +584,10 @@
 		"description": "Composed of eleven moderately burnished Emblems of Mab, this majorly buffed Icon of Mab bestows gifts and benedictions upon those who give Mab her due.",
 		"actions": [
 			{
-				"actionName": "Tithe",
-				"description": "Insert 100 currants to support the Icon",
+				"actionName": "Place",
+				"description": "Set the Icon on the ground",
 				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 0
-			},
-			{
-				"actionName": "Ruminate",
-				"description": "Soak up the happysauce emanating from the Icon",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
-			},
-			{
-				"actionName": "Revere",
-				"description": "Let the Icon replenish you while you adore it",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
-			},
-			{
-				"actionName": "Reflect",
-				"description": "Dwell a while on the true meaning of the Icon",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
+				"skillRequirements": {}
 			}
 		]
 	},
@@ -755,32 +601,10 @@
 		"description": "Quietly vibrating with a powerful inner light, this Icon of Pot - composed of eleven carefully won Emblems of the same - can deliver great things to those who treat it correctly.",
 		"actions": [
 			{
-				"actionName": "Tithe",
-				"description": "Insert 100 currants to support the Icon",
+				"actionName": "Place",
+				"description": "Set the Icon on the ground",
 				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 0
-			},
-			{
-				"actionName": "Ruminate",
-				"description": "Soak up the happysauce emanating from the Icon",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
-			},
-			{
-				"actionName": "Revere",
-				"description": "Let the Icon replenish you while you adore it",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
-			},
-			{
-				"actionName": "Reflect",
-				"description": "Dwell a while on the true meaning of the Icon",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
+				"skillRequirements": {}
 			}
 		]
 	},
@@ -794,32 +618,10 @@
 		"description": "Buzzing with a sense of its own supreme magnificence, this Icon of Spriggan, containing the combined power of eleven emblems, is known to repay generously those who show it adoration correctly.",
 		"actions": [
 			{
-				"actionName": "Tithe",
-				"description": "Insert 100 currants to support the Icon",
+				"actionName": "Place",
+				"description": "Set the Icon on the ground",
 				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 0
-			},
-			{
-				"actionName": "Ruminate",
-				"description": "Soak up the happysauce emanating from the Icon",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
-			},
-			{
-				"actionName": "Revere",
-				"description": "Let the Icon replenish you while you adore it",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
-			},
-			{
-				"actionName": "Reflect",
-				"description": "Dwell a while on the true meaning of the Icon",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
+				"skillRequirements": {}
 			}
 		]
 	},
@@ -833,32 +635,10 @@
 		"description": "The ultimate decorative item for the true follower of Tii, this Icon of Tii, made up of eleven Emblems, contains powers far beyond simply looking pretty. Great blessings can belong to the appropriately observant.",
 		"actions": [
 			{
-				"actionName": "Tithe",
-				"description": "Insert 100 currants to support the Icon",
+				"actionName": "Place",
+				"description": "Set the Icon on the ground",
 				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 0
-			},
-			{
-				"actionName": "Ruminate",
-				"description": "Soak up the happysauce emanating from the Icon",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
-			},
-			{
-				"actionName": "Revere",
-				"description": "Let the Icon replenish you while you adore it",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
-			},
-			{
-				"actionName": "Reflect",
-				"description": "Dwell a while on the true meaning of the Icon",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
+				"skillRequirements": {}
 			}
 		]
 	},
@@ -872,32 +652,10 @@
 		"description": "Curiously heavy for something that emits so much inner light, this Icon of Zille, made up of eleven Emblems of Zille, can bestow mighty things upon supplicants who know how to use it.",
 		"actions": [
 			{
-				"actionName": "Tithe",
-				"description": "Insert 100 currants to support the Icon",
+				"actionName": "Place",
+				"description": "Set the Icon on the ground",
 				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 0
-			},
-			{
-				"actionName": "Ruminate",
-				"description": "Soak up the happysauce emanating from the Icon",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
-			},
-			{
-				"actionName": "Revere",
-				"description": "Let the Icon replenish you while you adore it",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
-			},
-			{
-				"actionName": "Reflect",
-				"description": "Dwell a while on the true meaning of the Icon",
-				"itemRequirements": {},
-				"skillRequirements": {},
-				"timeRequired": 11000
+				"skillRequirements": {}
 			}
 		]
 	}

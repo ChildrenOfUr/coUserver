@@ -15,11 +15,11 @@ class MetabolicsEndpoint {
 		try {
 			List<Metabolics> playerMetabolics = await dbConn.query(query, Metabolics);
 			await Future.forEach(playerMetabolics, (Metabolics m) async {
-				if (m.lifetime_img != null) {
-					int newEnergy = energyLevels[getLevel(m.lifetime_img)];
+				if (m.lifetimeImg != null) {
+					int newEnergy = energyLevels[getLevel(m.lifetimeImg)];
 					m.energy = newEnergy;
-					m.max_energy = newEnergy;
-					Log.verbose('player ${m.user_id} now has $newEnergy energy');
+					m.maxEnergy = newEnergy;
+					Log.verbose('player ${m.userId} now has $newEnergy energy');
 					await setMetabolics(m);
 					upgraded++;
 				}
@@ -39,7 +39,7 @@ class MetabolicsEndpoint {
 
 		try {
 			await Future.forEach(await dbConn.query(query, Metabolics), (Metabolics m) async {
-				List<String> oldTsids = JSON.decode(m.location_history);
+				List<String> oldTsids = JSON.decode(m.locationHistory);
 				if (oldTsids.length == 0) {
 					return;
 				}
@@ -53,7 +53,7 @@ class MetabolicsEndpoint {
 					}
 				});
 
-				m.location_history = JSON.encode(newTsids);
+				m.locationHistory = JSON.encode(newTsids);
 				await setMetabolics(m);
 				converted++;
 			});
@@ -130,7 +130,7 @@ class MetabolicsEndpoint {
 						&& await BuffManager.playerHasBuff('smashed', email)) {
 						// Smashed converts energy into mood
 						// Energy will never go below HOOCH_RATE with this buff
-						m.energy = (m.energy - SMASHED_RATE).clamp(SMASHED_RATE, m.max_energy);
+						m.energy = (m.energy - SMASHED_RATE).clamp(SMASHED_RATE, m.maxEnergy);
 						m.mood += SMASHED_RATE;
 					} else if (new DateTime.now().difference(lastSimulation).abs().inSeconds >= HUNGOVER_TIME
 						&& await BuffManager.playerHasBuff('hungover', email)) {
@@ -143,7 +143,7 @@ class MetabolicsEndpoint {
 					_calcAndSetMood(m);
 				}
 
-				if (m.mood < m.max_mood ~/ 10) {
+				if (m.mood < m.maxMood ~/ 10) {
 					QuestEndpoint.questLogCache[email]?.offerQuest('Q10');
 				}
 
@@ -159,9 +159,9 @@ class MetabolicsEndpoint {
 
 				//store current street and position
 				if (userIdentifier != null) {
-					m.current_street = userIdentifier.tsid;
-					m.current_street_x = userIdentifier.currentX;
-					m.current_street_y = userIdentifier.currentY;
+					m.currentStreet = userIdentifier.tsid;
+					m.currentStreetX = userIdentifier.currentX;
+					m.currentStreetY = userIdentifier.currentY;
 
 					//store the metabolics back to the database
 					if (await setMetabolics(m)) {
@@ -193,7 +193,7 @@ class MetabolicsEndpoint {
 
 		if (
 			m.energy == 0 // Dead
-			&& (m.undead_street == null || init) // Not in Hell (or just connecting)
+			&& (m.undeadStreet == null || init) // Not in Hell (or just connecting)
 		) {
 			// Save undead street
 			m.dead = true;
@@ -206,12 +206,12 @@ class MetabolicsEndpoint {
 		} else if (m.energy >= HellGrapes.ENERGY_REQ) {
 			// Enough energy to be alive
 
-			Map<String, dynamic> street = MapData.getStreetByTsid(m.current_street);
+			Map<String, dynamic> street = MapData.getStreetByTsid(m.currentStreet);
 			if ((street == null) || ((street['hub_id'] ?? NARAKA) == NARAKA)) {
 				// In Naraka, Return to world
 				userIdentifier.webSocket.add(JSON.encode({
 					"gotoStreet": "true",
-					"tsid": m.undead_street ?? CEBARKUL
+					"tsid": m.undeadStreet ?? CEBARKUL
 				}));
 
 				m.dead = false;
@@ -221,7 +221,7 @@ class MetabolicsEndpoint {
 
 	static Future<bool> addToLocationHistory(String username, String email, String tsid) async {
 		Metabolics m = await getMetabolics(username: username);
-		List<String> locations = JSON.decode(m.location_history);
+		List<String> locations = JSON.decode(m.locationHistory);
 		tsid = tsidL(tsid);
 
 		try {
@@ -230,7 +230,7 @@ class MetabolicsEndpoint {
 			// If it's not already in the history
 			if (!locations.contains(tsid)) {
 				locations.add(tsid);
-				m.location_history = JSON.encode(locations);
+				m.locationHistory = JSON.encode(locations);
 				finalResult = await setMetabolics(m);
 			} else {
 				// Already in history
@@ -299,7 +299,7 @@ class MetabolicsEndpoint {
 		String email = await User.getEmailFromUsername(username);
 		Metabolics m = await getMetabolics(username: username);
 
-		if (m.quoins_collected >= constants.quoinLimit) {
+		if (m.quoinsCollected >= constants.quoinLimit) {
 			// Daily quoin limit
 			denyQuoin(q, username);
 			return;
@@ -310,7 +310,7 @@ class MetabolicsEndpoint {
 			// Choose a number 1-5
 			amt = rand.nextInt(4) + 1;
 			// Multiply it by the player's quoin multiplier
-			amt = (amt * m.quoin_multiplier).round();
+			amt = (amt * m.quoinMultiplier).round();
 			// Double if buffed
 			if (await BuffManager.playerHasBuff("double_quoins", await User.getEmailFromUsername(username))) {
 				amt *= 2;
@@ -319,11 +319,11 @@ class MetabolicsEndpoint {
 			// Chose a number 0.01 i to 0.09 i
 			amt = (rand.nextInt(9) + 1) / 100;
 			// Add it to the player's quoin multiplier
-			m.quoin_multiplier += amt;
+			m.quoinMultiplier += amt;
 
 			// Limit QM
-			if (m.quoin_multiplier > constants.quoinMultiplierLimit) {
-				m.quoin_multiplier = constants.quoinMultiplierLimit;
+			if (m.quoinMultiplier > constants.quoinMultiplierLimit) {
+				m.quoinMultiplier = constants.quoinMultiplierLimit;
 				// Add double quoins buff instead
 				BuffManager.addToUser("double_quoins", email, StreetUpdateHandler.userSockets[email]);
 			}
@@ -339,56 +339,56 @@ class MetabolicsEndpoint {
 
 		if (q.type == 'img' || q.type == 'quarazy') {
 			m.img += amt;
-			m.lifetime_img += amt;
+			m.lifetimeImg += amt;
 		}
 
 		if (q.type == 'mood') {
-			if ((m.mood + amt) > m.max_mood) {
-				amt = m.max_mood - m.mood;
+			if ((m.mood + amt) > m.maxMood) {
+				amt = m.maxMood - m.mood;
 			}
 			m.mood += amt;
 		}
 
 		if (q.type == 'energy') {
-			if ((m.energy + amt) > m.max_energy) {
-				amt = m.max_energy - m.energy;
+			if ((m.energy + amt) > m.maxEnergy) {
+				amt = m.maxEnergy - m.energy;
 			}
 			m.energy += amt;
 		}
 
 		if (q.type == 'favor') {
-			m.alphfavor += amt;
-			m.alphfavor = m.alphfavor.clamp(0, m.alphfavor_max - 1);
+			m.alphFavor += amt;
+			m.alphFavor = m.alphFavor.clamp(0, m.alphFavorMax - 1);
 
-			m.cosmafavor += amt;
-			m.cosmafavor = m.cosmafavor.clamp(0, m.cosmafavor_max - 1);
+			m.cosmaFavor += amt;
+			m.cosmaFavor = m.cosmaFavor.clamp(0, m.cosmaFavorMax - 1);
 
-			m.friendlyfavor += amt;
-			m.friendlyfavor = m.friendlyfavor.clamp(0, m.friendlyfavor_max - 1);
+			m.friendlyFavor += amt;
+			m.friendlyFavor = m.friendlyFavor.clamp(0, m.friendlyFavorMax - 1);
 
-			m.grendalinefavor += amt;
-			m.grendalinefavor = m.grendalinefavor.clamp(0, m.grendalinefavor_max - 1);
+			m.grendalineFavor += amt;
+			m.grendalineFavor = m.grendalineFavor.clamp(0, m.grendalineFavorMax - 1);
 
-			m.humbabafavor += amt;
-			m.humbabafavor = m.humbabafavor.clamp(0, m.humbabafavor_max - 1);
+			m.humbabaFavor += amt;
+			m.humbabaFavor = m.humbabaFavor.clamp(0, m.humbabaFavorMax - 1);
 
-			m.lemfavor += amt;
-			m.lemfavor = m.lemfavor.clamp(0, m.lemfavor_max - 1);
+			m.lemFavor += amt;
+			m.lemFavor = m.lemFavor.clamp(0, m.lemFavorMax - 1);
 
-			m.mabfavor += amt;
-			m.mabfavor = m.mabfavor.clamp(0, m.mabfavor_max - 1);
+			m.mabFavor += amt;
+			m.mabFavor = m.mabFavor.clamp(0, m.mabFavorMax - 1);
 
-			m.potfavor += amt;
-			m.potfavor = m.potfavor.clamp(0, m.potfavor_max - 1);
+			m.potFavor += amt;
+			m.potFavor = m.potFavor.clamp(0, m.potFavorMax - 1);
 
-			m.sprigganfavor += amt;
-			m.sprigganfavor = m.sprigganfavor.clamp(0, m.sprigganfavor_max - 1);
+			m.sprigganFavor += amt;
+			m.sprigganFavor = m.sprigganFavor.clamp(0, m.sprigganFavorMax - 1);
 
-			m.tiifavor += amt;
-			m.tiifavor = m.tiifavor.clamp(0, m.tiifavor_max - 1);
+			m.tiiFavor += amt;
+			m.tiiFavor = m.tiiFavor.clamp(0, m.tiiFavorMax - 1);
 
-			m.zillefavor += amt;
-			m.zillefavor = m.zillefavor.clamp(0, m.zillefavor_max - 1);
+			m.zilleFavor += amt;
+			m.zilleFavor = m.zilleFavor.clamp(0, m.zilleFavorMax - 1);
 		}
 
 		if (q.type == 'time') {
@@ -399,7 +399,7 @@ class MetabolicsEndpoint {
 		}
 
 		if (amt > 0) {
-			m.quoins_collected++;
+			m.quoinsCollected++;
 		}
 
 		try {
@@ -417,7 +417,7 @@ class MetabolicsEndpoint {
 	}
 
 	static void _calcAndSetMood(Metabolics m) {
-		int max_mood = m.max_mood;
+		int max_mood = m.maxMood;
 		num moodRatio = m.mood / max_mood;
 
 		//determine how much mood they should lose based on current percentage of max
@@ -431,17 +431,17 @@ class MetabolicsEndpoint {
 		}
 
 		// Keep between 0 and max (both inclusive)<
-		m.mood = m.mood.clamp(0, m.max_mood);
+		m.mood = m.mood.clamp(0, m.maxMood);
 		simulateMood = false;
 	}
 
 	static void _calcAndSetEnergy(Metabolics m) {
 		//players lose .8% of their max energy every 90 seconds
 		//https://web.archive.org/web/20120805062536/http://www.glitch-strategy.com/wiki/Energy
-		m.energy -= (m.max_energy * .008).ceil();
+		m.energy -= (m.maxEnergy * .008).ceil();
 
 		// Keep between 0 and max (both inclusive)<
-		m.energy = m.energy.clamp(0, m.max_energy);
+		m.energy = m.energy.clamp(0, m.maxEnergy);
 		simulateEnergy = false;
 	}
 }
@@ -450,7 +450,10 @@ class MetabolicsEndpoint {
 @app.Route('/getMetabolics')
 @Encode()
 Future<Metabolics> getMetabolics(
-	{@app.QueryParam() String username, @app.QueryParam() String email, @app.QueryParam() int userId}) async {
+	{@app.QueryParam() String username,
+	@app.QueryParam() String email,
+	@app.QueryParam() int userId,
+	@app.QueryParam() bool caseSensitive}) async {
 	Metabolics metabolic = new Metabolics();
 
 	PostgreSql dbConn = await dbManager.getConnection();
@@ -459,12 +462,14 @@ Future<Metabolics> getMetabolics(
 		if (email != null) {
 			whereClause = "WHERE users.email = @email";
 		}
+		if (caseSensitive ?? false) {
+			whereClause = "WHERE users.username = @username";
+		}
 		if (userId != null) {
 			whereClause = "WHERE users.id = @userId";
 		}
 		String query = "SELECT * FROM metabolics JOIN users ON users.id = metabolics.user_id " + whereClause;
-		List<Metabolics> metabolics =
-		await dbConn.query(query, Metabolics, {'username': username, 'email': email, 'userId': userId});
+		List<Metabolics> metabolics = await dbConn.query(query, Metabolics, {'username': username, 'email': email, 'userId': userId});
 
 		if (metabolics.length > 0) {
 			metabolic = metabolics[0];
@@ -473,7 +478,7 @@ Future<Metabolics> getMetabolics(
 			var results = await dbConn.query(query, int, {'username': username, 'email': email, 'userId': userId});
 
 			if (results.length > 0) {
-				metabolic.user_id = results[0]['id'];
+				metabolic.userId = results[0]['id'];
 			}
 		}
 	} catch (e, st) {
@@ -491,22 +496,22 @@ Future<bool> setMetabolics(@Decode() Metabolics metabolics) async {
 	// Check for level increase
 
 	// Level before update
-	Metabolics oldMetabolics = await getMetabolics(userId: metabolics.user_id);
-	int levelStart = getLevel(oldMetabolics.lifetime_img);
+	Metabolics oldMetabolics = await getMetabolics(userId: metabolics.userId);
+	int levelStart = getLevel(oldMetabolics.lifetimeImg);
 
 	// Level after update
-	int levelEnd = getLevel(metabolics.lifetime_img);
+	int levelEnd = getLevel(metabolics.lifetimeImg);
 
 	// Compare
 	if (levelEnd > levelStart) {
 		// Expand energy tank if level increased
-		metabolics.max_energy = energyLevels[levelEnd];
+		metabolics.maxEnergy = energyLevels[levelEnd];
 
 		// Refill energy to new tank size
-		metabolics.energy = metabolics.max_energy;
+		metabolics.energy = metabolics.maxEnergy;
 
 		// Send level up event to client
-		String username = await User.getUsernameFromId(metabolics.user_id);
+		String username = await User.getUsernameFromId(metabolics.userId);
 
 		MetabolicsEndpoint.userSockets[username]?.add(JSON.encode({
 			"levelUp": levelEnd
@@ -514,8 +519,8 @@ Future<bool> setMetabolics(@Decode() Metabolics metabolics) async {
 	}
 
 	// Do not overset the metabolics that have maxes
-	metabolics.mood = metabolics.mood.clamp(0, metabolics.max_mood);
-	metabolics.energy = metabolics.energy.clamp(0, metabolics.max_energy);
+	metabolics.mood = metabolics.mood.clamp(0, metabolics.maxMood);
+	metabolics.energy = metabolics.energy.clamp(0, metabolics.maxEnergy);
 
 	// Write to database
 	PostgreSql dbConn = await dbManager.getConnection();
@@ -561,7 +566,8 @@ Future<bool> setMetabolics(@Decode() Metabolics metabolics) async {
 				"zillefavor_max = @zillefavor_max, "
 				"quoin_multiplier = @quoin_multiplier, "
 				"quoins_collected = @quoins_collected, "
-				"location_history = @location_history "
+				"location_history = @location_history, "
+				"last_street = @last_street "
 				"WHERE user_id = @user_id";
 		} else {
 			query = "INSERT INTO metabolics ("
@@ -601,7 +607,8 @@ Future<bool> setMetabolics(@Decode() Metabolics metabolics) async {
 				"zillefavor_max, "
 				"location_history, "
 				"quoin_multiplier, "
-				"quoins_collected"
+				"quoins_collected, "
+				"last_street"
 				") VALUES("
 				"@img, "
 				"@currants, "
@@ -639,13 +646,14 @@ Future<bool> setMetabolics(@Decode() Metabolics metabolics) async {
 				"@zillefavor_max, "
 				"@location_history, "
 				"@quoin_multiplier, "
-				"@quoins_collected)";
+				"@quoins_collected, "
+				"@last_street)";
 		}
 
 		result = (await dbConn.execute(query, metabolics)) == 1;
 
 		//send the new metabolics to the user right away
-		WebSocket ws = MetabolicsEndpoint.userSockets[await User.getUsernameFromId(metabolics.user_id)];
+		WebSocket ws = MetabolicsEndpoint.userSockets[await User.getUsernameFromId(metabolics.userId)];
 		ws?.add(JSON.encode(encode(metabolics)));
 	} catch (e, st) {
 		Log.error('Setting metabolics failed', e, st);

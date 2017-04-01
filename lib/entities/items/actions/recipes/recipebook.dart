@@ -122,7 +122,7 @@ class RecipeBook extends Object with MetabolicsChange {
 		}
 
 		// Stop if the tool breaks
-		if (!(await InventoryV2.hasUnbrokenItem(email, findRecipe(id).tool, 1))) {
+		if (!(await InventoryV2.hasUnbrokenItem(email, findRecipe(id).tool, 1, notifyIfBroken: true))) {
 			Log.verbose('<username=$username> just broke their <tool=${findRecipe(id).tool}>');
 			return "it broke";
 		}

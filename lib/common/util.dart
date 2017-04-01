@@ -40,12 +40,24 @@ Random rand = new Random();
 
 /// Get a TSID in 'G...' (CAT422) form
 String tsidG(String tsid) {
-	return tsidL(tsid).replaceFirst('L', 'G');
+	if (tsid == null) {
+		Log.warning('Cannot convert <TSID=$tsid> to G/CAT422 form');
+		return tsid;
+	}
+
+	if (tsid.startsWith('L')) {
+		// In TS form
+		return tsid.replaceFirst('L', 'G');
+	} else {
+		// Assume in CAT422 form
+		return tsid;
+	}
 }
 
 /// Get a TSID in 'L...' (TS) form
 String tsidL(String tsid) {
 	if (tsid == null) {
+		Log.warning('Cannot convert <TSID=$tsid> to L/TS form');
 		return tsid;
 	}
 
@@ -121,13 +133,14 @@ Map<String, Function> promptCallbacks = {};
 /// `callback` will be called with the following positional args:
 ///     1. reference
 ///     2. user's response
-void promptString(String prompt, WebSocket userSocket, String reference, Function callback) {
+void promptString(String prompt, WebSocket userSocket, String reference, Function callback, {int charLimit: 0}) {
 	promptCallbacks[reference] = callback;
 
 	userSocket.add(JSON.encode({
 		'promptString': true,
 		'promptText': prompt,
-		'promptRef': reference
+		'promptRef': reference,
+		'charLimit': charLimit
 	}));
 }
 
