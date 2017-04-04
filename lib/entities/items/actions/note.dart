@@ -144,29 +144,39 @@ class NoteManager {
 	Future<String> appFind(int id) async => JSON.encode(await (await find(id)).toMap());
 
 	@app.Route("/dropped")
-	Future<List<Map>> dropped() async {
-		List<Map> notes = [];
-		List<Future> streetLookups = [];
-		List<DBStreet> streets = await dbConn.query("SELECT * FROM streets WHERE items LIKE '%note%'", DBStreet);
+	Future<List<Map>> dropped([@app.QueryParam("count") int count, @app.QueryParam("page") int page]) async {
+		Map<String, dynamic> values = {};
+		String query = "SELECT notes.*, streets.id as tsid "
+			"FROM notes "
+			"JOIN streets "
+			"ON streets.items "
+			"LIKE '%\"note_id\":\"' || notes.id || '\"%' "
+			"ORDER BY id ASC";
 
-		for (DBStreet street in streets) {
-			streetLookups.add(Future.forEach(street.groundItems, (Item item) async {
-				try {
-					if (item.itemType == "note") {
-						int noteId = int.parse(item.metadata["note_id"]);
-						Map<String, dynamic> note = await (await NoteManager.find(noteId)).toMap();
-						note["street_tsid"] = tsidL(street.id);
-						note["street_label"] = MapData.getStreetByTsid(street.id)["label"];
-						notes.add(note);
-					}
-				} catch (ex) {
-					Log.warning("Could not find dropped note for <item=$item>");
-				}
-			}));
+		if (count != null) {
+			query += " LIMIT @count";
+			values["count"] = count;
+
+			query += " OFFSET @offset";
+			values["offset"] = count * ((page ?? 1) - 1);
 		}
 
-		await Future.wait(streetLookups);
+		List<JoinNotesStreets> rows = await dbConn.query(query, JoinNotesStreets, values);
+		List<Map> notes = [];
+		List<Future<dynamic>> lookups = [];
 
+		rows.forEach((JoinNotesStreets row) => lookups.add(row.compileNoteInfo(notes)));
+		await Future.wait(lookups);
 		return notes;
+	}
+}
+
+class JoinNotesStreets extends Note {
+	@Field() String tsid;
+
+	Future compileNoteInfo(List<Map<String, dynamic>> addTo) async {
+		addTo.add((await toMap())
+			..["street_tsid"] = tsidL(tsid)
+			..["street_label"] = await MapData.getStreetByTsid(tsid)["label"]);
 	}
 }
