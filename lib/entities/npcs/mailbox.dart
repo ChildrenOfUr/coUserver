@@ -1,6 +1,16 @@
 part of entity;
 
 class Mailbox extends NPC {
+	static Future notifyRecipient(Message message) async {
+		try {
+			String toEmail = await User.getEmailFromUsername(message.to_user);
+			WebSocket toSocket = StreetUpdateHandler.userSockets[toEmail];
+			toast('New message from ${message.from_user}! Go find a mailbox to open it.', toSocket);
+		} catch (ex) {
+			Log.warning('Could not notify recipient of new message', ex);
+		}
+	}
+
 	Mailbox(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		actionTime = 0;
 		actions.addAll([
@@ -147,17 +157,20 @@ Future<String> sendMail(@app.Body(app.JSON) Map parameters) async {
 
 		List<String> itemNames = [];
 		for (Item item in items) {
-			if(item == null) {
+			if (item == null) {
 				continue;
 			}
 			itemNames.add(item.itemType);
 		}
 
 		if (result > 0) {
-			String type = 'sendMail_${message.to_user}';
-			type += '_containingItems_$itemNames';
-			type += '_currants_${message.currants}';
+			Mailbox.notifyRecipient(message);
+
+			String type = 'sendMail_${message.to_user}'
+				'_containingItems_$itemNames'
+				'_currants_${message.currants}';
 			messageBus.publish(new RequirementProgress(type, email));
+
 			return 'OK';
 		} else {
 			return 'Error';
