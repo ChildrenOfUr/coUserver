@@ -215,10 +215,9 @@ class Rube extends NPC with MetabolicsChange {
 	Future remove() async {
 		Future _removeFromStreet() async {
 			try {
-				List<StreetEntity> entities = await StreetEntities.getEntities(tsid);
-				await Future.forEach(entities, (StreetEntity entity) async {
-					StreetEntities.deleteEntity(entity.id);
-				});
+				(await StreetEntities.getEntities(tsid))
+					.where((StreetEntity entity) => entity.type == this.type)
+					.forEach((StreetEntity entity) => StreetEntities.deleteEntity(entity.id));
 			} catch (e) {
 				Log.error('Did not remove Rube from <tsid=$tsid>', e);
 			}

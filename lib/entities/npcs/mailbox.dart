@@ -1,62 +1,42 @@
 part of entity;
 
 class Mailbox extends NPC {
+	static Future notifyRecipient(Message message) async {
+		try {
+			String toEmail = await User.getEmailFromUsername(message.to_user);
+			WebSocket toSocket = StreetUpdateHandler.userSockets[toEmail];
+			toast('New message from ${message.from_user}! Go find a mailbox to open it.', toSocket);
+		} catch (ex) {
+			Log.warning('Could not notify recipient of new message', ex);
+		}
+	}
+
 	Mailbox(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		actionTime = 0;
 		actions.addAll([
 			new Action.withName('check for mail'),
 			new Action.withName('view inbox')
-						]);
+		]);
 
-		type = "Mailbox";
+		type = 'Mailbox';
 		speed = 0;
 
 		states = {
-			"add_done":new Spritesheet(
-				"all_done",
+			'add_done':new Spritesheet('all_done',
 				'http://childrenofur.com/assets/entityImages/npc_mailbox_variant_mailboxLeft_x1_all_done_png_1354832237.png',
-				776,
-				438,
-				97,
-				146,
-				22,
-				false),
-			"has_mail":new Spritesheet(
-				"has_mail",
+				776, 438, 97, 146, 22, false),
+			'has_mail':new Spritesheet('has_mail',
 				'http://childrenofur.com/assets/entityImages/npc_mailbox_variant_mailboxLeft_x1_has_mail_png_1354832234.png',
-				970,
-				1168,
-				97,
-				146,
-				73,
-				true),
-			"interract":new Spritesheet(
-				"interract",
+				970, 1168, 97, 146, 73, true),
+			'interract':new Spritesheet('interract',
 				'http://childrenofur.com/assets/entityImages/npc_mailbox_variant_mailboxLeft_x1_interact_png_1354832236.png',
-				873,
-				146,
-				97,
-				146,
-				9,
-				false),
-			"idle":new Spritesheet(
-				"idle",
+				873, 146, 97, 146, 9, false),
+			'idle':new Spritesheet('idle',
 				'http://childrenofur.com/assets/entityImages/npc_mailbox_variant_mailboxLeft_x1_idle_png_1354832232.png',
-				97,
-				146,
-				97,
-				146,
-				1,
-				false),
-			"has_mail_idle":new Spritesheet(
-				"has_mail_idle",
+				97, 146, 97, 146, 1, false),
+			'has_mail_idle':new Spritesheet('has_mail_idle',
 				'http://childrenofur.com/assets/entityImages/npc_mailbox_variant_mailboxLeft_x1_has_mail_idle_png_1354832235.png',
-				97,
-				146,
-				97,
-				146,
-				1,
-				false)
+				97, 146, 97, 146, 1, false)
 		};
 		setState('idle');
 		respawn = new DateTime.now();
@@ -73,14 +53,13 @@ class Mailbox extends NPC {
 	}
 
 	Future checkForMail({WebSocket userSocket, String email}) async {
-		String query = "SELECT * FROM messages JOIN users ON username = to_user WHERE email = @email AND read = FALSE";
+		String query = 'SELECT * FROM messages JOIN users ON username = to_user WHERE email = @email AND read = FALSE';
 		PostgreSql dbConn = await dbManager.getConnection();
 		List<Message> messages = await dbConn.query(query, Message, {'email':email});
 		if (messages.length > 0) {
-			say("${messages.length} New Messages");
-		}
-		else {
-			say("No Mail");
+			say('${messages.length} New Messages');
+		} else {
+			say('No Mail');
 		}
 		dbManager.closeConnection(dbConn);
 	}
@@ -95,14 +74,13 @@ class Mailbox extends NPC {
 
 @app.Route('/getMail', methods: const[app.POST])
 @Encode()
-Future<List<Message>> getMail(@app.Body(app.JSON) Map parameters) async
-{
+Future<List<Message>> getMail(@app.Body(app.JSON) Map parameters) async {
 	String user = parameters['user'];
 	user = user.toLowerCase(); // case-insensitive search
 
 	List<Message> messages = [];
 
-	String query = "SELECT * FROM messages WHERE lower(to_user) = @user";
+	String query = 'SELECT * FROM messages WHERE lower(to_user) = @user';
 	List<Row> rows = await dbConn.innerConn.query(query, {'user':user}).toList();
 	rows.forEach((Row row) {
 		Message m = new Message()
@@ -139,7 +117,7 @@ Future<String> sendMail(@app.Body(app.JSON) Map parameters) async {
 	if (message.currants > 0) {
 		Metabolics m = await getMetabolics(username: message.from_user);
 		if (m.currants < message.currants) {
-			return "Not enough currants";
+			return 'Not enough currants';
 		} else {
 			m.currants -= message.currants;
 			setMetabolics(m);
@@ -150,7 +128,7 @@ Future<String> sendMail(@app.Body(app.JSON) Map parameters) async {
 							  message.item4_slot, message.item5_slot];
 	List<Item> items = new List<Item>(5);
 
-	int i=0;
+	int i = 0;
 	List<int> toUse = [];
 	for(String s in itemSlots) {
 		if (s != null) {
@@ -174,28 +152,31 @@ Future<String> sendMail(@app.Body(app.JSON) Map parameters) async {
 	message.item5 = encode(items[4]);
 
 	try {
-		String query = "INSERT INTO messages(to_user, from_user, subject, body, currants, item1, item2, item3, item4, item5) VALUES(@to_user,@from_user,@subject,@body,@currants,@item1,@item2,@item3,@item4,@item5)";
+		String query = 'INSERT INTO messages(to_user, from_user, subject, body, currants, item1, item2, item3, item4, item5) VALUES(@to_user,@from_user,@subject,@body,@currants,@item1,@item2,@item3,@item4,@item5)';
 		int result = await dbConn.execute(query, message);
 
 		List<String> itemNames = [];
 		for (Item item in items) {
-			if(item == null) {
+			if (item == null) {
 				continue;
 			}
 			itemNames.add(item.itemType);
 		}
 
 		if (result > 0) {
-			String type = 'sendMail_${message.to_user}';
-			type += '_containingItems_$itemNames';
-			type += '_currants_${message.currants}';
+			Mailbox.notifyRecipient(message);
+
+			String type = 'sendMail_${message.to_user}'
+				'_containingItems_$itemNames'
+				'_currants_${message.currants}';
 			messageBus.publish(new RequirementProgress(type, email));
-			return "OK";
+
+			return 'OK';
 		} else {
-			return "Error";
+			return 'Error';
 		}
 	} catch (err) {
-		return "Error: $err";
+		return 'Error: $err';
 	}
 }
 
@@ -239,11 +220,11 @@ Future collectItem(@app.Body(app.JSON) Map parameters) async {
 Future collectCurrants(@app.Body(app.JSON) Map parameters) async {
 	Message message = jsonx.decode(JSON.encode(parameters), type: Message);
 	//mark the currants as already taken so they can't be taken again
-	String query = "UPDATE messages set currants_taken = true where id = @id AND currants_taken = false";
+	String query = 'UPDATE messages set currants_taken = true where id = @id AND currants_taken = false';
 	int result = await dbConn.execute(query, message);
 
 	if (result < 1) {
-		return "Error";
+		return 'Error';
 	}
 
 	//give the currants to the user
@@ -253,21 +234,21 @@ Future collectCurrants(@app.Body(app.JSON) Map parameters) async {
 }
 
 @app.Route('/deleteMail', methods: const[app.POST])
-Future<String> deleteMail(@app.Body(app.JSON) Map parameters) async
-{
-	String query = "DELETE FROM messages WHERE id = @id";
+Future<String> deleteMail(@app.Body(app.JSON) Map parameters) async {
+	String query = 'DELETE FROM messages WHERE id = @id';
 	int result = await dbConn.execute(query, {'id':parameters['id']});
 
-	if (result > 0)
-		return "OK";
-	else
-		return "Error";
+	if (result > 0) {
+		return 'OK';
+	} else {
+		return 'Error';
+	}
 }
 
 @app.Route('/readMail', methods: const[app.POST])
 readMail(@app.Body(app.JSON) Map parameters) async {
 	Message message = jsonx.decode(JSON.encode(parameters), type: Message);
-	String query = "UPDATE messages SET read = TRUE WHERE id = @id";
+	String query = 'UPDATE messages SET read = TRUE WHERE id = @id';
 	await dbConn.execute(query, message);
 }
 
