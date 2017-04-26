@@ -1,26 +1,46 @@
-#API KEYS#
+# API KEYS
 
-The 'API_KEYS.dart' file is for storing the tokens/keys used by various 
-third party apis. Below is a template for making your own and links to get some keys.
+The 'API_KEYS.dart' file is for storing the tokens/keys used by various
+third party apis. `lib/API_KEYS.dart.example` is a template for making your own.
+
+## Database
+
+* `databaseUri` -
+
+## Slack
+
+* `globalChatToken` -
+* `mapFillerReportsToken` -
+* `restartSecret` -
+* `slackTeam` -
+* `bugToken` -
+
+## Soundcloud
+
+* `SC_TOKEN` - optional, but without it none of the music will play
 
 
-    part of couserver;
-    
-    /*****************
-     *   API KEYS
-     ****************/
-     
-    // Slack - https://cou.slack.com/
-    String globalChatToken = '';
-    String mapFillerReportsToken = '';
-    String restartSecret = '';
-    String slackTeam = 'cou';
-    String bugToken = '';
-    
-    //database uri
-    String databaseUri = "";
-    
-    // SoundCloud - https:// TODO
-    String SC_TOKEN = 'XXXXXXXXXXXXXXXXXX';
-    
-    //eof
+
+
+
+
+
+
+// Should look like this.
+
+{
+  "databaseUri": "...",
+  "openWeatherMap" : "...",
+
+  "emailPort": ...,
+  "emailHostName": "...",
+  "emailUsername": "...",
+  "emailPassword": "...",
+
+  "scToken": "...",
+
+  "serverUrl": "...",
+
+  "couWebhook": "...",
+  "bugWebhook": "..."
+}
