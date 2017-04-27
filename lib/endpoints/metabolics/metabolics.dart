@@ -113,16 +113,16 @@ class MetabolicsChange {
 	Future<Metabolics> _setFavor(String email, Metabolics metabolics, String giantName, int favAmt) async {
 		InstanceMirror instanceMirror = reflect(metabolics);
 		int giantFavor = instanceMirror
-			.getField(new Symbol(giantName.toLowerCase() + 'favor'))
+			.getField(new Symbol(giantName.toLowerCase() + 'Favor'))
 			.reflectee;
 		int maxAmt = instanceMirror
-			.getField(new Symbol(giantName.toLowerCase() + 'favor_max'))
+			.getField(new Symbol(giantName.toLowerCase() + 'FavorMax'))
 			.reflectee;
 
 		if (giantFavor + favAmt >= maxAmt) {
-			instanceMirror.setField(new Symbol(giantName.toLowerCase() + 'favor'), 0);
+			instanceMirror.setField(new Symbol(giantName.toLowerCase() + 'Favor'), 0);
 			maxAmt += 100;
-			instanceMirror.setField(new Symbol(giantName.toLowerCase() + 'favor_max'), maxAmt);
+			instanceMirror.setField(new Symbol(giantName.toLowerCase() + 'FavorMax'), maxAmt);
 			await InventoryV2.addItemToUser(email, items['emblem_of_' + giantName.toLowerCase()].getMap(), 1);
 
 			Achievement.find("first_emblem_of_${giantName.toLowerCase()}").awardTo(email);
@@ -131,7 +131,7 @@ class MetabolicsChange {
 			messageBus.publish(new RequirementProgress('emblemGet', email));
 			StatManager.add(email, Stat.emblems_collected);
 		} else {
-			instanceMirror.setField(new Symbol(giantName.toLowerCase() + 'favor'), giantFavor + favAmt);
+			instanceMirror.setField(new Symbol(giantName.toLowerCase() + 'Favor'), giantFavor + favAmt);
 		}
 
 		StatManager.add(email, Stat.favor_earned, increment: favAmt);
