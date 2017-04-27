@@ -33,10 +33,10 @@ class Shrine extends NPC {
 		String giantName = type.substring(0, 1).toUpperCase() + type.substring(1);
 		InstanceMirror instanceMirror = reflect(m);
 		int giantFavor = instanceMirror
-			.getField(new Symbol(giantName.toLowerCase() + 'favor'))
+			.getField(new Symbol(giantName.toLowerCase() + 'Favor'))
 			.reflectee;
 		int maxAmt = instanceMirror
-			.getField(new Symbol(giantName.toLowerCase() + 'favor_max'))
+			.getField(new Symbol(giantName.toLowerCase() + 'FavorMax'))
 			.reflectee;
 
 		Map map = {};
@@ -69,10 +69,10 @@ class Shrine extends NPC {
 			Map addedFavorMap = {};
 			addedFavorMap['favorUpdate'] = true;
 			addedFavorMap['favor'] = instanceMirror
-				.getField(new Symbol(giantName.toLowerCase() + 'favor'))
+				.getField(new Symbol(giantName.toLowerCase() + 'Favor'))
 				.reflectee;
 			addedFavorMap['maxFavor'] = instanceMirror
-				.getField(new Symbol(giantName.toLowerCase() + 'favor_max'))
+				.getField(new Symbol(giantName.toLowerCase() + 'FavorMax'))
 				.reflectee;
 			userSocket.add(JSON.encode(addedFavorMap));
 

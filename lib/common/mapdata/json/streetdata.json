@@ -12293,8 +12293,7 @@
 		"vendor": "Alchemical Goods",
 		"shrine": "Friendly",
 		"tsid": "LTJ18J9ASDU1UPS",
-		"hub_id": 72,
-		"broken": true
+		"hub_id": 72
 	},
 	"Skill_Quest_LGT": {
 		"tsid": "LDO86VJ80S03U3G",
