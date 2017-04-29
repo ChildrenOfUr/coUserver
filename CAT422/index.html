@@ -1,0 +1,117 @@
+<html>
+<head>
+    <title>MVURXI</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css?v=0.9.2" />
+</head>
+<body>
+
+    <div class="stage_holder">
+        <div class="stage">
+        </div>
+    </div>
+
+    <div class="location_holder">
+        <div class="location">
+        </div>
+    </div>
+
+    <div class="loading_holder">
+        <div class="loading">
+            Loading...
+            <div class="percent_holder">
+                <div class="percent">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="exits">
+    </div>
+
+    <div class="debug">
+    </div>
+
+    <div class="offScreenBuffer">
+    </div>
+
+    <div class="nameChange">
+        <strong>Change name:</strong><br />
+        <input name="newName" class="newName" type="text" disabled></input><button disabled>Set</button>
+    </div>
+
+    <div class="globalChat">
+        <div class="ulHolder">
+            <ul>
+            </ul>
+        </div>
+        <input type="text" name="global">
+        <h3>Global chat</h3>
+        <div class="shader"></div>
+    </div>
+
+    <div class="localChat">
+        <div class="ulHolder">
+            <ul>
+            </ul>
+        </div>
+        <input type="text" name="local">
+        <h3>Local chat</h3>
+        <div class="shader"></div>
+    </div>
+
+    <div class="instructions">
+        <h2>Connecting...</h2>
+        <p>
+            WASD or cursor keys to move.
+        </p>
+        <p>
+            "Walking" is currently a proof of concept, "platforms", gravity and jumping coming soon.
+        </p>
+        <p>
+            There is a <em>very</em> ropey multi-player element now, which probably won't work. Expect ghosts
+            and stuck other players.
+        </p>
+        <p>
+            <a href="http://revdancatt.com/2013/11/26/slowly-bringing-glitch-back-to-life/">Blogpost/About</a><br>
+            <a href="http://blog.mvurxi.com">Dev Blog for updates</a><br>
+            <a href="https://github.com/revdancatt/CAT422-glitch-location-viewer">Source code on GitHub</a><br>
+            <a href="https://twitter.com/revdancatt">Twitter @revdancatt</a>
+        </p>
+        <p>
+            * * *
+        </p>
+        <p>
+            Things <strong>WILL</strong> break, hitting reload will sometimes help.
+        </p>
+        <p>
+            Chrome YES, Firefox MAYBE,<br>
+            Safari SLOW. IE??? Pfff.
+        </p>
+    </div>
+
+    <script src="js/jquery-2.0.3.min.js"></script>
+    <script src="js/control.js?v=0.9.2"></script>
+    <script src="js/player.js?v=0.9.2"></script>
+    <script src="http://mvurxi.com:8024/socket.io/socket.io.js"></script>
+    <!-- <script src="http://localhost:8025/socket.io/socket.io.js"></script> -->
+    <script>
+        var socketUrl = 'http://mvurxi.com:8024';
+        //var socketUrl = 'http://localhost:8025';
+        var socket = io.connect(socketUrl, {
+            'reconnect': true,
+            'reconnection delay': 500,
+            'max reconnection attempts': 50
+        });
+        $(document).ready(function() {
+            var startRoom = 'GLIERMJ93DE1H25';
+            //  Really poor way of doing URL stuff, but what the heck
+            try {
+                startRoom = document.location.hash.split('/')[1].replace('L','G');
+            } catch(er) {
+                //  Nowt!
+            }
+            control.init(startRoom);
+        });
+    </script>
+</body>
+</html>
