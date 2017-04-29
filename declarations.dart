@@ -180,11 +180,9 @@ Future<Map> requestStreetUnauth(@app.QueryParam() String tsid, @app.QueryParam()
         tsid = tsid.replaceFirst('L', 'G');
     }
 
-    String url = "https://raw.githubusercontent.com/ChildrenOfUr/CAT422-glitch-location-viewer/$branch/locations/$tsid.json";
-    http.Response response = await http.get(url);
-
+    File file = new File(path.join(serverDir.path, "CAT422", "locations", "$tsid.json"));
     try {
-        Map street = JSON.decode(response.body);
+        Map street = JSON.decode(await file.readAsStringSync());
         return {'ok': 'yes', 'streetJSON': street};
     } catch (err) {
         return {'ok': 'no', 'error': err};
