@@ -171,6 +171,26 @@ Future<File> getSpine(@app.QueryParam() email, @app.QueryParam() filename) async
 	}
 }
 
+///This will serve up a street file
+@app.Route('/getStreet')
+Future<Map> requestStreetUnauth(@app.QueryParam() String tsid, @app.QueryParam() String branch) async {
+    branch = branch ?? 'master';
+
+    if (tsid.startsWith('L')) {
+        tsid = tsid.replaceFirst('L', 'G');
+    }
+
+    String url = "https://raw.githubusercontent.com/ChildrenOfUr/CAT422-glitch-location-viewer/$branch/locations/$tsid.json";
+    http.Response response = await http.get(url);
+
+    try {
+        Map street = JSON.decode(response.body);
+        return {'ok': 'yes', 'streetJSON': street};
+    } catch (err) {
+        return {'ok': 'no', 'error': err};
+    }
+}
+
 /// redstone.dart does not support websockets so we have to listen on a separate port for those connections :(
 Future _initWebSockets() async {
 	final Map<String, Function> _HANDLERS = {
