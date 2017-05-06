@@ -9,7 +9,7 @@
       "type": "counter",
       "numRequired": 1,
       "eventType": "location_Wintry Place",
-      "iconUrl": "http://childrenofur.com/assets/entityImages/npc_cubimal_snoconevendor__x1_1_png_1354836305.png"
+      "iconUrl": "https://childrenofur.com/assets/entityImages/npc_cubimal_snoconevendor__x1_1_png_1354836305.png"
     },
     {
       "id": "Q7R2",
@@ -17,7 +17,7 @@
       "type": "counter",
       "numRequired": 1,
       "eventType": "getItem_snocone_*",
-      "iconUrl": "http://childrenofur.com/assets/entityImages/sno_cone_blue__x1_iconic_png_1354830753.png"
+      "iconUrl": "https://childrenofur.com/assets/entityImages/sno_cone_blue__x1_iconic_png_1354830753.png"
     }
   ],
   "prerequisites": [

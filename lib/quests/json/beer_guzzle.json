@@ -9,7 +9,7 @@
       "type": "counter",
       "numRequired": 12,
       "eventType": "drink_beer",
-      "iconUrl": "http://childrenofur.com/assets/entityImages/beer__x1_iconic_png_1354829708.png"
+      "iconUrl": "https://childrenofur.com/assets/entityImages/beer__x1_iconic_png_1354829708.png"
     }
   ],
   "rewards": {
