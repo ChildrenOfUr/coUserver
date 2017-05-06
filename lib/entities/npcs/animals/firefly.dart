@@ -24,9 +24,9 @@ class Firefly extends NPC {
 
 		speed = 5; //pixels per second
 		states = {
-			'fullPath': new Spritesheet('fullPath', 'http://childrenofur.com/assets/entityImages/npc_firefly__x1_fullPath_png_1354833043.png', 870, 360, 87, 40, 89, true),
-			'halfPath': new Spritesheet('halfPath', 'http://childrenofur.com/assets/entityImages/npc_firefly__x1_halfPath_png_1354833044.png', 870, 160, 87, 40, 40, true),
-			'smallPath': new Spritesheet('smallPath', 'http://childrenofur.com/assets/entityImages/npc_firefly__x1_smallPath_png_1354833044.png', 870, 80, 87, 40, 20, true)
+			'fullPath': new Spritesheet('fullPath', 'https://childrenofur.com/assets/entityImages/npc_firefly__x1_fullPath_png_1354833043.png', 870, 360, 87, 40, 89, true),
+			'halfPath': new Spritesheet('halfPath', 'https://childrenofur.com/assets/entityImages/npc_firefly__x1_halfPath_png_1354833044.png', 870, 160, 87, 40, 40, true),
+			'smallPath': new Spritesheet('smallPath', 'https://childrenofur.com/assets/entityImages/npc_firefly__x1_smallPath_png_1354833044.png', 870, 80, 87, 40, 20, true)
 		};
 		setState('fullPath');
 	}

@@ -9,7 +9,7 @@ class NoNoPowderRespawningItem extends RespawningItem {
 
 		states = {
 			'1-2-3-4': new Spritesheet('1-2-3-4',
-				'http://childrenofur.com/assets/entityImages/no_no_powder__x1_1_x1_2_x1_3_x1_4_png_1354832159.png',
+				'https://childrenofur.com/assets/entityImages/no_no_powder__x1_1_x1_2_x1_3_x1_4_png_1354832159.png',
 				180, 18, 45, 18, 4, false)
 		};
 

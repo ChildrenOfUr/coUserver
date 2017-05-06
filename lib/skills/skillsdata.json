@@ -9,9 +9,9 @@
 			"With Alchemy III, who knows what's possible?"
 		],
 		"iconUrls": [
-			"http://childrenofur.com/assets/skills/alchemy_1.png",
-			"http://childrenofur.com/assets/skills/alchemy_2.png",
-			"http://childrenofur.com/assets/skills/alchemy_3.png"
+			"https://childrenofur.com/assets/skills/alchemy_1.png",
+			"https://childrenofur.com/assets/skills/alchemy_2.png",
+			"https://childrenofur.com/assets/skills/alchemy_3.png"
 		],
 		"requirements": {
 			"skills": {

@@ -25,7 +25,7 @@ class Butterfly extends NPC {
 		states = {
 			"fly-angle1": new Spritesheet(
 				"fly-angle1",
-				"http://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-angle1_png_1354829526.png",
+				"https://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-angle1_png_1354829526.png",
 				840,
 				195,
 				70,
@@ -34,7 +34,7 @@ class Butterfly extends NPC {
 				true),
 			"fly-angle2": new Spritesheet(
 				"fly-angle2",
-				"http://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-angle2_png_1354829527.png",
+				"https://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-angle2_png_1354829527.png",
 				700,
 				130,
 				70,
@@ -43,7 +43,7 @@ class Butterfly extends NPC {
 				true),
 			"fly-rooked": new Spritesheet(
 				"fly-rooked",
-				"http://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-rooked_png_1354829525.png",
+				"https://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-rooked_png_1354829525.png",
 				980,
 				65,
 				70,
@@ -52,7 +52,7 @@ class Butterfly extends NPC {
 				true),
 			"fly-side": new Spritesheet(
 				"fly-side",
-				"http://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-side_png_1354829525.png",
+				"https://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-side_png_1354829525.png",
 				980,
 				390,
 				70,
@@ -61,7 +61,7 @@ class Butterfly extends NPC {
 				true),
 			"fly-top": new Spritesheet(
 				"fly-top",
-				"http://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-top_png_1354829528.png",
+				"https://childrenofur.com/assets/entityImages/npc_butterfly__x1_fly-top_png_1354829528.png",
 				910,
 				455,
 				70,
@@ -70,7 +70,7 @@ class Butterfly extends NPC {
 				true),
 			"rest-angle1": new Spritesheet(
 				"rest-angle1",
-				"http://childrenofur.com/assets/entityImages/npc_butterfly__x1_rest-angle1_png_1354829530.png",
+				"https://childrenofur.com/assets/entityImages/npc_butterfly__x1_rest-angle1_png_1354829530.png",
 				420,
 				65,
 				70,
@@ -79,7 +79,7 @@ class Butterfly extends NPC {
 				true),
 			"rest-angle2": new Spritesheet(
 				"rest-angle2",
-				"http://childrenofur.com/assets/entityImages/npc_butterfly__x1_rest-angle2_png_1354829531.png",
+				"https://childrenofur.com/assets/entityImages/npc_butterfly__x1_rest-angle2_png_1354829531.png",
 				700,
 				65,
 				70,
@@ -88,7 +88,7 @@ class Butterfly extends NPC {
 				true),
 			"rest-top": new Spritesheet(
 				"rest-top",
-				"http://childrenofur.com/assets/entityImages/npc_butterfly__x1_rest-top_png_1354829532.png",
+				"https://childrenofur.com/assets/entityImages/npc_butterfly__x1_rest-top_png_1354829532.png",
 				980,
 				195,
 				70,

@@ -32,16 +32,16 @@ class EggPlant extends Tree {
 
 		states =
 		{
-			"maturity_1" : new Spritesheet("maturity_1", "http://childrenofur.com/assets/entityImages/trant_egg__f_cap_10_f_num_10_h_10_m_1_seed_0_11191191_png_1354829612.png", 888, 278, 296, 278, 3, false),
-			"maturity_2" : new Spritesheet("maturity_2", "http://childrenofur.com/assets/entityImages/trant_egg__f_cap_10_f_num_10_h_10_m_2_seed_0_11191191_png_1354829613.png", 888, 278, 296, 278, 3, false),
-			"maturity_3" : new Spritesheet("maturity_3", "http://childrenofur.com/assets/entityImages/trant_egg__f_cap_10_f_num_10_h_10_m_3_seed_0_11191191_png_1354829614.png", 592, 556, 296, 278, 4, false),
-			"maturity_4" : new Spritesheet("maturity_4", "http://childrenofur.com/assets/entityImages/trant_egg__f_cap_10_f_num_10_h_10_m_4_seed_0_11191191_png_1354829616.png", 888, 1390, 296, 278, 14, false),
-			"maturity_5" : new Spritesheet("maturity_5", "http://childrenofur.com/assets/entityImages/trant_egg__f_cap_10_f_num_10_h_10_m_5_seed_0_11191191_png_1354829618.png", 888, 1946, 296, 278, 19, false),
-			"maturity_6" : new Spritesheet("maturity_6", "http://childrenofur.com/assets/entityImages/trant_egg__f_cap_10_f_num_10_h_10_m_6_seed_0_11191191_png_1354829621.png", 888, 2502, 296, 278, 26, false),
-			"maturity_7" : new Spritesheet("maturity_7", "http://childrenofur.com/assets/entityImages/trant_egg__f_cap_10_f_num_10_h_10_m_7_seed_0_11191191_png_1354829624.png", 888, 3336, 296, 278, 34, false),
-			"maturity_8" : new Spritesheet("maturity_8", "http://childrenofur.com/assets/entityImages/trant_egg__f_cap_10_f_num_10_h_10_m_8_seed_0_11191191_png_1354829628.png", 888, 3336, 296, 278, 34, false),
-			"maturity_9" : new Spritesheet("maturity_9", "http://childrenofur.com/assets/entityImages/trant_egg__f_cap_10_f_num_10_h_10_m_9_seed_0_11191191_png_1354829632.png", 3256, 1112, 296, 278, 44, false),
-			"maturity_10" : new Spritesheet("maturity_10", "http://childrenofur.com/assets/entityImages/trant_egg__f_cap_10_f_num_10_h_10_m_10_seed_0_11191191_png_1354829638.png", 3256, 1390, 296, 278, 55, false)
+			"maturity_1" : new Spritesheet("maturity_1", "https://childrenofur.com/assets/entityImages/trant_egg__f_cap_10_f_num_10_h_10_m_1_seed_0_11191191_png_1354829612.png", 888, 278, 296, 278, 3, false),
+			"maturity_2" : new Spritesheet("maturity_2", "https://childrenofur.com/assets/entityImages/trant_egg__f_cap_10_f_num_10_h_10_m_2_seed_0_11191191_png_1354829613.png", 888, 278, 296, 278, 3, false),
+			"maturity_3" : new Spritesheet("maturity_3", "https://childrenofur.com/assets/entityImages/trant_egg__f_cap_10_f_num_10_h_10_m_3_seed_0_11191191_png_1354829614.png", 592, 556, 296, 278, 4, false),
+			"maturity_4" : new Spritesheet("maturity_4", "https://childrenofur.com/assets/entityImages/trant_egg__f_cap_10_f_num_10_h_10_m_4_seed_0_11191191_png_1354829616.png", 888, 1390, 296, 278, 14, false),
+			"maturity_5" : new Spritesheet("maturity_5", "https://childrenofur.com/assets/entityImages/trant_egg__f_cap_10_f_num_10_h_10_m_5_seed_0_11191191_png_1354829618.png", 888, 1946, 296, 278, 19, false),
+			"maturity_6" : new Spritesheet("maturity_6", "https://childrenofur.com/assets/entityImages/trant_egg__f_cap_10_f_num_10_h_10_m_6_seed_0_11191191_png_1354829621.png", 888, 2502, 296, 278, 26, false),
+			"maturity_7" : new Spritesheet("maturity_7", "https://childrenofur.com/assets/entityImages/trant_egg__f_cap_10_f_num_10_h_10_m_7_seed_0_11191191_png_1354829624.png", 888, 3336, 296, 278, 34, false),
+			"maturity_8" : new Spritesheet("maturity_8", "https://childrenofur.com/assets/entityImages/trant_egg__f_cap_10_f_num_10_h_10_m_8_seed_0_11191191_png_1354829628.png", 888, 3336, 296, 278, 34, false),
+			"maturity_9" : new Spritesheet("maturity_9", "https://childrenofur.com/assets/entityImages/trant_egg__f_cap_10_f_num_10_h_10_m_9_seed_0_11191191_png_1354829632.png", 3256, 1112, 296, 278, 44, false),
+			"maturity_10" : new Spritesheet("maturity_10", "https://childrenofur.com/assets/entityImages/trant_egg__f_cap_10_f_num_10_h_10_m_10_seed_0_11191191_png_1354829638.png", 3256, 1390, 296, 278, 55, false)
 		};
 		maturity = new Random().nextInt(states.length) + 1;
 		setState('maturity_$maturity');

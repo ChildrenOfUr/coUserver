@@ -21,7 +21,7 @@ class SnoConeVendingMachine extends Vendor {
 		states = {
 			"attract": new Spritesheet(
 				"attract",
-				"http://childrenofur.com/assets/entityImages/npc_sno_cone_vending_machine__x1_attract_png_1354830747.png",
+				"https://childrenofur.com/assets/entityImages/npc_sno_cone_vending_machine__x1_attract_png_1354830747.png",
 				940,
 				1547,
 				188,
@@ -30,7 +30,7 @@ class SnoConeVendingMachine extends Vendor {
 				true),
 			"idle_stand": new Spritesheet(
 				"idle_stand",
-				"http://childrenofur.com/assets/entityImages/npc_sno_cone_vending_machine__x1_idle_stand_png_1354830751.png",
+				"https://childrenofur.com/assets/entityImages/npc_sno_cone_vending_machine__x1_idle_stand_png_1354830751.png",
 				940,
 				2873,
 				188,
@@ -39,7 +39,7 @@ class SnoConeVendingMachine extends Vendor {
 				true),
 			"talk": new Spritesheet(
 				"talk",
-				"http://childrenofur.com/assets/entityImages/npc_sno_cone_vending_machine__x1_talk_png_1354830743.png",
+				"https://childrenofur.com/assets/entityImages/npc_sno_cone_vending_machine__x1_talk_png_1354830743.png",
 				940,
 				884,
 				188,
@@ -48,7 +48,7 @@ class SnoConeVendingMachine extends Vendor {
 				false),
 			"walk_end": new Spritesheet(
 				"walk_end",
-				"http://childrenofur.com/assets/entityImages/npc_sno_cone_vending_machine__x1_walk_end_png_1354830741.png",
+				"https://childrenofur.com/assets/entityImages/npc_sno_cone_vending_machine__x1_walk_end_png_1354830741.png",
 				940,
 				884,
 				188,
@@ -57,7 +57,7 @@ class SnoConeVendingMachine extends Vendor {
 				false),
 			"walk_left": new Spritesheet(
 				"walk_left",
-				"http://childrenofur.com/assets/entityImages/npc_sno_cone_vending_machine__x1_walk_left_png_1354830740.png",
+				"https://childrenofur.com/assets/entityImages/npc_sno_cone_vending_machine__x1_walk_left_png_1354830740.png",
 				752,
 				442,
 				188,
@@ -66,7 +66,7 @@ class SnoConeVendingMachine extends Vendor {
 				true),
 			"walk_right": new Spritesheet(
 				"walk_right",
-				"http://childrenofur.com/assets/entityImages/npc_sno_cone_vending_machine__x1_walk_right_png_1354830737.png",
+				"https://childrenofur.com/assets/entityImages/npc_sno_cone_vending_machine__x1_walk_right_png_1354830737.png",
 				752,
 				442,
 				188,

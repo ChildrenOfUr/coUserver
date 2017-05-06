@@ -9,7 +9,7 @@
       "type": "counter",
       "numRequired": 1,
       "eventType": "iconGet",
-      "iconUrl": "http://childrenofur.com/assets/entityImages/icon_lem__x1_1_png_1354836425.png"
+      "iconUrl": "https://childrenofur.com/assets/entityImages/icon_lem__x1_1_png_1354836425.png"
     }
   ],
   "prerequisites": [

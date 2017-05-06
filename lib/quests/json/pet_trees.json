@@ -9,7 +9,7 @@
       "numRequired": 5,
       "eventType": "treePet.*",
       "text": "trees petted",
-      "iconUrl": "http://childrenofur.com/assets/staticEntityImages/Fruit%20Tree.png"
+      "iconUrl": "https://childrenofur.com/assets/staticEntityImages/Fruit%20Tree.png"
     }
   ],
   "rewards": {

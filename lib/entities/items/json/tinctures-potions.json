@@ -2,8 +2,8 @@
 	"potion_amorous_philtre": {
 		"name": "Amorous Philtre",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/potion_amorous_philtre__x1_1_png_1354836963.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/potion_amorous_philtre__x1_tool_animation_png_1354836962.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/potion_amorous_philtre__x1_1_png_1354836963.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/potion_amorous_philtre__x1_tool_animation_png_1354836962.png",
 		"stacksTo": 1,
 		"price": 750,
 		"description": "A sensual - and highly infectious - blend of natural ingredients that stimulate the positive mood-memory receptors of the Glitchate Brain. Smells like macaroons."
@@ -11,8 +11,8 @@
 	"potion_ancestral_spirits": {
 		"name": "Ancestral Spirits",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/potion_ancestral_spirits__x1_1_png_1354837006.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/potion_ancestral_spirits__x1_tool_animation_png_1354837005.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/potion_ancestral_spirits__x1_1_png_1354837006.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/potion_ancestral_spirits__x1_tool_animation_png_1354837005.png",
 		"stacksTo": 1,
 		"price": 1850,
 		"description": "Steadies the nerves and steels the soul against the onset of Ancestral Nostalgia."
@@ -20,8 +20,8 @@
 	"potion_charades": {
 		"name": "Charades Potion",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/potion_charades__x1_1_png_1354836949.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/potion_charades__x1_tool_animation_png_1354836948.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/potion_charades__x1_1_png_1354836949.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/potion_charades__x1_tool_animation_png_1354836948.png",
 		"stacksTo": 1,
 		"price": 400,
 		"description": "A classic 'Parlour Potion', this benefits those surrounding the quaffer more than the quaffer themselves - but only if they can guess the word that unlocks the effect."
@@ -29,8 +29,8 @@
 	"de_embiggenifying_potion": {
 		"name": "De-Embiggenifying Potion",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/potion_avatar_small__x1_1_png_1354840123.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/potion_avatar_small__x1_tool_animation_png_1354840122.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/potion_avatar_small__x1_1_png_1354840123.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/potion_avatar_small__x1_tool_animation_png_1354840122.png",
 		"stacksTo": 1,
 		"price": 1000,
 		"description": "When poured on the floor, it releases a very pleasant scent (a strange mixture of cherry tart, custard, pineapple, roast turkey, toffee, and hot buttered toast) and a cloud causing people to feel most curious, like they're shutting up like a telescope or some such.",
@@ -43,8 +43,8 @@
 	"potion_percival": {
 		"name": "Door Drink",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/potion_chris__x1_1_png_1354836976.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/potion_chris__x1_tool_animation_png_1354836975.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/potion_chris__x1_1_png_1354836976.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/potion_chris__x1_tool_animation_png_1354836975.png",
 		"stacksTo": 1,
 		"price": 750,
 		"description": "The most bewildering of all potions, the dark alchemical secrets brewed into this potent brew can produce (and destroy) mysterious doors to far-off lands. You'll find yourself leaping from place to place, never knowing where the next leap may lead you."
@@ -52,8 +52,8 @@
 	"draught_of_giant_amicability": {
 		"name": "Draught of Giant Amicability",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/potion_favor__x1_1_png_1354840272.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/potion_favor__x1_tool_animation_png_1354840272.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/potion_favor__x1_1_png_1354840272.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/potion_favor__x1_tool_animation_png_1354840272.png",
 		"stacksTo": 1,
 		"price": 3011,
 		"description": "Causes the quaffer to smell like stardust, hot sauce, whiskers on kittens and several other of the Giants' favourite things, thus granting a modicum of favor from the Giant the potion happens to be most amicable with. Shake up to three times a day to shift Giant affinity. Do not exceed one quaff a day."
@@ -61,8 +61,8 @@
 	"dung_kicker_drops": {
 		"name": "Dung-Kicker Drops",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/potion_garden_fertilize__x1_1_png_1354840146.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/potion_garden_fertilize__x1_tool_animation_png_1354840145.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/potion_garden_fertilize__x1_1_png_1354840146.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/potion_garden_fertilize__x1_tool_animation_png_1354840145.png",
 		"stacksTo": 1,
 		"price": 2200,
 		"description": "One squirt of Dung-Kicker Drops spreads fertilizer over all fertilizable plots in a garden (no extra guano necessary), leaving you free to enjoy more pleasant-scented parts of the gardening experience."
@@ -70,8 +70,8 @@
 	"potion_elixir_of_avarice": {
 		"name": "Elixir of Avarice",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/potion_elixir_of_avarice__x1_1_png_1354836940.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/potion_elixir_of_avarice__x1_tool_animation_png_1354836939.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/potion_elixir_of_avarice__x1_1_png_1354836940.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/potion_elixir_of_avarice__x1_tool_animation_png_1354836939.png",
 		"stacksTo": 1,
 		"price": 1250,
 		"description": "A natural blend that increases one's appetite for Quoins. Dosage: effective up to one potion per day."
@@ -79,8 +79,8 @@
 	"embiggenifying_potion": {
 		"name": "Embiggenifying Potion",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/potion_avatar_large__x1_1_png_1354840127.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/potion_avatar_large__x1_tool_animation_png_1354840126.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/potion_avatar_large__x1_1_png_1354840127.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/potion_avatar_large__x1_tool_animation_png_1354840126.png",
 		"stacksTo": 1,
 		"price": 1000,
 		"description": "\"A noble potion embiggenifies the smallest glitch\" reads the tiny label on this tinier bottle. Embiggenifies, you ask? \"Yes\" say the voices of the ancients, drifting to you through the sour aftersmell of the potion, \"Embiggenifies. It is a perfectly cromulent word.\" For creating an embiggenifying cloud wherever you choose.",
@@ -93,8 +93,8 @@
 	"essence_of_gandlevery": {
 		"name": "Essence of Gandlevery",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/essence_of_gandlevery__x1_1_png_1354836774.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/essence_of_gandlevery__x1_1_png_1354836774.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/essence_of_gandlevery__x1_1_png_1354836774.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/essence_of_gandlevery__x1_1_png_1354836774.png",
 		"stacksTo": 20,
 		"price": 181,
 		"description": "A potent distillation of Gandlevery, as rich in protein and good for energy as it is foul on the tongue and bad for mood."
@@ -102,8 +102,8 @@
 	"essence_of_hairball": {
 		"name": "Essence of Hairball",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/essence_of_hairball__x1_1_png_1354836784.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/essence_of_hairball__x1_1_png_1354836784.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/essence_of_hairball__x1_1_png_1354836784.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/essence_of_hairball__x1_1_png_1354836784.png",
 		"stacksTo": 20,
 		"price": 449,
 		"description": "All the speed-giving power of the Hairball Flower, scraped from the individual hairball ball-hairs, and concentrated into a tincture."
@@ -111,8 +111,8 @@
 	"essence_of_purple": {
 		"name": "Essence of Purple",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/essence_of_purple__x1_1_png_1354836787.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/essence_of_purple__x1_1_png_1354836787.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/essence_of_purple__x1_1_png_1354836787.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/essence_of_purple__x1_1_png_1354836787.png",
 		"stacksTo": 20,
 		"price": 491,
 		"description": "You thought Purple was purple? This is seriously purple. Seriously: The purplest."
@@ -120,8 +120,8 @@
 	"essence_of_rookswort": {
 		"name": "Essence of Rookswort",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/essence_of_rookswort__x1_1_png_1354836772.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/essence_of_rookswort__x1_1_png_1354836772.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/essence_of_rookswort__x1_1_png_1354836772.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/essence_of_rookswort__x1_1_png_1354836772.png",
 		"stacksTo": 20,
 		"price": 509,
 		"description": "Distilled Rookswort harnesses the power of the ancients for ultra-absorbent protection during those heavy rook attacks."
@@ -129,8 +129,8 @@
 	"essence_of_rubeweed": {
 		"name": "Essence of Rubeweed",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/essence_of_rubeweed__x1_1_png_1354836777.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/essence_of_rubeweed__x1_1_png_1354836777.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/essence_of_rubeweed__x1_1_png_1354836777.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/essence_of_rubeweed__x1_1_png_1354836777.png",
 		"stacksTo": 20,
 		"price": 383,
 		"description": "The purest scent of gullible luck, boiled down to the point where Rubes can smell it from many many planks away."
@@ -138,8 +138,8 @@
 	"essence_of_silvertongue": {
 		"name": "Essence of Silvertongue",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/essence_of_silvertongue__x1_1_png_1354836779.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/essence_of_silvertongue__x1_1_png_1354836779.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/essence_of_silvertongue__x1_1_png_1354836779.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/essence_of_silvertongue__x1_1_png_1354836779.png",
 		"stacksTo": 20,
 		"price": 283,
 		"description": "The concentrated charm of Silvertongue, giving large returns on upcoming ventures."
@@ -147,8 +147,8 @@
 	"essence_of_yellow_crumb": {
 		"name": "Essence of Yellow Crumb",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/essence_of_yellow_crumb__x1_1_png_1354836782.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/essence_of_yellow_crumb__x1_1_png_1354836782.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/essence_of_yellow_crumb__x1_1_png_1354836782.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/essence_of_yellow_crumb__x1_1_png_1354836782.png",
 		"stacksTo": 20,
 		"price": 541,
 		"description": "Purest concentration, concentrated, for those who need a more expansive brain-span."
@@ -156,8 +156,8 @@
 	"potion_keycutter_tonic": {
 		"name": "Keycutter Tonic",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/potion_keycutter_tonic__x1_1_png_1354836968.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/potion_keycutter_tonic__x1_tool_animation_png_1354836967.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/potion_keycutter_tonic__x1_1_png_1354836968.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/potion_keycutter_tonic__x1_tool_animation_png_1354836967.png",
 		"stacksTo": 1,
 		"price": 1250,
 		"description": "With a sharp metallic taste and acidic fizz, this is a concoction so strong that the fumes given off it when quaffed carve keys into the shape of other keys."
@@ -165,8 +165,8 @@
 	"liquid_super_hoe": {
 		"name": "Liquid Super-Hoe",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/potion_garden_clear__x1_1_png_1354840160.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/potion_garden_clear__x1_tool_animation_png_1354840159.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/potion_garden_clear__x1_1_png_1354840160.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/potion_garden_clear__x1_tool_animation_png_1354840159.png",
 		"stacksTo": 1,
 		"price": 1700,
 		"description": "A bag full of hoes might be able to clear your whole garden, a bottle of Liquid Super-Hoe has more clearing power than any common old hoe-bag. One drop will clear all the plots that can be cleared from the nearest garden."
@@ -174,8 +174,8 @@
 	"manyharvest_cordial": {
 		"name": "Manyharvest Cordial",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/potion_garden_harvest__x1_1_png_1354840155.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/potion_garden_harvest__x1_tool_animation_png_1354840154.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/potion_garden_harvest__x1_1_png_1354840155.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/potion_garden_harvest__x1_tool_animation_png_1354840154.png",
 		"stacksTo": 1,
 		"price": 2200,
 		"description": "Like a delicate tornado, one drop of Manyharvest Cordial will gently gather all ripe crops from the nearest garden (while,  like a twister filled with generosity, giving you all the usual 'super-harvest' bonuses)."
@@ -183,8 +183,8 @@
 	"potion_animal_youth": {
 		"name": "Potion of Animal Youth",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/potion_animal_youth__x1_1_png_1354836996.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/potion_animal_youth__x1_tool_animation_png_1354836995.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/potion_animal_youth__x1_1_png_1354836996.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/potion_animal_youth__x1_tool_animation_png_1354836995.png",
 		"stacksTo": 1,
 		"price": 1500,
 		"description": "Animals, anxious about aging and longing for childhood, can be soothed by application of this potion: the only effusion with the proven ability to turn back time."
@@ -192,8 +192,8 @@
 	"potion_rainbow_juice": {
 		"name": "Rainbow Juice",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/potion_rainbow_juice__x1_1_png_1354837000.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/potion_rainbow_juice__x1_tool_animation_png_1354837000.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/potion_rainbow_juice__x1_1_png_1354837000.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/potion_rainbow_juice__x1_tool_animation_png_1354837000.png",
 		"stacksTo": 1,
 		"price": 750,
 		"description": "Where is the end of the rainbow? Apparently, in this bottle. Warning: may produce curious disruptive effect on air around it. Thus the term, 'Anti-Gravity Rainbow'."
@@ -201,8 +201,8 @@
 	"potion_rook_balm": {
 		"name": "Rook Balm",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/potion_rook_balm__x1_1_png_1354836991.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/potion_rook_balm__x1_tool_animation_png_1354836990.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/potion_rook_balm__x1_1_png_1354836991.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/potion_rook_balm__x1_tool_animation_png_1354836990.png",
 		"stacksTo": 1,
 		"price": 1000,
 		"description": "Originally marketed under the less classy RUK-B-GONE, this potion, post-rebrand, does precisely the same job - emergency full healing of any rooked critter or tree."
@@ -210,8 +210,8 @@
 	"seed_dibber_libation": {
 		"name": "Seed-Dibber Libation",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/potion_garden_plant__x1_1_png_1354840141.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/potion_garden_plant__x1_tool_animation_png_1354840140.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/potion_garden_plant__x1_1_png_1354840141.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/potion_garden_plant__x1_tool_animation_png_1354840140.png",
 		"stacksTo": 1,
 		"price": 2000,
 		"description": "Just one dose of this patented Seed-Dibber Libation will plant every available plot of the nearest garden with your chosen seed (if you have enough seeds available). Save your fingernails for pretty things, eh?"
@@ -219,8 +219,8 @@
 	"soak_all_solution": {
 		"name": "Soak-All Solution",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/potion_garden_water__x1_1_png_1354840136.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/potion_garden_water__x1_tool_animation_png_1354840135.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/potion_garden_water__x1_1_png_1354840136.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/potion_garden_water__x1_tool_animation_png_1354840135.png",
 		"stacksTo": 1,
 		"price": 1700,
 		"description": "A single drop of Soak-All Solution (a tiny bottle filled with matter wetter than wet itself) will water every plot in the nearest garden with only a flick of the wrist."
@@ -228,8 +228,8 @@
 	"trantsformation_fluid": {
 		"name": "Trantsformation Fluid",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/potion_trantsformation_fluid__x1_1_png_1354837019.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/potion_trantsformation_fluid__x1_tool_animation_png_1354837018.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/potion_trantsformation_fluid__x1_1_png_1354837019.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/potion_trantsformation_fluid__x1_tool_animation_png_1354837018.png",
 		"stacksTo": 1,
 		"price": 2500,
 		"description": "A tree-reassignment liquor, capable of soaking into the roots of any tree or plant and silently, smelllessly, \"almost\" harmlessly rearranging its DNA."
@@ -237,8 +237,8 @@
 	"potion_tree_poison": {
 		"name": "Tree Poison",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/potion_tree_poison__x1_1_png_1354836878.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/potion_tree_poison__x1_tool_animation_png_1354836878.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/potion_tree_poison__x1_1_png_1354836878.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/potion_tree_poison__x1_tool_animation_png_1354836878.png",
 		"stacksTo": 1,
 		"price": 750,
 		"description": "Thick glass conceals a dark truth: the death sentence for five trees. But really, since the inevitable broom of death clears the way for new life, isn't it actually just \"a life sentence for five NEW trees\"? No, it's mainly just tree poison."
@@ -246,8 +246,8 @@
 	"potion_tree_poison_antidote": {
 		"name": "Tree Poison Antidote",
 		"category": "Tinctures & Potions",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/potion_tree_poison_antidote__x1_1_png_1354836852.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/potion_tree_poison_antidote__x1_tool_animation_png_1354836851.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/potion_tree_poison_antidote__x1_1_png_1354836852.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/potion_tree_poison_antidote__x1_tool_animation_png_1354836851.png",
 		"stacksTo": 1,
 		"price": 375,
 		"description": "Tree antidote: the only known reprieve for the mostly dead tree (there's a big difference between \"mostly dead\" and \"all dead\"). Contains five sips at the last chance saloon for five lucky trees."

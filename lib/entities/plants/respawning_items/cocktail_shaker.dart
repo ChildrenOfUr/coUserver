@@ -9,7 +9,7 @@ class CocktailShakerRespawningItem extends RespawningItem {
 
 		states = {
 			'1': new Spritesheet('1',
-				'http://childrenofur.com/assets/entityImages/cocktail_shaker__x1_1_png_1354830096.png',
+				'https://childrenofur.com/assets/entityImages/cocktail_shaker__x1_1_png_1354830096.png',
 				36, 40, 36, 40, 1, false)
 		};
 

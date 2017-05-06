@@ -50,7 +50,7 @@ class HollowDoor extends Door {
 			}];
 			currentState = new Spritesheet(
 				"door_shoppe_int",
-				"http://childrenofur.com/assets/entityImages/door_asset_mini_door_01a_g1.png",
+				"https://childrenofur.com/assets/entityImages/door_asset_mini_door_01a_g1.png",
 				55, 120, 55, 120, 1, true
 			);
 		} else {
@@ -63,7 +63,7 @@ class HollowDoor extends Door {
 			}];
 			currentState = new Spritesheet(
 				"door_shoppe_int",
-				"http://childrenofur.com/assets/entityImages/door_asset_heights.png",
+				"https://childrenofur.com/assets/entityImages/door_asset_heights.png",
 				154, 175, 154, 175, 1, true
 			);
 		}

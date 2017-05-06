@@ -30,7 +30,7 @@ class MealVendor extends Vendor {
 		states = {
 			"attract": new Spritesheet(
 				"attract",
-				"http://childrenofur.com/assets/entityImages/npc_cooking_vendor__x1_attract_png_1354831634.png",
+				"https://childrenofur.com/assets/entityImages/npc_cooking_vendor__x1_attract_png_1354831634.png",
 				945,
 				2300,
 				189,
@@ -39,7 +39,7 @@ class MealVendor extends Vendor {
 				false),
 			"idle_stand": new Spritesheet(
 				"idle_stand",
-				"http://childrenofur.com/assets/entityImages/npc_cooking_vendor__x1_idle_stand_part1_png_1354831629.png",
+				"https://childrenofur.com/assets/entityImages/npc_cooking_vendor__x1_idle_stand_part1_png_1354831629.png",
 				3969,
 				3910,
 				189,
@@ -48,7 +48,7 @@ class MealVendor extends Vendor {
 				true),
 			"talk": new Spritesheet(
 				"talk",
-				"http://childrenofur.com/assets/entityImages/npc_cooking_vendor__x1_talk_png_1354831616.png",
+				"https://childrenofur.com/assets/entityImages/npc_cooking_vendor__x1_talk_png_1354831616.png",
 				945,
 				1840,
 				189,
@@ -57,7 +57,7 @@ class MealVendor extends Vendor {
 				false),
 			"walk_left": new Spritesheet(
 				"walk_left",
-				"http://childrenofur.com/assets/entityImages/npc_cooking_vendor__x1_walk_left_png_1354831611.png",
+				"https://childrenofur.com/assets/entityImages/npc_cooking_vendor__x1_walk_left_png_1354831611.png",
 				756,
 				920,
 				189,
@@ -66,7 +66,7 @@ class MealVendor extends Vendor {
 				true),
 			"walk": new Spritesheet(
 				"walk_right",
-				"http://childrenofur.com/assets/entityImages/npc_cooking_vendor__x1_walk_right_png_1354831603.png",
+				"https://childrenofur.com/assets/entityImages/npc_cooking_vendor__x1_walk_right_png_1354831603.png",
 				756,
 				920,
 				189,

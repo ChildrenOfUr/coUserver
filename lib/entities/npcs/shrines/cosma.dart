@@ -6,9 +6,9 @@ class Cosma extends Shrine
 	{
 		states =
 			{
-				"close" : new Spritesheet("close","http://childrenofur.com/assets/entityImages/npc_shrine_cosma__x1_close_png_1354831213.png",906,752,151,188,23,false),
-				"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_cosma__x1_open_png_1354831212.png",906,752,151,188,22,false),
-				"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_cosma__x1_open_png_1354831212.png",906,752,151,188,1,false)
+				"close" : new Spritesheet("close","https://childrenofur.com/assets/entityImages/npc_shrine_cosma__x1_close_png_1354831213.png",906,752,151,188,23,false),
+				"open" : new Spritesheet("open","https://childrenofur.com/assets/entityImages/npc_shrine_cosma__x1_open_png_1354831212.png",906,752,151,188,22,false),
+				"still" : new Spritesheet("still","https://childrenofur.com/assets/entityImages/npc_shrine_cosma__x1_open_png_1354831212.png",906,752,151,188,1,false)
 			};
 	 	setState('still');
 	 	type = 'Cosma';
@@ -23,9 +23,9 @@ class CosmaFirebog extends Shrine
 	{
 		states =
 		{
-			"close" : new Spritesheet("close","http://childrenofur.com/assets/entityImages/npc_shrine_firebog_cosma__x1_close_png_1354832774.png",984,848,164,212,23,false),
-			"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_firebog_cosma__x1_open_png_1354832771.png",984,848,164,212,22,false),
-			"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_firebog_cosma__x1_open_png_1354832771.png",984,848,164,212,1,false)
+			"close" : new Spritesheet("close","https://childrenofur.com/assets/entityImages/npc_shrine_firebog_cosma__x1_close_png_1354832774.png",984,848,164,212,23,false),
+			"open" : new Spritesheet("open","https://childrenofur.com/assets/entityImages/npc_shrine_firebog_cosma__x1_open_png_1354832771.png",984,848,164,212,22,false),
+			"still" : new Spritesheet("still","https://childrenofur.com/assets/entityImages/npc_shrine_firebog_cosma__x1_open_png_1354832771.png",984,848,164,212,1,false)
 		};
 		setState('still');
 		type = 'Cosma';
@@ -40,9 +40,9 @@ class CosmaIx extends Shrine
 	{
 		states =
 		{
-			"close" : new Spritesheet("close","http://childrenofur.com/assets/entityImages/npc_shrine_ix_cosma__x1_close_png_1354831269.png",840,864,168,216,20,false),
-			"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_ix_cosma__x1_open_png_1354831267.png",840,1080,168,216,24,false),
-			"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_ix_cosma__x1_open_png_1354831267.png",840,1080,168,216,1,false)
+			"close" : new Spritesheet("close","https://childrenofur.com/assets/entityImages/npc_shrine_ix_cosma__x1_close_png_1354831269.png",840,864,168,216,20,false),
+			"open" : new Spritesheet("open","https://childrenofur.com/assets/entityImages/npc_shrine_ix_cosma__x1_open_png_1354831267.png",840,1080,168,216,24,false),
+			"still" : new Spritesheet("still","https://childrenofur.com/assets/entityImages/npc_shrine_ix_cosma__x1_open_png_1354831267.png",840,1080,168,216,1,false)
 		};
 		setState('still');
 		type = 'Cosma';
@@ -57,9 +57,9 @@ class CosmaUralia extends Shrine
 	{
 		states =
 		{
-			"close" : new Spritesheet("close","http://childrenofur.com/assets/entityImages/npc_shrine_uralia_cosma__x1_close_png_1354831869.png",756,752,126,188,23,false),
-			"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_uralia_cosma__x1_open_png_1354831867.png",756,752,126,188,22,false),
-			"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_uralia_cosma__x1_open_png_1354831867.png",756,752,126,188,1,false)
+			"close" : new Spritesheet("close","https://childrenofur.com/assets/entityImages/npc_shrine_uralia_cosma__x1_close_png_1354831869.png",756,752,126,188,23,false),
+			"open" : new Spritesheet("open","https://childrenofur.com/assets/entityImages/npc_shrine_uralia_cosma__x1_open_png_1354831867.png",756,752,126,188,22,false),
+			"still" : new Spritesheet("still","https://childrenofur.com/assets/entityImages/npc_shrine_uralia_cosma__x1_open_png_1354831867.png",756,752,126,188,1,false)
 		};
 		setState('still');
 		type = 'Cosma';

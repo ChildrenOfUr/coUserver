@@ -9,7 +9,7 @@
       "type": "counter",
       "numRequired": 1,
       "eventType": "makeRecipe_cheezy_sammich",
-      "iconUrl": "http://childrenofur.com/assets/entityImages/cheezy_sammich__x1_iconic_png_1354830841.png"
+      "iconUrl": "https://childrenofur.com/assets/entityImages/cheezy_sammich__x1_iconic_png_1354830841.png"
     },
     {
       "id": "Q1R2",
@@ -17,7 +17,7 @@
       "type": "counter",
       "numRequired": 1,
       "eventType": "makeRecipe_deluxe_sammich",
-      "iconUrl": "http://childrenofur.com/assets/entityImages/deluxe_sammich__x1_iconic_png_1354829800.png"
+      "iconUrl": "https://childrenofur.com/assets/entityImages/deluxe_sammich__x1_iconic_png_1354829800.png"
     },
     {
       "id": "Q1R3",
@@ -25,7 +25,7 @@
       "type": "counter",
       "numRequired": 1,
       "eventType": "makeRecipe_hearty_groddle_sammich",
-      "iconUrl": "http://childrenofur.com/assets/entityImages/hearty_groddle_sammich__x1_iconic_png_1354829872.png"
+      "iconUrl": "https://childrenofur.com/assets/entityImages/hearty_groddle_sammich__x1_iconic_png_1354829872.png"
     }
   ],
   "rewards": {

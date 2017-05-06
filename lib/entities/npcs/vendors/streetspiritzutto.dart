@@ -5,11 +5,11 @@ class StreetSpiritZutto extends StreetSpirit {
 		speed = 0;
 		itemsPredefined = false;
 		states = {
-			"hoverIdle":new Spritesheet("hoverIdle", 'http://childrenofur.com/assets/entityImages/street_spirit_zutto_cap_capAqua_x1_hoverIdle_png_1354833704.png', 906, 720, 151, 180, 23, true),
-			"groundIdle":new Spritesheet("groundIdle", 'http://childrenofur.com/assets/entityImages/street_spirit_zutto_cap_capAqua_x1_groundIdle_png_1354833699.png', 906, 720, 151, 180, 24, true),
-			"raise":new Spritesheet("raise", 'http://childrenofur.com/assets/entityImages/street_spirit_zutto_cap_capAqua_x1_raise_png_1354833702.png', 906, 1080, 151, 180, 31, false),
-			"lower":new Spritesheet("lower", 'http://childrenofur.com/assets/entityImages/street_spirit_zutto_cap_capAqua_x1_lower_png_1354833718.png', 906, 900, 151, 180, 26, false),
-			"hoverTalk":new Spritesheet("hoverTalk", 'http://childrenofur.com/assets/entityImages/street_spirit_zutto_cap_capAqua_x1_hoverTalk_png_1354833709.png', 906, 1440, 151, 180, 46, true)
+			"hoverIdle":new Spritesheet("hoverIdle", 'https://childrenofur.com/assets/entityImages/street_spirit_zutto_cap_capAqua_x1_hoverIdle_png_1354833704.png', 906, 720, 151, 180, 23, true),
+			"groundIdle":new Spritesheet("groundIdle", 'https://childrenofur.com/assets/entityImages/street_spirit_zutto_cap_capAqua_x1_groundIdle_png_1354833699.png', 906, 720, 151, 180, 24, true),
+			"raise":new Spritesheet("raise", 'https://childrenofur.com/assets/entityImages/street_spirit_zutto_cap_capAqua_x1_raise_png_1354833702.png', 906, 1080, 151, 180, 31, false),
+			"lower":new Spritesheet("lower", 'https://childrenofur.com/assets/entityImages/street_spirit_zutto_cap_capAqua_x1_lower_png_1354833718.png', 906, 900, 151, 180, 26, false),
+			"hoverTalk":new Spritesheet("hoverTalk", 'https://childrenofur.com/assets/entityImages/street_spirit_zutto_cap_capAqua_x1_hoverTalk_png_1354833709.png', 906, 1440, 151, 180, 46, true)
 		};
 		setState('groundIdle');
 	}

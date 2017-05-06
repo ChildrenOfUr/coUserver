@@ -6,7 +6,7 @@
     {
       "id": "Q8R1",
       "text": "bag purchased",
-      "iconUrl": "http://childrenofur.com/assets/entityImages/bag_generic__x1_1_png_1354830380.png",
+      "iconUrl": "https://childrenofur.com/assets/entityImages/bag_generic__x1_1_png_1354830380.png",
       "type": "counter",
       "numRequired": 1,
       "eventType": "getItem_.*_bag"

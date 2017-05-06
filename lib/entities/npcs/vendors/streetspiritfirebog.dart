@@ -4,11 +4,11 @@ class StreetSpiritFirebog extends StreetSpirit {
 	StreetSpiritFirebog(String id, String streetName, String tsid, num x, num y, num z, num rotation, bool h_flip) : super(id, streetName, tsid, x, y, z, rotation, h_flip) {
 		itemsPredefined = false;
 		states = {
-			"idle_cry":new Spritesheet("idle_cry", 'http://childrenofur.com/assets/entityImages/street_spirit_firebog_size_large_x1_idle_cry_png_1354832895.png', 856, 732, 107, 244, 24, false),
-			"idle_move":new Spritesheet("idle_move", 'http://childrenofur.com/assets/entityImages/street_spirit_firebog_size_large_x1_idle_move_png_1354832884.png', 856, 732, 107, 244, 24, false),
-			"open":new Spritesheet("open", 'http://childrenofur.com/assets/entityImages/street_spirit_firebog_size_large_x1_open_png_1354832888.png', 749, 732, 107, 244, 19, false),
-			"close":new Spritesheet("close", 'http://childrenofur.com/assets/entityImages/street_spirit_firebog_size_large_x1_close_png_1354832889.png', 963, 488, 107, 244, 17, false),
-			"talk":new Spritesheet("talk", 'http://childrenofur.com/assets/entityImages/street_spirit_firebog_size_large_x1_talk_png_1354832886.png', 963, 1708, 107, 244, 17, false)
+			"idle_cry":new Spritesheet("idle_cry", 'https://childrenofur.com/assets/entityImages/street_spirit_firebog_size_large_x1_idle_cry_png_1354832895.png', 856, 732, 107, 244, 24, false),
+			"idle_move":new Spritesheet("idle_move", 'https://childrenofur.com/assets/entityImages/street_spirit_firebog_size_large_x1_idle_move_png_1354832884.png', 856, 732, 107, 244, 24, false),
+			"open":new Spritesheet("open", 'https://childrenofur.com/assets/entityImages/street_spirit_firebog_size_large_x1_open_png_1354832888.png', 749, 732, 107, 244, 19, false),
+			"close":new Spritesheet("close", 'https://childrenofur.com/assets/entityImages/street_spirit_firebog_size_large_x1_close_png_1354832889.png', 963, 488, 107, 244, 17, false),
+			"talk":new Spritesheet("talk", 'https://childrenofur.com/assets/entityImages/street_spirit_firebog_size_large_x1_talk_png_1354832886.png', 963, 1708, 107, 244, 17, false)
 		};
 		setState('idle_move');
 	}

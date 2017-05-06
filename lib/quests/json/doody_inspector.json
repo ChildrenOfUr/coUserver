@@ -9,7 +9,7 @@
       "type": "counter",
       "numRequired": 5,
       "eventType": "examine_piggy_plop",
-      "iconUrl": "http://childrenofur.com/assets/entityImages/plop__x1_1_png_1354831023.png"
+      "iconUrl": "https://childrenofur.com/assets/entityImages/plop__x1_1_png_1354831023.png"
     }
   ],
   "rewards": {

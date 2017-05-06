@@ -9,7 +9,7 @@
       "type": "counter",
       "numRequired": 1,
       "eventType": "makeRecipe_face_smelter",
-      "iconUrl": "http://childrenofur.com/assets/entityImages/face_smelter__x1_iconic_png_1354839793.png"
+      "iconUrl": "https://childrenofur.com/assets/entityImages/face_smelter__x1_iconic_png_1354839793.png"
     },
     {
       "id": "Q12R2",
@@ -17,7 +17,7 @@
       "type": "counter",
       "numRequired": 1,
       "eventType": "makeRecipe_pungent_sunrise",
-      "iconUrl": "http://childrenofur.com/assets/entityImages/pungent_sunrise__x1_iconic_png_1354829980.png"
+      "iconUrl": "https://childrenofur.com/assets/entityImages/pungent_sunrise__x1_iconic_png_1354829980.png"
     },
     {
       "id": "Q12R3",
@@ -25,7 +25,7 @@
       "type": "counter",
       "numRequired": 1,
       "eventType": "makeRecipe_flaming_humbaba",
-      "iconUrl": "http://childrenofur.com/assets/entityImages/flaming_humbaba__x1_iconic_png_1354829817.png"
+      "iconUrl": "https://childrenofur.com/assets/entityImages/flaming_humbaba__x1_iconic_png_1354829817.png"
     }
   ],
   "rewards": {

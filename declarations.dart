@@ -155,7 +155,15 @@ Future _initRedstone() async {
 	app.showErrorPage = false;
 	app.addPlugin(getMapperPlugin(dbManager));
 	app.setupConsoleLog(rsLog.Level.OFF);
-	await app.start(port: port, autoCompress: true);
+
+	if (loadCert) {
+		SecurityContext context = new SecurityContext()
+			..useCertificateChain('$certPath/fullchain.pem')
+			..usePrivateKey('$certPath/privkey.pem');
+		await app.start(port: port, autoCompress: true, secureOptions: {#context: context});
+	} else {
+		await app.start(port: port, autoCompress: true);
+	}
 
 	Log.verbose('[Init Redstone] Redstone initialized. REDSTONE LOGGING IS OFF.');
 }

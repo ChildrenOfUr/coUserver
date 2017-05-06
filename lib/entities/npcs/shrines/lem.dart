@@ -6,9 +6,9 @@ class Lem extends Shrine
 	{
 		states =
 			{
-				"close" : new Spritesheet("close","http://childrenofur.com/assets/entityImages/npc_shrine_lem__x1_close_png_1354831233.png",906,752,151,188,23,false),
-				"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_lem__x1_open_png_1354831232.png",906,752,151,188,22,false),
-				"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_lem__x1_open_png_1354831232.png",906,752,151,188,1,false)
+				"close" : new Spritesheet("close","https://childrenofur.com/assets/entityImages/npc_shrine_lem__x1_close_png_1354831233.png",906,752,151,188,23,false),
+				"open" : new Spritesheet("open","https://childrenofur.com/assets/entityImages/npc_shrine_lem__x1_open_png_1354831232.png",906,752,151,188,22,false),
+				"still" : new Spritesheet("still","https://childrenofur.com/assets/entityImages/npc_shrine_lem__x1_open_png_1354831232.png",906,752,151,188,1,false)
 			};
 	 	setState('still');
 	 	type = 'Lem';
@@ -23,9 +23,9 @@ class LemFirebog extends Shrine
 	{
 		states =
 		{
-			"close" : new Spritesheet("close","http://childrenofur.com/assets/entityImages/npc_shrine_firebog_lem__x1_close_png_1354832823.png",984,848,164,212,23,false),
-			"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_firebog_lem__x1_open_png_1354832820.png",984,848,164,212,22,false),
-			"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_firebog_lem__x1_open_png_1354832820.png",984,848,164,212,1,false)
+			"close" : new Spritesheet("close","https://childrenofur.com/assets/entityImages/npc_shrine_firebog_lem__x1_close_png_1354832823.png",984,848,164,212,23,false),
+			"open" : new Spritesheet("open","https://childrenofur.com/assets/entityImages/npc_shrine_firebog_lem__x1_open_png_1354832820.png",984,848,164,212,22,false),
+			"still" : new Spritesheet("still","https://childrenofur.com/assets/entityImages/npc_shrine_firebog_lem__x1_open_png_1354832820.png",984,848,164,212,1,false)
 		};
 		setState('still');
 		type = 'Lem';
@@ -40,9 +40,9 @@ class LemIx extends Shrine
 	{
 		states =
 		{
-			"close" : new Spritesheet("close","http://childrenofur.com/assets/entityImages/npc_shrine_ix_lem__x1_close_png_1354831289.png",840,864,168,216,20,false),
-			"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_ix_lem__x1_open_png_1354831287.png",840,1080,168,216,24,false),
-			"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_ix_lem__x1_open_png_1354831287.png",840,1080,168,216,1,false)
+			"close" : new Spritesheet("close","https://childrenofur.com/assets/entityImages/npc_shrine_ix_lem__x1_close_png_1354831289.png",840,864,168,216,20,false),
+			"open" : new Spritesheet("open","https://childrenofur.com/assets/entityImages/npc_shrine_ix_lem__x1_open_png_1354831287.png",840,1080,168,216,24,false),
+			"still" : new Spritesheet("still","https://childrenofur.com/assets/entityImages/npc_shrine_ix_lem__x1_open_png_1354831287.png",840,1080,168,216,1,false)
 		};
 		setState('still');
 		type = 'Lem';
@@ -57,9 +57,9 @@ class LemUralia extends Shrine
 	{
 		states =
 		{
-			"close" : new Spritesheet("close","http://childrenofur.com/assets/entityImages/npc_shrine_uralia_lem__x1_close_png_1354831897.png",756,752,126,188,23,false),
-			"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_uralia_lem__x1_open_png_1354831895.png",756,752,126,188,22,false),
-			"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_uralia_lem__x1_open_png_1354831895.png",756,752,126,188,1,false)
+			"close" : new Spritesheet("close","https://childrenofur.com/assets/entityImages/npc_shrine_uralia_lem__x1_close_png_1354831897.png",756,752,126,188,23,false),
+			"open" : new Spritesheet("open","https://childrenofur.com/assets/entityImages/npc_shrine_uralia_lem__x1_open_png_1354831895.png",756,752,126,188,22,false),
+			"still" : new Spritesheet("still","https://childrenofur.com/assets/entityImages/npc_shrine_uralia_lem__x1_open_png_1354831895.png",756,752,126,188,1,false)
 		};
 		setState('still');
 		type = 'Lem';

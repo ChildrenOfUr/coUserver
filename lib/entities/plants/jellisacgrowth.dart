@@ -32,7 +32,7 @@ class Jellisac extends Plant {
 		};
 
 		states = {
-			"1-2-3-4-5" : new Spritesheet("1-2-3-4-5", "http://childrenofur.com/assets/entityImages/jellisac.png", 210, 49, 42, 49, 5, false),
+			"1-2-3-4-5" : new Spritesheet("1-2-3-4-5", "https://childrenofur.com/assets/entityImages/jellisac.png", 210, 49, 42, 49, 5, false),
 		};
 		setState('1-2-3-4-5');
 		state = new Random().nextInt(currentState.numFrames);

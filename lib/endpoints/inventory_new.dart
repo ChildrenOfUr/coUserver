@@ -1217,6 +1217,23 @@ class InventoryV2 {
 	}
 }
 
+@app.Route("/getInventory/username/:username")
+@Encode()
+Future<InventoryV2> getInventoryByUsername(String username) async {
+	PostgreSql dbConn = await dbManager.getConnection();
+
+	String queryString = "SELECT * FROM inventories JOIN users ON users.id = user_id WHERE users.username = @username";
+	List<InventoryV2> inventories = await dbConn.query(queryString, InventoryV2, {'username':username});
+
+	InventoryV2 inventory = new InventoryV2();
+	if (inventories.length > 0) {
+		inventory = inventories.first;
+	}
+
+	dbManager.closeConnection(dbConn);
+	return inventory;
+}
+
 @app.Route("/getInventory/:email")
 @Encode()
 Future<InventoryV2> getInventory(String email) async {

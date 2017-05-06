@@ -3,7 +3,7 @@ part of weather;
 /// Handles real-life weather data
 class WeatherService {
 	/// Image URL base
-	static final String OWM_IMG = 'http://openweathermap.org/img/w/';
+	static final String OWM_IMG = 'https://openweathermap.org/img/w/';
 
 	/// OpenWeatherMap URL
 	static final String OWM_API = 'http://api.openweathermap.org/data/2.5/';
