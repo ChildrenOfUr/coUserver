@@ -33,7 +33,7 @@ PostgreSql get dbConn => app.request.attributes.dbConn;
 MessageBus messageBus = new MessageBus();
 
 /// Minimum client version to allow connections from
-final int MIN_CLIENT_VER = 146;
+final int MIN_CLIENT_VER = 1471;
 
 /// Global random object
 Random rand = new Random();
