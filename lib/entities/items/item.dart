@@ -150,6 +150,10 @@ class Item extends Object
 	Item();
 
 	Item.clone(this.itemType) {
+		if (itemType.startsWith('Seed_')) {
+			itemType = itemType.replaceFirst('Seed_', '').toLowerCase() + '_seed';
+		}
+
 		Item model = items[itemType];
 		category = model.category;
 		iconUrl = model.iconUrl;
