@@ -48,23 +48,23 @@ class Fox extends NPC {
 		// Spritesheets
 		states = {
 			'brushed': new Spritesheet('brushed',
-				'http://childrenofur.com/assets/entityImages/orange_fox_brushed.png', 306, 139, 153, 139, 2, true),
+				'https://childrenofur.com/assets/entityImages/orange_fox_brushed.png', 306, 139, 153, 139, 2, true),
 			'eatEnd': new Spritesheet('eatEnd',
-				'http://childrenofur.com/assets/entityImages/orange_fox_eat_end.png', 765, 556, 153, 139, 20, false),
+				'https://childrenofur.com/assets/entityImages/orange_fox_eat_end.png', 765, 556, 153, 139, 20, false),
 			'eatStart': new Spritesheet('eatStart',
-				'http://childrenofur.com/assets/entityImages/orange_fox_eat_start.png', 765, 278, 153, 139, 10, false),
+				'https://childrenofur.com/assets/entityImages/orange_fox_eat_start.png', 765, 278, 153, 139, 10, false),
 			'eat': new Spritesheet('eat',
-				'http://childrenofur.com/assets/entityImages/orange_fox_eat.png', 765, 556, 153, 139, 20, true),
+				'https://childrenofur.com/assets/entityImages/orange_fox_eat.png', 765, 556, 153, 139, 20, true),
 			'jump': new Spritesheet('jump',
-				'http://childrenofur.com/assets/entityImages/orange_fox_jump.png', 918, 695, 153, 139, 28, false),
+				'https://childrenofur.com/assets/entityImages/orange_fox_jump.png', 918, 695, 153, 139, 28, false),
 			'pause': new Spritesheet('pause',
-				'http://childrenofur.com/assets/entityImages/orange_fox_pause.png', 918, 1390, 153, 139, 56, false),
+				'https://childrenofur.com/assets/entityImages/orange_fox_pause.png', 918, 1390, 153, 139, 56, false),
 			'run': new Spritesheet('run',
-				'http://childrenofur.com/assets/entityImages/orange_fox_run.png', 918, 278, 153, 139, 12, true),
+				'https://childrenofur.com/assets/entityImages/orange_fox_run.png', 918, 278, 153, 139, 12, true),
 			'taunt': new Spritesheet('taunt',
-				'http://childrenofur.com/assets/entityImages/orange_fox_taunt.png', 918, 973, 153, 139, 40, false),
+				'https://childrenofur.com/assets/entityImages/orange_fox_taunt.png', 918, 973, 153, 139, 40, false),
 			'walk': new Spritesheet('walk',
-				'http://childrenofur.com/assets/entityImages/orange_fox_walk.png', 918, 556, 153, 139, 24, true),
+				'https://childrenofur.com/assets/entityImages/orange_fox_walk.png', 918, 556, 153, 139, 24, true),
 			'_hidden': NPC.TRANSPARENT_SPRITE
 		};
 		hide();
@@ -213,23 +213,23 @@ class SilverFox extends Fox {
 	SilverFox(String id, num x, num y, num z, num rotation, bool h_flip, String streetName) : super(id, x, y, z, rotation, h_flip, streetName) {
 		states = {
 			'brushed': new Spritesheet('brushed',
-				'http://childrenofur.com/assets/entityImages/silver_fox_brushed.png', 306, 139, 153, 139, 2, true),
+				'https://childrenofur.com/assets/entityImages/silver_fox_brushed.png', 306, 139, 153, 139, 2, true),
 			'eatEnd': new Spritesheet('eatEnd',
-				'http://childrenofur.com/assets/entityImages/silver_fox_eat_end.png', 765, 556, 153, 139, 20, false),
+				'https://childrenofur.com/assets/entityImages/silver_fox_eat_end.png', 765, 556, 153, 139, 20, false),
 			'eatStart': new Spritesheet('eatStart',
-				'http://childrenofur.com/assets/entityImages/silver_fox_eat_start.png', 765, 278, 153, 139, 10, false),
+				'https://childrenofur.com/assets/entityImages/silver_fox_eat_start.png', 765, 278, 153, 139, 10, false),
 			'eat': new Spritesheet('eat',
-				'http://childrenofur.com/assets/entityImages/silver_fox_eat.png', 765, 556, 153, 139, 20, true),
+				'https://childrenofur.com/assets/entityImages/silver_fox_eat.png', 765, 556, 153, 139, 20, true),
 			'jump': new Spritesheet('jump',
-				'http://childrenofur.com/assets/entityImages/silver_fox_jump.png', 918, 695, 153, 139, 28, false),
+				'https://childrenofur.com/assets/entityImages/silver_fox_jump.png', 918, 695, 153, 139, 28, false),
 			'pause': new Spritesheet('pause',
-				'http://childrenofur.com/assets/entityImages/silver_fox_pause.png', 918, 1390, 153, 139, 56, false),
+				'https://childrenofur.com/assets/entityImages/silver_fox_pause.png', 918, 1390, 153, 139, 56, false),
 			'run': new Spritesheet('run',
-				'http://childrenofur.com/assets/entityImages/silver_fox_run.png', 918, 278, 153, 139, 12, true),
+				'https://childrenofur.com/assets/entityImages/silver_fox_run.png', 918, 278, 153, 139, 12, true),
 			'taunt': new Spritesheet('taunt',
-				'http://childrenofur.com/assets/entityImages/silver_fox_taunt.png', 918, 973, 153, 139, 40, false),
+				'https://childrenofur.com/assets/entityImages/silver_fox_taunt.png', 918, 973, 153, 139, 40, false),
 			'walk': new Spritesheet('walk',
-				'http://childrenofur.com/assets/entityImages/silver_fox_walk.png', 918, 556, 153, 139, 24, true),
+				'https://childrenofur.com/assets/entityImages/silver_fox_walk.png', 918, 556, 153, 139, 24, true),
 			'_hidden': NPC.TRANSPARENT_SPRITE
 		};
 		hide();
@@ -259,11 +259,11 @@ class FoxBait extends NPC {
 
 		states = {
 			'stink1': new Spritesheet('stink1',
-				'http://childrenofur.com/assets/entityImages/fox_bait__x1_stink1_png_1354839629.png', 861, 288, 41, 144, 42, true),
+				'https://childrenofur.com/assets/entityImages/fox_bait__x1_stink1_png_1354839629.png', 861, 288, 41, 144, 42, true),
 			'stink2': new Spritesheet('stink1',
-				'http://childrenofur.com/assets/entityImages/fox_bait__x1_stink2_png_1354839630.png', 902, 288, 41, 144, 43, true),
+				'https://childrenofur.com/assets/entityImages/fox_bait__x1_stink2_png_1354839630.png', 902, 288, 41, 144, 43, true),
 			'stink3': new Spritesheet('stink1',
-				'http://childrenofur.com/assets/entityImages/fox_bait__x1_stink3_png_1354839632.png', 861, 288, 41, 144, 42, true),
+				'https://childrenofur.com/assets/entityImages/fox_bait__x1_stink3_png_1354839632.png', 861, 288, 41, 144, 42, true),
 			'_hidden': NPC.TRANSPARENT_SPRITE
 		};
 		setState('stink${rand.nextInt(3) + 1}');

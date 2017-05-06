@@ -189,16 +189,16 @@ class Garden extends NPC {
 
 	static final Map<String, Spritesheet> STATES = {
 		'new': new Spritesheet('new',
-			'http://childrenofur.com/assets/entityImages/garden_plot_new.png',
+			'https://childrenofur.com/assets/entityImages/garden_plot_new.png',
 			100, 90, 100, 90, 1, false),
 		'hoed': new Spritesheet('hoed',
-			'http://childrenofur.com/assets/entityImages/garden_plot_hoed.png',
+			'https://childrenofur.com/assets/entityImages/garden_plot_hoed.png',
 			100, 90, 100, 90, 1, false),
 		'watered': new Spritesheet('watered',
-			'http://childrenofur.com/assets/entityImages/garden_plot_watered.png',
+			'https://childrenofur.com/assets/entityImages/garden_plot_watered.png',
 			100, 90, 100, 90, 1, false),
 		'planted_baby': new Spritesheet('planted_baby',
-			'http://childrenofur.com/assets/entityImages/garden_plot_planted_baby.png',
+			'https://childrenofur.com/assets/entityImages/garden_plot_planted_baby.png',
 			100, 90, 100, 90, 1, false),
 	};
 
@@ -252,7 +252,7 @@ class Garden extends NPC {
 		for (String crop in CROPS) {
 			for (int i=1; i<4; i++) {
 				String cropState = '${crop}_${i}';
-				states[cropState] = new Spritesheet(cropState, 'http://childrenofur.com/assets/entityImages/$cropState.png', 100, 90, 100, 90, 1, false);
+				states[cropState] = new Spritesheet(cropState, 'https://childrenofur.com/assets/entityImages/$cropState.png', 100, 90, 100, 90, 1, false);
 			}
 		}
 	}

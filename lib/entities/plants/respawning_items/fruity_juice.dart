@@ -9,7 +9,7 @@ class FruityJuiceRespawningItem extends RespawningItem {
 
 		states = {
 			'1-2-3-4': new Spritesheet('1-2-3-4',
-				'http://childrenofur.com/assets/entityImages/fruity_juice__x1_1_x1_2_x1_3_x1_4_png_1354829845.png',
+				'https://childrenofur.com/assets/entityImages/fruity_juice__x1_1_x1_2_x1_3_x1_4_png_1354829845.png',
 				168, 39, 42, 39, 4, false)
 		};
 

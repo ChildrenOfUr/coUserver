@@ -9,7 +9,7 @@ class AwesomeStewRespawningItem extends RespawningItem {
 
 		states = {
 			'1-2-3-4': new Spritesheet('1-2-3-4',
-				'http://childrenofur.com/assets/entityImages/awesome_stew__x1_1_x1_2_x1_3_x1_4_png_1354829703.png',
+				'https://childrenofur.com/assets/entityImages/awesome_stew__x1_1_x1_2_x1_3_x1_4_png_1354829703.png',
 				144, 40, 36, 40, 4, false)
 		};
 

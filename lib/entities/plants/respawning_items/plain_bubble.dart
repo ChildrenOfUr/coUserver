@@ -9,7 +9,7 @@ class PlainBubbleRespawningItem extends RespawningItem {
 
 		states = {
 			'1-2-3-4': new Spritesheet('1-2-3-4',
-				'http://childrenofur.com/assets/entityImages/plain_bubble__x1_1_x1_2_x1_3_x1_4_png_1354829962.png',
+				'https://childrenofur.com/assets/entityImages/plain_bubble__x1_1_x1_2_x1_3_x1_4_png_1354829962.png',
 				132, 23, 33, 23, 4, false)
 		};
 

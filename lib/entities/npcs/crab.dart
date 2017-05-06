@@ -59,34 +59,34 @@ class Crab extends NPC {
 
 		states = {
 			"dislike_off": new Spritesheet(
-				"dislike_off", "http://childrenofur.com/assets/entityImages/npc_crab__x1_dislike_off_png_1354831193.png",
+				"dislike_off", "https://childrenofur.com/assets/entityImages/npc_crab__x1_dislike_off_png_1354831193.png",
 				786, 516, 131, 129, 22, true),
 			"dislike_on": new Spritesheet(
-				"dislike_on", "http://childrenofur.com/assets/entityImages/npc_crab__x1_dislike_on_png_1354831191.png",
+				"dislike_on", "https://childrenofur.com/assets/entityImages/npc_crab__x1_dislike_on_png_1354831191.png",
 				786, 516, 131, 129, 30, true),
 			"idle0": new Spritesheet(
-				"idle0", "http://childrenofur.com/assets/entityImages/npc_crab__x1_idle0_png_1354831199.png",
+				"idle0", "https://childrenofur.com/assets/entityImages/npc_crab__x1_idle0_png_1354831199.png",
 				786, 645, 131, 129, 30, true),
 			"idle1": new Spritesheet(
-				"idle1", "http://childrenofur.com/assets/entityImages/npc_crab__x1_idle1_png_1354831200.png",
+				"idle1", "https://childrenofur.com/assets/entityImages/npc_crab__x1_idle1_png_1354831200.png",
 				786, 645, 131, 129, 30, true),
 			"idle2": new Spritesheet(
-				"idle2", "http://childrenofur.com/assets/entityImages/npc_crab__x1_idle2_png_1354831201.png",
+				"idle2", "https://childrenofur.com/assets/entityImages/npc_crab__x1_idle2_png_1354831201.png",
 				786, 645, 131, 129, 30, true),
 			"like_off": new Spritesheet(
-				"like_off", "http://childrenofur.com/assets/entityImages/npc_crab__x1_like_off_png_1354831189.png",
+				"like_off", "https://childrenofur.com/assets/entityImages/npc_crab__x1_like_off_png_1354831189.png",
 				786, 516, 131, 129, 24, true),
 			"like_on": new Spritesheet(
-				"like_on", "http://childrenofur.com/assets/entityImages/npc_crab__x1_like_on_png_1354831187.png",
+				"like_on", "https://childrenofur.com/assets/entityImages/npc_crab__x1_like_on_png_1354831187.png",
 				786, 516, 131, 129, 24, true),
 			"listen": new Spritesheet(
-				"listen", "http://childrenofur.com/assets/entityImages/npc_crab__x1_listen_png_1354831185.png",
+				"listen", "https://childrenofur.com/assets/entityImages/npc_crab__x1_listen_png_1354831185.png",
 				786, 516, 131, 129, 24, true),
 			"talk": new Spritesheet(
-				"talk", "http://childrenofur.com/assets/entityImages/npc_crab__x1_talk_png_1354831203.png",
+				"talk", "https://childrenofur.com/assets/entityImages/npc_crab__x1_talk_png_1354831203.png",
 				917, 1161, 131, 129, 58, false),
 			"walk": new Spritesheet(
-				"walk", "http://childrenofur.com/assets/entityImages/npc_crab__x1_walk_png_1354831183.png",
+				"walk", "https://childrenofur.com/assets/entityImages/npc_crab__x1_walk_png_1354831183.png",
 				786, 516, 131, 129, 24, true)
 		};
 

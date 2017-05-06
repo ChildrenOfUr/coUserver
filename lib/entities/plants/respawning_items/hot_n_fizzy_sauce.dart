@@ -9,7 +9,7 @@ class HotNFizzySauceRespawningItem extends RespawningItem {
 
 		states = {
 			'1-2-3-4': new Spritesheet('1-2-3-4',
-				'http://childrenofur.com/assets/entityImages/hot_n_fizzy_sauce__x1_1_x1_2_x1_3_x1_4_png_1354829885.png',
+				'https://childrenofur.com/assets/entityImages/hot_n_fizzy_sauce__x1_1_x1_2_x1_3_x1_4_png_1354829885.png',
 				108, 44, 27, 44, 4, false)
 		};
 

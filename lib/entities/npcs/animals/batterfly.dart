@@ -17,7 +17,7 @@ class Batterfly extends NPC {
 		states = {
 			"chew": new Spritesheet(
 				"chew",
-				"http://childrenofur.com/assets/entityImages/npc_batterfly__x1_chew_png_1354831854.png",
+				"https://childrenofur.com/assets/entityImages/npc_batterfly__x1_chew_png_1354831854.png",
 				999,
 				1344,
 				111,
@@ -26,7 +26,7 @@ class Batterfly extends NPC {
 				false),
 			"front_turned": new Spritesheet(
 				"front_turned",
-				"http://childrenofur.com/assets/entityImages/npc_batterfly__x1_front_turned_png_1354831847.png",
+				"https://childrenofur.com/assets/entityImages/npc_batterfly__x1_front_turned_png_1354831847.png",
 				888,
 				480,
 				111,
@@ -35,7 +35,7 @@ class Batterfly extends NPC {
 				true),
 			"front_waiting": new Spritesheet(
 				"front_waiting",
-				"http://childrenofur.com/assets/entityImages/npc_batterfly__x1_front_waiting_png_1354831849.png",
+				"https://childrenofur.com/assets/entityImages/npc_batterfly__x1_front_waiting_png_1354831849.png",
 				888,
 				480,
 				111,
@@ -44,7 +44,7 @@ class Batterfly extends NPC {
 				true),
 			"fly_profile": new Spritesheet(
 				"fly_profile",
-				"http://childrenofur.com/assets/entityImages/npc_batterfly__x1_profile_png_1354831844.png",
+				"https://childrenofur.com/assets/entityImages/npc_batterfly__x1_profile_png_1354831844.png",
 				888,
 				480,
 				111,
@@ -53,7 +53,7 @@ class Batterfly extends NPC {
 				true),
 			"fly_profile_turned": new Spritesheet(
 				"fly_profile_turned",
-				"http://childrenofur.com/assets/entityImages/npc_batterfly__x1_profile_turned_png_1354831846.png",
+				"https://childrenofur.com/assets/entityImages/npc_batterfly__x1_profile_turned_png_1354831846.png",
 				888,
 				480,
 				111,

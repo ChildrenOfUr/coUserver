@@ -21,19 +21,19 @@ class GardeningGoodsVendor extends Vendor implements EventHandler<PlayerPosition
 
 	static final Map<String, Spritesheet> SPRITESHEETS = {
 		'attract': new Spritesheet('attract',
-			'http://childrenofur.com/assets/entityImages/npc_gardening_vendor__x1_attract_png_1354831005.png', 890, 1188, 178, 198, 30, true),
+			'https://childrenofur.com/assets/entityImages/npc_gardening_vendor__x1_attract_png_1354831005.png', 890, 1188, 178, 198, 30, true),
 		'idle_stand': new Spritesheet('idle_stand',
-			'http://childrenofur.com/assets/entityImages/npc_gardening_vendor__x1_idle_stand_png_1354831015.png', 3916, 2376, 178, 198, 260, true),
+			'https://childrenofur.com/assets/entityImages/npc_gardening_vendor__x1_idle_stand_png_1354831015.png', 3916, 2376, 178, 198, 260, true),
 		'talk': new Spritesheet('talk',
-			'http://childrenofur.com/assets/entityImages/npc_gardening_vendor__x1_talk_png_1354831002.png', 890, 1188, 178, 198, 26, false),
+			'https://childrenofur.com/assets/entityImages/npc_gardening_vendor__x1_talk_png_1354831002.png', 890, 1188, 178, 198, 26, false),
 		'walk_end': new Spritesheet('walk_end',
-			'http://childrenofur.com/assets/entityImages/npc_gardening_vendor__x1_walk_end_png_1354831000.png', 890, 594, 178, 198, 13, false),
+			'https://childrenofur.com/assets/entityImages/npc_gardening_vendor__x1_walk_end_png_1354831000.png', 890, 594, 178, 198, 13, false),
 		'walk': new Spritesheet('walk',
-			'http://childrenofur.com/assets/entityImages/npc_gardening_vendor__x1_walk_png_1354830998.png', 890, 594, 178, 198, 15, true),
+			'https://childrenofur.com/assets/entityImages/npc_gardening_vendor__x1_walk_png_1354830998.png', 890, 594, 178, 198, 15, true),
 		'turn_left': new Spritesheet('walk',
-			'http://childrenofur.com/assets/entityImages/npc_gardening_vendor__x1_walk_png_1354830998.png', 890, 594, 178, 198, 15, true),
+			'https://childrenofur.com/assets/entityImages/npc_gardening_vendor__x1_walk_png_1354830998.png', 890, 594, 178, 198, 15, true),
 		'turn_right': new Spritesheet('walk',
-			'http://childrenofur.com/assets/entityImages/npc_gardening_vendor__x1_walk_png_1354830998.png', 890, 594, 178, 198, 15, true),
+			'https://childrenofur.com/assets/entityImages/npc_gardening_vendor__x1_walk_png_1354830998.png', 890, 594, 178, 198, 15, true),
 	};
 
 	int openCount = 0;

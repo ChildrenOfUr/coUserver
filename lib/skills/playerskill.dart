@@ -55,7 +55,7 @@ class PlayerSkill extends Skill {
 
 	/// Get the icon url and description text for the player
 	/// (and maybe it's for the unlearned state)
-	String get iconUrl => (level > 0 ? iconUrls[level - 1] : "http://childrenofur.com/assets/skillNotYetLearned.png");
+	String get iconUrl => (level > 0 ? iconUrls[level - 1] : "https://childrenofur.com/assets/skillNotYetLearned.png");
 	String get description => (level > 0 ? descriptions[level - 1] : "You're still learning the basics of $name!");
 
 	// Database

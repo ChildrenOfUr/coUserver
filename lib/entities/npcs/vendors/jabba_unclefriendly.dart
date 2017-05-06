@@ -35,15 +35,15 @@ class UncleFriendly extends Vendor {
 		speed = 40;
 
 		states = {
-			"idle_stand": new Spritesheet("idle_stand", "http://childrenofur.com/assets/entityImages/npc_jabba1__x1_idle_stand_part1_png_1354831118.png", 3951, 4020, 439, 201, 180, true),
-			"idle_stand_2": new Spritesheet("idle_stand_2", "http://childrenofur.com/assets/entityImages/npc_jabba1__x1_idle_stand_part2_png_1354831135.png", 3951, 1809, 439, 201, 74, true),
-			"impatient": new Spritesheet("impatient", "http://childrenofur.com/assets/entityImages/npc_jabba1__x1_impatient_png_1354831125.png", 3951, 2010, 439, 201, 86, false),
-			"talk": new Spritesheet("talk", "http://childrenofur.com/assets/entityImages/npc_jabba1__x1_talk_png_1354831102.png", 3951, 1206, 439, 201, 53, true),
-			"talk_end": new Spritesheet("talk_end","http://childrenofur.com/assets/entityImages/npc_jabba1__x1_talk_end_png_1354831104.png",878,1407,439,201,14,false),
-			"turn": new Spritesheet("turn", "http://childrenofur.com/assets/entityImages/npc_jabba1__x1_turn_png_1354831127.png", 878, 804, 439, 201, 7, false),
-			"walk_end": new Spritesheet("walk_end", "http://childrenofur.com/assets/entityImages/npc_jabba1__x1_walk_end_png_1354831098.png", 878, 1005, 439, 201, 10, false),
-			"walk": new Spritesheet("walk", "http://childrenofur.com/assets/entityImages/npc_jabba1__x1_walk_png_1354831096.png", 878, 1407, 439, 201, 14, true),
-			"walk_reverse": new Spritesheet("walk_reverse","http://childrenofur.com/assets/entityImages/npc_jabba1__x1_walk_reverse_png_1354831129.png",878,1608,439,201,15,true)
+			"idle_stand": new Spritesheet("idle_stand", "https://childrenofur.com/assets/entityImages/npc_jabba1__x1_idle_stand_part1_png_1354831118.png", 3951, 4020, 439, 201, 180, true),
+			"idle_stand_2": new Spritesheet("idle_stand_2", "https://childrenofur.com/assets/entityImages/npc_jabba1__x1_idle_stand_part2_png_1354831135.png", 3951, 1809, 439, 201, 74, true),
+			"impatient": new Spritesheet("impatient", "https://childrenofur.com/assets/entityImages/npc_jabba1__x1_impatient_png_1354831125.png", 3951, 2010, 439, 201, 86, false),
+			"talk": new Spritesheet("talk", "https://childrenofur.com/assets/entityImages/npc_jabba1__x1_talk_png_1354831102.png", 3951, 1206, 439, 201, 53, true),
+			"talk_end": new Spritesheet("talk_end","https://childrenofur.com/assets/entityImages/npc_jabba1__x1_talk_end_png_1354831104.png",878,1407,439,201,14,false),
+			"turn": new Spritesheet("turn", "https://childrenofur.com/assets/entityImages/npc_jabba1__x1_turn_png_1354831127.png", 878, 804, 439, 201, 7, false),
+			"walk_end": new Spritesheet("walk_end", "https://childrenofur.com/assets/entityImages/npc_jabba1__x1_walk_end_png_1354831098.png", 878, 1005, 439, 201, 10, false),
+			"walk": new Spritesheet("walk", "https://childrenofur.com/assets/entityImages/npc_jabba1__x1_walk_png_1354831096.png", 878, 1407, 439, 201, 14, true),
+			"walk_reverse": new Spritesheet("walk_reverse","https://childrenofur.com/assets/entityImages/npc_jabba1__x1_walk_reverse_png_1354831129.png",878,1608,439,201,15,true)
 		};
 		setState('idle_stand');
 	}

@@ -25,7 +25,7 @@ class Helga extends Vendor {
 		states = {
 			"idle_stand": new Spritesheet(
 				"idle_stand",
-				"http://childrenofur.com/assets/entityImages/npc_jabba2__x1_idle_stand_part1_png_1354831705.png",
+				"https://childrenofur.com/assets/entityImages/npc_jabba2__x1_idle_stand_part1_png_1354831705.png",
 				3942,
 				4074,
 				438,
@@ -34,7 +34,7 @@ class Helga extends Vendor {
 				true),
 			"idle_stand_2": new Spritesheet(
 				"idle_stand",
-				"http://childrenofur.com/assets/entityImages/npc_jabba2__x1_idle_stand_part2_png_1354831715.png",
+				"https://childrenofur.com/assets/entityImages/npc_jabba2__x1_idle_stand_part2_png_1354831715.png",
 				3942,
 				2910,
 				438,
@@ -43,7 +43,7 @@ class Helga extends Vendor {
 				true),
 			"impatient": new Spritesheet(
 				"impatient",
-				"http://childrenofur.com/assets/entityImages/npc_jabba2__x1_impatient_png_1354831691.png",
+				"https://childrenofur.com/assets/entityImages/npc_jabba2__x1_impatient_png_1354831691.png",
 				3942,
 				2134,
 				438,
@@ -52,7 +52,7 @@ class Helga extends Vendor {
 				true),
 			"talk": new Spritesheet(
 				"talk",
-				"http://childrenofur.com/assets/entityImages/npc_jabba2__x1_talk_png_1354831682.png",
+				"https://childrenofur.com/assets/entityImages/npc_jabba2__x1_talk_png_1354831682.png",
 				3942,
 				1552,
 				438,
@@ -61,7 +61,7 @@ class Helga extends Vendor {
 				true),
 			"turn_left": new Spritesheet(
 				"turn",
-				"http://childrenofur.com/assets/entityImages/npc_jabba2__x1_turn_png_1354831675.png",
+				"https://childrenofur.com/assets/entityImages/npc_jabba2__x1_turn_png_1354831675.png",
 				876,
 				1746,
 				438,
@@ -70,7 +70,7 @@ class Helga extends Vendor {
 				false),
 			"turn_right": new Spritesheet(
 				"turn_right",
-				"http://childrenofur.com/assets/entityImages/npc_jabba2__x1_turn_right_png_1354831667.png",
+				"https://childrenofur.com/assets/entityImages/npc_jabba2__x1_turn_right_png_1354831667.png",
 				876,
 				1552,
 				438,
@@ -79,7 +79,7 @@ class Helga extends Vendor {
 				false),
 			"walk_end": new Spritesheet(
 				"walk_end",
-				"http://childrenofur.com/assets/entityImages/npc_jabba2__x1_walk_end_png_1354831672.png",
+				"https://childrenofur.com/assets/entityImages/npc_jabba2__x1_walk_end_png_1354831672.png",
 				876,
 				1552,
 				438,
@@ -88,7 +88,7 @@ class Helga extends Vendor {
 				false),
 			"walk_left_end": new Spritesheet(
 				"walk_left_end",
-				"http://childrenofur.com/assets/entityImages/npc_jabba2__x1_walk_left_end_png_1354831665.png",
+				"https://childrenofur.com/assets/entityImages/npc_jabba2__x1_walk_left_end_png_1354831665.png",
 				876,
 				1552,
 				438,
@@ -97,7 +97,7 @@ class Helga extends Vendor {
 				false),
 			"walk_left": new Spritesheet(
 				"walk_left",
-				"http://childrenofur.com/assets/entityImages/npc_jabba2__x1_walk_left_png_1354831662.png",
+				"https://childrenofur.com/assets/entityImages/npc_jabba2__x1_walk_left_png_1354831662.png",
 				876,
 				1552,
 				438,
@@ -106,7 +106,7 @@ class Helga extends Vendor {
 				true),
 			"walk": new Spritesheet(
 				"walk",
-				"http://childrenofur.com/assets/entityImages/npc_jabba2__x1_walk_png_1354831670.png",
+				"https://childrenofur.com/assets/entityImages/npc_jabba2__x1_walk_png_1354831670.png",
 				876,
 				1552,
 				438,

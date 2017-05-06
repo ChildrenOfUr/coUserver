@@ -17,7 +17,7 @@ class DirtPile extends Plant {
 		states = {
 			"maturity_1": new Spritesheet(
 				"maturity_1",
-				"http://childrenofur.com/assets/entityImages/dirt_pile_dirt_state_x11_1_variant_dirt1_1_png_1354833756.png",
+				"https://childrenofur.com/assets/entityImages/dirt_pile_dirt_state_x11_1_variant_dirt1_1_png_1354833756.png",
 				780,
 				213,
 				195,
@@ -26,7 +26,7 @@ class DirtPile extends Plant {
 				false),
 			"maturity_2": new Spritesheet(
 				"maturity_2",
-				"http://childrenofur.com/assets/entityImages/dirt_pile_dirt_state_x11_1_variant_dirt2_1_png_1354833757.png",
+				"https://childrenofur.com/assets/entityImages/dirt_pile_dirt_state_x11_1_variant_dirt2_1_png_1354833757.png",
 				780,
 				213,
 				195,

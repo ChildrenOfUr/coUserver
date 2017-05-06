@@ -6,9 +6,9 @@ class Humbaba extends Shrine
 	{
 		states =
 			{
-				"close" : new Spritesheet("close","http://childrenofur.com/assets/entityImages/npc_shrine_humbaba__x1_close_png_1354831228.png",906,752,151,188,23,false),
-				"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_humbaba__x1_open_png_1354831227.png",906,752,151,188,22,false),
-				"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_humbaba__x1_open_png_1354831227.png",906,752,151,188,1,false)
+				"close" : new Spritesheet("close","https://childrenofur.com/assets/entityImages/npc_shrine_humbaba__x1_close_png_1354831228.png",906,752,151,188,23,false),
+				"open" : new Spritesheet("open","https://childrenofur.com/assets/entityImages/npc_shrine_humbaba__x1_open_png_1354831227.png",906,752,151,188,22,false),
+				"still" : new Spritesheet("still","https://childrenofur.com/assets/entityImages/npc_shrine_humbaba__x1_open_png_1354831227.png",906,752,151,188,1,false)
 			};
 	 	setState('still');
 	 	type = 'Humbaba';
@@ -23,9 +23,9 @@ class HumbabaFirebog extends Shrine
 	{
 		states =
 		{
-			"close" : new Spritesheet("close","http://childrenofur.com/assets/entityImages/npc_shrine_firebog_humbaba__x1_close_png_1354832816.png",984,848,164,212,23,false),
-			"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_firebog_humbaba__x1_open_png_1354832813.png",984,848,164,212,22,false),
-			"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_firebog_humbaba__x1_open_png_1354832813.png",984,848,164,212,1,false)
+			"close" : new Spritesheet("close","https://childrenofur.com/assets/entityImages/npc_shrine_firebog_humbaba__x1_close_png_1354832816.png",984,848,164,212,23,false),
+			"open" : new Spritesheet("open","https://childrenofur.com/assets/entityImages/npc_shrine_firebog_humbaba__x1_open_png_1354832813.png",984,848,164,212,22,false),
+			"still" : new Spritesheet("still","https://childrenofur.com/assets/entityImages/npc_shrine_firebog_humbaba__x1_open_png_1354832813.png",984,848,164,212,1,false)
 		};
 		setState('still');
 		type = 'Humbaba';
@@ -40,9 +40,9 @@ class HumbabaIx extends Shrine
 	{
 		states =
 		{
-			"close" : new Spritesheet("close","http://childrenofur.com/assets/entityImages/npc_shrine_ix_humbaba__x1_close_png_1354831284.png",840,864,168,216,20,false),
-			"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_ix_humbaba__x1_open_png_1354831282.png",840,1080,168,216,24,false),
-			"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_ix_humbaba__x1_open_png_1354831282.png",840,1080,168,216,1,false)
+			"close" : new Spritesheet("close","https://childrenofur.com/assets/entityImages/npc_shrine_ix_humbaba__x1_close_png_1354831284.png",840,864,168,216,20,false),
+			"open" : new Spritesheet("open","https://childrenofur.com/assets/entityImages/npc_shrine_ix_humbaba__x1_open_png_1354831282.png",840,1080,168,216,24,false),
+			"still" : new Spritesheet("still","https://childrenofur.com/assets/entityImages/npc_shrine_ix_humbaba__x1_open_png_1354831282.png",840,1080,168,216,1,false)
 		};
 		setState('still');
 		type = 'Humbaba';
@@ -57,9 +57,9 @@ class HumbabaUralia extends Shrine
 	{
 		states =
 		{
-			"close" : new Spritesheet("close","http://childrenofur.com/assets/entityImages/npc_shrine_uralia_humbaba__x1_close_png_1354831890.png",756,752,126,188,23,false),
-			"open" : new Spritesheet("open","http://childrenofur.com/assets/entityImages/npc_shrine_uralia_humbaba__x1_open_png_1354831888.png",756,752,126,188,22,false),
-			"still" : new Spritesheet("still","http://childrenofur.com/assets/entityImages/npc_shrine_uralia_humbaba__x1_open_png_1354831888.png",756,752,126,188,1,false)
+			"close" : new Spritesheet("close","https://childrenofur.com/assets/entityImages/npc_shrine_uralia_humbaba__x1_close_png_1354831890.png",756,752,126,188,23,false),
+			"open" : new Spritesheet("open","https://childrenofur.com/assets/entityImages/npc_shrine_uralia_humbaba__x1_open_png_1354831888.png",756,752,126,188,22,false),
+			"still" : new Spritesheet("still","https://childrenofur.com/assets/entityImages/npc_shrine_uralia_humbaba__x1_open_png_1354831888.png",756,752,126,188,1,false)
 		};
 		setState('still');
 		type = 'Humbaba';

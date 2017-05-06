@@ -9,7 +9,7 @@ class LaughingGasRespawningItem extends RespawningItem {
 
 		states = {
 			'1-2-3-4': new Spritesheet('1-2-3-4',
-				'http://childrenofur.com/assets/entityImages/laughing_gas__x1_1_x1_2_x1_3_x1_4_png_1354830724.png',
+				'https://childrenofur.com/assets/entityImages/laughing_gas__x1_1_x1_2_x1_3_x1_4_png_1354830724.png',
 				208, 43, 52, 43, 4, false)
 		};
 

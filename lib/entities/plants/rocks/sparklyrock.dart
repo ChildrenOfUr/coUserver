@@ -6,7 +6,7 @@ class SparklyRock extends Rock {
 
 		states =
 		{
-			"5-4-3-2-1" : new Spritesheet("5-4-3-2-1", "http://childrenofur.com/assets/entityImages/rock_sparkly_x1_5_x1_4_x1_3_x1_2_x1_1__1_png_1354831467.png", 655, 127, 131, 127, 5, false)
+			"5-4-3-2-1" : new Spritesheet("5-4-3-2-1", "https://childrenofur.com/assets/entityImages/rock_sparkly_x1_5_x1_4_x1_3_x1_2_x1_1__1_png_1354831467.png", 655, 127, 131, 127, 5, false)
 		};
 		setState('5-4-3-2-1');
 		state = new Random().nextInt(currentState.numFrames);

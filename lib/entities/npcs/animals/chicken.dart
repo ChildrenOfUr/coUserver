@@ -36,23 +36,23 @@ class Chicken extends NPC implements EventHandler {
 		renameable = true;
 
 		states = {
-			"fall" : new Spritesheet("fall", "http://childrenofur.com/assets/entityImages/npc_chicken__x1_fall_png_1354830392.png", 740, 550, 148, 110, 25, true),
-			"flying_back" : new Spritesheet("flying_back", "http://childrenofur.com/assets/entityImages/npc_chicken__x1_flying_back_png_1354830391.png", 888, 330, 148, 110, 17, true),
-			"flying_no_feathers" : new Spritesheet("flying_no_feathers", "http://childrenofur.com/assets/entityImages/npc_chicken__x1_flying_no_feathers_png_1354830388.png", 888, 770, 148, 110, 42, true),
-			"flying" : new Spritesheet("flying", "http://childrenofur.com/assets/entityImages/npc_chicken__x1_flying_png_1354830387.png", 888, 770, 148, 110, 42, true),
-			"idle1" : new Spritesheet("idle1", "http://childrenofur.com/assets/entityImages/npc_chicken__x1_idle1_png_1354830404.png", 888, 1320, 148, 110, 67, false),
-			"idle2" : new Spritesheet("idle2", "http://childrenofur.com/assets/entityImages/npc_chicken__x1_idle2_png_1354830405.png", 888, 880, 148, 110, 47, false),
-			"idle3" : new Spritesheet("idle3", "http://childrenofur.com/assets/entityImages/npc_chicken__x1_idle3_png_1354830407.png", 888, 1650, 148, 110, 86, false),
-			"incubate" : new Spritesheet("incubate", "http://childrenofur.com/assets/entityImages/npc_chicken__x1_incubate_png_1354830403.png", 888, 3520, 148, 110, 190, false),
-			"land_on_ladder" : new Spritesheet("land_on_ladder", "http://childrenofur.com/assets/entityImages/npc_chicken__x1_land_on_ladder_png_1354830390.png", 888, 550, 148, 110, 26, false),
-			"land" : new Spritesheet("land", "http://childrenofur.com/assets/entityImages/npc_chicken__x1_land_png_1354830389.png", 740, 550, 148, 110, 25, false),
-			"pause" : new Spritesheet("pause", "http://childrenofur.com/assets/entityImages/npc_chicken__x1_pause_png_1354830395.png", 888, 2420, 148, 110, 131, false),
-			"pecking_once" : new Spritesheet("pecking_once", "http://childrenofur.com/assets/entityImages/npc_chicken__x1_pecking_once_png_1354830398.png", 888, 660, 148, 110, 32, false),
-			"pecking_twice" : new Spritesheet("pecking_twice", "http://childrenofur.com/assets/entityImages/npc_chicken__x1_pecking_twice_png_1354830400.png", 888, 770, 148, 110, 27, false),
-			"rooked2" : new Spritesheet("rooked2", "http://childrenofur.com/assets/entityImages/npc_chicken__x1_rooked2_png_1354830409.png", 888, 550, 148, 110, 27, false),
-			"sit" : new Spritesheet("sit", "http://childrenofur.com/assets/entityImages/npc_chicken__x1_sit_png_1354830401.png", 740, 440, 148, 110, 20, false),
-			"verb" : new Spritesheet("verb", "http://childrenofur.com/assets/entityImages/npc_chicken__x1_verb_png_1354830397.png", 888, 1100, 148, 110, 55, false),
-			"walk" : new Spritesheet("walk", "http://childrenofur.com/assets/entityImages/npc_chicken__x1_walk_png_1354830385.png", 888, 440, 148, 110, 24, true)
+			"fall" : new Spritesheet("fall", "https://childrenofur.com/assets/entityImages/npc_chicken__x1_fall_png_1354830392.png", 740, 550, 148, 110, 25, true),
+			"flying_back" : new Spritesheet("flying_back", "https://childrenofur.com/assets/entityImages/npc_chicken__x1_flying_back_png_1354830391.png", 888, 330, 148, 110, 17, true),
+			"flying_no_feathers" : new Spritesheet("flying_no_feathers", "https://childrenofur.com/assets/entityImages/npc_chicken__x1_flying_no_feathers_png_1354830388.png", 888, 770, 148, 110, 42, true),
+			"flying" : new Spritesheet("flying", "https://childrenofur.com/assets/entityImages/npc_chicken__x1_flying_png_1354830387.png", 888, 770, 148, 110, 42, true),
+			"idle1" : new Spritesheet("idle1", "https://childrenofur.com/assets/entityImages/npc_chicken__x1_idle1_png_1354830404.png", 888, 1320, 148, 110, 67, false),
+			"idle2" : new Spritesheet("idle2", "https://childrenofur.com/assets/entityImages/npc_chicken__x1_idle2_png_1354830405.png", 888, 880, 148, 110, 47, false),
+			"idle3" : new Spritesheet("idle3", "https://childrenofur.com/assets/entityImages/npc_chicken__x1_idle3_png_1354830407.png", 888, 1650, 148, 110, 86, false),
+			"incubate" : new Spritesheet("incubate", "https://childrenofur.com/assets/entityImages/npc_chicken__x1_incubate_png_1354830403.png", 888, 3520, 148, 110, 190, false),
+			"land_on_ladder" : new Spritesheet("land_on_ladder", "https://childrenofur.com/assets/entityImages/npc_chicken__x1_land_on_ladder_png_1354830390.png", 888, 550, 148, 110, 26, false),
+			"land" : new Spritesheet("land", "https://childrenofur.com/assets/entityImages/npc_chicken__x1_land_png_1354830389.png", 740, 550, 148, 110, 25, false),
+			"pause" : new Spritesheet("pause", "https://childrenofur.com/assets/entityImages/npc_chicken__x1_pause_png_1354830395.png", 888, 2420, 148, 110, 131, false),
+			"pecking_once" : new Spritesheet("pecking_once", "https://childrenofur.com/assets/entityImages/npc_chicken__x1_pecking_once_png_1354830398.png", 888, 660, 148, 110, 32, false),
+			"pecking_twice" : new Spritesheet("pecking_twice", "https://childrenofur.com/assets/entityImages/npc_chicken__x1_pecking_twice_png_1354830400.png", 888, 770, 148, 110, 27, false),
+			"rooked2" : new Spritesheet("rooked2", "https://childrenofur.com/assets/entityImages/npc_chicken__x1_rooked2_png_1354830409.png", 888, 550, 148, 110, 27, false),
+			"sit" : new Spritesheet("sit", "https://childrenofur.com/assets/entityImages/npc_chicken__x1_sit_png_1354830401.png", 740, 440, 148, 110, 20, false),
+			"verb" : new Spritesheet("verb", "https://childrenofur.com/assets/entityImages/npc_chicken__x1_verb_png_1354830397.png", 888, 1100, 148, 110, 55, false),
+			"walk" : new Spritesheet("walk", "https://childrenofur.com/assets/entityImages/npc_chicken__x1_walk_png_1354830385.png", 888, 440, 148, 110, 24, true)
 		};
 
 		setState('walk');

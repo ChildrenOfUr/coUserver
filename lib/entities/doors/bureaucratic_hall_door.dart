@@ -24,7 +24,7 @@ class BureaucraticHallDoor extends Door {
 				new Action.withName('exit')
 					..actionWord = 'walking out'
 			);
-			currentState = new Spritesheet("door_bh_int", "http://childrenofur.com/assets/entityImages/door_asset_bureaucratic_hall_int.svg", 132, 312, 132, 312, 1, true);
+			currentState = new Spritesheet("door_bh_int", "https://childrenofur.com/assets/entityImages/door_asset_bureaucratic_hall_int.svg", 132, 312, 132, 312, 1, true);
 		} else {
 			switch(streetName) {
 				case "Chego Chase":
@@ -47,7 +47,7 @@ class BureaucraticHallDoor extends Door {
 				new Action.withName('enter')
 					..actionWord = 'walking in'
 			);
-			currentState = new Spritesheet("door_bh_ext", "http://childrenofur.com/assets/entityImages/door_asset_bureaucratic_hall_ext.svg", 116, 122, 116, 122, 1, true);
+			currentState = new Spritesheet("door_bh_ext", "https://childrenofur.com/assets/entityImages/door_asset_bureaucratic_hall_ext.svg", 116, 122, 116, 122, 1, true);
 		}
 		type = "Bureaucratic Hall";
 	}

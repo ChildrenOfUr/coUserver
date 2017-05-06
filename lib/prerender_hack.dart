@@ -77,7 +77,7 @@ Future confirmStreetRender(@app.Body(app.JSON) Map street) async {
 			String layerName = basename(layerFile.path);
 			String filename = 'streetLayers/dev/$tsid/$layerName';
 			http.MultipartRequest request = new http.MultipartRequest("POST",
-				Uri.parse("http://childrenofur.com/assets/upload_street_layer.php"));
+				Uri.parse("https://childrenofur.com/assets/upload_street_layer.php"));
 			http.MultipartFile multipartFile = new http.MultipartFile.fromBytes(
 				'file', layerFile.readAsBytesSync(), filename: filename);
 			request.files.add(multipartFile);
@@ -85,12 +85,12 @@ Future confirmStreetRender(@app.Body(app.JSON) Map street) async {
 			request.fields['filename'] = filename;
 			request.fields['redstoneToken'] = redstoneToken;
 			await request.send();
-			Log.verbose('uploaded $layerName for $tsid to http://childrenofur.com/assets/streetLayers/dev/$tsid/$layerName');
+			Log.verbose('uploaded $layerName for $tsid to https://childrenofur.com/assets/streetLayers/dev/$tsid/$layerName');
 		}
 	});
 
 	//now transfer the street from the dev folder to the live folder
-	String url = 'http://childrenofur.com/assets/make_street_layers_live.php';
+	String url = 'https://childrenofur.com/assets/make_street_layers_live.php';
 	http.Response response = await http.post(url, body:
 		{'redstoneToken': redstoneToken, 'tsid': tsid});
 	print(response.body);
