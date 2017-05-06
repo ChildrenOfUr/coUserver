@@ -2,8 +2,8 @@
 	"gandlevery": {
 		"name": "Gandlevery",
 		"category": "Herbalism Supplies",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/gandlevery__x1_iconic_png_1354833797.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/gandlevery__x1_1_x1_2_x1_3_x1_4_png_1354833798.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/gandlevery__x1_iconic_png_1354833797.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/gandlevery__x1_1_x1_2_x1_3_x1_4_png_1354833798.png",
 		"stacksTo": 50,
 		"price": 40,
 		"description": "Plant with furry fern-fronds of fleetfooted goodness."
@@ -11,8 +11,8 @@
 	"gandlevery_seed": {
 		"name": "Gandlevery Seed",
 		"category": "Herbalism Supplies",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/herb_seed_gandlevery__x1_iconic_png_1354833816.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/herb_seed_gandlevery__x1_1_x1_2_x1_3_x1_4_png_1354833817.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/herb_seed_gandlevery__x1_iconic_png_1354833816.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/herb_seed_gandlevery__x1_1_x1_2_x1_3_x1_4_png_1354833817.png",
 		"stacksTo": 50,
 		"price": 13,
 		"description": "A Gandlevery Seed, for growing a pretty bunch of Gandlevery in your Herb Garden."
@@ -20,8 +20,8 @@
 	"hairball_flower": {
 		"name": "Hairball Flower",
 		"category": "Herbalism Supplies",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/hairball_flower__x1_iconic_png_1354833810.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/hairball_flower__x1_1_x1_2_x1_3_x1_4_png_1354833810.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/hairball_flower__x1_iconic_png_1354833810.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/hairball_flower__x1_1_x1_2_x1_3_x1_4_png_1354833810.png",
 		"stacksTo": 50,
 		"price": 66,
 		"description": "A hairy perennial. Even the thought of eating it causes feelings of antsy twitchiness."
@@ -29,8 +29,8 @@
 	"hairball_flower_seed": {
 		"name": "Hairball Flower Seed",
 		"category": "Herbalism Supplies",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/herb_seed_hairball_flower__x1_iconic_png_1354833819.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/herb_seed_hairball_flower__x1_1_x1_2_x1_3_x1_4_png_1354833820.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/herb_seed_hairball_flower__x1_iconic_png_1354833819.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/herb_seed_hairball_flower__x1_1_x1_2_x1_3_x1_4_png_1354833820.png",
 		"stacksTo": 50,
 		"price": 22,
 		"description": "A Hairball Flower Seed, for growing a pretty bunch of Hairball Flowers in your Herb Garden."
@@ -38,8 +38,8 @@
 	"purple_flower": {
 		"name": "Purple Flower",
 		"category": "Herbalism Supplies",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/purple_flower__x1_iconic_png_1354833813.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/purple_flower__x1_1_x1_2_x1_3_x1_4_png_1354833813.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/purple_flower__x1_iconic_png_1354833813.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/purple_flower__x1_1_x1_2_x1_3_x1_4_png_1354833813.png",
 		"stacksTo": 50,
 		"price": 12,
 		"description": "Very, very purple."
@@ -47,8 +47,8 @@
 	"purple_flower_seed": {
 		"name": "Purple Flower Seed",
 		"category": "Herbalism Supplies",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/herb_seed_purple_flower__x1_iconic_png_1354833822.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/herb_seed_purple_flower__x1_1_x1_2_x1_3_x1_4_png_1354833823.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/herb_seed_purple_flower__x1_iconic_png_1354833822.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/herb_seed_purple_flower__x1_1_x1_2_x1_3_x1_4_png_1354833823.png",
 		"stacksTo": 50,
 		"price": 6,
 		"description": "A Purple Flower Seed, for growing a pretty bunch of Purple Flowers in your Herb Garden."
@@ -56,8 +56,8 @@
 	"rookswort": {
 		"name": "Rookswort",
 		"category": "Herbalism Supplies",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/rookswort__x1_iconic_png_1354833794.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/rookswort__x1_1_x1_2_x1_3_x1_4_png_1354833794.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/rookswort__x1_iconic_png_1354833794.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/rookswort__x1_1_x1_2_x1_3_x1_4_png_1354833794.png",
 		"stacksTo": 50,
 		"price": 75,
 		"description": "An exotic bud with a pleasantly lasting aftertaste of danger and chaos."
@@ -65,8 +65,8 @@
 	"rookswort_seed": {
 		"name": "Rookswort Seed",
 		"category": "Herbalism Supplies",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/herb_seed_rookswort__x1_iconic_png_1354833826.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/herb_seed_rookswort__x1_1_x1_2_x1_3_x1_4_png_1354833827.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/herb_seed_rookswort__x1_iconic_png_1354833826.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/herb_seed_rookswort__x1_1_x1_2_x1_3_x1_4_png_1354833827.png",
 		"stacksTo": 50,
 		"price": 25,
 		"description": "A Rookswort Seed, for growing a pretty bunch of Rooksworts in your Herb Garden."
@@ -74,8 +74,8 @@
 	"rubeweed": {
 		"name": "Rubeweed",
 		"category": "Herbalism Supplies",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/rubeweed__x1_iconic_png_1354833800.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/rubeweed__x1_1_x1_2_x1_3_x1_4_png_1354833801.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/rubeweed__x1_iconic_png_1354833800.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/rubeweed__x1_1_x1_2_x1_3_x1_4_png_1354833801.png",
 		"stacksTo": 50,
 		"price": 55,
 		"description": "A deceptively dull green shoot filled with lucky sap."
@@ -83,8 +83,8 @@
 	"rubeweed_seed": {
 		"name": "Rubeweed Seed",
 		"category": "Herbalism Supplies",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/herb_seed_rubeweed__x1_iconic_png_1354833829.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/herb_seed_rubeweed__x1_1_x1_2_x1_3_x1_4_png_1354833830.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/herb_seed_rubeweed__x1_iconic_png_1354833829.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/herb_seed_rubeweed__x1_1_x1_2_x1_3_x1_4_png_1354833830.png",
 		"stacksTo": 50,
 		"price": 20,
 		"description": "A Rubeweed Seed, for growing a pretty bunch of Rubeweeds in your Herb Garden."
@@ -92,8 +92,8 @@
 	"silvertongue": {
 		"name": "Silvertongue",
 		"category": "Herbalism Supplies",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/silvertongue__x1_iconic_png_1354833803.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/silvertongue__x1_1_x1_2_x1_3_x1_4_png_1354833804.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/silvertongue__x1_iconic_png_1354833803.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/silvertongue__x1_1_x1_2_x1_3_x1_4_png_1354833804.png",
 		"stacksTo": 50,
 		"price": 50,
 		"description": "A blue sparkly bloom of joy."
@@ -101,8 +101,8 @@
 	"silvertongue_seed": {
 		"name": "Silvertongue Seed",
 		"category": "Herbalism Supplies",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/herb_seed_silvertongue__x1_iconic_png_1354833833.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/herb_seed_silvertongue__x1_1_x1_2_x1_3_x1_4_png_1354833834.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/herb_seed_silvertongue__x1_iconic_png_1354833833.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/herb_seed_silvertongue__x1_1_x1_2_x1_3_x1_4_png_1354833834.png",
 		"stacksTo": 50,
 		"price": 25,
 		"description": "A Silvertongue Seed, for growing a pretty bunch of Silvertongues in your Herb Garden."
@@ -110,8 +110,8 @@
 	"yellow_crumb_flower": {
 		"name": "Yellow Crumb Flower",
 		"category": "Herbalism Supplies",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/yellow_crumb_flower__x1_iconic_png_1354833806.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/yellow_crumb_flower__x1_1_x1_2_x1_3_x1_4_png_1354833807.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/yellow_crumb_flower__x1_iconic_png_1354833806.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/yellow_crumb_flower__x1_1_x1_2_x1_3_x1_4_png_1354833807.png",
 		"stacksTo": 50,
 		"price": 66,
 		"description": "Like having a tiny garden full of sunshine. How clever!"
@@ -119,8 +119,8 @@
 	"yellow_crumb_flower_seed": {
 		"name": "Yellow Crumb Flower Seed",
 		"category": "Herbalism Supplies",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/herb_seed_yellow_crumb_flower__x1_iconic_png_1354833836.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/herb_seed_yellow_crumb_flower__x1_1_x1_2_x1_3_x1_4_png_1354833836.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/herb_seed_yellow_crumb_flower__x1_iconic_png_1354833836.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/herb_seed_yellow_crumb_flower__x1_1_x1_2_x1_3_x1_4_png_1354833836.png",
 		"stacksTo": 50,
 		"price": 33,
 		"description": "A Yellow Crumb Flower Seed, for growing a pretty bunch of Yellow Crumb Flowers in your Herb Garden."

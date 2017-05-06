@@ -2,8 +2,8 @@
 	"barnacle_talc": {
 		"name": "Barnacle Talc",
 		"category": "Advanced Resources",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/barnacle_talc__x1_iconic_png_1354832755.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/barnacle_talc__x1_1_x1_2_x1_3_x1_4_png_1354832756.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/barnacle_talc__x1_iconic_png_1354832755.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/barnacle_talc__x1_1_x1_2_x1_3_x1_4_png_1354832756.png",
 		"stacksTo": 20,
 		"price": 15,
 		"description": "The post-Grinder form of the lovable barnacle, this smooth off-white powder is bound to be good for something. If only you knew what…"
@@ -11,8 +11,8 @@
 	"beam": {
 		"name": "Beam",
 		"category": "Advanced Resources",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/beam__x1_1_png_1354837260.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/beam__x1_1_png_1354837260.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/beam__x1_1_png_1354837260.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/beam__x1_1_png_1354837260.png",
 		"stacksTo": 8,
 		"price": 800,
 		"description": "One sturdy construction beam, similar in heft and girth to a mighty Wood Tree. But then, this Beam was once some Posts; Posts made from Boards, which in turn were once a whole shedload of Planks, each hand-culled from a tender young Wood Tree. Good thing those Wood Trees didn't die in vain, eh?"
@@ -20,8 +20,8 @@
 	"board": {
 		"name": "Board",
 		"category": "Advanced Resources",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/board__x1_1_png_1354837255.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/board__x1_1_png_1354837255.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/board__x1_1_png_1354837255.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/board__x1_1_png_1354837255.png",
 		"stacksTo": 100,
 		"price": 30,
 		"description": "A solid wooden board, reminiscent of some kind of ginormous Plank – unsurprisingly, since that's what it's made of."
@@ -29,8 +29,8 @@
 	"bulb": {
 		"name": "Bulb",
 		"category": "Advanced Resources",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/bulb__x1_iconic_png_1354839536.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/bulb__x1_1_x1_2_x1_3_x1_4_png_1354839536.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/bulb__x1_iconic_png_1354839536.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/bulb__x1_1_x1_2_x1_3_x1_4_png_1354839536.png",
 		"stacksTo": 10,
 		"price": 50,
 		"description": "The glowy bit of a lamp. Without this, a lamp is just a stick with a silly hat on."
@@ -38,8 +38,8 @@
 	"bushel_of_grain": {
 		"name": "Bushel of Grain",
 		"category": "Advanced Resources",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/grain_bushel.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/grain_bushel__x1_1_x1_2_x1_3_x1_4_png_1354830729.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/grain_bushel.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/grain_bushel__x1_1_x1_2_x1_3_x1_4_png_1354830729.png",
 		"stacksTo": 5,
 		"price": 250,
 		"description": "250 stalks of grain all tied up nice and neat.",
@@ -55,8 +55,8 @@
 	"copper": {
 		"name": "Copper Ingot",
 		"category": "Advanced Resources",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/copper__x1_iconic_png_1354832625.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/copper__x1_1_x1_2_x1_3_x1_4_png_1354832626.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/copper__x1_iconic_png_1354832625.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/copper__x1_1_x1_2_x1_3_x1_4_png_1354832626.png",
 		"stacksTo": 20,
 		"price": 70,
 		"description": "Pliable yet strong, malleably magnificent, copper is a much-prized material for building. A glitch bearing good, strong copper will always be welcome on a building project."
@@ -64,8 +64,8 @@
 	"general_fabric": {
 		"name": "General Fabric",
 		"category": "Advanced Resources",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/general_fabric__x1_iconic_png_1354839547.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/general_fabric__x1_1_x1_2_x1_3_x1_4_png_1354839548.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/general_fabric__x1_iconic_png_1354839547.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/general_fabric__x1_1_x1_2_x1_3_x1_4_png_1354839548.png",
 		"stacksTo": 10,
 		"price": 250,
 		"description": "A coarse fabric necessary in the construction of various basic furniture items. Attractive from a distance, face-to-fabric contact feels uncomfortably like getting up close and personal with the underside of a fox's tail."
@@ -73,8 +73,8 @@
 	"girder": {
 		"name": "Girder",
 		"category": "Advanced Resources",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/girder__x1_1_png_1354837249.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/girder__x1_1_png_1354837249.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/girder__x1_1_png_1354837249.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/girder__x1_1_png_1354837249.png",
 		"stacksTo": 4,
 		"price": 1500,
 		"description": "A solid metal material used for correctly shafting mines and supporting structures. There's some crazy rumour that if you can find a way to boil these down, you can magically create a sparkling bright orange drink out of them. But this has never been proved, and their use in construction is by far the more popular one."
@@ -82,8 +82,8 @@
 	"metal_bar": {
 		"name": "Metal Bar",
 		"category": "Advanced Resources",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/metal_post__x1_iconic_png_1354837251.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/metal_post__x1_1_x1_2_x1_3_x1_4_png_1354837251.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/metal_post__x1_iconic_png_1354837251.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/metal_post__x1_1_x1_2_x1_3_x1_4_png_1354837251.png",
 		"stacksTo": 8,
 		"price": 400,
 		"description": "A post made of metal. Good for arduous construction, securing Mineshafts, and doing daring dances on while people tuck herbs into your elasticated pants (probably not all at the same time)."
@@ -91,8 +91,8 @@
 	"metal_rod": {
 		"name": "Metal Rod",
 		"category": "Advanced Resources",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/metal_rod__x1_iconic_png_1354839542.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/metal_rod__x1_1_x1_2_x1_3_x1_4_png_1354839543.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/metal_rod__x1_iconic_png_1354839542.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/metal_rod__x1_1_x1_2_x1_3_x1_4_png_1354839543.png",
 		"stacksTo": 16,
 		"price": 100,
 		"description": "Metal Rod, made of tin and plain metal, is not only useful for the yet unimagined construction purposes, but is also a much beloved snack of a Sloth."
@@ -100,8 +100,8 @@
 	"molybdenum": {
 		"name": "Molybdenum Ingot",
 		"category": "Advanced Resources",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/molybdenum__x1_iconic_png_1354832628.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/molybdenum__x1_1_x1_2_x1_3_x1_4_png_1354832628.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/molybdenum__x1_iconic_png_1354832628.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/molybdenum__x1_1_x1_2_x1_3_x1_4_png_1354832628.png",
 		"stacksTo": 20,
 		"price": 100,
 		"description": "The glint off a good piece of Molybdenum is like glimpsing into the future. That's why it's used for sophisticated and desirable electronic gadgetry."
@@ -109,8 +109,8 @@
 	"plain_crystal": {
 		"name": "Plain Crystal",
 		"category": "Advanced Resources",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/plain_crystal__x1_iconic_png_1354833098.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/plain_crystal__x1_1_x1_2_x1_3_x1_4_png_1354833099.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/plain_crystal__x1_iconic_png_1354833098.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/plain_crystal__x1_1_x1_2_x1_3_x1_4_png_1354833099.png",
 		"stacksTo": 30,
 		"price": 300,
 		"description": "It shimmers, it glitters, and it's worth a good few currants, but you can't help but think that for a crystal, it's a little bland. Not that you're complaining."
@@ -118,8 +118,8 @@
 	"ingot": {
 		"name": "Plain Metal Ingot",
 		"category": "Advanced Resources",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/plain_metal__x1_iconic_png_1354832621.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/plain_metal__x1_1_x1_2_x1_3_x1_4_png_1354832621.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/plain_metal__x1_iconic_png_1354832621.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/plain_metal__x1_1_x1_2_x1_3_x1_4_png_1354832621.png",
 		"stacksTo": 20,
 		"price": 30,
 		"description": "Sure, this metal is plain, but with the aid of Alchemical Tongs, Alchemy II and a secret blend of elemental ingredients, more exciting metal materials can be made."
@@ -127,8 +127,8 @@
 	"snail": {
 		"name": "Snail",
 		"category": "Advanced Resources",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/snail__x1_iconic_png_1354839538.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/snail__x1_1_x1_2_x1_3_x1_4_png_1354839539.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/snail__x1_iconic_png_1354839538.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/snail__x1_1_x1_2_x1_3_x1_4_png_1354839539.png",
 		"stacksTo": 100,
 		"price": 10,
 		"description": "Part-screw, part-nail (and managing to combine the less useful parts of both), snails are the product of a Sloth getting private time with metal rods."
@@ -136,8 +136,8 @@
 	"string": {
 		"name": "String",
 		"category": "Advanced Resources",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/string__x1_iconic_png_1354839544.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/string__x1_1_x1_2_x1_3_x1_4_png_1354839545.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/string__x1_iconic_png_1354839544.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/string__x1_1_x1_2_x1_3_x1_4_png_1354839545.png",
 		"stacksTo": 100,
 		"price": 53,
 		"description": "This is String. In theory, it can be used for constructing fabric, rugs, and other basic furniture items. It is a pretty good theory."
@@ -145,8 +145,8 @@
 	"thread": {
 		"name": "Thread",
 		"category": "Advanced Resources",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/thread__x1_iconic_png_1354839672.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/thread__x1_1_x1_2_x1_3_x1_4_png_1354839673.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/thread__x1_iconic_png_1354839672.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/thread__x1_1_x1_2_x1_3_x1_4_png_1354839673.png",
 		"stacksTo": 400,
 		"price": 9,
 		"description": "Thread, spun from Fox tail fibers, and essential in the Loomeration of String. Easily lost (but easily picked up again), smells faintly of Fox bottom."
@@ -154,8 +154,8 @@
 	"tin": {
 		"name": "Tin Ingot",
 		"category": "Advanced Resources",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/tin__x1_iconic_png_1354832623.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/tin__x1_1_x1_2_x1_3_x1_4_png_1354832623.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/tin__x1_iconic_png_1354832623.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/tin__x1_1_x1_2_x1_3_x1_4_png_1354832623.png",
 		"stacksTo": 20,
 		"price": 50,
 		"description": "It's tin."
@@ -163,8 +163,8 @@
 	"urth_block": {
 		"name": "Urth Block",
 		"category": "Advanced Resources",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/grade_aa_earth_block__x1_iconic_png_1354833254.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/grade_aa_earth_block__x1_1_x1_2_x1_3_x1_4_png_1354833257.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/grade_aa_earth_block__x1_iconic_png_1354833254.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/grade_aa_earth_block__x1_1_x1_2_x1_3_x1_4_png_1354833257.png",
 		"stacksTo": 10,
 		"price": 150,
 		"description": "Marginally muddy earth of Ur, less-than-lofty loam and heavy gas from somewhat suspect origin comprise these useful building blocks."
@@ -172,8 +172,8 @@
 	"wood_post": {
 		"name": "Wood Post",
 		"category": "Advanced Resources",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/wood_post__x1_1_png_1354837258.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/wood_post__x1_1_png_1354837258.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/wood_post__x1_1_png_1354837258.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/wood_post__x1_1_png_1354837258.png",
 		"stacksTo": 40,
 		"price": 150,
 		"description": "If you squint and look hard, you can almost see the joins where the Planks were put together to make Boards, and the Boards tirelessly hewn into a Post. But in its glorious finished form, you can't see the Planks for the Post. Or something."

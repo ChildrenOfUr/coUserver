@@ -2,8 +2,8 @@
 	"allspice": {
 		"name": "Allspice",
 		"category": "Spices",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/all_spice__x1_iconic_png_1354829700.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/all_spice__x1_1_x1_2_x1_3_x1_4_png_1354829700.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/all_spice__x1_iconic_png_1354829700.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/all_spice__x1_1_x1_2_x1_3_x1_4_png_1354829700.png",
 		"stacksTo": 250,
 		"price": 3,
 		"description": "Some basic spice, freshly harvested from a Spice Plant."
@@ -11,8 +11,8 @@
 	"black_pepper": {
 		"name": "Black Pepper",
 		"category": "Spices",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/black_pepper__x1_iconic_png_1354829719.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/black_pepper__x1_1_x1_2_x1_3_x1_4_png_1354829720.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/black_pepper__x1_iconic_png_1354829719.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/black_pepper__x1_1_x1_2_x1_3_x1_4_png_1354829720.png",
 		"stacksTo": 200,
 		"price": 4,
 		"description": "A mound of extra-sneezy black pepper."
@@ -20,8 +20,8 @@
 	"camphor": {
 		"name": "Camphor",
 		"category": "Spices",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/camphor__x1_iconic_png_1354829734.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/camphor__x1_1_x1_2_x1_3_x1_4_png_1354829735.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/camphor__x1_iconic_png_1354829734.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/camphor__x1_1_x1_2_x1_3_x1_4_png_1354829735.png",
 		"stacksTo": 200,
 		"price": 20,
 		"description": "A small pile of bitter camphor."
@@ -29,8 +29,8 @@
 	"cardamom": {
 		"name": "Cardamom",
 		"category": "Spices",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/cardamom__x1_iconic_png_1354829737.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/cardamom__x1_1_x1_2_x1_3_x1_4_png_1354829737.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/cardamom__x1_iconic_png_1354829737.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/cardamom__x1_1_x1_2_x1_3_x1_4_png_1354829737.png",
 		"stacksTo": 200,
 		"price": 12,
 		"description": "A generous pinch of zesty cardamom. A little goes a long way."
@@ -38,8 +38,8 @@
 	"cinnamon": {
 		"name": "Cinnamon",
 		"category": "Spices",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/cinnamon__x1_iconic_png_1354829765.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/cinnamon__x1_1_x1_2_x1_3_x1_4_png_1354829766.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/cinnamon__x1_iconic_png_1354829765.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/cinnamon__x1_1_x1_2_x1_3_x1_4_png_1354829766.png",
 		"stacksTo": 200,
 		"price": 8,
 		"description": "About a spoonful of versatile cinnamon."
@@ -47,8 +47,8 @@
 	"cumin": {
 		"name": "Cumin",
 		"category": "Spices",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/cumin__x1_iconic_png_1354829798.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/cumin__x1_1_x1_2_x1_3_x1_4_png_1354829798.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/cumin__x1_iconic_png_1354829798.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/cumin__x1_1_x1_2_x1_3_x1_4_png_1354829798.png",
 		"stacksTo": 200,
 		"price": 8,
 		"description": "A heap of pleasantly aromatic cumin."
@@ -56,8 +56,8 @@
 	"curry": {
 		"name": "Curry",
 		"category": "Spices",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/curry__x1_iconic_png_1354830418.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/curry__x1_1_x1_2_x1_3_x1_4_png_1354830418.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/curry__x1_iconic_png_1354830418.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/curry__x1_1_x1_2_x1_3_x1_4_png_1354830418.png",
 		"stacksTo": 200,
 		"price": 5,
 		"description": "A top-secret blend of curry powder."
@@ -65,8 +65,8 @@
 	"garlic": {
 		"name": "Garlic",
 		"category": "Spices",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/garlic__x1_iconic_png_1354829849.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/garlic__x1_1_x1_2_x1_3_x1_4_png_1354829850.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/garlic__x1_iconic_png_1354829849.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/garlic__x1_1_x1_2_x1_3_x1_4_png_1354829850.png",
 		"stacksTo": 200,
 		"price": 4,
 		"description": "A nice stinky garlic."
@@ -74,8 +74,8 @@
 	"ginger": {
 		"name": "Ginger",
 		"category": "Spices",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/ginger__x1_iconic_png_1354829855.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/ginger__x1_1_x1_2_x1_3_x1_4_png_1354829856.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/ginger__x1_iconic_png_1354829855.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/ginger__x1_1_x1_2_x1_3_x1_4_png_1354829856.png",
 		"stacksTo": 200,
 		"price": 4,
 		"description": "A nubbin of pungent ginger."
@@ -83,8 +83,8 @@
 	"hot_pepper": {
 		"name": "Hot Pepper",
 		"category": "Spices",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/hot_pepper__x1_iconic_png_1354829887.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/hot_pepper__x1_1_x1_2_x1_3_x1_4_png_1354829887.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/hot_pepper__x1_iconic_png_1354829887.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/hot_pepper__x1_1_x1_2_x1_3_x1_4_png_1354829887.png",
 		"stacksTo": 200,
 		"price": 4,
 		"description": "A scoop of potentially combustible hot pepper."
@@ -92,8 +92,8 @@
 	"licorice": {
 		"name": "Licorice",
 		"category": "Spices",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/licorice__x1_iconic_png_1354829902.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/licorice__x1_1_x1_2_x1_3_x1_4_png_1354829903.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/licorice__x1_iconic_png_1354829902.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/licorice__x1_1_x1_2_x1_3_x1_4_png_1354829903.png",
 		"stacksTo": 200,
 		"price": 8,
 		"description": "A nub of chewy licorice."
@@ -101,8 +101,8 @@
 	"mustard": {
 		"name": "Mustard",
 		"category": "Spices",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/mustard__x1_iconic_png_1354829918.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/mustard__x1_1_x1_2_x1_3_x1_4_png_1354829918.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/mustard__x1_iconic_png_1354829918.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/mustard__x1_1_x1_2_x1_3_x1_4_png_1354829918.png",
 		"stacksTo": 200,
 		"price": 4,
 		"description": "A dash of tangy mustard."
@@ -110,8 +110,8 @@
 	"nutmeg": {
 		"name": "Nutmeg",
 		"category": "Spices",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/nutmeg__x1_iconic_png_1354829920.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/nutmeg__x1_1_x1_2_x1_3_x1_4_png_1354829921.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/nutmeg__x1_iconic_png_1354829920.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/nutmeg__x1_1_x1_2_x1_3_x1_4_png_1354829921.png",
 		"stacksTo": 200,
 		"price": 12,
 		"description": "A sweet-smelling nutmeg seed."
@@ -119,8 +119,8 @@
 	"older_spice": {
 		"name": "Old(er) Spice",
 		"category": "Spices",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/older_spice__x1_iconic_png_1354829933.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/older_spice__x1_1_x1_2_x1_3_x1_4_png_1354829934.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/older_spice__x1_iconic_png_1354829933.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/older_spice__x1_1_x1_2_x1_3_x1_4_png_1354829934.png",
 		"stacksTo": 200,
 		"price": 20,
 		"description": "A handful of colorful older spice."
@@ -128,8 +128,8 @@
 	"pinch_of_salt": {
 		"name": "Pinch of Salt",
 		"category": "Spices",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/pinch_of_salt__x1_iconic_png_1354829954.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/pinch_of_salt__x1_1_x1_2_x1_3_x1_4_png_1354829954.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/pinch_of_salt__x1_iconic_png_1354829954.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/pinch_of_salt__x1_1_x1_2_x1_3_x1_4_png_1354829954.png",
 		"stacksTo": 200,
 		"price": 2,
 		"description": "A tiny pinch of very salty salt."
@@ -137,8 +137,8 @@
 	"saffron": {
 		"name": "Saffron",
 		"category": "Spices",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/saffron__x1_iconic_png_1354829988.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/saffron__x1_1_x1_2_x1_3_x1_4_png_1354829989.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/saffron__x1_iconic_png_1354829988.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/saffron__x1_1_x1_2_x1_3_x1_4_png_1354829989.png",
 		"stacksTo": 200,
 		"price": 12,
 		"description": "Some tendrils of bitter saffron."
@@ -146,8 +146,8 @@
 	"turmeric": {
 		"name": "Turmeric",
 		"category": "Spices",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/turmeric__x1_iconic_png_1354830051.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/turmeric__x1_1_x1_2_x1_3_x1_4_png_1354830052.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/turmeric__x1_iconic_png_1354830051.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/turmeric__x1_1_x1_2_x1_3_x1_4_png_1354830052.png",
 		"stacksTo": 200,
 		"price": 12,
 		"description": "Some uncommonly orange turmeric."

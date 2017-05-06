@@ -2,8 +2,8 @@
 	"12_sided_die": {
 		"name": "12-sided Die",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/dice_12sided__x1_iconic_png_1354836223.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/dice_12sided__x1_spin_png_1354836226.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/dice_12sided__x1_iconic_png_1354836223.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/dice_12sided__x1_spin_png_1354836226.png",
 		"stacksTo": 1,
 		"price": 1100,
 		"description": "This die has 12 sides. One for every Giant, plus a mystery guest.",
@@ -18,8 +18,8 @@
 	"ayn_rand_doll": {
 		"name": "Ayn Rand Doll",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/doll_ayn_rand__x1_1_png_1354832572.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/doll_ayn_rand__x1_1_png_1354832572.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/doll_ayn_rand__x1_1_png_1354832572.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/doll_ayn_rand__x1_1_png_1354832572.png",
 		"stacksTo": 1,
 		"price": 1009,
 		"description": "Contradictions do not exist: but this doll does. Every time you cuddle your doll, you feel like it was the doll's idea, and you had no choice but to submit. Weird."
@@ -27,8 +27,8 @@
 	"camera": {
 		"name": "Camera",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/camera__x1_1_png_1354836386.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/camera__x1_1_png_1354836386.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/camera__x1_1_png_1354836386.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/camera__x1_1_png_1354836386.png",
 		"stacksTo": 1,
 		"price": 1000,
 		"description": "A useful handheld gizmo with a lens, a button, and lots of complex intricate technical gubbins on the inside. Depending on who you ask, cameras are either for taking pretty pictures, or for stealing the soul of whoever they point at. This one is mainly for pictures though. You'd need a much bigger memory card for souls."
@@ -36,8 +36,8 @@
 	"cubimal_series_1_box": {
 		"name": "Cubimal Series 1 Box",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/cubimal_package__x1_1_png_1354836217.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/cubimal_package__x1_1_png_1354836217.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/cubimal_package__x1_1_png_1354836217.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/cubimal_package__x1_1_png_1354836217.png",
 		"stacksTo": 1,
 		"price": 5000,
 		"description": "Contains one (1) Series 1 Cubimal. Open it up to find out which one is inside. Collect them all!",
@@ -52,8 +52,8 @@
 	"cubimal_series_2_box": {
 		"name": "Cubimal Series 2 Box",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/cubimal_package_2__x1_1_png_1354839815.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/cubimal_package_2__x1_1_png_1354839815.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/cubimal_package_2__x1_1_png_1354839815.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/cubimal_package_2__x1_1_png_1354839815.png",
 		"stacksTo": 1,
 		"price": 5000,
 		"description": "Contains one (1) Series 2 Cubimal. Open it up to find out which one is inside. Collect 'em all!",
@@ -68,8 +68,8 @@
 	"dice": {
 		"name": "Pair of Dice",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/dice__x1_1_png_1354836215.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/dice__x1_1_png_1354836215.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/dice__x1_1_png_1354836215.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/dice__x1_1_png_1354836215.png",
 		"stacksTo": 1,
 		"price": 500,
 		"description": "Roll up!",
@@ -84,8 +84,8 @@
 	"emotional_bear": {
 		"name": "Emotional Bear",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/emotional_bear__x1_iconic_png_1354831946.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/emotional_bear__x1_1_plain_png_1354831949.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/emotional_bear__x1_iconic_png_1354831946.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/emotional_bear__x1_1_plain_png_1354831949.png",
 		"iconNum": 1,
 		"stacksTo": 1,
 		"price": 300,
@@ -94,8 +94,8 @@
 	"fortune": {
 		"name": "Fortune",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/fortune__x1_1_png_1354836235.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/fortune__x1_1_png_1354836235.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/fortune__x1_1_png_1354836235.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/fortune__x1_1_png_1354836235.png",
 		"stacksTo": 1,
 		"price": 0,
 		"description": "For those who believe their fate is predetermined, this fortune holds your destiny. Plus, your lucky lottery numbers!",
@@ -108,9 +108,9 @@
 	"fortune_cookie": {
 		"name": "Fortune Cookie",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/fortune_cookie__x1_1_png_1354836221.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/fortune_cookie__x1_1_png_1354836221.png",
 		"iconNum": 1,
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/fortune_cookie__x1_1_png_1354836221.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/fortune_cookie__x1_1_png_1354836221.png",
 		"stacksTo": 1,
 		"price": 200,
 		"description": "Comes without a note inside. Add your own and give it to a friend!",
@@ -128,9 +128,9 @@
 	"fortune_cookie_withfortune": {
 		"name": "Fortuned Cookie",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/fortune_cookie__x1_withnote_iconic_png_1354836220.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/fortune_cookie__x1_withnote_iconic_png_1354836220.png",
 		"iconNum": 1,
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/fortune_cookie__x1_withnote_png_1354836220.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/fortune_cookie__x1_withnote_png_1354836220.png",
 		"stacksTo": 1,
 		"price": 0,
 		"description": "Comes with a note inside.",
@@ -143,8 +143,8 @@
 	"friedrich_nietzsche_doll": {
 		"name": "Friedrich Nietzsche Doll",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/doll_nietzsche__x1_1_png_1354832575.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/doll_nietzsche__x1_1_png_1354832575.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/doll_nietzsche__x1_1_png_1354832575.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/doll_nietzsche__x1_1_png_1354832575.png",
 		"stacksTo": 1,
 		"price": 1009,
 		"description": "He sure is talky, but this moustachioed little chap isn't very comforting to cuddle. But then how cuddly, exactly, were you expecting your My Little Nietzsche to be?"
@@ -152,8 +152,8 @@
 	"garden_gnome": {
 		"name": "Garden Gnome",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/npc_garden_gnome__x1_idle0_png_1354832661.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/npc_garden_gnome__x1_idle0_png_1354832661.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/npc_garden_gnome__x1_idle0_png_1354832661.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/npc_garden_gnome__x1_idle0_png_1354832661.png",
 		"iconNum": 1,
 		"stacksTo": 1,
 		"price": 2000,
@@ -163,8 +163,8 @@
 	"gift_box_wrapped": {
 		"name": "Gift Box",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box_wrapped.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/bag_gift_box_wrapped.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/bag_gift_box_wrapped.png",
 		"stacksTo": 1,
 		"price": 0,
 		"description": "One mystery surprise gift box, filled with… well, filled with gifts. But what gifts? There's only one way to find out… No, not asking the person who gave it to you. The OTHER, non-spoilerific way. Open it!"
@@ -172,8 +172,8 @@
 	"glitchmas_card": {
 		"name": "Glitchmas Card",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/glitchmas_card__x1_1_png_1354837525.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/glitchmas_card__x1_1_png_1354837525.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/glitchmas_card__x1_1_png_1354837525.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/glitchmas_card__x1_1_png_1354837525.png",
 		"stacksTo": 1,
 		"price": 200,
 		"description": "A holiday greeting card, containing a heart-warming poem."
@@ -181,8 +181,8 @@
 	"glitchmas_cracker": {
 		"name": "Glitchmas Cracker",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/glitchmas_cracker__x1_1_png_1354837361.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/glitchmas_cracker__x1_1_png_1354837361.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/glitchmas_cracker__x1_1_png_1354837361.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/glitchmas_cracker__x1_1_png_1354837361.png",
 		"stacksTo": 1,
 		"price": 500,
 		"description": "Ostensibly a seasonal cardboard tube wrapped in colored paper. But so much more than that too. Once opened, it looks like it may contain a surprise, a gift, and curious lack of party hat. You probably need somebody else to help you pull it open to find out, though."
@@ -190,8 +190,8 @@
 	"glitchmas_cracker_factoid": {
 		"name": "Glitchmas Cracker Fun Fact",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/glitchmas_cracker_factoid__x1_1_png_1354837533.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/glitchmas_cracker_factoid__x1_1_png_1354837533.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/glitchmas_cracker_factoid__x1_1_png_1354837533.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/glitchmas_cracker_factoid__x1_1_png_1354837533.png",
 		"stacksTo": 1,
 		"price": 1,
 		"description": "A piece of fun and useful trivia. This would be a good conversation starter at holiday parties. Or not."
@@ -199,8 +199,8 @@
 	"glitchmas_cracker_joke": {
 		"name": "Glitchmas Cracker Joke",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/glitchmas_cracker_joke__x1_1_png_1354837344.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/glitchmas_cracker_joke__x1_1_png_1354837344.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/glitchmas_cracker_joke__x1_1_png_1354837344.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/glitchmas_cracker_joke__x1_1_png_1354837344.png",
 		"stacksTo": 1,
 		"price": 1,
 		"description": "A joke of dubious quality found in a Glitchmas Cracker. Who writes these things, anyway?"
@@ -208,8 +208,8 @@
 	"lips": {
 		"name": "Lips",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/lips__x1_1_png_1354831835.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/lips__x1_1_png_1354831835.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/lips__x1_1_png_1354831835.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/lips__x1_1_png_1354831835.png",
 		"iconNum": 1,
 		"stacksTo": 1,
 		"price": 10,
@@ -218,8 +218,8 @@
 	"ludwig_wittgenstein_doll": {
 		"name": "Ludwig Wittgenstein Doll",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/doll_wittgenstein__x1_1_png_1354832578.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/doll_wittgenstein__x1_1_png_1354832578.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/doll_wittgenstein__x1_1_png_1354832578.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/doll_wittgenstein__x1_1_png_1354832578.png",
 		"stacksTo": 1,
 		"price": 1009,
 		"description": "A depressed, closeted, singularly-focused Anglicized Austrian: student, schoolteacher, professor, maniac ... genius?"
@@ -227,8 +227,8 @@
 	"moon": {
 		"name": "Moon",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/moon__x1_1_png_1354830862.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/moon__x1_1_png_1354830862.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/moon__x1_1_png_1354830862.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/moon__x1_1_png_1354830862.png",
 		"stacksTo": 1,
 		"price": 99,
 		"description": "One full, craterous moon, without which mooning cannot happen. Most useful if attached to an Emotional Bear."
@@ -236,8 +236,8 @@
 	"party_aquarius": {
 		"name": "Aquarius Party Pack",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_aquarius__x1_1_png_1354840298.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_aquarius__x1_1_png_1354840298.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/party_pack_aquarius__x1_1_png_1354840298.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/party_pack_aquarius__x1_1_png_1354840298.png",
 		"stacksTo": 1,
 		"price": 1000,
 		"description": "Swim, float & drift your way around this quoin-laden party space. And, remember … quoining is always more fun with friends!"
@@ -245,8 +245,8 @@
 	"party_double_rainbow": {
 		"name": "Double Rainbow Party Pack",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_double_rainbow__x1_1_png_1354836450.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_double_rainbow__x1_1_png_1354836450.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/party_pack_double_rainbow__x1_1_png_1354836450.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/party_pack_double_rainbow__x1_1_png_1354836450.png",
 		"stacksTo": 1,
 		"price": 1000,
 		"description": "One ephemeral cute-as-a-button party space, perfect for private events. When activated, temporary party location includes complimentary mineables, munchables and mixables, sparkles and lollipops and glee."
@@ -254,8 +254,8 @@
 	"party_mazzala_gala": {
 		"name": "Mazza'la Gala Party Pack",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_mazzala_gala__x1_1_png_1354836474.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_mazzala_gala__x1_1_png_1354836474.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/party_pack_mazzala_gala__x1_1_png_1354836474.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/party_pack_mazzala_gala__x1_1_png_1354836474.png",
 		"stacksTo": 1,
 		"price": 1000,
 		"description": "One private and transient five-room wooden party lodge. When activated, temporary party location includes DIY hearty party feast, beer, booze, and one very dark make-out room."
@@ -263,8 +263,8 @@
 	"party_nylon_phool": {
 		"name": "Nylon Phool Party Pack",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_nylon_phool__x1_1_png_1354836447.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_nylon_phool__x1_1_png_1354836447.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/party_pack_nylon_phool__x1_1_png_1354836447.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/party_pack_nylon_phool__x1_1_png_1354836447.png",
 		"stacksTo": 1,
 		"price": 1000,
 		"description": "One temporary underwater pool-party spot. When activated, this ephemeral party place includes a complimentary DIY juice bar, smoothie-zone and Spicy Grog spot, replenishing nibbles and unlimited floatiness."
@@ -272,8 +272,8 @@
 	"party_pitchen_lilliputt": {
 		"name": "Pitchen Lilliputt Party Pack",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_pitchen_lilliputt__x1_1_png_1354836440.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_pitchen_lilliputt__x1_1_png_1354836440.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/party_pack_pitchen_lilliputt__x1_1_png_1354836440.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/party_pack_pitchen_lilliputt__x1_1_png_1354836440.png",
 		"stacksTo": 1,
 		"price": 1000,
 		"description": "Miniature Ur for Glitchean giants in one small but perfectly formed temporary party location. When activated, this ephemeral party spot includes minables, nibbles, snacks and sammiches, and one DIY fancy-cocktail bar."
@@ -281,8 +281,8 @@
 	"party_taster_aquarius": {
 		"name": "Aquarius Party Pack Taster",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_aquarius__x1_1_png_1354840303.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_aquarius__x1_1_png_1354840303.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/party_pack_taster_aquarius__x1_1_png_1354840303.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/party_pack_taster_aquarius__x1_1_png_1354840303.png",
 		"stacksTo": 1,
 		"price": 200,
 		"description": "Swim, float & drift your way around this quoin-laden party space. And, remember … quoining is always more fun with friends!"
@@ -290,8 +290,8 @@
 	"party_taster_double_rainbow": {
 		"name": "Double Rainbow Party Pack Taster",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_double_rainbow__x1_1_png_1354836477.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_double_rainbow__x1_1_png_1354836477.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/party_pack_taster_double_rainbow__x1_1_png_1354836477.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/party_pack_taster_double_rainbow__x1_1_png_1354836477.png",
 		"stacksTo": 1,
 		"price": 200,
 		"description": "One ephemeral cute-as-a-button party space, perfect for private events. When activated, temporary party location includes complimentary mineables, munchables and mixables, sparkles and lollipops and glee."
@@ -299,8 +299,8 @@
 	"party_taster_mazzala_gala": {
 		"name": "Mazza'la Gala Party Pack Taster",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_mazzala_gala__x1_1_png_1354836486.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_mazzala_gala__x1_1_png_1354836486.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/party_pack_taster_mazzala_gala__x1_1_png_1354836486.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/party_pack_taster_mazzala_gala__x1_1_png_1354836486.png",
 		"stacksTo": 1,
 		"price": 200,
 		"description": "One private and transient five-room wooden party lodge. When activated, temporary party location includes DIY hearty party feast, beer, booze, and one very dark make-out room."
@@ -308,8 +308,8 @@
 	"party_taster_nylon_phool": {
 		"name": "Nylon Phool Party Pack Taster",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_nylon_phool__x1_1_png_1354836488.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_nylon_phool__x1_1_png_1354836488.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/party_pack_taster_nylon_phool__x1_1_png_1354836488.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/party_pack_taster_nylon_phool__x1_1_png_1354836488.png",
 		"stacksTo": 1,
 		"price": 200,
 		"description": "One temporary underwater pool-party spot. When activated, this ephemeral party place includes a complimentary DIY juice bar, smoothie-zone and Spicy Grog spot, replenishing nibbles and unlimited floatiness."
@@ -317,8 +317,8 @@
 	"party_taster_pitchen_lilliputt": {
 		"name": "Pitchen Lilliputt Party Pack Taster",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_pitchen_lilliputt__x1_1_png_1354836491.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_pitchen_lilliputt__x1_1_png_1354836491.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/party_pack_taster_pitchen_lilliputt__x1_1_png_1354836491.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/party_pack_taster_pitchen_lilliputt__x1_1_png_1354836491.png",
 		"stacksTo": 1,
 		"price": 200,
 		"description": "Miniature Ur for Glitchean giants in one small but perfectly formed temporary party location. When activated, this ephemeral party spot includes minables, nibbles, snacks and sammiches, and one DIY fancy-cocktail bar."
@@ -326,8 +326,8 @@
 	"party_taster_toxic_moon": {
 		"name": "Toxic Moon Party Pack Taster",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_toxic_moon__x1_1_png_1354836493.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_toxic_moon__x1_1_png_1354836493.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/party_pack_taster_toxic_moon__x1_1_png_1354836493.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/party_pack_taster_toxic_moon__x1_1_png_1354836493.png",
 		"stacksTo": 1,
 		"price": 200,
 		"description": "One secluded and totally transient lunar location. When activated, temporary party spot includes ingredients for cocktails, sparkly rocks for space-mining, and a notable lack of gravity, for super-awesome-space-jumpiness."
@@ -335,8 +335,8 @@
 	"party_taster_val_holla": {
 		"name": "Val Holla Party Pack Taster",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_val_holla__x1_1_png_1354840300.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_val_holla__x1_1_png_1354840300.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/party_pack_taster_val_holla__x1_1_png_1354840300.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/party_pack_taster_val_holla__x1_1_png_1354840300.png",
 		"stacksTo": 1,
 		"price": 200,
 		"description": "Soar to new heights in this quoin-heavy party space. Grab a bunch of your closest friends, and get ready to Party Shardy!"
@@ -344,8 +344,8 @@
 	"party_taster_winter_wingding": {
 		"name": "Winter Wingding Party Pack Taster",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_winter_wingding__x1_1_png_1354837530.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_taster_winter_wingding__x1_1_png_1354837530.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/party_pack_taster_winter_wingding__x1_1_png_1354837530.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/party_pack_taster_winter_wingding__x1_1_png_1354837530.png",
 		"stacksTo": 1,
 		"price": 200,
 		"description": "One temporary wonderland, perfect for holiday get-togethers and winterly fun. When activated, this icy private party spot includes trees for decorating, ingredients for heart-warming drinkables and a DIY pie bar."
@@ -353,8 +353,8 @@
 	"party_toxic_moon": {
 		"name": "Toxic Moon Party Pack",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_toxic_moon__x1_1_png_1354836443.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_toxic_moon__x1_1_png_1354836443.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/party_pack_toxic_moon__x1_1_png_1354836443.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/party_pack_toxic_moon__x1_1_png_1354836443.png",
 		"stacksTo": 1,
 		"price": 1000,
 		"description": "One secluded and totally transient lunar location. When activated, temporary party spot includes ingredients for cocktails, sparkly rocks for space-mining, and a notable lack of gravity, for super-awesome-space-jumpiness."
@@ -362,8 +362,8 @@
 	"party_val_holla": {
 		"name": "Val Holla Party Pack",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_val_holla__x1_1_png_1354840295.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_val_holla__x1_1_png_1354840295.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/party_pack_val_holla__x1_1_png_1354840295.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/party_pack_val_holla__x1_1_png_1354840295.png",
 		"stacksTo": 1,
 		"price": 1000,
 		"description": "Soar to new heights in this quoin-heavy party space. Grab a bunch of your closest friends, and get ready to Party Shardy!"
@@ -371,8 +371,8 @@
 	"party_winter_wingding": {
 		"name": "Winter Wingding Party Pack",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/party_pack_winter_wingding__x1_1_png_1354837527.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/party_pack_winter_wingding__x1_1_png_1354837527.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/party_pack_winter_wingding__x1_1_png_1354837527.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/party_pack_winter_wingding__x1_1_png_1354837527.png",
 		"stacksTo": 1,
 		"price": 1000,
 		"description": "One temporary wonderland, perfect for holiday get-togethers and winterly fun. When activated, this icy private party spot includes trees for decorating, ingredients for heart-warming drinkables and a DIY pie bar."
@@ -380,8 +380,8 @@
 	"play_cube": {
 		"name": "Play Cube",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/play_cube__x1_1_png_1354840408.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/play_cube__x1_1_png_1354840408.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/play_cube__x1_1_png_1354840408.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/play_cube__x1_1_png_1354840408.png",
 		"stacksTo": 1,
 		"price": 0,
 		"description": "Play Cubes are famous the world over. Re-live some of your favorite quest memories with one simple click. Don't waste another minute, play with your cube now!"
@@ -389,8 +389,8 @@
 	"random_kindness": {
 		"name": "Random Kindness",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/random_kindness__x1_1_png_1354833524.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/random_kindness__x1_1_png_1354833524.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/random_kindness__x1_1_png_1354833524.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/random_kindness__x1_1_png_1354833524.png",
 		"stacksTo": 1,
 		"price": 0,
 		"description": "This priceless item dispenses random kindness."
@@ -398,8 +398,8 @@
 	"ticket_amazing_race": {
 		"name": "Amazing Race Ticket",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/race_ticket_amazing_race__x1_iconic_png_1354836471.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/race_ticket_amazing_race__x1_1_x1_2_x1_3_x1_4_png_1354836471.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/race_ticket_amazing_race__x1_iconic_png_1354836471.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/race_ticket_amazing_race__x1_1_x1_2_x1_3_x1_4_png_1354836471.png",
 		"stacksTo": 5,
 		"price": 20,
 		"description": "Challenge another player to the Amazing Race."
@@ -407,8 +407,8 @@
 	"ticket_canyon_run": {
 		"name": "Canyon Run Ticket",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/race_ticket_canyon_run__x1_iconic_png_1354836468.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/race_ticket_canyon_run__x1_1_x1_2_x1_3_x1_4_png_1354836468.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/race_ticket_canyon_run__x1_iconic_png_1354836468.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/race_ticket_canyon_run__x1_1_x1_2_x1_3_x1_4_png_1354836468.png",
 		"stacksTo": 5,
 		"price": 20,
 		"description": "Challenge another player to Canyon Run."
@@ -416,8 +416,8 @@
 	"ticket_crystal_climb": {
 		"name": "Crystal Climb Ticket",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/race_ticket_crystal_climb__x1_iconic_png_1354836461.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/race_ticket_crystal_climb__x1_1_x1_2_x1_3_x1_4_png_1354836462.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/race_ticket_crystal_climb__x1_iconic_png_1354836461.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/race_ticket_crystal_climb__x1_1_x1_2_x1_3_x1_4_png_1354836462.png",
 		"stacksTo": 5,
 		"price": 20,
 		"description": "Challenge another player to Crystal Climb."
@@ -425,8 +425,8 @@
 	"ticket_game_of_crowns": {
 		"name": "Game of Crowns Ticket",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/race_ticket_it_game__x1_iconic_png_1354836240.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/race_ticket_it_game__x1_1_x1_2_x1_3_x1_4_png_1354836240.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/race_ticket_it_game__x1_iconic_png_1354836240.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/race_ticket_it_game__x1_1_x1_2_x1_3_x1_4_png_1354836240.png",
 		"stacksTo": 5,
 		"price": 20,
 		"description": "Challenge another player to Game of Crowns."
@@ -434,8 +434,8 @@
 	"ticket_gameshow": {
 		"name": "Gameshow Ticket",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/gameshow_ticket__x1_iconic_png_1354830731.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/gameshow_ticket__x1_1_x1_2_x1_3_x1_4_x1_5_x1_6_x1_7_x1_8_x1_9_x1_10_x1_11_png_1354830731.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/gameshow_ticket__x1_iconic_png_1354830731.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/gameshow_ticket__x1_1_x1_2_x1_3_x1_4_x1_5_x1_6_x1_7_x1_8_x1_9_x1_10_x1_11_png_1354830731.png",
 		"stacksTo": 11,
 		"price": 0,
 		"description": "One glittery, razzling, dazzling game show ticket. Ain't nothing you can do but USE it."
@@ -443,8 +443,8 @@
 	"ticket_grab_em_good": {
 		"name": "Grab 'Em Good Ticket",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/race_ticket_grab_em_good__x1_iconic_png_1354836466.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/race_ticket_grab_em_good__x1_1_x1_2_x1_3_x1_4_png_1354836466.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/race_ticket_grab_em_good__x1_iconic_png_1354836466.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/race_ticket_grab_em_good__x1_1_x1_2_x1_3_x1_4_png_1354836466.png",
 		"stacksTo": 5,
 		"price": 20,
 		"description": "Challenge another player to Grab 'Em Good."
@@ -452,8 +452,8 @@
 	"ticket_lava_leap": {
 		"name": "Lava Leap Ticket",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/race_ticket_lava_leap__x1_iconic_png_1354836463.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/race_ticket_lava_leap__x1_1_x1_2_x1_3_x1_4_png_1354836464.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/race_ticket_lava_leap__x1_iconic_png_1354836463.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/race_ticket_lava_leap__x1_1_x1_2_x1_3_x1_4_png_1354836464.png",
 		"stacksTo": 5,
 		"price": 20,
 		"description": "Challenge another player to Lava Leap."
@@ -461,8 +461,8 @@
 	"ticket_space_race": {
 		"name": "Space Race Ticket",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/race_ticket_space_race__x1_iconic_png_1354836459.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/race_ticket_space_race__x1_1_x1_2_x1_3_x1_4_png_1354836460.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/race_ticket_space_race__x1_iconic_png_1354836459.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/race_ticket_space_race__x1_1_x1_2_x1_3_x1_4_png_1354836460.png",
 		"stacksTo": 5,
 		"price": 20,
 		"description": "Challenge another player to Space Race."
@@ -470,8 +470,8 @@
 	"ticket_star_sprint": {
 		"name": "Star Sprint Ticket",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/race_ticket_star_sprint__x1_iconic_png_1354836457.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/race_ticket_star_sprint__x1_1_x1_2_x1_3_x1_4_png_1354836457.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/race_ticket_star_sprint__x1_iconic_png_1354836457.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/race_ticket_star_sprint__x1_1_x1_2_x1_3_x1_4_png_1354836457.png",
 		"stacksTo": 5,
 		"price": 20,
 		"description": "Challenge another player to Star Sprint."
@@ -479,8 +479,8 @@
 	"ticket_the_great_hog_haul": {
 		"name": "The Great Hog Haul Ticket",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/race_ticket_hogtie_piggy__x1_iconic_png_1354836452.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/race_ticket_hogtie_piggy__x1_1_x1_2_x1_3_x1_4_png_1354836452.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/race_ticket_hogtie_piggy__x1_iconic_png_1354836452.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/race_ticket_hogtie_piggy__x1_1_x1_2_x1_3_x1_4_png_1354836452.png",
 		"stacksTo": 5,
 		"price": 20,
 		"description": "Challenge another player to The Great Hog Haul."
@@ -488,8 +488,8 @@
 	"ticket_time_warp": {
 		"name": "Time Warp Ticket",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/race_ticket_time_warp__x1_iconic_png_1354836454.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/race_ticket_time_warp__x1_1_x1_2_x1_3_x1_4_png_1354836455.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/race_ticket_time_warp__x1_iconic_png_1354836454.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/race_ticket_time_warp__x1_1_x1_2_x1_3_x1_4_png_1354836455.png",
 		"stacksTo": 5,
 		"price": 20,
 		"description": "Challenge another player to Time Warp."
@@ -497,8 +497,8 @@
 	"wrappable_gift_box": {
 		"name": "Wrappable Gift Box",
 		"category": "Toys",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box__x1_1_png_1354837363.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/bag_gift_box__x1_1_png_1354837363.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/bag_gift_box__x1_1_png_1354837363.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/bag_gift_box__x1_1_png_1354837363.png",
 		"stacksTo": 1,
 		"price": 400,
 		"description": "An empty box, filled with promise. Not really, it's filled with nothing, but once someone (the gifter) fills it with something (the gift), wraps it, and gives it to another (the giftee) it will be filled with joy. Each box can take three stacks of joy (or three stacks of anything, in fact)."

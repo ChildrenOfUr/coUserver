@@ -2,8 +2,8 @@
 	"blockmaker_chassis": {
 		"name": "Blockmaker Chassis",
 		"category": "Machines & Fuel",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/blockmaker_chassis__x1_1_png_1354833231.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/blockmaker_chassis__x1_1_png_1354833231.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/blockmaker_chassis__x1_1_png_1354833231.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/blockmaker_chassis__x1_1_png_1354833231.png",
 		"iconNum": 1,
 		"stacksTo": 1,
 		"price": 1500,
@@ -12,8 +12,8 @@
 	"blockmaker_plates": {
 		"name": "Blockmaker Plates",
 		"category": "Machines & Fuel",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/blockmaker_plates__x1_1_png_1354833236.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/blockmaker_plates__x1_1_png_1354833236.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/blockmaker_plates__x1_1_png_1354833236.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/blockmaker_plates__x1_1_png_1354833236.png",
 		"stacksTo": 1,
 		"price": 1250,
 		"description": "Made from only the finest Molybdenum this side of Shimla Mirch.  Once installed, the Blockmaker is complete."
@@ -21,8 +21,8 @@
 	"fuel_cell": {
 		"name": "Fuel Cell",
 		"category": "Machines & Fuel",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/fuel_cell__x1_iconic_png_1354833264.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/fuel_cell__x1_1_x1_2_x1_3_x1_4_png_1354833265.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/fuel_cell__x1_iconic_png_1354833264.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/fuel_cell__x1_1_x1_2_x1_3_x1_4_png_1354833265.png",
 		"stacksTo": 10,
 		"price": 380,
 		"description": "Hundreds of tiny power-pellets in each capsule provide gigajoules of energy to fuel the machines."
@@ -30,8 +30,8 @@
 	"fuelmaker_case": {
 		"name": "Fuelmaker Case",
 		"category": "Machines & Fuel",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/fuelmaker_case__x1_1_png_1354833224.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/fuelmaker_case__x1_1_png_1354833224.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/fuelmaker_case__x1_1_png_1354833224.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/fuelmaker_case__x1_1_png_1354833224.png",
 		"stacksTo": 1,
 		"price": 1500,
 		"description": "Placed on an assembled Machine Stand, this Fuelmaker Case makes a good case for a stand to become a Fuelmaker."
@@ -39,8 +39,8 @@
 	"fuelmaker_core": {
 		"name": "Fuelmaker Core",
 		"category": "Machines & Fuel",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/fuelmaker_core__x1_1_png_1354833226.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/fuelmaker_core__x1_1_png_1354833226.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/fuelmaker_core__x1_1_png_1354833226.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/fuelmaker_core__x1_1_png_1354833226.png",
 		"stacksTo": 1,
 		"price": 1250,
 		"description": "Install the Fuelmaker core and the final piece of the puzzle will be in place. Now you just need fuel to fuel the Fuelmaker."
@@ -48,8 +48,8 @@
 	"machine_engine": {
 		"name": "Machine Engine",
 		"category": "Machines & Fuel",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/blockmaker_engine__x1_1_png_1354833233.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/blockmaker_engine__x1_1_png_1354833233.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/blockmaker_engine__x1_1_png_1354833233.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/blockmaker_engine__x1_1_png_1354833233.png",
 		"iconNum": 1,
 		"stacksTo": 1,
 		"price": 2500,
@@ -58,8 +58,8 @@
 	"machine_stand": {
 		"name": "Machine Stand",
 		"category": "Machines & Fuel",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/machine_stand__x1_iconic_png_1354833222.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/machine_stand__x1_stand1_png_1354833217.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/machine_stand__x1_iconic_png_1354833222.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/machine_stand__x1_stand1_png_1354833217.png",
 		"stacksTo": 1,
 		"price": 500,
 		"description": "This generic machine stand provides just the right foundation upon which many a machine can be built.  As with all good foundations, once assembled it cannot be moved."
@@ -67,8 +67,8 @@
 	"metalmaker_mechanism": {
 		"name": "Metal Machine Mechanism",
 		"category": "Machines & Fuel",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/metalmaker_mechanism__x1_1_png_1354836814.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/metalmaker_mechanism__x1_1_png_1354836814.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/metalmaker_mechanism__x1_1_png_1354836814.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/metalmaker_mechanism__x1_1_png_1354836814.png",
 		"stacksTo": 1,
 		"price": 1350,
 		"description": "The type of smooth, perfectly-honed mechanism you would expect from followers of Alph. Whatever function it is that this performs in the Metalmaker, it does it very, very well."
@@ -76,8 +76,8 @@
 	"metalmaker_tooler": {
 		"name": "Metal Machine Tooler",
 		"category": "Machines & Fuel",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/metalmaker_tooler__x1_1_png_1354836816.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/metalmaker_tooler__x1_1_png_1354836816.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/metalmaker_tooler__x1_1_png_1354836816.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/metalmaker_tooler__x1_1_png_1354836816.png",
 		"stacksTo": 1,
 		"price": 1750,
 		"description": "Silvery, heavy, and glistening with hot oil, lump of machinery so beautiful, complex and well crafted that it must have been tooled in some kind of academy."
@@ -85,8 +85,8 @@
 	"woodworker_chassis": {
 		"name": "Woodworker Chassis",
 		"category": "Machines & Fuel",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/woodworker_chassis__x1_1_png_1354839744.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/woodworker_chassis__x1_1_png_1354839744.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/woodworker_chassis__x1_1_png_1354839744.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/woodworker_chassis__x1_1_png_1354839744.png",
 		"iconNum": 1,
 		"stacksTo": 1,
 		"price": 1250,
@@ -95,8 +95,8 @@
 	"woodworker_fuser": {
 		"name": "Woodworker Fuser",
 		"category": "Machines & Fuel",
-		"iconUrl": "http://childrenofur.com/assets/entityImages/woodworker_fuser__x1_1_png_1354839742.png",
-		"spriteUrl": "http://childrenofur.com/assets/entityImages/woodworker_fuser__x1_1_png_1354839742.png",
+		"iconUrl": "https://childrenofur.com/assets/entityImages/woodworker_fuser__x1_1_png_1354839742.png",
+		"spriteUrl": "https://childrenofur.com/assets/entityImages/woodworker_fuser__x1_1_png_1354839742.png",
 		"iconNum": 1,
 		"stacksTo": 1,
 		"price": 1750,
