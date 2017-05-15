@@ -7508,8 +7508,8 @@
                     {
                         "name": "signpost_2",
                         "x": -2840,
-                        "h": 200,
                         "y": -120,
+                        "h": 200,
                         "w": 100,
                         "connects": [
                             {
@@ -7520,6 +7520,15 @@
                                 "hub_id": "88",
                                 "label": "Balin Bastion",
                                 "tsid": "LNVQLF5B0JH2KP7"
+                            },
+                            {
+                                "hidden": false,
+                                "x": -2812,
+                                "y": -197,
+                                "hub_id": "88",
+                                "mote_id": "9",
+                                "label": "Loksa Laarb",
+                                "tsid": "LNV37JHLS1I2BF2"
                             }
                         ]
                     },
