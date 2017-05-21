@@ -36,13 +36,13 @@
 			"The ultimate in Animal Kinship. Almost every interaction now grants significant imagination, rewards and bonus chances are gigantic and the animals themselves ... well, they love you best."
 		],
 		"iconUrls": [
-			"https://www.glitchthegame.com/img/skills-460/animalkinship_1.v1428362783.png",
-			"https://www.glitchthegame.com/img/skills-460/animalkinship_2.v1428362783.png",
-			"https://www.glitchthegame.com/img/skills-460/animalkinship_3.v1429808924.png",
-			"https://www.glitchthegame.com/img/skills-460/animalkinship_4.v1428362783.png",
-			"https://www.glitchthegame.com/img/skills-460/animalkinship_5.v1428362783.png",
-			"https://www.glitchthegame.com/img/skills-460/animalkinship_6.v1428362783.png",
-			"https://www.glitchthegame.com/img/skills-460/animalkinship_7.v1428362783.png"
+			"https://childrenofur.com/assets/skills/animalkinship_1.png",
+			"https://childrenofur.com/assets/skills/animalkinship_2.png",
+			"https://childrenofur.com/assets/skills/animalkinship_3.png",
+			"https://childrenofur.com/assets/skills/animalkinship_4.png",
+			"https://childrenofur.com/assets/skills/animalkinship_5.png",
+			"https://childrenofur.com/assets/skills/animalkinship_6.png",
+			"https://childrenofur.com/assets/skills/animalkinship_7.png"
 		],
 		"requirements": {},
 		"giants": ["Humbaba", "Friendly", "Mab"],
@@ -61,11 +61,11 @@
 			"The ultimate level of Arborology skill offers an altogether better class of bonus reward, and provides the foundation necessary to upgrade to even more productive methods of harvesting."
 		],
 		"iconUrls": [
-			"http://www.glitchthegame.com/img/skills-460/gardening_1.v1428362783.png",
-			"http://www.glitchthegame.com/img/skills-460/gardening_2.v1429808924.png",
-			"http://www.glitchthegame.com/img/skills-460/gardening_3.v1428362783.png",
-			"http://www.glitchthegame.com/img/skills-460/gardening_4.v1429808924.png",
-			"http://www.glitchthegame.com/img/skills-460/gardening_5.v1429808924.png"
+			"https://childrenofur.com/assets/skills/gardening_1.png",
+			"https://childrenofur.com/assets/skills/gardening_2.png",
+			"https://childrenofur.com/assets/skills/gardening_3.png",
+			"https://childrenofur.com/assets/skills/gardening_4.png",
+			"https://childrenofur.com/assets/skills/gardening_5.png"
 		],
 		"requirements": {
 			"skills": {
@@ -85,7 +85,7 @@
 			"Though one may use a Bubble Tuner without the Bubble Tuning skill, it is slow, taxing to one's energy and STILL has the possibility of failing. Well, learn Bubble Tuning and your bubble transmogrifications will come sweet 'n' easy."
 		],
 		"iconUrls": [
-			"http://www.glitchthegame.com/img/skills-460/bubbletuning_1.v1429808924.png"
+			"https://childrenofur.com/assets/skills/bubbletuning_1.png"
 		],
 		"requirements": {
 			"level": 3
@@ -104,9 +104,9 @@
 			"Croppery III makes you a veritable master of the garden, giving you more mood and imagination for tending your crops through their lifecycle, and yielding a higher chance of surprise bonuses (or bonus surprises). Above all of that, every so often you will have a 'super harvest', which yields double the amount of crops from a plot."
 		],
 		"iconUrls": [
-			"http://www.glitchthegame.com/img/skills-460/croppery_1.v1429808924.png",
-			"http://www.glitchthegame.com/img/skills-460/croppery_2.v1429808924.png",
-			"http://www.glitchthegame.com/img/skills-460/croppery_3.v1428362783.png"
+			"https://childrenofur.com/assets/skills/croppery_1.png",
+			"https://childrenofur.com/assets/skills/croppery_2.png",
+			"https://childrenofur.com/assets/skills/croppery_3.png"
 		],
 		"requirements": {
 			"level": 3
@@ -123,7 +123,7 @@
 			"The clandestine art of distillation enables the amateur moonshiner to create home-brewed hooch from grain or potatoes in mere minutes, using only a Still and the desire to extract booze from the most innocent of ingredients."
 		],
 		"iconUrls": [
-			"http://www.glitchthegame.com/img/skills-460/distilling_1.v1428362783.png"
+			"https://childrenofur.com/assets/skills/distilling_1.png"
 		],
 		"requirements": {
 			"level": 5
@@ -140,7 +140,7 @@
 			"The basic elements, Red, Green, Blue and Shiny, are tricky things. Not just anyone can handle them. Learning Element Handling gives you the ability to carry an Elemental Pouch and thereby handle all the elements you want. It is also the prerequisite for learning Alchemy and Refining."
 		],
 		"iconUrls": [
-			"http://www.glitchthegame.com/img/skills-460/elementhandling_1.v1428362783.png"
+			"https://childrenofur.com/assets/skills/elementhandling_1.png"
 		],
 		"requirements": {
 			"level": 3
@@ -160,10 +160,10 @@
 			"Mining IV further improves your luck and doubles the imagination you get by mining."
 		],
 		"iconUrls": [
-			"http://www.glitchthegame.com/img/skills-460/mining_1.v1429808924.png",
-			"http://www.glitchthegame.com/img/skills-460/mining_2.v1428362783.png",
-			"http://www.glitchthegame.com/img/skills-460/mining_3.v1428362783.png",
-			"http://www.glitchthegame.com/img/skills-460/mining_4.v1428362783.png"
+			"https://childrenofur.com/assets/skills/mining_1.png",
+			"https://childrenofur.com/assets/skills/mining_2.png",
+			"https://childrenofur.com/assets/skills/mining_3.png",
+			"https://childrenofur.com/assets/skills/mining_4.png"
 		],
 		"requirements": {
 			"level": 3
@@ -180,7 +180,7 @@
 			"The pen is mightier than the sword. This is good, because we don't have any swords. With Penpersonship, you can use a Quill and Paper to write down all your important thoughts and feelings."
 		],
 		"iconUrls": [
-			"http://www.glitchthegame.com/img/skills-460/penmanship_1.v1429808924.png"
+			"https://childrenofur.com/assets/skills/penmanship_1.png"
 		],
 		"requirements": {
 			"level": 7
@@ -201,11 +201,11 @@
 			"Learn Tinkering V, and consider yourself a mastertink. Repair speed is nigh instantaneous and Tinkertool operation barely taxes your energy, but that's just the beginning. With this AND Engineering, you can practically create any tool imaginable. As long as your imagination is restricted to tools that already exist, of course."
 		],
 		"iconUrls": [
-			"http://www.glitchthegame.com/img/skills-460/tinkering_1.v1428362783.png",
-			"http://www.glitchthegame.com/img/skills-460/tinkering_2.v1429808924.png",
-			"http://www.glitchthegame.com/img/skills-460/tinkering_3.v1429808924.png",
-			"http://www.glitchthegame.com/img/skills-460/tinkering_4.v1429808924.png",
-			"http://www.glitchthegame.com/img/skills-460/tinkering_5.v1428362783.png"
+			"https://childrenofur.com/assets/skills/tinkering_1.png",
+			"https://childrenofur.com/assets/skills/tinkering_2.png",
+			"https://childrenofur.com/assets/skills/tinkering_3.png",
+			"https://childrenofur.com/assets/skills/tinkering_4.png",
+			"https://childrenofur.com/assets/skills/tinkering_5.png"
 		],
 		"requirements": {
 			"level": 3
