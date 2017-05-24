@@ -2324,11 +2324,7 @@
 	},
 	"Banya Banya": {
 		"shrine": "Cosma",
-		"tsid": "LIFME5D0K0H2EGC",
-		"hub_id": 100
-	},
-	"Banya Banya ": {
-		"vendor": "Hardware",
+    "vendor": "Hardware",
 		"tsid": "LIFME5D0K0H2EGC",
 		"hub_id": 100
 	},
