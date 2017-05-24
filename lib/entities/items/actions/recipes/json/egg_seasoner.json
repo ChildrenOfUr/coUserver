@@ -1,12 +1,12 @@
 [
-	{
+  {
 		"id": "butterfly_egg",
 		"tool": "egg_seasoner",
 		"input": {
 			"egg": 1,
-			"bubble_hard": 7,
-			"potato": 2,
-			"apple": 3
+			"bubble_blue": 8,
+			"bubble_tiny": 10,
+			"honey": 10
 		},
 		"output": "butterfly_egg",
 		"output_amt": 1,
@@ -24,14 +24,14 @@
 		"output_amt": 1,
 		"time": 1
 	},
-	{
+  {
 		"id": "piggy_egg",
 		"tool": "egg_seasoner",
 		"input": {
 			"egg": 1,
-			"bubble_blue": 8,
-			"bubble_tiny": 10,
-			"honey": 10
+			"bubble_hard": 7,
+			"potato": 2,
+			"apple": 3
 		},
 		"output": "piggy_egg",
 		"output_amt": 1,
