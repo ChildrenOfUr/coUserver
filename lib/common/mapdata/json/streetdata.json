@@ -4044,7 +4044,8 @@
 	},
 	"Double Rainbow": {
 		"tsid": "LDOGBH4BG1E2BM0",
-		"hub_id": 108
+		"hub_id": 108,
+		"map_hidden": true
 	},
 	"Downside Up": {
 		"tsid": "LA9Q9EQ5V4F33RE",
