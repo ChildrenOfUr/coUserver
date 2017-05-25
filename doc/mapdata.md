@@ -24,7 +24,7 @@ These can be used in `streetdata.json`.
 ### Required
 
 - `hub_id` `(int, example = 113)` The ID of the hub containing the street.
-- `tsid` (string, example = "LA5101HF7F429V5")` The TSID of the street, in L/TS form.
+- `tsid` `(string, example = "LA5101HF7F429V5")` The TSID of the street, in L/TS form.
 
 ### Optional
 
