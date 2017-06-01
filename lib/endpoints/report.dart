@@ -5,6 +5,7 @@ class Report {
 	static String issuesUrl = 'ChildrenOfUr/cou-issues/issues';
 	static final bool SendToGithub = true;
 	static final bool SendToImgur = true;
+	static final String PreTriageLabel = 'pending';
 
 	@app.Route('/add', methods: const [app.POST], allowMultipartRequest: true)
 	Future addReport(@app.Body(app.FORM) Map data) async {
@@ -41,7 +42,7 @@ class Report {
 		Map assembleData = {
 			'title': data['title'],
 			'body': body,
-			'labels': ['pending']
+			'labels': [PreTriageLabel]
 		};
 
 		if (data['category'] != null) {
@@ -63,12 +64,15 @@ class Report {
 			// Print issue number to server log for easier client/server log pairing during investigation
 			Log.info('<username=${data['username']}> reported <issue=$newIssueId>');
 
+			String issueColor = '#' + issue['labels']
+				.singleWhere((Map label) => label['name'] != PreTriageLabel)['color'];
+
 			// Notify in Slack
 			SlackReporter.sendBugReport(
 				fallback: 'New ${data['category']}: https://github.com/$issuesUrl/$newIssueId',
 				title: data['title'],
 				titleLink: 'https://github.com/$issuesUrl/$newIssueId',
-				color: '#${issue['labels'][0]['color']}',
+				color: issueColor,
 				iconUrl: 'data:image/png;base64,${await trimImage(data['username'])}',
 				username: data['username']
 			);
