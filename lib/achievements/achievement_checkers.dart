@@ -20,6 +20,10 @@ class AchievementCheckers {
 					Log.warning('Missing TSID for $data');
 					continue;
 				}
+				if (!(data['in_game'] ?? true)) {
+					// Not possible to visit
+					continue;
+				}
 				if (!locationHistory.contains(tsidL(data['tsid']))) {
 					// Not visited
 					return false;
