@@ -63,7 +63,7 @@ class Rube extends NPC with MetabolicsChange {
 	};
 
 	static final Action ACTION_CUBIMAL = new Action.withName('Give Cubimal')
-		..description = 'Give Rube a cubimal likeness'
+		..description = 'Give Rube a cubimal'
 		..itemRequirements = new ItemRequirements.set(any: CUBIMAL_TYPES)
 		..error = "You don't have any cubimals";
 
@@ -71,29 +71,32 @@ class Rube extends NPC with MetabolicsChange {
 		..description = 'The Rube is bad at trading. Try it!';
 
 	static Future<bool> maybeSpawn(String tsid, String username) async {
-		// 1% chance of spawn when the minute is the number of players online
-		if (rand.nextInt(100) == 0 && new DateTime.now().minute == PlayerUpdateHandler.users.length.clamp(0, 59)) {
-			Identifier target = PlayerUpdateHandler.users[username];
-			if (target == null) {
-				return false;
-			}
+		// TODO: fix rube before enabling
+		return false;
 
-			if ((await StreetEntities.getEntities(tsid)).where((StreetEntity entity) => entity.type == 'Rube').isNotEmpty) {
-				// Rube is already on this street
-				return false;
-			}
-
-			StreetEntity entity = new StreetEntity.create(
-				id: createId(target.currentX ?? 0, target.currentY ?? 0, 'Rube', tsid),
-				type: 'Rube',
-				tsid: tsid,
-				x: target.currentX ?? 0,
-				y: target.currentY ?? 0,
-				metadata_json: JSON.encode({'targetUsername': username}));
-			return await StreetEntities.setEntity(entity);
-		} else {
-			return false;
-		}
+		// 0.05% chance of spawn when the minute is the number of players online
+//		if (rand.nextInt(2000) == 0 && new DateTime.now().minute == PlayerUpdateHandler.users.length.clamp(0, 59)) {
+//			Identifier target = PlayerUpdateHandler.users[username];
+//			if (target == null) {
+//				return false;
+//			}
+//
+//			if ((await StreetEntities.getEntities(tsid)).where((StreetEntity entity) => entity.type == 'Rube').isNotEmpty) {
+//				// Rube is already on this street
+//				return false;
+//			}
+//
+//			StreetEntity entity = new StreetEntity.create(
+//				id: createId(target.currentX ?? 0, target.currentY ?? 0, 'Rube', tsid),
+//				type: 'Rube',
+//				tsid: tsid,
+//				x: target.currentX ?? 0,
+//				y: target.currentY ?? 0,
+//				metadata_json: JSON.encode({'targetUsername': username}));
+//			return await StreetEntities.setEntity(entity);
+//		} else {
+//			return false;
+//		}
 	}
 
 	Identifier target;
