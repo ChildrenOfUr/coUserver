@@ -3,8 +3,9 @@ part of street;
 class DBStreetInstance extends DBStreet {
 	@Field() int uid;
 	@Field() String tsid;
+	@Field() bool is_home;
 
-	DBStreetInstance({this.tsid, this.uid}) {
+	DBStreetInstance({this.tsid, this.uid, this.is_home: false}) {
 		id = '${tsidL(tsid)}.$uid';
 	}
 
@@ -20,8 +21,8 @@ class StreetInstance extends Street {
 	/// Instance a street for a user.
 	/// Returns null if the database edit fails.
 	/// If an instance already exists, it will be returned instead
-	static Future<StreetInstance> create(String tsid, int uid) async {
-		StreetInstance instance = new StreetInstance(tsid: tsid, uid: uid);
+	static Future<StreetInstance> create(String tsid, int uid, {bool homeStreet}) async {
+		StreetInstance instance = new StreetInstance(tsid, uid, homeStreet: homeStreet);
 		if (await instance.save()) {
 			return instance;
 		} else {
@@ -31,8 +32,8 @@ class StreetInstance extends Street {
 
 	DBStreetInstance database;
 
-	StreetInstance({String tsid, int uid}) : super(MapData.getStreetByTsid(tsid)['label'] ?? "$uid's $tsid", tsid) {
-		database = new DBStreetInstance(tsid: tsid, uid: uid);
+	StreetInstance(String tsid, int uid, {bool homeStreet}) : super(MapData.getStreetByTsid(tsid)['label'] ?? "$uid's $tsid", tsid) {
+		database = new DBStreetInstance(tsid: tsid, uid: uid, is_home: homeStreet);
 
 		// Load instance-specific entities
 		loadEntities(database.id);
@@ -43,8 +44,8 @@ class StreetInstance extends Street {
 	Future<bool> save() async {
 		PostgreSql dbConn = await dbManager.getConnection();
 		try {
-			String query = 'INSERT INTO $TABLE (id, tsid, uid) VALUES (@id, @tsid, @uid)';
-			int rows = await dbConn.execute(query, {'id': database.id, 'tsid': database.tsid, 'uid': database.uid});
+			String query = 'INSERT INTO $TABLE (id, is_home, items) VALUES (@id, @is_home, @items)';
+			int rows = await dbConn.execute(query, {'id': database.id, 'is_home': database.is_home, 'items': database.items});
 			return (rows == 1);
 		} catch (e) {
 			Log.error('Could not save street instance <id=${database.id}>', e);
@@ -77,4 +78,25 @@ class StreetInstance extends Street {
 
 	@override
 	String toString() => 'Street <tsid=${database.tsid}> for <uid=${database.id}>';
+}
+
+@app.Group('/homestreet')
+class HomeStreet {
+	@app.Route('/get/:username')
+	Future<String> getForPlayer(String username) async {
+		try {
+			int userId = await User.getIdFromUsername(username);
+			String query = "SELECT tsid FROM ${StreetInstance.TABLE} WHERE is_home AND tsid LIKE '%.@userId'";
+			List<String> rows = await dbConn.query(query, String, {'userId': userId});
+			return rows.single;
+		} catch (ex) {
+			return null;
+		}
+	}
+
+	@app.Route('/set/:username/:tsid')
+	Future<bool> setForPlayer(String username, String tsid) async {
+		int userId = await User.getIdFromUsername(username);
+		return (await StreetInstance.create(tsid, userId, homeStreet: true)) != null;
+	}
 }
