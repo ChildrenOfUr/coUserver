@@ -896,28 +896,44 @@ class InventoryV2 {
 			// sort the list and pick the one with the most used already
 			possibles.sort();
 			DurabilitySlot mostUsed = possibles.removeAt(0);
+			String newlyBroken = null;
 
 			//write it to the tmpSlots array
 			if(mostUsed.subSlot == -1) {
 				Slot slotToModify = tmpSlots[mostUsed.slot];
 				int used = int.parse(slotToModify.metadata['durabilityUsed']?.toString() ?? '0');
-				slotToModify.metadata['durabilityUsed'] = '${used + amount}';
+				used += amount;
+				slotToModify.metadata['durabilityUsed'] = used.toString();
 				tmpSlots[mostUsed.slot] = slotToModify;
+
+				if (used == items[slotToModify.itemType].durability) {
+					newlyBroken = items[slotToModify.itemType].name;
+				}
 			} else {
 				//have to modify a bag slot
 				Slot bag = tmpSlots[mostUsed.slot];
 				List<Slot> bagSlots = jsonx.decode(bag.metadata['slots'], type: listOfSlots);
 				Slot bagSlot = bagSlots[mostUsed.subSlot];
 				int used = int.parse(bagSlot.metadata['durabilityUsed']?.toString() ?? '0');
-				bagSlot.metadata['durabilityUsed'] = '${used + amount}';
+				used += amount;
+				bagSlot.metadata['durabilityUsed'] = used.toString();
 				bagSlots[mostUsed.subSlot] = bagSlot;
 				bag.metadata['slots'] = jsonx.encode(bagSlots);
 				tmpSlots[mostUsed.slot] = bag;
+
+				if (used == items[bagSlot.itemType].durability) {
+					newlyBroken = items[bagSlot.itemType].name;
+				}
 			}
 
 			//finally save the array as the new inventory
 			inventory_json = jsonx.encode(tmpSlots);
 			await _updateDatabase(email);
+
+			if (newlyBroken != null) {
+				toast("Yikes! Your $newlyBroken just broke.", StreetUpdateHandler.userSockets[email]);
+			}
+
 			return true;
 		}
 
