@@ -125,7 +125,7 @@ class Piggy extends NPC {
 		SkillManager.learn(SKILL, email);
 		nibbleCounts[email] = (nibbleCounts[email] ?? 0) + 1;
 		messageBus.publish(new RequirementProgress('piggyNibble', email));
-		QuestEndpoint.questLogCache[email].offerQuest('Q11');
+		QuestEndpoint.questLogCache[email]?.offerQuest('Q11');
 		//Piggy Nibbler Quest
 
 		//give the player the 'fruits' of their labor
@@ -180,7 +180,7 @@ class Piggy extends NPC {
 
 		say(responses['pet'].elementAt(rand.nextInt(responses['pet'].length)));
 
-		QuestEndpoint.questLogCache[email].offerQuest('Q9');
+		QuestEndpoint.questLogCache[email]?.offerQuest('Q9');
 
 		// Award achievements
 		int totalPetted = await StatManager.get(email, Stat.piggies_petted);

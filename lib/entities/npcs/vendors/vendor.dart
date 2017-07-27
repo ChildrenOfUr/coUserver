@@ -306,7 +306,7 @@ abstract class Vendor extends NPC {
 
 			if (item.itemType == 'knife_and_board') {
 				//offer the make me a sammich quest
-				QuestEndpoint.questLogCache[email].offerQuest('Q1');
+				QuestEndpoint.questLogCache[email]?.offerQuest('Q1');
 			}
 		}
 

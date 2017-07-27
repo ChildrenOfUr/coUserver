@@ -542,7 +542,7 @@ class InventoryV2 {
 				numRowsUpdated = await dbConn.execute(queryString, this);
 
 				//player just got their first item, let's tell them about bags
-				QuestEndpoint.questLogCache[email].offerQuest('Q8');
+				QuestEndpoint.questLogCache[email]?.offerQuest('Q8');
 			}
 
 			return numRowsUpdated;

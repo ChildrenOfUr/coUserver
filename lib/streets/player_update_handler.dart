@@ -63,7 +63,7 @@ class PlayerUpdateHandler {
 
 						if (map['street'] == 'Louise Pasture') {
 							//offer the race to the forest
-							QuestEndpoint.questLogCache[email].offerQuest('Q4');
+							QuestEndpoint.questLogCache[email]?.offerQuest('Q4');
 						}
 
 						messageBus.publish(new RequirementProgress('location_${map['street']}', email));

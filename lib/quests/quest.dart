@@ -314,7 +314,7 @@ class UserQuestLog extends Trackable {
 			//wait for a minute before offering
 			if (q.quest.id == 'Q1') {
 				new Timer(new Duration(minutes: 1), () =>
-					QuestEndpoint.questLogCache[email].offerQuest('Q7'));
+					QuestEndpoint.questLogCache[email]?.offerQuest('Q7'));
 			}
 		} else if (event is FailQuest) {
 			FailQuest q = event;

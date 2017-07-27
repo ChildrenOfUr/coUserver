@@ -214,7 +214,7 @@ abstract class Tree extends Plant {
 		}
 
 		//offer the tree petter quest
-		QuestEndpoint.questLogCache[email].offerQuest('Q2');
+		QuestEndpoint.questLogCache[email]?.offerQuest('Q2');
 
 		messageBus.publish(new RequirementProgress('treePet$type', email));
 
