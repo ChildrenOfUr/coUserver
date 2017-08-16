@@ -22,58 +22,38 @@ If you want to run it locally or on your own server, you'll need to have an envi
 
 ## Contributing
 
-`coUserver` is based on [Dart](https://www.dartlang.org/), so the first thing you'll need to do (if you haven't already) is to install it.
+`coUserver` is written in [Dart](https://www.dartlang.org/), so the first thing you'll need to do (if you haven't already) is to install it.
 
-### Setting up a development environment
+### Set up a development environment
 
-#### Mac OS X / macOS via `homebrew`
+#### Install Dart
 
-1. `brew update`
-2. `brew tap dart-lang/dart`
-3. `brew install dart --with-content-shell --with-dartium`
+- [Linux](https://www.dartlang.org/install/linux)
+- [Windows](https://www.dartlang.org/install/windows)
+- [Mac OS](https://www.dartlang.org/install/mac)
 
-#### Windows
+#### Install an IDE of your choice
 
-1. Download the <a href="https://www.dartlang.org/">Dart Editor</a>.
+- [Atom](https://atom.io/) is free, just make sure to install the [dartlang](https://atom.io/packages/dartlang) package.
+- [WebStorm](https://www.jetbrains.com/webstorm/) is not free, but includes Dart support.
 
-### Building
+### Get dependencies
 
-#### In Dart Editor
+You'll only need to do this when you first get the code, and later on if we update the dependencies (pubspec.yaml changes).
 
-1. Go to File -> "Open Existing Folder" and open this project folder.
-2. Make sure you have the required dependencies specified in pubspec.yaml. If you're missing
-   any of these, try selecting a file in the project, and then running Tools -> Pub Get.
+1. Run `pub get` from the server directory.
+2. Sit back and wait a few minutes.
 
-#### Command line
+### Run locally
 
-1. `pub get`
-2. `pub build`
+The server requires some configuration to be able to attach to external services in a file named `lib/API_KEYS.dart`. There's a non-working example in the `lib` directory named `API_KEYS.dart.example`. Contact someone on the development team for working values.
 
-### Running local
-
-The server requires some configuration to be able to attach to external services
-in a file named `lib/API_KEYS.dart`. There's a non-working example in the `lib`
-directory named `API_KEYS.dart.example`. Contact one of the development team
-for working values.
-
-#### In Dart Editor
-
-1. Right-click on `declarations.dart` and select Run.
-
-If you do not have a signed cert and cert password, you will have to supply the
-`--no-load-cert` option in the Dart Editor run configuration.
-
-#### Command line
-
-    dart declarations.dart
-
-If you do not have a signed cert and cert password, you will have to add the
-`--no-load-cert` option:
-
-    dart declarations.dart --no-load-cert
+`dart declarations.dart --no-load-cert`
 
 #### But is it really running?
 
 Load http://localhost:8181/serverStatus in a browser or using `curl` and you should see output like
 
-    {"numPlayers":0,"playerList":[],"numStreetsLoaded":0,"streetsLoaded":[],"bytesUsed":0,"cpuUsed":29.4,"uptime":"0:00:29"}
+```json
+{"numPlayers":0,"playerList":[],"numStreetsLoaded":0,"streetsLoaded":[],"bytesUsed":0,"cpuUsed":29.4,"uptime":"0:00:29"}
+```
