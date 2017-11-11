@@ -146,22 +146,34 @@ abstract class MapData {
 
 	/// Whether a street is hidden
 	static bool streetIsHidden(String streetName) {
-		try {
-			Map<String, dynamic> streetData = streets[streetName];
+		Map<String, dynamic> streetData;
 
-			// Street level
-			if (streetData['map_hidden']) {
+		try {
+			streetData = streets[streetName];
+
+			// We don't have this street built
+			if (streetData['in_game'] == false) {
+				return true;
+			}
+		} catch(_) {
+			// Street not found at all
+			return true;
+		}
+
+		try {
+			// Street is hidden
+			if (streetData['map_hidden'] == true) {
 				return true;
 			}
 
-			// Hub level
-			if (MapData.hubs[streetData['hub_id']]['map_hidden']) {
+			// Hub is hidden
+			if (MapData.hubs[streetData['hub_id'].toString()]['map_hidden'] == true) {
 				return true;
 			}
 
 			return false;
-		} catch(_) {
-			// Missing data
+		} catch (_) {
+			// Missing data, assume it's a normal street
 			return false;
 		}
 	}
