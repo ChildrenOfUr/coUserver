@@ -29,7 +29,7 @@ class QuestEndpoint {
 	}
 
 	static Future processMessage(WebSocket ws, String message) async {
-		Map map = JSON.decode(message);
+		Map map = jsonDecode(message);
 		if (map['connect'] != null) {
 			String email = map['email'];
 

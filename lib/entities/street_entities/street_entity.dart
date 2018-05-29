@@ -39,9 +39,9 @@ class StreetEntity {
 
 	@Field() String metadata_json;
 
-	Map<String, String> get metadata => JSON.decode(metadata_json ?? '{}');
+	Map<String, String> get metadata => jsonDecode(metadata_json ?? '{}');
 
-	set metadata(Map<String, String> map) => metadata_json = JSON.encode(map);
+	set metadata(Map<String, String> map) => metadata_json = jsonEncode(map);
 
 	@override String toString() => "<StreetEntity $id ($type) on $tsid at ($x, $y, $z), flip: $h_flip, rotation: $rotation with metadata $metadata_json>";
 }

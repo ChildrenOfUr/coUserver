@@ -6,7 +6,7 @@ abstract class Vendor extends NPC {
 	static Future<int> loadVendorTypes() async {
 		String filePath = path.join(
 			serverDir.path, 'lib', 'entities', 'npcs', 'vendors', 'vendors.json');
-		JSON.decode(await new File(filePath).readAsString()).forEach((String street, String type) {
+		jsonDecode(await new File(filePath).readAsString()).forEach((String street, String type) {
 			vendorTypes[street] = type;
 		});
 		Log.verbose('[Vendor] Loaded ${vendorTypes.length} vendor types');
@@ -279,7 +279,7 @@ abstract class Vendor extends NPC {
 		map['vendorName'] = type;
 		map['id'] = id;
 		map['itemsForSale'] = itemsForSale;
-		userSocket.add(JSON.encode(map));
+		userSocket.add(jsonEncode(map));
 	}
 
 	sell({WebSocket userSocket, String email}) {
@@ -289,7 +289,7 @@ abstract class Vendor extends NPC {
 		map['id'] = id;
 		map['itemsForSale'] = itemsForSale;
 		map['openWindow'] = 'vendorSell';
-		userSocket.add(JSON.encode(map));
+		userSocket.add(jsonEncode(map));
 	}
 
 	buyItem({WebSocket userSocket, String itemType, int num, String email}) async {

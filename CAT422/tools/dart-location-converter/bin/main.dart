@@ -15,10 +15,10 @@ main(List<String> args) async {
 
 			XmlDocument document = parse(await xmlFile.readAsString());
 
-			Map locationJson = JSON.decode(await jsonFile.readAsString());
+			Map locationJson = jsonDecode(await jsonFile.readAsString());
 			locationJson['physics'] = await _getPhysics(document);
 			jsonFile.writeAsString(jsonx.encode(locationJson, indent:'    '));
-			jsonCallbackFile.writeAsString('getRoom('+JSON.encode(locationJson)+')');
+			jsonCallbackFile.writeAsString('getRoom('+jsonEncode(locationJson)+')');
 			print('wrote ${jsonFile.path}');
 		}
 	}

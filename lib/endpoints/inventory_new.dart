@@ -91,7 +91,8 @@ class Slot {
 		}
 	}
 
-	bool operator ==(Slot other) {
+	bool operator ==(dynamic other) {
+		assert(other is Slot);
 		return (
 			itemType == other.itemType &&
 			count == other.count &&
@@ -309,7 +310,7 @@ class InventoryV2 {
 
 	Future<int> _addItem(Map itemMap, int count, String email) async {
 		//instantiate an item object based on the map
-		Item item = jsonx.decode(JSON.encode(itemMap), type: Item);
+		Item item = jsonx.decode(jsonEncode(itemMap), type: Item);
 
 		if (item.isContainer && item.metadata['slots'] == null) {
 			List<Slot> emptySlots = [];
@@ -616,7 +617,7 @@ class InventoryV2 {
 			return 0;
 		}
 
-		Item item = jsonx.decode(JSON.encode(itemMap), type: Item);
+		Item item = jsonx.decode(jsonEncode(itemMap), type: Item);
 		// Keep a record of how many items we have taken from slots already,
 		// and how many more we need to remove
 		int toGrab = count,
@@ -783,7 +784,7 @@ class InventoryV2 {
 			slotMaps.add(slotMap);
 		}
 		Map inventoryMap = {'inventory':'true', 'update':update, 'slots':slotMaps};
-		userSocket?.add(JSON.encode(inventoryMap));
+		userSocket?.add(jsonEncode(inventoryMap));
 	}
 
 	// Public Methods /////////////////////////////////////////////////////////////////////////////
@@ -791,14 +792,20 @@ class InventoryV2 {
 	// Return the inventory as a List<Map>, where each slot is a Map in the List
 	// Can then be READ by other functions (but not written to)
 	List<Map> getItems() {
-		return JSON.decode(inventory_json);
+		return jsonDecode(inventory_json);
 	}
 
 	bool _durabilityOk(Slot slot) {
 		if (!slot.metadata.containsKey('durabilityUsed')) {
 			return true;
 		} else {
-			int used = int.parse(slot.metadata['durabilityUsed'], onError: (String source) => 0);
+			int used;
+			try {
+				used = int.parse(slot.metadata['durabilityUsed']);
+			} catch (_) {
+				used = 0;
+			}
+
 			int max = items[slot.itemType].durability;
 			if (items[slot.itemType].durability == null) {
 				return true;
@@ -954,7 +961,7 @@ class InventoryV2 {
 				numTriesLeft--;
 			}
 
-			if (((inventoryLocked[email] ?? []) as List).length > 0) {
+			if ((inventoryLocked[email] ?? []).length > 0) {
 				Log.warning("Could not acquire a lock for inventory of <email=$email> for $reason because ${inventoryLocked[email]}");
 				return false;
 			}

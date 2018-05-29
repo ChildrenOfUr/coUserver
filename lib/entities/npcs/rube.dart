@@ -1,6 +1,6 @@
 part of entity;
 
-class Rube extends NPC with MetabolicsChange {
+class Rube extends NPC {
 	static final int FOLLOW_SPEED = 50;
 	static final int MAX_TRADE_ATTEMPTS = 3;
 
@@ -242,12 +242,13 @@ class Rube extends NPC with MetabolicsChange {
 				return false;
 			}
 
-			await trySetMetabolics(email, imgMin: itemType.length ~/ 2, imgRange: 5);
+			MetabolicsChange mc = new MetabolicsChange();
+			await mc.trySetMetabolics(email, imgMin: itemType.length ~/ 2, imgRange: 5);
 			say(RESPONSES['giveCubimal'][rand.nextInt(RESPONSES['giveCubimal'].length)]);
 			return true;
 		} else {
 			// Pick cubimal
-			userSocket.add(JSON.encode({
+			userSocket.add(jsonEncode({
 				"action": "giveCubimal", // recursive call, but with more arguments
 				"id": id,
 				"openWindow": "itemChooser",

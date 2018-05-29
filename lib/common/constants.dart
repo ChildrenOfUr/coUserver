@@ -15,7 +15,7 @@ class Constants {
 
 	@app.Route("/json")
 	String getAll() {
-		return JSON.encode({
+		return jsonEncode({
 			"quoinLimit": quoinLimit,
 			"quoinMultiplierLimit": quoinMultiplierLimit,
 			"changeUsernameCost": changeUsernameCost

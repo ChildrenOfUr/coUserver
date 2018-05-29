@@ -1,6 +1,6 @@
 part of item;
 
-abstract class PiggyPlop extends Object with MetabolicsChange {
+abstract class PiggyPlop {
 	Future<bool> sniffPlop({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		toast('Wow, no. Nope, bad idea', userSocket);
 		return true;
@@ -13,7 +13,8 @@ abstract class PiggyPlop extends Object with MetabolicsChange {
 
 		if(itemInSlot.itemType == 'butterfly_lotion') {
 			toast("That didn't taste as good as it smells. -5 mood", userSocket);
-			return await trySetMetabolics(username, mood: -5);
+			MetabolicsChange mc = new MetabolicsChange();
+			return await mc.trySetMetabolics(username, mood: -5);
 		} else if(itemInSlot.itemType == 'piggy_plop') {
 			toast("I don't think you're doing this right", userSocket);
 			return true;

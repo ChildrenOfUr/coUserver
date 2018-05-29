@@ -56,7 +56,7 @@ abstract class BabyAnimals {
 		}
 
 		List<String> foods = items[itemInSlot.itemType].actions[0].itemRequirements.any;
-		userSocket.add(JSON.encode({
+		userSocket.add(jsonEncode({
 			'id': 'global_action_monster',
 			'openWindow': 'itemChooser',
 			'action': 'feed2',

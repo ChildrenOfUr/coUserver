@@ -65,13 +65,13 @@ class PlayerSkill extends Skill {
 		PostgreSql dbConn = await dbManager.getConnection();
 		try {
 			// Get existing data
-			Map<String, int> skillsData = JSON.decode(
+			Map<String, int> skillsData = jsonDecode(
 				(await dbConn.query(SkillManager.CELL_QUERY, Metabolics, {"email": email})
 			).first.skillsJson);
 
 			// Modify
 			skillsData[id] = points;
-			String newJson = JSON.encode(skillsData);
+			String newJson = jsonEncode(skillsData);
 
 			// Write new data
 			return (await (dbConn.execute(

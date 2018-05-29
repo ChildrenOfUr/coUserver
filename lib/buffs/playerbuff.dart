@@ -104,7 +104,7 @@ class PlayerBuff extends Buff {
 	Future extend(Duration additional) async {
 		remaining += additional;
 		await _write();
-		StreetUpdateHandler.userSockets[email].add(JSON.encode({
+		StreetUpdateHandler.userSockets[email].add(jsonEncode({
 			'buff_extend': id,
 			'buff_extend_secs': additional.inSeconds
 		}));
@@ -114,7 +114,7 @@ class PlayerBuff extends Buff {
 		PostgreSql dbConn = await dbManager.getConnection();
 		try {
 			// Get existing data
-			Map<String, int> buffsData = JSON.decode(
+			Map<String, int> buffsData = jsonDecode(
 				(await dbConn.query(BuffManager.CELL_QUERY, Metabolics, {"email": email})
 			).first.buffsJson);
 
@@ -123,7 +123,7 @@ class PlayerBuff extends Buff {
 			if ((!indefinite || remove) && remaining.inSeconds <= 0) {
 				buffsData.remove(id);
 			}
-			String newJson = JSON.encode(buffsData);
+			String newJson = jsonEncode(buffsData);
 
 			// Write new data
 			return (await (dbConn.execute(

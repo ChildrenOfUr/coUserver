@@ -91,7 +91,8 @@ abstract class Rock extends Plant {
 			imgMin += 2;
 		}
 
-		success = await super.trySetMetabolics(email, energy: -energyUsed, imgMin: imgMin, imgRange: imgReward);
+		MetabolicsChange mc = new MetabolicsChange();
+		success = await mc.trySetMetabolics(email, energy: -energyUsed, imgMin: imgMin, imgRange: imgReward);
 		if (!success) {
 			return false;
 		}

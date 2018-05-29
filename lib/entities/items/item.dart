@@ -49,7 +49,6 @@ Map<String, Item> items = {};
 
 class Item extends Object
 	with
-		MetabolicsChange,
 		BabyAnimals,
 		Consumable,
 		Cubimal,
@@ -74,8 +73,8 @@ class Item extends Object
 	// Load item data from JSON files
 	static Future<int> loadItems() async {
 		String filePath = path.join(serverDir.path, 'lib', 'entities', 'items', 'json');
-		await Future.forEach(await new Directory(filePath).list().toList(), (File cat) async {
-			JSON.decode(await cat.readAsString()).forEach((String name, Map itemMap) {
+		await Future.forEach(await new Directory(filePath).list().toList(), (FileSystemEntity cat) async {
+			jsonDecode(await (cat as File).readAsString()).forEach((String name, Map itemMap) {
 				itemMap['itemType'] = name;
 				items[name] = decode(itemMap, Item);
 			});
@@ -94,7 +93,7 @@ class Item extends Object
 		int total = 0;
 		String filePath = path.join(
 			serverDir.path, 'lib', 'entities', 'items', 'actions', 'consume.json');
-		JSON.decode(await new File(filePath).readAsString()).forEach((String item, Map award) {
+		jsonDecode(await new File(filePath).readAsString()).forEach((String item, Map award) {
 			try {
 				items[item].consumeValues = award;
 				total++;
@@ -260,7 +259,7 @@ class Item extends Object
 	Future<bool> openQuest({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		InventoryV2 inv = await getInventory(email);
 		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
-		Quest quest = decode(JSON.decode(itemInSlot.metadata['questData']), Quest);
+		Quest quest = decode(jsonDecode(itemInSlot.metadata['questData']), Quest);
 
 		// Install the quest in the map of available quests
 		quests[quest.id] = quest;

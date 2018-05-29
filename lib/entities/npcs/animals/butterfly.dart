@@ -253,7 +253,8 @@ class Butterfly extends NPC {
 	}
 
 	Future<bool> massage({WebSocket userSocket, String email}) async {
-		bool success = await super.trySetMetabolics(email, energy: -7, mood: 3, imgMin: 5, imgRange: 3);
+		MetabolicsChange mc = new MetabolicsChange();
+		bool success = await mc.trySetMetabolics(email, energy: -7, mood: 3, imgMin: 5, imgRange: 3);
 		if (!success) {
 			return false;
 		}
@@ -294,7 +295,8 @@ class Butterfly extends NPC {
 
 	Future<bool> milk({WebSocket userSocket, String email}) async {
 		if (massaged || await SkillManager.getLevel('animal_kinship', email) >= 6) {
-			bool success = await super.trySetMetabolics(email, energy: -5, mood: 5, imgMin: 5, imgRange: 6);
+			MetabolicsChange mc = new MetabolicsChange();
+			bool success = await mc.trySetMetabolics(email, energy: -5, mood: 5, imgMin: 5, imgRange: 6);
 			if (!success) {
 				return false;
 			}
@@ -315,7 +317,8 @@ class Butterfly extends NPC {
 			StatManager.add(email, Stat.butterflies_milked);
 		} else {
 			// not massaged (milkFail)
-			bool success = await super.trySetMetabolics(email, energy: -5, mood: -2, imgMin: 5, imgRange: 2);
+			MetabolicsChange mc = new MetabolicsChange();
+			bool success = await mc.trySetMetabolics(email, energy: -5, mood: -2, imgMin: 5, imgRange: 2);
 			if (!success) {
 				return false;
 			}

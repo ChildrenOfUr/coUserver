@@ -13,7 +13,7 @@ import 'package:coUserver/common/mapdata/mapdata.dart';
 Future<List<String>> getLocationHistory(String email) async {
 	Metabolics metabolics = await getMetabolics(email: email);
 	String lhJson = metabolics.locationHistory;
-	List<String> lhList = JSON.decode(lhJson);
+	List<String> lhList = jsonDecode(lhJson);
 	return lhList;
 }
 

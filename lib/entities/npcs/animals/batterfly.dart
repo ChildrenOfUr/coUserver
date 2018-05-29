@@ -72,7 +72,7 @@ class Batterfly extends NPC {
 		map['openWindow'] = 'itemChooser';
 		map['filter'] = 'consumeValues={.*energy:.*}';
 		map['windowTitle'] = 'Feed Batterfly What?';
-		userSocket.add(JSON.encode(map));
+		userSocket.add(jsonEncode(map));
 		return true;
 	}
 

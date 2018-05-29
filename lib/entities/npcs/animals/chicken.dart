@@ -154,7 +154,7 @@ class Chicken extends NPC implements EventHandler {
 		super.restoreState(metadata);
 
 		if (metadata.containsKey('squeezeList')) {
-			squeezeList = JSON.decode(metadata['squeezeList']);
+			squeezeList = jsonDecode(metadata['squeezeList']);
 		}
 
 		if (metadata.containsKey('lastReset')) {
@@ -169,7 +169,7 @@ class Chicken extends NPC implements EventHandler {
 	}
 
 	Map<String, String> getPersistMetadata() => super.getPersistMetadata()
-		..['squeezeList'] = JSON.encode(squeezeList)
+		..['squeezeList'] = jsonEncode(squeezeList)
 		..['lastReset'] = lastReset.millisecondsSinceEpoch.toString();
 
 	Future<bool> squeeze({WebSocket userSocket, String email}) async {
@@ -200,7 +200,8 @@ class Chicken extends NPC implements EventHandler {
 			odds = 15;
 		}
 
-		bool success = await trySetMetabolics(email, energy: energy, mood: mood, imgMin:imgMin, imgRange: imgRange);
+		MetabolicsChange mc = new MetabolicsChange();
+		bool success = await mc.trySetMetabolics(email, energy: energy, mood: mood, imgMin:imgMin, imgRange: imgRange);
 		if(!success) {
 			return false;
 		}
@@ -237,7 +238,7 @@ class Chicken extends NPC implements EventHandler {
 	Future<bool> incubate({WebSocket userSocket, String email}) async {
 		if (!incubating) {
 			// Not busy
-			userSocket.add(JSON.encode({
+			userSocket.add(jsonEncode({
 				"action": "incubate2",
 				"id": id,
 				"openWindow": "itemChooser",
@@ -416,7 +417,8 @@ class Chicken extends NPC implements EventHandler {
 	Map<String, dynamic> headers;
 
 	@override
-	void handleEvent(ChatEvent event) {
+	void handleEvent(dynamic event) {
+		assert(event is ChatEvent);
 		kfcEnd = (kfcEnd ?? new DateTime.now()).add(new Duration(seconds: 3));
 	}
 }

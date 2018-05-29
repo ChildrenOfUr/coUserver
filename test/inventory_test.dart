@@ -337,7 +337,7 @@ Future<InventoryV2> getInventory() async {
 	expect(resp.statusCode, equals(200));
 
 	//decode the inventory
-	InventoryV2 inventory = decode(JSON.decode(resp.mockContent), InventoryV2);
+	InventoryV2 inventory = decode(jsonDecode(resp.mockContent), InventoryV2);
 
 	//verify inventory has 10 slots
 	expect(inventory.slots.length, equals(10));

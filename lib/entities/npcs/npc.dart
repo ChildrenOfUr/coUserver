@@ -25,6 +25,7 @@ abstract class NPC extends Entity {
 	String nameOverride;
 	MutableRectangle _collisionsRect;
 	Map<String, String> metadata = {};
+	MetabolicsChange mc = new MetabolicsChange();
 
 	/// Username and chat bubble text
 	Map<String, String> personalBubbles = {};
@@ -184,8 +185,8 @@ abstract class NPC extends Entity {
 	}
 
 	@override
-	Map getMap([String username]) {
-		Map entity = super.getMap()
+	Map<String, dynamic> getMap([String username]) {
+		Map<String, dynamic> entity = super.getMap()
 			..addAll({
 				"id": id,
 				"url": currentState.url,
@@ -227,7 +228,7 @@ abstract class NPC extends Entity {
 		}
 
 		Function renameCallback = (String ref, String name) {
-			Map<String, dynamic> data = JSON.decode(ref);
+			Map<String, dynamic> data = jsonDecode(ref);
 
 			if (this.id != data['id']) {
 				return;
@@ -240,7 +241,7 @@ abstract class NPC extends Entity {
 			this.nameOverride = name;
 		};
 
-		promptString('Choose a name', userSocket, JSON.encode({'id': id, 'email': email}), renameCallback, charLimit: NAME_LEN_LIMIT);
+		promptString('Choose a name', userSocket, jsonEncode({'id': id, 'email': email}), renameCallback, charLimit: NAME_LEN_LIMIT);
 		return true;
 	}
 
@@ -275,7 +276,7 @@ abstract class NPC extends Entity {
 					} else {
 						personalBubbles[toUsername] = null;
 					}
-					resetGains();
+					mc.resetGains();
 				});
 			}
 		} else {
@@ -299,7 +300,7 @@ abstract class NPC extends Entity {
 					} else {
 						personalBubbles[toUsername] = null;
 					}
-					resetGains();
+					mc.resetGains();
 
 					// Remove handler
 					pendingBubbleCallbacks.remove(id);

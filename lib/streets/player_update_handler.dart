@@ -45,11 +45,11 @@ class PlayerUpdateHandler {
 
 	static Future processMessage(WebSocket ws, String message) async {
 		try {
-			Map map = JSON.decode(message);
+			Map map = jsonDecode(message);
 
 			if (map['clientVersion'] != null) {
 				if (map['clientVersion'] < MIN_CLIENT_VER) {
-					ws.add(JSON.encode({'error':'version too low'}));
+					ws.add(jsonEncode({'error':'version too low'}));
 				}
 			}
 			else {
@@ -132,7 +132,7 @@ class PlayerUpdateHandler {
 	}
 
 	static void sendAll(Map map) {
-		String data = JSON.encode(map);
+		String data = jsonEncode(map);
 		users.forEach((String username, Identifier id) {
 			if ((map["street"] == id.currentStreet || map['changeStreet'] != null)) {
 				id.webSocket.add(data);

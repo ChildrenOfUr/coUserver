@@ -149,14 +149,23 @@ class Console {
 
 	static void init() {
 		// Graceful shutdown
-		ProcessSignal.SIGINT.watch().listen((ProcessSignal sig) async => await cleanup());
+		ProcessSignal.sigint.watch().listen((ProcessSignal sig) async => await cleanup());
 		if (!Platform.isWindows) {
-			ProcessSignal.SIGTERM.watch().listen((ProcessSignal sig) async => await cleanup());
+			ProcessSignal.sigterm.watch().listen((ProcessSignal sig) async => await cleanup());
 		}
 
 		if (!Platform.isWindows) {
-			stdin.echoMode = true;
-			stdin.lineMode = true;
+			try {
+				stdin.echoMode = true;
+			} catch (e) {
+				Log.warning("[Console] $e");
+			}
+
+			try {
+				stdin.lineMode = true;
+			} catch (e) {
+				Log.warning("[Console] $e");
+			}
 		}
 
 		_handler?.cancel();

@@ -35,7 +35,7 @@ class SkillManager extends Object {
 	/// Read skills from JSON file
 	static Future<int> loadSkills() async {
 		File file = new File(path.join(serverDir.path, 'lib', 'skills', 'skillsdata.json'));
-		JSON.decode(await file.readAsString()).forEach((String id, Map data) {
+		jsonDecode(await file.readAsString()).forEach((String id, Map data) {
 			SKILL_DATA[id] = new Skill.fromMap(data, id);
 		});
 
@@ -87,7 +87,7 @@ class SkillManager extends Object {
 		PostgreSql dbConn = await dbManager.getConnection();
 		try {
 			// Get data from database
-			Map<String, int> playerSkillsData = JSON.decode((await getMetabolics(email: email)).skillsJson);
+			Map<String, int> playerSkillsData = jsonDecode((await getMetabolics(email: email)).skillsJson);
 
 			// Fill in skill information
 			List<Map<String, dynamic>> playerSkillsList = new List();

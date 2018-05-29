@@ -1,6 +1,6 @@
 part of entity;
 
-class Icon extends EntityItem with MetabolicsChange {
+class Icon extends EntityItem {
 	static final Map<String, Spritesheet> SPRITESHEETS = {
 		'Alph': new Spritesheet('Alph',
 			'https://childrenofur.com/assets/entityImages/icon_alph__x1_1_png_1354836409.png',
@@ -107,7 +107,8 @@ class Icon extends EntityItem with MetabolicsChange {
 	}
 
 	Future<bool> tithe({WebSocket userSocket, String email}) async {
-		bool success = await trySetMetabolics(email, currants: -PRICE_OF_TITHE);
+		MetabolicsChange mc = new MetabolicsChange();
+		bool success = await mc.trySetMetabolics(email, currants: -PRICE_OF_TITHE);
 
 		if (success) {
 			currants += PRICE_OF_TITHE;
@@ -117,7 +118,8 @@ class Icon extends EntityItem with MetabolicsChange {
 	}
 
 	Future<bool> ruminate({WebSocket userSocket, String email}) async {
-		bool success = await trySetMetabolics(email, mood: 50);
+		MetabolicsChange mc = new MetabolicsChange();
+		bool success = await mc.trySetMetabolics(email, mood: 50);
 
 		if (success) {
 			currants -= PRICE_OF_ACTION;
@@ -128,7 +130,8 @@ class Icon extends EntityItem with MetabolicsChange {
 	}
 
 	Future<bool> revere({WebSocket userSocket, String email}) async {
-		bool success = await trySetMetabolics(email, energy: 50);
+		MetabolicsChange mc = new MetabolicsChange();
+		bool success = await mc.trySetMetabolics(email, energy: 50);
 
 		if (success) {
 			currants -= PRICE_OF_ACTION;
@@ -139,7 +142,8 @@ class Icon extends EntityItem with MetabolicsChange {
 	}
 
 	Future<bool> reflect({WebSocket userSocket, String email}) async {
-		bool success = await trySetMetabolics(email, imgMin: 50);
+		MetabolicsChange mc = new MetabolicsChange();
+		bool success = await mc.trySetMetabolics(email, imgMin: 50);
 
 		if (success) {
 			currants -= PRICE_OF_ACTION;

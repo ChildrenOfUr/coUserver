@@ -50,7 +50,8 @@ class PeatBog extends Plant {
 			return false;
 		}
 
-		success = await super.trySetMetabolics(email,energy:-10,imgMin:10,imgRange:5);
+		MetabolicsChange mc = new MetabolicsChange();
+		success = await mc.trySetMetabolics(email,energy:-10,imgMin:10,imgRange:5);
 		if(!success) {
 			return false;
 		}

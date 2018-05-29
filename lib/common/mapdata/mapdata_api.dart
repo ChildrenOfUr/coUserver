@@ -12,7 +12,7 @@ abstract class MapdataEndpoint {
 	}
 
 	static String getMapData() {
-		return JSON.encode(mapdata);
+		return jsonEncode(mapdata);
 	}
 }
 

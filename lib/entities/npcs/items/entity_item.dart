@@ -79,7 +79,7 @@ class EntityItem extends NPC {
 
 		// Save owner
 		int userId = await User.getIdFromEmail(email);
-		String metadata = JSON.encode({'ownerId': userId});
+		String metadata = jsonEncode({'ownerId': userId});
 
 		// Find street and position
 		Identifier player = PlayerUpdateHandler.users[await User.getUsernameFromEmail(email)];

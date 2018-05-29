@@ -1,6 +1,6 @@
 part of item;
 
-abstract class Pumpkins extends Object with MetabolicsChange {
+abstract class Pumpkins {
 	Future<bool> illuminatePumpkin({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		bool success = (await InventoryV2.addFireflyToJar(email, userSocket, amount: -5)) == 0;
 

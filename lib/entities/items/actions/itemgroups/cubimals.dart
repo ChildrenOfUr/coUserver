@@ -4,7 +4,7 @@ part of item;
 // Cubimal //
 // /////// //
 
-abstract class Cubimal extends Object with MetabolicsChange {
+abstract class Cubimal {
 	Future race({String streetName, Map map, WebSocket userSocket, String email, String username}) async {
 		// Take item
 		Item itemInSlot = await InventoryV2.takeItemFromUser(email, map['slot'], map['subSlot'], 1);
@@ -14,7 +14,7 @@ abstract class Cubimal extends Object with MetabolicsChange {
 		String tsid = MapData.getStreetByName(streetName)['tsid'];
 		String entityType = EntityItem.ITEM_ENTITIES[itemInSlot.itemType];
 		String id = createId(user.currentX, user.currentY, entityType, tsid);
-		String metadata = JSON.encode({
+		String metadata = jsonEncode({
 			'ownerId': await User.getIdFromUsername(username),
 			'itemType': itemInSlot.itemType
 		});
@@ -30,7 +30,8 @@ abstract class Cubimal extends Object with MetabolicsChange {
 		bool success = (await InventoryV2.takeAnyItemsFromUser(email, cubiType, 1) == 1);
 		if (!success) return false;
 		int img = ((freeValues[itemInSlot.itemType.substring(8)] / 2) * (rand.nextDouble() + 0.1)).truncate();
-		trySetMetabolics(email, mood: 10, imgMin: img);
+		MetabolicsChange mc = new MetabolicsChange();
+		mc.trySetMetabolics(email, mood: 10, imgMin: img);
 		StatManager.add(email, Stat.cubimals_set_free);
 		toast("Your cubimal was released back into the wild. You got $img iMG.", userSocket);
 		return success;

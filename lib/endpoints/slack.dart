@@ -18,7 +18,7 @@ String parseMessageFromSlack(@app.Body(app.FORM) Map form) {
 			map = {'username':'$username', 'message': text, 'channel':'Global Chat'};
 		}
 
-		ChatHandler.sendAll(JSON.encode(map));
+		ChatHandler.sendAll(jsonEncode(map));
 	}
 
 	return "OK";

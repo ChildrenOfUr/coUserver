@@ -30,8 +30,8 @@ class AuctionService {
 		                               @app.QueryParam('total_cost') int total_cost,
 		                               @app.QueryParam('username') String username) async {
 		String queryString = "SELECT * FROM auctions";
-		List filters = [];
-		Map values = {};
+		List<String> filters = [];
+		Map<String, dynamic> values = {};
 		if (item_name != null) {
 			filters.add('item_name=@item_name');
 			values['item_name'] = item_name;

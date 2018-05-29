@@ -54,7 +54,8 @@ class IceNubbin extends Plant {
 			return false;
 		}
 
-		success = await super.trySetMetabolics(email,energy:-4,imgMin:2,imgRange:2);
+		MetabolicsChange mc = new MetabolicsChange();
+		success = await mc.trySetMetabolics(email,energy:-4,imgMin:2,imgRange:2);
 		if(!success) {
 			return false;
 		}

@@ -24,19 +24,19 @@ abstract class MapData {
 	static Future load() async {
 		Future _loadHubs(String parent) async {
 			File hubdata = new File(path.join(parent, 'hubdata.json'));
-			_hubs = JSON.decode(await hubdata.readAsString());
+			_hubs = jsonDecode(await hubdata.readAsString());
 			Log.verbose('[MapData] Loaded ${_hubs.length} hub files');
 		}
 
 		Future _loadStreets(String parent) async {
 			File streetdata = new File(path.join(parent, 'streetdata.json'));
-			_streets = JSON.decode(await streetdata.readAsString());
+			_streets = jsonDecode(await streetdata.readAsString());
 			Log.verbose('[MapData] Loaded ${_streets.length} street files');
 		}
 
 		Future _loadRender(String parent) async {
 			File renderdata = new File(path.join(parent, 'renderdata.json'));
-			_render = JSON.decode(await renderdata.readAsString());
+			_render = jsonDecode(await renderdata.readAsString());
 			Log.verbose('[MapData] Loaded ${_render.length} hub render files');
 		}
 
@@ -101,7 +101,7 @@ abstract class MapData {
 
 		// Read street JSON file
 		if (streetFile.existsSync()) {
-			streetData = JSON.decode(streetFile.readAsStringSync());
+			streetData = jsonDecode(streetFile.readAsStringSync());
 		} else {
 			Log.warning('Street <tsidG=$tsid> not found in CAT422 files');
 		}

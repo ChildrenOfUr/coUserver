@@ -124,7 +124,7 @@ class Crab extends NPC {
 
 	/// Called from the client menu
 	void playFor({WebSocket userSocket, String email}) {
-		userSocket.add(JSON.encode({
+		userSocket.add(jsonEncode({
 			"action": "playMusic",
 			"id": id,
 			"openWindow": "itemChooser",
@@ -223,7 +223,8 @@ class Crab extends NPC {
 			await _takeHeadphones();
 		}
 
-		await trySetMetabolics(email, energy: -1, mood: 1, imgMin: (isRare ? 5 : 1), imgRange: 2);
+		MetabolicsChange mc = new MetabolicsChange();
+		await mc.trySetMetabolics(email, energy: -1, mood: 1, imgMin: (isRare ? 5 : 1), imgRange: 2);
 
 		// Affect future listens
 		addToHistory(itemType);

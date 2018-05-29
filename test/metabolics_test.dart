@@ -11,7 +11,7 @@ import 'package:redstone/redstone.dart' as app;
 import 'package:redstone_mapper/plugin.dart';
 import 'package:redstone_mapper_pg/manager.dart';
 
-class MockMetabolicsObject extends Object with MetabolicsChange {}
+class MockMetabolicsObject {}
 
 Future main() async {
 	app.addPlugin(getMapperPlugin(dbManager));
@@ -63,15 +63,15 @@ Future main() async {
 		});
 
 		test('trySetFavor', () async {
-			MockMetabolicsObject object = new MockMetabolicsObject();
+			MetabolicsChange mc = new MetabolicsChange();
 
 			//add 50 Alph favor
-			Metabolics m = await object.trySetFavor(ut_email, 'alph', 50);
+			Metabolics m = await mc.trySetFavor(ut_email, 'alph', 50);
 			expect(m.alphFavor, equals(50));
 
 			//add more than max favor, expect 0 and expanded max
 			int maxBefore = m.alphFavorMax;
-			m = await object.trySetFavor(ut_email, 'alph', m.alphFavorMax + 1);
+			m = await mc.trySetFavor(ut_email, 'alph', m.alphFavorMax + 1);
 			expect(m.alphFavor, equals(0));
 			expect(m.alphFavorMax, equals(maxBefore+100));
 
@@ -88,7 +88,7 @@ Future main() async {
 					..favAmt = m.zilleFavorMax + 1
 			];
 			maxBefore = m.zilleFavorMax;
-			m = await object.trySetFavor(ut_email, null, null, favors: favors);
+			m = await mc.trySetFavor(ut_email, null, null, favors: favors);
 			expect(m.humbabaFavor, equals(50));
 			expect(m.lemFavor, equals(100));
 			expect(m.zilleFavor, equals(0));
@@ -96,23 +96,23 @@ Future main() async {
 		});
 
 		test('trySetMetabolics', () async {
-			MockMetabolicsObject object = new MockMetabolicsObject();
-			expect(await object.trySetMetabolics(ut_email), isTrue);
+			MetabolicsChange mc = new MetabolicsChange();
+			expect(await mc.trySetMetabolics(ut_email), isTrue);
 
 			Metabolics m = await getMetabolics(email: ut_email);
 			expect(m.energy, equals(50));
 
 			//test that we can take some energy
-			expect(await object.trySetMetabolics(ut_email, energy: -5), isTrue);
+			expect(await mc.trySetMetabolics(ut_email, energy: -5), isTrue);
 			expect((await getMetabolics(email: ut_email)).energy, equals(45));
 
 			//test that we can't take more energy than we have
-			expect(await object.trySetMetabolics(ut_email, energy: -46), isFalse);
+			expect(await mc.trySetMetabolics(ut_email, energy: -46), isFalse);
 			expect((await getMetabolics(email: ut_email)).energy, equals(45));
 
 			//add a bunch of img and expect to gain a few levels
 			expect(getLevel(m.lifetimeImg), equals(0));
-			expect(await object.trySetMetabolics(ut_email, imgMin: 100000, imgRange: 5), isTrue);
+			expect(await mc.trySetMetabolics(ut_email, imgMin: 100000, imgRange: 5), isTrue);
 			expect(getLevel((await getMetabolics(email: ut_email)).lifetimeImg), greaterThan(0));
 
 			//reset the metabolics
@@ -135,7 +135,7 @@ Future main() async {
 				..currants = 100
 				..favor = favors
 				..mood = 40;
-			expect(await object.trySetMetabolics(ut_email, rewards: rewards), isTrue);
+			expect(await mc.trySetMetabolics(ut_email, rewards: rewards), isTrue);
 			m = await getMetabolics(email: ut_email);
 			expect(m.currants, equals(100));
 			expect(m.mood, equals(90));

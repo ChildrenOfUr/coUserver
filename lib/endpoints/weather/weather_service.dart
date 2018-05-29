@@ -99,7 +99,7 @@ class WeatherService {
 			// Download from OpenWeatherMap
 			String url = OWM_API + endpoint + OWM_PARAMS + cityId.toString();
 			String json = (await http.get(url)).body;
-			Map<String, dynamic> owm = JSON.decode(json);
+			Map<String, dynamic> owm = jsonDecode(json);
 
 			// Verify result
 			var responseCode = owm['cod']; // 'cod' is not a typo (unless it's OWM's)

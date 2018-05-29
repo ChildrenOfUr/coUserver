@@ -55,14 +55,14 @@ Future<Map> getSpritesheets(
 		try {
 			await cache.create(recursive: true);
 			spritesheets = await _getSpritesheetsFromWeb(username);
-			await cache.writeAsString(JSON.encode(spritesheets));
+			await cache.writeAsString(jsonEncode(spritesheets));
 			return spritesheets;
 		} catch (_) {
 			return {};
 		}
 	} else {
 		try {
-			return JSON.decode(cache.readAsStringSync());
+			return jsonDecode(cache.readAsStringSync());
 		} catch (_) {
 			return {};
 		}
@@ -143,7 +143,7 @@ Future<String> trimImage(
 		List<int> trimRect = findTrim(image, mode: TRIM_TRANSPARENT);
 		Image trimmed = copyCrop(image, trimRect[0], trimRect[1], trimRect[2], trimRect[3]);
 
-		String str = BASE64.encode(encodePng(trimmed));
+		String str = base64Encode(encodePng(trimmed));
 		FileCache.headsCache[cacheKey] = str;
 		return str;
 	}

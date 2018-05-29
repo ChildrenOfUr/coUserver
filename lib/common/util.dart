@@ -27,7 +27,7 @@ part '../endpoints/images.dart';
 PostgreSqlManager dbManager = new PostgreSqlManager(databaseUri);
 
 /// Database connection for redstone requests
-PostgreSql get dbConn => app.request.attributes.dbConn;
+PostgreSql get dbConn => app.request.attributes["dbConn"];
 
 /// Global message bus
 MessageBus messageBus = new MessageBus();
@@ -110,7 +110,7 @@ ClassMirror findClassMirror(String name) {
 
 /// Tell a client to display a toast
 void toast(String message, WebSocket userSocket, {bool skipChat, String onClick}) {
-	userSocket.add(JSON.encode({
+	userSocket.add(jsonEncode({
        'toast': true,
        'message': message,
        'skipChat': skipChat,
@@ -120,7 +120,7 @@ void toast(String message, WebSocket userSocket, {bool skipChat, String onClick}
 
 /// Tell a client to play a sound
 void playSound(String sound, WebSocket userSocket) {
-	userSocket.add(JSON.encode({
+	userSocket.add(jsonEncode({
 		'playSound': true,
 		'sound': sound
 	}));
@@ -136,7 +136,7 @@ Map<String, Function> promptCallbacks = {};
 void promptString(String prompt, WebSocket userSocket, String reference, Function callback, {int charLimit: 0}) {
 	promptCallbacks[reference] = callback;
 
-	userSocket.add(JSON.encode({
+	userSocket.add(jsonEncode({
 		'promptString': true,
 		'promptText': prompt,
 		'promptRef': reference,

@@ -43,6 +43,6 @@ abstract class Door extends Entity {
 		Map map = {}
 			..["gotoStreet"] = "true"
 			..["tsid"] = toLocation;
-		userSocket.add(JSON.encode(map));
+		userSocket.add(jsonEncode(map));
 	}
 }

@@ -66,7 +66,8 @@ class DirtPile extends Plant {
 			return false;
 		}
 
-		success = await trySetMetabolics(email, energy: -8, imgMin: 10, imgRange: 5);
+		MetabolicsChange mc = new MetabolicsChange();
+		success = await mc.trySetMetabolics(email, energy: -8, imgMin: 10, imgRange: 5);
 		if (!success) {
 			return false;
 		}

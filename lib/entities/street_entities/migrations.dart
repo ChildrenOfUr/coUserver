@@ -13,7 +13,7 @@ abstract class StreetEntityMigrations {
 				String json = await file.readAsString();
 				try {
 					Log.verbose('Migrating $tsid...');
-					Map<String, dynamic> map = JSON.decode(json);
+					Map<String, dynamic> map = jsonDecode(json);
 					await Future.forEach(map['entities'], (Map<String, dynamic> entity) async {
 						await StreetEntities.setEntity(new StreetEntity.create(
 							id: createId(entity['x'], entity['y'], entity['type'], tsidL(tsid)),

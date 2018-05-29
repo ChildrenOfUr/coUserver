@@ -82,7 +82,7 @@ abstract class LogSettings {
 		}
 
 		// Decode
-		return JSON.decode(json);
+		return jsonDecode(json);
 	}
 
 	/// Encode to JSON and save to the config file
@@ -90,7 +90,7 @@ abstract class LogSettings {
 		// Encode
 		String json;
 		try {
-			json = JSON.encode(newSettings);
+			json = jsonEncode(newSettings);
 		} catch (_) {
 			json = '{}';
 		}

@@ -136,8 +136,12 @@ class Salmon extends NPC {
 	}
 
 	Future<bool> pocket({WebSocket userSocket, String email}) async {
-		if (currentState == states['gone']) return false;
-		bool success = await super.trySetMetabolics(email, energy: -4, imgMin: 1, imgRange: 5);
+		if (currentState == states['gone']) {
+			return false;
+		}
+		
+		MetabolicsChange mc = new MetabolicsChange();
+		bool success = await mc.trySetMetabolics(email, energy: -4, imgMin: 1, imgRange: 5);
 		if (!success) return false;
 
 		// 50% chance to get a pocket salmon

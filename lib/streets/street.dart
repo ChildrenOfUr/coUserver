@@ -49,7 +49,9 @@ class CollisionPlatform implements Comparable {
 		id = platformLine['id'];
 		ceiling = platformLine['platform_pc_perm'] == 1;
 
-		(platformLine['endpoints'] as List).forEach((Map endpoint) {
+		(platformLine['endpoints'] as List).forEach((dynamic endpoint) {
+			assert(endpoint is Map);
+
 			if (endpoint["name"] == "start") {
 				start = new Point(endpoint["x"], endpoint["y"] + groundY);
 				if (layer['name'] == 'middleground') {
@@ -75,7 +77,8 @@ class CollisionPlatform implements Comparable {
 	}
 
 	@override
-	int compareTo(CollisionPlatform other) {
+	int compareTo(dynamic other) {
+		assert(other is CollisionPlatform);
 		return other.start.y - start.y;
 	}
 }
@@ -318,7 +321,7 @@ class Street {
 		CollisionPlatform bestPlatform;
 		num x = posX;
 		num feetY = cameFrom + groundY;
-		num bestDiffY = double.INFINITY;
+		num bestDiffY = double.infinity;
 
 		for (CollisionPlatform platform in platforms) {
 			if (platform.ceiling) {

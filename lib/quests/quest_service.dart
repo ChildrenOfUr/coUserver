@@ -3,7 +3,7 @@ part of quests;
 Map<String, Quest> quests = {};
 
 @app.Group("/quest")
-class QuestService extends Object with MetabolicsChange {
+class QuestService {
 	@app.Route("/completed/:email")
 	@Encode()
 	static Future<List<Quest>> getCompleted(String email) async {
@@ -63,6 +63,8 @@ class QuestService extends Object with MetabolicsChange {
 
 	@app.Route('/createQuestItem', methods: const[app.POST])
 	Future createQuestItem(@Decode() Quest quest) async {
+		MetabolicsChange mc = new MetabolicsChange();
+
 		int imgCost = quest.rewards.img + 300 * quest.requirements.length + 500;
 		int currantCost = quest.rewards.currants;
 
@@ -75,11 +77,11 @@ class QuestService extends Object with MetabolicsChange {
 		quest.conversation_start.id = quest.id + '-CS';
 		quest.conversation_end.id = quest.id + '-CE';
 
-		bool success = await trySetMetabolics(email, imgMin: -imgCost, currants: -currantCost);
+		bool success = await mc.trySetMetabolics(email, imgMin: -imgCost, currants: -currantCost);
 		if (success) {
 			//create the item and give it to the user
 			Item questItem = new Item.clone('user_made_quest');
-			questItem.metadata['questData'] = JSON.encode(encode(quest));
+			questItem.metadata['questData'] = jsonEncode(encode(quest));
 			await InventoryV2.addItemToUser(email, questItem.getMap(), 1);
 		}
 	}
@@ -125,7 +127,7 @@ class QuestService extends Object with MetabolicsChange {
 			await for(FileSystemEntity entity in questsDirectory.list(recursive: true)) {
 				if (entity is File) {
 					// load quests
-					Quest q = decode(JSON.decode(await entity.readAsString()), Quest);
+					Quest q = decode(jsonDecode(await entity.readAsString()), Quest);
 					quests[q.id] = q;
 				}
 			}

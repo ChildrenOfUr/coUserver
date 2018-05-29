@@ -28,7 +28,7 @@ class ChatHandler {
 	static Map<String, Identifier> users = new Map<String, Identifier>();
 
 	static void superMessage(String message, {String username: 'Server', String channel: 'Global Chat'}) {
-		sendAll(JSON.encode({
+		sendAll(jsonEncode({
 			'username': username,
 			'message': message,
 			'channel': channel
@@ -44,7 +44,7 @@ class ChatHandler {
 			KeepAlive.pingList.add(ws);
 
 		ws.listen((message) async {
-			Map map = JSON.decode(message);
+			Map map = jsonDecode(message);
 
 			/*if(relay.connected)
 			{
@@ -146,7 +146,7 @@ class ChatHandler {
 		users.remove(leavingUser);
 
 		//send a message to all other clients that this user has disconnected
-		sendAll(JSON.encode({
+		sendAll(jsonEncode({
 			'message': ' left.',
 			'channel': 'Local Chat',
 			'username': leavingUser
@@ -155,11 +155,11 @@ class ChatHandler {
 
 	static processMessage(WebSocket ws, String receivedMessage) async {
 		try {
-			Map map = JSON.decode(receivedMessage);
+			Map map = jsonDecode(receivedMessage);
 
 			if (map['clientVersion'] != null) {
 				if (map['clientVersion'] < MIN_CLIENT_VER) {
-					ws.add(JSON.encode({'error':'Your client is outdated. Please reload the page.'}));
+					ws.add(jsonEncode({'error':'Your client is outdated. Please reload the page.'}));
 				}
 				return;
 			}
@@ -167,7 +167,7 @@ class ChatHandler {
 			if (map['exempt'] == null || map['exempt'] != true) {
 				if (map['channel'] == 'Global Chat' && (await UserMutes.INSTANCE.userMuted(map['username']))) {
 					// User cannot use global chat
-					ws.add(JSON.encode({
+					ws.add(jsonEncode({
 						'muted': 'true',
 						'toastText': 'You may not use Global Chat because you are a nuisance to Ur. Please click here to email us if you believe this is an error.',
 						'toastClick': '__EMAIL_COU__'
@@ -206,7 +206,7 @@ class ChatHandler {
 						leftForMessage['message'] = ' has left for ';
 						leftForMessage['channel'] = 'Local Chat';
 						if (users[id.username] != null) {
-							users[id.username].webSocket.add(JSON.encode(leftForMessage));
+							users[id.username].webSocket.add(jsonEncode(leftForMessage));
 						}
 						alreadySent.add(id.username);
 					}
@@ -228,12 +228,12 @@ class ChatHandler {
 				});
 				map['users'] = userList;
 				map['message'] = 'Users in this channel: ';
-				users[map['username']]?.webSocket?.add(JSON.encode(map));
+				users[map['username']]?.webSocket?.add(jsonEncode(map));
 				return;
 			}
 
 			MESSAGEBUS.publish(new ChatEvent.fromMap(map));
-			sendAll(JSON.encode(map));
+			sendAll(jsonEncode(map));
 		} catch (err, st) {
 			Log.error('Error handling chat', err, st);
 		}

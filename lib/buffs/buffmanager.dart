@@ -30,7 +30,7 @@ class BuffManager {
 
 	static Future<int> loadBuffs() async {
 		File file = new File(path.join(serverDir.path, "lib", "buffs", "buffdata.json"));
-		JSON.decode(await file.readAsStringSync()).forEach((String id, Map data) {
+		jsonDecode(await file.readAsStringSync()).forEach((String id, Map data) {
 			buffs[id] = new Buff.fromMap(data, id);;
 		});
 
@@ -47,7 +47,7 @@ class BuffManager {
 		}
 
 		PlayerBuff newBuff = new PlayerBuff(Buff.find(buffId), email);
-		userSocket.add(JSON.encode({"buff": newBuff.toMap()}));
+		userSocket.add(jsonEncode({"buff": newBuff.toMap()}));
 		newBuff.startUpdating();
 		return true;
 	}
@@ -58,7 +58,7 @@ class BuffManager {
 			.where((Map<String, dynamic> buff) => buff["id"] == buffId)
 			.toList();
 
-		userSocket.add(JSON.encode({"buff_remove": buffId}));
+		userSocket.add(jsonEncode({"buff_remove": buffId}));
 
 		if (matching.length > 0) {
 			PlayerBuff oldBuff = new PlayerBuff.fromMap(matching.single);
@@ -132,7 +132,7 @@ class BuffManager {
 
 		// Get data from database
 		try {
-			playerBuffsData = JSON.decode((await getMetabolics(email: email)).buffsJson);
+			playerBuffsData = jsonDecode((await getMetabolics(email: email)).buffsJson);
 		} catch (e, st) {
 			Log.error('Error getting buffs from database for <email=$email>', e, st);
 		}

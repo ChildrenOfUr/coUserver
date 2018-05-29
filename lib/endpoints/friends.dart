@@ -23,7 +23,7 @@ class FriendsEndpoint {
 
 			// Get existing friends list
 			String json = (await User.findByUsername(username)).friends;
-			List<int> ids = JSON.decode(json);
+			List<int> ids = jsonDecode(json);
 
 			// Get new friend info
 			int friendId = (await User.findByUsername(friendUsername)).id;
@@ -41,7 +41,7 @@ class FriendsEndpoint {
 			}
 
 			// Save new friends list
-			json = JSON.encode(ids);
+			json = jsonEncode(ids);
 
 			// Notify new friend
 			WebSocket friendSocket = StreetUpdateHandler.userSockets[await User.getEmailFromUsername(friendUsername)];
@@ -81,7 +81,7 @@ class FriendsEndpoint {
 
 			// Get existing friends list
 			String json = (await User.findByUsername(username)).friends;
-			List<int> ids = JSON.decode(json);
+			List<int> ids = jsonDecode(json);
 
 			// Get new friend info
 			int friendId = (await User.findByUsername(friendUsername)).id;
@@ -99,7 +99,7 @@ class FriendsEndpoint {
 			}
 
 			// Save new friends list
-			json = JSON.encode(ids);
+			json = jsonEncode(ids);
 
 			try {
 				User.uncache(username: username);
@@ -121,7 +121,7 @@ class FriendsEndpoint {
 		try {
 			// Get ids
 			username = Uri.decodeComponent(username.trim());
-			List<int> ids = JSON.decode((await User.findByUsername(username)).friends);
+			List<int> ids = jsonDecode((await User.findByUsername(username)).friends);
 
 			// Convert to usernames
 			List<String> usernames = [];

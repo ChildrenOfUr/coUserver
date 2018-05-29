@@ -26,6 +26,6 @@ class Auctioneer extends NPC {
 		Map map = {};
 		map['vendorName'] = type;
 		map['id'] = id;
-		userSocket.add(JSON.encode(map));
+		userSocket.add(jsonEncode(map));
 	}
 }

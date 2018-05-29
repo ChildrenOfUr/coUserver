@@ -86,7 +86,7 @@ async {
 		dbManager.closeConnection(dbConn);
 
 		// Send to client (if any)
-		userSocket?.add(JSON.encode({
+		userSocket?.add(jsonEncode({
 			'username_changed': result
 		}));
 

@@ -60,7 +60,8 @@ class Jellisac extends Plant {
 		}
 		state--;
 
-		bool success = await super.trySetMetabolics(email,energy:-4,imgMin:2,imgRange:5);
+		MetabolicsChange mc = new MetabolicsChange();
+		bool success = await mc.trySetMetabolics(email,energy:-4,imgMin:2,imgRange:5);
 		if(!success) {
 			return false;
 		}

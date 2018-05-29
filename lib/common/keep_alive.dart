@@ -19,7 +19,7 @@ class KeepAlive {
 				Map pingMap = new Map();
 				pingMap["statusMessage"] = "ping";
 				pingMap['channel'] = 'Local Chat';
-				websocket.add(JSON.encode(pingMap));
+				websocket.add(jsonEncode(pingMap));
 			});
 
 			new Timer(new Duration(seconds: 10), () {

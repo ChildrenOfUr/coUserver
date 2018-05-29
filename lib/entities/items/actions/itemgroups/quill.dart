@@ -2,13 +2,13 @@ part of item;
 
 abstract class Quill {
 	static void openNote(WebSocket userSocket, int noteId) {
-		userSocket.add(JSON.encode({
+		userSocket.add(jsonEncode({
 			"note_read": noteId.toString() //client is expecting to parse an int from a string
 		}));
 	}
 
 	static void openNoteEditor(WebSocket userSocket) {
-		userSocket.add(JSON.encode({
+		userSocket.add(jsonEncode({
 			"note_write": true
 		}));
 	}
@@ -46,7 +46,7 @@ abstract class Quill {
 		if (map["itemdata"]["note_id"] != null) {
 			toast("That cookie already has a note in it!", userSocket);
 		} else {
-			userSocket.add(JSON.encode({
+			userSocket.add(jsonEncode({
 				"action": "insertNote2",
 				"id": "fortune_cookie",
 				"openWindow": "itemChooser",

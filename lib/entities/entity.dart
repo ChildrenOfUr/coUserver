@@ -154,7 +154,7 @@ abstract class Actionable {
 	Future<List<Action>> customizeActions(String email);
 }
 
-abstract class Entity extends Object with MetabolicsChange implements Persistable, Actionable {
+abstract class Entity implements Persistable, Actionable {
 	List<Action> actions = [];
 	num actionTime = 2500;
 	num x, y, z, rotation;
@@ -166,6 +166,7 @@ abstract class Entity extends Object with MetabolicsChange implements Persistabl
 	Map<String, Spritesheet> states;
 	Spritesheet currentState;
 	DateTime respawn;
+	MetabolicsChange mc = new MetabolicsChange();
 
 	void setActionEnabled(String actionName, bool enabled) {
 		try {
@@ -205,13 +206,13 @@ abstract class Entity extends Object with MetabolicsChange implements Persistabl
 			z: z,
 			rotation: rotation,
 			h_flip: h_flip,
-			metadata_json: JSON.encode(getPersistMetadata()));
+			metadata_json: jsonEncode(getPersistMetadata()));
 	}
 
 	Map<String, dynamic> getMap() {
 		Map map = {};
 		map['bubbleText'] = bubbleText;
-		map['gains'] = gains;
+		map['gains'] = mc.gains;
 		return map;
 	}
 
@@ -232,7 +233,7 @@ abstract class Entity extends Object with MetabolicsChange implements Persistabl
 			sayTimeout = now.add(messageDuration);
 			new Timer(messageDuration, () {
 				bubbleText = null;
-				resetGains();
+				mc.resetGains();
 			});
 		}
 	}
@@ -266,7 +267,7 @@ abstract class Entity extends Object with MetabolicsChange implements Persistabl
 
 	///Check the various requirements for an action to be allowed to be performed
 	///The energy check will be skipped by default since most actions will check this
-	///through trySetMetabolics anyway
+	///through MetabolicsChange.trySetMetabolics anyway
 	Future<bool> hasRequirements(String actionName, String email, {bool includeBroken: false, bool testEnergy: false}) async {
 		Action action = actions.singleWhere((Action a) => a.actionName == actionName);
 		bool hasRequirements = true;

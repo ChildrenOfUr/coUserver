@@ -33,8 +33,8 @@ class Achievement {
 		Directory json = new Directory(path.join(serverDir.path, 'lib', 'achievements', 'json'));
 		List<FileSystemEntity> categories = json.listSync();
 
-		await Future.forEach(categories, (File category) async {
-			await JSON.decode(await category.readAsString()).forEach((String id, Map data) async {
+		await Future.forEach(categories, (FileSystemEntity category) async {
+			await jsonDecode(await (category as File).readAsString()).forEach((String id, Map data) async {
 				Achievement achievement = new Achievement(
 					id: id,
 					name: data["name"],
@@ -118,10 +118,10 @@ class Achievement {
 				"SELECT achievements FROM users WHERE email = @email",
 				User, {"email": email})).first.achievements;
 
-			List<String> achievementIds = JSON.decode(oldJson);
+			List<String> achievementIds = jsonDecode(oldJson);
 			achievementIds.add(id);
 
-			String newJson = JSON.encode(achievementIds);
+			String newJson = jsonEncode(achievementIds);
 
 			if (
 			(await dbConn.execute(
@@ -130,7 +130,7 @@ class Achievement {
 			) == 1
 			) {
 				// Send to client
-				StreetUpdateHandler.userSockets[email]?.add(JSON.encode({
+				StreetUpdateHandler.userSockets[email]?.add(jsonEncode({
 					"achv_id": id,
 					"achv_name": name,
 					"achv_description": description,
@@ -193,7 +193,7 @@ Future<String> listAchievements(
 			} else {
 				return '{}';
 			}
-			awardedIds = JSON.decode((await dbConn.query(query, User, data)).first.achievements);
+			awardedIds = jsonDecode((await dbConn.query(query, User, data)).first.achievements);
 		} catch (e, st) {
 			Log.error('Error getting achievements for <email=${email ?? username}>', e, st);
 			return '{}';
@@ -242,7 +242,7 @@ Future<String> listAchievements(
 		}
 	}
 
-	String result = JSON.encode(maps);
+	String result = jsonEncode(maps);
 
 	if (generic && Achievement.cachedAchvListJson == null) {
 		Achievement.cachedAchvListJson = result;

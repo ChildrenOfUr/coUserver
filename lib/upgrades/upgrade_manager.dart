@@ -25,7 +25,7 @@ class UpgradeManager {
 			File upgradesFile = new File(path.join(directory, 'lib', 'upgrades', 'upgrades.json'));
 
 			// Read the file
-			List<Upgrade> upgrades = decode(JSON.decode(await upgradesFile.readAsString()), Upgrade);
+			List<Upgrade> upgrades = decode(jsonDecode(await upgradesFile.readAsString()), Upgrade);
 
 			// Clear old upgrades data, then save the new
 			_upgrades = new Map();

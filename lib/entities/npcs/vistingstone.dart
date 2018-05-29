@@ -6,12 +6,10 @@ class VisitingStone extends NPC {
 		actionTime = 0;
 		speed = 0;
 		actions = [
-			{
-				"actionName": "visit a street",
-				"timeRequired": actionTime,
-				"enabled": true,
-				"actionWord": "visiting"
-			}
+			new Action.withName("visit")
+				..timeRequired = actionTime
+				..enabled = true
+				..actionWord = "visiting"
 		];
 		states = {
 			"_": new Spritesheet(
@@ -43,7 +41,7 @@ class VisitingStone extends NPC {
 		if (tsid == 'ALL_VISITED') {
 			toast("You've visited every street in the game!", userSocket);
 		} else if (tsid != null) {
-			userSocket.add(JSON.encode({
+			userSocket.add(jsonEncode({
 				"gotoStreet": "true",
 				"tsid": tsid
 			}));

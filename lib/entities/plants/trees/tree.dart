@@ -37,20 +37,20 @@ abstract class Tree extends Plant {
 	@override
 	void restoreState(Map<String, String> metadata) {
 		if (metadata.containsKey('maturity')) {
-			maturity = JSON.decode(metadata['maturity']);
+			maturity = jsonDecode(metadata['maturity']);
 			setState('maturity_$maturity');
 			maxState = currentState.numFrames - 1;
 		}
 		if (metadata.containsKey('state')) {
-			state = JSON.decode(metadata['state']);
+			state = jsonDecode(metadata['state']);
 		}
 	}
 
 	@override
 	Map<String, String> getPersistMetadata() {
 		Map<String, String> map = {
-			'maturity': JSON.encode(maturity),
-			'state': JSON.encode(state),
+			'maturity': jsonEncode(maturity),
+			'state': jsonEncode(state),
 		};
 
 		return map;
@@ -76,6 +76,7 @@ abstract class Tree extends Plant {
 			return false;
 		}
 
+		MetabolicsChange mc = new MetabolicsChange();
 		int harvestLevel = await SkillManager.getLevel(SKILL, email);
 		int rewardMultiplier = 1;
 		int energy = 5;
@@ -98,7 +99,7 @@ abstract class Tree extends Plant {
 
 		//make sure the player has 5 energy to perform this action
 		//if so, allow the action and subtract 5 from their energy
-		bool success = await trySetMetabolics(email, energy: -energy, mood: 1 + (rewardMultiplier ~/ 2), imgMin: 5 + imgBoost, imgRange: 5);
+		bool success = await mc.trySetMetabolics(email, energy: -energy, mood: 1 + (rewardMultiplier ~/ 2), imgMin: 5 + imgBoost, imgRange: 5);
 		if (!success) {
 			return false;
 		}
@@ -143,7 +144,8 @@ abstract class Tree extends Plant {
 			return false;
 		}
 
-		success = await trySetMetabolics(email, energy: -2, mood: 2, imgMin: 3, imgRange: 2);
+		MetabolicsChange mc = new MetabolicsChange();
+		success = await mc.trySetMetabolics(email, energy: -2, mood: 2, imgMin: 3, imgRange: 2);
 		if (!success) {
 			return false;
 		}
@@ -182,7 +184,8 @@ abstract class Tree extends Plant {
 	}
 
 	Future<bool> pet({WebSocket userSocket, String email}) async {
-		bool success = await trySetMetabolics(email, energy: -2, mood: 2, imgMin: 3, imgRange: 2);
+		MetabolicsChange mc = new MetabolicsChange();
+		bool success = await mc.trySetMetabolics(email, energy: -2, mood: 2, imgMin: 3, imgRange: 2);
 		if (!success) {
 			return false;
 		}

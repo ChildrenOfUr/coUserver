@@ -105,7 +105,8 @@ class HeliKitty extends NPC {
 	}
 
 	Future<bool> pet({WebSocket userSocket, String email}) async {
-		bool success = await super.trySetMetabolics(email, energy:-5, mood:20, imgMin:10, imgRange:4);
+		MetabolicsChange mc = new MetabolicsChange();
+		bool success = await mc.trySetMetabolics(email, energy:-5, mood:20, imgMin:10, imgRange:4);
 		if(!success) {
 			return false;
 		}

@@ -141,7 +141,7 @@ class NoteManager {
 	}
 
 	@app.Route("/find/:id")
-	Future<String> appFind(int id) async => JSON.encode(await (await find(id)).toMap());
+	Future<String> appFind(int id) async => jsonEncode(await (await find(id)).toMap());
 
 	@app.Route("/dropped")
 	Future<List<Map>> dropped() async {

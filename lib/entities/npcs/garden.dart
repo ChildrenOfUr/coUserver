@@ -370,7 +370,8 @@ class Garden extends NPC {
 			energy ~/= level;
 		}
 
-		return trySetMetabolics(email, energy: energy, mood: mood, imgMin: imgMin, imgRange: 4);
+		MetabolicsChange mc = new MetabolicsChange();
+		return mc.trySetMetabolics(email, energy: energy, mood: mood, imgMin: imgMin, imgRange: 4);
 	}
 
 	Future<bool> hoe({WebSocket userSocket, String email}) async {
@@ -422,7 +423,7 @@ class Garden extends NPC {
 			return false;
 		}
 
-		userSocket.add(JSON.encode({
+		userSocket.add(jsonEncode({
 			'action': 'plantSeed',
 			'id': id,
 			'openWindow': 'itemChooser',
@@ -462,7 +463,8 @@ class Garden extends NPC {
 	Future<bool> view({WebSocket userSocket, String email}) async {
 		//calling this so to reset the gains so the last action's gains
 		//aren't shown in a pure speech bubble
-		await trySetMetabolics(email);
+		MetabolicsChange mc = new MetabolicsChange();
+		await mc.trySetMetabolics(email);
 
 		Clock futureUrTime = new Clock.stoppedAtDate(stage3Time);
 		say('I am currently growing ${pluralize(plantedWith)}.'

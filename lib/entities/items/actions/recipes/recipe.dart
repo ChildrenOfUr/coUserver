@@ -24,8 +24,8 @@ class Recipe {
 	static Future<int> load() async {
 		String filePath = path.join(
 			serverDir.path, 'lib', 'entities', 'items', 'actions', 'recipes', 'json');
-		await Future.forEach(await new Directory(filePath).list().toList(), (File tool) async {
-			JSON.decode(await tool.readAsString()).forEach((Map recipeMap) {
+		await Future.forEach(await new Directory(filePath).list().toList(), (FileSystemEntity tool) async {
+			jsonDecode(await (tool as File).readAsString()).forEach((Map recipeMap) {
 				RecipeBook.recipes.add(decode(recipeMap, Recipe));
 			});
 		});
@@ -56,7 +56,7 @@ class Recipe {
 	static Future useItem(Map map, WebSocket userSocket, String email) async {
 		InventoryV2 inv = await getInventory(email);
 		Item itemInSlot = await inv.getItemInSlot(map['slot'], map['subSlot'], email);
-		userSocket.add(JSON.encode({
+		userSocket.add(jsonEncode({
 			"useItem": itemInSlot.itemType,
 			"useItemName": itemInSlot.name
 		}));

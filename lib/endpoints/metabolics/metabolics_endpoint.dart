@@ -38,8 +38,10 @@ class MetabolicsEndpoint {
 		int converted = 0;
 
 		try {
-			await Future.forEach(await dbConn.query(query, Metabolics), (Metabolics m) async {
-				List<String> oldTsids = JSON.decode(m.locationHistory);
+			await Future.forEach(await dbConn.query(query, Metabolics), (dynamic m) async {
+				assert(m is Metabolics);
+
+				List<String> oldTsids = jsonDecode(m.locationHistory);
 				if (oldTsids.length == 0) {
 					return;
 				}
@@ -53,7 +55,7 @@ class MetabolicsEndpoint {
 					}
 				});
 
-				m.locationHistory = JSON.encode(newTsids);
+				m.locationHistory = jsonEncode(newTsids);
 				await setMetabolics(m);
 				converted++;
 			});
@@ -103,7 +105,7 @@ class MetabolicsEndpoint {
 	}
 
 	static void processMessage(WebSocket ws, String message) {
-		Map map = JSON.decode(message);
+		Map map = jsonDecode(message);
 		String username = map['username'];
 
 		if (!userSockets.containsKey(username)) {
@@ -166,7 +168,7 @@ class MetabolicsEndpoint {
 					//store the metabolics back to the database
 					if (await setMetabolics(m)) {
 						//send the metabolics back to the user
-						ws.add(JSON.encode(encode(m)));
+						ws.add(jsonEncode(encode(m)));
 					}
 				}
 			} catch (e, st) {
@@ -199,7 +201,7 @@ class MetabolicsEndpoint {
 			m.dead = true;
 
 			// Go to Hell One
-			userIdentifier.webSocket.add(JSON.encode({
+			userIdentifier.webSocket.add(jsonEncode({
 				"gotoStreet": "true",
 				"tsid": HELL_ONE
 			}));
@@ -209,7 +211,7 @@ class MetabolicsEndpoint {
 			Map<String, dynamic> street = MapData.getStreetByTsid(m.currentStreet);
 			if ((street == null) || ((street['hub_id'] ?? NARAKA) == NARAKA)) {
 				// In Naraka, Return to world
-				userIdentifier.webSocket.add(JSON.encode({
+				userIdentifier.webSocket.add(jsonEncode({
 					"gotoStreet": "true",
 					"tsid": m.undeadStreet ?? CEBARKUL
 				}));
@@ -221,7 +223,7 @@ class MetabolicsEndpoint {
 
 	static Future<bool> addToLocationHistory(String username, String email, String tsid) async {
 		Metabolics m = await getMetabolics(username: username);
-		List<String> locations = JSON.decode(m.locationHistory);
+		List<String> locations = jsonDecode(m.locationHistory);
 		tsid = tsidL(tsid);
 
 		try {
@@ -230,7 +232,7 @@ class MetabolicsEndpoint {
 			// If it's not already in the history
 			if (!locations.contains(tsid)) {
 				locations.add(tsid);
-				m.locationHistory = JSON.encode(locations);
+				m.locationHistory = jsonEncode(locations);
 				finalResult = await setMetabolics(m);
 			} else {
 				// Already in history
@@ -287,7 +289,7 @@ class MetabolicsEndpoint {
 	static bool denyQuoin(Quoin q, String username) {
 		Map<String, String> map = {'collectQuoin': 'true', 'success': 'false', 'id': q.id};
 		try {
-			userSockets[username].add(JSON.encode(map));
+			userSockets[username].add(jsonEncode(map));
 			return true;
 		} catch (err, st) {
 			Log.error('Could not pass map $map to player $username denying quoin', err, st);
@@ -408,8 +410,8 @@ class MetabolicsEndpoint {
 
 				q.setCollected(username);
 
-				userSockets[username].add(JSON.encode(map)); // send quoin
-				userSockets[username].add(JSON.encode(encode(m))); // send metabolics
+				userSockets[username].add(jsonEncode(map)); // send quoin
+				userSockets[username].add(jsonEncode(encode(m))); // send metabolics
 			}
 		} catch (err, st) {
 			Log.error('Could not set metabolics $m for player $username adding quoin', err, st);
@@ -513,7 +515,7 @@ Future<bool> setMetabolics(@Decode() Metabolics metabolics) async {
 		// Send level up event to client
 		String username = await User.getUsernameFromId(metabolics.userId);
 
-		MetabolicsEndpoint.userSockets[username]?.add(JSON.encode({
+		MetabolicsEndpoint.userSockets[username]?.add(jsonEncode({
 			"levelUp": levelEnd
 		}));
 	}
@@ -654,7 +656,7 @@ Future<bool> setMetabolics(@Decode() Metabolics metabolics) async {
 
 		//send the new metabolics to the user right away
 		WebSocket ws = MetabolicsEndpoint.userSockets[await User.getUsernameFromId(metabolics.userId)];
-		ws?.add(JSON.encode(encode(metabolics)));
+		ws?.add(jsonEncode(encode(metabolics)));
 	} catch (e, st) {
 		Log.error('Setting metabolics failed', e, st);
 	} finally {

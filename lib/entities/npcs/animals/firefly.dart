@@ -46,7 +46,8 @@ class Firefly extends NPC {
 			return false;
 		} else {
 			toast('You caught $added firefl${added == 1 ? 'y' : 'ies'}', userSocket);
-			await trySetMetabolics(email, energy: -ENERGY_AMT);
+			MetabolicsChange mc = new MetabolicsChange();
+			await mc.trySetMetabolics(email, energy: -ENERGY_AMT);
 
 			// Small flight path for 10 seconds
 			setState('smallPath');

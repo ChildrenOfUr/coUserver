@@ -29,7 +29,16 @@ import 'package:redstone/redstone.dart' as app;
 part 'metabolics_endpoint.dart';
 
 class MetabolicsChange {
-	Map<String, int> gains = {'energy':0, 'mood':0, 'img':0, 'currants':0};
+	Map<String, int> gains;
+
+	MetabolicsChange() {
+		gains = {
+			'energy': 0,
+			'mood': 0,
+			'img': 0,
+			'currants': 0
+		};
+	}
 
 	/**
 	 * Try to set the metabolics belonging to [email]

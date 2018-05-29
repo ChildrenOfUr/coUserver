@@ -43,8 +43,9 @@ class HellGrapes extends RespawningItem {
 			return false;
 		}
 
+		MetabolicsChange mc = new MetabolicsChange();
 		int energy = (await getMetabolics(email: email)).energy;
-		if (!(await trySetMetabolics(email, energy: ENERGY_AWARD))) {
+		if (!(await mc.trySetMetabolics(email, energy: ENERGY_AWARD))) {
 			return false;
 		} else {
 			int remain = (ENERGY_REQ - (energy + ENERGY_AWARD)) ~/ ENERGY_AWARD;

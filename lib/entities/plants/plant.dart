@@ -10,10 +10,12 @@ abstract class Plant extends Entity {
 	 */
 
 	String id, type, streetName;
-	int state, maxState, x, y, z, rotation = 0, actionTime = 3000;
+	int state, maxState;
+	num rotation = 0;
+	num actionTime = 3000;
+	num x, y, z;
 	bool h_flip = false;
 	DateTime respawn;
-	List<Action> actions = [];
 	Map<String, Spritesheet> states;
 	Spritesheet currentState;
 

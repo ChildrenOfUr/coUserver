@@ -6,18 +6,14 @@ class HellBartender extends NPC {
 		actionTime = 0;
 		speed = 0;
 		actions = [
-			{
-				"actionName": "glass of wine",
-				"timeRequired": actionTime,
-				"enabled": true,
-				"actionWord": "wine"
-			},
-			{
-				"actionName": "pint of beer",
-				"timeRequired": actionTime,
-				"enabled": true,
-				"actionWord": "beer"
-			}
+			new Action.withName("glass of wine")
+				..timeRequired = actionTime
+				..enabled = true
+				..actionWord = "wine",
+			new Action.withName("pint of beer")
+				..timeRequired = actionTime
+				..enabled = true
+				..actionWord = "beer"
 		];
 		states = {
 			"idle1": new Spritesheet(

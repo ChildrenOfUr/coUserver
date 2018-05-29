@@ -20,7 +20,7 @@ abstract class LockedDoor extends Door {
 		}
 	}
 
-	Map getMap() {
+	Map<String, dynamic> getMap() {
 		Map map = super.getMap();
 		map['url'] = currentState.url;
 		map['id'] = id;

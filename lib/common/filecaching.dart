@@ -36,7 +36,7 @@ class FileCache {
 		}
 
 		try {
-			return JSON.decode(await file.readAsString());
+			return jsonDecode(await file.readAsString());
 		} catch (e, st) {
 			// The file is corrupted, reset it during the next write
 			Log.error('Could not load cache $filename', e, st);
@@ -51,7 +51,7 @@ class FileCache {
 		}
 
 		try {
-			await file.writeAsString(JSON.encode(cache), flush: true);
+			await file.writeAsString(jsonEncode(cache), flush: true);
 		} catch (e, st) {
 			// Filesystem error
 			Log.error('Could not save $cache to $filename', e, st);

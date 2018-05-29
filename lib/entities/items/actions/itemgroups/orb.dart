@@ -1,6 +1,6 @@
 part of item;
 
-abstract class FocusingOrb extends Object with MetabolicsChange {
+abstract class FocusingOrb {
 	Future<bool> levitate({WebSocket userSocket, String username, String email, Map map, String streetName}) async {
 		toast('Levitating is not implemented yet. Sorry!', userSocket);
 		return false;
@@ -8,12 +8,14 @@ abstract class FocusingOrb extends Object with MetabolicsChange {
 
 	Future<bool> focusEnergy({WebSocket userSocket, String username, String email, Map map, String streetName}) async {
 		toast("+10 energy focused", userSocket);
-		return await trySetMetabolics(email, energy:10);
+		MetabolicsChange mc = new MetabolicsChange();
+		return await mc.trySetMetabolics(email, energy:10);
 	}
 
 	Future<bool> focusMood({WebSocket userSocket, String username, String email, Map map, String streetName}) async {
 		toast("+10 mood focused", userSocket);
-		return await trySetMetabolics(email, mood:10);
+		MetabolicsChange mc = new MetabolicsChange();
+		return await mc.trySetMetabolics(email, mood:10);
 	}
 
 	Future<bool> radiate({WebSocket userSocket, String username, String email, Map map, String streetName}) async {
@@ -31,8 +33,11 @@ abstract class FocusingOrb extends Object with MetabolicsChange {
 			int amt = (50 / users.length).ceil().clamp(1, 10);
 
 			// Add gains to everyone
-			users.forEach((String username) async =>
-				trySetMetabolics(await User.getEmailFromUsername(username), mood: amt, energy: amt, imgMin: amt));
+			MetabolicsChange mc;
+			users.forEach((String username) async {
+				mc = new MetabolicsChange();
+				mc.trySetMetabolics(await User.getEmailFromUsername(username), mood: amt, energy: amt, imgMin: amt);
+			});
 
 			// Notify everyone
 			StreetUpdateHandler.streets[streetName].occupants.values.forEach((WebSocket ws) =>
@@ -44,6 +49,7 @@ abstract class FocusingOrb extends Object with MetabolicsChange {
 
 	Future<bool> meditate({WebSocket userSocket, String username, String email, Map map, String streetName}) async {
 		toast("+5 energy, mood, and iMG", userSocket);
-		return await trySetMetabolics(email, energy:5, mood:5, imgMin: 5);
+		MetabolicsChange mc = new MetabolicsChange();
+		return await mc.trySetMetabolics(email, energy:5, mood:5, imgMin: 5);
 	}
 }

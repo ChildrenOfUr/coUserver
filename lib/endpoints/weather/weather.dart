@@ -49,7 +49,7 @@ class WeatherEndpoint {
 
 	/// Handle incoming messages from clients
 	static Future processMessage(WebSocket ws, String message) async {
-		Map map = JSON.decode(message);
+		Map map = jsonDecode(message);
 		String username = map['username'];
 		String tsid = map['tsid'].toString();
 		String hub = map['hub_id'].toString();
@@ -62,9 +62,9 @@ class WeatherEndpoint {
 		// Send the current weather to the just connected user
 		if (tsid != 'null') {
 			// Get weather data for location
-			ws.add(JSON.encode(await WeatherService.getConditionsMap(tsid)));
+			ws.add(jsonEncode(await WeatherService.getConditionsMap(tsid)));
 		} else if (hub != 'null') {
-			ws.add(JSON.encode({
+			ws.add(jsonEncode({
 				'conditions': await WeatherService.getConditionsMap(hub, usingHubId: true),
 				'hub_id': hub,
 				'hub_label': MapData.hubs[hub]['name']
@@ -90,7 +90,7 @@ class WeatherEndpoint {
 	static Future update() async {
 		await Future.forEach(userSockets.keys, (String username) async {
 			String tsid = PlayerUpdateHandler.users[username].tsid;
-			userSockets[username].add(JSON.encode({
+			userSockets[username].add(jsonEncode({
 				'current': encode(await WeatherService.getConditions(tsid)),
 				'tsid': tsid
 			}));

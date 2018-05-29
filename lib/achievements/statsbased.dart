@@ -237,7 +237,7 @@ class StatAchvManager {
 		});
 	}
 
-	static void smelt(email) {
+	static void smelt(dynamic email) {
 		StatManager.add(email, Stat.smelter_uses).then((int smelted) {
 			if (smelted >= 1009) {
 				Achievement.find('hephaestite').awardTo(email);
@@ -265,7 +265,7 @@ class StatAchvManager {
 		});
 	}
 
-	static void tinker(email) {
+	static void tinker(dynamic email) {
 		SkillManager.learn('tinkering', email);
 		StatManager.add(email, Stat.tinkertool_uses, increment: 50).then((int tinkered) {
 			if (tinkered >= 25013) {

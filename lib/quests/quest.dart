@@ -87,7 +87,9 @@ class Requirement extends Trackable {
 	}
 
 	@override
-	void handleEvent(RequirementProgress progress) {
+	void handleEvent(dynamic progress) {
+		assert(progress is RequirementProgress);
+
 		bool goodEvent = false;
 		int count = 1;
 		if (_matchingEvent(progress.eventType)) {
@@ -143,7 +145,10 @@ class Requirement extends Trackable {
 	String toString() => encode(this).toString();
 
 	@override
-	bool operator ==(Requirement other) => this.id == other.id;
+	bool operator ==(dynamic other) {
+		assert(other is Requirement);
+		return this.id == other.id;
+	}
 
 	@override
 	int get hashCode => id.hashCode;
@@ -179,7 +184,7 @@ class QuestFavor {
 	@Field() int favAmt;
 }
 
-class Quest extends Trackable with MetabolicsChange {
+class Quest extends Trackable {
 	@Field() String id, title, description;
 	@Field() bool complete = false;
 	@Field() List<String> prerequisites = [];
@@ -230,7 +235,7 @@ class Quest extends Trackable with MetabolicsChange {
 			stopTracking();
 		} else if (r is RequirementUpdated) {
 			Map map = {'questUpdate': true, 'quest': encode(this)};
-			QuestEndpoint.userSockets[email]?.add(JSON.encode(map));
+			QuestEndpoint.userSockets[email]?.add(jsonEncode(map));
 		}
 	}
 
@@ -246,7 +251,7 @@ class Quest extends Trackable with MetabolicsChange {
 
 		String heading = justStarted ? 'questBegin' : 'questInProgress';
 		Map questInProgress = {heading: true, 'quest': encode(this)};
-		QuestEndpoint.userSockets[email]?.add(JSON.encode(questInProgress));
+		QuestEndpoint.userSockets[email]?.add(jsonEncode(questInProgress));
 
 		messageBus.subscribe(CompleteRequirement, this, whereFunc: (CompleteRequirement r) {
 			return requirements.contains(r.requirement) && r.email == email;
@@ -265,7 +270,8 @@ class Quest extends Trackable with MetabolicsChange {
 	}
 
 	Future<bool> _giveRewards() {
-		return trySetMetabolics(email, rewards: rewards);
+		MetabolicsChange mc = new MetabolicsChange();
+		return mc.trySetMetabolics(email, rewards: rewards);
 	}
 
 	@override
@@ -300,7 +306,7 @@ class UserQuestLog extends Trackable {
 
 			Map map = {'questComplete': true, 'quest': encode(q.quest)};
 			if (QuestEndpoint.userSockets[email] != null) {
-				QuestEndpoint.userSockets[email].add(JSON.encode(map));
+				QuestEndpoint.userSockets[email].add(jsonEncode(map));
 			}
 
 			inProgressQuests = new List.from(inProgressQuests)
@@ -322,7 +328,7 @@ class UserQuestLog extends Trackable {
 
 			Map map = {'questFail': true, 'quest': encode(q.quest)};
 			if (QuestEndpoint.userSockets[email] != null) {
-				QuestEndpoint.userSockets[email].add(JSON.encode(map));
+				QuestEndpoint.userSockets[email].add(jsonEncode(map));
 			}
 
 			inProgressQuests = new List.from(inProgressQuests)
@@ -452,20 +458,20 @@ class UserQuestLog extends Trackable {
 			'questOffer': true,
 			'quest': encode(questToOffer)
 		};
-		QuestEndpoint.userSockets[email].add(JSON.encode(questOffer));
+		QuestEndpoint.userSockets[email].add(jsonEncode(questOffer));
 		offeringQuest = true;
 	}
 
-	List<Quest> get completedQuests => decode(JSON.decode(completed_list), Quest);
+	List<Quest> get completedQuests => decode(jsonDecode(completed_list), Quest);
 
 	void set completedQuests(List<Quest> value) {
-		completed_list = JSON.encode(encode(value));
+		completed_list = jsonEncode(encode(value));
 	}
 
-	List<Quest> get inProgressQuests => decode(JSON.decode(in_progress_list), Quest);
+	List<Quest> get inProgressQuests => decode(jsonDecode(in_progress_list), Quest);
 
 	void set inProgressQuests(List<Quest> value) {
-		in_progress_list = JSON.encode(encode(value));
+		in_progress_list = jsonEncode(encode(value));
 	}
 
 	@override

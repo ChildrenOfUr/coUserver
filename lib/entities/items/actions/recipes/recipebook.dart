@@ -1,7 +1,7 @@
 part of recipes;
 
 @app.Group("/recipes")
-class RecipeBook extends Object with MetabolicsChange {
+class RecipeBook {
 	static List<Recipe> recipes = [];
 
 	static Recipe findRecipe(String id) {
@@ -103,7 +103,7 @@ class RecipeBook extends Object with MetabolicsChange {
 
 		}); // End recipes loop
 
-		return JSON.encode(toolRecipes);
+		return jsonEncode(toolRecipes);
 	}
 
 	// Returned string is displayed as "You had to stop using your {tool} because {reason}
@@ -149,7 +149,8 @@ class RecipeBook extends Object with MetabolicsChange {
 		}
 
 		// Take away energy
-		bool takeEnergySuccess = await trySetMetabolics(email, energy: recipe.energy);
+		MetabolicsChange mc = new MetabolicsChange();
+		bool takeEnergySuccess = await mc.trySetMetabolics(email, energy: recipe.energy);
 		if (!takeEnergySuccess) {
 			// If they don't have enough energy, they're not frying an egg
 			Log.verbose('<username=$username> ran out of energy');
@@ -200,7 +201,8 @@ class RecipeBook extends Object with MetabolicsChange {
 				email, items[recipe.output].getMap(), recipe.output_amt);
 
 			// Award iMG
-			await trySetMetabolics(email, imgMin: recipe.img);
+			MetabolicsChange mc = new MetabolicsChange();
+			await mc.trySetMetabolics(email, imgMin: recipe.img);
 
 			// Send possible quest event
 			messageBus.publish(new RequirementProgress('makeRecipe_${recipe.output}',email));

@@ -209,8 +209,8 @@ Future _initWebSockets() async {
 			_HANDLERS[handlerName](websocket);
 		}).catchError((error) {
 			Log.warning('Socket error', error);
-		}, test: (Exception e) => e is! WebSocketException)
-			.catchError((error) {}, test: (Exception e) => e is WebSocketException);
+		}, test: (Object e) => e is! WebSocketException)
+			.catchError((error) {}, test: (Object e) => e is WebSocketException);
 	});
 
 	KeepAlive.start();

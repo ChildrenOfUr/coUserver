@@ -69,11 +69,11 @@ class Piggy extends NPC {
 		super.restoreState(metadata);
 
 		if (metadata.containsKey('petCounts')) {
-			petCounts = JSON.decode(metadata['petCounts']);
+			petCounts = jsonDecode(metadata['petCounts']);
 		}
 
 		if (metadata.containsKey('nibbleCounts')) {
-			nibbleCounts = JSON.decode(metadata['nibbleCounts']);
+			nibbleCounts = jsonDecode(metadata['nibbleCounts']);
 		}
 
 		if (metadata.containsKey('lastReset')) {
@@ -90,8 +90,8 @@ class Piggy extends NPC {
 	@override
 	Map<String, String> getPersistMetadata() =>
 		super.getPersistMetadata()
-			..['petCounts'] = JSON.encode(petCounts)
-			..['nibbleCounts'] = JSON.encode(nibbleCounts)
+			..['petCounts'] = jsonEncode(petCounts)
+			..['nibbleCounts'] = jsonEncode(nibbleCounts)
 			..['lastReset'] = lastReset.millisecondsSinceEpoch.toString();
 
 	Future<bool> _setLevelBasedMetabolics(int level, String action, String email) async {
@@ -111,7 +111,8 @@ class Piggy extends NPC {
 			energy ~/= level;
 		}
 
-		return trySetMetabolics(email, energy: energy, mood: mood, imgMin: imgMin, imgRange: 4);
+		MetabolicsChange mc = new MetabolicsChange();
+		return mc.trySetMetabolics(email, energy: energy, mood: mood, imgMin: imgMin, imgRange: 4);
 	}
 
 	Future<bool> nibble({WebSocket userSocket, String email}) async {
@@ -204,7 +205,7 @@ class Piggy extends NPC {
 		map['openWindow'] = 'itemChooser';
 		map['filter'] = 'category=Croppery & Gardening Supplies|||itemType=^(?!.+(?:_seed|_bean)).+\$';
 		map['windowTitle'] = 'Feed Piggy What?';
-		userSocket.add(JSON.encode(map));
+		userSocket.add(jsonEncode(map));
 		return true;
 	}
 
