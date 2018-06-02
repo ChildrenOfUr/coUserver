@@ -12867,7 +12867,8 @@
 		"vendor": "Hardware",
 		"shrine": "Cosma",
 		"tsid": "LLI4HC7IO2E1U31",
-		"hub_id": 56
+		"hub_id": 56,
+		"broken": true
 	},
 	"Sylvan Grove": {
 		"vendor": "Hardware",
