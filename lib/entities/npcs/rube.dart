@@ -232,6 +232,8 @@ class Rube extends NPC with MetabolicsChange {
 			_removeFromStreet(),
 			new Future.delayed(new Duration(seconds: 4)) // fade out animation duration
 		]);
+
+		StreetUpdateHandler.queueNpcRemove(id);
 	}
 
 	@ActionCallback()
